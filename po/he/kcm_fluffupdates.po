@@ -1,0 +1,192 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : (n<0 || n>10) && n%10==0 ? 2 : 3);\n"
+
+msgid "System Updates"
+msgstr "עדכוני מערכת"
+
+msgid "Fluff Linux Update"
+msgstr "עדכון פלאף לינוקס"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "שמירה על פלאף לינוקס מאובטחת ועדכנית באמצעות התקנת עדכוני מערכת."
+
+msgid "System last updated: %1 (%2)"
+msgstr "עדכון המערכת האחרון: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "בדיקת עדכונים"
+
+msgid "Install Updates"
+msgstr "התקנת עדכונים"
+
+msgid "View Updates"
+msgstr "הצגת העדכונים"
+
+msgid "Updates to Install"
+msgstr "עדכונים להתקנה"
+
+msgid "Package details are unavailable."
+msgstr "פרטי החבילות אינם זמינים."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "עדכון פלאף לינוקס עדיין בפיתוח. אם נתקלת בבעיה, נא לדווח עליה בעמוד ה־GitHub שלנו."
+
+msgid "System updates were installed successfully."
+msgstr "עדכוני המערכת הותקנו בהצלחה."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "אין חיבור לרשת!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "החיבור לרשת מוגבל. אם אינך מחובר לרשת ארגונית, יש לבדוק את החיבור לאינטרנט."
+
+msgid "pacman process is already running."
+msgstr "תהליך pacman כבר פועל."
+
+msgid "The update process could not be started."
+msgstr "לא ניתן להתחיל את תהליך העדכון."
+
+msgid "The update process could not be cancelled."
+msgstr "לא ניתן לבטל את תהליך העדכון."
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "הורדת העדכון נכשלה. יש לבדוק את החיבור ולנסות שוב."
+
+msgid "The system update failed."
+msgstr "עדכון המערכת נכשל."
+
+msgid "Downloading updates…"
+msgstr "עדכונים בהורדה…"
+
+msgid "Installing updates…"
+msgstr "עדכונים בהתקנה…"
+
+msgid "%1 / %2 downloaded"
+msgstr "הורדו %1 מתוך %2"
+
+msgid "%1/%2 updates installed"
+msgstr "הותקנו %1/%2 עדכונים"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "עדכונים מותקנים כעת. נא להימנע מכיבוי או מהפעלה מחדש של המחשב עד לסיום ההתקנה. הפסקת העדכון עלולה לפגוע בקובצי המערכת."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "רמת הסוללה נמוכה. מומלץ לחבר את המחשב לחשמל לפני התקנת העדכונים."
+
+msgid "Update process was cancelled"
+msgstr "תהליך העדכון בוטל"
+
+msgid "Cancel"
+msgstr "ביטול"
+
+msgid "Checking for updates…"
+msgstr "מתבצעת בדיקת עדכונים…"
+
+msgid "System updates are available"
+msgstr "יש עדכוני מערכת זמינים"
+
+msgid "Download size: %1"
+msgstr "גודל ההורדה: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "נפח האחסון הנדרש לעדכוני המערכת: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "אחסון שיתפנה לאחר העדכון: %1"
+
+msgid "No additional download required"
+msgstr "לא נדרשת הורדה נוספת"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "לא ניתן להפעיל את בדיקת העדכונים. יש לוודא ש־pacman-contrib מותקן."
+
+msgid "The update check stopped unexpectedly."
+msgstr "בדיקת העדכונים נעצרה באופן בלתי צפוי."
+
+msgid "The update check failed."
+msgstr "בדיקת העדכונים נכשלה."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "אין חיבור לאינטרנט. יש לבדוק את הרשת ולנסות שוב."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "לא ניתן להגיע לשרתי המאגרים. יש לנסות שוב מאוחר יותר או לבדוק את הגדרות שרתי המראה."
+
+msgid "Update sizes could not be calculated."
+msgstr "לא ניתן לחשב את גודל העדכונים."
+
+msgid "Authorization error, please try again."
+msgstr "שגיאת הרשאה, נא לנסות שוב."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "בדיקת העדכונים בעלת ההרשאות נעצרה באופן בלתי צפוי."
+
+msgid "The privileged update check could not be started."
+msgstr "לא ניתן להפעיל את בדיקת העדכונים בעלת ההרשאות."
+
+msgid "System was not previously updated."
+msgstr "המערכת לא עודכנה בעבר."
+
+msgid "The last update information could not be read."
+msgstr "לא ניתן לקרוא את פרטי העדכון האחרון."
+
+msgid "The last update information is invalid."
+msgstr "פרטי העדכון האחרון אינם תקינים."
+
+msgid "Updates were not installed on this system"
+msgstr "לא הותקנו עדכונים במערכת זו"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "כדי לעדכן את המערכת, יש לבדוק אם קיימים עדכונים באמצעות הכפתור שלמטה."
+
+msgid "Update date available"
+msgstr "תאריך העדכון זמין"
+
+msgid "Updated recently"
+msgstr "עודכנה לאחרונה"
+
+msgid "System is up to date"
+msgstr "המערכת מעודכנת"
+
+msgid "Last update was installed more than a month ago"
+msgstr "העדכון האחרון הותקן לפני יותר מחודש"
+
+msgid "Last update was installed more than three months ago"
+msgstr "העדכון האחרון הותקן לפני יותר משלושה חודשים"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "לפני שנייה אחת"
+msgstr[1] "לפני שתי שניות"
+msgstr[2] "לפני %1 שניות"
+msgstr[3] "לפני %1 שניות"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "לפני דקה אחת"
+msgstr[1] "לפני שתי דקות"
+msgstr[2] "לפני %1 דקות"
+msgstr[3] "לפני %1 דקות"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "לפני שעה אחת"
+msgstr[1] "לפני שעתיים"
+msgstr[2] "לפני %1 שעות"
+msgstr[3] "לפני %1 שעות"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "לפני יום אחד"
+msgstr[1] "לפני יומיים"
+msgstr[2] "לפני %1 ימים"
+msgstr[3] "לפני %1 ימים"

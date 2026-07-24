@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "システムアップデート"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux アップデート"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "システムアップデートをインストールして、Fluff Linux を安全かつ最新の状態に保ちます。"
+
+msgid "System last updated: %1 (%2)"
+msgstr "システムの最終アップデート: %1（%2）"
+
+msgid "Check for Updates"
+msgstr "アップデートを確認"
+
+msgid "Install Updates"
+msgstr "アップデートをインストール"
+
+msgid "View Updates"
+msgstr "アップデートを表示"
+
+msgid "Updates to Install"
+msgstr "インストールするアップデート"
+
+msgid "Package details are unavailable."
+msgstr "パッケージの詳細を取得できません。"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update は現在も開発中です。問題が発生した場合は、GitHub ページでご報告ください。"
+
+msgid "System updates were installed successfully."
+msgstr "システムアップデートが正常にインストールされました。"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "ネットワーク接続がありません！"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ネットワーク接続が制限されています。組織内ネットワークに接続していない場合は、インターネット接続を確認してください。"
+
+msgid "pacman process is already running."
+msgstr "pacman プロセスはすでに実行中です。"
+
+msgid "The update process could not be started."
+msgstr "アップデート処理を開始できませんでした。"
+
+msgid "The update process could not be cancelled."
+msgstr "アップデート処理をキャンセルできませんでした。"
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "アップデートのダウンロードに失敗しました。接続を確認して、もう一度お試しください。"
+
+msgid "The system update failed."
+msgstr "システムアップデートに失敗しました。"
+
+msgid "Downloading updates…"
+msgstr "アップデートをダウンロード中…"
+
+msgid "Installing updates…"
+msgstr "アップデートをインストール中…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ダウンロード済み"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 件のアップデートをインストール済み"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "アップデートをインストールしています。インストールが完了するまで、コンピューターの電源を切ったり再起動したりしないでください。アップデートを中断すると、システムファイルが破損する可能性があります。"
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "バッテリー残量が少なくなっています。アップデートをインストールする前に、コンピューターを電源に接続してください。"
+
+msgid "Update process was cancelled"
+msgstr "アップデート処理はキャンセルされました"
+
+msgid "Cancel"
+msgstr "キャンセル"
+
+msgid "Checking for updates…"
+msgstr "アップデートを確認しています…"
+
+msgid "System updates are available"
+msgstr "システムアップデートを利用できます"
+
+msgid "Download size: %1"
+msgstr "ダウンロードサイズ: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "システムアップデートに必要なストレージ: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "アップデート後に解放されるストレージ: %1"
+
+msgid "No additional download required"
+msgstr "追加のダウンロードは不要です"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "アップデート確認を開始できませんでした。pacman-contrib がインストールされていることを確認してください。"
+
+msgid "The update check stopped unexpectedly."
+msgstr "アップデートの確認が予期せず停止しました。"
+
+msgid "The update check failed."
+msgstr "アップデートの確認に失敗しました。"
+
+msgid "No internet connection. Check your network and try again."
+msgstr "インターネットに接続されていません。ネットワークを確認して、もう一度お試しください。"
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "リポジトリサーバーに接続できませんでした。後でもう一度試すか、ミラー設定を確認してください。"
+
+msgid "Update sizes could not be calculated."
+msgstr "アップデートのサイズを計算できませんでした。"
+
+msgid "Authorization error, please try again."
+msgstr "認証エラーです。もう一度お試しください。"
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "権限付きアップデート確認が予期せず停止しました。"
+
+msgid "The privileged update check could not be started."
+msgstr "権限付きアップデート確認を開始できませんでした。"
+
+msgid "System was not previously updated."
+msgstr "システムはまだアップデートされていません。"
+
+msgid "The last update information could not be read."
+msgstr "最終アップデート情報を読み取れませんでした。"
+
+msgid "The last update information is invalid."
+msgstr "最終アップデート情報が無効です。"
+
+msgid "Updates were not installed on this system"
+msgstr "このシステムにはアップデートがインストールされていません"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "システムをアップデートするには、下のボタンを使って利用可能なアップデートを確認してください。"
+
+msgid "Update date available"
+msgstr "アップデート日を確認できます"
+
+msgid "Updated recently"
+msgstr "最近アップデートされました"
+
+msgid "System is up to date"
+msgstr "システムは最新です"
+
+msgid "Last update was installed more than a month ago"
+msgstr "最後のアップデートは1か月以上前にインストールされました"
+
+msgid "Last update was installed more than three months ago"
+msgstr "最後のアップデートは3か月以上前にインストールされました"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1秒前"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1分前"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1時間前"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1日前"

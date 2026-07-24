@@ -1,0 +1,9 @@
+[Unit]
+Description=Fluff Linux system update
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/flufflinux-update/flufflinux-update-worker
+KillMode=control-group
+TimeoutStopSec=5

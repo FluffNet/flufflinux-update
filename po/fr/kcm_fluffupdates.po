@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "System Updates"
+msgstr "Mises à jour du système"
+
+msgid "Fluff Linux Update"
+msgstr "Mise à jour de Fluff Linux"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Gardez Fluff Linux sécurisé et à jour en installant les mises à jour du système."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Dernière mise à jour du système : %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Rechercher des mises à jour"
+
+msgid "Install Updates"
+msgstr "Installer les mises à jour"
+
+msgid "View Updates"
+msgstr "Afficher les mises à jour"
+
+msgid "Updates to Install"
+msgstr "Mises à jour à installer"
+
+msgid "Package details are unavailable."
+msgstr "Les détails des paquets ne sont pas disponibles."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update est toujours en développement. Si vous rencontrez un problème, veuillez le signaler sur notre page GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Les mises à jour du système ont été installées avec succès."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Aucune connexion réseau !"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "La connexion réseau est limitée. Si vous n’êtes pas connecté à un réseau d’organisation, vérifiez votre connexion Internet."
+
+msgid "pacman process is already running."
+msgstr "Un processus pacman est déjà en cours d’exécution."
+
+msgid "The update process could not be started."
+msgstr "Le processus de mise à jour n’a pas pu démarrer."
+
+msgid "The update process could not be cancelled."
+msgstr "Le processus de mise à jour n’a pas pu être annulé."
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "Le téléchargement de la mise à jour a échoué. Vérifiez votre connexion et réessayez."
+
+msgid "The system update failed."
+msgstr "La mise à jour du système a échoué."
+
+msgid "Downloading updates…"
+msgstr "Téléchargement des mises à jour…"
+
+msgid "Installing updates…"
+msgstr "Installation des mises à jour…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 téléchargés"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 mises à jour installées"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Des mises à jour sont en cours d’installation. Veuillez éviter d’éteindre ou de redémarrer l’ordinateur avant la fin de l’installation. Interrompre la mise à jour peut endommager des fichiers système."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "La batterie est faible. Veuillez brancher votre ordinateur avant d’installer les mises à jour."
+
+msgid "Update process was cancelled"
+msgstr "Le processus de mise à jour a été annulé"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Checking for updates…"
+msgstr "Recherche de mises à jour…"
+
+msgid "System updates are available"
+msgstr "Des mises à jour système sont disponibles"
+
+msgid "Download size: %1"
+msgstr "Taille du téléchargement : %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Espace requis pour les mises à jour système : %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Espace de stockage libéré après la mise à jour : %1"
+
+msgid "No additional download required"
+msgstr "Aucun téléchargement supplémentaire requis"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "La recherche de mises à jour n’a pas pu démarrer. Vérifiez que pacman-contrib est installé."
+
+msgid "The update check stopped unexpectedly."
+msgstr "La recherche de mises à jour s’est arrêtée de façon inattendue."
+
+msgid "The update check failed."
+msgstr "La recherche de mises à jour a échoué."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Aucune connexion Internet. Vérifiez votre réseau et réessayez."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Les serveurs des dépôts sont inaccessibles. Réessayez plus tard ou vérifiez la configuration de vos miroirs."
+
+msgid "Update sizes could not be calculated."
+msgstr "La taille des mises à jour n’a pas pu être calculée."
+
+msgid "Authorization error, please try again."
+msgstr "Erreur d’autorisation, veuillez réessayer."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "La vérification privilégiée des mises à jour s’est arrêtée de façon inattendue."
+
+msgid "The privileged update check could not be started."
+msgstr "La vérification privilégiée des mises à jour n’a pas pu démarrer."
+
+msgid "System was not previously updated."
+msgstr "Le système n’a jamais été mis à jour."
+
+msgid "The last update information could not be read."
+msgstr "Les informations sur la dernière mise à jour n’ont pas pu être lues."
+
+msgid "The last update information is invalid."
+msgstr "Les informations sur la dernière mise à jour ne sont pas valides."
+
+msgid "Updates were not installed on this system"
+msgstr "Aucune mise à jour n’a été installée sur ce système"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Pour mettre à jour le système, recherchez les mises à jour disponibles à l’aide du bouton ci-dessous."
+
+msgid "Update date available"
+msgstr "Date de mise à jour disponible"
+
+msgid "Updated recently"
+msgstr "Mis à jour récemment"
+
+msgid "System is up to date"
+msgstr "Le système est à jour"
+
+msgid "Last update was installed more than a month ago"
+msgstr "La dernière mise à jour a été installée il y a plus d’un mois"
+
+msgid "Last update was installed more than three months ago"
+msgstr "La dernière mise à jour a été installée il y a plus de trois mois"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "il y a %1 seconde"
+msgstr[1] "il y a %1 secondes"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "il y a %1 minute"
+msgstr[1] "il y a %1 minutes"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "il y a %1 heure"
+msgstr[1] "il y a %1 heures"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "il y a %1 jour"
+msgstr[1] "il y a %1 jours"

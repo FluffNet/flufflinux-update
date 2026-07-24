@@ -1,0 +1,29 @@
+{
+    "KPlugin": {
+        "Description": "Update Fluff Linux",
+        "Description[ar]": "تحديث فلاف لينكس",
+        "Description[de]": "Fluff Linux aktualisieren",
+        "Description[es]": "Actualizar Fluff Linux",
+        "Description[fr]": "Mettre à jour Fluff Linux",
+        "Description[he]": "עדכון פלאף לינוקס",
+        "Description[ja]": "Fluff Linux をアップデート",
+        "Description[ru]": "Обновить Fluff Linux",
+        "Description[sv]": "Uppdatera Fluff Linux",
+        "FormFactors": [
+            "desktop"
+        ],
+        "Icon": "system-software-update",
+        "Name": "System Updates",
+        "Name[ar]": "تحديثات النظام",
+        "Name[de]": "Systemaktualisierungen",
+        "Name[es]": "Actualizaciones del sistema",
+        "Name[fr]": "Mises à jour du système",
+        "Name[he]": "עדכוני מערכת",
+        "Name[ja]": "システムアップデート",
+        "Name[ru]": "Обновления системы",
+        "Name[sv]": "Systemuppdateringar"
+    },
+    "X-KDE-Keywords": "Fluff Linux,updates,system updates,pacman,upgrade",
+    "X-KDE-System-Settings-Parent-Category": "system-administration",
+    "X-KDE-Weight": 0
+}

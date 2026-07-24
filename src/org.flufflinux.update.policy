@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Fluff Linux</vendor>
+  <vendor_url>https://flufflinux.org</vendor_url>
+  <icon_name>system-software-update</icon_name>
+
+  <action id="org.flufflinux.update">
+    <description>Use Fluff Linux Update</description>
+    <description xml:lang="ar">استخدام تحديث فلاف لينكس</description>
+    <description xml:lang="de">Fluff Linux Update verwenden</description>
+    <description xml:lang="es">Usar Fluff Linux Update</description>
+    <description xml:lang="fr">Utiliser Fluff Linux Update</description>
+    <description xml:lang="he">שימוש בעדכון פלאף לינוקס</description>
+    <description xml:lang="ja">Fluff Linux Update を使用</description>
+    <description xml:lang="ru">Использование Fluff Linux Update</description>
+    <description xml:lang="sv">Använd Fluff Linux Update</description>
+
+    <message>Enter your password to use Fluff Linux Update</message>
+    <message xml:lang="ar">أدخل كلمة مرورك لاستخدام تحديث فلاف لينكس</message>
+    <message xml:lang="de">Geben Sie Ihr Passwort ein, um Fluff Linux Update zu verwenden</message>
+    <message xml:lang="es">Introduzca su contraseña para usar Fluff Linux Update</message>
+    <message xml:lang="fr">Saisissez votre mot de passe pour utiliser Fluff Linux Update</message>
+    <message xml:lang="he">יש להזין את הסיסמה שלך כדי להשתמש בעדכון פלאף לינוקס</message>
+    <message xml:lang="ja">Fluff Linux Update を使用するにはパスワードを入力してください</message>
+    <message xml:lang="ru">Введите пароль, чтобы использовать Fluff Linux Update</message>
+    <message xml:lang="sv">Ange ditt lösenord för att använda Fluff Linux Update</message>
+
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/flufflinux-update/flufflinux-update-helper</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+</policyconfig>

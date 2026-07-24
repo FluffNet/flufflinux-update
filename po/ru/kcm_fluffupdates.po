@@ -1,0 +1,188 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "System Updates"
+msgstr "Обновления системы"
+
+msgid "Fluff Linux Update"
+msgstr "Обновление Fluff Linux"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Поддерживайте безопасность и актуальность Fluff Linux, устанавливая системные обновления."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Последнее обновление системы: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Проверить обновления"
+
+msgid "Install Updates"
+msgstr "Установить обновления"
+
+msgid "View Updates"
+msgstr "Показать обновления"
+
+msgid "Updates to Install"
+msgstr "Обновления для установки"
+
+msgid "Package details are unavailable."
+msgstr "Сведения о пакетах недоступны."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update всё ещё находится в разработке. Если вы обнаружите проблему, пожалуйста, сообщите о ней на нашей странице GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Обновления системы успешно установлены."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Нет подключения к сети!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Сетевое подключение ограничено. Если вы не подключены к сети организации, проверьте подключение к Интернету."
+
+msgid "pacman process is already running."
+msgstr "Процесс pacman уже запущен."
+
+msgid "The update process could not be started."
+msgstr "Не удалось запустить процесс обновления."
+
+msgid "The update process could not be cancelled."
+msgstr "Не удалось отменить процесс обновления."
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "Не удалось загрузить обновление. Проверьте подключение и повторите попытку."
+
+msgid "The system update failed."
+msgstr "Не удалось обновить систему."
+
+msgid "Downloading updates…"
+msgstr "Загрузка обновлений…"
+
+msgid "Installing updates…"
+msgstr "Установка обновлений…"
+
+msgid "%1 / %2 downloaded"
+msgstr "Загружено %1 из %2"
+
+msgid "%1/%2 updates installed"
+msgstr "Установлено обновлений: %1/%2"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Сейчас устанавливаются обновления. Не выключайте и не перезагружайте компьютер до завершения установки. Прерывание обновления может повредить системные файлы."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "Низкий заряд аккумулятора. Подключите компьютер к питанию перед установкой обновлений."
+
+msgid "Update process was cancelled"
+msgstr "Процесс обновления отменён"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Checking for updates…"
+msgstr "Проверка обновлений…"
+
+msgid "System updates are available"
+msgstr "Доступны системные обновления"
+
+msgid "Download size: %1"
+msgstr "Размер загрузки: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Место, необходимое для системных обновлений: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "После обновления освободится места: %1"
+
+msgid "No additional download required"
+msgstr "Дополнительная загрузка не требуется"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Не удалось запустить проверку обновлений. Убедитесь, что установлен pacman-contrib."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Проверка обновлений неожиданно остановилась."
+
+msgid "The update check failed."
+msgstr "Не удалось проверить обновления."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Нет подключения к Интернету. Проверьте сеть и повторите попытку."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Не удалось связаться с серверами репозиториев. Повторите попытку позже или проверьте настройки зеркал."
+
+msgid "Update sizes could not be calculated."
+msgstr "Не удалось вычислить размер обновлений."
+
+msgid "Authorization error, please try again."
+msgstr "Ошибка авторизации. Повторите попытку."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Привилегированная проверка обновлений неожиданно остановилась."
+
+msgid "The privileged update check could not be started."
+msgstr "Не удалось запустить привилегированную проверку обновлений."
+
+msgid "System was not previously updated."
+msgstr "Система ранее не обновлялась."
+
+msgid "The last update information could not be read."
+msgstr "Не удалось прочитать сведения о последнем обновлении."
+
+msgid "The last update information is invalid."
+msgstr "Сведения о последнем обновлении недействительны."
+
+msgid "Updates were not installed on this system"
+msgstr "В этой системе обновления не устанавливались"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Чтобы обновить систему, проверьте доступные обновления с помощью кнопки ниже."
+
+msgid "Update date available"
+msgstr "Дата обновления доступна"
+
+msgid "Updated recently"
+msgstr "Недавно обновлена"
+
+msgid "System is up to date"
+msgstr "Система обновлена"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Последнее обновление было установлено более месяца назад"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Последнее обновление было установлено более трёх месяцев назад"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 секунду назад"
+msgstr[1] "%1 секунды назад"
+msgstr[2] "%1 секунд назад"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 минуту назад"
+msgstr[1] "%1 минуты назад"
+msgstr[2] "%1 минут назад"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 час назад"
+msgstr[1] "%1 часа назад"
+msgstr[2] "%1 часов назад"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 день назад"
+msgstr[1] "%1 дня назад"
+msgstr[2] "%1 дней назад"

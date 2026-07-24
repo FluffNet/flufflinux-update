@@ -1,0 +1,233 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr ""
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr ""
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr ""
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr ""
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr ""
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr ""
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr ""
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr ""
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr ""
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr ""
+
+msgid "System updates were installed successfully."
+msgstr ""
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr ""
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr ""
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr ""
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr ""
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr ""
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr ""
+
+#. Error shown when downloading packages fails.
+msgid "The update download failed. Check your connection and try again."
+msgstr ""
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr ""
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr ""
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr ""
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr ""
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr ""
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr ""
+
+#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr ""
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr ""
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr ""
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr ""
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr ""
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr ""
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr ""
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr ""
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr ""
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr ""
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr ""
+
+#. Generic update-check failure.
+msgid "The update check failed."
+msgstr ""
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr ""
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr ""
+
+#. Error when pacman's transaction summary cannot be interpreted.
+msgid "Update sizes could not be calculated."
+msgstr ""
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr ""
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr ""
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr ""
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr ""
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr ""
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr ""
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr ""
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr ""
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr ""
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr ""
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr ""
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr ""
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr ""
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] ""
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] ""
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] ""
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] ""

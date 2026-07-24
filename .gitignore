@@ -1,0 +1,8 @@
+# Local build and packaging output
+/build/
+/fakeroot/
+
+# Generated archives and editor files
+/*.zip
+.DS_Store
+*~

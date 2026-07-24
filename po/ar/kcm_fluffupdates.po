@@ -1,0 +1,200 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+msgid "System Updates"
+msgstr "تحديثات النظام"
+
+msgid "Fluff Linux Update"
+msgstr "تحديث فلاف لينكس"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "حافظ على أمان فلاف لينكس وتحديثه من خلال تثبيت تحديثات النظام."
+
+msgid "System last updated: %1 (%2)"
+msgstr "آخر تحديث للنظام: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "التحقق من وجود تحديثات"
+
+msgid "Install Updates"
+msgstr "تثبيت التحديثات"
+
+msgid "View Updates"
+msgstr "عرض التحديثات"
+
+msgid "Updates to Install"
+msgstr "التحديثات المطلوب تثبيتها"
+
+msgid "Package details are unavailable."
+msgstr "تفاصيل الحزم غير متاحة."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "تحديث فلاف لينكس لا يزال قيد التطوير. إذا واجهت مشكلة، فيُرجى الإبلاغ عنها في صفحتنا على GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "ثُبّتت تحديثات النظام بنجاح."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "لا يوجد اتصال بالشبكة!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "اتصال الشبكة محدود. إذا لم تكن متصلاً بشبكة مؤسسة، فتحقق من اتصالك بالإنترنت."
+
+msgid "pacman process is already running."
+msgstr "عملية pacman قيد التشغيل بالفعل."
+
+msgid "The update process could not be started."
+msgstr "تعذّر بدء عملية التحديث."
+
+msgid "The update process could not be cancelled."
+msgstr "تعذّر إلغاء عملية التحديث."
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "فشل تنزيل التحديث. تحقق من اتصالك وحاول مرة أخرى."
+
+msgid "The system update failed."
+msgstr "فشل تحديث النظام."
+
+msgid "Downloading updates…"
+msgstr "جارٍ تنزيل التحديثات…"
+
+msgid "Installing updates…"
+msgstr "جارٍ تثبيت التحديثات…"
+
+msgid "%1 / %2 downloaded"
+msgstr "تم تنزيل %1 من %2"
+
+msgid "%1/%2 updates installed"
+msgstr "تم تثبيت %1/%2 من التحديثات"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "يجري تثبيت التحديثات حاليًا. يُرجى تجنّب إيقاف تشغيل الحاسوب أو إعادة تشغيله حتى يكتمل التثبيت. قد تؤدي مقاطعة التحديث إلى إتلاف ملفات النظام."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "شحن البطارية منخفض. يُرجى توصيل الحاسوب بمصدر طاقة قبل تثبيت التحديثات."
+
+msgid "Update process was cancelled"
+msgstr "أُلغيت عملية التحديث"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Checking for updates…"
+msgstr "جارٍ التحقق من التحديثات…"
+
+msgid "System updates are available"
+msgstr "تتوفر تحديثات للنظام"
+
+msgid "Download size: %1"
+msgstr "حجم التنزيل: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "مساحة التخزين المطلوبة لتحديثات النظام: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "مساحة التخزين التي ستُحرر بعد التحديث: %1"
+
+msgid "No additional download required"
+msgstr "لا يلزم تنزيل إضافي"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "تعذّر بدء مدقق التحديثات. تأكد من تثبيت pacman-contrib."
+
+msgid "The update check stopped unexpectedly."
+msgstr "توقف التحقق من التحديثات بشكل غير متوقع."
+
+msgid "The update check failed."
+msgstr "فشل التحقق من التحديثات."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "لا يوجد اتصال بالإنترنت. تحقق من الشبكة وحاول مرة أخرى."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "تعذّر الوصول إلى خوادم المستودعات. حاول لاحقاً أو تحقق من إعدادات المرايا."
+
+msgid "Update sizes could not be calculated."
+msgstr "تعذّر حساب أحجام التحديثات."
+
+msgid "Authorization error, please try again."
+msgstr "خطأ في التفويض، يرجى المحاولة مرة أخرى."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "توقف فحص التحديثات ذي الصلاحيات بشكل غير متوقع."
+
+msgid "The privileged update check could not be started."
+msgstr "تعذّر بدء فحص التحديثات ذي الصلاحيات."
+
+msgid "System was not previously updated."
+msgstr "لم يتم تحديث النظام من قبل."
+
+msgid "The last update information could not be read."
+msgstr "تعذّرت قراءة معلومات آخر تحديث."
+
+msgid "The last update information is invalid."
+msgstr "معلومات آخر تحديث غير صالحة."
+
+msgid "Updates were not installed on this system"
+msgstr "لم تُثبّت أي تحديثات على هذا النظام"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "لتحديث النظام، تحقّق من التحديثات المتاحة باستخدام الزر أدناه."
+
+msgid "Update date available"
+msgstr "تاريخ التحديث متاح"
+
+msgid "Updated recently"
+msgstr "حُدّث مؤخراً"
+
+msgid "System is up to date"
+msgstr "النظام محدّث"
+
+msgid "Last update was installed more than a month ago"
+msgstr "ثُبّت آخر تحديث منذ أكثر من شهر"
+
+msgid "Last update was installed more than three months ago"
+msgstr "ثُبّت آخر تحديث منذ أكثر من ثلاثة أشهر"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "قبل أقل من ثانية"
+msgstr[1] "قبل ثانية واحدة"
+msgstr[2] "قبل ثانيتين"
+msgstr[3] "قبل %1 ثوانٍ"
+msgstr[4] "قبل %1 ثانية"
+msgstr[5] "قبل %1 ثانية"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "قبل أقل من دقيقة"
+msgstr[1] "قبل دقيقة واحدة"
+msgstr[2] "قبل دقيقتين"
+msgstr[3] "قبل %1 دقائق"
+msgstr[4] "قبل %1 دقيقة"
+msgstr[5] "قبل %1 دقيقة"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "قبل أقل من ساعة"
+msgstr[1] "قبل ساعة واحدة"
+msgstr[2] "قبل ساعتين"
+msgstr[3] "قبل %1 ساعات"
+msgstr[4] "قبل %1 ساعة"
+msgstr[5] "قبل %1 ساعة"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "قبل أقل من يوم"
+msgstr[1] "قبل يوم واحد"
+msgstr[2] "قبل يومين"
+msgstr[3] "قبل %1 أيام"
+msgstr[4] "قبل %1 يوماً"
+msgstr[5] "قبل %1 يوم"

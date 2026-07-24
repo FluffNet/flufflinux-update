@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Systemaktualisierungen"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff-Linux-Aktualisierung"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Halten Sie Fluff Linux sicher und aktuell, indem Sie Systemaktualisierungen installieren."
+
+msgid "System last updated: %1 (%2)"
+msgstr "System zuletzt aktualisiert: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Nach Aktualisierungen suchen"
+
+msgid "Install Updates"
+msgstr "Aktualisierungen installieren"
+
+msgid "View Updates"
+msgstr "Aktualisierungen anzeigen"
+
+msgid "Updates to Install"
+msgstr "Zu installierende Aktualisierungen"
+
+msgid "Package details are unavailable."
+msgstr "Paketdetails sind nicht verfügbar."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update befindet sich noch in der Entwicklung. Wenn ein Problem auftritt, melden Sie es bitte auf unserer GitHub-Seite."
+
+msgid "System updates were installed successfully."
+msgstr "Die Systemaktualisierungen wurden erfolgreich installiert."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Keine Netzwerkverbindung!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Die Netzwerkverbindung ist eingeschränkt. Wenn Sie nicht mit einem Organisationsnetzwerk verbunden sind, überprüfen Sie bitte Ihre Internetverbindung."
+
+msgid "pacman process is already running."
+msgstr "Ein pacman-Prozess wird bereits ausgeführt."
+
+msgid "The update process could not be started."
+msgstr "Der Aktualisierungsvorgang konnte nicht gestartet werden."
+
+msgid "The update process could not be cancelled."
+msgstr "Der Aktualisierungsvorgang konnte nicht abgebrochen werden."
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "Das Herunterladen der Aktualisierung ist fehlgeschlagen. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut."
+
+msgid "The system update failed."
+msgstr "Die Systemaktualisierung ist fehlgeschlagen."
+
+msgid "Downloading updates…"
+msgstr "Aktualisierungen werden heruntergeladen…"
+
+msgid "Installing updates…"
+msgstr "Aktualisierungen werden installiert…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 heruntergeladen"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 Aktualisierungen installiert"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Aktualisierungen werden gerade installiert. Bitte schalten Sie den Computer nicht aus und starten Sie ihn nicht neu, bis die Installation abgeschlossen ist. Eine Unterbrechung der Aktualisierung kann Systemdateien beschädigen."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "Der Akkustand ist niedrig. Bitte schließen Sie den Computer vor der Installation von Aktualisierungen an das Stromnetz an."
+
+msgid "Update process was cancelled"
+msgstr "Der Aktualisierungsvorgang wurde abgebrochen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Checking for updates…"
+msgstr "Es wird nach Aktualisierungen gesucht…"
+
+msgid "System updates are available"
+msgstr "Systemaktualisierungen sind verfügbar"
+
+msgid "Download size: %1"
+msgstr "Downloadgröße: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Für Systemaktualisierungen benötigter Speicher: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Nach der Aktualisierung freigegebener Speicher: %1"
+
+msgid "No additional download required"
+msgstr "Kein zusätzlicher Download erforderlich"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Die Aktualisierungssuche konnte nicht gestartet werden. Stellen Sie sicher, dass pacman-contrib installiert ist."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Die Aktualisierungssuche wurde unerwartet beendet."
+
+msgid "The update check failed."
+msgstr "Die Aktualisierungssuche ist fehlgeschlagen."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Keine Internetverbindung. Überprüfen Sie Ihr Netzwerk und versuchen Sie es erneut."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Die Repository-Server konnten nicht erreicht werden. Versuchen Sie es später erneut oder überprüfen Sie Ihre Spiegelserver-Konfiguration."
+
+msgid "Update sizes could not be calculated."
+msgstr "Die Größe der Aktualisierungen konnte nicht berechnet werden."
+
+msgid "Authorization error, please try again."
+msgstr "Autorisierungsfehler, bitte versuchen Sie es erneut."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Die privilegierte Aktualisierungssuche wurde unerwartet beendet."
+
+msgid "The privileged update check could not be started."
+msgstr "Die privilegierte Aktualisierungssuche konnte nicht gestartet werden."
+
+msgid "System was not previously updated."
+msgstr "Das System wurde bisher nicht aktualisiert."
+
+msgid "The last update information could not be read."
+msgstr "Die Informationen zur letzten Aktualisierung konnten nicht gelesen werden."
+
+msgid "The last update information is invalid."
+msgstr "Die Informationen zur letzten Aktualisierung sind ungültig."
+
+msgid "Updates were not installed on this system"
+msgstr "Auf diesem System wurden keine Aktualisierungen installiert"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Um das System zu aktualisieren, suchen Sie über die Schaltfläche unten nach verfügbaren Aktualisierungen."
+
+msgid "Update date available"
+msgstr "Aktualisierungsdatum verfügbar"
+
+msgid "Updated recently"
+msgstr "Kürzlich aktualisiert"
+
+msgid "System is up to date"
+msgstr "Das System ist auf dem neuesten Stand"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Die letzte Aktualisierung wurde vor mehr als einem Monat installiert"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Die letzte Aktualisierung wurde vor mehr als drei Monaten installiert"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "vor %1 Sekunde"
+msgstr[1] "vor %1 Sekunden"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "vor %1 Minute"
+msgstr[1] "vor %1 Minuten"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "vor %1 Stunde"
+msgstr[1] "vor %1 Stunden"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "vor %1 Tag"
+msgstr[1] "vor %1 Tagen"

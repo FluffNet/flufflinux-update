@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Systemuppdateringar"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux-uppdatering"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Håll Fluff Linux säkert och aktuellt genom att installera systemuppdateringar."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Systemet uppdaterades senast: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Sök efter uppdateringar"
+
+msgid "Install Updates"
+msgstr "Installera uppdateringar"
+
+msgid "View Updates"
+msgstr "Visa uppdateringar"
+
+msgid "Updates to Install"
+msgstr "Uppdateringar att installera"
+
+msgid "Package details are unavailable."
+msgstr "Paketinformation är inte tillgänglig."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update är fortfarande under utveckling. Om du stöter på ett problem får du gärna rapportera det på vår GitHub-sida."
+
+msgid "System updates were installed successfully."
+msgstr "Systemuppdateringarna installerades."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Ingen nätverksanslutning!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Nätverksanslutningen är begränsad. Om du inte är ansluten till ett organisationsnätverk bör du kontrollera din internetanslutning."
+
+msgid "pacman process is already running."
+msgstr "En pacman-process körs redan."
+
+msgid "The update process could not be started."
+msgstr "Uppdateringsprocessen kunde inte startas."
+
+msgid "The update process could not be cancelled."
+msgstr "Uppdateringsprocessen kunde inte avbrytas."
+
+msgid "The update download failed. Check your connection and try again."
+msgstr "Hämtningen av uppdateringen misslyckades. Kontrollera anslutningen och försök igen."
+
+msgid "The system update failed."
+msgstr "Systemuppdateringen misslyckades."
+
+msgid "Downloading updates…"
+msgstr "Hämtar uppdateringar…"
+
+msgid "Installing updates…"
+msgstr "Installerar uppdateringar…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 hämtat"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 uppdateringar installerade"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Uppdateringar installeras för närvarande. Undvik att stänga av eller starta om datorn tills installationen är klar. Om uppdateringen avbryts kan systemfiler skadas."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "Batterinivån är låg. Anslut datorn till ström innan du installerar uppdateringar."
+
+msgid "Update process was cancelled"
+msgstr "Uppdateringsprocessen avbröts"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Checking for updates…"
+msgstr "Söker efter uppdateringar…"
+
+msgid "System updates are available"
+msgstr "Systemuppdateringar är tillgängliga"
+
+msgid "Download size: %1"
+msgstr "Hämtningsstorlek: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Lagringsutrymme som krävs för systemuppdateringar: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Lagringsutrymme som frigörs efter uppdateringen: %1"
+
+msgid "No additional download required"
+msgstr "Ingen ytterligare hämtning krävs"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Uppdateringskontrollen kunde inte startas. Kontrollera att pacman-contrib är installerat."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Uppdateringskontrollen stoppades oväntat."
+
+msgid "The update check failed."
+msgstr "Uppdateringskontrollen misslyckades."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Ingen internetanslutning. Kontrollera nätverket och försök igen."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Arkivservrarna kunde inte nås. Försök igen senare eller kontrollera spegelserverinställningarna."
+
+msgid "Update sizes could not be calculated."
+msgstr "Uppdateringarnas storlek kunde inte beräknas."
+
+msgid "Authorization error, please try again."
+msgstr "Auktoriseringsfel, försök igen."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Den privilegierade uppdateringskontrollen stoppades oväntat."
+
+msgid "The privileged update check could not be started."
+msgstr "Den privilegierade uppdateringskontrollen kunde inte startas."
+
+msgid "System was not previously updated."
+msgstr "Systemet har inte uppdaterats tidigare."
+
+msgid "The last update information could not be read."
+msgstr "Informationen om den senaste uppdateringen kunde inte läsas."
+
+msgid "The last update information is invalid."
+msgstr "Informationen om den senaste uppdateringen är ogiltig."
+
+msgid "Updates were not installed on this system"
+msgstr "Inga uppdateringar har installerats på det här systemet"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Uppdatera systemet genom att söka efter tillgängliga uppdateringar med knappen nedan."
+
+msgid "Update date available"
+msgstr "Uppdateringsdatum tillgängligt"
+
+msgid "Updated recently"
+msgstr "Nyligen uppdaterat"
+
+msgid "System is up to date"
+msgstr "Systemet är uppdaterat"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Den senaste uppdateringen installerades för mer än en månad sedan"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Den senaste uppdateringen installerades för mer än tre månader sedan"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "för %1 sekund sedan"
+msgstr[1] "för %1 sekunder sedan"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "för %1 minut sedan"
+msgstr[1] "för %1 minuter sedan"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "för %1 timme sedan"
+msgstr[1] "för %1 timmar sedan"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "för %1 dag sedan"
+msgstr[1] "för %1 dagar sedan"
