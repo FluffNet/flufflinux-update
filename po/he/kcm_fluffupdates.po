@@ -28,6 +28,9 @@ msgstr "התקנת עדכונים"
 msgid "View Updates"
 msgstr "הצגת העדכונים"
 
+msgid "Change view"
+msgstr "שינוי תצוגה"
+
 msgid "Updates to Install"
 msgstr "עדכונים להתקנה"
 

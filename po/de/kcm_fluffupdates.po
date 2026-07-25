@@ -28,6 +28,9 @@ msgstr "Aktualisierungen installieren"
 msgid "View Updates"
 msgstr "Aktualisierungen anzeigen"
 
+msgid "Change view"
+msgstr "Ansicht wechseln"
+
 msgid "Updates to Install"
 msgstr "Zu installierende Aktualisierungen"
 

@@ -19,6 +19,7 @@ KCMUtils.SimpleKCM {
 
     onVisibleChanged: {
         if (!visible) {
+            updatesWindow.close()
             kcm.clearCheckResult()
         } else {
             Qt.callLater(enforceWindowMinimumSize)
@@ -341,7 +342,7 @@ KCMUtils.SimpleKCM {
                                 || kcm.updatePackages.length > 0)
                         text: i18nd("kcm_fluffupdates", "View Updates")
                         icon.name: "dialog-information"
-                        onClicked: updatesDialog.open()
+                        onClicked: updatesWindow.present()
                     }
 
                     Item { Layout.fillWidth: true }
@@ -426,8 +427,14 @@ KCMUtils.SimpleKCM {
         Item { Layout.fillHeight: true }
     }
 
-    Controls.Dialog {
-        id: updatesDialog
+    Window {
+        id: updatesWindow
+
+        function present() {
+            show()
+            raise()
+            requestActivate()
+        }
 
         function widestField(fieldName) {
             let widest = 0
@@ -449,112 +456,204 @@ KCMUtils.SimpleKCM {
                 + updateListFontMetrics.advanceWidth("  →  ")
                 + widestField("newVersion")
                 + Kirigami.Units.smallSpacing * 2)
-        readonly property real preferredDialogWidth:
+        readonly property real preferredWindowWidth:
             preferredPackageWidth + preferredVersionsWidth
                 + Kirigami.Units.largeSpacing * 5
 
-        parent: Controls.Overlay.overlay
-        anchors.centerIn: parent
-        width: Math.min(parent.width - Kirigami.Units.largeSpacing * 4,
-            Math.max(Kirigami.Units.gridUnit * 32, preferredDialogWidth))
-        height: Math.min(parent.height - Kirigami.Units.largeSpacing * 4,
-            Kirigami.Units.gridUnit * 26)
-        modal: true
+        visible: false
+        flags: Qt.Window
+        modality: Qt.NonModal
+        transientParent: root.Window.window
+        minimumWidth: 480
+        minimumHeight: 400
+        width: Math.min(Screen.desktopAvailableWidth
+                - Kirigami.Units.largeSpacing * 2,
+            Math.max(minimumWidth, preferredWindowWidth))
+        height: Math.min(Screen.desktopAvailableHeight
+                - Kirigami.Units.largeSpacing * 2,
+            Math.max(minimumHeight, Kirigami.Units.gridUnit * 26))
         title: i18nd("kcm_fluffupdates", "Updates to Install")
-        standardButtons: Controls.Dialog.Close
+        color: Kirigami.Theme.backgroundColor
 
-        onOpened: updateList.positionViewAtBeginning()
+        onVisibleChanged: {
+            if (visible) {
+                updateList.positionViewAtBeginning()
+                pacmanViewFlickable.contentY = 0
+            }
+        }
 
         FontMetrics {
             id: updateListFontMetrics
         }
 
-        contentItem: Controls.ScrollView {
-            id: updatesScrollView
-            clip: true
-            LayoutMirroring.enabled: false
-            LayoutMirroring.childrenInherit: true
+        ColumnLayout {
+            anchors.fill: parent
+            spacing: 0
 
-            ListView {
-                id: updateList
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.smallSpacing
 
-                width: updatesScrollView.availableWidth
-                height: updatesScrollView.availableHeight
-                layoutDirection: Qt.LeftToRight
-                model: kcm.updatePackages
-                spacing: Kirigami.Units.smallSpacing
-                boundsBehavior: Flickable.StopAtBounds
-
-                Controls.Label {
-                    anchors.centerIn: parent
-                    width: parent.width
-                        - Kirigami.Units.largeSpacing * 2
-                    visible: updateList.count === 0
-                    horizontalAlignment: Text.AlignHCenter
-                    wrapMode: Text.WordWrap
-                    text: i18nd("kcm_fluffupdates", "Package details are unavailable.")
+                Controls.ToolButton {
+                    checkable: true
+                    checked: kcm.pacmanView
+                    display: Controls.AbstractButton.IconOnly
+                    icon.name: "view-visible"
+                    Accessible.name: i18nd("kcm_fluffupdates", "Change view")
+                    Controls.ToolTip.text: Accessible.name
+                    Controls.ToolTip.visible: hovered
+                    onToggled: kcm.setPacmanView(checked)
                 }
 
-                delegate: Item {
-                    required property var modelData
+                Item { Layout.fillWidth: true }
+            }
 
-                    width: ListView.view.width
-                    height: packageRow.implicitHeight
-                        + Kirigami.Units.smallSpacing * 2
+            Controls.ScrollView {
+                id: updatesScrollView
 
-                    RowLayout {
-                        id: packageRow
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                visible: !kcm.pacmanView
+                clip: true
+                LayoutMirroring.enabled: false
+                LayoutMirroring.childrenInherit: true
 
-                        anchors.fill: parent
-                        anchors.leftMargin: Kirigami.Units.smallSpacing
-                        anchors.rightMargin: Kirigami.Units.smallSpacing
-                        spacing: Kirigami.Units.largeSpacing
-                        layoutDirection: Qt.LeftToRight
+                ListView {
+                    id: updateList
 
-                        Controls.Label {
-                            Layout.preferredWidth: Math.min(
-                                updatesDialog.preferredPackageWidth,
-                                updateList.width * 0.42)
-                            Layout.minimumWidth: 0
-                            wrapMode: Text.WrapAnywhere
-                            color: Kirigami.Theme.textColor
-                            text: "\u2066" + modelData.name + "\u2069"
-                        }
+                    width: updatesScrollView.availableWidth
+                    height: updatesScrollView.availableHeight
+                    layoutDirection: Qt.LeftToRight
+                    model: kcm.updatePackages
+                    spacing: Kirigami.Units.smallSpacing
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    Controls.Label {
+                        anchors.centerIn: parent
+                        width: parent.width
+                            - Kirigami.Units.largeSpacing * 2
+                        visible: updateList.count === 0
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.WordWrap
+                        text: i18nd("kcm_fluffupdates", "Package details are unavailable.")
+                    }
+
+                    delegate: Item {
+                        required property var modelData
+
+                        width: ListView.view.width
+                        height: packageRow.implicitHeight
+                            + Kirigami.Units.smallSpacing * 2
 
                         RowLayout {
-                            Layout.fillWidth: true
-                            Layout.minimumWidth: 0
-                            Layout.preferredWidth:
-                                updatesDialog.preferredVersionsWidth
-                            spacing: Kirigami.Units.smallSpacing
+                            id: packageRow
+
+                            anchors.fill: parent
+                            anchors.leftMargin: Kirigami.Units.smallSpacing
+                            anchors.rightMargin: Kirigami.Units.smallSpacing
+                            spacing: Kirigami.Units.largeSpacing
                             layoutDirection: Qt.LeftToRight
 
                             Controls.Label {
-                                Layout.fillWidth: true
+                                Layout.preferredWidth: Math.min(
+                                    updatesWindow.preferredPackageWidth,
+                                    updateList.width * 0.42)
                                 Layout.minimumWidth: 0
                                 wrapMode: Text.WrapAnywhere
-                                horizontalAlignment: Text.AlignRight
-                                color: "#ff3b30"
-                                text: modelData.currentVersion
-                            }
-
-                            Controls.Label {
-                                Layout.alignment: Qt.AlignHCenter
                                 color: Kirigami.Theme.textColor
-                                text: "→"
+                                text: "\u2066" + modelData.name + "\u2069"
                             }
 
-                            Controls.Label {
+                            RowLayout {
                                 Layout.fillWidth: true
                                 Layout.minimumWidth: 0
-                                wrapMode: Text.WrapAnywhere
-                                horizontalAlignment: Text.AlignLeft
-                                color: "#00b84a"
-                                text: modelData.newVersion
+                                Layout.preferredWidth:
+                                    updatesWindow.preferredVersionsWidth
+                                spacing: Kirigami.Units.smallSpacing
+                                layoutDirection: Qt.LeftToRight
+
+                                Controls.Label {
+                                    Layout.fillWidth: true
+                                    Layout.minimumWidth: 0
+                                    wrapMode: Text.WrapAnywhere
+                                    horizontalAlignment: Text.AlignRight
+                                    color: "#ff3b30"
+                                    text: modelData.currentVersion
+                                }
+
+                                Controls.Label {
+                                    Layout.alignment: Qt.AlignHCenter
+                                    color: Kirigami.Theme.textColor
+                                    text: "→"
+                                }
+
+                                Controls.Label {
+                                    Layout.fillWidth: true
+                                    Layout.minimumWidth: 0
+                                    wrapMode: Text.WrapAnywhere
+                                    horizontalAlignment: Text.AlignLeft
+                                    color: "#00b84a"
+                                    text: modelData.newVersion
+                                }
                             }
                         }
                     }
                 }
+            }
+
+            Controls.ScrollView {
+                id: pacmanViewScroll
+
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                visible: kcm.pacmanView
+                clip: true
+                LayoutMirroring.enabled: false
+                LayoutMirroring.childrenInherit: true
+
+                Flickable {
+                    id: pacmanViewFlickable
+
+                    width: pacmanViewScroll.availableWidth
+                    height: pacmanViewScroll.availableHeight
+                    contentWidth: width
+                    contentHeight: pacmanPackageFlow.implicitHeight
+                    boundsBehavior: Flickable.StopAtBounds
+
+                    Flow {
+                        id: pacmanPackageFlow
+
+                        width: parent.width
+                        spacing: Kirigami.Units.smallSpacing
+                        layoutDirection: Qt.LeftToRight
+
+                        Repeater {
+                            model: kcm.updatePackages
+
+                            delegate: Row {
+                                required property var modelData
+
+                                layoutDirection: Qt.LeftToRight
+
+                                Controls.Label {
+                                    color: Kirigami.Theme.textColor
+                                    text: "\u2066" + modelData.name + "-\u2069"
+                                }
+
+                                Controls.Label {
+                                    color: "#00b84a"
+                                    text: "\u2066" + modelData.newVersion + "\u2069"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            Controls.DialogButtonBox {
+                Layout.fillWidth: true
+                standardButtons: Controls.DialogButtonBox.Close
+                onRejected: updatesWindow.close()
             }
         }
     }

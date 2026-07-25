@@ -28,6 +28,9 @@ msgstr "Установить обновления"
 msgid "View Updates"
 msgstr "Показать обновления"
 
+msgid "Change view"
+msgstr "Сменить вид"
+
 msgid "Updates to Install"
 msgstr "Обновления для установки"
 

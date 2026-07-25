@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
+#include <QGuiApplication>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -34,6 +35,9 @@ namespace
 constexpr auto StateFile = "/etc/pacman.d/lastupdate.json";
 constexpr auto InstallStateFile = "/etc/pacman.d/flufflinux-update-state.json";
 constexpr auto LastUpdateKey = "last_successful_system_update";
+constexpr auto SettingsDirectory = "flufflinux-update";
+constexpr auto SettingsFile = "settings.conf";
+constexpr auto PacmanViewKey = "Interface/PacmanView";
 
 bool pacmanRunning()
 {
@@ -233,7 +237,17 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
         }
     }
 
+    const QString settingsPath =
+        QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation)
+        + QLatin1Char('/') + QString::fromLatin1(SettingsDirectory)
+        + QLatin1Char('/') + QString::fromLatin1(SettingsFile);
+    QSettings userSettings(settingsPath, QSettings::IniFormat);
+    m_pacmanView =
+        userSettings.value(QString::fromLatin1(PacmanViewKey), false).toBool();
+
     setButtons(NoAdditionalButton);
+    connect(this, &FluffUpdates::installStateChanged, this,
+            &FluffUpdates::updateTaskbarProgress);
 
     // kcmshell6 wraps this QML page in a QWidget shell. Its internal
     // QQuickWindow is not necessarily the user-resizable top-level window, so
@@ -352,6 +366,13 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
     });
 }
 
+FluffUpdates::~FluffUpdates()
+{
+    if (m_taskbarProgressActive && qGuiApp) {
+        qGuiApp->setBadgeNumber(0);
+    }
+}
+
 QString FluffUpdates::lastUpdate() const
 {
     return m_lastUpdate;
@@ -416,6 +437,11 @@ bool FluffUpdates::installationSuccessNotice() const
 {
     return m_installationSuccessNotice;
 }
+
+bool FluffUpdates::pacmanView() const
+{
+    return m_pacmanView;
+}
 bool FluffUpdates::networkConnected() const { return m_networkConnected; }
 bool FluffUpdates::networkLimited() const { return m_networkLimited; }
 
@@ -477,6 +503,12 @@ void FluffUpdates::checkForUpdates()
         return;
     }
 
+    // A new operation makes notices from the previous transaction obsolete.
+    // Advancing the generation also prevents an older single-shot timer from
+    // hiding the success notice for a later transaction.
+    ++m_installationSuccessNoticeGeneration;
+    m_installationSuccessNotice = false;
+    m_cancellationNotice = false;
     m_ignoreInactiveInstallState = true;
     m_installPhase = QStringLiteral("idle");
     m_installError.clear();
@@ -667,8 +699,14 @@ void FluffUpdates::startInstallation()
         return;
     }
 
+    ++m_installationSuccessNoticeGeneration;
+    m_installationSuccessNotice = false;
+    m_cancellationNotice = false;
     m_installPhase = QStringLiteral("starting");
-    m_ignoreInactiveInstallState = false;
+    // The state file still contains the terminal phase from the previous
+    // transaction until the new worker publishes its first active phase.
+    // Ignore that stale complete/failed/cancelled state until then.
+    m_ignoreInactiveInstallState = true;
     m_installError.clear();
     m_installProgress = 0;
     Q_EMIT installStateChanged();
@@ -768,6 +806,33 @@ void FluffUpdates::cancelInstallation()
         }
     });
     m_installControlProcess->start();
+}
+
+void FluffUpdates::setPacmanView(bool enabled)
+{
+    if (m_pacmanView == enabled) {
+        return;
+    }
+
+    const QString configDirectory =
+        QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation)
+        + QLatin1Char('/') + QString::fromLatin1(SettingsDirectory);
+    if (!QDir().mkpath(configDirectory)) {
+        return;
+    }
+
+    QSettings userSettings(
+        configDirectory + QLatin1Char('/')
+            + QString::fromLatin1(SettingsFile),
+        QSettings::IniFormat);
+    userSettings.setValue(QString::fromLatin1(PacmanViewKey), enabled);
+    userSettings.sync();
+    if (userSettings.status() != QSettings::NoError) {
+        return;
+    }
+
+    m_pacmanView = enabled;
+    Q_EMIT pacmanViewChanged();
 }
 
 void FluffUpdates::readTransactionSummary()
@@ -959,7 +1024,13 @@ void FluffUpdates::readInstallState()
             || previousPhase == QStringLiteral("installing");
         if (completedActiveInstallation) {
             m_installationSuccessNotice = true;
-            QTimer::singleShot(7000, this, [this] {
+            const quint64 noticeGeneration =
+                ++m_installationSuccessNoticeGeneration;
+            QTimer::singleShot(7000, this, [this, noticeGeneration] {
+                if (noticeGeneration
+                    != m_installationSuccessNoticeGeneration) {
+                    return;
+                }
                 m_installationSuccessNotice = false;
                 Q_EMIT installStateChanged();
             });
@@ -978,6 +1049,30 @@ void FluffUpdates::readInstallState()
     }
     Q_EMIT installStateChanged();
     Q_EMIT checkStateChanged();
+}
+
+void FluffUpdates::updateTaskbarProgress()
+{
+    if (!qGuiApp) {
+        return;
+    }
+
+    const bool showProgress =
+        m_installPhase == QStringLiteral("downloading")
+        || m_installPhase == QStringLiteral("installing");
+
+    if (showProgress) {
+        // Plasma interprets badge values from one through one hundred as task
+        // completion progress. Keep a newly started zero-percent phase visible
+        // while the first measured progress event is still pending.
+        const qint64 percentage =
+            qBound<qint64>(1, qRound64(m_installProgress), 100);
+        qGuiApp->setBadgeNumber(percentage);
+        m_taskbarProgressActive = true;
+    } else if (m_taskbarProgressActive && qGuiApp) {
+        qGuiApp->setBadgeNumber(0);
+        m_taskbarProgressActive = false;
+    }
 }
 
 void FluffUpdates::readStateFile()

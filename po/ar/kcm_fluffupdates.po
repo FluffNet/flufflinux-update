@@ -28,6 +28,9 @@ msgstr "تثبيت التحديثات"
 msgid "View Updates"
 msgstr "عرض التحديثات"
 
+msgid "Change view"
+msgstr "تغيير العرض"
+
 msgid "Updates to Install"
 msgstr "التحديثات المطلوب تثبيتها"
 

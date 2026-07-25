@@ -40,11 +40,13 @@ class FluffUpdates final : public KQuickConfigModule
     Q_PROPERTY(QString installError READ installError NOTIFY installStateChanged)
     Q_PROPERTY(bool cancellationNotice READ cancellationNotice NOTIFY installStateChanged)
     Q_PROPERTY(bool installationSuccessNotice READ installationSuccessNotice NOTIFY installStateChanged)
+    Q_PROPERTY(bool pacmanView READ pacmanView WRITE setPacmanView NOTIFY pacmanViewChanged)
     Q_PROPERTY(bool networkConnected READ networkConnected NOTIFY networkConnectedChanged)
     Q_PROPERTY(bool networkLimited READ networkLimited NOTIFY networkLimitedChanged)
 
 public:
     explicit FluffUpdates(QObject *parent, const KPluginMetaData &data);
+    ~FluffUpdates() override;
 
     QString lastUpdate() const;
     bool hasLastUpdate() const;
@@ -72,6 +74,7 @@ public:
     QString installError() const;
     bool cancellationNotice() const;
     bool installationSuccessNotice() const;
+    bool pacmanView() const;
     bool networkConnected() const;
     bool networkLimited() const;
 
@@ -80,6 +83,7 @@ public:
     Q_INVOKABLE void clearCheckResult();
     Q_INVOKABLE void startInstallation();
     Q_INVOKABLE void cancelInstallation();
+    Q_INVOKABLE void setPacmanView(bool enabled);
 
 Q_SIGNALS:
     void lastUpdateChanged();
@@ -89,6 +93,7 @@ Q_SIGNALS:
     void networkLimitedChanged();
     void batteryStateChanged();
     void updatePackagesChanged();
+    void pacmanViewChanged();
 
 private:
     void readStateFile();
@@ -96,6 +101,7 @@ private:
     void recordInitialUpdate();
     void afterMinimumCheckDuration(std::function<void()> completion);
     void readInstallState();
+    void updateTaskbarProgress();
     void updateNetworkState();
     void updateBatteryState();
 
@@ -128,7 +134,10 @@ private:
     QString m_installError;
     bool m_cancellationNotice = false;
     bool m_installationSuccessNotice = false;
+    quint64 m_installationSuccessNoticeGeneration = 0;
     bool m_ignoreInactiveInstallState = false;
+    bool m_taskbarProgressActive = false;
+    bool m_pacmanView = false;
     QNetworkInformation *m_networkInformation = nullptr;
     bool m_networkConnected = true;
     bool m_networkLimited = false;
