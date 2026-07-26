@@ -1066,7 +1066,8 @@ void FluffUpdates::updateTaskbarProgress()
         // completion progress. Keep a newly started zero-percent phase visible
         // while the first measured progress event is still pending.
         const qint64 percentage =
-            qBound<qint64>(1, qRound64(m_installProgress), 100);
+            qBound<qint64>(qint64{1}, qRound64(m_installProgress),
+                           qint64{100});
         qGuiApp->setBadgeNumber(percentage);
         m_taskbarProgressActive = true;
     } else if (m_taskbarProgressActive && qGuiApp) {
