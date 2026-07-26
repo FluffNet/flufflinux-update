@@ -28,6 +28,9 @@ msgstr "アップデートをインストール"
 msgid "View Updates"
 msgstr "アップデートを表示"
 
+msgid "Change view"
+msgstr "表示を切り替え"
+
 msgid "Updates to Install"
 msgstr "インストールするアップデート"
 

@@ -40,9 +40,10 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | System last updated: %1 (%2) | Date line; `%1` is the exact date and `%2` is its relative age. |
 | Check for Updates | Manual check button inside the status card. |
 | Install Updates | Starts the privileged manual update after a successful check. |
-| View Updates | Button beside Install Updates that opens the package and version-change list. |
-| Updates to Install | Title of the package and version-change dialog. Only the title and Close button follow the interface direction; package/version rows remain left-to-right. |
-| Package details are unavailable. | Fallback inside the dialog if package/version rows could not be parsed. |
+| View Updates | Button beside Install Updates that opens the separate package and version-change window. |
+| Change view | Accessible name and tooltip for the eye-icon button that switches between the comparison list and compact pacman-style view. |
+| Updates to Install | Title of the resizable package and version-change window. Only the title and Close button follow the interface direction; package/version rows remain left-to-right. |
+| Package details are unavailable. | Fallback inside the update-list window if package/version rows could not be parsed. |
 | Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page. | Development and issue-reporting information banner. |
 | System updates were installed successfully. | Temporary green message shown for seven seconds after installation completes. |
 | GitHub | Opens the Fluff Linux Update issue tracker in the default browser. Keep the GitHub brand name untranslated. |

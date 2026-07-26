@@ -28,6 +28,9 @@ msgstr "Installera uppdateringar"
 msgid "View Updates"
 msgstr "Visa uppdateringar"
 
+msgid "Change view"
+msgstr "Byt vy"
+
 msgid "Updates to Install"
 msgstr "Uppdateringar att installera"
 

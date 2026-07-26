@@ -33,6 +33,10 @@ msgstr ""
 msgid "View Updates"
 msgstr ""
 
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr ""
+
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
 msgstr ""
