@@ -6,13 +6,10 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QFileSystemWatcher>
-#include <QGuiApplication>
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDateTime>
-#include <QDBusConnection>
-#include <QDBusMessage>
 #include <QDir>
 #include <QProcess>
 #include <QProcessEnvironment>
@@ -43,41 +40,6 @@ constexpr auto PacmanViewKey = "Interface/PacmanView";
 constexpr auto UpdateWindowWidthKey = "UpdateWindow/Width";
 constexpr auto UpdateWindowHeightKey = "UpdateWindow/Height";
 constexpr auto UpdateWindowMaximizedKey = "UpdateWindow/Maximized";
-
-QString taskbarApplicationUri()
-{
-    const QString applicationName = QCoreApplication::applicationName();
-    QString desktopFileName;
-    if (applicationName.contains(QStringLiteral("kcmshell"),
-                                 Qt::CaseInsensitive)) {
-        desktopFileName = QStringLiteral("org.flufflinux.update");
-    } else {
-        desktopFileName = QGuiApplication::desktopFileName();
-    }
-    if (desktopFileName.isEmpty()) {
-        desktopFileName = applicationName;
-    }
-    if (!desktopFileName.endsWith(QStringLiteral(".desktop"))) {
-        desktopFileName += QStringLiteral(".desktop");
-    }
-    return QStringLiteral("application://") + desktopFileName;
-}
-
-void publishTaskbarProgress(bool visible, double progress = 0.0)
-{
-    QVariantMap properties;
-    properties.insert(QStringLiteral("count-visible"), false);
-    properties.insert(QStringLiteral("progress-visible"), visible);
-    properties.insert(QStringLiteral("progress"),
-                      qBound(0.0, progress, 1.0));
-
-    QDBusMessage message = QDBusMessage::createSignal(
-        QStringLiteral("/com/canonical/Unity/LauncherEntry"),
-        QStringLiteral("com.canonical.Unity.LauncherEntry"),
-        QStringLiteral("Update"));
-    message << taskbarApplicationUri() << properties;
-    QDBusConnection::sessionBus().send(message);
-}
 
 bool pacmanRunning()
 {
@@ -293,8 +255,6 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
             .toBool();
 
     setButtons(NoAdditionalButton);
-    connect(this, &FluffUpdates::installStateChanged, this,
-            &FluffUpdates::updateTaskbarProgress);
 
     // kcmshell6 wraps this QML page in a QWidget shell. Its internal
     // QQuickWindow is not necessarily the user-resizable top-level window, so
@@ -411,13 +371,6 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
             batteryTimer->stop();
         }
     });
-}
-
-FluffUpdates::~FluffUpdates()
-{
-    if (m_taskbarProgressActive) {
-        publishTaskbarProgress(false);
-    }
 }
 
 QString FluffUpdates::lastUpdate() const
@@ -1138,25 +1091,6 @@ void FluffUpdates::readInstallState()
     }
     Q_EMIT installStateChanged();
     Q_EMIT checkStateChanged();
-}
-
-void FluffUpdates::updateTaskbarProgress()
-{
-    if (!qGuiApp) {
-        return;
-    }
-
-    const bool showProgress =
-        m_installPhase == QStringLiteral("downloading")
-        || m_installPhase == QStringLiteral("installing");
-
-    if (showProgress) {
-        publishTaskbarProgress(true, m_installProgress / 100.0);
-        m_taskbarProgressActive = true;
-    } else if (m_taskbarProgressActive) {
-        publishTaskbarProgress(false);
-        m_taskbarProgressActive = false;
-    }
 }
 
 void FluffUpdates::readStateFile()

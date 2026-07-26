@@ -49,7 +49,6 @@ class FluffUpdates final : public KQuickConfigModule
 
 public:
     explicit FluffUpdates(QObject *parent, const KPluginMetaData &data);
-    ~FluffUpdates() override;
 
     QString lastUpdate() const;
     bool hasLastUpdate() const;
@@ -109,7 +108,6 @@ private:
     void recordInitialUpdate();
     void afterMinimumCheckDuration(std::function<void()> completion);
     void readInstallState();
-    void updateTaskbarProgress();
     void updateNetworkState();
     void updateBatteryState();
 
@@ -144,7 +142,6 @@ private:
     bool m_installationSuccessNotice = false;
     quint64 m_installationSuccessNoticeGeneration = 0;
     bool m_ignoreInactiveInstallState = false;
-    bool m_taskbarProgressActive = false;
     bool m_pacmanView = false;
     int m_updateWindowWidth = 0;
     int m_updateWindowHeight = 0;
