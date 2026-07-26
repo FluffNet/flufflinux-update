@@ -41,6 +41,9 @@ class FluffUpdates final : public KQuickConfigModule
     Q_PROPERTY(bool cancellationNotice READ cancellationNotice NOTIFY installStateChanged)
     Q_PROPERTY(bool installationSuccessNotice READ installationSuccessNotice NOTIFY installStateChanged)
     Q_PROPERTY(bool pacmanView READ pacmanView WRITE setPacmanView NOTIFY pacmanViewChanged)
+    Q_PROPERTY(int updateWindowWidth READ updateWindowWidth CONSTANT)
+    Q_PROPERTY(int updateWindowHeight READ updateWindowHeight CONSTANT)
+    Q_PROPERTY(bool updateWindowMaximized READ updateWindowMaximized CONSTANT)
     Q_PROPERTY(bool networkConnected READ networkConnected NOTIFY networkConnectedChanged)
     Q_PROPERTY(bool networkLimited READ networkLimited NOTIFY networkLimitedChanged)
 
@@ -75,6 +78,9 @@ public:
     bool cancellationNotice() const;
     bool installationSuccessNotice() const;
     bool pacmanView() const;
+    int updateWindowWidth() const;
+    int updateWindowHeight() const;
+    bool updateWindowMaximized() const;
     bool networkConnected() const;
     bool networkLimited() const;
 
@@ -84,6 +90,8 @@ public:
     Q_INVOKABLE void startInstallation();
     Q_INVOKABLE void cancelInstallation();
     Q_INVOKABLE void setPacmanView(bool enabled);
+    Q_INVOKABLE void saveUpdateWindowState(int width, int height,
+                                           bool maximized);
 
 Q_SIGNALS:
     void lastUpdateChanged();
@@ -138,6 +146,9 @@ private:
     bool m_ignoreInactiveInstallState = false;
     bool m_taskbarProgressActive = false;
     bool m_pacmanView = false;
+    int m_updateWindowWidth = 0;
+    int m_updateWindowHeight = 0;
+    bool m_updateWindowMaximized = false;
     QNetworkInformation *m_networkInformation = nullptr;
     bool m_networkConnected = true;
     bool m_networkLimited = false;

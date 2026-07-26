@@ -40,6 +40,9 @@ constexpr auto LastUpdateKey = "last_successful_system_update";
 constexpr auto SettingsDirectory = "flufflinux-update";
 constexpr auto SettingsFile = "settings.conf";
 constexpr auto PacmanViewKey = "Interface/PacmanView";
+constexpr auto UpdateWindowWidthKey = "UpdateWindow/Width";
+constexpr auto UpdateWindowHeightKey = "UpdateWindow/Height";
+constexpr auto UpdateWindowMaximizedKey = "UpdateWindow/Maximized";
 
 QString taskbarApplicationUri()
 {
@@ -281,6 +284,13 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
     QSettings userSettings(settingsPath, QSettings::IniFormat);
     m_pacmanView =
         userSettings.value(QString::fromLatin1(PacmanViewKey), false).toBool();
+    m_updateWindowWidth =
+        userSettings.value(QString::fromLatin1(UpdateWindowWidthKey), 0).toInt();
+    m_updateWindowHeight =
+        userSettings.value(QString::fromLatin1(UpdateWindowHeightKey), 0).toInt();
+    m_updateWindowMaximized =
+        userSettings.value(QString::fromLatin1(UpdateWindowMaximizedKey), false)
+            .toBool();
 
     setButtons(NoAdditionalButton);
     connect(this, &FluffUpdates::installStateChanged, this,
@@ -478,6 +488,21 @@ bool FluffUpdates::installationSuccessNotice() const
 bool FluffUpdates::pacmanView() const
 {
     return m_pacmanView;
+}
+
+int FluffUpdates::updateWindowWidth() const
+{
+    return m_updateWindowWidth;
+}
+
+int FluffUpdates::updateWindowHeight() const
+{
+    return m_updateWindowHeight;
+}
+
+bool FluffUpdates::updateWindowMaximized() const
+{
+    return m_updateWindowMaximized;
 }
 bool FluffUpdates::networkConnected() const { return m_networkConnected; }
 bool FluffUpdates::networkLimited() const { return m_networkLimited; }
@@ -870,6 +895,33 @@ void FluffUpdates::setPacmanView(bool enabled)
 
     m_pacmanView = enabled;
     Q_EMIT pacmanViewChanged();
+}
+
+void FluffUpdates::saveUpdateWindowState(int width, int height,
+                                         bool maximized)
+{
+    const QString configDirectory =
+        QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation)
+        + QLatin1Char('/') + QString::fromLatin1(SettingsDirectory);
+    if (!QDir().mkpath(configDirectory)) {
+        return;
+    }
+
+    m_updateWindowWidth = qMax(480, width);
+    m_updateWindowHeight = qMax(400, height);
+    m_updateWindowMaximized = maximized;
+
+    QSettings userSettings(
+        configDirectory + QLatin1Char('/')
+            + QString::fromLatin1(SettingsFile),
+        QSettings::IniFormat);
+    userSettings.setValue(QString::fromLatin1(UpdateWindowWidthKey),
+                          m_updateWindowWidth);
+    userSettings.setValue(QString::fromLatin1(UpdateWindowHeightKey),
+                          m_updateWindowHeight);
+    userSettings.setValue(QString::fromLatin1(UpdateWindowMaximizedKey),
+                          m_updateWindowMaximized);
+    userSettings.sync();
 }
 
 void FluffUpdates::readTransactionSummary()

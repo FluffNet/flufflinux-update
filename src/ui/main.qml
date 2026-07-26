@@ -431,7 +431,25 @@ KCMUtils.SimpleKCM {
         id: updatesWindow
 
         function present() {
-            show()
+            if (!visible) {
+                restoringWindowState = true
+                width = rememberedWidth
+                height = rememberedHeight
+                if (rememberedMaximized) {
+                    showMaximized()
+                } else {
+                    showNormal()
+                }
+                Qt.callLater(function() {
+                    restoringWindowState = false
+                })
+            } else if (visibility === Window.Minimized) {
+                if (rememberedMaximized) {
+                    showMaximized()
+                } else {
+                    showNormal()
+                }
+            }
             raise()
             requestActivate()
         }
@@ -459,6 +477,30 @@ KCMUtils.SimpleKCM {
         readonly property real preferredWindowWidth:
             preferredPackageWidth + preferredVersionsWidth
                 + Kirigami.Units.largeSpacing * 5
+        readonly property real defaultWindowWidth:
+            Math.min(Screen.desktopAvailableWidth
+                    - Kirigami.Units.largeSpacing * 2,
+                Math.max(minimumWidth, preferredWindowWidth))
+        readonly property real defaultWindowHeight:
+            Math.min(Screen.desktopAvailableHeight
+                    - Kirigami.Units.largeSpacing * 2,
+                Math.max(minimumHeight, Kirigami.Units.gridUnit * 26))
+        readonly property real maximumRestorableWidth:
+            Math.max(minimumWidth, Screen.desktopAvailableWidth
+                - Kirigami.Units.largeSpacing * 2)
+        readonly property real maximumRestorableHeight:
+            Math.max(minimumHeight, Screen.desktopAvailableHeight
+                - Kirigami.Units.largeSpacing * 2)
+        property real rememberedWidth: kcm.updateWindowWidth > 0
+            ? Math.min(maximumRestorableWidth,
+                Math.max(minimumWidth, kcm.updateWindowWidth))
+            : defaultWindowWidth
+        property real rememberedHeight: kcm.updateWindowHeight > 0
+            ? Math.min(maximumRestorableHeight,
+                Math.max(minimumHeight, kcm.updateWindowHeight))
+            : defaultWindowHeight
+        property bool rememberedMaximized: kcm.updateWindowMaximized
+        property bool restoringWindowState: false
 
         visible: false
         flags: Qt.Window
@@ -466,20 +508,42 @@ KCMUtils.SimpleKCM {
         transientParent: root.Window.window
         minimumWidth: 480
         minimumHeight: 400
-        width: Math.min(Screen.desktopAvailableWidth
-                - Kirigami.Units.largeSpacing * 2,
-            Math.max(minimumWidth, preferredWindowWidth))
-        height: Math.min(Screen.desktopAvailableHeight
-                - Kirigami.Units.largeSpacing * 2,
-            Math.max(minimumHeight, Kirigami.Units.gridUnit * 26))
+        width: rememberedWidth
+        height: rememberedHeight
         title: i18nd("kcm_fluffupdates", "Updates to Install")
         color: Kirigami.Theme.backgroundColor
 
+        onWidthChanged: {
+            if (visible && visibility === Window.Windowed
+                    && !restoringWindowState) {
+                rememberedWidth = width
+            }
+        }
+        onHeightChanged: {
+            if (visible && visibility === Window.Windowed
+                    && !restoringWindowState) {
+                rememberedHeight = height
+            }
+        }
+        onVisibilityChanged: {
+            if (visibility === Window.Maximized
+                    || visibility === Window.FullScreen) {
+                rememberedMaximized = true
+            } else if (visibility === Window.Windowed) {
+                rememberedMaximized = false
+            }
+        }
         onVisibleChanged: {
             if (visible) {
                 updateList.positionViewAtBeginning()
                 pacmanViewFlickable.contentY = 0
             }
+        }
+        onClosing: function(close) {
+            kcm.saveUpdateWindowState(
+                Math.round(rememberedWidth),
+                Math.round(rememberedHeight),
+                rememberedMaximized)
         }
 
         FontMetrics {
@@ -506,6 +570,10 @@ KCMUtils.SimpleKCM {
                 }
 
                 Item { Layout.fillWidth: true }
+            }
+
+            Kirigami.Separator {
+                Layout.fillWidth: true
             }
 
             Controls.ScrollView {
@@ -648,6 +716,10 @@ KCMUtils.SimpleKCM {
                         }
                     }
                 }
+            }
+
+            Kirigami.Separator {
+                Layout.fillWidth: true
             }
 
             Controls.DialogButtonBox {
