@@ -1,6 +1,6 @@
 pkgname = flufflinux-update
 pkgbase = flufflinux-update
-pkgver = 1.0-1
+pkgver = 1.1-1
 pkgdesc = Fluff Linux Update Utility
 url = https://github.com/FluffNet/flufflinux-update
 builddate = 1784894983
