@@ -15,7 +15,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(FeatureSummary)
 
-find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Network Qml Quick Widgets)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core DBus Gui Network Qml Quick Widgets)
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n KCMUtils)
 
 add_subdirectory(src)

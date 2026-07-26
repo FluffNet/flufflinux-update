@@ -11,6 +11,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDateTime>
+#include <QDBusConnection>
+#include <QDBusMessage>
 #include <QDir>
 #include <QProcess>
 #include <QProcessEnvironment>
@@ -38,6 +40,41 @@ constexpr auto LastUpdateKey = "last_successful_system_update";
 constexpr auto SettingsDirectory = "flufflinux-update";
 constexpr auto SettingsFile = "settings.conf";
 constexpr auto PacmanViewKey = "Interface/PacmanView";
+
+QString taskbarApplicationUri()
+{
+    const QString applicationName = QCoreApplication::applicationName();
+    QString desktopFileName;
+    if (applicationName.contains(QStringLiteral("kcmshell"),
+                                 Qt::CaseInsensitive)) {
+        desktopFileName = QStringLiteral("org.flufflinux.update");
+    } else {
+        desktopFileName = QGuiApplication::desktopFileName();
+    }
+    if (desktopFileName.isEmpty()) {
+        desktopFileName = applicationName;
+    }
+    if (!desktopFileName.endsWith(QStringLiteral(".desktop"))) {
+        desktopFileName += QStringLiteral(".desktop");
+    }
+    return QStringLiteral("application://") + desktopFileName;
+}
+
+void publishTaskbarProgress(bool visible, double progress = 0.0)
+{
+    QVariantMap properties;
+    properties.insert(QStringLiteral("count-visible"), false);
+    properties.insert(QStringLiteral("progress-visible"), visible);
+    properties.insert(QStringLiteral("progress"),
+                      qBound(0.0, progress, 1.0));
+
+    QDBusMessage message = QDBusMessage::createSignal(
+        QStringLiteral("/com/canonical/Unity/LauncherEntry"),
+        QStringLiteral("com.canonical.Unity.LauncherEntry"),
+        QStringLiteral("Update"));
+    message << taskbarApplicationUri() << properties;
+    QDBusConnection::sessionBus().send(message);
+}
 
 bool pacmanRunning()
 {
@@ -368,8 +405,8 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
 
 FluffUpdates::~FluffUpdates()
 {
-    if (m_taskbarProgressActive && qGuiApp) {
-        qGuiApp->setBadgeNumber(0);
+    if (m_taskbarProgressActive) {
+        publishTaskbarProgress(false);
     }
 }
 
@@ -1062,16 +1099,10 @@ void FluffUpdates::updateTaskbarProgress()
         || m_installPhase == QStringLiteral("installing");
 
     if (showProgress) {
-        // Plasma interprets badge values from one through one hundred as task
-        // completion progress. Keep a newly started zero-percent phase visible
-        // while the first measured progress event is still pending.
-        const qint64 percentage =
-            qBound<qint64>(qint64{1}, qRound64(m_installProgress),
-                           qint64{100});
-        qGuiApp->setBadgeNumber(percentage);
+        publishTaskbarProgress(true, m_installProgress / 100.0);
         m_taskbarProgressActive = true;
-    } else if (m_taskbarProgressActive && qGuiApp) {
-        qGuiApp->setBadgeNumber(0);
+    } else if (m_taskbarProgressActive) {
+        publishTaskbarProgress(false);
         m_taskbarProgressActive = false;
     }
 }
