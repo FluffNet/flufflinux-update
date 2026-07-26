@@ -581,6 +581,7 @@ KCMUtils.SimpleKCM {
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                Layout.topMargin: Kirigami.Units.smallSpacing * 2
                 visible: !kcm.pacmanView
                 clip: true
                 LayoutMirroring.enabled: false
@@ -674,6 +675,7 @@ KCMUtils.SimpleKCM {
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
+                Layout.topMargin: Kirigami.Units.smallSpacing * 2
                 visible: kcm.pacmanView
                 clip: true
                 LayoutMirroring.enabled: false
