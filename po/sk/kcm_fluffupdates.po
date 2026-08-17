@@ -1,277 +1,287 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Aktualizácie systému"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Udržujte Fluff Linux bezpečný a aktuálny inštaláciou aktualizácií systému."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "Posledná aktualizácia systému: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Skontrolujte aktualizácie"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Inštalovať aktualizácie"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Zobraziť aktualizácie"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Zmeniť pohľad"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Aktualizácie na inštaláciu"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Podrobnosti o balíku nie sú k dispozícii."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Fluff Linux Update je stále vo vývoji. Ak narazíte na problém, nahláste ho na našej stránke GitHub."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "Aktualizácie systému boli úspešne nainštalované."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Žiadne sieťové pripojenie!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Sieťové pripojenie je obmedzené. Ak nie ste pripojení k sieti organizácie, skontrolujte svoje internetové pripojenie."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "Proces pacman už beží."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Proces aktualizácie sa nepodarilo spustiť."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Proces aktualizácie sa nepodarilo zrušiť."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Pri preberaní aktualizácií zlyhalo pripojenie. Skontrolujte sieť a skúste to znova."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "Aktualizácia systému zlyhala."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Sťahujú sa aktualizácie…"
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Inštalujú sa aktualizácie…"
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "%1 / %2 stiahnuté"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "Nainštalované aktualizácie %1/%2"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Aktuálne sa inštalujú aktualizácie. Vyhnite sa vypínaniu alebo reštartovaniu počítača, kým sa inštalácia nedokončí. Prerušenie aktualizácie môže poškodiť systémové súbory."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Batéria je slabá. Pred inštaláciou aktualizácií pripojte počítač."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Proces aktualizácie bol zrušený"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Kontrolujú sa aktualizácie…"
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "K dispozícii sú aktualizácie systému"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Veľkosť na stiahnutie: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Úložný priestor potrebný na aktualizácie systému: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Úložisko uvoľnené po aktualizácii: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Nevyžaduje sa žiadne ďalšie sťahovanie"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Nepodarilo sa spustiť kontrolu aktualizácií. Uistite sa, že je nainštalovaný pacman-contrib."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Kontrola aktualizácií sa neočakávane zastavila."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Vyskytla sa neznáma chyba. Ak potrebujete pomoc, nahláste tento problém na našej stránke GitHub."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Žiadne internetové pripojenie. Skontrolujte sieť a skúste to znova."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Servery úložiska sa nepodarilo dosiahnuť. Skúste to znova neskôr alebo skontrolujte konfiguráciu zrkadla."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Chyba autorizácie, skúste to znova."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Kontrola privilegovanej aktualizácie sa neočakávane zastavila."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Nepodarilo sa spustiť kontrolu privilegovanej aktualizácie."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "Systém nebol predtým aktualizovaný."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "Informácie o poslednej aktualizácii sa nepodarilo prečítať."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "Informácie o poslednej aktualizácii sú neplatné."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "V tomto systéme neboli nainštalované aktualizácie"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "Ak chcete aktualizovať systém, skontrolujte dostupné aktualizácie pomocou tlačidla nižšie."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "K dispozícii je dátum aktualizácie"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Nedávno aktualizované"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "Systém je aktuálny"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "Posledná aktualizácia bola nainštalovaná pred viac ako mesiacom"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "Posledná aktualizácia bola nainštalovaná pred viac ako tromi mesiacmi"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 pred sekundou"
+msgstr[1] "Pred %1 sekundami"
+msgstr[2] "Pred %1 sekundami"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "Pred minútou %1"
+msgstr[1] "Pred %1 minútami"
+msgstr[2] "Pred %1 minútami"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 pred hodinou"
+msgstr[1] "%1 pred hodinami"
+msgstr[2] "%1 pred hodinami"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "Pred dňom %1"
+msgstr[1] "Pred %1 dňami"
+msgstr[2] "Pred %1 dňami"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Vyžaduje sa akcia"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Vyžaduje sa akcia!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Vyžaduje sa akcia"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Fluff Linux Update nemôže pokračovať, pretože nadchádzajúca aktualizácia vyžaduje odstránenie „%1“, čo je chránený systémový balík. Jeho odstránenie by mohlo zabrániť správnemu fungovaniu Fluff Linux. Ak potrebujete pomoc, nahláste tento problém na GitHub."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "Aby systém mohol inštalovať aktualizácie, Fluff Linux Update musí odstrániť „%1“. Odstránenie tohto balíka môže ovplyvniť súvisiaci softvér. Ak si nie ste istí, nahláste problém na GitHub a získajte pomoc."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Prijať"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "Aby bolo možné pokračovať v aktualizáciách systému, %1 bol automaticky odstránený po tom, čo sa považovalo za bezpečné."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "Aby sa umožnilo pokračovanie aktualizácií systému, nasledujúce balíky boli automaticky odstránené, keď ich odstránenie bolo považované za bezpečné: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "Bol zistený a vyriešený konflikt súborov. %1 bol premenovaný na %2. Proces aktualizácie sa reštartoval."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Konfliktný balík sa nepodarilo odstrániť. Vyhľadajte podporu."

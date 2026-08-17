@@ -61,8 +61,8 @@ msgstr "Uppdateringsprocessen kunde inte startas."
 msgid "The update process could not be cancelled."
 msgstr "Uppdateringsprocessen kunde inte avbrytas."
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "Hämtningen av uppdateringen misslyckades. Kontrollera anslutningen och försök igen."
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Anslutningen misslyckades medan uppdateringarna hämtades. Kontrollera nätverksanslutningen och försök igen."
 
 msgid "The system update failed."
 msgstr "Systemuppdateringen misslyckades."
@@ -115,17 +115,14 @@ msgstr "Uppdateringskontrollen kunde inte startas. Kontrollera att pacman-contri
 msgid "The update check stopped unexpectedly."
 msgstr "Uppdateringskontrollen stoppades oväntat."
 
-msgid "The update check failed."
-msgstr "Uppdateringskontrollen misslyckades."
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Ett okänt fel har inträffat. Rapportera problemet på vår GitHub-sida för att få hjälp."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "Ingen internetanslutning. Kontrollera nätverket och försök igen."
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
 msgstr "Arkivservrarna kunde inte nås. Försök igen senare eller kontrollera spegelserverinställningarna."
-
-msgid "Update sizes could not be calculated."
-msgstr "Uppdateringarnas storlek kunde inte beräknas."
 
 msgid "Authorization error, please try again."
 msgstr "Auktoriseringsfel, försök igen."
@@ -185,3 +182,36 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "för %1 dag sedan"
 msgstr[1] "för %1 dagar sedan"
+
+msgid "Action is required"
+msgstr "En åtgärd krävs"
+
+msgid "Action is required!"
+msgstr "En åtgärd krävs!"
+
+msgid "Action required"
+msgstr "Åtgärd krävs"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update kan inte fortsätta eftersom den kommande uppdateringen kräver att ”%1”, som är ett skyddat systempaket, tas bort. Om det tas bort kan Fluff Linux sluta fungera korrekt. Rapportera problemet på GitHub för att få hjälp."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "För att systemet ska kunna installera uppdateringar måste Fluff Linux Update ta bort ”%1”. Om paketet tas bort kan relaterad programvara påverkas. Om du är osäker kan du rapportera problemet på GitHub för att få hjälp."
+
+msgid "Accept"
+msgstr "Godkänn"
+
+msgid "Close"
+msgstr "Stäng"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "För att systemuppdateringarna skulle kunna fortsätta togs %1 bort automatiskt efter att det bedömts vara säkert att ta bort."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "För att systemuppdateringarna skulle kunna fortsätta togs följande paket bort automatiskt efter att de bedömts vara säkra att ta bort: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "En filkonflikt upptäcktes och löstes. %1 döptes om till %2. Uppdateringsprocessen har startats om."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Det motstridiga paketet kunde inte tas bort. Kontakta supporten."

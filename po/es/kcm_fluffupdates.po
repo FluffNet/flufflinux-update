@@ -61,8 +61,8 @@ msgstr "No se pudo iniciar el proceso de actualización."
 msgid "The update process could not be cancelled."
 msgstr "No se pudo cancelar el proceso de actualización."
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "No se pudo descargar la actualización. Compruebe su conexión e inténtelo de nuevo."
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "La conexión falló mientras se descargaban las actualizaciones. Compruebe su conexión de red e inténtelo de nuevo."
 
 msgid "The system update failed."
 msgstr "La actualización del sistema falló."
@@ -115,17 +115,14 @@ msgstr "No se pudo iniciar la búsqueda de actualizaciones. Asegúrese de que pa
 msgid "The update check stopped unexpectedly."
 msgstr "La búsqueda de actualizaciones se detuvo de forma inesperada."
 
-msgid "The update check failed."
-msgstr "La búsqueda de actualizaciones falló."
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Se ha producido un error desconocido. Informe de este problema en nuestra página de GitHub para obtener ayuda."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "No hay conexión a Internet. Compruebe la red e inténtelo de nuevo."
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
 msgstr "No se pudo contactar con los servidores de los repositorios. Inténtelo más tarde o compruebe la configuración de los servidores espejo."
-
-msgid "Update sizes could not be calculated."
-msgstr "No se pudo calcular el tamaño de las actualizaciones."
 
 msgid "Authorization error, please try again."
 msgstr "Error de autorización. Inténtelo de nuevo."
@@ -185,3 +182,36 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "hace %1 día"
 msgstr[1] "hace %1 días"
+
+msgid "Action is required"
+msgstr "Se requiere una acción"
+
+msgid "Action is required!"
+msgstr "¡Se requiere una acción!"
+
+msgid "Action required"
+msgstr "Acción requerida"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update no puede continuar porque la próxima actualización requiere eliminar «%1», que es un paquete protegido del sistema. Eliminarlo podría impedir que Fluff Linux funcione correctamente. Informe de este problema en GitHub para obtener ayuda."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Para permitir que el sistema instale actualizaciones, Fluff Linux Update necesita eliminar «%1». Eliminar este paquete puede afectar al software relacionado. Si no está seguro, informe del problema en GitHub para obtener ayuda."
+
+msgid "Accept"
+msgstr "Aceptar"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Para permitir que las actualizaciones del sistema continúen, %1 se eliminó automáticamente después de considerarse seguro eliminarlo."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Para permitir que las actualizaciones del sistema continúen, los siguientes paquetes se eliminaron automáticamente después de considerarse seguro eliminarlos: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Se detectó y resolvió un conflicto de archivos. Se cambió el nombre de %1 a %2. El proceso de actualización se ha reiniciado."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "No se pudo eliminar el paquete en conflicto. Solicite asistencia."

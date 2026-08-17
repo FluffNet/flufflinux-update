@@ -11,10 +11,10 @@ msgid "System Updates"
 msgstr "עדכוני מערכת"
 
 msgid "Fluff Linux Update"
-msgstr "עדכון פלאף לינוקס"
+msgstr "Fluff Linux Update"
 
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr "שמירה על פלאף לינוקס מאובטחת ועדכנית באמצעות התקנת עדכוני מערכת."
+msgstr "התקנת עדכונים שומרת שFluff Linux תשאר מאובטחת ועדכנית"
 
 msgid "System last updated: %1 (%2)"
 msgstr "עדכון המערכת האחרון: %1 (%2)"
@@ -26,7 +26,7 @@ msgid "Install Updates"
 msgstr "התקנת עדכונים"
 
 msgid "View Updates"
-msgstr "הצגת העדכונים"
+msgstr "הצגת רשימת עדכונים"
 
 msgid "Change view"
 msgstr "שינוי תצוגה"
@@ -35,10 +35,10 @@ msgid "Updates to Install"
 msgstr "עדכונים להתקנה"
 
 msgid "Package details are unavailable."
-msgstr "פרטי החבילות אינם זמינים."
+msgstr "פרטי העדכונים אינם זמינים"
 
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr "עדכון פלאף לינוקס עדיין בפיתוח. אם נתקלת בבעיה, נא לדווח עליה בעמוד ה־GitHub שלנו."
+msgstr "אם אתם נתקלים בבעיה, נא לדווח עליה בעמוד ה־GitHub שלנו."
 
 msgid "System updates were installed successfully."
 msgstr "עדכוני המערכת הותקנו בהצלחה."
@@ -61,8 +61,8 @@ msgstr "לא ניתן להתחיל את תהליך העדכון."
 msgid "The update process could not be cancelled."
 msgstr "לא ניתן לבטל את תהליך העדכון."
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "הורדת העדכון נכשלה. יש לבדוק את החיבור ולנסות שוב."
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "החיבור נכשל במהלך הורדת העדכונים. יש לבדוק את חיבור הרשת ולנסות שוב."
 
 msgid "The system update failed."
 msgstr "עדכון המערכת נכשל."
@@ -80,7 +80,7 @@ msgid "%1/%2 updates installed"
 msgstr "הותקנו %1/%2 עדכונים"
 
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr "עדכונים מותקנים כעת. נא להימנע מכיבוי או מהפעלה מחדש של המחשב עד לסיום ההתקנה. הפסקת העדכון עלולה לפגוע בקובצי המערכת."
+msgstr "עדכונים מותקנים כעת. נא להימנע מכיבוי או מהפעלה מחדש של המחשב עד לסיום ההתקנה. הפסקת העדכון עלולה לפגוע בתפקוד המערכת."
 
 msgid "The battery is low. Please plug in your computer before installing updates."
 msgstr "רמת הסוללה נמוכה. מומלץ לחבר את המחשב לחשמל לפני התקנת העדכונים."
@@ -115,17 +115,14 @@ msgstr "לא ניתן להפעיל את בדיקת העדכונים. יש לוו
 msgid "The update check stopped unexpectedly."
 msgstr "בדיקת העדכונים נעצרה באופן בלתי צפוי."
 
-msgid "The update check failed."
-msgstr "בדיקת העדכונים נכשלה."
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "אירעה שגיאה. נא לדווח על הבעיה בעמוד ה־GitHub שלנו לקבלת סיוע."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "אין חיבור לאינטרנט. יש לבדוק את הרשת ולנסות שוב."
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr "לא ניתן להגיע לשרתי המאגרים. יש לנסות שוב מאוחר יותר או לבדוק את הגדרות שרתי המראה."
-
-msgid "Update sizes could not be calculated."
-msgstr "לא ניתן לחשב את גודל העדכונים."
+msgstr "לא ניתן להגיע לשרתי המאגרים. יש לנסות שוב מאוחר יותר או לבדוק את ההגדרות."
 
 msgid "Authorization error, please try again."
 msgstr "שגיאת הרשאה, נא לנסות שוב."
@@ -137,7 +134,7 @@ msgid "The privileged update check could not be started."
 msgstr "לא ניתן להפעיל את בדיקת העדכונים בעלת ההרשאות."
 
 msgid "System was not previously updated."
-msgstr "המערכת לא עודכנה בעבר."
+msgstr "טרם הותקנו עדכונים."
 
 msgid "The last update information could not be read."
 msgstr "לא ניתן לקרוא את פרטי העדכון האחרון."
@@ -193,3 +190,36 @@ msgstr[0] "לפני יום אחד"
 msgstr[1] "לפני יומיים"
 msgstr[2] "לפני %1 ימים"
 msgstr[3] "לפני %1 ימים"
+
+msgid "Action is required"
+msgstr "נדרשת פעולה"
+
+msgid "Action is required!"
+msgstr "נדרשת פעולה!"
+
+msgid "Action required"
+msgstr "נדרשת פעולה"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "לא ניתן היה להמשיך מכיוון שהעדכון הקרוב דורש להסיר את „%1”, שהוא רכיב מערכת מוגן. הסרתו עלולה למנוע מ־Fluff Linux לפעול כראוי. נא לדווח על הבעיה ב־GitHub לקבלת עזרה."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "כדי לאפשר למערכת להתקין עדכונים, Fluff Linux Update צריך להסיר את „%1”. הסרת הרכיב עלולה להשפיע על תוכנות קשורות. אם אינך בטוח, נא לדווח על הבעיה ב־GitHub לקבלת עזרה."
+
+msgid "Accept"
+msgstr "אישור"
+
+msgid "Close"
+msgstr "סגירה"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "כדי לאפשר לעדכוני המערכת להמשיך, %1 הוסר אוטומטית לאחר שנקבע כי בטוח להסירו."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "כדי לאפשר לעדכוני המערכת להמשיך, הרכיבים הבאים הוסרו אוטומטית לאחר שנקבע כי בטוח להסירם: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "זוהתה התנגשות קבצים והיא נפתרה. השם של %1 שונה ל־%2. תהליך העדכון הופעל מחדש."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "לא ניתן היה להסיר את הרכיב המתנגש. נא לפנות לתמיכה."

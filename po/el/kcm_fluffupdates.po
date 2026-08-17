@@ -1,277 +1,283 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Ενημερώσεις συστήματος"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Διατηρήστε το Fluff Linux ασφαλές και ενημερωμένο εγκαθιστώντας ενημερώσεις συστήματος."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "Τελευταία ενημέρωση συστήματος: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Ελέγξτε για Ενημερώσεις"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Εγκαταστήστε τις ενημερώσεις"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Προβολή ενημερώσεων"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Αλλαγή προβολής"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Ενημερώσεις για εγκατάσταση"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Τα στοιχεία του πακέτου δεν είναι διαθέσιμα."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Το Fluff Linux Update είναι ακόμα υπό ανάπτυξη. Εάν αντιμετωπίζετε κάποιο πρόβλημα, αναφέρετέ το στη σελίδα μας GitHub."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "Οι ενημερώσεις συστήματος εγκαταστάθηκαν με επιτυχία."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Δεν υπάρχει σύνδεση δικτύου!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Η σύνδεση δικτύου είναι περιορισμένη. Εάν δεν είστε συνδεδεμένοι σε δίκτυο οργανισμού, ελέγξτε τη σύνδεσή σας στο Διαδίκτυο."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "Η διαδικασία pacman εκτελείται ήδη."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η έναρξη της διαδικασίας ενημέρωσης."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ακύρωση της διαδικασίας ενημέρωσης."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Η σύνδεση απέτυχε κατά τη λήψη ενημερώσεων. Ελέγξτε το δίκτυό σας και δοκιμάστε ξανά."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "Η ενημέρωση συστήματος απέτυχε."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Λήψη ενημερώσεων…"
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Εγκατάσταση ενημερώσεων…"
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "Λήψη του %1 / %2"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "Εγκαταστάθηκαν ενημερώσεις %1/%2"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Οι ενημερώσεις εγκαθίστανται αυτήν τη στιγμή. Αποφύγετε την απενεργοποίηση ή επανεκκίνηση του υπολογιστή μέχρι να ολοκληρωθεί η εγκατάσταση. Η διακοπή της ενημέρωσης μπορεί να προκαλέσει βλάβη στα αρχεία συστήματος."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Η μπαταρία είναι χαμηλή. Συνδέστε τον υπολογιστή σας πριν εγκαταστήσετε ενημερώσεις."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Η διαδικασία ενημέρωσης ακυρώθηκε"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Ματαίωση"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Έλεγχος για ενημερώσεις…"
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "Διατίθενται ενημερώσεις συστήματος"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Μέγεθος λήψης: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Απαιτείται χώρος αποθήκευσης για ενημερώσεις συστήματος: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Ο χώρος αποθήκευσης ελευθερώθηκε μετά την ενημέρωση: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Δεν απαιτείται επιπλέον λήψη"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η εκκίνηση του ελέγχου ενημέρωσης. Βεβαιωθείτε ότι το pacman-contrib είναι εγκατεστημένο."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Ο έλεγχος ενημέρωσης σταμάτησε απροσδόκητα."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Παρουσιάστηκε άγνωστο σφάλμα. Αναφέρετε αυτό το ζήτημα στη σελίδα μας GitHub για βοήθεια."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Δεν υπάρχει σύνδεση στο διαδίκτυο. Ελέγξτε το δίκτυό σας και δοκιμάστε ξανά."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η πρόσβαση στους διακομιστές αποθετηρίου. Δοκιμάστε ξανά αργότερα ή ελέγξτε τη διαμόρφωση του καθρέφτη σας."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Σφάλμα εξουσιοδότησης, δοκιμάστε ξανά."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Ο έλεγχος της προνομιακής ενημέρωσης σταμάτησε απροσδόκητα."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η έναρξη του προνομιακού ελέγχου ενημέρωσης."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "Το σύστημα δεν είχε ενημερωθεί προηγουμένως."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η ανάγνωση των πληροφοριών της τελευταίας ενημέρωσης."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "Οι πληροφορίες τελευταίας ενημέρωσης δεν είναι έγκυρες."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "Δεν εγκαταστάθηκαν ενημερώσεις σε αυτό το σύστημα"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "Για να ενημερώσετε το σύστημα, ελέγξτε για διαθέσιμες ενημερώσεις χρησιμοποιώντας το παρακάτω κουμπί."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "Διαθέσιμη ημερομηνία ενημέρωσης"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Ενημερώθηκε πρόσφατα"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "Το σύστημα είναι ενημερωμένο"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "Η τελευταία ενημέρωση εγκαταστάθηκε πριν από περισσότερο από ένα μήνα"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "Η τελευταία ενημέρωση εγκαταστάθηκε πριν από περισσότερους από τρεις μήνες"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 πριν από δευτερόλεπτο"
+msgstr[1] "%1 δευτερόλεπτα πριν"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "%1 πριν από ένα λεπτό"
+msgstr[1] "%1 πριν από λίγα λεπτά"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 πριν από μία ώρα"
+msgstr[1] "%1 πριν από ώρες"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "%1 πριν από μια μέρα"
+msgstr[1] "%1 πριν από μέρες"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Απαιτείται δράση"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Απαιτείται δράση!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Απαιτείται ενέργεια"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Το Fluff Linux Update δεν μπορεί να συνεχιστεί επειδή η επερχόμενη ενημέρωση απαιτεί την κατάργηση του \"%1\", το οποίο είναι ένα προστατευμένο πακέτο συστήματος. Η αφαίρεσή του θα μπορούσε να αποτρέψει τη σωστή λειτουργία του Fluff Linux. Αναφέρετε αυτό το ζήτημα στο GitHub για βοήθεια."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "Για να επιτρέπεται στο σύστημα να εγκαθιστά ενημερώσεις, το Fluff Linux Update πρέπει να καταργήσει το \"%1\". Η κατάργηση αυτού του πακέτου μπορεί να επηρεάσει το σχετικό λογισμικό. Εάν δεν είστε σίγουροι, αναφέρετε το πρόβλημα στο GitHub για βοήθεια."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Αποδέχομαι"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Κοντά"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "Για να επιτραπεί η συνέχιση των ενημερώσεων συστήματος, το %1 καταργήθηκε αυτόματα αφού κρίθηκε ασφαλές η κατάργησή του."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "Για να επιτραπεί η συνέχιση των ενημερώσεων συστήματος, τα ακόλουθα πακέτα αφαιρέθηκαν αυτόματα αφού κρίθηκε ασφαλής η κατάργησή τους: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "Εντοπίστηκε διένεξη αρχείου και επιλύθηκε. Το %1 μετονομάστηκε σε %2. Η διαδικασία ενημέρωσης έχει επανεκκινηθεί."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Δεν ήταν δυνατή η κατάργηση του πακέτου σε διένεξη. Ζητήστε υποστήριξη."

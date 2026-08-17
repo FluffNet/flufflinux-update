@@ -9,6 +9,7 @@
 #include <QList>
 #include <QProcess>
 #include <QProcessEnvironment>
+#include <QRandomGenerator>
 #include <QRegularExpression>
 #include <QSaveFile>
 #include <QSet>
@@ -24,6 +25,7 @@ constexpr auto StatePath = "/etc/pacman.d/flufflinux-update-state.json";
 constexpr auto LogPath = "/etc/pacman.d/flufflinux-update.log";
 constexpr auto PacmanLogPath = "/var/log/pacman.log";
 constexpr auto CachePath = "/var/cache/pacman/pkg";
+constexpr auto LockPath = "/var/lib/pacman/db.lck";
 
 QJsonObject readState()
 {
@@ -154,14 +156,19 @@ private:
         qint64 bytes = 0;
         for (const QString &package : m_packages) {
             const qint64 expected = m_packageSizes.value(package);
+            // A zero download size means pacman already has the complete
+            // archive in its cache. Pacman excludes that archive from the
+            // transaction's Total Download Size, so it must also be excluded
+            // from FLU's downloaded-byte counter.
+            if (expected <= 0) {
+                continue;
+            }
             const QFileInfo complete(QString::fromLatin1(CachePath) + QLatin1Char('/') + package);
             const QFileInfo partial(complete.filePath() + QStringLiteral(".part"));
             if (complete.exists()) {
-                bytes += expected > 0 ? qMin(complete.size(), expected)
-                                      : complete.size();
+                bytes += qMin(complete.size(), expected);
             } else if (partial.exists()) {
-                bytes += expected > 0 ? qMin(partial.size(), expected)
-                                      : partial.size();
+                bytes += qMin(partial.size(), expected);
             }
         }
         return bytes;
@@ -226,7 +233,9 @@ private:
         environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
         m_process->setProcessEnvironment(environment);
         connect(m_process, &QProcess::readyRead, this, [this] {
-            appendLog(QString::fromLocal8Bit(m_process->readAll()));
+            const QString chunk = QString::fromLocal8Bit(m_process->readAll());
+            m_downloadOutput += chunk;
+            appendLog(chunk);
         });
         connect(m_process, &QProcess::errorOccurred, this,
                 [this](QProcess::ProcessError error) {
@@ -237,9 +246,20 @@ private:
         connect(m_process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
                 [this](int exitCode, QProcess::ExitStatus status) {
             m_speedTimer->stop();
-            appendLog(QString::fromLocal8Bit(m_process->readAll()));
+            const QString trailing = QString::fromLocal8Bit(m_process->readAll());
+            m_downloadOutput += trailing;
+            appendLog(trailing);
             if (status != QProcess::NormalExit || exitCode != 0) {
-                fail(QStringLiteral("DOWNLOAD_FAILED"));
+                const QString lower = m_downloadOutput.toLower();
+                const bool connectionFailure =
+                    lower.contains(QStringLiteral("failed retrieving file"))
+                    || lower.contains(QStringLiteral("could not resolve host"))
+                    || lower.contains(QStringLiteral("failed to connect"))
+                    || lower.contains(QStringLiteral("connection timed out"))
+                    || lower.contains(QStringLiteral("network is unreachable"));
+                fail(connectionFailure
+                         ? QStringLiteral("DOWNLOAD_CONNECTION_FAILED")
+                         : QStringLiteral("DOWNLOAD_FAILED"));
                 return;
             }
             m_process->deleteLater();
@@ -256,6 +276,7 @@ private:
         m_state[QStringLiteral("completed_packages")] = 0;
         m_state[QStringLiteral("progress")] = 0;
         m_state[QStringLiteral("speed")] = QString();
+        m_fullInstallOutput.clear();
         writeState(m_state);
 
         m_pacmanLogOffset = QFileInfo(QString::fromLatin1(PacmanLogPath)).size();
@@ -289,6 +310,11 @@ private:
             readPacmanInstallLog();
             m_installProgressTimer->stop();
             if (status != QProcess::NormalExit || exitCode != 0) {
+                m_process->deleteLater();
+                m_process = nullptr;
+                if (recoverFileConflict(m_fullInstallOutput)) {
+                    return;
+                }
                 fail(QStringLiteral("INSTALL_FAILED"));
                 return;
             }
@@ -340,6 +366,7 @@ private:
     void processInstallChunk(const QString &chunk)
     {
         appendLog(chunk);
+        m_fullInstallOutput += chunk;
         m_installOutput += chunk;
         m_installOutput.replace(QLatin1Char('\r'), QLatin1Char('\n'));
         const QRegularExpression expression(
@@ -360,6 +387,63 @@ private:
                 publishInstallProgress(m_outputCompleted, total);
             }
         }
+    }
+
+    bool recoverFileConflict(const QString &output)
+    {
+        if (m_fileRecoveryCount >= 25) {
+            appendLog(QStringLiteral("\n[file recovery limit reached]\n"));
+            return false;
+        }
+        const QRegularExpression conflict(
+            QStringLiteral("(?:^|\\n)[^:\\n]+:\\s+(/[^\\n]+?)\\s+exists in filesystem"));
+        const auto match = conflict.match(output);
+        if (!match.hasMatch()) {
+            return false;
+        }
+        const QString original = QDir::cleanPath(match.captured(1).trimmed());
+        if (!original.startsWith(QLatin1Char('/')) || original == QStringLiteral("/")) {
+            return false;
+        }
+        const QFileInfo originalInfo(original);
+        if (!originalInfo.exists() && !originalInfo.isSymLink()) {
+            return false;
+        }
+
+        QString preserved;
+        for (int attempt = 0; attempt < 100; ++attempt) {
+            const int suffix = QRandomGenerator::global()->bounded(10000, 100000);
+            const QString candidate = original + QStringLiteral(".preupdate")
+                + QString::number(suffix);
+            if (!QFileInfo::exists(candidate)) {
+                preserved = candidate;
+                break;
+            }
+        }
+        if (preserved.isEmpty() || !QFile::rename(original, preserved)) {
+            appendLog(QStringLiteral("\n[file recovery failed] ") + original
+                      + QLatin1Char('\n'));
+            return false;
+        }
+
+        ++m_fileRecoveryCount;
+        appendLog(QStringLiteral("\n[file conflict recovered]\n") + original
+                  + QStringLiteral(" -> ") + preserved + QLatin1Char('\n'));
+        m_state[QStringLiteral("recovery_original_file")] = original;
+        m_state[QStringLiteral("recovery_preserved_file")] = preserved;
+        m_state[QStringLiteral("recovery_notice_id")] =
+            QDateTime::currentMSecsSinceEpoch();
+        m_state[QStringLiteral("phase")] = QStringLiteral("installing");
+        m_state[QStringLiteral("progress")] = 0;
+        m_state[QStringLiteral("completed_packages")] = 0;
+        // Pacman normally removes its lock after a failed transaction.
+        // The worker may clear a stale lock before retrying the installation.
+        if (QFile::exists(QString::fromLatin1(LockPath))) {
+            QFile::remove(QString::fromLatin1(LockPath));
+        }
+        writeState(m_state);
+        QTimer::singleShot(300, this, [this] { startInstall(); });
+        return true;
     }
 
     void publishInstallProgress(int completed, int reportedTotal)
@@ -413,10 +497,13 @@ private:
     qint64 m_totalDownloadBytes = 0;
     QList<qint64> m_recentByteDeltas;
     QString m_installOutput;
+    QString m_downloadOutput;
+    QString m_fullInstallOutput;
     QString m_pacmanLogBuffer;
     qint64 m_pacmanLogOffset = 0;
     int m_logCompleted = 0;
     int m_outputCompleted = 0;
+    int m_fileRecoveryCount = 0;
 };
 }
 

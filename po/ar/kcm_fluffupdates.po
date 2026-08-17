@@ -61,8 +61,8 @@ msgstr "تعذّر بدء عملية التحديث."
 msgid "The update process could not be cancelled."
 msgstr "تعذّر إلغاء عملية التحديث."
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "فشل تنزيل التحديث. تحقق من اتصالك وحاول مرة أخرى."
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "فشل الاتصال أثناء تنزيل التحديثات. تحقق من اتصال الشبكة وحاول مرة أخرى."
 
 msgid "The system update failed."
 msgstr "فشل تحديث النظام."
@@ -115,17 +115,14 @@ msgstr "تعذّر بدء مدقق التحديثات. تأكد من تثبيت 
 msgid "The update check stopped unexpectedly."
 msgstr "توقف التحقق من التحديثات بشكل غير متوقع."
 
-msgid "The update check failed."
-msgstr "فشل التحقق من التحديثات."
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "حدث خطأ غير معروف. يُرجى الإبلاغ عن هذه المشكلة على صفحة GitHub الخاصة بنا للحصول على المساعدة."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "لا يوجد اتصال بالإنترنت. تحقق من الشبكة وحاول مرة أخرى."
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
 msgstr "تعذّر الوصول إلى خوادم المستودعات. حاول لاحقاً أو تحقق من إعدادات المرايا."
-
-msgid "Update sizes could not be calculated."
-msgstr "تعذّر حساب أحجام التحديثات."
 
 msgid "Authorization error, please try again."
 msgstr "خطأ في التفويض، يرجى المحاولة مرة أخرى."
@@ -201,3 +198,36 @@ msgstr[2] "قبل يومين"
 msgstr[3] "قبل %1 أيام"
 msgstr[4] "قبل %1 يوماً"
 msgstr[5] "قبل %1 يوم"
+
+msgid "Action is required"
+msgstr "يلزم اتخاذ إجراء"
+
+msgid "Action is required!"
+msgstr "يلزم اتخاذ إجراء!"
+
+msgid "Action required"
+msgstr "إجراء مطلوب"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "يتعذر على Fluff Linux Update المتابعة لأن التحديث القادم يتطلب إزالة «%1»، وهي حزمة نظام محمية. قد تؤدي إزالتها إلى منع Fluff Linux من العمل بشكل صحيح. يُرجى الإبلاغ عن هذه المشكلة على GitHub للحصول على المساعدة."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "للسماح للنظام بتثبيت التحديثات، يحتاج Fluff Linux Update إلى إزالة «%1». قد تؤثر إزالة هذه الحزمة في البرامج المرتبطة بها. إذا لم تكن متأكدًا، يُرجى الإبلاغ عن المشكلة على GitHub للحصول على المساعدة."
+
+msgid "Accept"
+msgstr "قبول"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "للسماح باستمرار تحديثات النظام، أُزيلت %1 تلقائيًا بعد اعتبار إزالتها آمنة."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "للسماح باستمرار تحديثات النظام، أُزيلت الحزم التالية تلقائيًا بعد اعتبار إزالتها آمنة: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "اكتُشف تعارض في الملفات وتم حله. أُعيدت تسمية %1 إلى %2. أُعيد تشغيل عملية التحديث."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "تعذرت إزالة الحزمة المتعارضة. يُرجى طلب الدعم."

@@ -11,6 +11,11 @@ KCMUtils.SimpleKCM {
 
     readonly property int minimumUsableWidth: 480
     readonly property int minimumUsableHeight: 400
+    readonly property bool systemUpToDate: kcm.checkComplete
+        && !kcm.updatesAvailable && kcm.checkError.length === 0
+        && kcm.recoveryActionState.length === 0
+    readonly property bool recoveryActionRequired:
+        kcm.recoveryActionState.length > 0
 
     // Qt selects RightToLeft for Arabic and Hebrew. Explicit mirroring makes
     // every nested row follow that direction as well.
@@ -64,26 +69,62 @@ KCMUtils.SimpleKCM {
                     spacing: Kirigami.Units.largeSpacing
 
                     Rectangle {
-                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        Layout.alignment: Qt.AlignVCenter
+                        implicitWidth: Kirigami.Units.iconSizes.large
                         implicitHeight: width
                         radius: width / 2
-                        color: kcm.freshnessColor
+                        color: root.recoveryActionRequired
+                            ? "#d71920" : kcm.freshnessColor
 
-                        Accessible.name: kcm.freshnessText
+                        Accessible.name: root.recoveryActionRequired
+                            ? (kcm.recoveryActionState === "protected"
+                                ? i18nd("kcm_fluffupdates", "Action is required!")
+                                : i18nd("kcm_fluffupdates", "Action is required"))
+                            : root.systemUpToDate
+                            ? i18nd("kcm_fluffupdates", "System is up to date")
+                            : kcm.freshnessText
+
+                        Text {
+                            anchors.centerIn: parent
+                            visible: root.systemUpToDate
+                            text: "\u2713"
+                            color: "white"
+                            font.pixelSize: parent.width * 0.62
+                            font.weight: Font.Black
+
+                            Accessible.ignored: true
+                        }
+
+                        Text {
+                            anchors.centerIn: parent
+                            visible: kcm.recoveryActionState === "protected"
+                            text: "\u00d7"
+                            color: "white"
+                            font.pixelSize: parent.width * 0.72
+                            font.weight: Font.Black
+
+                            Accessible.ignored: true
+                        }
                     }
 
                     ColumnLayout {
                         Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignVCenter
                         Layout.minimumWidth: Kirigami.Units.gridUnit * 12
                         spacing: 0
 
                         Controls.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.WordWrap
-                            text: kcm.checkComplete && !kcm.updatesAvailable && kcm.checkError.length === 0
+                            text: root.recoveryActionRequired
+                                ? (kcm.recoveryActionState === "protected"
+                                    ? i18nd("kcm_fluffupdates", "Action is required!")
+                                    : i18nd("kcm_fluffupdates", "Action is required"))
+                                : root.systemUpToDate
                                 ? i18nd("kcm_fluffupdates", "System is up to date")
                                 : kcm.freshnessText
-                            color: kcm.freshnessColor
+                            color: root.recoveryActionRequired
+                                ? "#d71920" : kcm.freshnessColor
                             font.bold: true
                         }
 
@@ -195,9 +236,6 @@ KCMUtils.SimpleKCM {
 
                         readonly property real position: Math.max(0,
                             Math.min(1, kcm.installProgress / 100))
-                        readonly property bool mirrored:
-                            Qt.application.layoutDirection === Qt.RightToLeft
-
                         // The contrasting outline remains visible in both
                         // light and dark themes as the window is resized.
                         Rectangle {
@@ -225,12 +263,12 @@ KCMUtils.SimpleKCM {
                                 * updateProgressBar.position)
                             height: Math.max(0, parent.height - 4)
                             anchors.verticalCenter: parent.verticalCenter
-                            anchors.left: updateProgressBar.mirrored
-                                ? undefined : parent.left
-                            anchors.right: updateProgressBar.mirrored
-                                ? parent.right : undefined
-                            anchors.leftMargin: updateProgressBar.mirrored ? 0 : 2
-                            anchors.rightMargin: updateProgressBar.mirrored ? 2 : 0
+                            // The root's LayoutMirroring setting moves this
+                            // left anchor to the right in RTL interfaces.
+                            // Do not mirror it manually as well, or the two
+                            // transformations cancel each other out.
+                            anchors.left: parent.left
+                            anchors.leftMargin: 2
                             radius: 1
                             clip: true
 
@@ -380,6 +418,13 @@ KCMUtils.SimpleKCM {
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
+            visible: kcm.recoveryNotice.length > 0
+            type: Kirigami.MessageType.Information
+            text: kcm.recoveryNotice
+        }
+
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
             visible: kcm.batteryLow
             type: Kirigami.MessageType.Warning
             icon.name: "battery-low"
@@ -467,13 +512,15 @@ KCMUtils.SimpleKCM {
 
         readonly property real preferredPackageWidth: Math.max(
             Kirigami.Units.gridUnit * 8,
-            widestField("name") + Kirigami.Units.smallSpacing * 2)
+            widestField("name") + widestField("currentVersion")
+                + Kirigami.Units.smallSpacing * 3)
         readonly property real preferredVersionsWidth: Math.max(
-            Kirigami.Units.gridUnit * 12,
-            widestField("currentVersion")
-                + updateListFontMetrics.advanceWidth("  →  ")
+            Kirigami.Units.gridUnit * 8,
+            updateListFontMetrics.advanceWidth("→")
+                + widestField("newName")
+                + Kirigami.Units.smallSpacing
                 + widestField("newVersion")
-                + Kirigami.Units.smallSpacing * 2)
+                + Kirigami.Units.smallSpacing * 3)
         readonly property real preferredWindowWidth:
             preferredPackageWidth + preferredVersionsWidth
                 + Kirigami.Units.largeSpacing * 5
@@ -592,6 +639,10 @@ KCMUtils.SimpleKCM {
 
                     width: updatesScrollView.availableWidth
                     height: updatesScrollView.availableHeight
+                    contentWidth: Math.max(width,
+                        updatesWindow.preferredPackageWidth
+                            + updatesWindow.preferredVersionsWidth
+                            + Kirigami.Units.largeSpacing * 2)
                     layoutDirection: Qt.LeftToRight
                     model: kcm.updatePackages
                     spacing: Kirigami.Units.smallSpacing
@@ -609,62 +660,74 @@ KCMUtils.SimpleKCM {
 
                     delegate: Item {
                         required property var modelData
+                        required property int index
 
-                        width: ListView.view.width
+                        width: ListView.view.contentWidth
                         height: packageRow.implicitHeight
                             + Kirigami.Units.smallSpacing * 2
+                            + packageSeparator.height
 
                         RowLayout {
                             id: packageRow
 
                             anchors.fill: parent
+                            anchors.bottomMargin: packageSeparator.height
                             anchors.leftMargin: Kirigami.Units.smallSpacing
                             anchors.rightMargin: Kirigami.Units.smallSpacing
                             spacing: Kirigami.Units.largeSpacing
                             layoutDirection: Qt.LeftToRight
 
-                            Controls.Label {
-                                Layout.preferredWidth: Math.min(
-                                    updatesWindow.preferredPackageWidth,
-                                    updateList.width * 0.42)
-                                Layout.minimumWidth: 0
-                                wrapMode: Text.WrapAnywhere
-                                color: Kirigami.Theme.textColor
-                                text: "\u2066" + modelData.name + "\u2069"
-                            }
-
                             RowLayout {
                                 Layout.fillWidth: true
                                 Layout.minimumWidth: 0
-                                Layout.preferredWidth:
-                                    updatesWindow.preferredVersionsWidth
                                 spacing: Kirigami.Units.smallSpacing
                                 layoutDirection: Qt.LeftToRight
 
                                 Controls.Label {
-                                    Layout.fillWidth: true
-                                    Layout.minimumWidth: 0
-                                    wrapMode: Text.WrapAnywhere
-                                    horizontalAlignment: Text.AlignRight
+                                    Layout.minimumWidth: implicitWidth
+                                    wrapMode: Text.NoWrap
+                                    color: Kirigami.Theme.textColor
+                                    text: "\u2066" + modelData.name + "\u2069"
+                                }
+
+                                Controls.Label {
+                                    Layout.minimumWidth: implicitWidth
+                                    wrapMode: Text.NoWrap
                                     color: "#ff3b30"
                                     text: modelData.currentVersion
                                 }
 
                                 Controls.Label {
                                     Layout.alignment: Qt.AlignHCenter
+                                    visible: Boolean(modelData.currentVersion)
                                     color: Kirigami.Theme.textColor
                                     text: "→"
                                 }
 
                                 Controls.Label {
-                                    Layout.fillWidth: true
-                                    Layout.minimumWidth: 0
-                                    wrapMode: Text.WrapAnywhere
-                                    horizontalAlignment: Text.AlignLeft
+                                    Layout.minimumWidth: implicitWidth
+                                    wrapMode: Text.NoWrap
                                     color: "#00b84a"
-                                    text: modelData.newVersion
+                                    text: (modelData.newName
+                                            && modelData.newName !== modelData.name
+                                            ? modelData.newName + " " : "")
+                                        + modelData.newVersion
+                                }
+
+                                Item {
+                                    Layout.fillWidth: true
                                 }
                             }
+                        }
+
+                        Kirigami.Separator {
+                            id: packageSeparator
+
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.bottom: parent.bottom
+                            visible: index < updateList.count - 1
+                            height: visible ? 1 : 0
                         }
                     }
                 }
@@ -707,7 +770,9 @@ KCMUtils.SimpleKCM {
 
                                 Controls.Label {
                                     color: Kirigami.Theme.textColor
-                                    text: "\u2066" + modelData.name + "-\u2069"
+                                    text: "\u2066"
+                                        + (modelData.newName || modelData.name)
+                                        + "-\u2069"
                                 }
 
                                 Controls.Label {
@@ -728,6 +793,111 @@ KCMUtils.SimpleKCM {
                 Layout.fillWidth: true
                 standardButtons: Controls.DialogButtonBox.Close
                 onRejected: updatesWindow.close()
+            }
+        }
+    }
+
+    Controls.Dialog {
+        id: protectedRemovalDialog
+
+        anchors.centerIn: parent
+        modal: true
+        title: i18nd("kcm_fluffupdates", "Action required")
+        visible: kcm.recoveryDialogType === "protected"
+        onRejected: kcm.resolveRemovalWarning(false)
+
+        contentItem: RowLayout {
+            width: Math.min(Kirigami.Units.gridUnit * 28,
+                            root.width - Kirigami.Units.largeSpacing * 4)
+            spacing: Kirigami.Units.largeSpacing
+
+            Kirigami.Icon {
+                Layout.alignment: Qt.AlignTop
+                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                Layout.preferredHeight: width
+                source: "dialog-error"
+            }
+
+            Controls.Label {
+                Layout.fillWidth: true
+                wrapMode: Text.WordWrap
+                text: i18nd("kcm_fluffupdates",
+                    "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance.",
+                    kcm.recoveryPackage)
+            }
+        }
+
+        footer: Controls.DialogButtonBox {
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Close")
+                icon.name: "dialog-close"
+                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.RejectRole
+            }
+
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "GitHub")
+                icon.name: "internet-services"
+                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.ActionRole
+                onClicked: {
+                    Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
+                    kcm.resolveRemovalWarning(false)
+                }
+            }
+        }
+    }
+
+    Controls.Dialog {
+        id: warningRemovalDialog
+
+        anchors.centerIn: parent
+        modal: true
+        title: i18nd("kcm_fluffupdates", "Action required")
+        visible: kcm.recoveryDialogType === "warning"
+        onAccepted: kcm.resolveRemovalWarning(true)
+        onRejected: kcm.resolveRemovalWarning(false)
+
+        contentItem: RowLayout {
+            width: Math.min(Kirigami.Units.gridUnit * 28,
+                            root.width - Kirigami.Units.largeSpacing * 4)
+            spacing: Kirigami.Units.largeSpacing
+
+            Kirigami.Icon {
+                Layout.alignment: Qt.AlignTop
+                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                Layout.preferredHeight: width
+                source: "dialog-warning"
+            }
+
+            Controls.Label {
+                Layout.fillWidth: true
+                wrapMode: Text.WordWrap
+                text: i18nd("kcm_fluffupdates",
+                    "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help.",
+                    kcm.recoveryPackage)
+            }
+        }
+
+        footer: Controls.DialogButtonBox {
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Cancel")
+                icon.name: "dialog-cancel"
+                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.RejectRole
+            }
+
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Accept")
+                icon.name: "dialog-ok-apply"
+                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.AcceptRole
+            }
+
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "GitHub")
+                icon.name: "internet-services"
+                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.ActionRole
+                onClicked: {
+                    Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
+                    kcm.resolveRemovalWarning(false)
+                }
             }
         }
     }

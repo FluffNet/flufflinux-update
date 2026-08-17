@@ -40,6 +40,7 @@ constexpr auto PacmanViewKey = "Interface/PacmanView";
 constexpr auto UpdateWindowWidthKey = "UpdateWindow/Width";
 constexpr auto UpdateWindowHeightKey = "UpdateWindow/Height";
 constexpr auto UpdateWindowMaximizedKey = "UpdateWindow/Maximized";
+constexpr qint64 MinimumCheckDurationMs = 850;
 
 bool pacmanRunning()
 {
@@ -112,7 +113,9 @@ QString friendlyCheckError(const QString &output)
         }
     }
 
-    return i18nd("kcm_fluffupdates", "The update check failed.");
+    return i18nd(
+        "kcm_fluffupdates",
+        "An unknown error has occurred. Please report this issue on our GitHub page for assistance.");
 }
 
 QString humanDataSize(qint64 bytes)
@@ -155,6 +158,7 @@ QVariantList parseUpdatePackages(const QString &output)
         packages.append(QVariantMap{
             {QStringLiteral("name"), match.captured(1)},
             {QStringLiteral("currentVersion"), match.captured(2)},
+            {QStringLiteral("newName"), match.captured(1)},
             {QStringLiteral("newVersion"), match.captured(3)},
         });
     }
@@ -459,6 +463,10 @@ bool FluffUpdates::updateWindowMaximized() const
 }
 bool FluffUpdates::networkConnected() const { return m_networkConnected; }
 bool FluffUpdates::networkLimited() const { return m_networkLimited; }
+QString FluffUpdates::recoveryDialogType() const { return m_recoveryDialogType; }
+QString FluffUpdates::recoveryPackage() const { return m_recoveryPackage; }
+QString FluffUpdates::recoveryNotice() const { return m_recoveryNotice; }
+QString FluffUpdates::recoveryActionState() const { return m_recoveryActionState; }
 
 void FluffUpdates::updateNetworkState()
 {
@@ -516,6 +524,16 @@ void FluffUpdates::checkForUpdates()
 {
     if (m_checking || !m_networkConnected) {
         return;
+    }
+    const bool recoveryRestart = m_recoveryRestartPending;
+    m_recoveryRestartPending = false;
+    if (!recoveryRestart) {
+        m_approvedRemovals.clear();
+        m_pendingAutoremovedPackages.clear();
+        if (!m_recoveryActionState.isEmpty()) {
+            m_recoveryActionState.clear();
+            Q_EMIT recoveryDialogChanged();
+        }
     }
 
     // A new operation makes notices from the previous transaction obsolete.
@@ -624,7 +642,7 @@ void FluffUpdates::afterMinimumCheckDuration(
     const qint64 elapsed =
         QDateTime::currentMSecsSinceEpoch() - m_checkStartedAtMs;
     const int remaining =
-        static_cast<int>(qMax<qint64>(0, 2000 - elapsed));
+        static_cast<int>(qMax<qint64>(0, MinimumCheckDurationMs - elapsed));
     QTimer::singleShot(remaining, this,
                        [completion = std::move(completion)]() mutable {
         completion();
@@ -700,6 +718,10 @@ void FluffUpdates::clearCheckResult()
     m_downloadSize.clear();
     m_diskChange.clear();
     m_checkError.clear();
+    if (!m_recoveryActionState.isEmpty()) {
+        m_recoveryActionState.clear();
+        Q_EMIT recoveryDialogChanged();
+    }
     if (!m_updatePackages.isEmpty()) {
         m_updatePackages.clear();
         Q_EMIT updatePackagesChanged();
@@ -877,13 +899,134 @@ void FluffUpdates::saveUpdateWindowState(int width, int height,
     userSettings.sync();
 }
 
+void FluffUpdates::restartUpdateCheck()
+{
+    m_checking = false;
+    m_checkComplete = false;
+    m_updatesAvailable = false;
+    m_recoveryRestartPending = true;
+    Q_EMIT checkStateChanged();
+    QTimer::singleShot(100, this, [this] { checkForUpdates(); });
+}
+
+void FluffUpdates::showPendingAutoremoveNotice()
+{
+    if (m_pendingAutoremovedPackages.isEmpty()) {
+        return;
+    }
+
+    m_pendingAutoremovedPackages.removeDuplicates();
+    if (m_pendingAutoremovedPackages.size() == 1) {
+        m_recoveryNotice = i18nd(
+            "kcm_fluffupdates",
+            "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove.",
+            m_pendingAutoremovedPackages.constFirst());
+    } else {
+        m_recoveryNotice = i18nd(
+            "kcm_fluffupdates",
+            "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1",
+            m_pendingAutoremovedPackages.join(QStringLiteral(", ")));
+    }
+    m_pendingAutoremovedPackages.clear();
+
+    const quint64 generation = ++m_recoveryNoticeGeneration;
+    Q_EMIT recoveryNoticeChanged();
+    QTimer::singleShot(10000, this, [this, generation] {
+        if (generation == m_recoveryNoticeGeneration) {
+            m_recoveryNotice.clear();
+            Q_EMIT recoveryNoticeChanged();
+        }
+    });
+}
+
+void FluffUpdates::resolveRemovalWarning(bool allowRemoval)
+{
+    const QString package = m_recoveryPackage;
+    const QString dialogType = m_recoveryDialogType;
+    const bool immediateRemoval = m_recoveryRequiresImmediateRemoval;
+    m_recoveryDialogType.clear();
+    m_recoveryPackage.clear();
+    m_recoveryRequiresImmediateRemoval = false;
+    Q_EMIT recoveryDialogChanged();
+
+    if (dialogType == QStringLiteral("protected")) {
+        m_recoveryActionState = QStringLiteral("protected");
+        Q_EMIT recoveryDialogChanged();
+        return;
+    }
+    if (!allowRemoval) {
+        m_recoveryActionState = QStringLiteral("warning");
+        Q_EMIT recoveryDialogChanged();
+        m_checking = false;
+        m_checkComplete = false;
+        m_updatesAvailable = false;
+        m_checkError.clear();
+        Q_EMIT checkStateChanged();
+        return;
+    }
+    if (m_recoveryActionState == QStringLiteral("warning")) {
+        m_recoveryActionState.clear();
+        Q_EMIT recoveryDialogChanged();
+    }
+    if (immediateRemoval) {
+        removeBlockingPackage(package);
+    } else {
+        m_approvedRemovals.insert(package);
+        m_checking = true;
+        Q_EMIT checkStateChanged();
+        readTransactionSummary();
+    }
+}
+
+void FluffUpdates::removeBlockingPackage(const QString &package)
+{
+    if (m_summaryProcess || package.isEmpty()) {
+        return;
+    }
+    m_checking = true;
+    Q_EMIT checkStateChanged();
+    m_summaryProcess = new QProcess(this);
+    m_summaryProcess->setProgram(QStringLiteral("pkexec"));
+    m_summaryProcess->setArguments({
+        QStringLiteral("/usr/lib/flufflinux-update/flufflinux-update-helper"),
+        QStringLiteral("--remove-package"), package,
+    });
+    m_summaryProcess->setProcessChannelMode(QProcess::MergedChannels);
+    connect(m_summaryProcess,
+            qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
+            [this](int exitCode, QProcess::ExitStatus status) {
+        const QString output = m_summaryProcess
+            ? QString::fromLocal8Bit(m_summaryProcess->readAll()) : QString();
+        if (m_summaryProcess) {
+            m_summaryProcess->deleteLater();
+            m_summaryProcess = nullptr;
+        }
+        if (status == QProcess::NormalExit && exitCode == 0) {
+            restartUpdateCheck();
+            return;
+        }
+        m_checking = false;
+        m_checkComplete = true;
+        m_updatesAvailable = false;
+        m_checkError = output.contains(QStringLiteral("PACMAN_RUNNING"))
+            ? i18nd("kcm_fluffupdates", "pacman process is already running.")
+            : i18nd("kcm_fluffupdates",
+                    "The conflicting package could not be removed. Please seek support.");
+        Q_EMIT checkStateChanged();
+    });
+    m_summaryProcess->start();
+}
+
 void FluffUpdates::readTransactionSummary()
 {
+    QStringList approvedRemovals = m_approvedRemovals.values();
+    approvedRemovals.sort();
     m_summaryProcess = new QProcess(this);
     m_summaryProcess->setProgram(QStringLiteral("pkexec"));
     m_summaryProcess->setArguments({
         QStringLiteral("/usr/lib/flufflinux-update/flufflinux-update-helper"),
         m_checkDatabasePath,
+        approvedRemovals.join(QLatin1Char(',')),
     });
     m_summaryProcess->setProcessChannelMode(QProcess::MergedChannels);
 
@@ -918,6 +1061,120 @@ void FluffUpdates::readTransactionSummary()
         // pipe. Remove ANSI terminal sequences before matching the summary.
         output.remove(QRegularExpression(QStringLiteral("\\x1B\\[[0-?]*[ -/]*[@-~]")));
 
+        const QRegularExpression protectedToken(
+            QStringLiteral("FLU_PROTECTED_REMOVAL:([A-Za-z0-9@._+:-]+)"));
+        const QRegularExpression warningToken(
+            QStringLiteral("FLU_WARNING_REMOVAL:([A-Za-z0-9@._+:-]+)"));
+        const QRegularExpression dependencyWarningToken(
+            QStringLiteral("FLU_WARNING_DEPENDENCY:([A-Za-z0-9@._+:-]+)"));
+        const QRegularExpression recheckToken(
+            QStringLiteral("FLU_AUTOREMOVED:([A-Za-z0-9@._+:-]+)"));
+        const auto protectedMatch = protectedToken.match(output);
+        const auto warningMatch = warningToken.match(output);
+        const auto dependencyWarningMatch = dependencyWarningToken.match(output);
+        const auto recheckMatch = recheckToken.match(output);
+
+        const QRegularExpression replacementToken(
+            QStringLiteral("FLU_REPLACEMENT:([A-Za-z0-9@._+:-]+)\\|([^|\\s]+)\\|([A-Za-z0-9@._+:-]+)\\|([^|\\s]+)"));
+        auto replacementIterator = replacementToken.globalMatch(output);
+        bool packageDataChanged = false;
+        QSet<QString> replacementNewNames;
+        while (replacementIterator.hasNext()) {
+            const auto match = replacementIterator.next();
+            const QString oldName = match.captured(1);
+            const QString newName = match.captured(3);
+            replacementNewNames.insert(newName);
+            for (qsizetype index = m_updatePackages.size() - 1; index >= 0;
+                 --index) {
+                const QVariantMap existing = m_updatePackages.at(index).toMap();
+                if (existing.value(QStringLiteral("name")).toString() == oldName
+                    || existing.value(QStringLiteral("name")).toString() == newName) {
+                    m_updatePackages.removeAt(index);
+                    packageDataChanged = true;
+                }
+            }
+            m_updatePackages.append(QVariantMap{
+                {QStringLiteral("name"), oldName},
+                {QStringLiteral("currentVersion"), match.captured(2)},
+                {QStringLiteral("newName"), newName},
+                {QStringLiteral("newVersion"), match.captured(4)},
+            });
+            packageDataChanged = true;
+        }
+
+        const QRegularExpression plannedPackageToken(
+            QStringLiteral("FLU_PLANNED_PACKAGE:([A-Za-z0-9@._+:-]+)\\|([^|\\s]+)"));
+        auto plannedIterator = plannedPackageToken.globalMatch(output);
+        while (plannedIterator.hasNext()) {
+            const auto match = plannedIterator.next();
+            const QString name = match.captured(1);
+            if (replacementNewNames.contains(name)) {
+                continue;
+            }
+            bool alreadyListed = false;
+            for (const QVariant &entry : std::as_const(m_updatePackages)) {
+                const QVariantMap package = entry.toMap();
+                if (package.value(QStringLiteral("name")).toString() == name
+                    || package.value(QStringLiteral("newName")).toString() == name) {
+                    alreadyListed = true;
+                    break;
+                }
+            }
+            if (alreadyListed) {
+                continue;
+            }
+            m_updatePackages.append(QVariantMap{
+                {QStringLiteral("name"), name},
+                {QStringLiteral("currentVersion"), QString()},
+                {QStringLiteral("newName"), name},
+                {QStringLiteral("newVersion"), match.captured(2)},
+            });
+            packageDataChanged = true;
+        }
+        if (packageDataChanged) {
+            Q_EMIT updatePackagesChanged();
+        }
+
+        if (protectedMatch.hasMatch()) {
+            m_recoveryRequiresImmediateRemoval = false;
+            m_recoveryPackage = protectedMatch.captured(1);
+            m_recoveryDialogType = QStringLiteral("protected");
+            m_recoveryActionState = QStringLiteral("protected");
+            m_checking = false;
+            m_checkComplete = false;
+            Q_EMIT recoveryDialogChanged();
+            Q_EMIT checkStateChanged();
+            return;
+        }
+        if (warningMatch.hasMatch()) {
+            m_recoveryRequiresImmediateRemoval = true;
+            m_recoveryPackage = warningMatch.captured(1);
+            m_recoveryDialogType = QStringLiteral("warning");
+            m_recoveryActionState = QStringLiteral("warning");
+            m_checking = false;
+            m_checkComplete = false;
+            Q_EMIT recoveryDialogChanged();
+            Q_EMIT checkStateChanged();
+            return;
+        }
+        if (dependencyWarningMatch.hasMatch()) {
+            m_recoveryRequiresImmediateRemoval = true;
+            m_recoveryPackage = dependencyWarningMatch.captured(1);
+            m_recoveryDialogType = QStringLiteral("warning");
+            m_recoveryActionState = QStringLiteral("warning");
+            m_checking = false;
+            m_checkComplete = false;
+            Q_EMIT recoveryDialogChanged();
+            Q_EMIT checkStateChanged();
+            return;
+        }
+        if (recheckMatch.hasMatch()) {
+            const QString package = recheckMatch.captured(1);
+            m_pendingAutoremovedPackages.append(package);
+            restartUpdateCheck();
+            return;
+        }
+
         const QString lowerOutput = output.toLower();
         if (exitStatus != QProcess::NormalExit) {
             m_checkError = i18nd("kcm_fluffupdates", "The privileged update check stopped unexpectedly.");
@@ -950,7 +1207,9 @@ void FluffUpdates::readTransactionSummary()
             // Pacman omits Total Download Size when all archives are cached.
             m_downloadSize = i18nd("kcm_fluffupdates", "No additional download required");
         } else {
-            m_checkError = i18nd("kcm_fluffupdates", "Update sizes could not be calculated.");
+            m_checkError = i18nd(
+                "kcm_fluffupdates",
+                "An unknown error has occurred. Please report this issue on our GitHub page for assistance.");
         }
 
         if (!m_checkError.isEmpty()) {
@@ -961,13 +1220,21 @@ void FluffUpdates::readTransactionSummary()
             m_diskChange = QString::number(qAbs(netValue), 'f', 2)
                 + QLatin1Char(' ') + netMatch.captured(2);
         } else {
-            m_checkError = i18nd("kcm_fluffupdates", "Update sizes could not be calculated.");
+            m_checkError = i18nd(
+                "kcm_fluffupdates",
+                "An unknown error has occurred. Please report this issue on our GitHub page for assistance.");
         }
 
         afterMinimumCheckDuration([this] {
             m_checking = false;
             m_checkComplete = true;
             Q_EMIT checkStateChanged();
+            // Let the refreshed package list and Install Updates controls
+            // become visible before presenting the recovery note below them.
+            if (m_checkError.isEmpty() && m_updatesAvailable) {
+                QTimer::singleShot(0, this,
+                                   [this] { showPendingAutoremoveNotice(); });
+            }
         });
     });
     m_summaryProcess->start();
@@ -1012,6 +1279,34 @@ void FluffUpdates::readInstallState()
         state.value(QStringLiteral("total_download_bytes")).toInteger();
     m_downloadSpeed = state.value(QStringLiteral("speed")).toString();
 
+    const qint64 recoveryNoticeId =
+        state.value(QStringLiteral("recovery_notice_id")).toInteger();
+    if (recoveryNoticeId > 0 && recoveryNoticeId != m_lastRecoveryNoticeId) {
+        m_lastRecoveryNoticeId = recoveryNoticeId;
+        const QString original =
+            state.value(QStringLiteral("recovery_original_file")).toString();
+        const QString preserved =
+            state.value(QStringLiteral("recovery_preserved_file")).toString();
+        if (!original.isEmpty() && !preserved.isEmpty()) {
+            m_recoveryNotice = i18nd(
+                "kcm_fluffupdates",
+                "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted.",
+                original,
+                preserved);
+        } else {
+            m_recoveryNotice =
+                state.value(QStringLiteral("recovery_notice")).toString();
+        }
+        const quint64 generation = ++m_recoveryNoticeGeneration;
+        Q_EMIT recoveryNoticeChanged();
+        QTimer::singleShot(10000, this, [this, generation] {
+            if (generation == m_recoveryNoticeGeneration) {
+                m_recoveryNotice.clear();
+                Q_EMIT recoveryNoticeChanged();
+            }
+        });
+    }
+
     const QVariantList savedPackages =
         state.value(QStringLiteral("updates")).toArray().toVariantList();
     if (!savedPackages.isEmpty() && savedPackages != m_updatePackages) {
@@ -1036,10 +1331,11 @@ void FluffUpdates::readInstallState()
     if (phase == QStringLiteral("failed")) {
         const QString error = state.value(QStringLiteral("error")).toString();
         if (error == QStringLiteral("DOWNLOAD_FAILED")
+            || error == QStringLiteral("DOWNLOAD_CONNECTION_FAILED")
             || error == QStringLiteral("TRANSACTION_PREPARE_FAILED")) {
             m_installError = i18nd(
                 "kcm_fluffupdates",
-                "The update download failed. Check your connection and try again.");
+                "Connection failed while downloading updates. Check your network and try again.");
         } else if (error == QStringLiteral("INSTALL_FAILED")) {
             m_installError =
                 i18nd("kcm_fluffupdates", "The system update failed.");

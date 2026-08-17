@@ -1,277 +1,291 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: mt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1) ? 0 : (n==0 || (n%100>1 && n%100<11)) ? 1 : (n%100>10 && n%100<20) ? 2 : 3;\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Aġġornamenti tas-Sistema"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Żomm Fluff Linux sigur u aġġornat billi tinstalla aġġornamenti tas-sistema."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "L-aħħar aġġornament tas-sistema: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Iċċekkja għal Aġġornamenti"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Installa Aġġornamenti"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Ara l-Aġġornamenti"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Ibdel il-fehma"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Aġġornamenti għall-Installazzjoni"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Id-dettalji tal-pakkett mhumiex disponibbli."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Fluff Linux Update għadu taħt żvilupp. Jekk tiltaqa' ma' xi kwistjoni, jekk jogħġbok irrapportaha fuq il-paġna GitHub tagħna."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "L-aġġornamenti tas-sistema ġew installati b'suċċess."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Ebda konnessjoni tan-netwerk!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Il-konnessjoni tan-netwerk hija limitata. Jekk m'intix konness ma' netwerk organizzattiv, jekk jogħġbok iċċekkja l-konnessjoni tal-internet tiegħek."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "Il-proċess pacman diġà qed jaħdem."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Il-proċess ta' aġġornament ma setax jinbeda."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Il-proċess ta' aġġornament ma setax jiġi kkanċellat."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Il-konnessjoni falliet waqt it-tniżżil tal-aġġornamenti. Iċċekkja n-netwerk tiegħek u erġa' pprova."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "L-aġġornament tas-sistema falla."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Niżżel aġġornamenti..."
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Jinstallaw aġġornamenti..."
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "%1 / %2 jitniżżel"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "Aġġornamenti %1/%2 installati"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Bħalissa qed jiġu installati aġġornamenti. Jekk jogħġbok evita li titfi jew terġa' tibda l-kompjuter sakemm titlesta l-installazzjoni. L-interruzzjoni tal-aġġornament tista' tagħmel ħsara lill-fajls tas-sistema."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Il-batterija hija baxxa. Jekk jogħġbok daħħal il-kompjuter tiegħek qabel tinstalla l-aġġornamenti."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Il-proċess ta' aġġornament ġie kkanċellat"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Ikkanċella"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Qed niċċekkja għal aġġornamenti..."
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "Aġġornamenti tas-sistema huma disponibbli"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Niżżel id-daqs: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Ħażna meħtieġa għall-aġġornamenti tas-sistema: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Ħażna meħlusa wara aġġornament: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Ebda download addizzjonali meħtieġ"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Il-kontroll tal-aġġornament ma setax jinbeda. Kun żgur li pacman-contrib huwa installat."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Il-kontroll tal-aġġornament waqaf bla mistenni."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Sar żball mhux magħruf. Jekk jogħġbok irrapporta din il-kwistjoni fuq il-paġna GitHub tagħna għall-għajnuna."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Ebda konnessjoni tal-internet. Iċċekkja n-netwerk tiegħek u erġa' pprova."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Is-servers tar-repożitorju ma setgħux jintlaħqu. Erġa' pprova aktar tard jew iċċekkja l-konfigurazzjoni tal-mera tiegħek."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Żball fl-awtorizzazzjoni, jekk jogħġbok erġa' pprova."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Il-kontroll tal-aġġornament privileġġjat waqaf bla mistenni."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Il-kontroll tal-aġġornament privileġġjat ma setax jinbeda."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "Is-sistema ma kinitx aġġornata qabel."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "L-informazzjoni tal-aħħar aġġornament ma setgħetx tinqara."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "L-informazzjoni tal-aħħar aġġornament mhix valida."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "L-aġġornamenti ma ġewx installati fuq din is-sistema"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "Biex taġġorna s-sistema, iċċekkja għal aġġornamenti disponibbli billi tuża l-buttuna hawn taħt."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "Data tal-aġġornament disponibbli"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Aġġornata reċentement"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "Is-sistema hija aġġornata"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "L-aħħar aġġornament ġie installat aktar minn xahar ilu"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "L-aħħar aġġornament ġie installat aktar minn tliet xhur ilu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 it-tieni ilu"
+msgstr[1] "%1 sekondi ilu"
+msgstr[2] "%1 sekondi ilu"
+msgstr[3] "%1 sekondi ilu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "%1 minuta ilu"
+msgstr[1] "%1 minuti ilu"
+msgstr[2] "%1 minuti ilu"
+msgstr[3] "%1 minuti ilu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 siegħa ilu"
+msgstr[1] "%1 sigħat ilu"
+msgstr[2] "%1 sigħat ilu"
+msgstr[3] "%1 sigħat ilu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "%1 jum ilu"
+msgstr[1] "%1 jiem ilu"
+msgstr[2] "%1 jiem ilu"
+msgstr[3] "%1 jiem ilu"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Hija meħtieġa azzjoni"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Hija meħtieġa azzjoni!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Azzjoni meħtieġa"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Fluff Linux Update ma jistax ikompli minħabba li l-aġġornament li jmiss jeħtieġ li titneħħa \"%1\", li huwa pakkett tas-sistema protetta. It-tneħħija tista' tipprevjeni lil Fluff Linux milli jaħdem b'mod korrett. Jekk jogħġbok irrapporta din il-kwistjoni fuq GitHub għall-għajnuna."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "Biex tippermetti lis-sistema tinstalla aġġornamenti, Fluff Linux Update jeħtieġ li tneħħi \"%1\". It-tneħħija ta' dan il-pakkett tista' taffettwa s-softwer relatat. Jekk m'intix ċert, jekk jogħġbok irrapporta l-kwistjoni fuq GitHub għall-għajnuna."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Aċċetta"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Agħlaq"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "Biex l-aġġornamenti tas-sistema jitħallew ikomplu, %1 tneħħa awtomatikament wara li tqies li sikur biex jitneħħa."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "Biex l-aġġornamenti tas-sistema jitħallew ikomplu, il-pakketti li ġejjin tneħħew awtomatikament wara li tqiesu sikuri biex jitneħħew: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "Ġie skopert u solvut konflitt ta' fajls. %1 ingħata isem ġdid għal %2. Il-proċess ta' aġġornament reġa' beda."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Il-pakkett konfliġġenti ma setax jitneħħa. Jekk jogħġbok fittex appoġġ."

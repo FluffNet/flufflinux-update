@@ -61,8 +61,8 @@ msgstr "Le processus de mise à jour n’a pas pu démarrer."
 msgid "The update process could not be cancelled."
 msgstr "Le processus de mise à jour n’a pas pu être annulé."
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "Le téléchargement de la mise à jour a échoué. Vérifiez votre connexion et réessayez."
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "La connexion a échoué pendant le téléchargement des mises à jour. Vérifiez votre connexion réseau et réessayez."
 
 msgid "The system update failed."
 msgstr "La mise à jour du système a échoué."
@@ -115,17 +115,14 @@ msgstr "La recherche de mises à jour n’a pas pu démarrer. Vérifiez que pacm
 msgid "The update check stopped unexpectedly."
 msgstr "La recherche de mises à jour s’est arrêtée de façon inattendue."
 
-msgid "The update check failed."
-msgstr "La recherche de mises à jour a échoué."
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Une erreur inconnue s’est produite. Veuillez signaler ce problème sur notre page GitHub pour obtenir de l’aide."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "Aucune connexion Internet. Vérifiez votre réseau et réessayez."
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
 msgstr "Les serveurs des dépôts sont inaccessibles. Réessayez plus tard ou vérifiez la configuration de vos miroirs."
-
-msgid "Update sizes could not be calculated."
-msgstr "La taille des mises à jour n’a pas pu être calculée."
 
 msgid "Authorization error, please try again."
 msgstr "Erreur d’autorisation, veuillez réessayer."
@@ -185,3 +182,36 @@ msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "il y a %1 jour"
 msgstr[1] "il y a %1 jours"
+
+msgid "Action is required"
+msgstr "Une action est requise"
+
+msgid "Action is required!"
+msgstr "Une action est requise !"
+
+msgid "Action required"
+msgstr "Action requise"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update ne peut pas continuer, car la prochaine mise à jour nécessite la suppression de « %1 », qui est un paquet système protégé. Sa suppression pourrait empêcher Fluff Linux de fonctionner correctement. Veuillez signaler ce problème sur GitHub pour obtenir de l’aide."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Pour permettre au système d’installer les mises à jour, Fluff Linux Update doit supprimer « %1 ». La suppression de ce paquet peut affecter des logiciels associés. En cas de doute, veuillez signaler le problème sur GitHub pour obtenir de l’aide."
+
+msgid "Accept"
+msgstr "Accepter"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Pour permettre aux mises à jour du système de continuer, %1 a été supprimé automatiquement après que sa suppression a été jugée sûre."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Pour permettre aux mises à jour du système de continuer, les paquets suivants ont été supprimés automatiquement après que leur suppression a été jugée sûre : %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Un conflit de fichiers a été détecté et résolu. %1 a été renommé en %2. Le processus de mise à jour a redémarré."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Le paquet en conflit n’a pas pu être supprimé. Veuillez contacter l’assistance."
