@@ -1,277 +1,295 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: ga\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=(n==1) ? 0 : (n==2) ? 1 : (n<7) ? 2 : (n<11) ? 3 : 4;\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Nuashonruithe Córais"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Coinnigh Fluff Linux slán agus cothrom le dáta trí nuashonruithe córais a shuiteáil."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "Nuashonraíodh an córas: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Seiceáil le haghaidh Nuashonruithe"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Suiteáil Nuashonruithe"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Féach ar Nuashonruithe"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Athraigh radharc"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Nuashonruithe le Suiteáil"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Níl sonraí an phacáiste ar fáil."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Tá Fluff Linux Update fós á fhorbairt. Má thagann tú trasna ar fhadhb, cuir in iúl é ar ár leathanach GitHub."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "Suiteáladh nuashonruithe córais go rathúil."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Gan nasc líonra!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Tá nasc líonra teoranta. Mura bhfuil tú nasctha le líonra eagraíochtúil, seiceáil le do thoil do nasc idirlín."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "Tá próiseas pacman ar siúl cheana féin."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Níorbh fhéidir an próiseas nuashonraithe a thosú."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Níorbh fhéidir an próiseas nuashonraithe a chur ar ceal."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Theip ar an gceangal agus nuashonruithe á n-íoslódáil. Seiceáil do líonra agus bain triail eile as."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "Theip ar nuashonrú an chórais."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Nuashonruithe á n-íoslódáil…"
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Nuashonruithe á suiteáil…"
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "%1 / %2 íoslódáil"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "Nuashonruithe %1/%2 suiteáilte"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Tá nuashonruithe á suiteáil faoi láthair. Le do thoil, seachain an ríomhaire a chumhachtú nó a atosú go dtí go mbeidh an tsuiteáil críochnaithe. Má chuirtear isteach ar an nuashonrú, féadfar damáiste a dhéanamh do chomhaid an chórais."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Tá an ceallraí íseal. Le do thoil plugáil isteach do ríomhaire roimh nuashonruithe a shuiteáil."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Cuireadh an próiseas nuashonraithe ar ceal"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Cealaigh"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Nuashonruithe á seiceáil…"
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "Tá nuashonruithe córais ar fáil"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Méid íoslódála: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Stóráil ag teastáil le haghaidh nuashonruithe córais: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Stóráil saor tar éis nuashonrú: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Níl gá le híoslódáil breise"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Níorbh fhéidir an seiceálaí nuashonraithe a thosú. Bí cinnte go bhfuil pacman-contrib suiteáilte."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Stopadh an tseiceáil nuashonraithe gan choinne."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Tharla earráid anaithnid. Cuir an cheist seo in iúl ar ár leathanach GitHub chun cúnamh a fháil."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Gan nasc idirlín. Seiceáil do líonra agus bain triail eile as."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Níorbh fhéidir na freastalaithe stórtha a bhaint amach. Bain triail eile as ar ball nó seiceáil do chumraíocht scátháin."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Earráid údaraithe, bain triail eile as."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Stopadh an tseiceáil nuashonraithe phribhléideach gan choinne."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Níorbh fhéidir an tseiceáil nuashonraithe phribhléideach a thosú."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "Níor nuashonraíodh an córas roimhe seo."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "Níorbh fhéidir an fhaisnéis nuashonraithe is déanaí a léamh."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "Tá an fhaisnéis nuashonraithe is déanaí neamhbhailí."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "Níor suiteáladh nuashonruithe ar an gcóras seo"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "Chun an córas a nuashonrú, seiceáil le haghaidh nuashonruithe atá ar fáil ag baint úsáide as an gcnaipe thíos."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "Dáta nuashonraithe ar fáil"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Nuashonraithe le déanaí"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "Tá an córas cothrom le dáta"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "Suiteáladh an nuashonrú is déanaí níos mó ná mí ó shin"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "Suiteáladh an nuashonrú is déanaí níos mó ná trí mhí ó shin"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 soicind ó shin"
+msgstr[1] "%1 soicind ó shin"
+msgstr[2] "%1 soicind ó shin"
+msgstr[3] "%1 soicind ó shin"
+msgstr[4] "%1 soicind ó shin"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "%1 nóiméad ó shin"
+msgstr[1] "%1 nóiméad ó shin"
+msgstr[2] "%1 nóiméad ó shin"
+msgstr[3] "%1 nóiméad ó shin"
+msgstr[4] "%1 nóiméad ó shin"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 uair an chloig ó shin"
+msgstr[1] "%1 uair an chloig ó shin"
+msgstr[2] "%1 uair an chloig ó shin"
+msgstr[3] "%1 uair an chloig ó shin"
+msgstr[4] "%1 uair an chloig ó shin"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "%1 lá ó shin"
+msgstr[1] "%1 lá ó shin"
+msgstr[2] "%1 lá ó shin"
+msgstr[3] "%1 lá ó shin"
+msgstr[4] "%1 lá ó shin"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Tá gníomh ag teastáil"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Tá gníomh ag teastáil!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Gníomh de dhíth"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Ní féidir le Fluff Linux Update leanúint ar aghaidh mar éilíonn an nuashonrú atá le teacht \"%1\" a bhaint, ar pacáiste córais cosanta é. D'fhéadfaí cosc ​​a chur ar Fluff Linux oibriú i gceart dá mbainfí é. Cuir an cheist seo in iúl ar GitHub le do thoil chun cabhair a fháil."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "Chun gur féidir leis an gcóras nuashonruithe a shuiteáil, ní mór do Fluff Linux Update “%1” a bhaint. Má bhaintear an pacáiste seo, d'fhéadfadh sé go gcuirfí isteach ar na bogearraí gaolmhara. Mura bhfuil tú cinnte, tuairiscigh an cheist ar GitHub chun cabhair a fháil."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Glac"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Dún"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "Chun gur féidir le nuashonruithe córais leanúint ar aghaidh, baineadh %1 go huathoibríoch nuair a measadh go raibh sé sábháilte é a bhaint."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "Chun gur féidir le nuashonruithe córais leanúint ar aghaidh, baineadh na pacáistí seo a leanas go huathoibríoch tar éis gur measadh go raibh sé sábháilte iad a bhaint: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "Braitheadh ​​agus réitíodh coinbhleacht comhaid. Athainmníodh %1 go %2. Tá an próiseas nuashonraithe tosaithe arís."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Níorbh fhéidir an pacáiste contrártha a bhaint. Iarr tacaíocht le do thoil."

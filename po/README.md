@@ -3,8 +3,8 @@
 Thank you for helping translate Fluff Linux. You do not need to understand C++
 or QML to add a language.
 
-Included catalogs currently cover Arabic, French, German, Hebrew, Japanese,
-Russian, Spanish, and Swedish.
+Included catalogs cover every official European Union language together with
+Arabic, Hebrew, Japanese, and Russian. English is the source language.
 
 ## Add your language
 
@@ -60,7 +60,7 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | Cancel | Button available only while packages are downloading. |
 | The update process could not be started. | Background worker launch failure. |
 | The update process could not be cancelled. | Download cancellation failure. |
-| The update download failed. Check your connection and try again. | Download-phase failure. |
+| Connection failed while downloading updates. Check your network and try again. | Download-phase connection failure. |
 | The system update failed. | Installation-phase pacman failure. |
 | Checking for updates… | Temporary status while repositories are checked. |
 | System updates are available | Result when pending system upgrades exist. |
@@ -70,10 +70,9 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | No additional download required | Required packages are already cached. |
 | The update checker could not be started. Make sure pacman-contrib is installed. | Missing helper error. |
 | The update check stopped unexpectedly. | Checker process ended abnormally. |
-| The update check failed. | Generic checking error. |
+| An unknown error has occurred. Please report this issue on our GitHub page for assistance. | Generic red error below the Check for Updates button when the failure cannot be identified. |
 | No internet connection. Check your network and try again. | Red error when DNS or network connectivity is unavailable. |
 | The repository servers could not be reached. Try again later or check your mirror configuration. | Red error when mirrors or repository databases cannot be reached. |
-| Update sizes could not be calculated. | Pacman found updates, but its transaction-size summary could not be read. |
 | Authorization error, please try again. | Polkit authorization was cancelled, denied, or otherwise failed. |
 | The privileged update check stopped unexpectedly. | Privileged transaction calculation ended abnormally. |
 | The privileged update check could not be started. | Polkit or privileged pacman process could not be launched. |
@@ -88,6 +87,16 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | Last update was installed more than a month ago | Yellow status for an update older than one month. |
 | Last update was installed more than three months ago | Orange status for an update older than three months. |
 | %1 second/minute/hour/day ago | Relative age beside the exact date. Preserve `%1`; plural forms follow the language’s rules. |
+| Action is required | Temporary red status while a warning package removal requires a decision. |
+| Action is required! | Temporary red status when a protected package blocks the update. |
+| Action required | Title of the warning and protected package dialogs. |
+| Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance. | Protected package dialog. Preserve `%1`. |
+| To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help. | Warning package decision dialog. Preserve `%1`. |
+| Accept | Approves removal of a warning package. |
+| Close | Closes a protected package dialog without changing the system. |
+| To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove. | Ten-second notice for one safe automatic removal. Preserve `%1`. |
+| To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1 | Ten-second notice for multiple safe automatic removals. Preserve `%1`. |
+| A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted. | Ten-second file conflict recovery notice. Preserve `%1` and `%2`. |
 
 The panel name and description shown in the System Settings search results also
 have translations in `src/kcm_fluffupdates.json`. The application-menu entry is

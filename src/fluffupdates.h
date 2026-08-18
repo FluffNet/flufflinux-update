@@ -3,6 +3,8 @@
 #include <KQuickConfigModule>
 
 #include <QString>
+#include <QStringList>
+#include <QSet>
 #include <QVariantList>
 
 #include <functional>
@@ -46,6 +48,10 @@ class FluffUpdates final : public KQuickConfigModule
     Q_PROPERTY(bool updateWindowMaximized READ updateWindowMaximized CONSTANT)
     Q_PROPERTY(bool networkConnected READ networkConnected NOTIFY networkConnectedChanged)
     Q_PROPERTY(bool networkLimited READ networkLimited NOTIFY networkLimitedChanged)
+    Q_PROPERTY(QString recoveryDialogType READ recoveryDialogType NOTIFY recoveryDialogChanged)
+    Q_PROPERTY(QString recoveryPackage READ recoveryPackage NOTIFY recoveryDialogChanged)
+    Q_PROPERTY(QString recoveryNotice READ recoveryNotice NOTIFY recoveryNoticeChanged)
+    Q_PROPERTY(QString recoveryActionState READ recoveryActionState NOTIFY recoveryDialogChanged)
 
 public:
     explicit FluffUpdates(QObject *parent, const KPluginMetaData &data);
@@ -82,6 +88,10 @@ public:
     bool updateWindowMaximized() const;
     bool networkConnected() const;
     bool networkLimited() const;
+    QString recoveryDialogType() const;
+    QString recoveryPackage() const;
+    QString recoveryNotice() const;
+    QString recoveryActionState() const;
 
     Q_INVOKABLE void refresh();
     Q_INVOKABLE void checkForUpdates();
@@ -91,6 +101,7 @@ public:
     Q_INVOKABLE void setPacmanView(bool enabled);
     Q_INVOKABLE void saveUpdateWindowState(int width, int height,
                                            bool maximized);
+    Q_INVOKABLE void resolveRemovalWarning(bool allowRemoval);
 
 Q_SIGNALS:
     void lastUpdateChanged();
@@ -101,6 +112,8 @@ Q_SIGNALS:
     void batteryStateChanged();
     void updatePackagesChanged();
     void pacmanViewChanged();
+    void recoveryDialogChanged();
+    void recoveryNoticeChanged();
 
 private:
     void readStateFile();
@@ -110,6 +123,9 @@ private:
     void readInstallState();
     void updateNetworkState();
     void updateBatteryState();
+    void removeBlockingPackage(const QString &package);
+    void restartUpdateCheck();
+    void showPendingAutoremoveNotice();
 
     QString m_lastUpdate;
     QString m_stateMessage;
@@ -150,4 +166,14 @@ private:
     bool m_networkConnected = true;
     bool m_networkLimited = false;
     bool m_batteryLow = false;
+    QString m_recoveryDialogType;
+    QString m_recoveryPackage;
+    QString m_recoveryNotice;
+    QString m_recoveryActionState;
+    quint64 m_recoveryNoticeGeneration = 0;
+    bool m_recoveryRequiresImmediateRemoval = false;
+    bool m_recoveryRestartPending = false;
+    QStringList m_pendingAutoremovedPackages;
+    QSet<QString> m_approvedRemovals;
+    qint64 m_lastRecoveryNoticeId = 0;
 };

@@ -6,7 +6,9 @@
 #include <QJsonObject>
 #include <QProcess>
 #include <QProcessEnvironment>
+#include <QRegularExpression>
 #include <QSaveFile>
+#include <QSet>
 #include <QString>
 
 #include <csignal>
@@ -23,6 +25,178 @@ constexpr auto StatePath = "/etc/pacman.d/flufflinux-update-state.json";
 constexpr auto LastUpdatePath = "/etc/pacman.d/lastupdate.json";
 constexpr auto LastUpdateKey = "last_successful_system_update";
 constexpr auto LockPath = "/var/lib/pacman/db.lck";
+constexpr auto ProtectionPath =
+    "/etc/pacman.d/flufflinux-update-package-protection.json";
+
+enum class RemovalClass { Protected, Warning, Autoremove };
+
+bool pacmanRunning();
+
+struct ProtectionPolicy {
+    QSet<QString> protectedPackages;
+    QSet<QString> warningPackages;
+    bool valid = false;
+};
+
+ProtectionPolicy readProtectionPolicy()
+{
+    QFile file(QString::fromLatin1(ProtectionPath));
+    if (!file.open(QIODevice::ReadOnly)) {
+        // Fail closed if the packaged policy disappeared: never silently
+        // remove an unknown package without the administrator's policy file.
+        return {};
+    }
+    const QJsonDocument document = QJsonDocument::fromJson(file.readAll());
+    if (!document.isObject()) {
+        return {};
+    }
+    ProtectionPolicy policy;
+    const auto append = [](const QJsonArray &array, QSet<QString> &target) {
+        for (const QJsonValue &value : array) {
+            const QString package = value.toString();
+            if (!package.isEmpty()) {
+                target.insert(package);
+            }
+        }
+    };
+    append(document.object().value(QStringLiteral("protected")).toArray(),
+           policy.protectedPackages);
+    append(document.object().value(QStringLiteral("warning")).toArray(),
+           policy.warningPackages);
+    policy.valid = true;
+    return policy;
+}
+
+RemovalClass classifyRemoval(const ProtectionPolicy &policy,
+                             const QString &package)
+{
+    if (!policy.valid) {
+        return RemovalClass::Protected;
+    }
+    if (policy.protectedPackages.contains(package)) {
+        return RemovalClass::Protected;
+    }
+    if (policy.warningPackages.contains(package)) {
+        return RemovalClass::Warning;
+    }
+    return RemovalClass::Autoremove;
+}
+
+bool validPackageName(const QString &package)
+{
+    static const QRegularExpression valid(
+        QStringLiteral("^[A-Za-z0-9@._+:-]+$"));
+    return valid.match(package).hasMatch();
+}
+
+QString installedPackageVersion(const QString &package)
+{
+    QProcess query;
+    query.setProgram(QString::fromLatin1(PacmanPath));
+    query.setArguments({QStringLiteral("-Q"), package});
+    query.setProcessChannelMode(QProcess::MergedChannels);
+    QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+    environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
+    query.setProcessEnvironment(environment);
+    query.start();
+    if (!query.waitForStarted() || !query.waitForFinished(5000)
+        || query.exitStatus() != QProcess::NormalExit || query.exitCode() != 0) {
+        return {};
+    }
+    const QStringList fields = QString::fromLocal8Bit(query.readAll())
+        .trimmed().split(QRegularExpression(QStringLiteral("\\s+")));
+    return fields.size() >= 2 ? fields.constLast() : QString{};
+}
+
+QString syncPackageVersion(const QString &database, const QString &package)
+{
+    QProcess query;
+    query.setProgram(QString::fromLatin1(PacmanPath));
+    query.setArguments({QStringLiteral("--dbpath"), database,
+                        QStringLiteral("-Si"), package});
+    query.setProcessChannelMode(QProcess::MergedChannels);
+    QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+    environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
+    query.setProcessEnvironment(environment);
+    query.start();
+    if (!query.waitForStarted() || !query.waitForFinished(5000)
+        || query.exitStatus() != QProcess::NormalExit || query.exitCode() != 0) {
+        return {};
+    }
+    const QString output = QString::fromLocal8Bit(query.readAll());
+    const QRegularExpression versionLine(
+        QStringLiteral("(?:^|\\n)Version\\s*:\\s*(\\S+)"));
+    const auto match = versionLine.match(output);
+    return match.hasMatch() ? match.captured(1) : QString{};
+}
+
+QList<QPair<QString, QString>> plannedPackages(const QString &database)
+{
+    QProcess query;
+    query.setProgram(QString::fromLatin1(PacmanPath));
+    query.setArguments({QStringLiteral("--dbpath"), database,
+                        QStringLiteral("-Sup"), QStringLiteral("--noconfirm"),
+                        QStringLiteral("--print-format"),
+                        QStringLiteral("%n|%v")});
+    query.setProcessChannelMode(QProcess::MergedChannels);
+    QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+    environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
+    query.setProcessEnvironment(environment);
+    query.start();
+    if (!query.waitForStarted() || !query.waitForFinished(15000)
+        || query.exitStatus() != QProcess::NormalExit || query.exitCode() != 0) {
+        return {};
+    }
+
+    QList<QPair<QString, QString>> result;
+    const QStringList lines = QString::fromLocal8Bit(query.readAll())
+        .split(QLatin1Char('\n'), Qt::SkipEmptyParts);
+    for (const QString &rawLine : lines) {
+        const QString line = rawLine.trimmed();
+        const qsizetype separator = line.indexOf(QLatin1Char('|'));
+        if (separator <= 0 || separator == line.size() - 1) {
+            continue;
+        }
+        const QString name = line.left(separator);
+        const QString version = line.mid(separator + 1);
+        if (validPackageName(name)
+            && !version.contains(QRegularExpression(QStringLiteral("\\s")))) {
+            result.append({name, version});
+        }
+    }
+    return result;
+}
+
+int removePackage(const QString &package)
+{
+    if (!validPackageName(package)) {
+        std::cerr << "INVALID_PACKAGE\n";
+        return 2;
+    }
+    if (pacmanRunning()) {
+        std::cerr << "PACMAN_RUNNING\n";
+        return 3;
+    }
+    if (QFile::exists(QString::fromLatin1(LockPath))) {
+        QFile::remove(QString::fromLatin1(LockPath));
+    }
+    QProcess pacman;
+    pacman.setProgram(QString::fromLatin1(PacmanPath));
+    pacman.setArguments({QStringLiteral("-Rdd"), QStringLiteral("--noconfirm"),
+                         package});
+    pacman.setProcessChannelMode(QProcess::MergedChannels);
+    QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+    environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
+    pacman.setProcessEnvironment(environment);
+    pacman.start();
+    if (!pacman.waitForStarted() || !pacman.waitForFinished(-1)) {
+        std::cerr << "PACKAGE_REMOVAL_FAILED\n";
+        return 1;
+    }
+    const QByteArray output = pacman.readAll();
+    std::cout.write(output.constData(), output.size());
+    return pacman.exitStatus() == QProcess::NormalExit ? pacman.exitCode() : 1;
+}
 
 bool pacmanRunning()
 {
@@ -68,8 +242,10 @@ bool writeState(const QJsonObject &state)
     return file.commit();
 }
 
-int transactionSummary(const QString &requestedDatabase)
+int transactionSummary(const QString &requestedDatabase,
+                       const QSet<QString> &approvedRemovals)
 {
+    Q_UNUSED(approvedRemovals);
     const QByteArray invokingUid = qgetenv("PKEXEC_UID");
     bool validUid = false;
     invokingUid.toUInt(&validUid);
@@ -84,6 +260,19 @@ int transactionSummary(const QString &requestedDatabase)
         std::cerr << "flufflinux-update-helper: invalid database path\n";
         return 2;
     }
+
+    // The transaction planner is intentionally terminated when FLU needs to
+    // resolve a removal before retrying. A killed pacman process cannot clean
+    // its temporary database lock itself. Because the path above is strictly
+    // tied to the invoking user, and no real pacman process is active, this is
+    // a stale lock owned by FLU's isolated check database and is safe to clear.
+    if (pacmanRunning()) {
+        std::cerr << "PACMAN_RUNNING\n";
+        return 3;
+    }
+    const QString temporaryLock = QDir(requestedDatabase)
+        .filePath(QStringLiteral("db.lck"));
+    QFile::remove(temporaryLock);
 
     QProcess pacman;
     pacman.setProgram(QString::fromLatin1(PacmanPath));
@@ -100,12 +289,134 @@ int transactionSummary(const QString &requestedDatabase)
         return 1;
     }
 
-    // Summary mode can never approve a transaction.
-    pacman.write("n\n");
-    pacman.closeWriteChannel();
-    pacman.waitForFinished(-1);
+    const ProtectionPolicy policy = readProtectionPolicy();
+    QByteArray output;
+    qsizetype parsedThrough = 0;
+    bool finalConfirmationAnswered = false;
+    QList<QPair<QString, QString>> replacements;
+    while (pacman.state() != QProcess::NotRunning) {
+        pacman.waitForReadyRead(100);
+        output += pacman.readAll();
+        const QString text = QString::fromLocal8Bit(output);
+        const QString unparsed = text.mid(parsedThrough);
 
-    const QByteArray output = pacman.readAll();
+        static const QRegularExpression replacement(
+            QStringLiteral("Replace\\s+([A-Za-z0-9@._+:-]+)\\s+with\\s+(?:[A-Za-z0-9@._+:-]+/)?([A-Za-z0-9@._+:-]+)\\?\\s*\\[Y/n\\]"),
+            QRegularExpression::CaseInsensitiveOption);
+        const auto replacementMatch = replacement.match(unparsed);
+        if (replacementMatch.hasMatch()) {
+            replacements.append({replacementMatch.captured(1),
+                                 replacementMatch.captured(2)});
+            pacman.write("y\n");
+            pacman.waitForBytesWritten();
+            parsedThrough += replacementMatch.capturedEnd();
+            continue;
+        }
+
+        static const QRegularExpression removal(
+            QStringLiteral("Remove\\s+([A-Za-z0-9@._+:-]+)\\?\\s*\\[y/N\\]"),
+            QRegularExpression::CaseInsensitiveOption);
+        const auto removalMatch = removal.match(unparsed);
+        if (removalMatch.hasMatch()) {
+            const QString package = removalMatch.captured(1);
+            switch (classifyRemoval(policy, package)) {
+            case RemovalClass::Protected:
+                pacman.kill();
+                pacman.waitForFinished();
+                QFile::remove(temporaryLock);
+                std::cout << output.constData();
+                std::cout << "\nFLU_PROTECTED_REMOVAL:" << package.toStdString()
+                          << "\n";
+                return 20;
+            case RemovalClass::Warning:
+                pacman.kill();
+                pacman.waitForFinished();
+                QFile::remove(temporaryLock);
+                std::cout << output.constData();
+                std::cout << "\nFLU_WARNING_REMOVAL:" << package.toStdString()
+                          << "\n";
+                return 21;
+            case RemovalClass::Autoremove:
+                pacman.kill();
+                pacman.waitForFinished();
+                QFile::remove(temporaryLock);
+                if (removePackage(package) != 0) {
+                    std::cout.write(output.constData(), output.size());
+                    std::cout << "\nFLU_AUTOREMOVE_FAILED:"
+                              << package.toStdString() << "\n";
+                    return 22;
+                }
+                std::cout << "FLU_AUTOREMOVED:" << package.toStdString()
+                          << "\n";
+                return 23;
+            }
+        }
+
+        if (!finalConfirmationAnswered
+            && unparsed.contains(QStringLiteral("Proceed with installation?"))) {
+            // Planning mode accepts transaction questions but always refuses
+            // pacman's final confirmation, so this command cannot install.
+            pacman.write("n\n");
+            pacman.closeWriteChannel();
+            finalConfirmationAnswered = true;
+        }
+    }
+    output += pacman.readAll();
+
+    for (const auto &[oldPackage, newPackage] : replacements) {
+        const QString oldVersion = installedPackageVersion(oldPackage);
+        const QString newVersion = syncPackageVersion(requestedDatabase,
+                                                      newPackage);
+        if (!oldVersion.isEmpty() && !newVersion.isEmpty()) {
+            std::cout << "FLU_REPLACEMENT:" << oldPackage.toStdString() << '|'
+                      << oldVersion.toStdString() << '|'
+                      << newPackage.toStdString() << '|'
+                      << newVersion.toStdString() << "\n";
+        }
+    }
+    for (const auto &[package, version] : plannedPackages(requestedDatabase)) {
+        std::cout << "FLU_PLANNED_PACKAGE:" << package.toStdString() << '|'
+                  << version.toStdString() << "\n";
+    }
+
+    // A dependency break can abort before pacman asks an interactive removal
+    // question. The package after "required by" is the installed blocker.
+    if (pacman.exitCode() != 0) {
+        const QString text = QString::fromLocal8Bit(output);
+        const QRegularExpression requiredBy(
+            QStringLiteral("required by\\s+([A-Za-z0-9@._+:-]+)"));
+        auto iterator = requiredBy.globalMatch(text);
+        QSet<QString> blockers;
+        while (iterator.hasNext()) {
+            blockers.insert(iterator.next().captured(1));
+        }
+        for (const QString &package : blockers) {
+            const RemovalClass removalClass = classifyRemoval(policy, package);
+            if (removalClass == RemovalClass::Protected) {
+                std::cout.write(output.constData(), output.size());
+                std::cout << "\nFLU_PROTECTED_REMOVAL:" << package.toStdString()
+                          << "\n";
+                return 20;
+            }
+            if (removalClass == RemovalClass::Warning) {
+                std::cout.write(output.constData(), output.size());
+                std::cout << "\nFLU_WARNING_DEPENDENCY:" << package.toStdString()
+                          << "\n";
+                return 21;
+            }
+            const int removalResult = removePackage(package);
+            if (removalResult != 0) {
+                std::cout.write(output.constData(), output.size());
+                std::cout << "\nFLU_AUTOREMOVE_FAILED:" << package.toStdString()
+                          << "\n";
+                return 22;
+            }
+            std::cout << "FLU_AUTOREMOVED:" << package.toStdString()
+                      << "\n";
+            return 23;
+        }
+    }
+
     std::cout.write(output.constData(), output.size());
     std::cout.flush();
     return pacman.exitStatus() == QProcess::NormalExit ? pacman.exitCode() : 1;
@@ -201,6 +512,19 @@ int cancelInstallation()
         return 1;
     }
 
+    // systemctl stopping the worker also stops its pacman child. Remove any
+    // lock left behind by that cancelled download, but never touch the lock
+    // if a pacman process is still alive (including one started separately).
+    if (pacmanRunning()) {
+        std::cerr << "PACMAN_RUNNING\n";
+        return 3;
+    }
+    if (QFile::exists(QString::fromLatin1(LockPath))
+        && !QFile::remove(QString::fromLatin1(LockPath))) {
+        std::cerr << "CANCEL_FAILED\n";
+        return 1;
+    }
+
     state[QStringLiteral("phase")] = QStringLiteral("cancelled");
     state[QStringLiteral("progress")] = 0;
     state[QStringLiteral("speed")] = QString();
@@ -240,9 +564,19 @@ int recordCurrentUpdate()
 
 int main(int argc, char **argv)
 {
-    if (argc == 2 && QString::fromLocal8Bit(argv[1]).startsWith(
+    if ((argc == 2 || argc == 3) && QString::fromLocal8Bit(argv[1]).startsWith(
             QString::fromLatin1(DatabasePrefix))) {
-        return transactionSummary(QString::fromLocal8Bit(argv[1]));
+        QSet<QString> approved;
+        if (argc == 3) {
+            const QStringList names = QString::fromLocal8Bit(argv[2]).split(
+                QLatin1Char(','), Qt::SkipEmptyParts);
+            for (const QString &name : names) {
+                if (validPackageName(name)) {
+                    approved.insert(name);
+                }
+            }
+        }
+        return transactionSummary(QString::fromLocal8Bit(argv[1]), approved);
     }
 
     if (argc == 6 && QString::fromLocal8Bit(argv[1]) == QStringLiteral("--install")) {
@@ -254,6 +588,12 @@ int main(int argc, char **argv)
 
     if (argc == 2 && QString::fromLocal8Bit(argv[1]) == QStringLiteral("--cancel")) {
         return cancelInstallation();
+    }
+
+    if (argc == 3
+        && QString::fromLocal8Bit(argv[1])
+            == QStringLiteral("--remove-package")) {
+        return removePackage(QString::fromLocal8Bit(argv[2]));
     }
 
     if (argc == 2

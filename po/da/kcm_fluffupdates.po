@@ -1,277 +1,283 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Systemopdateringer"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Hold Fluff Linux sikker og opdateret ved at installere systemopdateringer."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "System sidst opdateret: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Se efter opdateringer"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Installer opdateringer"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Se opdateringer"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Skift visning"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Opdateringer til installation"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Pakkedetaljer er ikke tilgængelige."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Fluff Linux Update er stadig under udvikling. Hvis du støder på et problem, bedes du rapportere det på vores GitHub side."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "Systemopdateringer blev installeret."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Ingen netværksforbindelse!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Netværksforbindelsen er begrænset. Hvis du ikke er forbundet til et organisatorisk netværk, skal du kontrollere din internetforbindelse."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "pacman-processen kører allerede."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Opdateringsprocessen kunne ikke startes."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Opdateringsprocessen kunne ikke annulleres."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Forbindelsen mislykkedes under download af opdateringer. Tjek dit netværk, og prøv igen."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "Systemopdateringen mislykkedes."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Downloader opdateringer..."
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Installerer opdateringer..."
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "%1 / %2 downloadet"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "%1/%2 opdateringer installeret"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Opdateringer er i øjeblikket ved at blive installeret. Undgå at slukke eller genstarte computeren, indtil installationen er fuldført. Afbrydelse af opdateringen kan beskadige systemfiler."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Batteriet er lavt. Tilslut venligst din computer, før du installerer opdateringer."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Opdateringsprocessen blev annulleret"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Ophæve"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Søger efter opdateringer..."
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "Systemopdateringer er tilgængelige"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Download størrelse: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Lager påkrævet til systemopdateringer: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Lagerplads frigivet efter opdatering: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Ingen yderligere download påkrævet"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Opdateringskontrollen kunne ikke startes. Sørg for, at pacman-contrib er installeret."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Opdateringskontrollen stoppede uventet."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Der er opstået en ukendt fejl. Rapportér venligst dette problem på vores GitHub side for at få hjælp."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Ingen internetforbindelse. Tjek dit netværk, og prøv igen."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Lagerserverne kunne ikke nås. Prøv igen senere, eller tjek din spejlkonfiguration."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Godkendelsesfejl. Prøv venligst igen."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Det privilegerede opdateringstjek stoppede uventet."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Det privilegerede opdateringstjek kunne ikke startes."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "Systemet er ikke tidligere opdateret."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "De seneste opdateringsoplysninger kunne ikke læses."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "De seneste opdateringsoplysninger er ugyldige."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "Opdateringer blev ikke installeret på dette system"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "For at opdatere systemet skal du tjekke for tilgængelige opdateringer ved at bruge knappen nedenfor."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "Opdateringsdato tilgængelig"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Opdateret for nylig"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "Systemet er opdateret"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "Sidste opdatering blev installeret for mere end en måned siden"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "Sidste opdatering blev installeret for mere end tre måneder siden"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 for sekund siden"
+msgstr[1] "%1 sekunder siden"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "%1 minut siden"
+msgstr[1] "%1 minutter siden"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 time siden"
+msgstr[1] "%1 timer siden"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "%1 dag siden"
+msgstr[1] "%1 dage siden"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Handling er påkrævet"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Handling er påkrævet!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Handling påkrævet"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Fluff Linux Update kan ikke fortsætte, fordi den kommende opdatering kræver fjernelse af \"%1\", som er en beskyttet systempakke. Fjernelse af det kan forhindre Fluff Linux i at fungere korrekt. Rapportér venligst dette problem på GitHub for at få hjælp."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "For at lade systemet installere opdateringer, skal Fluff Linux Update fjerne \"%1\". Fjernelse af denne pakke kan påvirke relateret software. Hvis du ikke er sikker, bedes du rapportere problemet på GitHub for at få hjælp."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Acceptere"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Tæt"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "For at tillade systemopdateringer at fortsætte, blev %1 automatisk fjernet, efter at det blev anset for sikkert at fjerne."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "For at tillade systemopdateringer at fortsætte, blev følgende pakker automatisk fjernet, efter at de blev anset for sikre at fjerne: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "En filkonflikt blev fundet og løst. %1 blev omdøbt til %2. Opdateringsprocessen er genstartet."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Den modstridende pakke kunne ikke fjernes. Søg venligst support."

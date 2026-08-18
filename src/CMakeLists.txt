@@ -25,20 +25,26 @@ target_compile_definitions(kcm_fluffupdates PRIVATE
 add_executable(flufflinux-update-helper updatehelper.cpp)
 target_link_libraries(flufflinux-update-helper PRIVATE Qt6::Core)
 install(TARGETS flufflinux-update-helper
-    RUNTIME DESTINATION ${KDE_INSTALL_LIBDIR}/flufflinux-update
+    RUNTIME DESTINATION lib/flufflinux-update
 )
 
 add_executable(flufflinux-update-worker updateworker.cpp)
 target_link_libraries(flufflinux-update-worker PRIVATE Qt6::Core)
 install(TARGETS flufflinux-update-worker
-    RUNTIME DESTINATION ${KDE_INSTALL_LIBDIR}/flufflinux-update
+    RUNTIME DESTINATION lib/flufflinux-update
 )
 install(FILES flufflinux-update.service
-    DESTINATION ${KDE_INSTALL_LIBDIR}/systemd/system
+    DESTINATION lib/systemd/system
 )
 
 install(FILES org.flufflinux.update.policy
     DESTINATION ${KDE_INSTALL_DATADIR}/polkit-1/actions
+)
+
+# Package-removal policy consumed by the privileged helper. With DESTDIR this
+# is staged as fakeroot/etc/pacman.d/flufflinux-update-package-protection.json.
+install(FILES flufflinux-update-package-protection.json
+    DESTINATION ${KDE_INSTALL_SYSCONFDIR}/pacman.d
 )
 
 # Also expose the panel as a normal application-search result.

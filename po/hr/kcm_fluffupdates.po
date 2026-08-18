@@ -1,277 +1,287 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Ažuriranja sustava"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Održavajte Fluff Linux sigurnim i ažuriranim instaliranjem ažuriranja sustava."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "Zadnje ažuriranje sustava: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Provjerite ima li ažuriranja"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Instalirajte ažuriranja"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Pogledajte ažuriranja"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Promjena prikaza"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Ažuriranja za instalaciju"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Pojedinosti o paketu nisu dostupne."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Fluff Linux Update je još u razvoju. Ako naiđete na problem, prijavite ga na našoj stranici GitHub."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "Ažuriranja sustava su uspješno instalirana."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Nema mrežne veze!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Mrežna veza je ograničena. Ako niste spojeni na organizacijsku mrežu, provjerite internetsku vezu."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "pacman proces je već pokrenut."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Proces ažuriranja nije mogao biti pokrenut."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Proces ažuriranja nije mogao biti otkazan."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Povezivanje nije uspjelo tijekom preuzimanja ažuriranja. Provjerite svoju mrežu i pokušajte ponovo."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "Ažuriranje sustava nije uspjelo."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Preuzimanje ažuriranja..."
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Instaliranje ažuriranja…"
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "%1 / %2 preuzeto"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "Instalirana ažuriranja %1/%2"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Ažuriranja se trenutno instaliraju. Izbjegavajte isključivanje ili ponovno pokretanje računala dok instalacija ne završi. Prekid ažuriranja može oštetiti sistemske datoteke."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Baterija je slaba. Uključite svoje računalo prije instaliranja ažuriranja."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Proces ažuriranja je otkazan"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Otkazati"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Provjera ažuriranja..."
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "Dostupna su ažuriranja sustava"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Veličina preuzimanja: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Pohrana potrebna za ažuriranja sustava: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Pohrana oslobođena nakon ažuriranja: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Nije potrebno dodatno preuzimanje"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Provjera ažuriranja nije se mogla pokrenuti. Provjerite je li pacman-contrib instaliran."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Provjera ažuriranja je neočekivano prestala."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Došlo je do nepoznate pogreške. Za pomoć prijavite ovaj problem na našoj stranici GitHub."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Nema internetske veze. Provjerite svoju mrežu i pokušajte ponovo."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Nije moguće doći do poslužitelja spremišta. Pokušajte ponovno kasnije ili provjerite konfiguraciju zrcala."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Pogreška autorizacije, pokušajte ponovo."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Privilegirana provjera ažuriranja neočekivano je prestala."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Nije moguće pokrenuti privilegiranu provjeru ažuriranja."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "Sustav nije prethodno ažuriran."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "Podaci o posljednjem ažuriranju nisu se mogli pročitati."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "Podaci o posljednjem ažuriranju nisu valjani."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "Ažuriranja nisu instalirana na ovom sustavu"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "Za ažuriranje sustava provjerite dostupna ažuriranja pomoću gumba u nastavku."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "Dostupan datum ažuriranja"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Nedavno ažurirano"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "Sustav je ažuriran"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "Zadnje ažuriranje instalirano je prije više od mjesec dana"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "Zadnje ažuriranje instalirano je prije više od tri mjeseca"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 prije sekunde"
+msgstr[1] "%1 prije nekoliko sekundi"
+msgstr[2] "%1 prije nekoliko sekundi"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "%1 prije minute"
+msgstr[1] "%1 prije nekoliko minuta"
+msgstr[2] "%1 prije nekoliko minuta"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 prije sat vremena"
+msgstr[1] "%1 prije sati"
+msgstr[2] "%1 prije sati"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "Prije %1 dan"
+msgstr[1] "Prije %1 dana"
+msgstr[2] "Prije %1 dana"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Potrebna je akcija"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Potrebna je akcija!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Potrebna akcija"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Fluff Linux Update ne može nastaviti jer nadolazeće ažuriranje zahtijeva uklanjanje “%1”, koji je zaštićeni paket sustava. Njegovo uklanjanje moglo bi spriječiti ispravan rad Fluff Linux. Za pomoć prijavite ovaj problem na GitHub."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "Kako bi sustav mogao instalirati ažuriranja, Fluff Linux Update mora ukloniti “%1”. Uklanjanje ovog paketa može utjecati na povezani softver. Ako niste sigurni, prijavite problem na GitHub za pomoć."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Prihvatiti"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Zatvoriti"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "Kako bi se omogućilo nastavak ažuriranja sustava, %1 je automatski uklonjen nakon što se smatralo sigurnim za uklanjanje."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "Kako bi se omogućilo nastavak ažuriranja sustava, sljedeći paketi su automatski uklonjeni nakon što se smatralo sigurnima za uklanjanje: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "Sukob datoteka je otkriven i riješen. %1 je preimenovan u %2. Proces ažuriranja je ponovno pokrenut."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Paket u sukobu nije se mogao ukloniti. Molimo tražite podršku."

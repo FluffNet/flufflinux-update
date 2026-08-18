@@ -1,277 +1,287 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Project-Id-Version: kcm_fluffupdates 1.2\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20)) ? 1 : 2;\n"
 
 #. First half of the runtime window title.
 msgid "System Updates"
-msgstr ""
+msgstr "Aktualizacje systemu"
 
 #. Second half of the runtime window title.
 msgid "Fluff Linux Update"
-msgstr ""
+msgstr "Fluff Linux Update"
 
 #. Introductory sentence at the top of the page.
 msgid "Keep Fluff Linux secure and up to date by installing system updates."
-msgstr ""
+msgstr "Dbaj o bezpieczeństwo i aktualność Fluff Linux, instalując aktualizacje systemu."
 
 #. Date and relative age. Keep both %1 and %2 unchanged.
 msgid "System last updated: %1 (%2)"
-msgstr ""
+msgstr "Ostatnia aktualizacja systemu: %1 (%2)"
 
 #. Manually checks repositories for available system updates.
 msgid "Check for Updates"
-msgstr ""
+msgstr "Sprawdź aktualizacje"
 
 #. Starts installation after a successful update check.
 msgid "Install Updates"
-msgstr ""
+msgstr "Zainstaluj aktualizacje"
 
 #. Button beside Install Updates that opens the package/version list.
 msgid "View Updates"
-msgstr ""
+msgstr "Zobacz aktualizacje"
 
 #. Accessible name and tooltip for the eye button that switches update-list views.
 msgid "Change view"
-msgstr ""
+msgstr "Zmień widok"
 
 #. Title of the dialog listing packages and their version changes.
 msgid "Updates to Install"
-msgstr ""
+msgstr "Aktualizacje do zainstalowania"
 
 #. Fallback shown if the package/version list could not be parsed.
 msgid "Package details are unavailable."
-msgstr ""
+msgstr "Szczegóły pakietu są niedostępne."
 
 #. Information banner with development status and issue-reporting guidance.
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr ""
+msgstr "Fluff Linux Update jest wciąż w fazie rozwoju. Jeśli napotkasz problem, zgłoś go na naszej stronie GitHub."
 
 msgid "System updates were installed successfully."
-msgstr ""
+msgstr "Aktualizacje systemu zostały pomyślnie zainstalowane."
 
 #. Opens the Fluff Linux Update issue tracker.
 msgid "GitHub"
-msgstr ""
+msgstr "GitHub"
 
 #. Warning shown when the system reports no connected network link.
 msgid "No network connection!"
-msgstr ""
+msgstr "Brak połączenia sieciowego!"
 
 #. Informational note for a local or organizational link without confirmed internet access.
 msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
-msgstr ""
+msgstr "Połączenie sieciowe jest ograniczone. Jeśli nie masz połączenia z siecią organizacyjną, sprawdź swoje połączenie internetowe."
 
 #. Error shown when another pacman command is active.
 msgid "pacman process is already running."
-msgstr ""
+msgstr "Proces pacman już działa."
 
 #. Error shown when the background updater cannot be launched.
 msgid "The update process could not be started."
-msgstr ""
+msgstr "Nie można rozpocząć procesu aktualizacji."
 
 #. Error shown when a requested download cancellation fails.
 msgid "The update process could not be cancelled."
-msgstr ""
+msgstr "Nie można anulować procesu aktualizacji."
 
 #. Error shown when downloading packages fails.
 msgid "Connection failed while downloading updates. Check your network and try again."
-msgstr ""
+msgstr "Połączenie nie powiodło się podczas pobierania aktualizacji. Sprawdź swoją sieć i spróbuj ponownie."
 
 #. Error shown when pacman fails during package installation.
 msgid "The system update failed."
-msgstr ""
+msgstr "Aktualizacja systemu nie powiodła się."
 
 #. Heading during the cancellable package download phase.
 msgid "Downloading updates…"
-msgstr ""
+msgstr "Pobieram aktualizacje…"
 
 #. Heading during the non-cancellable package installation phase.
 msgid "Installing updates…"
-msgstr ""
+msgstr "Instaluję aktualizacje…"
 
 #. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
 msgid "%1 / %2 downloaded"
-msgstr ""
+msgstr "Pobrano %1 / %2"
 
 #. Package counter below the installation progress bar.
 msgid "%1/%2 updates installed"
-msgstr ""
+msgstr "Zainstalowano aktualizacje %1/%2"
 
 #. Safety warning shown while packages are being installed.
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
-msgstr ""
+msgstr "Aktualizacje są obecnie instalowane. Należy unikać wyłączania i ponownego uruchamiania komputera do czasu zakończenia instalacji. Przerwanie aktualizacji może spowodować uszkodzenie plików systemowych."
 
 #. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
 msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr ""
+msgstr "Poziom naładowania baterii jest niski. Przed zainstalowaniem aktualizacji należy podłączyć komputer."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
-msgstr ""
+msgstr "Proces aktualizacji został anulowany"
 
 #. Button which cancels only the package download phase.
 msgid "Cancel"
-msgstr ""
+msgstr "Anulować"
 
 #. Status shown while the temporary package database is being synchronized.
 msgid "Checking for updates…"
-msgstr ""
+msgstr "Sprawdzam dostępność aktualizacji…"
 
 #. Successful check result when pending upgrades exist.
 msgid "System updates are available"
-msgstr ""
+msgstr "Dostępne są aktualizacje systemu"
 
 #. Total data pacman must download. Keep %1 unchanged.
 msgid "Download size: %1"
-msgstr ""
+msgstr "Rozmiar pliku do pobrania: %1"
 
 #. Net additional storage required. Keep %1 unchanged.
 msgid "Storage required for system updates: %1"
-msgstr ""
+msgstr "Pamięć wymagana do aktualizacji systemu: %1"
 
 #. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
 msgid "Storage freed after update: %1"
-msgstr ""
+msgstr "Pamięć zwolniona po aktualizacji: %1"
 
 #. Shown when all required package archives are already cached.
 msgid "No additional download required"
-msgstr ""
+msgstr "Nie jest wymagane żadne dodatkowe pobieranie"
 
 #. Error shown when the pacman-contrib helper is missing.
 msgid "The update checker could not be started. Make sure pacman-contrib is installed."
-msgstr ""
+msgstr "Nie można uruchomić modułu sprawdzania aktualizacji. Upewnij się, że pacman-contrib jest zainstalowany."
 
 #. Error shown when the checker process crashes or is terminated.
 msgid "The update check stopped unexpectedly."
-msgstr ""
+msgstr "Sprawdzanie aktualizacji zostało nieoczekiwanie zatrzymane."
 
 #. Generic fallback when an update-check failure cannot be classified.
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr ""
+msgstr "Wystąpił nieznany błąd. Aby uzyskać pomoc, zgłoś ten problem na naszej stronie GitHub."
 
 #. Red error below the update button when networking is unavailable.
 msgid "No internet connection. Check your network and try again."
-msgstr ""
+msgstr "Brak połączenia z Internetem. Sprawdź swoją sieć i spróbuj ponownie."
 
 #. Red error below the update button when mirrors or repositories are unavailable.
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
-msgstr ""
+msgstr "Nie udało się uzyskać dostępu do serwerów repozytorium. Spróbuj ponownie później lub sprawdź konfigurację serwera lustrzanego."
 
 #. Error when polkit authorization is cancelled, denied, or otherwise fails.
 msgid "Authorization error, please try again."
-msgstr ""
+msgstr "Błąd autoryzacji. Spróbuj ponownie."
 
 #. Error when the privileged pacman calculation terminates abnormally.
 msgid "The privileged update check stopped unexpectedly."
-msgstr ""
+msgstr "Sprawdzanie aktualizacji uprzywilejowanych zostało nieoczekiwanie zatrzymane."
 
 #. Error when pkexec or the privileged pacman process cannot be launched.
 msgid "The privileged update check could not be started."
-msgstr ""
+msgstr "Nie można rozpocząć sprawdzania aktualizacji uprzywilejowanej."
 
 #. Shown when the state file or successful-update field does not exist.
 msgid "System was not previously updated."
-msgstr ""
+msgstr "System nie był wcześniej aktualizowany."
 
 #. Shown when the update-state file exists but cannot be opened.
 msgid "The last update information could not be read."
-msgstr ""
+msgstr "Nie można odczytać informacji o ostatniej aktualizacji."
 
 #. Shown when the update-state file does not contain valid JSON.
 msgid "The last update information is invalid."
-msgstr ""
+msgstr "Informacje o ostatniej aktualizacji są nieprawidłowe."
 
 #. Blue freshness status when no successful update date exists.
 msgid "Updates were not installed on this system"
-msgstr ""
+msgstr "Aktualizacje nie zostały zainstalowane w tym systemie"
 
 #. Guidance below the blue status when no successful update date exists.
 msgid "To update the system, check for available updates using the button below."
-msgstr ""
+msgstr "Aby zaktualizować system, sprawdź dostępność aktualizacji za pomocą przycisku poniżej."
 
 #. Blue fallback when a date is present but cannot be parsed for age.
 msgid "Update date available"
-msgstr ""
+msgstr "Dostępna data aktualizacji"
 
 #. Green freshness status for an update within the last month.
 msgid "Updated recently"
-msgstr ""
+msgstr "Niedawno zaktualizowano"
 
 #. Temporary green status after a successful check finds no available updates.
 msgid "System is up to date"
-msgstr ""
+msgstr "System jest aktualny"
 
 #. Yellow freshness status for an update older than one month.
 msgid "Last update was installed more than a month ago"
-msgstr ""
+msgstr "Ostatnia aktualizacja została zainstalowana ponad miesiąc temu"
 
 #. Orange freshness status for an update older than three months.
 msgid "Last update was installed more than three months ago"
-msgstr ""
+msgstr "Ostatnia aktualizacja została zainstalowana ponad trzy miesiące temu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 second ago"
 msgid_plural "%1 seconds ago"
-msgstr[0] ""
+msgstr[0] "%1 sekundę temu"
+msgstr[1] "%1 kilka sekund temu"
+msgstr[2] "%1 kilka sekund temu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 minute ago"
 msgid_plural "%1 minutes ago"
-msgstr[0] ""
+msgstr[0] "%1 minutę temu"
+msgstr[1] "%1 minut temu"
+msgstr[2] "%1 minut temu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 hour ago"
 msgid_plural "%1 hours ago"
-msgstr[0] ""
+msgstr[0] "%1 godzinę temu"
+msgstr[1] "%1 kilka godzin temu"
+msgstr[2] "%1 kilka godzin temu"
 
 #. Relative time shown beside the exact date. Keep %1 unchanged.
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
-msgstr[0] ""
+msgstr[0] "%1 dzień temu"
+msgstr[1] "%1 kilka dni temu"
+msgstr[2] "%1 kilka dni temu"
 
 #. Temporary status shown while a warning removal requires a decision.
 msgid "Action is required"
-msgstr ""
+msgstr "Wymagane jest działanie"
 
 #. Temporary status shown when a protected package blocks the update.
 msgid "Action is required!"
-msgstr ""
+msgstr "Wymagane jest działanie!"
 
 #. Title of package removal decision dialogs.
 msgid "Action required"
-msgstr ""
+msgstr "Wymagane działanie"
 
 #. Protected package message. Keep %1 unchanged.
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr ""
+msgstr "Fluff Linux Update nie może kontynuować, ponieważ nadchodząca aktualizacja wymaga usunięcia „%1”, który jest chronionym pakietem systemowym. Usunięcie go może uniemożliwić prawidłowe działanie Fluff Linux. Aby uzyskać pomoc, zgłoś ten problem na GitHub."
 
 #. Warning package message. Keep %1 unchanged.
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr ""
+msgstr "Aby umożliwić systemowi instalowanie aktualizacji, Fluff Linux Update musi usunąć „%1”. Usunięcie tego pakietu może mieć wpływ na powiązane oprogramowanie. Jeśli nie masz pewności, zgłoś problem na GitHub, aby uzyskać pomoc."
 
 #. Confirms a warning package removal.
 msgid "Accept"
-msgstr ""
+msgstr "Przyjąć"
 
 #. Closes a protected package dialog.
 msgid "Close"
-msgstr ""
+msgstr "Zamknąć"
 
 #. Singular automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
-msgstr ""
+msgstr "Aby umożliwić kontynuację aktualizacji systemu, %1 został automatycznie usunięty po uznaniu, że jego usunięcie jest bezpieczne."
 
 #. Plural automatic removal notice. Keep %1 unchanged.
 msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
-msgstr ""
+msgstr "Aby umożliwić kontynuację aktualizacji systemu, następujące pakiety zostały automatycznie usunięte po uznaniu ich za bezpieczne do usunięcia: %1"
 
 #. File conflict recovery notice. Keep %1 and %2 unchanged.
 msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
-msgstr ""
+msgstr "Wykryto i rozwiązano konflikt plików. Nazwa %1 została zmieniona na %2. Proces aktualizacji został wznowiony."
 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
-msgstr ""
+msgstr "Nie można usunąć pakietu powodującego konflikt. Proszę o wsparcie."

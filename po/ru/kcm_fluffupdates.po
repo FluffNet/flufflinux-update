@@ -61,8 +61,8 @@ msgstr "Не удалось запустить процесс обновлени
 msgid "The update process could not be cancelled."
 msgstr "Не удалось отменить процесс обновления."
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "Не удалось загрузить обновление. Проверьте подключение и повторите попытку."
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Во время загрузки обновлений произошёл сбой подключения. Проверьте сетевое подключение и повторите попытку."
 
 msgid "The system update failed."
 msgstr "Не удалось обновить систему."
@@ -115,17 +115,14 @@ msgstr "Не удалось запустить проверку обновлен
 msgid "The update check stopped unexpectedly."
 msgstr "Проверка обновлений неожиданно остановилась."
 
-msgid "The update check failed."
-msgstr "Не удалось проверить обновления."
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Произошла неизвестная ошибка. Сообщите об этой проблеме на нашей странице GitHub, чтобы получить помощь."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "Нет подключения к Интернету. Проверьте сеть и повторите попытку."
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
 msgstr "Не удалось связаться с серверами репозиториев. Повторите попытку позже или проверьте настройки зеркал."
-
-msgid "Update sizes could not be calculated."
-msgstr "Не удалось вычислить размер обновлений."
 
 msgid "Authorization error, please try again."
 msgstr "Ошибка авторизации. Повторите попытку."
@@ -189,3 +186,36 @@ msgid_plural "%1 days ago"
 msgstr[0] "%1 день назад"
 msgstr[1] "%1 дня назад"
 msgstr[2] "%1 дней назад"
+
+msgid "Action is required"
+msgstr "Требуется действие"
+
+msgid "Action is required!"
+msgstr "Требуется действие!"
+
+msgid "Action required"
+msgstr "Требуется действие"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update не может продолжить работу, поскольку предстоящее обновление требует удаления «%1», который является защищённым системным пакетом. Его удаление может нарушить работу Fluff Linux. Сообщите об этой проблеме на GitHub, чтобы получить помощь."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Чтобы система могла установить обновления, Fluff Linux Update необходимо удалить «%1». Удаление этого пакета может повлиять на связанное программное обеспечение. Если вы не уверены, сообщите о проблеме на GitHub, чтобы получить помощь."
+
+msgid "Accept"
+msgstr "Принять"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Чтобы обновление системы могло продолжиться, пакет %1 был автоматически удалён после того, как его удаление было признано безопасным."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Чтобы обновление системы могло продолжиться, следующие пакеты были автоматически удалены после того, как их удаление было признано безопасным: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Конфликт файлов был обнаружен и устранён. %1 был переименован в %2. Процесс обновления перезапущен."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Не удалось удалить конфликтующий пакет. Обратитесь в службу поддержки."

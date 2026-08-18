@@ -13,7 +13,7 @@
     <description xml:lang="de">Fluff Linux Update verwenden</description>
     <description xml:lang="es">Usar Fluff Linux Update</description>
     <description xml:lang="fr">Utiliser Fluff Linux Update</description>
-    <description xml:lang="he">שימוש בעדכון פלאף לינוקס</description>
+    <description xml:lang="he">שימוש ב־Fluff Linux Update</description>
     <description xml:lang="ja">Fluff Linux Update を使用</description>
     <description xml:lang="ru">Использование Fluff Linux Update</description>
     <description xml:lang="sv">Använd Fluff Linux Update</description>
@@ -23,7 +23,7 @@
     <message xml:lang="de">Geben Sie Ihr Passwort ein, um Fluff Linux Update zu verwenden</message>
     <message xml:lang="es">Introduzca su contraseña para usar Fluff Linux Update</message>
     <message xml:lang="fr">Saisissez votre mot de passe pour utiliser Fluff Linux Update</message>
-    <message xml:lang="he">יש להזין את הסיסמה שלך כדי להשתמש בעדכון פלאף לינוקס</message>
+    <message xml:lang="he">יש להזין את הסיסמה שלך כדי להשתמש ב־Fluff Linux Update</message>
     <message xml:lang="ja">Fluff Linux Update を使用するにはパスワードを入力してください</message>
     <message xml:lang="ru">Введите пароль, чтобы использовать Fluff Linux Update</message>
     <message xml:lang="sv">Ange ditt lösenord för att använda Fluff Linux Update</message>

@@ -61,8 +61,8 @@ msgstr "アップデート処理を開始できませんでした。"
 msgid "The update process could not be cancelled."
 msgstr "アップデート処理をキャンセルできませんでした。"
 
-msgid "The update download failed. Check your connection and try again."
-msgstr "アップデートのダウンロードに失敗しました。接続を確認して、もう一度お試しください。"
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "アップデートのダウンロード中に接続が失敗しました。ネットワーク接続を確認して、もう一度お試しください。"
 
 msgid "The system update failed."
 msgstr "システムアップデートに失敗しました。"
@@ -115,17 +115,14 @@ msgstr "アップデート確認を開始できませんでした。pacman-contr
 msgid "The update check stopped unexpectedly."
 msgstr "アップデートの確認が予期せず停止しました。"
 
-msgid "The update check failed."
-msgstr "アップデートの確認に失敗しました。"
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "不明なエラーが発生しました。サポートが必要な場合は、この問題を GitHub ページで報告してください。"
 
 msgid "No internet connection. Check your network and try again."
 msgstr "インターネットに接続されていません。ネットワークを確認して、もう一度お試しください。"
 
 msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
 msgstr "リポジトリサーバーに接続できませんでした。後でもう一度試すか、ミラー設定を確認してください。"
-
-msgid "Update sizes could not be calculated."
-msgstr "アップデートのサイズを計算できませんでした。"
 
 msgid "Authorization error, please try again."
 msgstr "認証エラーです。もう一度お試しください。"
@@ -181,3 +178,36 @@ msgstr[0] "%1時間前"
 msgid "%1 day ago"
 msgid_plural "%1 days ago"
 msgstr[0] "%1日前"
+
+msgid "Action is required"
+msgstr "操作が必要です"
+
+msgid "Action is required!"
+msgstr "操作が必要です！"
+
+msgid "Action required"
+msgstr "操作が必要です"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "今後のアップデートで、保護されたシステムパッケージ「%1」を削除する必要があるため、Fluff Linux Update は続行できません。このパッケージを削除すると、Fluff Linux が正常に動作しなくなる可能性があります。サポートを受けるには、この問題を GitHub で報告してください。"
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "システムがアップデートをインストールできるようにするには、Fluff Linux Update が「%1」を削除する必要があります。このパッケージを削除すると、関連するソフトウェアに影響する可能性があります。判断できない場合は、GitHub で問題を報告して支援を求めてください。"
+
+msgid "Accept"
+msgstr "承認"
+
+msgid "Close"
+msgstr "閉じる"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "システムアップデートを続行するため、安全に削除できると判断された %1 は自動的に削除されました。"
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "システムアップデートを続行するため、安全に削除できると判断された次のパッケージは自動的に削除されました：%1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ファイルの競合が検出され、解決されました。%1 は %2 に名前が変更されました。アップデート処理が再開されました。"
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "競合するパッケージを削除できませんでした。サポートにお問い合わせください。"
