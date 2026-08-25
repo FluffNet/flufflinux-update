@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(flufflinux_update_kcm VERSION 1.2.0 LANGUAGES CXX)
+project(flufflinux_update_kcm VERSION 1.3.0 LANGUAGES CXX)
 
-set(QT_MIN_VERSION "6.5.0")
+set(QT_MIN_VERSION "6.9.0")
 set(KF6_MIN_VERSION "6.0.0")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
