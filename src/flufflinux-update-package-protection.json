@@ -52,7 +52,6 @@
     "flatpak",
     "tlp",
     "base-devel",
-    "flufflinux-discover",
     "kde-cli-tools",
     "kde-gtk-config",
     "kdecoration",
@@ -159,7 +158,6 @@
     "lib32-vulkan-radeon",
     "lib32-vulkan-intel",
     "lib32-nvidia-utils",
-    "lib32-sdl2",
     "qemu-desktop",
     "libvirt",
     "tlp-pd",
@@ -243,6 +241,8 @@
     "remmina",
     "ocean-sound-theme",
     "plasma-welcome",
-    "wacomtablet"
+    "wacomtablet",
+    "discover",
+    "flufflinux-discover"
   ]
 }

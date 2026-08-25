@@ -510,6 +510,29 @@ KCMUtils.SimpleKCM {
             return widest
         }
 
+        function widestComparisonRow() {
+            let widest = 0
+            for (let index = 0; index < kcm.updatePackages.length; ++index) {
+                const entry = kcm.updatePackages[index]
+                const packageName = String(entry.name || "")
+                const currentVersion = String(entry.currentVersion || "")
+                const replacementName = entry.newName
+                        && entry.newName !== entry.name
+                    ? String(entry.newName) + " " : ""
+                const newVersion = String(entry.newVersion || "")
+                const arrow = currentVersion.length > 0 ? "→" : ""
+                const rowWidth =
+                    updateListFontMetrics.advanceWidth(packageName)
+                    + updateListFontMetrics.advanceWidth(currentVersion)
+                    + updateListFontMetrics.advanceWidth(arrow)
+                    + updateListFontMetrics.advanceWidth(
+                        replacementName + newVersion)
+                    + Kirigami.Units.smallSpacing * 7
+                widest = Math.max(widest, rowWidth)
+            }
+            return widest
+        }
+
         readonly property real preferredPackageWidth: Math.max(
             Kirigami.Units.gridUnit * 8,
             widestField("name") + widestField("currentVersion")
@@ -521,6 +544,8 @@ KCMUtils.SimpleKCM {
                 + Kirigami.Units.smallSpacing
                 + widestField("newVersion")
                 + Kirigami.Units.smallSpacing * 3)
+        readonly property real preferredComparisonContentWidth: Math.max(
+            Kirigami.Units.gridUnit * 12, widestComparisonRow())
         readonly property real preferredWindowWidth:
             preferredPackageWidth + preferredVersionsWidth
                 + Kirigami.Units.largeSpacing * 5
@@ -586,6 +611,12 @@ KCMUtils.SimpleKCM {
                 pacmanViewFlickable.contentY = 0
             }
         }
+        onActiveChanged: {
+            if (active && visible) {
+                closeUpdatesWindowButton.forceActiveFocus(
+                    Qt.TabFocusReason)
+            }
+        }
         onClosing: function(close) {
             kcm.saveUpdateWindowState(
                 Math.round(rememberedWidth),
@@ -601,52 +632,119 @@ KCMUtils.SimpleKCM {
             anchors.fill: parent
             spacing: 0
 
-            RowLayout {
-                Layout.fillWidth: true
-                Layout.margins: Kirigami.Units.smallSpacing
+            Item {
+                id: comparisonViewContainer
 
-                Controls.ToolButton {
-                    checkable: true
-                    checked: kcm.pacmanView
-                    display: Controls.AbstractButton.IconOnly
-                    icon.name: "view-visible"
-                    Accessible.name: i18nd("kcm_fluffupdates", "Change view")
-                    Controls.ToolTip.text: Accessible.name
-                    Controls.ToolTip.visible: hovered
-                    onToggled: kcm.setPacmanView(checked)
+                readonly property bool verticalOverflow:
+                    updateList.contentHeight > updateList.height + 0.5
+                readonly property bool horizontalOverflow:
+                    updateList.contentWidth > updateList.width + 0.5
+
+                onVerticalOverflowChanged: {
+                    if (!verticalOverflow) {
+                        updateList.contentY = updateList.originY
+                    }
                 }
-
-                Item { Layout.fillWidth: true }
-            }
-
-            Kirigami.Separator {
-                Layout.fillWidth: true
-            }
-
-            Controls.ScrollView {
-                id: updatesScrollView
+                onHorizontalOverflowChanged: {
+                    if (!horizontalOverflow) {
+                        updateList.contentX = updateList.originX
+                    }
+                }
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.topMargin: Kirigami.Units.smallSpacing * 2
                 visible: !kcm.pacmanView
-                clip: true
                 LayoutMirroring.enabled: false
                 LayoutMirroring.childrenInherit: true
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: Kirigami.Theme.backgroundColor
+                }
+
+                Item {
+                    id: comparisonVerticalGutter
+
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.bottom: comparisonHorizontalGutter.top
+                    width: comparisonViewContainer.verticalOverflow
+                        ? Math.max(Kirigami.Units.gridUnit,
+                            comparisonVerticalScrollBar.implicitWidth)
+                        : 0
+
+                    Rectangle {
+                        anchors.fill: parent
+                        visible: comparisonViewContainer.verticalOverflow
+                        color: Kirigami.Theme.backgroundColor
+                    }
+                }
+
+                Item {
+                    id: comparisonHorizontalGutter
+
+                    anchors.left: parent.left
+                    anchors.right: comparisonVerticalGutter.left
+                    anchors.bottom: parent.bottom
+                    height: comparisonViewContainer.horizontalOverflow
+                        ? Math.max(Kirigami.Units.gridUnit,
+                            comparisonHorizontalScrollBar.implicitHeight)
+                        : 0
+
+                    Rectangle {
+                        anchors.fill: parent
+                        visible: comparisonViewContainer.horizontalOverflow
+                        color: Kirigami.Theme.backgroundColor
+                    }
+                }
+
+                Rectangle {
+                    anchors.top: comparisonHorizontalGutter.top
+                    anchors.left: comparisonHorizontalGutter.right
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    color: Kirigami.Theme.backgroundColor
+                }
 
                 ListView {
                     id: updateList
 
-                    width: updatesScrollView.availableWidth
-                    height: updatesScrollView.availableHeight
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: comparisonVerticalGutter.left
+                    anchors.bottom: comparisonHorizontalGutter.top
+                    clip: true
+                    interactive: true
+                    acceptedButtons: Qt.LeftButton
+                    synchronousDrag: true
+                    flickableDirection: Flickable.AutoFlickDirection
                     contentWidth: Math.max(width,
-                        updatesWindow.preferredPackageWidth
-                            + updatesWindow.preferredVersionsWidth
-                            + Kirigami.Units.largeSpacing * 2)
+                        updatesWindow.preferredComparisonContentWidth)
                     layoutDirection: Qt.LeftToRight
                     model: kcm.updatePackages
                     spacing: Kirigami.Units.smallSpacing
                     boundsBehavior: Flickable.StopAtBounds
+                    pixelAligned: false
+
+                    Controls.ScrollBar.vertical: Controls.ScrollBar {
+                        id: comparisonVerticalScrollBar
+
+                        parent: comparisonVerticalGutter
+                        anchors.fill: parent
+                        visible: comparisonViewContainer.verticalOverflow
+                        policy: Controls.ScrollBar.AlwaysOn
+                        active: true
+                    }
+
+                    Controls.ScrollBar.horizontal: Controls.ScrollBar {
+                        id: comparisonHorizontalScrollBar
+
+                        parent: comparisonHorizontalGutter
+                        anchors.fill: parent
+                        visible: comparisonViewContainer.horizontalOverflow
+                        policy: Controls.ScrollBar.AlwaysOn
+                        active: true
+                    }
 
                     Controls.Label {
                         anchors.centerIn: parent
@@ -733,25 +831,75 @@ KCMUtils.SimpleKCM {
                 }
             }
 
-            Controls.ScrollView {
-                id: pacmanViewScroll
+            Item {
+                id: pacmanViewContainer
+
+                readonly property bool verticalOverflow:
+                    pacmanViewFlickable.contentHeight
+                        > pacmanViewFlickable.height + 0.5
+
+                onVerticalOverflowChanged: {
+                    if (!verticalOverflow) {
+                        pacmanViewFlickable.contentY =
+                            pacmanViewFlickable.originY
+                    }
+                }
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                Layout.topMargin: Kirigami.Units.smallSpacing * 2
                 visible: kcm.pacmanView
-                clip: true
                 LayoutMirroring.enabled: false
                 LayoutMirroring.childrenInherit: true
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: Kirigami.Theme.backgroundColor
+                }
+
+                Item {
+                    id: pacmanVerticalGutter
+
+                    anchors.top: parent.top
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    width: pacmanViewContainer.verticalOverflow
+                        ? Math.max(Kirigami.Units.gridUnit,
+                            pacmanVerticalScrollBar.implicitWidth)
+                        : 0
+
+                    Rectangle {
+                        anchors.fill: parent
+                        visible: pacmanViewContainer.verticalOverflow
+                        color: Kirigami.Theme.backgroundColor
+                    }
+                }
 
                 Flickable {
                     id: pacmanViewFlickable
 
-                    width: pacmanViewScroll.availableWidth
-                    height: pacmanViewScroll.availableHeight
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.right: pacmanVerticalGutter.left
+                    anchors.bottom: parent.bottom
+                    clip: true
+                    interactive: true
+                    acceptedButtons: Qt.LeftButton
+                    synchronousDrag: true
+                    flickableDirection: Flickable.VerticalFlick
                     contentWidth: width
                     contentHeight: pacmanPackageFlow.implicitHeight
                     boundsBehavior: Flickable.StopAtBounds
+                    pixelAligned: false
+
+                    Controls.ScrollBar.vertical: Controls.ScrollBar {
+                        id: pacmanVerticalScrollBar
+
+                        parent: pacmanVerticalGutter
+                        anchors.fill: parent
+                        visible: pacmanViewContainer.verticalOverflow
+                        policy: Controls.ScrollBar.AlwaysOn
+                        active: true
+                    }
 
                     Flow {
                         id: pacmanPackageFlow
@@ -789,10 +937,50 @@ KCMUtils.SimpleKCM {
                 Layout.fillWidth: true
             }
 
-            Controls.DialogButtonBox {
+            Item {
                 Layout.fillWidth: true
-                standardButtons: Controls.DialogButtonBox.Close
-                onRejected: updatesWindow.close()
+                Layout.minimumHeight: Math.max(
+                    viewToggleButton.implicitHeight,
+                    closeUpdatesWindowButton.implicitHeight)
+                    + Kirigami.Units.smallSpacing * 2
+                Layout.preferredHeight: Layout.minimumHeight
+                LayoutMirroring.enabled: false
+                LayoutMirroring.childrenInherit: true
+
+                Controls.ToolButton {
+                    id: viewToggleButton
+
+                    anchors.left: parent.left
+                    anchors.leftMargin: Kirigami.Units.smallSpacing
+                    anchors.verticalCenter: parent.verticalCenter
+                    checkable: true
+                    checked: kcm.pacmanView
+                    display: Controls.AbstractButton.IconOnly
+                    icon.name: "view-visible"
+                    Accessible.name: i18nd("kcm_fluffupdates", "Change view")
+                    Controls.ToolTip.text: Accessible.name
+                    Controls.ToolTip.visible: hovered
+                    KeyNavigation.tab: closeUpdatesWindowButton
+                    KeyNavigation.backtab: closeUpdatesWindowButton
+                    onToggled: kcm.setPacmanView(checked)
+                }
+
+                Controls.Button {
+                    id: closeUpdatesWindowButton
+
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    focusPolicy: Qt.StrongFocus
+                    activeFocusOnTab: true
+                    text: i18nd("kcm_fluffupdates", "Close")
+                    icon.name: "dialog-close"
+                    KeyNavigation.tab: viewToggleButton
+                    KeyNavigation.backtab: viewToggleButton
+                    onClicked: updatesWindow.close()
+                    Keys.onReturnPressed: updatesWindow.close()
+                    Keys.onEnterPressed: updatesWindow.close()
+                    Keys.onSpacePressed: updatesWindow.close()
+                }
             }
         }
     }

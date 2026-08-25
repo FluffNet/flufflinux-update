@@ -1,11 +1,11 @@
 pkgname = flufflinux-update
 pkgbase = flufflinux-update
-pkgver = 1.2-1
+pkgver = 1.3-1
 pkgdesc = Fluff Linux Update Utility
 url = https://github.com/FluffNet/flufflinux-update
-builddate = 1784894983
+builddate = 1787644274
 packager = FluffNet LLC
-size = 230108
+size = 651620
 arch = x86_64
 license = MIT
 depend = glibc
