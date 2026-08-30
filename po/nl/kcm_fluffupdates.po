@@ -281,3 +281,54 @@ msgstr "Er is een bestandsconflict gedetecteerd en opgelost. %1 is hernoemd naar
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Het conflicterende pakket kan niet worden verwijderd. Zoek alstublieft steun."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update kon de ondertekeningssleutel van de FluffNet-opslagruimte niet verifiëren. De update is gestopt om uw systeem te beschermen."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update kon de ondertekeningssleutel van de FluffNet-opslagruimte niet verifiëren. De update is gestopt om uw systeem te beschermen. Dit kan wijzen op een netwerkprobleem, een niet-beschikbare FluffNet-server, een verlopen of vervangen ondertekeningssleutel, een configuratieprobleem met de opslagruimte, een onverwachte sleutel of een mogelijk gecompromitteerde opslagruimte. Accepteer een onverwachte sleutel niet handmatig, tenzij Fluff Linux geverifieerde instructies publiceert."
+
+msgid "Repository: %1"
+msgstr "Opslagruimte: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "De officiële ondertekeningssleutel van de FluffNet-opslagruimte is geverifieerd en aan Pacman toegevoegd."
+
+msgid "Technical details"
+msgstr "Technische details"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Technische details voor verificatie van de ondertekeningssleutel van de opslagplaats"
+
+msgid "Failure category: %1"
+msgstr "Storingscategorie: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Verwachte vingerafdruk: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Ontvangen vingerafdruk: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Gevraagde handtekeningsleutelvingerafdruk: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman-afsluitstatus: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-versie: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-versie: %1"
+
+msgid "Try Again"
+msgstr "Probeer het opnieuw"
+
+msgid "Copy Technical Details"
+msgstr "Kopieer technische details"
+
+msgid "Open an Issue on GitHub"
+msgstr "Open een probleem op GitHub"

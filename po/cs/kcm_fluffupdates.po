@@ -285,3 +285,54 @@ msgstr "Byl zjištěn a vyřešen konflikt souborů. %1 byl přejmenován na %2.
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Konfliktní balíček nelze odebrat. Vyhledejte podporu."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nemohl ověřit podpisový klíč repozitáře FluffNet. Aktualizace byla zastavena, aby byl váš systém chráněn."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nemohl ověřit podpisový klíč repozitáře FluffNet. Aktualizace byla zastavena, aby byl váš systém chráněn. Příčinou může být problém se sítí, nedostupný server FluffNet, prošlý nebo vyměněný podpisový klíč, problém s nastavením repozitáře, neočekávaný klíč nebo možné napadení repozitáře. Neočekávaný klíč ručně nepřijímejte, pokud Fluff Linux nezveřejní ověřené pokyny."
+
+msgid "Repository: %1"
+msgstr "Repozitář: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Oficiální podpisový klíč repozitáře FluffNet byl ověřen a přidán do Pacmanu."
+
+msgid "Technical details"
+msgstr "Technické detaily"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Technické podrobnosti ověření podpisového klíče úložiště"
+
+msgid "Failure category: %1"
+msgstr "Kategorie poruch: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Očekávaný otisk: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Přijatý otisk prstu: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Požadovaný otisk podpisového klíče: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Stav ukončení Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Verze FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Verze Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Zkuste to znovu"
+
+msgid "Copy Technical Details"
+msgstr "Zkopírujte technické podrobnosti"
+
+msgid "Open an Issue on GitHub"
+msgstr "Otevřete problém na GitHubu"

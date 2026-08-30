@@ -231,3 +231,54 @@ msgstr "اكتُشف تعارض في الملفات وتم حله. أُعيدت 
 
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "تعذرت إزالة الحزمة المتعارضة. يُرجى طلب الدعم."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "تعذر على Fluff Linux Update التحقق من مفتاح توقيع مستودع FluffNet. تم إيقاف التحديث لحماية نظامك."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "تعذر على Fluff Linux Update التحقق من مفتاح توقيع مستودع FluffNet. تم إيقاف التحديث لحماية نظامك. قد يشير ذلك إلى مشكلة في الشبكة، أو عدم توفر خادم FluffNet، أو مفتاح توقيع منتهي الصلاحية أو تم تدويره، أو مشكلة في إعداد المستودع، أو مفتاح غير متوقع، أو احتمال اختراق المستودع. لا تقبل مفتاحًا غير متوقع يدويًا إلا إذا نشرت Fluff Linux تعليمات موثقة."
+
+msgid "Repository: %1"
+msgstr "المستودع: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "تم التحقق من مفتاح التوقيع الرسمي لمستودع FluffNet وإضافته إلى Pacman."
+
+msgid "Technical details"
+msgstr "التفاصيل الفنية"
+
+msgid "Repository signing-key verification technical details"
+msgstr "التفاصيل الفنية للتحقق من مفتاح توقيع المستودع"
+
+msgid "Failure category: %1"
+msgstr "فئة الفشل: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "البصمة المتوقعة: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "البصمة المستلمة: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "بصمة مفتاح التوقيع المطلوبة: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "حالة خروج بكمن: %1"
+
+msgid "FLU version: %1"
+msgstr "إصدار FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "إصدار Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "حاول ثانية"
+
+msgid "Copy Technical Details"
+msgstr "نسخ التفاصيل الفنية"
+
+msgid "Open an Issue on GitHub"
+msgstr "افتح مشكلة على جيثب"

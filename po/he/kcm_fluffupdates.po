@@ -223,3 +223,54 @@ msgstr "זוהתה התנגשות קבצים והיא נפתרה. השם של %1
 
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "לא ניתן היה להסיר את הרכיב המתנגש. נא לפנות לתמיכה."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "המערכת לא הצליחה לאמת את מפתח החתימה של מאגר FluffNet. העדכון הופסק כדי להגן על המערכת שלך."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "המערכת לא הצליחה לאמת את מפתח החתימה של מאגר FluffNet. העדכון הופסק כדי להגן על המערכת שלך. הדבר עשוי להצביע על בעיה ברשת, שרת FluffNet שאינו זמין, מפתח חתימה שפג תוקפו או הוחלף, בעיה בתצורת המאגר, מפתח בלתי צפוי או אפשרות שמאגר התוכנה נפרץ. אין לאשר ידנית מפתח בלתי צפוי. יש לפתוח דיווח בשביל תמיכה ופרטים נוספים."
+
+msgid "Repository: %1"
+msgstr "מאגר: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "מפתח החתימה הרשמי של מאגר FluffNet אומת ונוסף ל־Pacman."
+
+msgid "Technical details"
+msgstr "פרטים טכניים"
+
+msgid "Repository signing-key verification technical details"
+msgstr "פרטים טכניים על אימות מפתח החתימה של המאגר"
+
+msgid "Failure category: %1"
+msgstr "קטגוריית הכשל: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "מספר האישור הצפוי: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "מספר האישור שהתקבל: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "מספר האישור של מפתח החתימה המבוקש: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "מצב היציאה של Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "גרסת FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "גרסת Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "ניסיון חוזר"
+
+msgid "Copy Technical Details"
+msgstr "העתקת הפרטים הטכניים"
+
+msgid "Open an Issue on GitHub"
+msgstr "פתיחת דיווח ב Github"

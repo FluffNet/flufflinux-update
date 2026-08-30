@@ -1,12 +1,17 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDir>
+#include <QEventLoop>
 #include <QFile>
 #include <QFileInfo>
 #include <QHash>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QList>
+#include <QLockFile>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QNetworkRequest>
 #include <QProcess>
 #include <QProcessEnvironment>
 #include <QRandomGenerator>
@@ -15,6 +20,8 @@
 #include <QSet>
 #include <QTimer>
 #include <QUrl>
+
+#include "signingkeyrecovery.h"
 
 #include <unistd.h>
 
@@ -26,6 +33,13 @@ constexpr auto LogPath = "/etc/pacman.d/flufflinux-update.log";
 constexpr auto PacmanLogPath = "/var/log/pacman.log";
 constexpr auto CachePath = "/var/cache/pacman/pkg";
 constexpr auto LockPath = "/var/lib/pacman/db.lck";
+constexpr auto KeyRecoveryLockPath = "/run/flufflinux-update-key-recovery.lock";
+constexpr auto FingerprintUrl =
+    "https://fluffnet.org/flufflinux-fnrepo/packages/"
+    "flufflinux-signing-key.fingerprint";
+constexpr auto CertificateUrl =
+    "https://fluffnet.org/flufflinux-fnrepo/packages/"
+    "flufflinux-signing-key.asc";
 
 QJsonObject readState()
 {
@@ -89,6 +103,198 @@ public:
     }
 
 private:
+    QByteArray fetchHttpsArtifact(const char *url, qsizetype maximumBytes,
+                                  const QString &oversizedCategory,
+                                  const QString &unavailableCategory,
+                                  QString *failureCategory)
+    {
+        QNetworkAccessManager manager;
+        const QUrl expectedUrl(QString::fromLatin1(url));
+        QNetworkRequest request(expectedUrl);
+        request.setAttribute(
+            QNetworkRequest::RedirectPolicyAttribute,
+            QNetworkRequest::SameOriginRedirectPolicy);
+        request.setTransferTimeout(15000);
+        QNetworkReply *reply = manager.get(request);
+        QByteArray response;
+        bool oversized = false;
+        QEventLoop eventLoop;
+        QTimer timeout;
+        timeout.setSingleShot(true);
+        connect(reply, &QNetworkReply::readyRead, &eventLoop, [&] {
+            response += reply->readAll();
+            if (response.size() > maximumBytes) {
+                oversized = true;
+                reply->abort();
+            }
+        });
+        connect(reply, &QNetworkReply::finished, &eventLoop,
+                &QEventLoop::quit);
+        connect(&timeout, &QTimer::timeout, reply, &QNetworkReply::abort);
+        timeout.start(15000);
+        eventLoop.exec();
+        response += reply->readAll();
+        if (oversized) {
+            *failureCategory = oversizedCategory;
+            reply->deleteLater();
+            return {};
+        }
+        const bool secureResponse = reply->url().scheme() == QStringLiteral("https")
+            && reply->url().host() == expectedUrl.host();
+        const bool succeeded = reply->error() == QNetworkReply::NoError;
+        reply->deleteLater();
+        if (!secureResponse || !succeeded) {
+            *failureCategory = unavailableCategory;
+            return {};
+        }
+        return response;
+    }
+
+    QByteArray fetchOfficialFingerprint(QString *failureCategory)
+    {
+        return fetchHttpsArtifact(
+            FingerprintUrl, 4096,
+            QStringLiteral("fingerprint-response-oversized"),
+            QStringLiteral("fingerprint-endpoint-unavailable"), failureCategory);
+    }
+
+    QByteArray fetchOfficialCertificate(QString *failureCategory)
+    {
+        return fetchHttpsArtifact(
+            CertificateUrl, 256 * 1024,
+            QStringLiteral("certificate-response-oversized"),
+            QStringLiteral("certificate-endpoint-unavailable"), failureCategory);
+    }
+
+    SigningKeyCommandResult runSigningKeyCommand(
+        const QString &program, const QStringList &arguments)
+    {
+        QProcess process;
+        process.setProgram(program);
+        process.setArguments(arguments);
+        process.setProcessChannelMode(QProcess::MergedChannels);
+        QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+        environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
+        process.setProcessEnvironment(environment);
+        process.start();
+        SigningKeyCommandResult result;
+        result.started = process.waitForStarted(5000);
+        if (!result.started) {
+            return result;
+        }
+        result.finished = process.waitForFinished(30000);
+        if (!result.finished) {
+            process.kill();
+            process.waitForFinished(5000);
+        }
+        result.output = process.readAll();
+        result.exitCode = process.exitStatus() == QProcess::NormalExit
+            ? process.exitCode() : -1;
+        return result;
+    }
+
+    bool recoverSigningKey(const QString &output, int pacmanExitStatus,
+                           const std::function<void()> &retry)
+    {
+        const QString repository =
+            SigningKeyRecovery::repositoryName(output);
+        if (SigningKeyRecovery::containsUnknownKeyReport(output)
+            && repository != QStringLiteral("fluffnet")) {
+            failSigningKey(
+                repository,
+                repository.isEmpty()
+                    ? QStringLiteral("repository-unidentified")
+                    : QStringLiteral("repository-not-fluffnet"),
+                {}, {}, SigningKeyRecovery::requestedFingerprint(output),
+                pacmanExitStatus);
+            return true;
+        }
+        const QString requested =
+            SigningKeyRecovery::requestedFingerprint(output);
+        if (requested.isEmpty()) {
+            if (SigningKeyRecovery::containsUnknownKeyReport(output)) {
+                failSigningKey(
+                    repository,
+                    QStringLiteral("requested-fingerprint-invalid"), {}, {},
+                    {}, pacmanExitStatus);
+                return true;
+            }
+            return false;
+        }
+        if (m_attemptedSigningKeys.contains(requested)) {
+            failSigningKey(repository,
+                           QStringLiteral("recovery-retry-failed"), {}, {},
+                           requested, pacmanExitStatus);
+            return true;
+        }
+        m_attemptedSigningKeys.insert(requested);
+
+        QLockFile recoveryLock(QString::fromLatin1(KeyRecoveryLockPath));
+        recoveryLock.setStaleLockTime(0);
+        if (!recoveryLock.tryLock(100)) {
+            failSigningKey(repository,
+                           QStringLiteral("recovery-already-running"), {}, {},
+                           requested, pacmanExitStatus);
+            return true;
+        }
+
+        SigningKeyRecovery recovery(
+            SigningKeyRecoveryConfig{},
+            [this](QString *category) {
+                return fetchOfficialFingerprint(category);
+            },
+            [this](QString *category) {
+                return fetchOfficialCertificate(category);
+            },
+            [this](const QString &program, const QStringList &arguments) {
+                return runSigningKeyCommand(program, arguments);
+            });
+        const SigningKeyRecoveryResult result = recovery.recover(output);
+        if (!result.recovered) {
+            failSigningKey(result.repository, result.category,
+                           result.expectedFingerprint,
+                           result.receivedFingerprint,
+                           result.requestedFingerprint, pacmanExitStatus);
+            return true;
+        }
+
+        appendLog(QStringLiteral("\n[verified repository signing key imported] "
+                                 "%1\n")
+                      .arg(result.receivedFingerprint));
+        m_state[QStringLiteral("security_repository")] = result.repository;
+        m_state.remove(QStringLiteral("security_failure_category"));
+        m_state.remove(QStringLiteral("security_expected_fingerprint"));
+        m_state.remove(QStringLiteral("security_received_fingerprint"));
+        m_state.remove(QStringLiteral("security_requested_fingerprint"));
+        m_state.remove(QStringLiteral("security_pacman_exit_status"));
+        m_state[QStringLiteral("recovery_notice_type")] =
+            QStringLiteral("signing-key-verified");
+        m_state[QStringLiteral("recovery_notice_id")] =
+            QDateTime::currentMSecsSinceEpoch();
+        writeState(m_state);
+        QTimer::singleShot(300, this, retry);
+        return true;
+    }
+
+    void failSigningKey(const QString &repository, const QString &category,
+                        const QString &expected,
+                        const QString &received, const QString &requested,
+                        int pacmanExitStatus)
+    {
+        m_state[QStringLiteral("phase")] = QStringLiteral("failed");
+        m_state[QStringLiteral("error")] =
+            QStringLiteral("SIGNING_KEY_VERIFICATION_FAILED");
+        m_state[QStringLiteral("speed")] = QString();
+        m_state[QStringLiteral("security_repository")] = repository.left(64);
+        m_state[QStringLiteral("security_failure_category")] = category.left(128);
+        m_state[QStringLiteral("security_expected_fingerprint")] = expected.left(40);
+        m_state[QStringLiteral("security_received_fingerprint")] = received.left(40);
+        m_state[QStringLiteral("security_requested_fingerprint")] = requested.left(40);
+        m_state[QStringLiteral("security_pacman_exit_status")] = pacmanExitStatus;
+        writeState(m_state);
+        QCoreApplication::quit();
+    }
+
     void determinePackages()
     {
         m_state[QStringLiteral("phase")] = QStringLiteral("starting");
@@ -116,6 +322,10 @@ private:
                       + QStringLiteral("\n"));
             process->deleteLater();
             if (status != QProcess::NormalExit || exitCode != 0) {
+                if (recoverSigningKey(output, exitCode,
+                                      [this] { determinePackages(); })) {
+                    return;
+                }
                 fail(QStringLiteral("TRANSACTION_PREPARE_FAILED"));
                 return;
             }
@@ -189,6 +399,7 @@ private:
     void startDownload()
     {
         appendLog(QStringLiteral("\n[download]\n"));
+        m_downloadOutput.clear();
         const qint64 initialBytes = cachedBytes();
         m_state[QStringLiteral("phase")] = QStringLiteral("downloading");
         m_state[QStringLiteral("completed_packages")] = completedDownloads();
@@ -246,10 +457,18 @@ private:
         connect(m_process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
                 [this](int exitCode, QProcess::ExitStatus status) {
             m_speedTimer->stop();
+            m_speedTimer->deleteLater();
+            m_speedTimer = nullptr;
             const QString trailing = QString::fromLocal8Bit(m_process->readAll());
             m_downloadOutput += trailing;
             appendLog(trailing);
             if (status != QProcess::NormalExit || exitCode != 0) {
+                m_process->deleteLater();
+                m_process = nullptr;
+                if (recoverSigningKey(m_downloadOutput, exitCode,
+                                      [this] { startDownload(); })) {
+                    return;
+                }
                 const QString lower = m_downloadOutput.toLower();
                 const bool connectionFailure =
                     lower.contains(QStringLiteral("failed retrieving file"))
@@ -277,6 +496,7 @@ private:
         m_state[QStringLiteral("progress")] = 0;
         m_state[QStringLiteral("speed")] = QString();
         m_fullInstallOutput.clear();
+        m_installOutput.clear();
         writeState(m_state);
 
         m_pacmanLogOffset = QFileInfo(QString::fromLatin1(PacmanLogPath)).size();
@@ -309,9 +529,15 @@ private:
                 QString::fromLocal8Bit(m_process->readAll()) + QLatin1Char('\n'));
             readPacmanInstallLog();
             m_installProgressTimer->stop();
+            m_installProgressTimer->deleteLater();
+            m_installProgressTimer = nullptr;
             if (status != QProcess::NormalExit || exitCode != 0) {
                 m_process->deleteLater();
                 m_process = nullptr;
+                if (recoverSigningKey(m_fullInstallOutput, exitCode,
+                                      [this] { startInstall(); })) {
+                    return;
+                }
                 if (recoverFileConflict(m_fullInstallOutput)) {
                     return;
                 }
@@ -504,6 +730,7 @@ private:
     int m_logCompleted = 0;
     int m_outputCompleted = 0;
     int m_fileRecoveryCount = 0;
+    QSet<QString> m_attemptedSigningKeys;
 };
 }
 

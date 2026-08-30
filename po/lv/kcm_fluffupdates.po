@@ -285,3 +285,54 @@ msgstr "Failu konflikts tika atklāts un atrisināts. %1 tika pārdēvēts par %
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Nevarēja noņemt konfliktējošo pakotni. Lūdzu, meklējiet atbalstu."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nevarēja pārbaudīt FluffNet repozitorija parakstīšanas atslēgu. Atjaunināšana tika apturēta, lai aizsargātu sistēmu."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nevarēja pārbaudīt FluffNet repozitorija parakstīšanas atslēgu. Atjaunināšana tika apturēta, lai aizsargātu sistēmu. Iemesls var būt tīkla problēma, nepieejams FluffNet serveris, parakstīšanas atslēga ar beigušos termiņu vai nomainīta atslēga, repozitorija konfigurācijas problēma, negaidīta atslēga vai iespējams repozitorija apdraudējums. Nepieņemiet negaidītu atslēgu manuāli, ja vien Fluff Linux nav publicējis pārbaudītas instrukcijas."
+
+msgid "Repository: %1"
+msgstr "Repozitorijs: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet repozitorija oficiālā parakstīšanas atslēga tika pārbaudīta un pievienota Pacman."
+
+msgid "Technical details"
+msgstr "Tehniskās detaļas"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Repozitorija parakstīšanas atslēgas verifikācijas tehniskā informācija"
+
+msgid "Failure category: %1"
+msgstr "Kļūmes kategorija: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Paredzamais pirkstu nospiedums: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Saņemtais pirkstu nospiedums: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Pieprasītais parakstīšanas atslēgas pirksta nospiedums: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman izejas statuss: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU versija: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux versija: %1"
+
+msgid "Try Again"
+msgstr "Mēģiniet vēlreiz"
+
+msgid "Copy Technical Details"
+msgstr "Kopējiet tehniskos datus"
+
+msgid "Open an Issue on GitHub"
+msgstr "Atveriet problēmu vietnē GitHub"

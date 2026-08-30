@@ -215,3 +215,54 @@ msgstr "En filkonflikt upptäcktes och löstes. %1 döptes om till %2. Uppdateri
 
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Det motstridiga paketet kunde inte tas bort. Kontakta supporten."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update kunde inte verifiera signeringsnyckeln för FluffNet-arkivet. Uppdateringen stoppades för att skydda systemet."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update kunde inte verifiera signeringsnyckeln för FluffNet-arkivet. Uppdateringen stoppades för att skydda systemet. Det kan bero på ett nätverksproblem, en otillgänglig FluffNet-server, en utgången eller utbytt signeringsnyckel, ett konfigurationsproblem med arkivet, en oväntad nyckel eller att arkivet kan ha komprometterats. Godkänn inte en oväntad nyckel manuellt om inte Fluff Linux publicerar verifierade instruktioner."
+
+msgid "Repository: %1"
+msgstr "Arkiv: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Den officiella signeringsnyckeln för FluffNet-arkivet verifierades och lades till i Pacman."
+
+msgid "Technical details"
+msgstr "Tekniska detaljer"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Tekniska detaljer för verifiering av signeringsnyckel för förvar"
+
+msgid "Failure category: %1"
+msgstr "Felkategori: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Förväntat fingeravtryck: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Mottaget fingeravtryck: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Begärt fingeravtryck för signeringsnyckel: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman utgångsstatus: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-version: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-version: %1"
+
+msgid "Try Again"
+msgstr "Försök igen"
+
+msgid "Copy Technical Details"
+msgstr "Kopiera tekniska detaljer"
+
+msgid "Open an Issue on GitHub"
+msgstr "Öppna ett problem på GitHub"

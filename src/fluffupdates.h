@@ -40,6 +40,9 @@ class FluffUpdates final : public KQuickConfigModule
     Q_PROPERTY(QString totalDownloadSize READ totalDownloadSize NOTIFY installStateChanged)
     Q_PROPERTY(QString downloadSpeed READ downloadSpeed NOTIFY installStateChanged)
     Q_PROPERTY(QString installError READ installError NOTIFY installStateChanged)
+    Q_PROPERTY(bool signingKeySecurityError READ signingKeySecurityError NOTIFY installStateChanged)
+    Q_PROPERTY(QString signingKeyTechnicalDetails READ signingKeyTechnicalDetails NOTIFY installStateChanged)
+    Q_PROPERTY(QString signingKeyIssueUrl READ signingKeyIssueUrl NOTIFY installStateChanged)
     Q_PROPERTY(bool cancellationNotice READ cancellationNotice NOTIFY installStateChanged)
     Q_PROPERTY(bool installationSuccessNotice READ installationSuccessNotice NOTIFY installStateChanged)
     Q_PROPERTY(bool pacmanView READ pacmanView WRITE setPacmanView NOTIFY pacmanViewChanged)
@@ -80,6 +83,9 @@ public:
     QString totalDownloadSize() const;
     QString downloadSpeed() const;
     QString installError() const;
+    bool signingKeySecurityError() const;
+    QString signingKeyTechnicalDetails() const;
+    QString signingKeyIssueUrl() const;
     bool cancellationNotice() const;
     bool installationSuccessNotice() const;
     bool pacmanView() const;
@@ -98,6 +104,9 @@ public:
     Q_INVOKABLE void clearCheckResult();
     Q_INVOKABLE void startInstallation();
     Q_INVOKABLE void cancelInstallation();
+    Q_INVOKABLE void retrySigningKeyUpdate();
+    Q_INVOKABLE void copySigningKeyTechnicalDetails();
+    Q_INVOKABLE void openSigningKeyIssue();
     Q_INVOKABLE void setPacmanView(bool enabled);
     Q_INVOKABLE void saveUpdateWindowState(int width, int height,
                                            bool maximized);
@@ -117,6 +126,7 @@ Q_SIGNALS:
 
 private:
     void readStateFile();
+    void startUpdateQuery();
     void readTransactionSummary();
     void recordInitialUpdate();
     void afterMinimumCheckDuration(std::function<void()> completion);
@@ -124,7 +134,15 @@ private:
     void updateNetworkState();
     void updateBatteryState();
     void removeBlockingPackage(const QString &package);
+    void recoverCheckSigningKey(const QString &output, int pacmanExitStatus);
+    void showCheckSigningKeyFailure(const QString &category,
+                                    const QString &repository,
+                                    const QString &expected,
+                                    const QString &received,
+                                    const QString &requested,
+                                    int pacmanExitStatus);
     void restartUpdateCheck();
+    void showSigningKeyVerifiedNotice();
     void showPendingAutoremoveNotice();
 
     QString m_lastUpdate;
@@ -138,6 +156,7 @@ private:
     QProcess *m_installControlProcess = nullptr;
     QString m_checkDatabasePath;
     bool m_checking = false;
+    bool m_checkSigningKeyRecoveryAttempted = false;
     qint64 m_checkStartedAtMs = 0;
     bool m_checkComplete = false;
     bool m_updatesAvailable = false;
@@ -154,6 +173,13 @@ private:
     qint64 m_totalDownloadBytes = 0;
     QString m_downloadSpeed;
     QString m_installError;
+    bool m_signingKeySecurityError = false;
+    QString m_signingKeyRepository;
+    QString m_signingKeyExpectedFingerprint;
+    QString m_signingKeyReceivedFingerprint;
+    QString m_signingKeyRequestedFingerprint;
+    QString m_signingKeyFailureCategory;
+    int m_signingKeyPacmanExitStatus = -1;
     bool m_cancellationNotice = false;
     bool m_installationSuccessNotice = false;
     quint64 m_installationSuccessNoticeGeneration = 0;

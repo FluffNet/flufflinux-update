@@ -1,6 +1,9 @@
 #include "fluffupdates.h"
+#include "securitydiagnostics.h"
 
 #include <KLocalizedString>
+
+#include "signingkeyrecovery.h"
 #include <KPluginFactory>
 
 #include <QFile>
@@ -10,6 +13,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDateTime>
+#include <QDesktopServices>
 #include <QDir>
 #include <QProcess>
 #include <QProcessEnvironment>
@@ -20,10 +24,12 @@
 #include <QSize>
 #include <QStandardPaths>
 #include <QApplication>
+#include <QClipboard>
 #include <QWidget>
 #include <QNetworkInformation>
 #include <QNetworkInterface>
 #include <QTimer>
+#include <QUrl>
 
 #include <unistd.h>
 
@@ -436,6 +442,81 @@ QString FluffUpdates::totalDownloadSize() const
 }
 QString FluffUpdates::downloadSpeed() const { return m_downloadSpeed; }
 QString FluffUpdates::installError() const { return m_installError; }
+bool FluffUpdates::signingKeySecurityError() const
+{
+    return m_signingKeySecurityError;
+}
+
+QString FluffUpdates::signingKeyTechnicalDetails() const
+{
+    const auto isolate = [](const auto &value) {
+        return QString(QChar(0x2066)) + QVariant::fromValue(value).toString()
+            + QChar(0x2069);
+    };
+    QStringList lines;
+    if (!m_signingKeyRepository.isEmpty()) {
+        lines << i18nd("kcm_fluffupdates", "Repository: %1",
+                       isolate(m_signingKeyRepository));
+    }
+    lines << i18nd("kcm_fluffupdates", "Failure category: %1",
+                   isolate(m_signingKeyFailureCategory));
+    if (!m_signingKeyExpectedFingerprint.isEmpty()) {
+        lines << i18nd("kcm_fluffupdates", "Expected fingerprint: %1",
+                       isolate(m_signingKeyExpectedFingerprint));
+    }
+    if (!m_signingKeyReceivedFingerprint.isEmpty()) {
+        lines << i18nd("kcm_fluffupdates", "Received fingerprint: %1",
+                       isolate(m_signingKeyReceivedFingerprint));
+    }
+    if (!m_signingKeyRequestedFingerprint.isEmpty()) {
+        lines << i18nd("kcm_fluffupdates",
+                       "Requested signing-key fingerprint: %1",
+                       isolate(m_signingKeyRequestedFingerprint));
+    }
+    lines << i18nd("kcm_fluffupdates", "Pacman exit status: %1",
+                   isolate(m_signingKeyPacmanExitStatus));
+    lines << i18nd("kcm_fluffupdates", "FLU version: %1",
+                   isolate(QStringLiteral(PROJECT_VERSION)));
+    QString fluffLinuxVersion = QStringLiteral("unknown");
+    QFile osRelease(QStringLiteral("/etc/os-release"));
+    if (osRelease.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        const QRegularExpression version(
+            QStringLiteral("(?:^|\\n)PRETTY_NAME=(?:\"([^\"]*)\"|([^\\n]*))"));
+        const auto match = version.match(QString::fromUtf8(osRelease.readAll()));
+        if (match.hasMatch()) {
+            fluffLinuxVersion = !match.captured(1).isEmpty()
+                ? match.captured(1) : match.captured(2).trimmed();
+        }
+    }
+    lines << i18nd("kcm_fluffupdates", "Fluff Linux version: %1",
+                   isolate(fluffLinuxVersion));
+    return lines.join(QLatin1Char('\n'));
+}
+
+QString FluffUpdates::signingKeyIssueUrl() const
+{
+    QString osVersion = QStringLiteral("unknown");
+    QFile osRelease(QStringLiteral("/etc/os-release"));
+    if (osRelease.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        const QRegularExpression version(
+            QStringLiteral("(?:^|\\n)PRETTY_NAME=(?:\"([^\"]*)\"|([^\\n]*))"));
+        const auto match = version.match(QString::fromUtf8(osRelease.readAll()));
+        if (match.hasMatch()) {
+            osVersion = !match.captured(1).isEmpty()
+                ? match.captured(1) : match.captured(2).trimmed();
+        }
+    }
+    SigningKeyIssueDetails details;
+    details.repository = m_signingKeyRepository;
+    details.fluVersion = QStringLiteral(PROJECT_VERSION);
+    details.osVersion = osVersion;
+    details.expectedFingerprint = m_signingKeyExpectedFingerprint;
+    details.receivedFingerprint = m_signingKeyReceivedFingerprint;
+    details.requestedFingerprint = m_signingKeyRequestedFingerprint;
+    details.failureCategory = m_signingKeyFailureCategory;
+    details.pacmanExitStatus = m_signingKeyPacmanExitStatus;
+    return ::signingKeyIssueUrl(details).toString(QUrl::FullyEncoded);
+}
 bool FluffUpdates::cancellationNotice() const { return m_cancellationNotice; }
 bool FluffUpdates::installationSuccessNotice() const
 {
@@ -528,6 +609,7 @@ void FluffUpdates::checkForUpdates()
     const bool recoveryRestart = m_recoveryRestartPending;
     m_recoveryRestartPending = false;
     if (!recoveryRestart) {
+        m_checkSigningKeyRecoveryAttempted = false;
         m_approvedRemovals.clear();
         m_pendingAutoremovedPackages.clear();
         if (!m_recoveryActionState.isEmpty()) {
@@ -545,6 +627,13 @@ void FluffUpdates::checkForUpdates()
     m_ignoreInactiveInstallState = true;
     m_installPhase = QStringLiteral("idle");
     m_installError.clear();
+    m_signingKeySecurityError = false;
+    m_signingKeyRepository.clear();
+    m_signingKeyExpectedFingerprint.clear();
+    m_signingKeyReceivedFingerprint.clear();
+    m_signingKeyRequestedFingerprint.clear();
+    m_signingKeyFailureCategory.clear();
+    m_signingKeyPacmanExitStatus = -1;
     if (pacmanRunning()) {
         m_checkComplete = true;
         m_updatesAvailable = false;
@@ -570,9 +659,21 @@ void FluffUpdates::checkForUpdates()
     Q_EMIT installStateChanged();
 
     m_checkDatabasePath = QStringLiteral("/tmp/flufflinux-checkupdates-%1").arg(geteuid());
+    QDir().mkpath(m_checkDatabasePath);
+    const QString localDatabase =
+        QDir(m_checkDatabasePath).filePath(QStringLiteral("local"));
+    if (!QFileInfo::exists(localDatabase)) {
+        QFile::link(QStringLiteral("/var/lib/pacman/local"), localDatabase);
+    }
     m_checkProcess = new QProcess(this);
-    m_checkProcess->setProgram(QStringLiteral("checkupdates"));
-    m_checkProcess->setArguments({QStringLiteral("--nocolor")});
+    m_checkProcess->setProgram(QStringLiteral("fakeroot"));
+    m_checkProcess->setArguments({
+        QStringLiteral("--"), QStringLiteral("pacman"), QStringLiteral("-Sy"),
+        QStringLiteral("--noconfirm"),
+        QStringLiteral("--disable-sandbox-filesystem"),
+        QStringLiteral("--dbpath"), m_checkDatabasePath,
+        QStringLiteral("--logfile"), QStringLiteral("/dev/null"),
+    });
     m_checkProcess->setProcessChannelMode(QProcess::MergedChannels);
 
     QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
@@ -607,7 +708,66 @@ void FluffUpdates::checkForUpdates()
                     "The update check stopped unexpectedly.");
                 Q_EMIT checkStateChanged();
             });
-        } else if (exitCode == 2 && !output.contains(QStringLiteral("error:"), Qt::CaseInsensitive)) {
+        } else if (exitCode != 0) {
+            if (SigningKeyRecovery::containsUnknownKeyReport(output)) {
+                recoverCheckSigningKey(output, exitCode);
+                return;
+            }
+            afterMinimumCheckDuration([this, output] {
+                m_checking = false;
+                m_checkComplete = true;
+                m_checkError = friendlyCheckError(output);
+                Q_EMIT checkStateChanged();
+            });
+        } else {
+            startUpdateQuery();
+        }
+    });
+
+    m_checkProcess->start();
+}
+
+void FluffUpdates::startUpdateQuery()
+{
+    m_checkProcess = new QProcess(this);
+    m_checkProcess->setProgram(QStringLiteral("checkupdates"));
+    m_checkProcess->setArguments(
+        {QStringLiteral("--nosync"), QStringLiteral("--nocolor")});
+    m_checkProcess->setProcessChannelMode(QProcess::MergedChannels);
+    QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
+    environment.insert(QStringLiteral("CHECKUPDATES_DB"), m_checkDatabasePath);
+    environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
+    m_checkProcess->setProcessEnvironment(environment);
+    connect(m_checkProcess, &QProcess::errorOccurred, this,
+            [this](QProcess::ProcessError error) {
+        if (error == QProcess::FailedToStart) {
+            afterMinimumCheckDuration([this] {
+                m_checking = false;
+                m_checkComplete = true;
+                m_checkError = i18nd(
+                    "kcm_fluffupdates",
+                    "The update checker could not be started. Make sure pacman-contrib is installed.");
+                Q_EMIT checkStateChanged();
+            });
+        }
+    });
+    connect(m_checkProcess,
+            qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
+            [this](int exitCode, QProcess::ExitStatus exitStatus) {
+        const QString output = QString::fromLocal8Bit(
+            m_checkProcess->readAll()).trimmed();
+        m_checkProcess->deleteLater();
+        m_checkProcess = nullptr;
+        if (exitStatus != QProcess::NormalExit) {
+            afterMinimumCheckDuration([this] {
+                m_checking = false;
+                m_checkComplete = true;
+                m_checkError = i18nd(
+                    "kcm_fluffupdates",
+                    "The update check stopped unexpectedly.");
+                Q_EMIT checkStateChanged();
+            });
+        } else if (exitCode == 2) {
             afterMinimumCheckDuration([this] {
                 m_updatesAvailable = false;
                 if (!hasLastUpdate()) {
@@ -632,8 +792,83 @@ void FluffUpdates::checkForUpdates()
             readTransactionSummary();
         }
     });
-
     m_checkProcess->start();
+}
+
+void FluffUpdates::showCheckSigningKeyFailure(
+    const QString &category, const QString &repository,
+    const QString &expected, const QString &received, const QString &requested,
+    int pacmanExitStatus)
+{
+    m_signingKeyRepository = repository.left(64);
+    m_signingKeyFailureCategory = category.left(128);
+    m_signingKeyExpectedFingerprint = expected.left(40);
+    m_signingKeyReceivedFingerprint = received.left(40);
+    m_signingKeyRequestedFingerprint = requested.left(40);
+    m_signingKeyPacmanExitStatus = pacmanExitStatus;
+    m_signingKeySecurityError = true;
+    m_checking = false;
+    m_checkComplete = true;
+    m_updatesAvailable = false;
+    m_checkError = i18nd(
+        "kcm_fluffupdates",
+        "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system.");
+    Q_EMIT checkStateChanged();
+    Q_EMIT installStateChanged();
+}
+
+void FluffUpdates::recoverCheckSigningKey(const QString &output,
+                                          int pacmanExitStatus)
+{
+    const QString requested =
+        SigningKeyRecovery::requestedFingerprint(output);
+    const QString repository = SigningKeyRecovery::repositoryName(output);
+    if (m_checkSigningKeyRecoveryAttempted) {
+        showCheckSigningKeyFailure(QStringLiteral("recovery-retry-failed"),
+                                   repository, {}, {}, requested,
+                                   pacmanExitStatus);
+        return;
+    }
+    m_checkSigningKeyRecoveryAttempted = true;
+    m_summaryProcess = new QProcess(this);
+    m_summaryProcess->setProgram(QStringLiteral("pkexec"));
+    m_summaryProcess->setArguments({
+        QStringLiteral("/usr/lib/flufflinux-update/flufflinux-update-helper"),
+        QStringLiteral("--recover-signing-key"),
+        QString::fromLatin1(output.toUtf8().toBase64(
+            QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals)),
+    });
+    m_summaryProcess->setProcessChannelMode(QProcess::MergedChannels);
+    connect(m_summaryProcess,
+            qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
+            [this, repository, requested, pacmanExitStatus](
+                int exitCode, QProcess::ExitStatus status) {
+        const QString result = m_summaryProcess
+            ? QString::fromLocal8Bit(m_summaryProcess->readAll()) : QString();
+        if (m_summaryProcess) {
+            m_summaryProcess->deleteLater();
+            m_summaryProcess = nullptr;
+        }
+        if (status == QProcess::NormalExit && exitCode == 0) {
+            showSigningKeyVerifiedNotice();
+            restartUpdateCheck();
+            return;
+        }
+        const QRegularExpression token(
+            QStringLiteral("FLU_SIGNING_KEY_FAILURE:([^|\\n]*)\\|([^|\\n]*)\\|([^|\\n]*)\\|([^|\\n]*)\\|([^|\\n]*)\\|(-?\\d+)"));
+        const auto match = token.match(result);
+        if (match.hasMatch()) {
+            showCheckSigningKeyFailure(
+                match.captured(2), match.captured(1), match.captured(3),
+                match.captured(4), match.captured(5),
+                match.captured(6).toInt());
+        } else {
+            showCheckSigningKeyFailure(
+                QStringLiteral("recovery-helper-failed"), repository, {}, {},
+                requested, pacmanExitStatus);
+        }
+    });
+    m_summaryProcess->start();
 }
 
 void FluffUpdates::afterMinimumCheckDuration(
@@ -745,6 +980,7 @@ void FluffUpdates::startInstallation()
     // Ignore that stale complete/failed/cancelled state until then.
     m_ignoreInactiveInstallState = true;
     m_installError.clear();
+    m_signingKeySecurityError = false;
     m_installProgress = 0;
     Q_EMIT installStateChanged();
 
@@ -805,6 +1041,36 @@ void FluffUpdates::startInstallation()
         }
     });
     m_installControlProcess->start();
+}
+
+void FluffUpdates::retrySigningKeyUpdate()
+{
+    if (m_signingKeySecurityError) {
+        if (m_installPhase == QStringLiteral("idle")) {
+            m_signingKeySecurityError = false;
+            Q_EMIT installStateChanged();
+            checkForUpdates();
+        } else {
+            startInstallation();
+        }
+    }
+}
+
+void FluffUpdates::copySigningKeyTechnicalDetails()
+{
+    if (m_signingKeySecurityError) {
+        QApplication::clipboard()->setText(signingKeyTechnicalDetails());
+    }
+}
+
+void FluffUpdates::openSigningKeyIssue()
+{
+    if (!m_signingKeySecurityError) {
+        return;
+    }
+    openSigningKeyIssueUrl(
+        QUrl(signingKeyIssueUrl()),
+        [](const QUrl &url) { return QDesktopServices::openUrl(url); });
 }
 
 void FluffUpdates::cancelInstallation()
@@ -907,6 +1173,21 @@ void FluffUpdates::restartUpdateCheck()
     m_recoveryRestartPending = true;
     Q_EMIT checkStateChanged();
     QTimer::singleShot(100, this, [this] { checkForUpdates(); });
+}
+
+void FluffUpdates::showSigningKeyVerifiedNotice()
+{
+    m_recoveryNotice = i18nd(
+        "kcm_fluffupdates",
+        "The official FluffNet repository signing key was verified and added to Pacman.");
+    const quint64 generation = ++m_recoveryNoticeGeneration;
+    Q_EMIT recoveryNoticeChanged();
+    QTimer::singleShot(10000, this, [this, generation] {
+        if (generation == m_recoveryNoticeGeneration) {
+            m_recoveryNotice.clear();
+            Q_EMIT recoveryNoticeChanged();
+        }
+    });
 }
 
 void FluffUpdates::showPendingAutoremoveNotice()
@@ -1073,6 +1354,9 @@ void FluffUpdates::readTransactionSummary()
         const auto warningMatch = warningToken.match(output);
         const auto dependencyWarningMatch = dependencyWarningToken.match(output);
         const auto recheckMatch = recheckToken.match(output);
+        const QRegularExpression signingKeyFailureToken(
+            QStringLiteral("FLU_SIGNING_KEY_FAILURE:([^|\\n]*)\\|([^|\\n]*)\\|([^|\\n]*)\\|([^|\\n]*)\\|([^|\\n]*)\\|(-?\\d+)"));
+        const auto signingKeyFailureMatch = signingKeyFailureToken.match(output);
 
         const QRegularExpression replacementToken(
             QStringLiteral("FLU_REPLACEMENT:([A-Za-z0-9@._+:-]+)\\|([^|\\s]+)\\|([A-Za-z0-9@._+:-]+)\\|([^|\\s]+)"));
@@ -1172,6 +1456,24 @@ void FluffUpdates::readTransactionSummary()
             const QString package = recheckMatch.captured(1);
             m_pendingAutoremovedPackages.append(package);
             restartUpdateCheck();
+            return;
+        }
+        if (signingKeyFailureMatch.hasMatch()) {
+            m_signingKeyRepository = signingKeyFailureMatch.captured(1);
+            m_signingKeyFailureCategory = signingKeyFailureMatch.captured(2);
+            m_signingKeyExpectedFingerprint = signingKeyFailureMatch.captured(3);
+            m_signingKeyReceivedFingerprint = signingKeyFailureMatch.captured(4);
+            m_signingKeyRequestedFingerprint = signingKeyFailureMatch.captured(5);
+            m_signingKeyPacmanExitStatus = signingKeyFailureMatch.captured(6).toInt();
+            m_signingKeySecurityError = true;
+            m_checking = false;
+            m_checkComplete = true;
+            m_updatesAvailable = false;
+            m_checkError = i18nd(
+                "kcm_fluffupdates",
+                "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system.");
+            Q_EMIT checkStateChanged();
+            Q_EMIT installStateChanged();
             return;
         }
 
@@ -1283,11 +1585,17 @@ void FluffUpdates::readInstallState()
         state.value(QStringLiteral("recovery_notice_id")).toInteger();
     if (recoveryNoticeId > 0 && recoveryNoticeId != m_lastRecoveryNoticeId) {
         m_lastRecoveryNoticeId = recoveryNoticeId;
+        const QString noticeType =
+            state.value(QStringLiteral("recovery_notice_type")).toString();
         const QString original =
             state.value(QStringLiteral("recovery_original_file")).toString();
         const QString preserved =
             state.value(QStringLiteral("recovery_preserved_file")).toString();
-        if (!original.isEmpty() && !preserved.isEmpty()) {
+        if (noticeType == QStringLiteral("signing-key-verified")) {
+            m_recoveryNotice = i18nd(
+                "kcm_fluffupdates",
+                "The official FluffNet repository signing key was verified and added to Pacman.");
+        } else if (!original.isEmpty() && !preserved.isEmpty()) {
             m_recoveryNotice = i18nd(
                 "kcm_fluffupdates",
                 "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted.",
@@ -1328,9 +1636,27 @@ void FluffUpdates::readInstallState()
     }
 
     m_installError.clear();
+    m_signingKeySecurityError = false;
     if (phase == QStringLiteral("failed")) {
         const QString error = state.value(QStringLiteral("error")).toString();
-        if (error == QStringLiteral("DOWNLOAD_FAILED")
+        if (error == QStringLiteral("SIGNING_KEY_VERIFICATION_FAILED")) {
+            m_signingKeySecurityError = true;
+            m_signingKeyRepository = state.value(
+                QStringLiteral("security_repository")).toString().left(64);
+            m_signingKeyExpectedFingerprint = state.value(
+                QStringLiteral("security_expected_fingerprint")).toString();
+            m_signingKeyReceivedFingerprint = state.value(
+                QStringLiteral("security_received_fingerprint")).toString();
+            m_signingKeyRequestedFingerprint = state.value(
+                QStringLiteral("security_requested_fingerprint")).toString();
+            m_signingKeyFailureCategory = state.value(
+                QStringLiteral("security_failure_category")).toString().left(128);
+            m_signingKeyPacmanExitStatus = state.value(
+                QStringLiteral("security_pacman_exit_status")).toInt(-1);
+            m_installError = i18nd(
+                "kcm_fluffupdates",
+                "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system.");
+        } else if (error == QStringLiteral("DOWNLOAD_FAILED")
             || error == QStringLiteral("DOWNLOAD_CONNECTION_FAILED")
             || error == QStringLiteral("TRANSACTION_PREPARE_FAILED")) {
             m_installError = i18nd(

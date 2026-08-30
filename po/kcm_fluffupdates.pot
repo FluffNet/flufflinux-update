@@ -275,3 +275,58 @@ msgstr ""
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr ""
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr ""
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr ""
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr ""
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr ""
+
+msgid "Technical details"
+msgstr ""
+
+msgid "Repository signing-key verification technical details"
+msgstr ""
+
+msgid "Failure category: %1"
+msgstr ""
+
+msgid "Expected fingerprint: %1"
+msgstr ""
+
+msgid "Received fingerprint: %1"
+msgstr ""
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr ""
+
+msgid "Pacman exit status: %1"
+msgstr ""
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr ""
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr ""
+
+msgid "Try Again"
+msgstr ""
+
+msgid "Copy Technical Details"
+msgstr ""
+
+msgid "Open an Issue on GitHub"
+msgstr ""
