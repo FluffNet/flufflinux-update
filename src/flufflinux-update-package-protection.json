@@ -90,7 +90,6 @@
   "warning": [
     "linux-firmware-marvell",
     "intel-media-driver",
-    "broadcom-wl",
     "linux-firmware-bnx2x",
     "arch-install-scripts",
     "b43-fwcutter",
@@ -232,6 +231,7 @@
     "mtools",
     "partclone",
     "qemu-guest-agent",
+    "broadcom-wl",
     "gnome-disk-utility",
     "gnome-calculator",
     "mission-center-flufflinux",
