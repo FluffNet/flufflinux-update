@@ -281,3 +281,54 @@ msgstr "Файлов конфликт беше открит и разрешен.
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Конфликтният пакет не можа да бъде премахнат. Моля, потърсете поддръжка."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update не можа да провери ключа за подписване на хранилището FluffNet. Обновяването беше спряно, за да се защити системата ви."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update не можа да провери ключа за подписване на хранилището FluffNet. Обновяването беше спряно, за да се защити системата ви. Това може да означава проблем с мрежата, недостъпен сървър на FluffNet, изтекъл или сменен ключ за подписване, проблем с настройката на хранилището, неочакван ключ или възможно компрометиране на хранилището. Не приемайте ръчно неочакван ключ, освен ако Fluff Linux не публикува проверени инструкции."
+
+msgid "Repository: %1"
+msgstr "Хранилище: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Официалният ключ за подписване на хранилището FluffNet беше проверен и добавен към Pacman."
+
+msgid "Technical details"
+msgstr "Технически детайли"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Технически подробности за проверка на ключ за подписване на хранилище"
+
+msgid "Failure category: %1"
+msgstr "Категория на повреда: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Очакван пръстов отпечатък: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Получен пръстов отпечатък: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Поискан пръстов отпечатък на ключ за подписване: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Статус на излизане от Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Версия на FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Версия на Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Опитайте отново"
+
+msgid "Copy Technical Details"
+msgstr "Копиране на техническите подробности"
+
+msgid "Open an Issue on GitHub"
+msgstr "Отворете проблем в GitHub"

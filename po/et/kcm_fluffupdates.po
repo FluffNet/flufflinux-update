@@ -281,3 +281,54 @@ msgstr "Failikonflikt tuvastati ja lahendati. %1 nimetati ümber nimeks %2. Vär
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Vastuolulist paketti ei saanud eemaldada. Palun otsige tuge."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update ei suutnud FluffNeti hoidla allkirjavõtit kontrollida. Uuendamine peatati süsteemi kaitsmiseks."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update ei suutnud FluffNeti hoidla allkirjavõtit kontrollida. Uuendamine peatati süsteemi kaitsmiseks. Põhjuseks võib olla võrguprobleem, kättesaamatu FluffNeti server, aegunud või vahetatud allkirjavõti, hoidla seadistusprobleem, ootamatu võti või hoidla võimalik kompromiteerimine. Ärge võtke ootamatut võtit käsitsi vastu, kui Fluff Linux pole avaldanud kontrollitud juhiseid."
+
+msgid "Repository: %1"
+msgstr "Hoidla: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNeti hoidla ametlik allkirjavõti kontrolliti ja lisati Pacmani."
+
+msgid "Technical details"
+msgstr "Tehnilised üksikasjad"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Hoidla allkirjastamisvõtme kinnitamise tehnilised üksikasjad"
+
+msgid "Failure category: %1"
+msgstr "Rikkekategooria: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Eeldatav sõrmejälg: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Vastu võetud sõrmejälg: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Nõutud allkirjastamisvõtme sõrmejälg: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacmani väljumise olek: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU versioon: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linuxi versioon: %1"
+
+msgid "Try Again"
+msgstr "Proovige uuesti"
+
+msgid "Copy Technical Details"
+msgstr "Kopeerige tehnilised üksikasjad"
+
+msgid "Open an Issue on GitHub"
+msgstr "Avage GitHubis probleem"

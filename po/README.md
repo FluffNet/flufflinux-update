@@ -97,6 +97,11 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove. | Ten-second notice for one safe automatic removal. Preserve `%1`. |
 | To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1 | Ten-second notice for multiple safe automatic removals. Preserve `%1`. |
 | A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted. | Ten-second file conflict recovery notice. Preserve `%1` and `%2`. |
+| Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. | Red status shown when verified FluffNet key recovery fails. |
+| Repository: %1 | Repository field in signing-key technical details. Preserve `%1`; the inserted repository name remains left-to-right. |
+| FLU version: %1 | Installed FLU version in signing-key technical details. Preserve `%1`. |
+| Fluff Linux version: %1 | Operating-system version in signing-key technical details. Preserve `%1`. |
+| The official FluffNet repository signing key was verified and added to Pacman. | Temporary notice after the verified certificate is imported successfully. |
 
 The panel name and description shown in the System Settings search results also
 have translations in `src/kcm_fluffupdates.json`. The application-menu entry is

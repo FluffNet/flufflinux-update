@@ -285,3 +285,54 @@ msgstr "Failų konfliktas buvo aptiktas ir išspręstas. %1 buvo pervadintas į 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Nepavyko pašalinti nesuderinamo paketo. Prašome kreiptis pagalbos."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nepavyko patikrinti FluffNet saugyklos pasirašymo rakto. Siekiant apsaugoti sistemą, atnaujinimas sustabdytas."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nepavyko patikrinti FluffNet saugyklos pasirašymo rakto. Siekiant apsaugoti sistemą, atnaujinimas sustabdytas. Tai gali reikšti tinklo problemą, nepasiekiamą FluffNet serverį, pasibaigusį ar pakeistą pasirašymo raktą, saugyklos konfigūracijos problemą, netikėtą raktą arba galimą saugyklos pažeidimą. Nepriimkite netikėto rakto rankiniu būdu, nebent Fluff Linux paskelbtų patikrintas instrukcijas."
+
+msgid "Repository: %1"
+msgstr "Saugykla: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Oficialus FluffNet saugyklos pasirašymo raktas patikrintas ir pridėtas prie Pacman."
+
+msgid "Technical details"
+msgstr "Techninės detalės"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Saugyklos pasirašymo rakto patvirtinimo techninė informacija"
+
+msgid "Failure category: %1"
+msgstr "Gedimo kategorija: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Numatytas pirštų atspaudas: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Gautas piršto atspaudas: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Reikalingas pasirašymo rakto kontrolinis kodas: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman išėjimo būsena: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU versija: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux versija: %1"
+
+msgid "Try Again"
+msgstr "Bandyk dar kartą"
+
+msgid "Copy Technical Details"
+msgstr "Nukopijuokite techninę informaciją"
+
+msgid "Open an Issue on GitHub"
+msgstr "Atidarykite problemą „GitHub“."

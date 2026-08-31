@@ -139,6 +139,27 @@ Fluff Linux Update uses files under `/etc/pacman.d/`:
 - `flufflinux-update-package-protection.json` defines protected, warning, and
   autoremove classifications. Packages absent from the file use autoremove.
 
+Repository signing-key recovery is fail-closed. If pacman reports a complete
+unknown signing-key fingerprint that pacman conclusively attributes to the
+`fluffnet` repository, FLU downloads FluffNet's public certificate and expected
+primary fingerprint directly from `fluffnet.org`. It parses the certificate in
+an isolated disposable GnuPG home, rejects private-key material, verifies the
+primary fingerprint, key usability, self-signatures, and any signing-subkey
+binding, and only then imports and locally trusts the exact primary key through
+the existing privileged helper. It never contacts a third-party keyserver,
+changes global GnuPG configuration, or accepts pacman's key prompt. Failures
+from other or unidentified repositories do not trigger any FluffNet request or
+keyring change.
+
+The isolated signing-key tests use disposable OpenPGP keys and mocked
+fingerprint endpoint, certificate endpoint, and Pacman-key operations:
+
+```sh
+cmake -S . -B build-tests -DBUILD_TESTING=ON
+cmake --build build-tests
+ctest --test-dir build-tests --output-on-failure
+```
+
 The existing `lastupdate` hook provides this field:
 
 ```json

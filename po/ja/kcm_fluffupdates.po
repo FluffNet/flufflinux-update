@@ -211,3 +211,54 @@ msgstr "ファイルの競合が検出され、解決されました。%1 は %2
 
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "競合するパッケージを削除できませんでした。サポートにお問い合わせください。"
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update は FluffNet リポジトリの署名鍵を検証できませんでした。システムを保護するため、更新を停止しました。"
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update は FluffNet リポジトリの署名鍵を検証できませんでした。システムを保護するため、更新を停止しました。ネットワークの問題、FluffNet サーバーの停止、期限切れまたは更新された署名鍵、リポジトリ設定の問題、予期しない鍵、またはリポジトリの侵害の可能性があります。Fluff Linux が検証済みの手順を公開していない限り、予期しない鍵を手動で承認しないでください。"
+
+msgid "Repository: %1"
+msgstr "リポジトリ: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet リポジトリの公式署名鍵を検証し、Pacman に追加しました。"
+
+msgid "Technical details"
+msgstr "技術的な詳細"
+
+msgid "Repository signing-key verification technical details"
+msgstr "リポジトリ署名キー検証の技術的詳細"
+
+msgid "Failure category: %1"
+msgstr "障害カテゴリ: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "予想されるフィンガープリント: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "受信した指紋: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "要求された署名キーのフィンガープリント: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "パックマンの終了ステータス: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU バージョン: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux バージョン: %1"
+
+msgid "Try Again"
+msgstr "もう一度やり直してください"
+
+msgid "Copy Technical Details"
+msgstr "技術的な詳細をコピーする"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub で問題を開く"

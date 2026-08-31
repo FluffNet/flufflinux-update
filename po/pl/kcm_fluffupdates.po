@@ -285,3 +285,54 @@ msgstr "Wykryto i rozwiązano konflikt plików. Nazwa %1 została zmieniona na %
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Nie można usunąć pakietu powodującego konflikt. Proszę o wsparcie."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nie mógł zweryfikować klucza podpisującego repozytorium FluffNet. Aktualizacja została zatrzymana, aby chronić system."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nie mógł zweryfikować klucza podpisującego repozytorium FluffNet. Aktualizacja została zatrzymana, aby chronić system. Przyczyną może być problem z siecią, niedostępny serwer FluffNet, wygasły lub zmieniony klucz podpisujący, problem z konfiguracją repozytorium, nieoczekiwany klucz albo możliwe naruszenie repozytorium. Nie akceptuj ręcznie nieoczekiwanego klucza, chyba że Fluff Linux opublikuje zweryfikowane instrukcje."
+
+msgid "Repository: %1"
+msgstr "Repozytorium: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Oficjalny klucz podpisujący repozytorium FluffNet został zweryfikowany i dodany do Pacmana."
+
+msgid "Technical details"
+msgstr "Szczegóły techniczne"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Szczegóły techniczne weryfikacji klucza podpisywania repozytorium"
+
+msgid "Failure category: %1"
+msgstr "Kategoria awarii: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Oczekiwany odcisk palca: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Otrzymano odcisk palca: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Żądany odcisk palca klucza podpisującego: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Status wyjścia Pacmana: %1"
+
+msgid "FLU version: %1"
+msgstr "Wersja FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Wersja Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Spróbuj ponownie"
+
+msgid "Copy Technical Details"
+msgstr "Skopiuj szczegóły techniczne"
+
+msgid "Open an Issue on GitHub"
+msgstr "Otwórz problem w GitHub"

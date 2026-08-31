@@ -3,6 +3,10 @@ kcmutils_add_qml_kcm(kcm_fluffupdates)
 target_sources(kcm_fluffupdates PRIVATE
     fluffupdates.cpp
     fluffupdates.h
+    securitydiagnostics.cpp
+    securitydiagnostics.h
+    signingkeyrecovery.cpp
+    signingkeyrecovery.h
     kcm_fluffupdates.json
 )
 
@@ -20,16 +24,25 @@ target_link_libraries(kcm_fluffupdates PRIVATE
 target_compile_definitions(kcm_fluffupdates PRIVATE
     TRANSLATION_DOMAIN=\"kcm_fluffupdates\"
     FLUFFLINUX_LOCALE_DIR=\"${KDE_INSTALL_FULL_LOCALEDIR}\"
+    PROJECT_VERSION=\"${PROJECT_VERSION}\"
 )
 
 add_executable(flufflinux-update-helper updatehelper.cpp)
-target_link_libraries(flufflinux-update-helper PRIVATE Qt6::Core)
+target_sources(flufflinux-update-helper PRIVATE
+    signingkeyrecovery.cpp
+    signingkeyrecovery.h
+)
+target_link_libraries(flufflinux-update-helper PRIVATE Qt6::Core Qt6::Network)
 install(TARGETS flufflinux-update-helper
     RUNTIME DESTINATION lib/flufflinux-update
 )
 
 add_executable(flufflinux-update-worker updateworker.cpp)
-target_link_libraries(flufflinux-update-worker PRIVATE Qt6::Core)
+target_sources(flufflinux-update-worker PRIVATE
+    signingkeyrecovery.cpp
+    signingkeyrecovery.h
+)
+target_link_libraries(flufflinux-update-worker PRIVATE Qt6::Core Qt6::Network)
 install(TARGETS flufflinux-update-worker
     RUNTIME DESTINATION lib/flufflinux-update
 )

@@ -293,3 +293,54 @@ msgstr "Braitheadh ​​agus réitíodh coinbhleacht comhaid. Athainmníodh %1 
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Níorbh fhéidir an pacáiste contrártha a bhaint. Iarr tacaíocht le do thoil."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Níorbh fhéidir le Fluff Linux Update eochair shínithe stór FluffNet a fhíorú. Stopadh an nuashonrú chun do chóras a chosaint."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Níorbh fhéidir le Fluff Linux Update eochair shínithe stór FluffNet a fhíorú. Stopadh an nuashonrú chun do chóras a chosaint. D’fhéadfadh fadhb líonra, freastalaí FluffNet nach bhfuil ar fáil, eochair shínithe atá imithe in éag nó athraithe, fadhb cumraíochta stór, eochair gan choinne, nó sárú féideartha ar an stór a bheith i gceist. Ná glac le heochair gan choinne de láimh mura bhfoilsíonn Fluff Linux treoracha fíoraithe."
+
+msgid "Repository: %1"
+msgstr "Stór: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Fíoraíodh eochair shínithe oifigiúil stór FluffNet agus cuireadh le Pacman í."
+
+msgid "Technical details"
+msgstr "Sonraí teicniúla"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Sonraí teicniúla fíoraithe eochairshínithe stórais"
+
+msgid "Failure category: %1"
+msgstr "Catagóir teip: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Méarloirg ionchais: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Méarloirg faighte: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Méarloirg eochair sínithe iarrtha: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Stádas scoir PacmanName: %1"
+
+msgid "FLU version: %1"
+msgstr "Leagan FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Leagan Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Bain triail eile as"
+
+msgid "Copy Technical Details"
+msgstr "Cóipeáil Sonraí Teicniúla"
+
+msgid "Open an Issue on GitHub"
+msgstr "Oscail Saincheist ar GitHub"

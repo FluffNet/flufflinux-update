@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(flufflinux_update_kcm VERSION 1.3.0 LANGUAGES CXX)
+project(flufflinux_update_kcm VERSION 1.4.0 LANGUAGES CXX)
+
+option(BUILD_TESTING "Build the isolated signing-key tests" OFF)
+include(CTest)
 
 set(QT_MIN_VERSION "6.9.0")
 set(KF6_MIN_VERSION "6.0.0")
@@ -34,9 +37,15 @@ include(KDECMakeSettings)
 include(FeatureSummary)
 
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Core Gui Network Qml Quick Widgets)
+if(BUILD_TESTING)
+    find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
+endif()
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n KCMUtils)
 
 add_subdirectory(src)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 # Install gettext catalogs into the fakeroot alongside the KCM.
 ki18n_install(po)

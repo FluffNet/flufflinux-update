@@ -215,3 +215,54 @@ msgstr "Un conflit de fichiers a été détecté et résolu. %1 a été renommé
 
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Le paquet en conflit n’a pas pu être supprimé. Veuillez contacter l’assistance."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update n’a pas pu vérifier la clé de signature du dépôt FluffNet. La mise à jour a été arrêtée afin de protéger votre système."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update n’a pas pu vérifier la clé de signature du dépôt FluffNet. La mise à jour a été arrêtée afin de protéger votre système. Cela peut indiquer un problème réseau, un serveur FluffNet indisponible, une clé de signature expirée ou remplacée, un problème de configuration du dépôt, une clé inattendue ou une possible compromission du dépôt. N’acceptez pas manuellement une clé inattendue, sauf si Fluff Linux publie des instructions vérifiées."
+
+msgid "Repository: %1"
+msgstr "Dépôt : %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "La clé de signature officielle du dépôt FluffNet a été vérifiée et ajoutée à Pacman."
+
+msgid "Technical details"
+msgstr "Détails techniques"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Détails techniques de la vérification de la clé de signature du référentiel"
+
+msgid "Failure category: %1"
+msgstr "Catégorie de défaillance : %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Empreinte digitale attendue : %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Empreinte digitale reçue : %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Empreinte digitale de clé de signature demandée : %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Statut de sortie de Pacman : %1"
+
+msgid "FLU version: %1"
+msgstr "Version de FLU : %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Version de Fluff Linux : %1"
+
+msgid "Try Again"
+msgstr "Essayer à nouveau"
+
+msgid "Copy Technical Details"
+msgstr "Copier les détails techniques"
+
+msgid "Open an Issue on GitHub"
+msgstr "Ouvrir un problème sur GitHub"

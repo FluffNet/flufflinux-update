@@ -15,7 +15,19 @@ KCMUtils.SimpleKCM {
         && !kcm.updatesAvailable && kcm.checkError.length === 0
         && kcm.recoveryActionState.length === 0
     readonly property bool recoveryActionRequired:
-        kcm.recoveryActionState.length > 0
+        kcm.recoveryActionState.length > 0 || kcm.signingKeySecurityError
+    readonly property bool criticalActionRequired:
+        kcm.recoveryActionState === "protected" || kcm.signingKeySecurityError
+    property bool signingKeyDialogDismissed: false
+
+    Connections {
+        target: kcm
+        function onInstallStateChanged() {
+            if (kcm.signingKeySecurityError) {
+                root.signingKeyDialogDismissed = false
+            }
+        }
+    }
 
     // Qt selects RightToLeft for Arabic and Hebrew. Explicit mirroring makes
     // every nested row follow that direction as well.
@@ -77,7 +89,7 @@ KCMUtils.SimpleKCM {
                             ? "#d71920" : kcm.freshnessColor
 
                         Accessible.name: root.recoveryActionRequired
-                            ? (kcm.recoveryActionState === "protected"
+                            ? (root.criticalActionRequired
                                 ? i18nd("kcm_fluffupdates", "Action is required!")
                                 : i18nd("kcm_fluffupdates", "Action is required"))
                             : root.systemUpToDate
@@ -97,7 +109,7 @@ KCMUtils.SimpleKCM {
 
                         Text {
                             anchors.centerIn: parent
-                            visible: kcm.recoveryActionState === "protected"
+                            visible: root.criticalActionRequired
                             text: "\u00d7"
                             color: "white"
                             font.pixelSize: parent.width * 0.72
@@ -117,7 +129,7 @@ KCMUtils.SimpleKCM {
                             Layout.fillWidth: true
                             wrapMode: Text.WordWrap
                             text: root.recoveryActionRequired
-                                ? (kcm.recoveryActionState === "protected"
+                                ? (root.criticalActionRequired
                                     ? i18nd("kcm_fluffupdates", "Action is required!")
                                     : i18nd("kcm_fluffupdates", "Action is required"))
                                 : root.systemUpToDate
@@ -358,6 +370,7 @@ KCMUtils.SimpleKCM {
                     Layout.fillWidth: true
                     visible: kcm.installError.length > 0
                     type: Kirigami.MessageType.Error
+                    icon.name: "dialog-error"
                     text: kcm.installError
                 }
 
@@ -531,6 +544,168 @@ KCMUtils.SimpleKCM {
                 widest = Math.max(widest, rowWidth)
             }
             return widest
+        }
+
+        function beginWheelGesture(handler) {
+            handler.touchpadGesture = false
+            handler.velocityX = 0
+            handler.velocityY = 0
+            handler.lastEventTime = Date.now()
+        }
+
+        function blendWheelVelocity(currentVelocity,
+                                    instantaneousVelocity) {
+            if (currentVelocity === 0
+                    || currentVelocity * instantaneousVelocity < 0)
+                return instantaneousVelocity
+
+            return currentVelocity * 0.65
+                + instantaneousVelocity * 0.35
+        }
+
+        function scrollFromWheel(flickable, wheel, handler,
+                                 momentum, horizontal) {
+            const pixelX = wheel.pixelDelta.x
+            const pixelY = wheel.pixelDelta.y
+            const preciseGesture = pixelX !== 0 || pixelY !== 0
+
+            if (preciseGesture) {
+                const now = Date.now()
+                const elapsed = Math.max(8,
+                    Math.min(50, now - handler.lastEventTime))
+                handler.lastEventTime = now
+                handler.touchpadGesture = true
+
+                if (horizontal && pixelX !== 0) {
+                    if (momentum.velocityX * pixelX < 0)
+                        momentum.velocityX *= 0.7
+                    const maximumX = Math.max(flickable.originX,
+                        flickable.originX + flickable.contentWidth
+                            - flickable.width)
+                    flickable.contentX = Math.max(flickable.originX,
+                        Math.min(maximumX,
+                            flickable.contentX - pixelX))
+                    const instantaneousX = pixelX * 1000 / elapsed
+                    handler.velocityX = blendWheelVelocity(
+                        handler.velocityX, instantaneousX)
+                }
+
+                if (pixelY !== 0) {
+                    if (momentum.velocityY * pixelY < 0)
+                        momentum.velocityY *= 0.7
+                    const maximumY = Math.max(flickable.originY,
+                        flickable.originY + flickable.contentHeight
+                            - flickable.height)
+                    flickable.contentY = Math.max(flickable.originY,
+                        Math.min(maximumY,
+                            flickable.contentY - pixelY))
+                    const instantaneousY = pixelY * 1000 / elapsed
+                    handler.velocityY = blendWheelVelocity(
+                        handler.velocityY, instantaneousY)
+                }
+            } else {
+                const wheelStep = Kirigami.Units.gridUnit * 5
+                const deltaX = wheel.angleDelta.x / 120 * wheelStep
+                const deltaY = wheel.angleDelta.y / 120 * wheelStep
+
+                if (horizontal && deltaX !== 0) {
+                    if (momentum.velocityX * deltaX < 0)
+                        momentum.velocityX *= 0.5
+                    const maximumX = Math.max(flickable.originX,
+                        flickable.originX + flickable.contentWidth
+                            - flickable.width)
+                    flickable.contentX = Math.max(flickable.originX,
+                        Math.min(maximumX,
+                            flickable.contentX - deltaX))
+                }
+
+                if (deltaY !== 0) {
+                    if (momentum.velocityY * deltaY < 0)
+                        momentum.velocityY *= 0.5
+                    const maximumY = Math.max(flickable.originY,
+                        flickable.originY + flickable.contentHeight
+                            - flickable.height)
+                    flickable.contentY = Math.max(flickable.originY,
+                        Math.min(maximumY,
+                            flickable.contentY - deltaY))
+                }
+            }
+
+            wheel.accepted = true
+        }
+
+        function finishWheelGesture(flickable, handler,
+                                    momentum, horizontal) {
+            if (!handler.touchpadGesture)
+                return
+
+            const accumulatedX = momentum.velocityX
+                    * handler.velocityX > 0
+                ? handler.velocityX + momentum.velocityX * 0.75
+                : handler.velocityX
+            const accumulatedY = momentum.velocityY
+                    * handler.velocityY > 0
+                ? handler.velocityY + momentum.velocityY * 0.75
+                : handler.velocityY
+            const velocityX = horizontal
+                ? Math.max(-flickable.maximumFlickVelocity,
+                    Math.min(flickable.maximumFlickVelocity,
+                        accumulatedX)) : 0
+            const velocityY = Math.max(-flickable.maximumFlickVelocity,
+                Math.min(flickable.maximumFlickVelocity,
+                    accumulatedY))
+
+            momentum.velocityX = Math.abs(velocityX) >= 80
+                ? velocityX : 0
+            momentum.velocityY = Math.abs(velocityY) >= 80
+                ? velocityY : 0
+            momentum.lastFrameTime = Date.now()
+            if (momentum.velocityX !== 0 || momentum.velocityY !== 0)
+                momentum.start()
+        }
+
+        function advanceWheelMomentum(flickable, momentum,
+                                      horizontal, gestureActive) {
+            const now = Date.now()
+            const elapsed = Math.max(1,
+                Math.min(32, now - momentum.lastFrameTime))
+            momentum.lastFrameTime = now
+
+            if (horizontal && momentum.velocityX !== 0) {
+                const minimumX = flickable.originX
+                const maximumX = Math.max(minimumX,
+                    minimumX + flickable.contentWidth - flickable.width)
+                const nextX = flickable.contentX
+                    - momentum.velocityX * elapsed / 1000
+                flickable.contentX = Math.max(minimumX,
+                    Math.min(maximumX, nextX))
+                if (nextX <= minimumX || nextX >= maximumX)
+                    momentum.velocityX = 0
+            }
+
+            if (momentum.velocityY !== 0) {
+                const minimumY = flickable.originY
+                const maximumY = Math.max(minimumY,
+                    minimumY + flickable.contentHeight - flickable.height)
+                const nextY = flickable.contentY
+                    - momentum.velocityY * elapsed / 1000
+                flickable.contentY = Math.max(minimumY,
+                    Math.min(maximumY, nextY))
+                if (nextY <= minimumY || nextY >= maximumY)
+                    momentum.velocityY = 0
+            }
+
+            const friction = gestureActive ? 0.006 : 0.002
+            const decay = Math.pow(1 - friction, elapsed)
+            momentum.velocityX *= decay
+            momentum.velocityY *= decay
+
+            if (Math.abs(momentum.velocityX) < 20)
+                momentum.velocityX = 0
+            if (Math.abs(momentum.velocityY) < 20)
+                momentum.velocityY = 0
+            if (momentum.velocityX === 0 && momentum.velocityY === 0)
+                momentum.stop()
         }
 
         readonly property real preferredPackageWidth: Math.max(
@@ -724,7 +899,53 @@ KCMUtils.SimpleKCM {
                     model: kcm.updatePackages
                     spacing: Kirigami.Units.smallSpacing
                     boundsBehavior: Flickable.StopAtBounds
+                    maximumFlickVelocity: 6000
                     pixelAligned: false
+
+                    WheelHandler {
+                        id: comparisonWheelHandler
+
+                        property bool touchpadGesture: false
+                        property real velocityX: 0
+                        property real velocityY: 0
+                        property real lastEventTime: 0
+
+                        target: null
+                        acceptedDevices: PointerDevice.Mouse
+                            | PointerDevice.TouchPad
+                        activeTimeout: 0.05
+                        blocking: true
+                        onActiveChanged: {
+                            if (active) {
+                                updatesWindow.beginWheelGesture(
+                                    comparisonWheelHandler)
+                            } else {
+                                updatesWindow.finishWheelGesture(
+                                    updateList, comparisonWheelHandler,
+                                    comparisonMomentum, true)
+                            }
+                        }
+                        onWheel: function(event) {
+                            updatesWindow.scrollFromWheel(
+                                updateList, event,
+                                comparisonWheelHandler,
+                                comparisonMomentum, true)
+                        }
+                    }
+
+                    Timer {
+                        id: comparisonMomentum
+
+                        property real velocityX: 0
+                        property real velocityY: 0
+                        property real lastFrameTime: 0
+
+                        interval: 16
+                        repeat: true
+                        onTriggered: updatesWindow.advanceWheelMomentum(
+                            updateList, comparisonMomentum, true,
+                            comparisonWheelHandler.active)
+                    }
 
                     Controls.ScrollBar.vertical: Controls.ScrollBar {
                         id: comparisonVerticalScrollBar
@@ -889,7 +1110,54 @@ KCMUtils.SimpleKCM {
                     contentWidth: width
                     contentHeight: pacmanPackageFlow.implicitHeight
                     boundsBehavior: Flickable.StopAtBounds
+                    maximumFlickVelocity: 6000
                     pixelAligned: false
+
+                    WheelHandler {
+                        id: pacmanWheelHandler
+
+                        property bool touchpadGesture: false
+                        property real velocityX: 0
+                        property real velocityY: 0
+                        property real lastEventTime: 0
+
+                        target: null
+                        acceptedDevices: PointerDevice.Mouse
+                            | PointerDevice.TouchPad
+                        activeTimeout: 0.05
+                        blocking: true
+                        onActiveChanged: {
+                            if (active) {
+                                updatesWindow.beginWheelGesture(
+                                    pacmanWheelHandler)
+                            } else {
+                                updatesWindow.finishWheelGesture(
+                                    pacmanViewFlickable,
+                                    pacmanWheelHandler,
+                                    pacmanMomentum, false)
+                            }
+                        }
+                        onWheel: function(event) {
+                            updatesWindow.scrollFromWheel(
+                                pacmanViewFlickable, event,
+                                pacmanWheelHandler,
+                                pacmanMomentum, false)
+                        }
+                    }
+
+                    Timer {
+                        id: pacmanMomentum
+
+                        property real velocityX: 0
+                        property real velocityY: 0
+                        property real lastFrameTime: 0
+
+                        interval: 16
+                        repeat: true
+                        onTriggered: updatesWindow.advanceWheelMomentum(
+                            pacmanViewFlickable, pacmanMomentum, false,
+                            pacmanWheelHandler.active)
+                    }
 
                     Controls.ScrollBar.vertical: Controls.ScrollBar {
                         id: pacmanVerticalScrollBar
@@ -1086,6 +1354,94 @@ KCMUtils.SimpleKCM {
                     Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
                     kcm.resolveRemovalWarning(false)
                 }
+            }
+        }
+    }
+
+    Controls.Dialog {
+        id: signingKeySecurityDialog
+
+        anchors.centerIn: parent
+        modal: true
+        title: i18nd("kcm_fluffupdates", "Action required")
+        visible: kcm.signingKeySecurityError
+            && !root.signingKeyDialogDismissed
+        onRejected: root.signingKeyDialogDismissed = true
+
+        contentItem: ColumnLayout {
+            width: Math.min(Kirigami.Units.gridUnit * 34,
+                            root.width - Kirigami.Units.largeSpacing * 4)
+            spacing: Kirigami.Units.largeSpacing
+
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: Kirigami.Units.largeSpacing
+
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignTop
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                    Layout.preferredHeight: width
+                    source: "dialog-error"
+                }
+
+                Controls.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.WordWrap
+                    text: i18nd("kcm_fluffupdates",
+                        "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions.")
+                }
+            }
+
+            Controls.Label {
+                Layout.fillWidth: true
+                text: i18nd("kcm_fluffupdates", "Technical details")
+                font.bold: true
+            }
+
+            Controls.TextArea {
+                Layout.fillWidth: true
+                Layout.preferredHeight: Kirigami.Units.gridUnit * 7
+                LayoutMirroring.enabled: false
+                readOnly: true
+                selectByMouse: true
+                wrapMode: TextEdit.WrapAnywhere
+                horizontalAlignment: Text.AlignLeft
+                text: kcm.signingKeyTechnicalDetails
+                Accessible.name: i18nd("kcm_fluffupdates",
+                    "Repository signing-key verification technical details")
+            }
+        }
+
+        footer: Controls.DialogButtonBox {
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Try Again")
+                icon.name: "view-refresh"
+                Controls.DialogButtonBox.buttonRole:
+                    Controls.DialogButtonBox.ActionRole
+                onClicked: kcm.retrySigningKeyUpdate()
+            }
+
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Copy Technical Details")
+                icon.name: "edit-copy"
+                Controls.DialogButtonBox.buttonRole:
+                    Controls.DialogButtonBox.ActionRole
+                onClicked: kcm.copySigningKeyTechnicalDetails()
+            }
+
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Open an Issue on GitHub")
+                icon.name: "internet-services"
+                Controls.DialogButtonBox.buttonRole:
+                    Controls.DialogButtonBox.ActionRole
+                onClicked: kcm.openSigningKeyIssue()
+            }
+
+            Controls.Button {
+                text: i18nd("kcm_fluffupdates", "Close")
+                icon.name: "dialog-close"
+                Controls.DialogButtonBox.buttonRole:
+                    Controls.DialogButtonBox.RejectRole
             }
         }
     }

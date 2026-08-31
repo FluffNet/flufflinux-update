@@ -219,3 +219,54 @@ msgstr "Конфликт файлов был обнаружен и устран�
 
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Не удалось удалить конфликтующий пакет. Обратитесь в службу поддержки."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update не удалось проверить ключ подписи репозитория FluffNet. Обновление остановлено для защиты системы."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update не удалось проверить ключ подписи репозитория FluffNet. Обновление остановлено для защиты системы. Причиной может быть проблема с сетью, недоступный сервер FluffNet, истёкший или заменённый ключ подписи, ошибка настройки репозитория, неожиданный ключ или возможная компрометация репозитория. Не принимайте неожиданный ключ вручную, если Fluff Linux не опубликовал проверенные инструкции."
+
+msgid "Repository: %1"
+msgstr "Репозиторий: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Официальный ключ подписи репозитория FluffNet проверен и добавлен в Pacman."
+
+msgid "Technical details"
+msgstr "Технические детали"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Технические подробности проверки ключа подписи репозитория"
+
+msgid "Failure category: %1"
+msgstr "Категория отказа: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Ожидаемый отпечаток: %1."
+
+msgid "Received fingerprint: %1"
+msgstr "Получен отпечаток пальца: %1."
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Запрошенный отпечаток ключа подписи: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Статус выхода Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Версия FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Версия Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Попробуйте еще раз"
+
+msgid "Copy Technical Details"
+msgstr "Копировать технические детали"
+
+msgid "Open an Issue on GitHub"
+msgstr "Откройте проблему на GitHub"

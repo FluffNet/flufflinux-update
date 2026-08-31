@@ -281,3 +281,54 @@ msgstr "A rendszer fájlütközést észlelt és megoldott. Az %1 átnevezték %
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Az ütköző csomagot nem sikerült eltávolítani. Kérjük, kérjen támogatást."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "A Fluff Linux Update nem tudta ellenőrizni a FluffNet tároló aláírókulcsát. A frissítés a rendszer védelme érdekében leállt."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "A Fluff Linux Update nem tudta ellenőrizni a FluffNet tároló aláírókulcsát. A frissítés a rendszer védelme érdekében leállt. Ennek oka hálózati probléma, nem elérhető FluffNet-kiszolgáló, lejárt vagy lecserélt aláírókulcs, tárolóbeállítási probléma, váratlan kulcs vagy a tároló esetleges kompromittálódása lehet. Ne fogadjon el kézzel váratlan kulcsot, hacsak a Fluff Linux nem tesz közzé ellenőrzött utasításokat."
+
+msgid "Repository: %1"
+msgstr "Tároló: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "A FluffNet tároló hivatalos aláírókulcsának ellenőrzése sikerült, és a kulcs bekerült a Pacmanba."
+
+msgid "Technical details"
+msgstr "Műszaki részletek"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Az adattár aláírási kulcs ellenőrzésének technikai részletei"
+
+msgid "Failure category: %1"
+msgstr "Hibakategória: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Várható ujjlenyomat: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Fogadott ujjlenyomat: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Az aláírási kulcs kért ujjlenyomata: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman kilépési állapota: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-verzió: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-verzió: %1"
+
+msgid "Try Again"
+msgstr "Próbáld újra"
+
+msgid "Copy Technical Details"
+msgstr "Másolja a műszaki adatokat"
+
+msgid "Open an Issue on GitHub"
+msgstr "Nyisson meg egy problémát a GitHubon"

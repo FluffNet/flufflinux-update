@@ -285,3 +285,54 @@ msgstr "A fost detectat și rezolvat un conflict de fișier. %1 a fost redenumit
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Pachetul aflat în conflict nu a putut fi eliminat. Vă rugăm să căutați sprijin."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nu a putut verifica cheia de semnare a depozitului FluffNet. Actualizarea a fost oprită pentru a vă proteja sistemul."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nu a putut verifica cheia de semnare a depozitului FluffNet. Actualizarea a fost oprită pentru a vă proteja sistemul. Cauza poate fi o problemă de rețea, un server FluffNet indisponibil, o cheie de semnare expirată sau schimbată, o problemă de configurare a depozitului, o cheie neașteptată sau o posibilă compromitere a depozitului. Nu acceptați manual o cheie neașteptată decât dacă Fluff Linux publică instrucțiuni verificate."
+
+msgid "Repository: %1"
+msgstr "Depozit: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Cheia oficială de semnare a depozitului FluffNet a fost verificată și adăugată în Pacman."
+
+msgid "Technical details"
+msgstr "Detalii tehnice"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Detalii tehnice de verificare a cheii de semnare a depozitului"
+
+msgid "Failure category: %1"
+msgstr "Categoria de eșec: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Amprenta digitală așteptată: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Amprenta primită: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Amprenta digitală a cheii de semnare solicitată: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Stare de ieșire Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Versiune FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Versiune Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Încearcă din nou"
+
+msgid "Copy Technical Details"
+msgstr "Copiați detaliile tehnice"
+
+msgid "Open an Issue on GitHub"
+msgstr "Deschideți o problemă pe GitHub"

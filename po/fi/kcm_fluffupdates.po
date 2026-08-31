@@ -281,3 +281,54 @@ msgstr "Tiedostoristiriita havaittiin ja korjattiin. %1 nimettiin uudelleen %2:k
 #. Error shown when an approved blocking package could not be removed.
 msgid "The conflicting package could not be removed. Please seek support."
 msgstr "Ristiriitaista pakettia ei voitu poistaa. Pyydä tukea."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update ei voinut vahvistaa FluffNet-tietovaraston allekirjoitusavainta. Päivitys keskeytettiin järjestelmäsi suojaamiseksi."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update ei voinut vahvistaa FluffNet-tietovaraston allekirjoitusavainta. Päivitys keskeytettiin järjestelmäsi suojaamiseksi. Syynä voi olla verkko-ongelma, FluffNet-palvelimen tavoittamattomuus, vanhentunut tai vaihdettu allekirjoitusavain, tietovaraston määritysongelma, odottamaton avain tai tietovaraston mahdollinen vaarantuminen. Älä hyväksy odottamatonta avainta käsin, ellei Fluff Linux julkaise vahvistettuja ohjeita."
+
+msgid "Repository: %1"
+msgstr "Tietovarasto: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet-tietovaraston virallinen allekirjoitusavain vahvistettiin ja lisättiin Pacmaniin."
+
+msgid "Technical details"
+msgstr "Tekniset tiedot"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Tietovaraston allekirjoitusavaimen vahvistuksen tekniset tiedot"
+
+msgid "Failure category: %1"
+msgstr "Vikaluokka: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Odotettu sormenjälki: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Vastaanotettu sormenjälki: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Pyydetty allekirjoitusavaimen sormenjälki: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacmanin poistumistila: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-versio: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux -versio: %1"
+
+msgid "Try Again"
+msgstr "Yritä uudelleen"
+
+msgid "Copy Technical Details"
+msgstr "Kopioi tekniset tiedot"
+
+msgid "Open an Issue on GitHub"
+msgstr "Avaa ongelma GitHubissa"
