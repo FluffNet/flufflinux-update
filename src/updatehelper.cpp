@@ -1,6 +1,7 @@
 #include <QDir>
 #include <QDateTime>
 #include <QCoreApplication>
+#include <QElapsedTimer>
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -44,6 +45,9 @@ constexpr auto FingerprintUrl =
 constexpr auto CertificateUrl =
     "https://fluffnet.org/flufflinux-fnrepo/packages/"
     "flufflinux-signing-key.asc";
+constexpr qint64 TransactionSummaryTimeoutMs = 120000;
+constexpr qint64 TransactionSummaryPromptWriteTimeoutMs = 5000;
+constexpr qsizetype TransactionSummaryMaximumOutputBytes = 8 * 1024 * 1024;
 
 enum class RemovalClass { Protected, Warning, Autoremove };
 
@@ -431,28 +435,109 @@ int transactionSummary(const QString &requestedDatabase,
     QProcess pacman;
     pacman.setProgram(QString::fromLatin1(PacmanPath));
     pacman.setArguments({QStringLiteral("--dbpath"), requestedDatabase,
-                         QStringLiteral("-Su")});
+                         QStringLiteral("-Su"), QStringLiteral("--color"),
+                         QStringLiteral("never")});
     pacman.setProcessChannelMode(QProcess::MergedChannels);
     QProcessEnvironment environment = QProcessEnvironment::systemEnvironment();
     environment.insert(QStringLiteral("LC_ALL"), QStringLiteral("C"));
     pacman.setProcessEnvironment(environment);
+    QElapsedTimer transactionTimer;
+    transactionTimer.start();
     pacman.start();
 
-    if (!pacman.waitForStarted()) {
+    if (!pacman.waitForStarted(5000)) {
         std::cerr << "flufflinux-update-helper: could not start pacman\n";
+        QFile::remove(temporaryLock);
         return 1;
     }
 
     const ProtectionPolicy policy = readProtectionPolicy();
     QByteArray output;
+    const auto appendPacmanOutput = [&] {
+        const QByteArray chunk = pacman.readAll();
+        if (chunk.size()
+            > TransactionSummaryMaximumOutputBytes - output.size()) {
+            return false;
+        }
+        output += chunk;
+        return true;
+    };
+    const auto stopPacmanAndClearLock = [&] {
+        pacman.closeWriteChannel();
+        if (pacman.state() != QProcess::NotRunning) {
+            pacman.kill();
+            pacman.waitForFinished(5000);
+        }
+        QFile::remove(temporaryLock);
+    };
+    const auto abortTransactionSummary = [&](const char *reason) {
+        stopPacmanAndClearLock();
+        if (output.size() < TransactionSummaryMaximumOutputBytes) {
+            const QByteArray trailing = pacman.readAll();
+            output += trailing.left(
+                TransactionSummaryMaximumOutputBytes - output.size());
+        }
+        std::cout.write(output.constData(), output.size());
+        std::cout << "\nFLU_TRANSACTION_SUMMARY_ABORT:" << reason << "\n";
+        std::cout.flush();
+        return 25;
+    };
+    const auto writePromptAnswer = [&](const QByteArray &answer,
+                                       bool closeWriteChannel) {
+        if (!pacman.isWritable() || pacman.write(answer) != answer.size()) {
+            return false;
+        }
+
+        QElapsedTimer writeTimer;
+        writeTimer.start();
+        while (pacman.bytesToWrite() > 0) {
+            const qint64 transactionRemaining =
+                TransactionSummaryTimeoutMs - transactionTimer.elapsed();
+            const qint64 writeRemaining =
+                TransactionSummaryPromptWriteTimeoutMs - writeTimer.elapsed();
+            const qint64 waitMilliseconds =
+                qMin(transactionRemaining, writeRemaining);
+            if (waitMilliseconds <= 0
+                || !pacman.waitForBytesWritten(
+                    static_cast<int>(waitMilliseconds))) {
+                return false;
+            }
+        }
+        if (closeWriteChannel) {
+            pacman.closeWriteChannel();
+        }
+        return true;
+    };
     qsizetype parsedThrough = 0;
     bool finalConfirmationAnswered = false;
     QList<QPair<QString, QString>> replacements;
     while (pacman.state() != QProcess::NotRunning) {
-        pacman.waitForReadyRead(100);
-        output += pacman.readAll();
+        const qint64 remaining =
+            TransactionSummaryTimeoutMs - transactionTimer.elapsed();
+        if (remaining <= 0) {
+            return abortTransactionSummary("timeout");
+        }
+        pacman.waitForReadyRead(
+            static_cast<int>(qMin<qint64>(remaining, 100)));
+        if (!appendPacmanOutput()) {
+            return abortTransactionSummary("output-limit");
+        }
         const QString text = QString::fromLocal8Bit(output);
         const QString unparsed = text.mid(parsedThrough);
+
+        const qsizetype signingKeyImportEnd =
+            SigningKeyRecovery::signingKeyImportPromptEnd(unparsed);
+        if (signingKeyImportEnd >= 0) {
+            // The planner never delegates repository trust to a configured
+            // third-party keyserver. Refuse Pacman's prompt, let it terminate,
+            // then route the complete repository-scoped error through FLU's
+            // HTTPS certificate verification and one-shot retry below.
+            if (!writePromptAnswer(QByteArrayLiteral("n\n"), true)) {
+                return abortTransactionSummary("prompt-write-failed");
+            }
+            parsedThrough += signingKeyImportEnd;
+            continue;
+        }
 
         static const QRegularExpression replacement(
             QStringLiteral("Replace\\s+([A-Za-z0-9@._+:-]+)\\s+with\\s+(?:[A-Za-z0-9@._+:-]+/)?([A-Za-z0-9@._+:-]+)\\?\\s*\\[Y/n\\]"),
@@ -461,8 +546,9 @@ int transactionSummary(const QString &requestedDatabase,
         if (replacementMatch.hasMatch()) {
             replacements.append({replacementMatch.captured(1),
                                  replacementMatch.captured(2)});
-            pacman.write("y\n");
-            pacman.waitForBytesWritten();
+            if (!writePromptAnswer(QByteArrayLiteral("y\n"), false)) {
+                return abortTransactionSummary("prompt-write-failed");
+            }
             parsedThrough += replacementMatch.capturedEnd();
             continue;
         }
@@ -475,25 +561,19 @@ int transactionSummary(const QString &requestedDatabase,
             const QString package = removalMatch.captured(1);
             switch (classifyRemoval(policy, package)) {
             case RemovalClass::Protected:
-                pacman.kill();
-                pacman.waitForFinished();
-                QFile::remove(temporaryLock);
+                stopPacmanAndClearLock();
                 std::cout << output.constData();
                 std::cout << "\nFLU_PROTECTED_REMOVAL:" << package.toStdString()
                           << "\n";
                 return 20;
             case RemovalClass::Warning:
-                pacman.kill();
-                pacman.waitForFinished();
-                QFile::remove(temporaryLock);
+                stopPacmanAndClearLock();
                 std::cout << output.constData();
                 std::cout << "\nFLU_WARNING_REMOVAL:" << package.toStdString()
                           << "\n";
                 return 21;
             case RemovalClass::Autoremove:
-                pacman.kill();
-                pacman.waitForFinished();
-                QFile::remove(temporaryLock);
+                stopPacmanAndClearLock();
                 if (removePackage(package) != 0) {
                     std::cout.write(output.constData(), output.size());
                     std::cout << "\nFLU_AUTOREMOVE_FAILED:"
@@ -510,12 +590,15 @@ int transactionSummary(const QString &requestedDatabase,
             && unparsed.contains(QStringLiteral("Proceed with installation?"))) {
             // Planning mode accepts transaction questions but always refuses
             // pacman's final confirmation, so this command cannot install.
-            pacman.write("n\n");
-            pacman.closeWriteChannel();
+            if (!writePromptAnswer(QByteArrayLiteral("n\n"), true)) {
+                return abortTransactionSummary("prompt-write-failed");
+            }
             finalConfirmationAnswered = true;
         }
     }
-    output += pacman.readAll();
+    if (!appendPacmanOutput()) {
+        return abortTransactionSummary("output-limit");
+    }
 
     if (pacman.exitCode() != 0
         && SigningKeyRecovery::containsUnknownKeyReport(

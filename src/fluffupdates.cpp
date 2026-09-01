@@ -767,6 +767,10 @@ void FluffUpdates::startUpdateQuery()
                     "The update check stopped unexpectedly.");
                 Q_EMIT checkStateChanged();
             });
+        } else if (exitCode != 0
+                   && SigningKeyRecovery::containsUnknownKeyReport(output)) {
+            recoverCheckSigningKey(output, exitCode);
+            return;
         } else if (exitCode == 2) {
             afterMinimumCheckDuration([this] {
                 m_updatesAvailable = false;
@@ -830,25 +834,40 @@ void FluffUpdates::recoverCheckSigningKey(const QString &output,
         return;
     }
     m_checkSigningKeyRecoveryAttempted = true;
-    m_summaryProcess = new QProcess(this);
-    m_summaryProcess->setProgram(QStringLiteral("pkexec"));
-    m_summaryProcess->setArguments({
+    auto *recoveryProcess = new QProcess(this);
+    m_summaryProcess = recoveryProcess;
+    recoveryProcess->setProgram(QStringLiteral("pkexec"));
+    recoveryProcess->setArguments({
         QStringLiteral("/usr/lib/flufflinux-update/flufflinux-update-helper"),
         QStringLiteral("--recover-signing-key"),
         QString::fromLatin1(output.toUtf8().toBase64(
             QByteArray::Base64UrlEncoding | QByteArray::OmitTrailingEquals)),
     });
-    m_summaryProcess->setProcessChannelMode(QProcess::MergedChannels);
-    connect(m_summaryProcess,
-            qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
-            [this, repository, requested, pacmanExitStatus](
-                int exitCode, QProcess::ExitStatus status) {
-        const QString result = m_summaryProcess
-            ? QString::fromLocal8Bit(m_summaryProcess->readAll()) : QString();
-        if (m_summaryProcess) {
-            m_summaryProcess->deleteLater();
-            m_summaryProcess = nullptr;
+    recoveryProcess->setProcessChannelMode(QProcess::MergedChannels);
+    connect(recoveryProcess, &QProcess::errorOccurred, this,
+            [this, recoveryProcess, repository, requested, pacmanExitStatus](
+                QProcess::ProcessError error) {
+        if (error != QProcess::FailedToStart
+            || m_summaryProcess != recoveryProcess) {
+            return;
         }
+        m_summaryProcess = nullptr;
+        recoveryProcess->deleteLater();
+        showCheckSigningKeyFailure(
+            QStringLiteral("recovery-helper-failed"), repository, {}, {},
+            requested, pacmanExitStatus);
+    });
+    connect(recoveryProcess,
+            qOverload<int, QProcess::ExitStatus>(&QProcess::finished), this,
+            [this, recoveryProcess, repository, requested, pacmanExitStatus](
+                int exitCode, QProcess::ExitStatus status) {
+        if (m_summaryProcess != recoveryProcess) {
+            return;
+        }
+        const QString result =
+            QString::fromLocal8Bit(recoveryProcess->readAll());
+        m_summaryProcess = nullptr;
+        recoveryProcess->deleteLater();
         if (status == QProcess::NormalExit && exitCode == 0) {
             showSigningKeyVerifiedNotice();
             restartUpdateCheck();
@@ -868,7 +887,7 @@ void FluffUpdates::recoverCheckSigningKey(const QString &output,
                 requested, pacmanExitStatus);
         }
     });
-    m_summaryProcess->start();
+    recoveryProcess->start();
 }
 
 void FluffUpdates::afterMinimumCheckDuration(

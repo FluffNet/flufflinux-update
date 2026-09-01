@@ -28,8 +28,10 @@ struct SigningKeyRecoveryConfig
 {
     QString gpgPath = QStringLiteral("/usr/bin/gpg");
     QString pacmanKeyPath = QStringLiteral("/usr/bin/pacman-key");
+    QString pacmanConfPath = QStringLiteral("/usr/bin/pacman-conf");
     int maximumFingerprintResponseBytes = 4096;
     int maximumCertificateResponseBytes = 256 * 1024;
+    int maximumPacmanConfResponseBytes = 4096;
 };
 
 class SigningKeyRecovery
@@ -49,6 +51,7 @@ public:
     static QString requestedFingerprint(const QString &pacmanOutput);
     static QString repositoryName(const QString &pacmanOutput);
     static bool containsUnknownKeyReport(const QString &pacmanOutput);
+    static qsizetype signingKeyImportPromptEnd(const QString &pacmanOutput);
 
 private:
     SigningKeyCommandResult run(const QString &program,
