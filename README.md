@@ -145,11 +145,31 @@ unknown signing-key fingerprint that pacman conclusively attributes to the
 primary fingerprint directly from `fluffnet.org`. It parses the certificate in
 an isolated disposable GnuPG home, rejects private-key material, verifies the
 primary fingerprint, key usability, self-signatures, and any signing-subkey
-binding, and only then imports and locally trusts the exact primary key through
-the existing privileged helper. It never contacts a third-party keyserver,
+binding, and only then merges the verified certificate into Pacman's keyring
+so rotated signing subkeys are refreshed. It re-inspects the exact requested
+key in Pacman's configured live GnuPG home before locally trusting the primary
+key through the existing privileged helper, then retries Pacman exactly once.
+That Pacman retry is the definitive check that the refreshed signing material
+can verify the repository metadata. It never contacts a third-party keyserver,
 changes global GnuPG configuration, or accepts pacman's key prompt. Failures
 from other or unidentified repositories do not trigger any FluffNet request or
-keyring change.
+keyring change. Recovery currently accepts only the full 40-character OpenPGP
+v4 fingerprint format used by FluffNet's signing certificate; short key IDs do
+not authorize a recovery.
+
+The published certificate may contain multiple signing subkeys. FLU accepts
+the exact requested usable subkey when it is validly certified by the currently
+published primary, rather than hard-coding one subkey fingerprint. A singular
+primary-key cutover is also supported within this HTTPS recovery model: if the
+same stable endpoints publish a new primary fingerprint and matching
+certificate, FLU can add and locally trust that new primary even when the
+machine only has an obsolete or expired old primary. The old primary is
+retained, and one Pacman retry remains the definitive verification. Only one
+published primary generation is authoritative at a time; this is not an
+overlapping or cross-certified multi-primary rotation protocol. Long-offline
+recovery still requires working HTTPS, compatible GnuPG/Pacman tooling, an
+initialized Pacman keyring, and the current 40-character OpenPGP v4 fingerprint
+format.
 
 The isolated signing-key tests use disposable OpenPGP keys and mocked
 fingerprint endpoint, certificate endpoint, and Pacman-key operations:
