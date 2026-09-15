@@ -1,0 +1,276 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.0\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : (n<0 || n>10) && n%10==0 ? 2 : 3);\n"
+
+msgid "System Updates"
+msgstr "עדכוני מערכת"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "התקנת עדכונים שומרת שFluff Linux תשאר מאובטחת ועדכנית"
+
+msgid "System last updated: %1 (%2)"
+msgstr "עדכון המערכת האחרון: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "בדיקת עדכונים"
+
+msgid "Install Updates"
+msgstr "התקנת עדכונים"
+
+msgid "View Updates"
+msgstr "הצגת רשימת עדכונים"
+
+msgid "Change view"
+msgstr "שינוי תצוגה"
+
+msgid "Updates to Install"
+msgstr "עדכונים להתקנה"
+
+msgid "Package details are unavailable."
+msgstr "פרטי העדכונים אינם זמינים"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "אם אתם נתקלים בבעיה, נא לדווח עליה בעמוד ה־GitHub שלנו."
+
+msgid "System updates were installed successfully."
+msgstr "עדכוני המערכת הותקנו בהצלחה."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "אין חיבור לרשת!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "החיבור לרשת מוגבל. אם אינך מחובר לרשת ארגונית, יש לבדוק את החיבור לאינטרנט."
+
+msgid "pacman process is already running."
+msgstr "תהליך pacman כבר פועל."
+
+msgid "The update process could not be started."
+msgstr "לא ניתן להתחיל את תהליך העדכון."
+
+msgid "The update process could not be cancelled."
+msgstr "לא ניתן לבטל את תהליך העדכון."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "החיבור נכשל במהלך הורדת העדכונים. יש לבדוק את חיבור הרשת ולנסות שוב."
+
+msgid "The system update failed."
+msgstr "עדכון המערכת נכשל."
+
+msgid "Downloading updates…"
+msgstr "עדכונים בהורדה…"
+
+msgid "Installing updates…"
+msgstr "עדכונים בהתקנה…"
+
+msgid "%1 / %2 downloaded"
+msgstr "הורדו %1 מתוך %2"
+
+msgid "%1/%2 updates installed"
+msgstr "הותקנו %1/%2 עדכונים"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "עדכונים מותקנים כעת. נא להימנע מכיבוי או מהפעלה מחדש של המחשב עד לסיום ההתקנה. הפסקת העדכון עלולה לפגוע בתפקוד המערכת."
+
+msgid "The battery is low. Please plug in your computer before installing updates."
+msgstr "רמת הסוללה נמוכה. מומלץ לחבר את המחשב לחשמל לפני התקנת העדכונים."
+
+msgid "Update process was cancelled"
+msgstr "תהליך העדכון בוטל"
+
+msgid "Cancel"
+msgstr "ביטול"
+
+msgid "Checking for updates…"
+msgstr "מתבצעת בדיקת עדכונים…"
+
+msgid "System updates are available"
+msgstr "יש עדכוני מערכת זמינים"
+
+msgid "Download size: %1"
+msgstr "גודל ההורדה: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "נפח האחסון הנדרש לעדכוני המערכת: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "אחסון שיתפנה לאחר העדכון: %1"
+
+msgid "No additional download required"
+msgstr "לא נדרשת הורדה נוספת"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "לא ניתן להפעיל את בדיקת העדכונים. יש לוודא ש־pacman-contrib מותקן."
+
+msgid "The update check stopped unexpectedly."
+msgstr "בדיקת העדכונים נעצרה באופן בלתי צפוי."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "אירעה שגיאה. נא לדווח על הבעיה בעמוד ה־GitHub שלנו לקבלת סיוע."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "אין חיבור לאינטרנט. יש לבדוק את הרשת ולנסות שוב."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "לא ניתן להגיע לשרתי המאגרים. יש לנסות שוב מאוחר יותר או לבדוק את ההגדרות."
+
+msgid "Authorization error, please try again."
+msgstr "שגיאת הרשאה, נא לנסות שוב."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "בדיקת העדכונים בעלת ההרשאות נעצרה באופן בלתי צפוי."
+
+msgid "The privileged update check could not be started."
+msgstr "לא ניתן להפעיל את בדיקת העדכונים בעלת ההרשאות."
+
+msgid "System was not previously updated."
+msgstr "טרם הותקנו עדכונים."
+
+msgid "The last update information could not be read."
+msgstr "לא ניתן לקרוא את פרטי העדכון האחרון."
+
+msgid "The last update information is invalid."
+msgstr "פרטי העדכון האחרון אינם תקינים."
+
+msgid "Updates were not installed on this system"
+msgstr "לא הותקנו עדכונים במערכת זו"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "כדי לעדכן את המערכת, יש לבדוק אם קיימים עדכונים באמצעות הכפתור שלמטה."
+
+msgid "Update date available"
+msgstr "תאריך העדכון זמין"
+
+msgid "Updated recently"
+msgstr "עודכנה לאחרונה"
+
+msgid "System is up to date"
+msgstr "המערכת מעודכנת"
+
+msgid "Last update was installed more than a month ago"
+msgstr "העדכון האחרון הותקן לפני יותר מחודש"
+
+msgid "Last update was installed more than three months ago"
+msgstr "העדכון האחרון הותקן לפני יותר משלושה חודשים"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "לפני שנייה אחת"
+msgstr[1] "לפני שתי שניות"
+msgstr[2] "לפני %1 שניות"
+msgstr[3] "לפני %1 שניות"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "לפני דקה אחת"
+msgstr[1] "לפני שתי דקות"
+msgstr[2] "לפני %1 דקות"
+msgstr[3] "לפני %1 דקות"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "לפני שעה אחת"
+msgstr[1] "לפני שעתיים"
+msgstr[2] "לפני %1 שעות"
+msgstr[3] "לפני %1 שעות"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "לפני יום אחד"
+msgstr[1] "לפני יומיים"
+msgstr[2] "לפני %1 ימים"
+msgstr[3] "לפני %1 ימים"
+
+msgid "Action is required"
+msgstr "נדרשת פעולה"
+
+msgid "Action is required!"
+msgstr "נדרשת פעולה!"
+
+msgid "Action required"
+msgstr "נדרשת פעולה"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "לא ניתן היה להמשיך מכיוון שהעדכון הקרוב דורש להסיר את „%1”, שהוא רכיב מערכת מוגן. הסרתו עלולה למנוע מ־Fluff Linux לפעול כראוי. נא לדווח על הבעיה ב־GitHub לקבלת עזרה."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "כדי לאפשר למערכת להתקין עדכונים, Fluff Linux Update צריך להסיר את „%1”. הסרת הרכיב עלולה להשפיע על תוכנות קשורות. אם אינך בטוח, נא לדווח על הבעיה ב־GitHub לקבלת עזרה."
+
+msgid "Accept"
+msgstr "אישור"
+
+msgid "Close"
+msgstr "סגירה"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "כדי לאפשר לעדכוני המערכת להמשיך, %1 הוסר אוטומטית לאחר שנקבע כי בטוח להסירו."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "כדי לאפשר לעדכוני המערכת להמשיך, הרכיבים הבאים הוסרו אוטומטית לאחר שנקבע כי בטוח להסירם: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "זוהתה התנגשות קבצים והיא נפתרה. השם של %1 שונה ל־%2. תהליך העדכון הופעל מחדש."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "לא ניתן היה להסיר את הרכיב המתנגש. נא לפנות לתמיכה."
+
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "המערכת לא הצליחה לאמת את מפתח החתימה של מאגר FluffNet. העדכון הופסק כדי להגן על המערכת שלך."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "המערכת לא הצליחה לאמת את מפתח החתימה של מאגר FluffNet. העדכון הופסק כדי להגן על המערכת שלך. הדבר עשוי להצביע על בעיה ברשת, שרת FluffNet שאינו זמין, מפתח חתימה שפג תוקפו או הוחלף, בעיה בתצורת המאגר, מפתח בלתי צפוי או אפשרות שמאגר התוכנה נפרץ. אין לאשר ידנית מפתח בלתי צפוי. יש לפתוח דיווח בשביל תמיכה ופרטים נוספים."
+
+msgid "Repository: %1"
+msgstr "מאגר: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "מפתח החתימה הרשמי של מאגר FluffNet אומת ונוסף ל־Pacman."
+
+msgid "Technical details"
+msgstr "פרטים טכניים"
+
+msgid "Repository signing-key verification technical details"
+msgstr "פרטים טכניים על אימות מפתח החתימה של המאגר"
+
+msgid "Failure category: %1"
+msgstr "קטגוריית הכשל: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "מספר האישור הצפוי: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "מספר האישור שהתקבל: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "מספר האישור של מפתח החתימה המבוקש: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "מצב היציאה של Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "גרסת FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "גרסת Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "ניסיון חוזר"
+
+msgid "Copy Technical Details"
+msgstr "העתקת הפרטים הטכניים"
+
+msgid "Open an Issue on GitHub"
+msgstr "פתיחת דיווח ב Github"
