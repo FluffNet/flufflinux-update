@@ -17,3 +17,4 @@ reqwest.workspace = true
 fs2.workspace = true
 percent-encoding.workspace = true
 notify.workspace = true
+zbus.workspace = true

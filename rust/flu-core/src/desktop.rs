@@ -1,6 +1,6 @@
 //! Desktop controller: all update state, orchestration and presentation data.
 //! Qt/KDE only supplies translation and publishes snapshots on its GUI thread.
-use crate::{runtime::*, signing_key};
+use crate::{battery::BatteryMonitor, runtime::*, signing_key};
 use base64::{Engine, engine::general_purpose::URL_SAFE_NO_PAD};
 use chrono::{DateTime, Local, Months};
 use notify::{RecursiveMode, Watcher};
@@ -260,6 +260,7 @@ pub struct Controller {
     recovery_attempted: bool,
     pending_removed: Vec<String>,
     check_started: Instant,
+    battery: BatteryMonitor,
 }
 impl Controller {
     pub fn new(
@@ -280,6 +281,7 @@ impl Controller {
             recovery_attempted: false,
             pending_removed: vec![],
             check_started: Instant::now(),
+            battery: BatteryMonitor::default(),
         }
     }
     fn tr(&self, message: &str) -> String {
@@ -1029,25 +1031,7 @@ impl Controller {
             && !self.boolean("checking")
             && self.string("checkError").is_empty()
             && self.boolean("updatesAvailable");
-        if relevant {
-            let low = fs::read_dir("/sys/class/power_supply")
-                .ok()
-                .into_iter()
-                .flatten()
-                .flatten()
-                .any(|e| {
-                    fs::read_to_string(e.path().join("type")).is_ok_and(|s| s.trim() == "Battery")
-                        && fs::read_to_string(e.path().join("capacity"))
-                            .ok()
-                            .and_then(|s| s.trim().parse::<i32>().ok())
-                            .is_some_and(|n| n <= 20)
-                        && fs::read_to_string(e.path().join("status"))
-                            .is_ok_and(|s| s.trim().eq_ignore_ascii_case("Discharging"))
-                });
-            self.model["batteryLow"] = json!(low);
-        } else {
-            self.model["batteryLow"] = json!(false);
-        }
+        self.model["batteryLow"] = json!(self.battery.is_low(relevant));
     }
 }
 fn state_file_changed(event: &notify::Event) -> bool {

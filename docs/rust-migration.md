@@ -76,6 +76,30 @@ Two safety checks were strengthened during the migration:
   Package-owned files and inconclusive ownership checks stop the update;
   only explicitly unowned files may be renamed without overwriting anything.
 
+## Low system-power warning
+
+The Rust desktop controller reads UPower's documented `DisplayDevice` over the
+system bus instead of scanning every sysfs device whose type is `Battery`.
+That old test included wireless mice and other accessories. UPower's composite
+contains system batteries or a UPS, excludes peripheral batteries, and handles
+multiple batteries without relying on chassis type, a lid, `BAT0` names, or
+device paths. This also supports USB UPS devices managed in userspace.
+
+The existing warning remains advisory and uses the existing translated text.
+It appears for a present Battery/UPS composite at 20% or less while discharging
+(or empty), only when updates are available. Charging, healthy, absent and
+unknown/invalid readings do not produce a low-battery warning. The composite's
+`PowerSupply` property is not required: unlike that property on physical devices,
+it is not guaranteed by the display-device contract.
+
+UPower is now an explicit runtime dependency. Reads run on the background
+controller thread, are limited to one snapshot every five seconds, and have a
+750 ms method timeout. A failed read clears the stale reading and retries; FLU
+does not reinterpret accessory batteries as a fallback or modify power settings.
+
+References: [UPower display-device contract](https://upower.freedesktop.org/docs/UPower.html#UPower.GetDisplayDevice)
+and [device type/power-supply definitions](https://upower.freedesktop.org/docs/Device.html).
+
 ## Reference implementations
 
 The following repository snapshots were inspected on 1 October 2026:
@@ -113,9 +137,18 @@ status reads back into an endless refresh loop.
 The final VM run passed all four CTest suites: AppStream validation, 77
 signing-key QtTest results, 10 backend-state results and 10 scrolling results
 (QtTest totals include initialization and cleanup). Workspace Clippy with
-warnings denied and Cargo formatting checks passed. The 24 Rust tests also
+warnings denied and Cargo formatting checks passed. The original 24 Rust tests also
 passed on both the development host and Linux VM. The additional sleep-inhibitor
 failure test checks the existing translated startup error and retry state.
+
+The system-power fix adds six battery-policy tests and a Linux-only D-Bus wire
+test (31 Rust tests on Linux, 30 on the development host). The private-bus test
+serves a generic 19% mouse battery alongside a changing display device and checks
+accessory-only desktops, low/healthy system batteries, low/charging UPSes, the
+20% boundary, charging transitions, multi-battery composites, removal, empty
+supplies, and service disappearance/recovery. Invalid/missing readings and a
+display device without a usable `PowerSupply` field are covered as well. No
+mock devices or test switches are installed in FLU or the system UPower service.
 
 The Qt suites exercise real disposable GnuPG certificates and the same Rust
 signing-key implementation used in production; the actual `UpdateBackend`
@@ -144,7 +177,7 @@ The isolated Pacman fixture covers:
     bus is unavailable. Cancellation and every terminal worker scenario check
     that no FLU inhibitor remains.
 
-All 17 named scenarios passed on the sleep-protection build; the three policy classifications are separate
+All 17 named scenarios passed again on the system-power-warning build; the three policy classifications are separate
 scenarios for both dependency and direct package conflicts. The fixture creates
 a private mount/PID namespace and a repository of disposable packages. Its
 temporary service and authorization launchers exist only inside that namespace.

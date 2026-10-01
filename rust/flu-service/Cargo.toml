@@ -20,4 +20,4 @@ base64.workspace = true
 chrono.workspace = true
 regex.workspace = true
 libc.workspace = true
-zbus = { version = "5", default-features = false, features = ["blocking-api", "tokio"] }
+zbus.workspace = true

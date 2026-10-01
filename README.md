@@ -24,7 +24,7 @@ menu, and keeps manual system updates clear and approachable.
 - Preserve unmanaged files that conflict with an update, then restart the
   interrupted installation automatically.
 - Allow downloads to be cancelled while protecting the installation phase.
-- Warn laptop users when the system battery is low.
+- Warn when a system battery or UPS is low and discharging; ignore accessory batteries.
 - Read the last successful update time from
   `/etc/pacman.d/lastupdate.json`.
 - Follow the Plasma theme, scale with the window, and support RTL layouts.
@@ -52,7 +52,7 @@ Install the build requirements:
 ```sh
 sudo pacman -S --needed base-devel rust cmake extra-cmake-modules \
     qt6-declarative kcmutils ki18n kcoreaddons kirigami \
-    pacman-contrib polkit
+    pacman-contrib polkit upower
 ```
 
 Configure and compile:
