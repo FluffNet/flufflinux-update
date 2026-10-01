@@ -14,6 +14,8 @@ menu, and keeps manual system updates clear and approachable.
 - Install updates through polkit using `pacman -Syu --noconfirm`.
 - Show live download size, speed, installation progress, and completion.
 - Continue an update in the background if the panel is closed.
+- Prevent normal system sleep/hibernation throughout downloading and installing
+  updates, even with the panel closed; release the protection when the worker ends.
 - Reconnect to an update already in progress when the panel is opened again.
 - Detect another running pacman process and handle a stale database lock.
 - Protect important packages when an update proposes removing them, ask before
@@ -194,7 +196,7 @@ cargo clippy --locked --workspace --all-targets -- -D warnings
 
 The real Pacman workflow tests are separate because they require root and Linux
 mount/PID namespaces. Run them only on a disposable development VM with Python
-3, util-linux, pacman and `repo-add` available:
+3, util-linux, pacman, `repo-add`, and a running systemd-logind/system bus available:
 
 ```sh
 cargo build --locked --release -p flu-core --example controller-regression
@@ -211,6 +213,8 @@ synthetic packages. The compiled production helper/worker are unchanged;
 `systemctl` is substituted inside that namespace to start and stop the real
 worker, and the already-root controller test uses a namespace-local polkit
 launcher. Nothing from this fixture is installed into the FLU package.
+Sleep-inhibitor checks query the VM's real logind and temporarily inhibit sleep
+while the isolated worker is running. Do not run another FLU update concurrently.
 See the [1.5 validation record](docs/rust-migration.md#validation-record) for
 tested behavior and remaining checks.
 

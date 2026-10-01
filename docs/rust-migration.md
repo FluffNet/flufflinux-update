@@ -42,6 +42,30 @@ requested signing key and bindings, imports only validated public material,
 and preserves the existing rollback rules. Arch and ambiguous repository
 errors do not enter FluffNet recovery.
 
+## Sleep protection during installation
+
+The Rust worker acquires a native logind `sleep`/`block` inhibitor before its
+first Pacman command. Its owned file descriptor remains alive throughout
+preparation, downloading, installation, package hooks and recovery retries.
+KDE PowerDevil exposes this as **Fluff Linux Update — Downloading and installing
+system updates** in the power/battery interface. Closing the panel does not
+release it, because the system-service worker owns the descriptor.
+
+Normal completion and errors close the descriptor; cancellation and process
+termination also release it through kernel descriptor cleanup. No persistent
+power settings are changed. Screen blanking and locking remain available;
+shutdown and low-level hardware-key handling are not inhibited. A forced
+administrator override or power loss cannot be prevented by an inhibitor.
+
+If logind inhibition cannot be acquired, the worker publishes
+`SLEEP_INHIBITOR_FAILED` and does not start Pacman. The UI uses the existing
+localized startup-error message and permits retry; the diagnostic log records
+the D-Bus error. The D-Bus method has a five-second timeout. The Cargo lockfile
+pins the Rust D-Bus implementation to an MSRV-compatible version.
+
+References: [systemd inhibitor API](https://systemd.io/INHIBITOR_LOCKS/) and
+[KDE PowerDevil's logind integration](https://github.com/KDE/powerdevil/blob/master/daemon/powerdevilpolicyagent.cpp).
+
 Two safety checks were strengthened during the migration:
 
 - When dependency blockers have different policy classes, protected blockers
@@ -77,7 +101,7 @@ Rust 1.98.1 and GCC 16.2.1. The original FLU 1.4-3 files and package database en
 were backed up before testing 1.5-1. The tests do not upgrade the VM's real
 system packages.
 
-The Rust core currently has 23 passing unit tests. They cover signing-key
+The Rust core currently has 24 passing unit tests. They cover signing-key
 parsing and repository isolation, desktop state transitions and notices,
 settings persistence, diagnostic redaction, native process I/O and timeouts,
 recovery-lock exclusion, HTTPS-only artifact fetching and atomic state writes.
@@ -87,8 +111,9 @@ status reads back into an endless refresh loop.
 The final VM run passed all four CTest suites: AppStream validation, 77
 signing-key QtTest results, 10 backend-state results and 10 scrolling results
 (QtTest totals include initialization and cleanup). Workspace Clippy with
-warnings denied and Cargo formatting checks passed. The 23 Rust tests also
-passed on both the development host and Linux VM.
+warnings denied and Cargo formatting checks passed. The 24 Rust tests also
+passed on both the development host and Linux VM. The additional sleep-inhibitor
+failure test checks the existing translated startup error and retry state.
 
 The Qt suites exercise real disposable GnuPG certificates and the same Rust
 signing-key implementation used in production; the actual `UpdateBackend`
@@ -112,8 +137,12 @@ The isolated Pacman fixture covers:
 10. The existing initial-update timestamp format.
 11. The complete desktop-controller path: `checkupdates`, transaction preview,
     replacement presentation, worker startup, installation and success state.
+12. Native logind sleep inhibition without a GUI, release after forced worker
+    termination and successful retry, and fail-closed startup when the system
+    bus is unavailable. Cancellation and every terminal worker scenario check
+    that no FLU inhibitor remains.
 
-All 15 named scenarios passed on the final build; the three policy classifications are separate
+All 17 named scenarios passed on the sleep-protection build; the three policy classifications are separate
 scenarios for both dependency and direct package conflicts. The fixture creates
 a private mount/PID namespace and a repository of disposable packages. Its
 temporary service and authorization launchers exist only inside that namespace.
@@ -129,6 +158,13 @@ the idle app sampled at 0.0% CPU instead of continuously rereading its state.
 Native desktop screenshots are stored under `docs/screenshots/`. Physical
 touchpad feel still requires the user's hardware; the existing QML scrolling
 implementation is preserved and its momentum regressions are run.
+
+The native KDE Power Management widget was also checked while an isolated
+update continued with FLU's window closed. It displayed "Fluff Linux Update is
+blocking sleep" with the download/install reason. See
+[`1.5-sleep-inhibitor.png`](screenshots/1.5-sleep-inhibitor.png); the VM's native
+battery/power widget was opened standalone for this capture. Its inhibition
+entry disappeared again after completion.
 
 ## Reproducing validation
 

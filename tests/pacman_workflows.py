@@ -202,6 +202,30 @@ class Workflows:
         encoded = base64.urlsafe_b64encode(b"[]").decode()
         run([self.helper, "--install", "fixture", "fixture", "false", encoded])
 
+    @staticmethod
+    def sleep_inhibitors():
+        result = run(["busctl", "--system", "--json=short", "call",
+                      "org.freedesktop.login1", "/org/freedesktop/login1",
+                      "org.freedesktop.login1.Manager", "ListInhibitors"])
+        return [entry for entry in json.loads(result.stdout)["data"][0]
+                if entry[1] == "Fluff Linux Update"]
+
+    def assert_sleep_inhibited(self):
+        entries = self.sleep_inhibitors()
+        assert len(entries) == 1, entries
+        what, who, why, mode, uid, pid = entries[0]
+        assert what == "sleep" and mode == "block" and uid == 0 and pid > 1, entries
+        assert why == "Downloading and installing system updates", entries
+
+    def assert_sleep_released(self):
+        until = time.monotonic() + 5
+        while time.monotonic() < until:
+            self.reap()
+            if not self.sleep_inhibitors():
+                return
+            time.sleep(0.02)
+        raise AssertionError(f"leaked sleep inhibitor: {self.sleep_inhibitors()}")
+
     def finish(self, *, timeout=30):
         snapshots = []
         until = time.monotonic() + timeout
@@ -212,6 +236,7 @@ class Workflows:
                 # Permit the worker to quit and reap adopted child processes.
                 time.sleep(0.05)
                 self.reap()
+                self.assert_sleep_released()
                 return state, snapshots
             time.sleep(0.01)
         raise AssertionError(f"worker timeout: {self.state_value()}")
@@ -229,7 +254,9 @@ class Workflows:
             return
         started = time.monotonic()
         print(f"RUN {name}", flush=True)
+        self.assert_sleep_released()
         details = function() or {}
+        self.assert_sleep_released()
         result = {"test": name, "passed": True,
                   "seconds": round(time.monotonic() - started, 3), **details}
         self.results.append(result)
@@ -415,6 +442,7 @@ class Workflows:
             time.sleep(0.02)
         else:
             raise AssertionError("no in-progress download to cancel")
+        self.assert_sleep_inhibited()
         # A live Pacman transaction is protected; neither another planner nor
         # a package-removal request may delete its lock or modify the database.
         assert (self.base / "db/db.lck").exists()
@@ -426,6 +454,7 @@ class Workflows:
         assert state["phase"] == "cancelled", state
         assert self.installed("flu-test-cancel") == "flu-test-cancel 1-1"
         assert not (self.base / "db/db.lck").exists()
+        self.assert_sleep_released()
         Server.delay = 0
         self.reap()
         # Resume through the same public helper interface, using partial cache.
@@ -436,7 +465,78 @@ class Workflows:
         run([self.helper, "--cancel"], expected=4)
         return {"cancelled_without_installing": True, "resume_completed": True,
                 "cancel_outside_download_rejected": True, "live_pacman_protected": True,
-                "ownerless_stale_lock_cleared": True}
+                "ownerless_stale_lock_cleared": True, "sleep_lock_released_on_cancel": True}
+
+    def sleep_inhibition(self):
+        repo = self.base / "repo"
+        initial = package(repo, "flu-test-sleep", "1-1")
+        newer = package(repo, "flu-test-sleep", "2-1", payload=os.urandom(8 * 1024 * 1024))
+        self.pacman("-U", "--noconfirm", initial)
+        self.refresh(newer)
+        Server.delay = 0.04
+        self.start()
+        until = time.monotonic() + 20
+        while time.monotonic() < until:
+            state = self.state_value()
+            if state.get("phase") == "downloading" and state.get("downloaded_bytes", 0) > 0:
+                break
+            time.sleep(0.02)
+        else:
+            raise AssertionError(f"no protected download: {self.state_value()}")
+        # Query the VM's real logind, not a fake D-Bus service. There is no UI
+        # process in this scenario: the background worker owns the protection.
+        self.assert_sleep_inhibited()
+        worker_pid = int((self.base / "worker.pid").read_text())
+        assert Path(f"/proc/{worker_pid}/exe").resolve() == self.worker
+        # Only our isolated fixture process group is killed. Kernel descriptor
+        # cleanup must release the inhibitor even without running Rust Drop.
+        os.killpg(worker_pid, signal.SIGKILL)
+        self.assert_sleep_released()
+        # Reap Pacman as well as the worker before retrying. Closing the
+        # worker's descriptor can precede delivery of SIGKILL to its child.
+        until = time.monotonic() + 5
+        while time.monotonic() < until:
+            self.reap()
+            try:
+                os.killpg(worker_pid, 0)
+            except ProcessLookupError:
+                break
+            time.sleep(0.02)
+        else:
+            raise AssertionError("isolated worker process group did not exit")
+        assert self.installed("flu-test-sleep") == "flu-test-sleep 1-1"
+        Server.delay = 0
+        self.start()
+        state, _ = self.finish()
+        assert state["phase"] == "complete", state
+        assert self.installed("flu-test-sleep") == "flu-test-sleep 2-1"
+        log = (self.base / "etc/flufflinux-update.log").read_text()
+        assert log.index("[sleep inhibition acquired]") < log.index("[transaction preparation]")
+        assert log.index("[installation]") < log.index("[sleep inhibition released]")
+        return {"native_logind_block_sleep": True, "no_gui_required": True,
+                "released_after_sigkill": True, "held_for_entire_update": True,
+                "released_after_success": True}
+
+    def sleep_inhibitor_failure(self):
+        repo = self.base / "repo"
+        initial = package(repo, "flu-test-no-inhibitor", "1-1")
+        newer = package(repo, "flu-test-no-inhibitor", "2-1")
+        self.pacman("-U", "--noconfirm", initial)
+        self.refresh(newer)
+        before = (self.base / "pacman.log").read_bytes()
+        # Use the standard D-Bus address environment, not a production test
+        # switch. The missing socket simulates an unavailable system bus.
+        self.state.write_text(json.dumps({"phase": "starting"}))
+        run([self.worker], env={**os.environ,
+            "DBUS_SYSTEM_BUS_ADDRESS": f"unix:path={self.base}/missing-bus"})
+        state, _ = self.finish()
+        assert state["phase"] == "failed", state
+        assert state["error"] == "SLEEP_INHIBITOR_FAILED", state
+        assert (self.base / "pacman.log").read_bytes() == before
+        assert self.installed("flu-test-no-inhibitor") == "flu-test-no-inhibitor 1-1"
+        assert not list((self.base / "cache").glob("flu-test-no-inhibitor-2-1*"))
+        assert "[sleep inhibition failed]" in (self.base / "etc/flufflinux-update.log").read_text()
+        return {"unavailable_logind_fails_closed": True, "pacman_not_started": True}
 
     def failed_download(self):
         repo = self.base / "repo"
@@ -489,6 +589,8 @@ def child(args):
         tests.test("package-owned file conflict fails safely", tests.owned_file_conflict)
         tests.test("download cancellation and resume", tests.cancellation)
         tests.test("download connection failure", tests.failed_download)
+        tests.test("native sleep inhibition lifetime", tests.sleep_inhibition)
+        tests.test("unavailable sleep inhibitor fails closed", tests.sleep_inhibitor_failure)
         tests.test("planner path and policy guards", tests.guards)
         tests.test("initial update timestamp", tests.record_current_update)
         if args.controller:

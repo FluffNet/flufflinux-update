@@ -1,5 +1,7 @@
 //! Persistent update worker. It survives closing System Settings and publishes
 //! the same atomic state/log contract consumed by the QML application.
+mod power;
+
 use flu_core::{
     runtime::*,
     signing_key::{self, RecoveryResult},
@@ -563,7 +565,21 @@ fn rename_without_replace(original: &Path, preserved: &Path) -> std::io::Result<
 }
 fn main() {
     let mut worker = Worker::new();
+    // Acquire before any Pacman operation, and keep the descriptor alive across
+    // preparation, download, installation, package hooks and recovery retries.
+    // Closing the application does not affect this system-service-owned lock.
+    let inhibitor = match power::SleepInhibitor::acquire() {
+        Ok(inhibitor) => inhibitor,
+        Err(error) => {
+            append_log(&format!("[sleep inhibition failed] {error}\n"));
+            worker.fail("SLEEP_INHIBITOR_FAILED");
+            return;
+        }
+    };
+    append_log("[sleep inhibition acquired]\n");
     if worker.prepare() && worker.download() {
         worker.install();
     }
+    drop(inhibitor);
+    append_log("[sleep inhibition released]\n");
 }

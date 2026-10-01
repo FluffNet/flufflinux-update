@@ -1214,6 +1214,21 @@ mod tests {
         assert!(c.boolean("cancellationNotice"));
     }
     #[test]
+    fn sleep_inhibitor_failure_reports_startup_error_and_allows_retry() {
+        let mut c = controller();
+        c.apply_install(&json!({"phase":"starting"}));
+        c.apply_install(&json!({"phase":"failed","error":"SLEEP_INHIBITOR_FAILED"}));
+        assert!(!c.active());
+        assert!(c.boolean("updatesAvailable"));
+        assert!(!c.boolean("installationSuccessNotice"));
+        // Reuse the existing translated startup error; the diagnostic log
+        // records the exact logind failure without exposing raw D-Bus errors.
+        assert_eq!(
+            c.string("installError"),
+            "The update process could not be started."
+        );
+    }
+    #[test]
     fn security_error_preserves_isolated_technical_values() {
         let mut c = controller();
         c.apply_install(&json!({"phase":"starting"}));
