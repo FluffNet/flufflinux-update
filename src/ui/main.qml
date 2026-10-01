@@ -554,6 +554,16 @@ KCMUtils.SimpleKCM {
             handler.lastEventTime = Date.now()
         }
 
+        function stopWheelMomentum(handler, momentum) {
+            // Autoscroll takes over from both native flicking (cancelled by
+            // MiddleMouseScroll) and FLU's custom touchpad momentum. Reset the
+            // gesture too, so its pending timeout cannot restart old motion.
+            beginWheelGesture(handler)
+            momentum.stop()
+            momentum.velocityX = 0
+            momentum.velocityY = 0
+        }
+
         function blendWheelVelocity(currentVelocity,
                                     instantaneousVelocity) {
             if (currentVelocity === 0
@@ -904,6 +914,14 @@ KCMUtils.SimpleKCM {
                     maximumFlickVelocity: 6000
                     pixelAligned: false
 
+                    MiddleMouseScroll {
+                        id: comparisonMiddleScroll
+                        scrollTarget: updateList
+                        horizontal: true
+                        onStarted: updatesWindow.stopWheelMomentum(
+                            comparisonWheelHandler, comparisonMomentum)
+                    }
+
                     WheelHandler {
                         id: comparisonWheelHandler
 
@@ -928,6 +946,7 @@ KCMUtils.SimpleKCM {
                             }
                         }
                         onWheel: function(event) {
+                            comparisonMiddleScroll.stop()
                             updatesWindow.scrollFromWheel(
                                 updateList, event,
                                 comparisonWheelHandler,
@@ -1115,6 +1134,13 @@ KCMUtils.SimpleKCM {
                     maximumFlickVelocity: 6000
                     pixelAligned: false
 
+                    MiddleMouseScroll {
+                        id: pacmanMiddleScroll
+                        scrollTarget: pacmanViewFlickable
+                        onStarted: updatesWindow.stopWheelMomentum(
+                            pacmanWheelHandler, pacmanMomentum)
+                    }
+
                     WheelHandler {
                         id: pacmanWheelHandler
 
@@ -1140,6 +1166,7 @@ KCMUtils.SimpleKCM {
                             }
                         }
                         onWheel: function(event) {
+                            pacmanMiddleScroll.stop()
                             updatesWindow.scrollFromWheel(
                                 pacmanViewFlickable, event,
                                 pacmanWheelHandler,

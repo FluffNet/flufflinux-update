@@ -142,7 +142,7 @@ status reads back into an endless refresh loop.
 
 The final VM run passed all six CTest suites: AppStream validation, 77
 signing-key QtTest results, 10 backend-state results, 10 scrolling results and
-7 updates-window keyboard results (QtTest totals include initialization and
+20 updates-window keyboard/pointer results (QtTest totals include initialization and
 cleanup), and compiled battery-warning
 lookups in all 27 translation catalogs. Workspace Clippy with
 warnings denied and Cargo formatting checks passed. The original 24 Rust tests also
@@ -207,6 +207,28 @@ reopening and Escape in the main window. It passes offscreen and in the VM's
 normal-user KDE session through XWayland. Key handling uses Qt's standard
 [`Keys.onEscapePressed`](https://doc.qt.io/qt-6/qml-qtquick-keys.html)
 on the list's shared content parent.
+
+Both list views reuse App Center's MIT-licensed `MiddleMouseScroll.qml`
+component, preserving its anchor indicator, 12-pixel dead zone, speed curve
+and 1800-pixel/second cap. Middle-click latches scrolling; holding the middle
+button and moving scrolls until release. Clicking again, Escape, the wheel,
+leaving/hiding the view, or losing window activation stops it. A stopping click
+is consumed instead of activating underlying content. Escape stops autoscroll
+first; when not autoscrolling, Escape closes the list as before. The comparison
+view supports both axes, while the Pacman view scrolls vertically.
+
+Starting autoscroll cancels native flicking and FLU's custom touchpad momentum,
+including any pending wheel-gesture timeout; the next wheel event stops
+autoscroll and follows the existing wheel/touchpad path. These existing scroll
+equations are unchanged. Tests exercise both production list views with real
+Qt mouse/key events, including boundaries, dead zone, held scrolling, toggling,
+Escape, wheel handoff, view/window exit, reopening, click consumption, horizontal
+scrolling, and no-overflow lists. The reusable component is bundled in the KCM
+resources; no fixture data or test code is installed.
+The 20 keyboard/pointer checks pass at 100% and 150% offscreen scaling and in
+both the normal-user KDE XWayland and Wayland sessions (80 passing results).
+Each test row uses fresh windows to isolate native transient-window focus
+events; reopening behavior is still exercised within the relevant test rows.
 
 Native desktop screenshots are stored under `docs/screenshots/`. Physical
 touchpad feel still requires the user's hardware; the existing QML scrolling
