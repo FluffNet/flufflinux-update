@@ -1,0 +1,20 @@
+[workspace]
+members = ["rust/flu-core", "rust/flu-bridge"]
+resolver = "3"
+
+[workspace.package]
+version = "1.5.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+
+[workspace.dependencies]
+cxx = "1"
+cxx-qt = "=0.10.0"
+cxx-qt-build = "=0.10.0"
+cxx-qt-lib = { version = "=0.10.0", default-features = false }
+regex = "1"
+tempfile = "3"
+
+[profile.release]
+lto = "thin"

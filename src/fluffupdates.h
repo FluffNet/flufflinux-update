@@ -12,6 +12,7 @@
 class QFileSystemWatcher;
 class QProcess;
 class QNetworkInformation;
+namespace flu { class UiState; }
 
 class FluffUpdates final : public KQuickConfigModule
 {
@@ -184,10 +185,7 @@ private:
     bool m_installationSuccessNotice = false;
     quint64 m_installationSuccessNoticeGeneration = 0;
     bool m_ignoreInactiveInstallState = false;
-    bool m_pacmanView = false;
-    int m_updateWindowWidth = 0;
-    int m_updateWindowHeight = 0;
-    bool m_updateWindowMaximized = false;
+    flu::UiState *m_uiState = nullptr;
     QNetworkInformation *m_networkInformation = nullptr;
     bool m_networkConnected = true;
     bool m_networkLimited = false;

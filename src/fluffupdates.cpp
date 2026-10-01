@@ -1,5 +1,6 @@
 #include "fluffupdates.h"
 #include "securitydiagnostics.h"
+#include "flu_bridge/src/ui_state.cxxqt.h"
 
 #include <KLocalizedString>
 
@@ -254,15 +255,19 @@ FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
         + QLatin1Char('/') + QString::fromLatin1(SettingsDirectory)
         + QLatin1Char('/') + QString::fromLatin1(SettingsFile);
     QSettings userSettings(settingsPath, QSettings::IniFormat);
-    m_pacmanView =
-        userSettings.value(QString::fromLatin1(PacmanViewKey), false).toBool();
-    m_updateWindowWidth =
-        userSettings.value(QString::fromLatin1(UpdateWindowWidthKey), 0).toInt();
-    m_updateWindowHeight =
-        userSettings.value(QString::fromLatin1(UpdateWindowHeightKey), 0).toInt();
-    m_updateWindowMaximized =
+    m_uiState = new flu::UiState;
+    m_uiState->setParent(this);
+    m_uiState->setPacmanView(
+        userSettings.value(QString::fromLatin1(PacmanViewKey), false).toBool());
+    m_uiState->setWindowWidth(
+        userSettings.value(QString::fromLatin1(UpdateWindowWidthKey), 0).toInt());
+    m_uiState->setWindowHeight(
+        userSettings.value(QString::fromLatin1(UpdateWindowHeightKey), 0).toInt());
+    m_uiState->setWindowMaximized(
         userSettings.value(QString::fromLatin1(UpdateWindowMaximizedKey), false)
-            .toBool();
+            .toBool());
+    connect(m_uiState, &flu::UiState::pacmanViewChanged,
+            this, &FluffUpdates::pacmanViewChanged);
 
     setButtons(NoAdditionalButton);
 
@@ -525,22 +530,22 @@ bool FluffUpdates::installationSuccessNotice() const
 
 bool FluffUpdates::pacmanView() const
 {
-    return m_pacmanView;
+    return m_uiState->getPacmanView();
 }
 
 int FluffUpdates::updateWindowWidth() const
 {
-    return m_updateWindowWidth;
+    return m_uiState->getWindowWidth();
 }
 
 int FluffUpdates::updateWindowHeight() const
 {
-    return m_updateWindowHeight;
+    return m_uiState->getWindowHeight();
 }
 
 bool FluffUpdates::updateWindowMaximized() const
 {
-    return m_updateWindowMaximized;
+    return m_uiState->getWindowMaximized();
 }
 bool FluffUpdates::networkConnected() const { return m_networkConnected; }
 bool FluffUpdates::networkLimited() const { return m_networkLimited; }
@@ -1132,7 +1137,7 @@ void FluffUpdates::cancelInstallation()
 
 void FluffUpdates::setPacmanView(bool enabled)
 {
-    if (m_pacmanView == enabled) {
+    if (m_uiState->getPacmanView() == enabled) {
         return;
     }
 
@@ -1153,8 +1158,7 @@ void FluffUpdates::setPacmanView(bool enabled)
         return;
     }
 
-    m_pacmanView = enabled;
-    Q_EMIT pacmanViewChanged();
+    m_uiState->setPacmanView(enabled);
 }
 
 void FluffUpdates::saveUpdateWindowState(int width, int height,
@@ -1167,20 +1171,18 @@ void FluffUpdates::saveUpdateWindowState(int width, int height,
         return;
     }
 
-    m_updateWindowWidth = qMax(480, width);
-    m_updateWindowHeight = qMax(400, height);
-    m_updateWindowMaximized = maximized;
+    m_uiState->saveWindowState(width, height, maximized);
 
     QSettings userSettings(
         configDirectory + QLatin1Char('/')
             + QString::fromLatin1(SettingsFile),
         QSettings::IniFormat);
     userSettings.setValue(QString::fromLatin1(UpdateWindowWidthKey),
-                          m_updateWindowWidth);
+                          m_uiState->getWindowWidth());
     userSettings.setValue(QString::fromLatin1(UpdateWindowHeightKey),
-                          m_updateWindowHeight);
+                          m_uiState->getWindowHeight());
     userSettings.setValue(QString::fromLatin1(UpdateWindowMaximizedKey),
-                          m_updateWindowMaximized);
+                          m_uiState->getWindowMaximized());
     userSettings.sync();
 }
 

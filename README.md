@@ -48,12 +48,18 @@ currently English only while their wording and behavior are being reviewed.
 Install the build requirements:
 
 ```sh
-sudo pacman -S --needed base-devel cmake extra-cmake-modules \
+sudo pacman -S --needed base-devel rust cmake extra-cmake-modules \
     qt6-declarative kcmutils ki18n kcoreaddons kirigami \
     pacman-contrib polkit
 ```
 
 Configure and compile:
+
+The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
+newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
+locked Cargo dependencies and the pinned CXX-Qt CMake integration. CMake builds
+the Rust library automatically; no separate Cargo build is needed for packaging.
+The migration is still in progress; see [`docs/rust-migration.md`](docs/rust-migration.md).
 
 ```sh
 cmake -S . -B build \
@@ -171,14 +177,38 @@ recovery still requires working HTTPS, compatible GnuPG/Pacman tooling, an
 initialized Pacman keyring, and the current 40-character OpenPGP v4 fingerprint
 format.
 
-The isolated signing-key tests use disposable OpenPGP keys and mocked
-fingerprint endpoint, certificate endpoint, and Pacman-key operations:
+The regression suite exercises signing-key recovery through the production
+Rust bridge using disposable OpenPGP keys and mocked HTTPS/Pacman-key
+operations. It also checks Rust-backed Qt state, the unchanged QML scrolling
+calculations, and AppStream metadata:
 
 ```sh
 cmake -S . -B build-tests -DBUILD_TESTING=ON
 cmake --build build-tests
 ctest --test-dir build-tests --output-on-failure
+cargo fmt --all --check
+cargo test --locked -p flu-core
+cargo clippy --locked --workspace --all-targets -- -D warnings
 ```
+
+The real Pacman workflow tests are separate because they require root and Linux
+mount/PID namespaces. Run them only on a disposable development VM with Python
+3, util-linux, pacman and `repo-add` available:
+
+```sh
+sudo python3 tests/pacman_workflows.py \
+    --helper "$PWD/build-tests/bin/flufflinux-update-helper" \
+    --worker "$PWD/build-tests/bin/flufflinux-update-worker" \
+    --parent "$PWD" --output "$PWD/pacman-workflows-results.json"
+```
+
+The runner binds fresh databases, cache, configuration and state directories
+inside a private namespace. Its unsigned local repository contains only
+synthetic packages. The compiled production helper/worker are unchanged;
+only `systemctl` is substituted inside that namespace to start and stop the
+real worker. Nothing from this fixture is installed into the FLU package.
+See the [1.5 validation record](docs/rust-migration.md#validation-record) for
+tested behavior and remaining checks.
 
 The existing `lastupdate` hook provides this field:
 

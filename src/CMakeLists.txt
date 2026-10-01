@@ -19,6 +19,7 @@ target_link_libraries(kcm_fluffupdates PRIVATE
     KF6::CoreAddons
     KF6::I18n
     KF6::KCMUtils
+    flu_bridge
 )
 
 target_compile_definitions(kcm_fluffupdates PRIVATE
@@ -32,7 +33,7 @@ target_sources(flufflinux-update-helper PRIVATE
     signingkeyrecovery.cpp
     signingkeyrecovery.h
 )
-target_link_libraries(flufflinux-update-helper PRIVATE Qt6::Core Qt6::Network)
+target_link_libraries(flufflinux-update-helper PRIVATE Qt6::Core Qt6::Network flu_bridge)
 install(TARGETS flufflinux-update-helper
     RUNTIME DESTINATION lib/flufflinux-update
 )
@@ -42,7 +43,7 @@ target_sources(flufflinux-update-worker PRIVATE
     signingkeyrecovery.cpp
     signingkeyrecovery.h
 )
-target_link_libraries(flufflinux-update-worker PRIVATE Qt6::Core Qt6::Network)
+target_link_libraries(flufflinux-update-worker PRIVATE Qt6::Core Qt6::Network flu_bridge)
 install(TARGETS flufflinux-update-worker
     RUNTIME DESTINATION lib/flufflinux-update
 )
