@@ -1,6 +1,6 @@
 # Translating the Fluff Linux System Updates panel
 
-Thank you for helping translate Fluff Linux. You do not need to understand C++
+Thank you for helping translate Fluff Linux. You do not need to understand Rust
 or QML to add a language.
 
 Included catalogs cover every official European Union language together with

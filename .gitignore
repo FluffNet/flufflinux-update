@@ -3,6 +3,7 @@
 /fakeroot/
 /target/
 /build-tests/
+/build-full/
 
 # Generated archives and editor files
 /*.zip

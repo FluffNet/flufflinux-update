@@ -1,20 +1,54 @@
 # FLU 1.5: Rust backend and QML interface
 
-## Current status
+## Architecture
 
-This draft contains the first implementation stage for version 1.5, not the
-completed backend migration. Repository signing-key parsing, certificate
-validation, temporary-keyring handling and recovery/rollback decisions now run
-in `flu-core`. The panel, helper and worker all call that same Rust code through
-`flu_bridge`, built with CXX-Qt 0.10.0. The existing Qt adapters still perform
-bounded HTTPS and process I/O.
+FLU's desktop controller, settings persistence, package planning and removal
+policy, privileged helper, persistent worker, HTTPS transport, signing-key
+verification and security diagnostics are implemented in Rust.
 
-A Rust-backed Qt `UiState` owns the saved package-list view and window state.
-The KDE adapter retains settings I/O and forwards native property notifications
-through the existing KCM API. The QML source, package policy, translations,
-polkit action, systemd service and transaction helper/worker behavior are
-unchanged. The remaining desktop backend and helper/worker execution engines
-are still C++ and must be migrated before the 1.5 draft is release-ready.
+- `rust/flu-core`: Qt-independent state, process and file I/O, bounded HTTPS
+  downloads, repository-scoped key recovery, diagnostics and presentation data.
+- `rust/flu-bridge`: the Rust `UpdateBackend` QObject exposed through CXX-Qt
+  0.10.0. It queues background results onto the Qt UI thread.
+- `rust/flu-service`: the Rust helper and worker executables, using the existing
+  polkit action and systemd service.
+- `src/ui/main.qml`: the existing interface. Bindings now reference the Rust
+  backend; layout, controls, Close focus and touchpad momentum code are retained.
+- `src/fluffupdates.*` and `src/nativeqt.*`: small native KDE plugin and Qt
+  interoperation adapters for host windows, translation, clipboard, URLs and
+  network information. They contain no update or signing-key decisions.
+- `rust/flu-test-bridge` and `tests/support`: regression-test adapters only.
+  They are not linked into the shipped plugin or installed package.
+
+The superseded C++ controller, helper, worker and security implementation have
+been removed. CMake builds the Cargo workspace and stages the normal package.
+The source ZIP contains no compiled tests, fake repositories or debug switches.
+
+## Preserved integration
+
+The Qt minimum remains 6.9. The application remains a System Settings KCM and
+retains its application launcher, native Plasma controls, translations, package
+policy, helper paths, systemd service and state/log formats. The Cargo lockfile
+pins dependencies; Rust 2024 and Rust 1.85 or newer are required.
+
+The helper still previews a real Pacman transaction, accepts replacements, and
+declines its final install prompt. Pacman's exit code 1 for that deliberate
+decline is accepted only with the preview prompt and a complete size summary.
+Actual installation remains a separate, authorized worker operation.
+
+Key recovery remains limited to an explicitly identified FluffNet repository.
+It validates the official HTTPS fingerprint and certificate, checks the exact
+requested signing key and bindings, imports only validated public material,
+and preserves the existing rollback rules. Arch and ambiguous repository
+errors do not enter FluffNet recovery.
+
+Two safety checks were strengthened during the migration:
+
+- When dependency blockers have different policy classes, protected blockers
+  are handled before any automatic removal.
+- File-conflict recovery checks Pacman ownership before preserving a file.
+  Package-owned files and inconclusive ownership checks stop the update;
+  only explicitly unowned files may be renamed without overwriting anything.
 
 ## Reference implementations
 
@@ -36,139 +70,73 @@ The following repository snapshots were inspected on 1 October 2026:
   provide references, while FLU's backend target follows the CXX-Qt pattern
   used by the other three applications.
 
-## Target architecture
-
-The update engine, application state, privileged helper, and persistent worker
-will be written in Rust. QML will own presentation and interaction, binding to
-properties and methods on a Rust-backed QObject through CXX-Qt 0.10.0. Rust 2024
-and a committed Cargo lockfile will match the reference projects.
-
-FLU will retain its System Settings entry and application launcher. A small
-native KDE adapter will register the KCM and connect it to the Rust-backed Qt
-object. Qt/KDE adapters and generated CXX-Qt glue may remain C++; update
-decisions and privileged operations belong in Rust.
-
-The intended separation is:
-
-- A Qt-independent Rust core for transaction parsing, recovery decisions,
-  package policy, diagnostics, and persisted state.
-- A CXX-Qt Rust backend for the QML interface, with lengthy operations performed
-  away from the UI thread and notifications queued onto that thread.
-- Rust helper and worker binaries for polkit-controlled operations and systemd
-  updates that continue when System Settings closes.
-- The KDE KCM adapter and the existing QML interface, retaining native Plasma
-  styling, keyboard behavior, touchpad scrolling, and translations.
-
-Cargo builds the Rust components; CMake continues to provide the KDE plugin
-and installation integration. The first Rust-backed QObject has been loaded
-through the KCM on a Fluff Linux VM. CXX-Qt's documented
-[CMake integration](https://kdab.github.io/cxx-qt/book/getting-started/5-cmake-integration.html)
-provides the static-library and generated-header mechanism. The CMake-facing
-bridge crate deliberately uses an underscore name (`flu_bridge`), keeping
-Cargo's crate/export names consistent with Corrosion's target normalization.
-
-## Migration sequence
-
-1. Establish the Cargo workspace and load a CXX-Qt backend through the KCM
-   (first state object implemented).
-2. Port transaction parsing, security diagnostics, persisted state, and package
-   classification into the Rust core, with behavioral regression tests.
-3. Port signing-key verification (implemented) and the privileged helper while
-   preserving repository attribution, certificate validation, and fail-closed
-   decisions.
-4. Port the background worker, download/install progress, cancellation, and
-   reconnection to an update already in progress.
-5. Connect the QML interface to the Rust backend, verify translations and
-   desktop behavior, and remove the superseded C++ backend implementation.
-6. Validate the complete package on Fluff Linux before making the draft ready
-   for review.
-
-## Compatibility and release checks
-
-Version 1.5 must preserve the current update behavior and external integration
-contracts, including the helper/worker installation paths, polkit action,
-systemd service, package-protection configuration, and last-update/state/log
-files. Keep the existing Qt 6.9 minimum unless an actual dependency requires a
-different minimum.
-
-Required checks include isolated Pacman transaction and signing-key recovery
-regressions; non-FluffNet and ambiguous repository failures; rejected short or
-unexpected fingerprints; revoked or unusable key material; signing-subkey and
-primary-key rotation; failed HTTPS recovery; package replacements and removal
-policy; process and database-lock handling; and interrupted updates.
-
-Desktop validation must cover first-open Close-button focus, Tab navigation,
-touchpad momentum, translated errors, Hebrew and Arabic layouts with technical
-values kept LTR, cancellation during downloads, installation completion, and
-reopening the panel during an active background update. Privileged integration
-tests must run on a disposable Fluff Linux system.
-
-Each delivered source ZIP must match its stated commit and include `.PKGINFO`
-with the current package version and a refreshed `builddate`.
-
 ## Validation record
 
-The first-stage candidate was built, packaged, installed and launched on a
-Fluff Linux VM on 1 October 2026. The VM used Qt 6.11.2, KDE Frameworks 6.30,
-Rust 1.98.1 and GCC 16.2.1. The previous FLU installation and its package
-database entry were backed up before installing version 1.5-1. No full system
-upgrade was performed for these tests.
+Validation uses a disposable Fluff Linux VM with Qt 6.11.2, KDE Frameworks 6.30,
+Rust 1.98.1 and GCC 16.2.1. The original FLU 1.4-3 files and package database entry
+were backed up before testing 1.5-1. The tests do not upgrade the VM's real
+system packages.
 
-Automated results:
+The Rust core currently has 23 passing unit tests. They cover signing-key
+parsing and repository isolation, desktop state transitions and notices,
+settings persistence, diagnostic redaction, native process I/O and timeouts,
+recovery-lock exclusion, HTTPS-only artifact fetching and atomic state writes.
+A watcher regression prevents read-access notifications from feeding FLU's own
+status reads back into an endless refresh loop.
 
-| Suite | Result | Coverage |
-| --- | --- | --- |
-| Rust core | 4 tests passed | Strict fingerprint format, unique repository attribution, native UTF-16 prompt positions, and no network/keyring access for ambiguous or foreign repositories. |
-| Signing-key Qt integration | 77 QtTest entries passed | Disposable real GnuPG certificates, existing-primary refresh, subkey/primary rotation, invalid/revoked/expired/private material, HTTPS failures, trust/import rollback, locks and sanitized diagnostics. |
-| Rust Qt state | 8 QtTest entries passed | Default and restored state, one notification per change, saved geometry and minimum-size clamping. |
-| QML scrolling calculations | 10 QtTest entries passed | Actual production QML functions: pixel deltas, mouse-wheel steps, retained momentum on retouch, repeated glides, slowing/reversal, bounds and thresholds. |
-| AppStream | Passed | Installed application metadata validation. |
-| Formatting and lint | Passed | `cargo fmt --all --check` and workspace Clippy with warnings rejected. |
+The final VM run passed all four CTest suites: AppStream validation, 77
+signing-key QtTest results, 10 backend-state results and 10 scrolling results
+(QtTest totals include initialization and cleanup). Workspace Clippy with
+warnings denied and Cargo formatting checks passed. The 23 Rust tests also
+passed on both the development host and Linux VM.
 
-QtTest entry totals include initialization and cleanup. CTest passed all four
-registered suites. The root-only Pacman fixture passed all eight scenarios:
+The Qt suites exercise real disposable GnuPG certificates and the same Rust
+signing-key implementation used in production; the actual `UpdateBackend`
+QObject's properties, notifications and persisted settings; and the production
+QML momentum functions. AppStream metadata and workspace formatting/lint checks
+were included in the final verification.
 
-1. Update an installed package, install a new dependency and apply a repository
-   replacement using only `replaces` metadata. Planning leaves installed
-   versions unchanged; the worker downloads and installs the intended versions.
-   Real intermediate download progress and all transaction phases were observed.
-2. Refuse removal of a protected dependency blocker without changing packages.
-3. Return the warning-class dependency blocker for explicit user action.
-4. Automatically remove only the approved dependency blocker.
-5. Preserve an unmanaged conflicting file and complete the automatic retry.
-6. Cancel a download without installing, resume it successfully, reject
-   cancellation outside downloading, protect a live Pacman lock and clear only
-   an ownerless stale lock.
-7. Report a deliberate HTTP download failure without changing the installed
-   package version or retaining a database lock.
-8. Reject an incorrect check-database user path and fail closed on invalid
-   package-protection configuration.
+The isolated Pacman fixture covers:
 
-Native desktop checks used the installed candidate in the regular Plasma user
-session, not a root GUI or a replacement test interface. The real polkit prompt
-authorized a check, available updates were displayed, and the existing update
-list opened with Close already highlighted. Tab moved the highlight to the eye
-button alone. The view toggle persisted through the Rust state object, Enter
-closed the list, reopening restored Close focus, and Space and keypad Enter
-also closed it. Screenshots of the main panel and both focus states are included
-below. A normal build with testing disabled staged no test programs or fixtures.
+1. Updating an installed package, downloading archives, installing a new
+   package and applying a replacement with only `replaces` metadata.
+2. Protected, warning and automatic dependency conflicts.
+3. Protected, warning and automatic direct package conflicts.
+4. Mixed dependency blockers, with protected packages checked first.
+5. Preserving an unowned file and completing the automatic retry.
+6. Refusing to rename a file owned by an installed package.
+7. Cancelling and resuming downloads, preventing cancellation during installation,
+   preserving live locks and clearing an ownerless stale lock.
+8. HTTP download failure without changing installed package versions.
+9. Invalid user/database paths and invalid package policy.
+10. The existing initial-update timestamp format.
+11. The complete desktop-controller path: `checkupdates`, transaction preview,
+    replacement presentation, worker startup, installation and success state.
 
-![Installed 1.5 candidate showing available updates](screenshots/1.5-updates.png)
+All 15 named scenarios passed on the final build; the three policy classifications are separate
+scenarios for both dependency and direct package conflicts. The fixture creates
+a private mount/PID namespace and a repository of disposable packages. Its
+temporary service and authorization launchers exist only inside that namespace.
+All package operations use the compiled production helper and worker.
 
-![First-open Close focus](screenshots/1.5-list-close-focus.png)
+The final package was installed and launched through the normal Plasma session.
+Its installed plugin, helper and worker hashes match the tested build. Native
+polkit authentication and update checking were exercised. The update list
+starts with Close highlighted, Tab transfers focus to the eye button, and
+closing/reopening restores the initial Close focus. After the watcher fix,
+the idle app sampled at 0.0% CPU instead of continuously rereading its state.
 
-![Tab moves focus to the eye button only](screenshots/1.5-list-eye-focus.png)
+Native desktop screenshots are stored under `docs/screenshots/`. Physical
+touchpad feel still requires the user's hardware; the existing QML scrolling
+implementation is preserved and its momentum regressions are run.
 
-### Not yet established
+## Reproducing validation
 
-- A complete Rust backend migration: transaction execution and most desktop
-  logic are still C++ in this first stage.
-- Physical touchpad feel: calculation regressions passed and QML is unchanged,
-  but synthetic events cannot establish the behavior of a user's hardware.
-- Live graphical download/install completion or reconnecting the GUI during
-  an active update: these paths passed backend fixture checks where applicable,
-  but were not exercised as a full real-repository graphical upgrade.
-- A fresh review of every translation and translated error layout. Translation
-  and QML sources were kept byte-for-byte unchanged from `main`.
+See the commands in the README. Build with `BUILD_TESTING=ON` for the Qt tests;
+run Rust tests and workspace Clippy separately. The Pacman workflow runner must
+be run as root on a disposable Linux development system. Pass its optional
+controller example to include the complete desktop-controller workflow.
 
-These checks remain necessary before the completed 1.5 migration is released.
+Every delivered ZIP must match its stated commit and include an updated
+`.PKGINFO` build date. Keep this PR as a draft until the user accepts the native
+1.5 candidate.

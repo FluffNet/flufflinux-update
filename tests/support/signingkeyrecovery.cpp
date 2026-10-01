@@ -1,6 +1,6 @@
 #include "signingkeyrecovery.h"
 #include "signingkeycontext.h"
-#include "flu_bridge/src/recovery.cxx.h"
+#include "flu_test_bridge/src/recovery.cxx.h"
 
 #include <utility>
 

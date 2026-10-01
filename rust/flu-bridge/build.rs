@@ -1,7 +1,9 @@
 use cxx_qt_build::CxxQtBuilder;
 
 fn main() {
-    let builder = CxxQtBuilder::new().files(["src/recovery.rs", "src/ui_state.rs"]);
+    println!("cargo:rerun-if-env-changed=CXX_QT_EXPORT_DIR");
+    println!("cargo:rerun-if-env-changed=CXX_QT_EXPORT_CRATE_flu_bridge");
+    let builder = CxxQtBuilder::new().files(["src/backend.rs"]);
     // Only add the adapter header location; CXX-Qt owns its Qt/compiler flags.
     let builder = unsafe {
         builder.cc_builder(|compiler| {
@@ -10,6 +12,5 @@ fn main() {
         })
     };
     builder.build();
-    println!("cargo:rerun-if-changed=../../src/signingkeycontext.h");
-    println!("cargo:rerun-if-changed=../../src/signingkeyrecovery.h");
+    println!("cargo:rerun-if-changed=../../src/nativeqt.h");
 }

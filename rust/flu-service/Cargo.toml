@@ -1,19 +1,22 @@
 [package]
-name = "flu-core"
+name = "flu-service"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
 license.workspace = true
 
+[[bin]]
+name = "flufflinux-update-helper"
+path = "src/helper.rs"
+
+[[bin]]
+name = "flufflinux-update-worker"
+path = "src/worker.rs"
+
 [dependencies]
-regex.workspace = true
-tempfile.workspace = true
-serde.workspace = true
+flu-core = { path = "../flu-core" }
 serde_json.workspace = true
 base64.workspace = true
 chrono.workspace = true
+regex.workspace = true
 libc.workspace = true
-reqwest.workspace = true
-fs2.workspace = true
-percent-encoding.workspace = true
-notify.workspace = true

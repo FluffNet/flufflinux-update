@@ -1,4 +1,5 @@
 #pragma once
+// Test adapter for the Rust signing-key implementation.
 
 #include <QByteArray>
 #include <QString>

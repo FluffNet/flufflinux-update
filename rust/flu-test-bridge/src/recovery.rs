@@ -46,6 +46,9 @@ mod ffi {
     }
 
     extern "Rust" {
+        fn diagnostic_value(value: &str, maximum: usize) -> String;
+        fn diagnostic_issue_url(fields: &[String], status: i32) -> String;
+        fn diagnostic_issue_url_allowed(url: &str) -> bool;
         fn normalize_fingerprint(response: &[u8]) -> String;
         fn requested_fingerprint(output: &str) -> String;
         fn repository_name(output: &str) -> String;
@@ -56,6 +59,16 @@ mod ffi {
 }
 
 struct QtContext<'a>(&'a ffi::SigningKeyContext);
+
+fn diagnostic_value(value: &str, maximum: usize) -> String {
+    flu_core::desktop::sanitize(value, maximum)
+}
+fn diagnostic_issue_url(fields: &[String], status: i32) -> String {
+    flu_core::desktop::issue_url(fields, status)
+}
+fn diagnostic_issue_url_allowed(url: &str) -> bool {
+    flu_core::desktop::issue_url_allowed(url)
+}
 
 fn artifact_result(artifact: ffi::Artifact) -> Result<Vec<u8>, String> {
     if artifact.failure.is_empty() {

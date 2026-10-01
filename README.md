@@ -58,8 +58,9 @@ Configure and compile:
 The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
 newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
 locked Cargo dependencies and the pinned CXX-Qt CMake integration. CMake builds
-the Rust library automatically; no separate Cargo build is needed for packaging.
-The migration is still in progress; see [`docs/rust-migration.md`](docs/rust-migration.md).
+the Rust desktop backend, privileged helper and background worker automatically;
+no separate Cargo build is needed for packaging. See the architecture and
+validation record in [`docs/rust-migration.md`](docs/rust-migration.md).
 
 ```sh
 cmake -S . -B build \
@@ -187,7 +188,7 @@ cmake -S . -B build-tests -DBUILD_TESTING=ON
 cmake --build build-tests
 ctest --test-dir build-tests --output-on-failure
 cargo fmt --all --check
-cargo test --locked -p flu-core
+cargo test --locked -p flu-core -p flu-service
 cargo clippy --locked --workspace --all-targets -- -D warnings
 ```
 
@@ -196,17 +197,20 @@ mount/PID namespaces. Run them only on a disposable development VM with Python
 3, util-linux, pacman and `repo-add` available:
 
 ```sh
+cargo build --locked --release -p flu-core --example controller-regression
 sudo python3 tests/pacman_workflows.py \
     --helper "$PWD/build-tests/bin/flufflinux-update-helper" \
     --worker "$PWD/build-tests/bin/flufflinux-update-worker" \
+    --controller "$PWD/target/release/examples/controller-regression" \
     --parent "$PWD" --output "$PWD/pacman-workflows-results.json"
 ```
 
 The runner binds fresh databases, cache, configuration and state directories
 inside a private namespace. Its unsigned local repository contains only
 synthetic packages. The compiled production helper/worker are unchanged;
-only `systemctl` is substituted inside that namespace to start and stop the
-real worker. Nothing from this fixture is installed into the FLU package.
+`systemctl` is substituted inside that namespace to start and stop the real
+worker, and the already-root controller test uses a namespace-local polkit
+launcher. Nothing from this fixture is installed into the FLU package.
 See the [1.5 validation record](docs/rust-migration.md#validation-record) for
 tested behavior and remaining checks.
 

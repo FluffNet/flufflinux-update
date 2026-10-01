@@ -1,17 +1,28 @@
+cxx_qt_import_crate(
+    MANIFEST_PATH ${CMAKE_SOURCE_DIR}/Cargo.toml
+    # Share the production export directory so dependency build scripts do not
+    # rebuild Qt bindings whenever Cargo switches between the two crates.
+    CXX_QT_EXPORT_DIR ${CMAKE_BINARY_DIR}/cxxqt/
+    CRATES flu_test_bridge
+    LOCKED
+    QT_MODULES Qt6::Core
+)
+
 add_executable(signingkeyrecoverytest
     signingkeyrecoverytest.cpp
-    ../src/signingkeyrecovery.cpp
-    ../src/signingkeyrecovery.h
-    ../src/securitydiagnostics.cpp
-    ../src/securitydiagnostics.h
+    support/signingkeyrecovery.cpp
+    support/signingkeyrecovery.h
+    support/securitydiagnostics.cpp
+    support/securitydiagnostics.h
 )
-target_include_directories(signingkeyrecoverytest PRIVATE ../src)
-target_link_libraries(signingkeyrecoverytest PRIVATE Qt6::Core Qt6::Test flu_bridge)
+target_include_directories(signingkeyrecoverytest PRIVATE support)
+target_link_libraries(signingkeyrecoverytest PRIVATE Qt6::Core Qt6::Test flu_test_bridge)
 add_test(NAME signingkeyrecoverytest COMMAND signingkeyrecoverytest)
 
-add_executable(uistatetest uistatetest.cpp ../src/signingkeyrecovery.cpp)
+add_executable(uistatetest uistatetest.cpp ../src/nativeqt.cpp)
 target_include_directories(uistatetest PRIVATE ../src)
-target_link_libraries(uistatetest PRIVATE Qt6::Core Qt6::Test flu_bridge)
+target_compile_definitions(uistatetest PRIVATE FLUFFLINUX_LOCALE_DIR=\"${KDE_INSTALL_FULL_LOCALEDIR}\")
+target_link_libraries(uistatetest PRIVATE Qt6::Core Qt6::Test Qt6::Widgets Qt6::Network KF6::I18n flu_bridge)
 add_test(NAME uistatetest COMMAND uistatetest)
 
 add_executable(wheelmomentumtest wheelmomentumtest.cpp)

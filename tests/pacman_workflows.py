@@ -2,8 +2,9 @@
 """Exercise production FLU binaries with real Pacman in a disposable namespace.
 
 Run with sudo on a disposable Linux development machine. No test switches or
-mock commands are added to the shipped binaries. Only systemctl is substituted
-inside the private namespace, to launch/stop the real compiled worker there.
+mock commands are added to the shipped binaries. Service and authorization
+launchers are substituted only inside the private namespace, to run the real
+compiled helper and worker against the disposable package database.
 The test repository deliberately contains unsigned, synthetic packages; signing
 and trust behavior is covered separately by signingkeyrecoverytest.
 """
@@ -95,8 +96,9 @@ class Server(http.server.SimpleHTTPRequestHandler):
 
 
 class Workflows:
-    def __init__(self, base, helper, worker):
+    def __init__(self, base, helper, worker, controller=None):
         self.base, self.helper, self.worker = base, helper, worker
+        self.controller = controller
         for name in ("root", "db", "cache", "etc", "tmp", "repo", "hooks"):
             (base / name).mkdir()
         (base / "pacman.log").touch()
@@ -155,6 +157,14 @@ class Workflows:
         )
         stub.chmod(0o755)
         run(["mount", "--bind", stub, "/usr/bin/systemctl"])
+        if controller:
+            # Root is already authorized inside this private fixture; replace
+            # only the polkit launcher here to exercise the real controller.
+            launcher = base / "pkexec"
+            launcher.write_text("#!/bin/sh\nexport PKEXEC_UID=0\nexec \"$@\"\n")
+            launcher.chmod(0o755)
+            run(["mount", "--bind", launcher, "/usr/bin/pkexec"])
+            run(["mount", "--bind", helper, "/usr/lib/flufflinux-update/flufflinux-update-helper"])
         self.results = []
 
     def pacman(self, *args, expected=0):
@@ -215,6 +225,8 @@ class Workflows:
             pass
 
     def test(self, name, function):
+        if getattr(self, "selected_test", None) and self.selected_test not in name:
+            return
         started = time.monotonic()
         print(f"RUN {name}", flush=True)
         details = function() or {}
@@ -298,6 +310,94 @@ class Workflows:
         assert original.read_bytes() == b"packaged replacement"
         return {"preserved_contents": True, "automatic_retry": True}
 
+    def direct_conflict_policy(self, kind):
+        repo = self.base / "repo"
+        name = f"flu-test-direct-{kind}"
+        blocker_name = f"{name}-blocker"
+        initial = package(repo, name, "1-1")
+        blocker = package(repo, blocker_name, "1-1")
+        newer = package(repo, name, "2-1", metadata=[f"conflict = {blocker_name}"])
+        self.pacman("-U", "--noconfirm", initial, blocker)
+        self.refresh(newer)
+        self.policy.write_text(json.dumps({"protected": [blocker_name] if kind == "protected" else [],
+                                          "warning": [blocker_name] if kind == "warning" else []}))
+        code = {"protected": 20, "warning": 21, "autoremove": 23}[kind]
+        result = self.plan(expected=code)
+        marker = {"protected": "FLU_PROTECTED_REMOVAL", "warning": "FLU_WARNING_REMOVAL",
+                  "autoremove": "FLU_AUTOREMOVED"}[kind]
+        assert f"{marker}:{blocker_name}" in result.stdout, result.stdout
+        assert bool(self.installed(blocker_name)) == (kind != "autoremove")
+        assert self.installed(name) == f"{name} 1-1"
+        if kind != "autoremove":
+            run([self.helper, "--remove-package", blocker_name])
+        self.pacman("-R", "--noconfirm", name)
+        return {"exit_code": code, "marker": marker, "planner_did_not_install": True}
+
+    def mixed_dependency_policy(self):
+        repo = self.base / "repo"
+        initial = package(repo, "flu-test-mixed", "1-1")
+        newer = package(repo, "flu-test-mixed", "2-1")
+        automatic = package(repo, "flu-test-a-automatic", "1-1", metadata=["depend = flu-test-mixed=1-1"])
+        protected = package(repo, "flu-test-z-protected", "1-1", metadata=["depend = flu-test-mixed=1-1"])
+        self.pacman("-U", "--noconfirm", initial, automatic, protected)
+        self.refresh(newer)
+        self.policy.write_text(json.dumps({"protected": ["flu-test-z-protected"], "warning": []}))
+        result = self.plan(expected=20)
+        assert "FLU_PROTECTED_REMOVAL:flu-test-z-protected" in result.stdout, result.stdout
+        assert self.installed("flu-test-a-automatic")
+        assert self.installed("flu-test-z-protected")
+        self.pacman("-R", "--noconfirm", "flu-test-a-automatic", "flu-test-z-protected", "flu-test-mixed")
+        return {"protected_precedes_automatic": True, "no_packages_removed": True}
+
+    def owned_file_conflict(self):
+        repo = self.base / "repo"
+        owner = package(repo, "flu-test-owner", "1-1", files={"usr/share/flu-test/owned": b"keep owner"})
+        initial = package(repo, "flu-test-owned-conflict", "1-1")
+        newer = package(repo, "flu-test-owned-conflict", "2-1", files={"usr/share/flu-test/owned": b"conflicting payload"})
+        self.pacman("-U", "--noconfirm", owner, initial)
+        self.pacman("-Qo", self.base / "root/usr/share/flu-test/owned")
+        self.refresh(newer)
+        self.start()
+        state, _ = self.finish()
+        assert state["phase"] == "failed", state
+        assert state["error"] == "INSTALL_FAILED", state
+        original = self.base / "root/usr/share/flu-test/owned"
+        assert original.read_bytes() == b"keep owner"
+        assert not list(original.parent.glob("owned.preupdate*"))
+        assert self.installed("flu-test-owned-conflict") == "flu-test-owned-conflict 1-1"
+        return {"owned_file_unchanged": True, "not_renamed": True, "install_failed_safely": True}
+
+    def record_current_update(self):
+        run([self.helper, "--record-current-update"])
+        value = json.loads((self.base / "etc/lastupdate.json").read_text())
+        assert len(value["last_successful_system_update"]) >= 24, value
+        return {"existing_lastupdate_contract": True}
+
+    def desktop_controller(self):
+        repo = self.base / "repo"
+        first = package(repo, "flu-test-controller", "1-1")
+        newer = package(repo, "flu-test-controller", "2-1")
+        old = package(repo, "flu-test-controller-old", "1-1")
+        replacement = package(repo, "flu-test-controller-new", "1-1", metadata=["replaces = flu-test-controller-old"])
+        self.pacman("-U", "--noconfirm", first, old)
+        self.policy.write_text(json.dumps({"protected": [], "warning": []}))
+        self.refresh(newer, replacement)
+        model = json.loads(run([self.controller, "check"]).stdout)
+        assert model["checkComplete"] and model["updatesAvailable"], model
+        assert model["checkError"] == "", model
+        assert any(p["newName"] == "flu-test-controller-new" for p in model["updatePackages"]), model
+        assert self.installed("flu-test-controller") == "flu-test-controller 1-1"
+        model = json.loads(run([self.controller, "install"]).stdout)
+        assert model["installPhase"] == "complete", model
+        assert model["installationSuccessNotice"], model
+        assert not model["updatesAvailable"], model
+        assert self.installed("flu-test-controller") == "flu-test-controller 2-1"
+        assert self.installed("flu-test-controller-new")
+        assert not self.installed("flu-test-controller-old")
+        self.reap()
+        return {"real_checkupdates_and_planner": True, "replacement_visible": True,
+                "controller_started_worker": True, "completion_presented": True}
+
     def cancellation(self):
         repo = self.base / "repo"
         initial = package(repo, "flu-test-cancel", "1-1")
@@ -375,16 +475,24 @@ def child(args):
     # Private propagation is set before the first bind, including /tmp.
     run(["mount", "--make-rprivate", "/"])
     base = Path(tempfile.mkdtemp(prefix="flu-pacman-workflows-", dir=args.parent))
-    tests = Workflows(base, args.helper, args.worker)
+    tests = Workflows(base, args.helper, args.worker, args.controller)
+    tests.selected_test = args.only
     success = False
     try:
         tests.test("update, install, replacement, download and progress", tests.replacement_and_update)
         for kind in ("protected", "warning", "autoremove"):
             tests.test(f"dependency conflict: {kind}", lambda kind=kind: tests.dependency_policy(kind))
+        for kind in ("protected", "warning", "autoremove"):
+            tests.test(f"direct package conflict: {kind}", lambda kind=kind: tests.direct_conflict_policy(kind))
+        tests.test("mixed dependency safety priority", tests.mixed_dependency_policy)
         tests.test("unmanaged file conflict and preservation", tests.file_conflict)
+        tests.test("package-owned file conflict fails safely", tests.owned_file_conflict)
         tests.test("download cancellation and resume", tests.cancellation)
         tests.test("download connection failure", tests.failed_download)
         tests.test("planner path and policy guards", tests.guards)
+        tests.test("initial update timestamp", tests.record_current_update)
+        if args.controller:
+            tests.test("complete desktop controller workflow", tests.desktop_controller)
         success = True
     finally:
         report = {"passed": success, "fixture": str(base), "tests": tests.results}
@@ -399,10 +507,14 @@ def main():
     parser.add_argument("--helper", type=Path, required=True)
     parser.add_argument("--worker", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--controller", type=Path)
+    parser.add_argument("--only", help="Run scenarios containing this text")
     parser.add_argument("--parent", type=Path, default=Path.cwd())
     parser.add_argument("--namespace-child", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
     args.helper, args.worker = args.helper.resolve(strict=True), args.worker.resolve(strict=True)
+    if args.controller:
+        args.controller = args.controller.resolve(strict=True)
     args.output, args.parent = args.output.resolve(), args.parent.resolve(strict=True)
     if os.geteuid() != 0:
         parser.error("run with sudo on a disposable Linux development machine")

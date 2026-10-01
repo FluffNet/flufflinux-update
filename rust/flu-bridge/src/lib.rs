@@ -3,5 +3,4 @@
 use cxx_qt as _;
 use cxx_qt_lib as _;
 
-mod recovery;
-mod ui_state;
+mod backend;

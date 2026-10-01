@@ -1,4 +1,5 @@
 #pragma once
+// Dependency injection for tests only; never linked into the shipped KCM.
 
 #include "signingkeyrecovery.h"
 #include "rust/cxx.h"
