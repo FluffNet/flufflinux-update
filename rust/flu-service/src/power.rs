@@ -20,8 +20,10 @@ impl SleepInhibitor {
             "Inhibit",
             &(
                 "sleep",
-                "Fluff Linux Update",
-                "Downloading and installing system updates",
+                // KDE resolves the desktop identity to the native app name and
+                // updates icon. A plain display name falls back to a generic icon.
+                "org.flufflinux.update.worker",
+                "Updating",
                 "block",
             ),
         )?;

@@ -63,3 +63,9 @@ install(FILES flufflinux-update-package-protection.json
 install(PROGRAMS org.flufflinux.update.desktop
     DESTINATION ${KDE_INSTALL_APPDIR}
 )
+
+# Desktop identity for native inhibitor name/icon lookup. Keep the existing
+# translated launcher unchanged and do not add another visible menu entry.
+install(FILES org.flufflinux.update.worker.desktop
+    DESTINATION ${KDE_INSTALL_APPDIR}
+)

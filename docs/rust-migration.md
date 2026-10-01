@@ -47,8 +47,10 @@ errors do not enter FluffNet recovery.
 The Rust worker acquires a native logind `sleep`/`block` inhibitor before its
 first Pacman command. Its owned file descriptor remains alive throughout
 preparation, downloading, installation, package hooks and recovery retries.
-KDE PowerDevil exposes this as **Fluff Linux Update — Downloading and installing
-system updates** in the power/battery interface. Closing the panel does not
+KDE PowerDevil resolves the `org.flufflinux.update.worker` desktop identity to
+**Fluff Linux Update** and its `system-software-update` icon in the power/battery
+interface. The hidden identity file does not add a launcher or change the existing
+translated launcher. The short reason is "Updating". Closing the panel does not
 release it, because the system-service worker owns the descriptor.
 
 Normal completion and errors close the descriptor; cancellation and process
@@ -160,10 +162,11 @@ touchpad feel still requires the user's hardware; the existing QML scrolling
 implementation is preserved and its momentum regressions are run.
 
 The native KDE Power Management widget was also checked while an isolated
-update continued with FLU's window closed. It displayed "Fluff Linux Update is
-blocking sleep" with the download/install reason. See
+update continued with FLU's window closed. Under the regular user's session it
+displayed the updates icon and "Fluff Linux Update is blocking sleep. (Updating)". See
 [`1.5-sleep-inhibitor.png`](screenshots/1.5-sleep-inhibitor.png); the VM's native
-battery/power widget was opened standalone for this capture. Its inhibition
+battery/power widget was opened standalone for this capture. This is KDE's native
+formatting, not a custom FLU label. Its inhibition
 entry disappeared again after completion.
 
 ## Reproducing validation

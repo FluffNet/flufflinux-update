@@ -208,14 +208,14 @@ class Workflows:
                       "org.freedesktop.login1", "/org/freedesktop/login1",
                       "org.freedesktop.login1.Manager", "ListInhibitors"])
         return [entry for entry in json.loads(result.stdout)["data"][0]
-                if entry[1] == "Fluff Linux Update"]
+                if entry[1] == "org.flufflinux.update.worker"]
 
     def assert_sleep_inhibited(self):
         entries = self.sleep_inhibitors()
         assert len(entries) == 1, entries
         what, who, why, mode, uid, pid = entries[0]
         assert what == "sleep" and mode == "block" and uid == 0 and pid > 1, entries
-        assert why == "Downloading and installing system updates", entries
+        assert why == "Updating", entries
 
     def assert_sleep_released(self):
         until = time.monotonic() + 5
