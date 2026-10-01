@@ -292,7 +292,19 @@ impl Controller {
     }
     fn emit(&mut self) {
         self.model["updateActive"] = json!(self.active());
+        // Recompute eligibility before every published transition, not just
+        // on the periodic tick: checking, completion and failure must never
+        // publish a stale low-battery warning from the previous phase.
+        self.model["batteryLow"] = json!(self.battery.is_low(self.battery_warning_relevant()));
         (self.publish)(self.model.clone());
+    }
+    fn battery_warning_relevant(&self) -> bool {
+        self.active()
+            || (matches!(self.string("installPhase"), "idle" | "cancelled")
+                && self.boolean("checkComplete")
+                && !self.boolean("checking")
+                && self.string("checkError").is_empty()
+                && self.boolean("updatesAvailable"))
     }
     fn active(&self) -> bool {
         matches!(
@@ -1027,11 +1039,6 @@ impl Controller {
                 self.model[key] = empty;
             }
         }
-        let relevant = self.boolean("checkComplete")
-            && !self.boolean("checking")
-            && self.string("checkError").is_empty()
-            && self.boolean("updatesAvailable");
-        self.model["batteryLow"] = json!(self.battery.is_low(relevant));
     }
 }
 fn state_file_changed(event: &notify::Event) -> bool {
@@ -1196,6 +1203,81 @@ mod tests {
         c.apply_install(&json!({"phase":"cancelled"}));
         assert!(c.boolean("updatesAvailable"));
         assert!(c.boolean("cancellationNotice"));
+    }
+    #[test]
+    fn battery_warning_is_only_eligible_when_ready_or_updating() {
+        let mut c = controller();
+        assert!(!c.battery_warning_relevant());
+        c.model["checkComplete"] = json!(true);
+        assert!(!c.battery_warning_relevant());
+        c.model["updatesAvailable"] = json!(true);
+        assert!(c.battery_warning_relevant());
+        c.model["checking"] = json!(true);
+        assert!(!c.battery_warning_relevant());
+        c.model["checking"] = json!(false);
+        c.model["checkError"] = json!("check failed");
+        assert!(!c.battery_warning_relevant());
+        c.model["checkError"] = json!("");
+
+        for phase in ["starting", "downloading", "installing"] {
+            c.apply_install(&json!({"phase":phase}));
+            assert!(c.battery_warning_relevant(), "{phase}");
+        }
+        // Cancelling a download returns to the ready-to-install/retry UI.
+        c.apply_install(&json!({"phase":"cancelled"}));
+        assert!(c.battery_warning_relevant());
+        c.command(Command::Clear);
+        assert!(!c.battery_warning_relevant());
+        assert!(!c.boolean("batteryLow"));
+    }
+    #[test]
+    fn battery_warning_clears_in_the_first_complete_or_failed_snapshot() {
+        use std::sync::Mutex;
+        for (phase, error) in [
+            ("complete", ""),
+            ("failed", "DOWNLOAD_FAILED"),
+            ("failed", "INSTALL_FAILED"),
+            ("failed", "SLEEP_INHIBITOR_FAILED"),
+            ("failed", "SIGNING_KEY_VERIFICATION_FAILED"),
+        ] {
+            let published = Arc::new(Mutex::new(initial_model()));
+            let snapshot = published.clone();
+            let mut c = Controller::new(
+                Arc::new(|message, _, _, _| message.to_owned()),
+                move |model| *snapshot.lock().unwrap() = model,
+                Arc::new(AtomicBool::new(false)),
+            );
+            c.apply_install(&json!({"phase":"downloading"}));
+            c.model["batteryLow"] = json!(true);
+            c.apply_install(&json!({"phase":phase,"error":error}));
+            c.emit();
+            assert!(!c.battery_warning_relevant(), "{phase}: {error}");
+            assert_eq!(published.lock().unwrap()["batteryLow"], false);
+            // A new attempt may warn again, without waiting for a new check.
+            c.apply_install(&json!({"phase":"starting"}));
+            assert!(c.battery_warning_relevant());
+        }
+    }
+    #[test]
+    fn battery_warning_clears_before_check_and_startup_failure_are_published() {
+        for (phase, complete, checking, available, error) in [
+            ("idle", false, false, false, ""),
+            ("idle", false, true, false, ""),
+            ("idle", true, false, true, "check failed"),
+            ("idle", true, false, false, ""),
+            // Helper/polkit failure sets phase directly, without worker state.
+            ("failed", true, false, true, ""),
+        ] {
+            let mut c = controller();
+            c.model["installPhase"] = json!(phase);
+            c.model["checkComplete"] = json!(complete);
+            c.model["checking"] = json!(checking);
+            c.model["updatesAvailable"] = json!(available);
+            c.model["checkError"] = json!(error);
+            c.model["batteryLow"] = json!(true);
+            c.emit();
+            assert!(!c.boolean("batteryLow"));
+        }
     }
     #[test]
     fn sleep_inhibitor_failure_reports_startup_error_and_allows_retry() {

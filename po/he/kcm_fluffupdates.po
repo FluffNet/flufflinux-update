@@ -82,8 +82,8 @@ msgstr "הותקנו %1/%2 עדכונים"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "עדכונים מותקנים כעת. נא להימנע מכיבוי או מהפעלה מחדש של המחשב עד לסיום ההתקנה. הפסקת העדכון עלולה לפגוע בתפקוד המערכת."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "רמת הסוללה נמוכה. מומלץ לחבר את המחשב לחשמל לפני התקנת העדכונים."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "רמת הסוללה נמוכה. נא לחבר את המחשב למטען בזמן התקנת העדכונים."
 
 msgid "Update process was cancelled"
 msgstr "תהליך העדכון בוטל"

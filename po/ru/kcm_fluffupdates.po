@@ -82,8 +82,8 @@ msgstr "Установлено обновлений: %1/%2"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Сейчас устанавливаются обновления. Не выключайте и не перезагружайте компьютер до завершения установки. Прерывание обновления может повредить системные файлы."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Низкий заряд аккумулятора. Подключите компьютер к питанию перед установкой обновлений."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Низкий заряд аккумулятора. Подключите компьютер к зарядному устройству на время установки обновлений."
 
 msgid "Update process was cancelled"
 msgstr "Процесс обновления отменён"

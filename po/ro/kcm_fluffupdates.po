@@ -106,9 +106,9 @@ msgstr "Actualizări %1/%2 instalate"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Actualizările sunt în curs de instalare. Vă rugăm să evitați oprirea sau repornirea computerului până la finalizarea instalării. Întreruperea actualizării poate deteriora fișierele de sistem."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Bateria este descărcată. Vă rugăm să conectați computerul înainte de a instala actualizări."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Nivelul bateriei este scăzut. Conectați computerul la un încărcător în timpul instalării actualizărilor."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

@@ -104,8 +104,8 @@ msgstr ""
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr ""
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
 msgstr ""
 
 #. Five-second notice after cancelling during the download phase.

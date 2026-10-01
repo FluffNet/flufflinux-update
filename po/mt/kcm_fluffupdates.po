@@ -106,9 +106,9 @@ msgstr "Aġġornamenti %1/%2 installati"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Bħalissa qed jiġu installati aġġornamenti. Jekk jogħġbok evita li titfi jew terġa' tibda l-kompjuter sakemm titlesta l-installazzjoni. L-interruzzjoni tal-aġġornament tista' tagħmel ħsara lill-fajls tas-sistema."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Il-batterija hija baxxa. Jekk jogħġbok daħħal il-kompjuter tiegħek qabel tinstalla l-aġġornamenti."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Il-livell tal-batterija huwa baxx. Jekk jogħġbok qabbad il-kompjuter tiegħek ma’ ċarġer waqt l-installazzjoni tal-aġġornamenti."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

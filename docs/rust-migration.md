@@ -85,10 +85,16 @@ contains system batteries or a UPS, excludes peripheral batteries, and handles
 multiple batteries without relying on chassis type, a lid, `BAT0` names, or
 device paths. This also supports USB UPS devices managed in userspace.
 
-The existing warning remains advisory and uses the existing translated text.
+The warning remains advisory. Its charger wording is translated in all 27
+catalogs and applies both before and during installation.
 It appears for a present Battery/UPS composite at 20% or less while discharging
-(or empty), only when updates are available. Charging, healthy, absent and
-unknown/invalid readings do not produce a low-battery warning. The composite's
+(or empty), after a successful check with updates available and throughout
+preparation, downloading and installation. Eligibility is recalculated before
+each published snapshot, so checking again, completion and failure immediately
+clear any previous warning, even when a failed update retains its retry list.
+A retry can show the warning again; cancelling a download returns to the ready
+state. Charging, healthy, absent and unknown/invalid readings do not produce a
+low-battery warning. The composite's
 `PowerSupply` property is not required: unlike that property on physical devices,
 it is not guaranteed by the display-device contract.
 
@@ -127,22 +133,24 @@ Rust 1.98.1 and GCC 16.2.1. The original FLU 1.4-3 files and package database en
 were backed up before testing 1.5-1. The tests do not upgrade the VM's real
 system packages.
 
-The Rust core currently has 24 passing unit tests. They cover signing-key
+The original Rust core tests cover signing-key
 parsing and repository isolation, desktop state transitions and notices,
 settings persistence, diagnostic redaction, native process I/O and timeouts,
 recovery-lock exclusion, HTTPS-only artifact fetching and atomic state writes.
 A watcher regression prevents read-access notifications from feeding FLU's own
 status reads back into an endless refresh loop.
 
-The final VM run passed all four CTest suites: AppStream validation, 77
+The final VM run passed all five CTest suites: AppStream validation, 77
 signing-key QtTest results, 10 backend-state results and 10 scrolling results
-(QtTest totals include initialization and cleanup). Workspace Clippy with
+(QtTest totals include initialization and cleanup), and compiled battery-warning
+lookups in all 27 translation catalogs. Workspace Clippy with
 warnings denied and Cargo formatting checks passed. The original 24 Rust tests also
 passed on both the development host and Linux VM. The additional sleep-inhibitor
 failure test checks the existing translated startup error and retry state.
 
 The system-power fix adds six battery-policy tests and a Linux-only D-Bus wire
-test (31 Rust tests on Linux, 30 on the development host). The private-bus test
+test, plus three controller lifecycle tests (34 Rust tests on Linux, 33 on the
+development host). The private-bus test
 serves a generic 19% mouse battery alongside a changing display device and checks
 accessory-only desktops, low/healthy system batteries, low/charging UPSes, the
 20% boundary, charging transitions, multi-battery composites, removal, empty

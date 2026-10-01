@@ -82,8 +82,8 @@ msgstr "%1/%2 uppdateringar installerade"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Uppdateringar installeras för närvarande. Undvik att stänga av eller starta om datorn tills installationen är klar. Om uppdateringen avbryts kan systemfiler skadas."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Batterinivån är låg. Anslut datorn till ström innan du installerar uppdateringar."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batterinivån är låg. Anslut datorn till en laddare medan uppdateringar installeras."
 
 msgid "Update process was cancelled"
 msgstr "Uppdateringsprocessen avbröts"

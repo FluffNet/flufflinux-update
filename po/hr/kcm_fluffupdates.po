@@ -106,9 +106,9 @@ msgstr "Instalirana ažuriranja %1/%2"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Ažuriranja se trenutno instaliraju. Izbjegavajte isključivanje ili ponovno pokretanje računala dok instalacija ne završi. Prekid ažuriranja može oštetiti sistemske datoteke."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Baterija je slaba. Uključite svoje računalo prije instaliranja ažuriranja."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Razina baterije je niska. Priključite računalo na punjač tijekom instalacije ažuriranja."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

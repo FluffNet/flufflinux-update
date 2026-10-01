@@ -106,9 +106,9 @@ msgstr "Εγκαταστάθηκαν ενημερώσεις %1/%2"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Οι ενημερώσεις εγκαθίστανται αυτήν τη στιγμή. Αποφύγετε την απενεργοποίηση ή επανεκκίνηση του υπολογιστή μέχρι να ολοκληρωθεί η εγκατάσταση. Η διακοπή της ενημέρωσης μπορεί να προκαλέσει βλάβη στα αρχεία συστήματος."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Η μπαταρία είναι χαμηλή. Συνδέστε τον υπολογιστή σας πριν εγκαταστήσετε ενημερώσεις."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Η στάθμη της μπαταρίας είναι χαμηλή. Συνδέστε τον υπολογιστή σας σε φορτιστή κατά την εγκατάσταση ενημερώσεων."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

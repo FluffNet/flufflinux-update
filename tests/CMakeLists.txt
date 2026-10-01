@@ -30,3 +30,9 @@ target_link_libraries(wheelmomentumtest PRIVATE Qt6::Core Qt6::Qml Qt6::Test)
 target_compile_definitions(wheelmomentumtest PRIVATE
     FLU_QML_PATH=\"${CMAKE_SOURCE_DIR}/src/ui/main.qml\")
 add_test(NAME wheelmomentumtest COMMAND wheelmomentumtest)
+
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
+find_program(FLU_MSGFMT msgfmt REQUIRED)
+add_test(NAME batterytranslationstest
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/battery_translations.py
+        --source ${CMAKE_SOURCE_DIR} --msgfmt ${FLU_MSGFMT})

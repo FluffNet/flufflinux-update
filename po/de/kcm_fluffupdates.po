@@ -82,8 +82,8 @@ msgstr "%1/%2 Aktualisierungen installiert"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Aktualisierungen werden gerade installiert. Bitte schalten Sie den Computer nicht aus und starten Sie ihn nicht neu, bis die Installation abgeschlossen ist. Eine Unterbrechung der Aktualisierung kann Systemdateien beschädigen."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Der Akkustand ist niedrig. Bitte schließen Sie den Computer vor der Installation von Aktualisierungen an das Stromnetz an."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Der Akkustand ist niedrig. Bitte schließen Sie den Computer während der Installation von Aktualisierungen an ein Ladegerät an."
 
 msgid "Update process was cancelled"
 msgstr "Der Aktualisierungsvorgang wurde abgebrochen"

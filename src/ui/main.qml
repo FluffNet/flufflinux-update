@@ -442,7 +442,7 @@ KCMUtils.SimpleKCM {
             visible: backend.batteryLow
             type: Kirigami.MessageType.Warning
             icon.name: "battery-low"
-            text: i18nd("kcm_fluffupdates", "The battery is low. Please plug in your computer before installing updates.")
+            text: i18nd("kcm_fluffupdates", "The battery is low. Please connect your computer to a charger while installing updates.")
         }
 
         Rectangle {

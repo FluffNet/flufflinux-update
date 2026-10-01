@@ -82,8 +82,8 @@ msgstr "%1/%2 件のアップデートをインストール済み"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "アップデートをインストールしています。インストールが完了するまで、コンピューターの電源を切ったり再起動したりしないでください。アップデートを中断すると、システムファイルが破損する可能性があります。"
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "バッテリー残量が少なくなっています。アップデートをインストールする前に、コンピューターを電源に接続してください。"
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "バッテリー残量が少なくなっています。アップデートのインストール中は、コンピューターを充電器に接続してください。"
 
 msgid "Update process was cancelled"
 msgstr "アップデート処理はキャンセルされました"
