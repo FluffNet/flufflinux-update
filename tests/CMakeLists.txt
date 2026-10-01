@@ -31,6 +31,12 @@ target_compile_definitions(wheelmomentumtest PRIVATE
     FLU_QML_PATH=\"${CMAKE_SOURCE_DIR}/src/ui/main.qml\")
 add_test(NAME wheelmomentumtest COMMAND wheelmomentumtest)
 
+add_executable(updateswindowkeystest updateswindowkeystest.cpp)
+target_link_libraries(updateswindowkeystest PRIVATE Qt6::Quick Qt6::Qml Qt6::Test)
+target_compile_definitions(updateswindowkeystest PRIVATE
+    FLU_QML_PATH=\"${CMAKE_SOURCE_DIR}/src/ui/main.qml\")
+add_test(NAME updateswindowkeystest COMMAND updateswindowkeystest)
+
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 find_program(FLU_MSGFMT msgfmt REQUIRED)
 add_test(NAME batterytranslationstest

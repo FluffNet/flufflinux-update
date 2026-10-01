@@ -807,6 +807,7 @@ KCMUtils.SimpleKCM {
         ColumnLayout {
             anchors.fill: parent
             spacing: 0
+            Keys.onEscapePressed: updatesWindow.close()
 
             Item {
                 id: comparisonViewContainer

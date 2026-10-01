@@ -140,9 +140,10 @@ recovery-lock exclusion, HTTPS-only artifact fetching and atomic state writes.
 A watcher regression prevents read-access notifications from feeding FLU's own
 status reads back into an endless refresh loop.
 
-The final VM run passed all five CTest suites: AppStream validation, 77
-signing-key QtTest results, 10 backend-state results and 10 scrolling results
-(QtTest totals include initialization and cleanup), and compiled battery-warning
+The final VM run passed all six CTest suites: AppStream validation, 77
+signing-key QtTest results, 10 backend-state results, 10 scrolling results and
+7 updates-window keyboard results (QtTest totals include initialization and
+cleanup), and compiled battery-warning
 lookups in all 27 translation catalogs. Workspace Clippy with
 warnings denied and Cargo formatting checks passed. The original 24 Rust tests also
 passed on both the development host and Linux VM. The additional sleep-inhibitor
@@ -197,6 +198,15 @@ polkit authentication and update checking were exercised. The update list
 starts with Close highlighted, Tab transfers focus to the eye button, and
 closing/reopening restores the initial Close focus. After the watcher fix,
 the idle app sampled at 0.0% CPU instead of continuously rereading its state.
+
+Escape closes the updates list using its normal close handler, preserving
+window settings without affecting the main window or the update operation.
+The keyboard regression loads the production QML window and sends real Qt key
+events from Close, the eye button after Tab, and both list views, including
+reopening and Escape in the main window. It passes offscreen and in the VM's
+normal-user KDE session through XWayland. Key handling uses Qt's standard
+[`Keys.onEscapePressed`](https://doc.qt.io/qt-6/qml-qtquick-keys.html)
+on the list's shared content parent.
 
 Native desktop screenshots are stored under `docs/screenshots/`. Physical
 touchpad feel still requires the user's hardware; the existing QML scrolling
