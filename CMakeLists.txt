@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.24)
 
-project(flufflinux_update_kcm VERSION 1.4.0 LANGUAGES CXX)
+project(flufflinux_update_kcm VERSION 1.5.0 LANGUAGES CXX)
 
-option(BUILD_TESTING "Build the isolated signing-key tests" OFF)
+option(BUILD_TESTING "Build the isolated regression tests" OFF)
 include(CTest)
 
 set(QT_MIN_VERSION "6.9.0")
@@ -41,6 +41,22 @@ if(BUILD_TESTING)
     find_package(Qt6 ${QT_MIN_VERSION} REQUIRED COMPONENTS Test)
 endif()
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS CoreAddons I18n KCMUtils)
+
+# Use the same CXX-Qt stack as the other Rust/QML Fluff Linux applications.
+# Cargo owns the Rust core; CMake retains KDE plugin and package installation.
+include(FetchContent)
+FetchContent_Declare(CxxQt
+    GIT_REPOSITORY https://github.com/KDAB/cxx-qt-cmake.git
+    GIT_TAG 0.10.0
+    GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(CxxQt)
+cxx_qt_import_crate(
+    MANIFEST_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Cargo.toml
+    CRATES flu_bridge
+    LOCKED
+    QT_MODULES Qt6::Core
+)
 
 add_subdirectory(src)
 if(BUILD_TESTING)

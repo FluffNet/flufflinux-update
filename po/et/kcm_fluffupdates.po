@@ -106,9 +106,9 @@ msgstr "%1/%2 värskendused on installitud"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Praegu installitakse värskendusi. Vältige arvuti väljalülitamist või taaskäivitamist, kuni installimine on lõppenud. Värskenduse katkestamine võib kahjustada süsteemifaile."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Aku on tühi. Enne värskenduste installimist ühendage arvuti vooluvõrku."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Aku laetuse tase on madal. Palun ühendage arvuti värskenduste installimise ajaks laadijaga."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

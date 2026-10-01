@@ -106,9 +106,9 @@ msgstr "Nuashonruithe %1/%2 suiteáilte"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Tá nuashonruithe á suiteáil faoi láthair. Le do thoil, seachain an ríomhaire a chumhachtú nó a atosú go dtí go mbeidh an tsuiteáil críochnaithe. Má chuirtear isteach ar an nuashonrú, féadfar damáiste a dhéanamh do chomhaid an chórais."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Tá an ceallraí íseal. Le do thoil plugáil isteach do ríomhaire roimh nuashonruithe a shuiteáil."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Tá lucht na ceallraí íseal. Ceangail do ríomhaire le luchtaire agus nuashonruithe á suiteáil, le do thoil."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

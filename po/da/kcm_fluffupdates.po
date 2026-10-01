@@ -106,9 +106,9 @@ msgstr "%1/%2 opdateringer installeret"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Opdateringer er i øjeblikket ved at blive installeret. Undgå at slukke eller genstarte computeren, indtil installationen er fuldført. Afbrydelse af opdateringen kan beskadige systemfiler."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Batteriet er lavt. Tilslut venligst din computer, før du installerer opdateringer."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batteriniveauet er lavt. Tilslut venligst computeren til en oplader, mens opdateringer installeres."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"

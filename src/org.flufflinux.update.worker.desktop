@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Fluff Linux Update
+Icon=system-software-update
+Exec=kcmshell6 kcm_fluffupdates
+Terminal=false
+NoDisplay=true

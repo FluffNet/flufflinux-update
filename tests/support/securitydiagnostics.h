@@ -1,4 +1,5 @@
 #pragma once
+// Test adapter for the Rust diagnostics implementation.
 
 #include <QString>
 #include <QUrl>

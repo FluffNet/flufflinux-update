@@ -1531,8 +1531,10 @@ private Q_SLOTS:
         QCOMPARE(url.host(), QStringLiteral("github.com"));
         QCOMPARE(url.path(),
                  QStringLiteral("/FluffNet/flufflinux-update/issues/new"));
-        const QString body =
-            QUrlQuery(url).queryItemValue(QStringLiteral("body"));
+        // Inspect the decoded diagnostic, not the encoder's choice of whether
+        // to escape reserved punctuation such as ':'.
+        const QString body = QUrlQuery(url).queryItemValue(
+            QStringLiteral("body"), QUrl::FullyDecoded);
         QVERIFY(body.contains(QStringLiteral("Repository: fluffnet")));
         QVERIFY(!body.contains(QStringLiteral("alice")));
         QVERIFY(!body.contains(QStringLiteral("supersecret")));
