@@ -1,6 +1,8 @@
 # Local build and packaging output
 /build/
 /fakeroot/
+/.fakeroot-stage-*/
+/.fakeroot-previous-*/
 /target/
 /build-tests/
 /build-full/

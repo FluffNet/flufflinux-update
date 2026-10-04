@@ -39,6 +39,10 @@ add_test(NAME panelvisibilitytest COMMAND panelvisibilitytest)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 find_program(FLU_MSGFMT msgfmt REQUIRED)
+find_program(FLU_MAKE NAMES gmake make REQUIRED)
+add_test(NAME fakerootpackagingtest
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/fakeroot_packaging.py
+        --source ${CMAKE_SOURCE_DIR} --cmake ${CMAKE_COMMAND} --make ${FLU_MAKE})
 add_test(NAME batterytranslationstest
     COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/battery_translations.py
         --source ${CMAKE_SOURCE_DIR} --msgfmt ${FLU_MSGFMT})

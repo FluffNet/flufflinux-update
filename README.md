@@ -54,12 +54,30 @@ currently English only while their wording and behavior are being reviewed.
 Install the build requirements:
 
 ```sh
-sudo pacman -S --needed base-devel rust cmake extra-cmake-modules \
+sudo pacman -S --needed base-devel rust cmake git gettext extra-cmake-modules \
     qt6-declarative kcmutils ki18n kcoreaddons kirigami \
     pacman-contrib polkit upower
 ```
 
-Configure and compile:
+Build and stage the package in one command (run as your normal user):
+
+```sh
+make fakeroot
+```
+
+This configures a Release build in `build/`, compiles the Rust backend and KDE
+plugin, and creates a fresh `fakeroot/` containing the complete package filesystem
+and **`fakeroot/.PKGINFO`**. No `sudo` or separate `fakeroot` utility is needed.
+It does not install FLU onto the build machine or create a package archive.
+
+To choose a build directory or increase parallel compilation:
+
+```sh
+make fakeroot BUILD_DIR=build-package JOBS=4
+```
+
+The default is two parallel build jobs. `make` (or `make build`) compiles without
+staging. Keep the build directory outside `fakeroot/`.
 
 The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
 newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
@@ -69,6 +87,8 @@ notifier automatically;
 no separate Cargo build is needed for packaging. See the architecture and
 validation record in [`docs/rust-migration.md`](docs/rust-migration.md).
 
+For manual configuration and compilation instead:
+
 ```sh
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release \
@@ -77,29 +97,35 @@ cmake -S . -B build \
 cmake --build build
 ```
 
-If an older copy was built in the same directory, remove `build/` and
-`fakeroot/` first. The
-QML interface is embedded in the compiled KCM, so an old build directory can
-retain outdated resources and cached non-Arch installation paths.
+The QML interface is embedded in the compiled KCM. Always rebuild after changing
+QML. If reusing a build directory from an older release or different CMake
+generator causes configuration problems, select a fresh `BUILD_DIR`.
 
 ## Stage for packaging
 
 Fluff Linux packages are assembled from a fakeroot instead of being installed
-directly onto the build machine:
+directly onto the build machine.
 
-```sh
-# fakeroot/ becomes the package filesystem and can be passed to the Fluff Linux packaging tools.
-DESTDIR="$PWD/fakeroot/" cmake --install build
-```
+Use `make fakeroot` above to compile and stage everything together. The directory
+can then be passed to the Fluff Linux packaging tools. The maintained `.PKGINFO`
+at the project root supplies the package version, architecture and dependencies.
+Staging copies it and refreshes `builddate` and `size` from the new build, without
+modifying the source template. `SOURCE_DATE_EPOCH`, when set, supplies the build
+timestamp for reproducible packaging.
 
-Everything that belongs in the package will now be under `fakeroot/`, beginning
-with `fakeroot/usr/`. The package-removal policy is staged separately at
+Everything that belongs in the package is under `fakeroot/`, including the
+hidden `.PKGINFO` file and `fakeroot/usr/`. The package-removal policy is staged at
 `fakeroot/etc/pacman.d/flufflinux-update-package-protection.json`. This
 directory is only a packaging workspace; it is not a
 privileged chroot and staging into it does not modify the host system.
 
-Use a clean `fakeroot/` for each package build so files removed in a newer
-version cannot remain in the finished package.
+Each successful run replaces the previous `fakeroot/`, so obsolete files cannot
+remain in the new package. A failed configure, compile or install leaves the
+previous staging tree intact. Keep personal files outside this generated folder.
+
+The lower-level `DESTDIR="$PWD/fakeroot" cmake --install build` command still
+works, but it neither refreshes `.PKGINFO` nor cleans old staging files; prefer
+`make fakeroot` for packaging.
 
 ## Test locally
 
