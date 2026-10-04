@@ -125,8 +125,7 @@ and briefly detaches/restores the wheel target to stop Kirigami's separate
 animations. The next wheel event stops middle autoscroll and proceeds normally;
 the signal handler does not accept or rewrite that event.
 
-This is also recorded in the repository's `AGENTS.md` as the QML convention for
-future changes. Reference: [Kirigami WheelHandler](https://api.kde.org/qml-org-kde-kirigami-wheelhandler.html).
+Reference: [Kirigami WheelHandler](https://api.kde.org/qml-org-kde-kirigami-wheelhandler.html).
 
 ## Reference implementations
 
