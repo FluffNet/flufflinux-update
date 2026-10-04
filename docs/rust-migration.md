@@ -423,6 +423,45 @@ Cancel; the disposable update again completed all four packages.
 
 ## Reproducing validation
 
+### Build and cleanup audit, 2026-10-04
+
+The first-build `make fakeroot` warning came from passing a nonexistent build
+directory to CMake's `file(REAL_PATH)`. Preflight now resolves the existing
+ancestor and appends the missing path components, without creating directories
+or suppressing diagnostics. It retains the source/staging separation and
+symlink checks. The packaging regression suite includes 12 scenarios, rejects
+developer warnings, and tests validation with `-Werror=dev`.
+
+The dependency audit removed unused direct `serde` from `flu-core` and `reqwest`
+from `flu_bridge`. Both still appear transitively where needed; HTTPS recovery
+continues to use `reqwest` in `flu-core`. Explicit runtime imports replace
+production glob imports. Redundant production Qt linkage imports were removed;
+the test adapter's required linkage imports remain documented. Snapshot/state
+initializers and archive-name validation were clarified without changing their
+contracts. New and edited code comments use ordinary ASCII hyphens only.
+
+The review also found that the notifier received only its original message
+allowlist, silently discarding operational-error translations. The receiver
+now uses the same complete allowlist as the sender. The private D-Bus regression
+first reproduced the missing translation, then passed after the fix; it also
+checks rejection of unknown keys and oversized replacement strings.
+
+Validation passed on the Fluff Linux VM with Qt 6.11.2, Rust 1.98.1 and CMake
+4.4.3: 52 Rust tests across all workspace targets, workspace Clippy with warnings
+denied, the library unused-crate lint, all seven CTest suites, and all 26 isolated
+real-Pacman workflows. CTest includes signing-key recovery, UI state, updates-list
+input, panel visibility, package staging, metadata and all 27 compiled translation
+catalogs. The host-side Rust tests, Clippy and packaging tests also passed.
+The full Release build and repeated `make fakeroot` runs succeeded, including
+freshly generated package metadata and the expected Linux plugin/helper payload.
+The three service binaries share a manifest, so their unused-crate reports were
+audited across the whole package rather than suppressed or removed per binary.
+
+QML scrolling and touchscreen behavior were not changed in this cleanup. Input
+regressions were automated; physical-device feel was not re-evaluated.
+
+### Commands
+
 See the commands in the README. Build with `BUILD_TESTING=ON` for the Qt tests;
 run Rust tests and workspace Clippy separately. The Pacman workflow runner must
 be run as root on a disposable Linux development system. Pass its optional

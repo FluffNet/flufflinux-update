@@ -305,6 +305,39 @@ mod wire {
         failed["error"] = json!("DOWNLOAD_CONNECTION_FAILED");
         ui.finished(&client, &failed, &strings).unwrap();
         ui.clear_finished(&client).unwrap();
+        // Exercise the actual panel-to-notifier handoff, not just rendering
+        // with a translation map that bypasses the D-Bus receiver's allowlist.
+        let mut translated: Strings = messages()
+            .map(|message| (message.into(), format!("translated: {message}")))
+            .collect();
+        translated.insert("not a UI message".into(), "ignored".into());
+        client
+            .call_method(
+                Some(SERVICE),
+                PATH,
+                Some(SERVICE),
+                "SetVisible",
+                &(false, &translated),
+            )
+            .unwrap();
+        let strings = presence.lock().unwrap().strings.clone();
+        for message in messages() {
+            assert_eq!(strings.get(message), translated.get(message), "{message}");
+        }
+        assert!(!strings.contains_key("not a UI message"));
+        client
+            .call_method(
+                Some(SERVICE),
+                PATH,
+                Some(SERVICE),
+                "SetVisible",
+                &(
+                    false,
+                    Strings::from([("Fluff Linux Update".into(), "x".repeat(8192))]),
+                ),
+            )
+            .unwrap();
+        assert_eq!(presence.lock().unwrap().strings, strings);
         for failure in [
             crate::operational_error::Failure::Storage,
             crate::operational_error::Failure::Signature,
@@ -313,7 +346,6 @@ mod wire {
         ] {
             failed["error"] = json!(failure.code());
             let translated = format!("translated: {}", failure.message());
-            let strings = Strings::from([(failure.message().into(), translated.clone())]);
             ui.finished(&client, &failed, &strings).unwrap();
             ui.clear_finished(&client).unwrap();
             assert!(

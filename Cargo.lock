@@ -489,7 +489,6 @@ dependencies = [
  "percent-encoding",
  "regex",
  "reqwest",
- "serde",
  "serde_json",
  "tempfile",
  "zbus",
@@ -517,7 +516,6 @@ dependencies = [
  "cxx-qt-build",
  "cxx-qt-lib",
  "flu-core",
- "reqwest",
  "serde_json",
 ]
 

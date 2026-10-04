@@ -1,6 +1,14 @@
 //! Desktop controller: all update state, orchestration and presentation data.
 //! Qt/KDE only supplies translation and publishes snapshots on its GUI thread.
-use crate::{battery::BatteryMonitor, operational_error, runtime::*, signing_key};
+use crate::{
+    battery::BatteryMonitor,
+    operational_error,
+    runtime::{
+        HELPER, LAST_UPDATE, LAST_UPDATE_KEY, MAX_OUTPUT, PACMAN, Process, STATE, atomic_write,
+        pacman_running, read_json,
+    },
+    signing_key,
+};
 use base64::{Engine, engine::general_purpose::URL_SAFE_NO_PAD};
 use chrono::{DateTime, Local, Months};
 use notify::{RecursiveMode, Watcher};
@@ -37,12 +45,46 @@ pub enum Command {
 }
 
 pub fn initial_model() -> Value {
-    json!({"lastUpdate":"","hasLastUpdate":false,"stateMessage":"","freshnessText":"","freshnessColor":"#3daee9","relativeTime":"",
-    "checking":false,"checkComplete":false,"updatesAvailable":false,"downloadSize":"","diskChange":"","diskSpaceFreed":false,"checkError":"",
-    "updatePackages":[],"batteryLow":false,"installPhase":"idle","updateActive":false,"installProgress":0.0,"completedPackages":0,"totalPackages":0,
-    "downloadedSize":"0 B","totalDownloadSize":"0 B","downloadSpeed":"","downloadTimeRemaining":"","installError":"","signingKeySecurityError":false,"signingKeyTechnicalDetails":"",
-    "signingKeyIssueUrl":"","cancellationNotice":false,"installationSuccessNotice":false,"networkConnected":true,"networkLimited":false,
-    "recoveryDialogType":"","recoveryPackage":"","recoveryNotice":"","recoveryActionState":""})
+    // These names are the snapshot contract consumed by the Qt bridge.
+    // Keep every property initialized so a reopened panel has no stale state.
+    json!({
+        "lastUpdate": "",
+        "hasLastUpdate": false,
+        "stateMessage": "",
+        "freshnessText": "",
+        "freshnessColor": "#3daee9",
+        "relativeTime": "",
+        "checking": false,
+        "checkComplete": false,
+        "updatesAvailable": false,
+        "downloadSize": "",
+        "diskChange": "",
+        "diskSpaceFreed": false,
+        "checkError": "",
+        "updatePackages": [],
+        "batteryLow": false,
+        "installPhase": "idle",
+        "updateActive": false,
+        "installProgress": 0.0,
+        "completedPackages": 0,
+        "totalPackages": 0,
+        "downloadedSize": "0 B",
+        "totalDownloadSize": "0 B",
+        "downloadSpeed": "",
+        "downloadTimeRemaining": "",
+        "installError": "",
+        "signingKeySecurityError": false,
+        "signingKeyTechnicalDetails": "",
+        "signingKeyIssueUrl": "",
+        "cancellationNotice": false,
+        "installationSuccessNotice": false,
+        "networkConnected": true,
+        "networkLimited": false,
+        "recoveryDialogType": "",
+        "recoveryPackage": "",
+        "recoveryNotice": "",
+        "recoveryActionState": ""
+    })
 }
 pub fn human_size(bytes: i64) -> String {
     for (unit, divisor) in [("GiB", 1073741824), ("MiB", 1048576), ("KiB", 1024)] {

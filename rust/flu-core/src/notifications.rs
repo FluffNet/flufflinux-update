@@ -236,10 +236,11 @@ impl PanelService {
         if let Some(sender) = header.sender() {
             let mut presence = self.0.lock().unwrap();
             presence.panels.insert(sender.to_string(), visible);
-            // Only known UI strings, bounded and supplied by this user's UI.
-            for key in MESSAGES {
-                if let Some(value) = strings.get(*key).filter(|v| v.len() < 8192) {
-                    presence.strings.insert((*key).into(), value.clone());
+            // Use the same allowlist as the sender, including operational
+            // failures. Accept only bounded strings supplied by this user's UI.
+            for key in messages() {
+                if let Some(value) = strings.get(key).filter(|v| v.len() < 8192) {
+                    presence.strings.insert(key.into(), value.clone());
                 }
             }
         }

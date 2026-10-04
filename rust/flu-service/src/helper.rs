@@ -5,7 +5,11 @@ use base64::{
 };
 use flu_core::{
     operational_error,
-    runtime::*,
+    runtime::{
+        LAST_UPDATE, LAST_UPDATE_KEY, LOCK, MAX_OUTPUT, PACMAN, POLICY, Process, STATE, arguments,
+        current_update_date, pacman_running, process_alive, read_json, recover_key, run,
+        write_json,
+    },
     signing_key::{self, RecoveryResult},
 };
 use regex::Regex;
@@ -402,10 +406,29 @@ fn start_installation(download: &str, storage: &str, freed: bool, updates: &str)
         .ok()
         .filter(Value::is_array)
         .unwrap_or(json!([]));
-    let mut state = json!({"phase":"starting", "progress":0, "completed_packages":0, "total_packages":0,
-        "operation_id":format!("{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap_or_default().as_nanos()),
-        "speed":"", "download_size":download.chars().take(128).collect::<String>(),
-        "storage_change":storage.chars().take(128).collect::<String>(), "storage_freed":freed, "updates":packages, "error":""});
+    // Persist a new operation identity before launching the service so the UI
+    // and notifier can distinguish even a very fast update from an old result.
+    let operation_id = format!(
+        "{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap_or_default()
+            .as_nanos()
+    );
+    let mut state = json!({
+        "phase": "starting",
+        "progress": 0,
+        "completed_packages": 0,
+        "total_packages": 0,
+        "operation_id": operation_id,
+        "speed": "",
+        "download_size": download.chars().take(128).collect::<String>(),
+        "storage_change": storage.chars().take(128).collect::<String>(),
+        "storage_freed": freed,
+        "updates": packages,
+        "error": ""
+    });
     if !write_json(STATE, &state) {
         eprintln!("STATE_WRITE_FAILED");
         return 1;

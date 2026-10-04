@@ -78,6 +78,8 @@ make fakeroot BUILD_DIR=build-package JOBS=4
 
 The default is two parallel build jobs. `make` (or `make build`) compiles without
 staging. Keep the build directory outside `fakeroot/`.
+The build directory does not need to exist. Preflight validation is read-only
+and checks existing parent directories for unsafe symlinks before configuring.
 
 The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
 newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
@@ -224,6 +226,21 @@ cargo fmt --all --check
 cargo test --locked -p flu-core -p flu-service
 cargo clippy --locked --workspace --all-targets -- -D warnings
 ```
+
+For a headless test session, prefix the `ctest` command with
+`QT_QPA_PLATFORM=offscreen`. The packaging tests exercise fresh builds, paths
+with spaces, symlinks, metadata, repeat staging and failure preservation; they
+also reject CMake developer warnings. They can run without Qt or KDE installed:
+
+```sh
+python3 tests/fakeroot_packaging.py --source .
+```
+
+`flu-service` has three binaries sharing one dependency list, so a crate used
+by the worker can be unused by the helper without being an unused dependency.
+The Qt regression adapter also retains runtime linkage imports required by
+the generated CXX-Qt initializer. Audit these across their consumers before
+removing them; the lockfile also includes dependencies needed by other crates.
 
 The real Pacman workflow tests are separate because they require root and Linux
 mount/PID namespaces. Run them only on a disposable development VM with Python

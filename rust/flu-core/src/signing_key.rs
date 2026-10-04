@@ -1,6 +1,6 @@
 //! Repository-scoped recovery of the exact signing material requested by Pacman.
 //!
-//! The desktop adapter supplies HTTPS downloads and bounded process execution.
+//! The runtime adapter supplies HTTPS downloads and bounded process execution.
 //! All decisions, certificate checks, temporary files and rollback rules live
 //! here, so the panel, helper and worker use the same implementation.
 

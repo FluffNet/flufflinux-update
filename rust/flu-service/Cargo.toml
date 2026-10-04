@@ -18,6 +18,8 @@ name = "flufflinux-update-notifier"
 path = "src/notifier.rs"
 
 [dependencies]
+# This manifest serves all three binaries. Some dependencies belong to only
+# one binary, so a per-binary unused-crate lint is not a package-level audit.
 flu-core = { path = "../flu-core" }
 serde_json.workspace = true
 base64.workspace = true

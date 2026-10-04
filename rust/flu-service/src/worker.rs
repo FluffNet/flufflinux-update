@@ -4,7 +4,10 @@ mod power;
 
 use flu_core::{
     operational_error,
-    runtime::*,
+    runtime::{
+        LOCK, MAX_OUTPUT, PACMAN, Process, STATE, archive_name, arguments, pacman_running,
+        read_json, recover_key, run, write_json,
+    },
     signing_key::{self, RecoveryResult},
 };
 use regex::Regex;
@@ -225,10 +228,9 @@ impl Worker {
                 let Some((location, size)) = line.rsplit_once("|FLUFF|") else {
                     continue;
                 };
-                let Ok(url) = reqwest_url(location.trim()) else {
+                let Some(name) = cache_archive_name(location.trim()) else {
                     continue;
                 };
-                let name = url;
                 if let Ok(size) = size.trim().parse::<i64>() {
                     if name.contains(".pkg.tar.") && !name.ends_with(".sig") && size >= 0 {
                         self.packages.insert(name, size);
@@ -563,16 +565,12 @@ fn clean_path(path: &Path) -> PathBuf {
     }
     result
 }
-fn reqwest_url(location: &str) -> Result<String, ()> {
-    // Pacman prints a URL for each archive. Names are safe single path
-    // components, including percent-encoded Unicode names.
-    let url = flu_core::runtime::archive_name(location).ok_or(())?;
-    if url.contains('/') || url == ".." {
-        Err(())
-    } else {
-        Ok(url)
-    }
+fn cache_archive_name(location: &str) -> Option<String> {
+    // Pacman prints archive URLs. Decode the filename, but never let encoded
+    // separators or parent components escape the package cache directory.
+    archive_name(location).filter(|name| !name.contains('/') && name != "..")
 }
+
 fn rename_without_replace(original: &Path, preserved: &Path) -> std::io::Result<()> {
     use std::os::unix::ffi::OsStrExt;
     let source = std::ffi::CString::new(original.as_os_str().as_bytes())?;
@@ -617,4 +615,28 @@ fn main() {
     }
     drop(inhibitor);
     append_log("[sleep inhibition released]\n");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::cache_archive_name;
+
+    #[test]
+    fn cache_names_decode_unicode_and_ignore_url_query() {
+        assert_eq!(
+            cache_archive_name("https://example.org/repo/caf%C3%A9-1-1.pkg.tar.zst?download=1"),
+            Some("café-1-1.pkg.tar.zst".into())
+        );
+    }
+
+    #[test]
+    fn cache_names_cannot_escape_through_encoded_path_components() {
+        for location in [
+            "not a URL",
+            "https://example.org/repo/%2Fetc%2Fpasswd",
+            "https://example.org/repo/..%2F..%2Fetc%2Fpasswd",
+        ] {
+            assert_eq!(cache_archive_name(location), None, "{location}");
+        }
+    }
 }
