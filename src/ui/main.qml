@@ -547,176 +547,13 @@ KCMUtils.SimpleKCM {
             return widest
         }
 
-        function beginWheelGesture(handler) {
-            handler.touchpadGesture = false
-            handler.velocityX = 0
-            handler.velocityY = 0
-            handler.lastEventTime = Date.now()
-        }
-
-        function stopWheelMomentum(handler, momentum) {
-            // Autoscroll takes over from both native flicking (cancelled by
-            // MiddleMouseScroll) and FLU's custom touchpad momentum. Reset the
-            // gesture too, so its pending timeout cannot restart old motion.
-            beginWheelGesture(handler)
-            momentum.stop()
-            momentum.velocityX = 0
-            momentum.velocityY = 0
-        }
-
-        function blendWheelVelocity(currentVelocity,
-                                    instantaneousVelocity) {
-            if (currentVelocity === 0
-                    || currentVelocity * instantaneousVelocity < 0)
-                return instantaneousVelocity
-
-            return currentVelocity * 0.65
-                + instantaneousVelocity * 0.35
-        }
-
-        function scrollFromWheel(flickable, wheel, handler,
-                                 momentum, horizontal) {
-            const pixelX = wheel.pixelDelta.x
-            const pixelY = wheel.pixelDelta.y
-            const preciseGesture = pixelX !== 0 || pixelY !== 0
-
-            if (preciseGesture) {
-                const now = Date.now()
-                const elapsed = Math.max(8,
-                    Math.min(50, now - handler.lastEventTime))
-                handler.lastEventTime = now
-                handler.touchpadGesture = true
-
-                if (horizontal && pixelX !== 0) {
-                    if (momentum.velocityX * pixelX < 0)
-                        momentum.velocityX *= 0.7
-                    const maximumX = Math.max(flickable.originX,
-                        flickable.originX + flickable.contentWidth
-                            - flickable.width)
-                    flickable.contentX = Math.max(flickable.originX,
-                        Math.min(maximumX,
-                            flickable.contentX - pixelX))
-                    const instantaneousX = pixelX * 1000 / elapsed
-                    handler.velocityX = blendWheelVelocity(
-                        handler.velocityX, instantaneousX)
-                }
-
-                if (pixelY !== 0) {
-                    if (momentum.velocityY * pixelY < 0)
-                        momentum.velocityY *= 0.7
-                    const maximumY = Math.max(flickable.originY,
-                        flickable.originY + flickable.contentHeight
-                            - flickable.height)
-                    flickable.contentY = Math.max(flickable.originY,
-                        Math.min(maximumY,
-                            flickable.contentY - pixelY))
-                    const instantaneousY = pixelY * 1000 / elapsed
-                    handler.velocityY = blendWheelVelocity(
-                        handler.velocityY, instantaneousY)
-                }
-            } else {
-                const wheelStep = Kirigami.Units.gridUnit * 5
-                const deltaX = wheel.angleDelta.x / 120 * wheelStep
-                const deltaY = wheel.angleDelta.y / 120 * wheelStep
-
-                if (horizontal && deltaX !== 0) {
-                    if (momentum.velocityX * deltaX < 0)
-                        momentum.velocityX *= 0.5
-                    const maximumX = Math.max(flickable.originX,
-                        flickable.originX + flickable.contentWidth
-                            - flickable.width)
-                    flickable.contentX = Math.max(flickable.originX,
-                        Math.min(maximumX,
-                            flickable.contentX - deltaX))
-                }
-
-                if (deltaY !== 0) {
-                    if (momentum.velocityY * deltaY < 0)
-                        momentum.velocityY *= 0.5
-                    const maximumY = Math.max(flickable.originY,
-                        flickable.originY + flickable.contentHeight
-                            - flickable.height)
-                    flickable.contentY = Math.max(flickable.originY,
-                        Math.min(maximumY,
-                            flickable.contentY - deltaY))
-                }
-            }
-
-            wheel.accepted = true
-        }
-
-        function finishWheelGesture(flickable, handler,
-                                    momentum, horizontal) {
-            if (!handler.touchpadGesture)
-                return
-
-            const accumulatedX = momentum.velocityX
-                    * handler.velocityX > 0
-                ? handler.velocityX + momentum.velocityX * 0.75
-                : handler.velocityX
-            const accumulatedY = momentum.velocityY
-                    * handler.velocityY > 0
-                ? handler.velocityY + momentum.velocityY * 0.75
-                : handler.velocityY
-            const velocityX = horizontal
-                ? Math.max(-flickable.maximumFlickVelocity,
-                    Math.min(flickable.maximumFlickVelocity,
-                        accumulatedX)) : 0
-            const velocityY = Math.max(-flickable.maximumFlickVelocity,
-                Math.min(flickable.maximumFlickVelocity,
-                    accumulatedY))
-
-            momentum.velocityX = Math.abs(velocityX) >= 80
-                ? velocityX : 0
-            momentum.velocityY = Math.abs(velocityY) >= 80
-                ? velocityY : 0
-            momentum.lastFrameTime = Date.now()
-            if (momentum.velocityX !== 0 || momentum.velocityY !== 0)
-                momentum.start()
-        }
-
-        function advanceWheelMomentum(flickable, momentum,
-                                      horizontal, gestureActive) {
-            const now = Date.now()
-            const elapsed = Math.max(1,
-                Math.min(32, now - momentum.lastFrameTime))
-            momentum.lastFrameTime = now
-
-            if (horizontal && momentum.velocityX !== 0) {
-                const minimumX = flickable.originX
-                const maximumX = Math.max(minimumX,
-                    minimumX + flickable.contentWidth - flickable.width)
-                const nextX = flickable.contentX
-                    - momentum.velocityX * elapsed / 1000
-                flickable.contentX = Math.max(minimumX,
-                    Math.min(maximumX, nextX))
-                if (nextX <= minimumX || nextX >= maximumX)
-                    momentum.velocityX = 0
-            }
-
-            if (momentum.velocityY !== 0) {
-                const minimumY = flickable.originY
-                const maximumY = Math.max(minimumY,
-                    minimumY + flickable.contentHeight - flickable.height)
-                const nextY = flickable.contentY
-                    - momentum.velocityY * elapsed / 1000
-                flickable.contentY = Math.max(minimumY,
-                    Math.min(maximumY, nextY))
-                if (nextY <= minimumY || nextY >= maximumY)
-                    momentum.velocityY = 0
-            }
-
-            const friction = gestureActive ? 0.006 : 0.002
-            const decay = Math.pow(1 - friction, elapsed)
-            momentum.velocityX *= decay
-            momentum.velocityY *= decay
-
-            if (Math.abs(momentum.velocityX) < 20)
-                momentum.velocityX = 0
-            if (Math.abs(momentum.velocityY) < 20)
-                momentum.velocityY = 0
-            if (momentum.velocityX === 0 && momentum.velocityY === 0)
-                momentum.stop()
+        function stopWheelAnimation(handler) {
+            // Kirigami owns wheel animations separately from cancelFlick().
+            // Detaching the target stops them before middle-mouse autoscroll
+            // takes over; immediately restore wheel delivery to the same view.
+            const scrollTarget = handler.target
+            handler.target = null
+            handler.target = scrollTarget
         }
 
         readonly property real preferredPackageWidth: Math.max(
@@ -918,54 +755,18 @@ KCMUtils.SimpleKCM {
                         id: comparisonMiddleScroll
                         scrollTarget: updateList
                         horizontal: true
-                        onStarted: updatesWindow.stopWheelMomentum(
-                            comparisonWheelHandler, comparisonMomentum)
+                        onStarted: updatesWindow.stopWheelAnimation(
+                            comparisonWheelHandler)
                     }
 
-                    WheelHandler {
+                    Kirigami.WheelHandler {
                         id: comparisonWheelHandler
 
-                        property bool touchpadGesture: false
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastEventTime: 0
-
-                        target: null
-                        acceptedDevices: PointerDevice.Mouse
-                            | PointerDevice.TouchPad
-                        activeTimeout: 0.05
-                        blocking: true
-                        onActiveChanged: {
-                            if (active) {
-                                updatesWindow.beginWheelGesture(
-                                    comparisonWheelHandler)
-                            } else {
-                                updatesWindow.finishWheelGesture(
-                                    updateList, comparisonWheelHandler,
-                                    comparisonMomentum, true)
-                            }
-                        }
-                        onWheel: function(event) {
-                            comparisonMiddleScroll.stop()
-                            updatesWindow.scrollFromWheel(
-                                updateList, event,
-                                comparisonWheelHandler,
-                                comparisonMomentum, true)
-                        }
-                    }
-
-                    Timer {
-                        id: comparisonMomentum
-
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastFrameTime: 0
-
-                        interval: 16
-                        repeat: true
-                        onTriggered: updatesWindow.advanceWheelMomentum(
-                            updateList, comparisonMomentum, true,
-                            comparisonWheelHandler.active)
+                        target: updateList
+                        blockTargetWheel: true
+                        scrollFlickableTarget: true
+                        filterMouseEvents: false
+                        onWheel: comparisonMiddleScroll.stop()
                     }
 
                     Controls.ScrollBar.vertical: Controls.ScrollBar {
@@ -1137,55 +938,18 @@ KCMUtils.SimpleKCM {
                     MiddleMouseScroll {
                         id: pacmanMiddleScroll
                         scrollTarget: pacmanViewFlickable
-                        onStarted: updatesWindow.stopWheelMomentum(
-                            pacmanWheelHandler, pacmanMomentum)
+                        onStarted: updatesWindow.stopWheelAnimation(
+                            pacmanWheelHandler)
                     }
 
-                    WheelHandler {
+                    Kirigami.WheelHandler {
                         id: pacmanWheelHandler
 
-                        property bool touchpadGesture: false
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastEventTime: 0
-
-                        target: null
-                        acceptedDevices: PointerDevice.Mouse
-                            | PointerDevice.TouchPad
-                        activeTimeout: 0.05
-                        blocking: true
-                        onActiveChanged: {
-                            if (active) {
-                                updatesWindow.beginWheelGesture(
-                                    pacmanWheelHandler)
-                            } else {
-                                updatesWindow.finishWheelGesture(
-                                    pacmanViewFlickable,
-                                    pacmanWheelHandler,
-                                    pacmanMomentum, false)
-                            }
-                        }
-                        onWheel: function(event) {
-                            pacmanMiddleScroll.stop()
-                            updatesWindow.scrollFromWheel(
-                                pacmanViewFlickable, event,
-                                pacmanWheelHandler,
-                                pacmanMomentum, false)
-                        }
-                    }
-
-                    Timer {
-                        id: pacmanMomentum
-
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastFrameTime: 0
-
-                        interval: 16
-                        repeat: true
-                        onTriggered: updatesWindow.advanceWheelMomentum(
-                            pacmanViewFlickable, pacmanMomentum, false,
-                            pacmanWheelHandler.active)
+                        target: pacmanViewFlickable
+                        blockTargetWheel: true
+                        scrollFlickableTarget: true
+                        filterMouseEvents: false
+                        onWheel: pacmanMiddleScroll.stop()
                     }
 
                     Controls.ScrollBar.vertical: Controls.ScrollBar {

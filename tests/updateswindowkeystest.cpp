@@ -20,6 +20,25 @@ class UpdatesWindowKeysTest : public QObject
     QObject *backend = nullptr;
     QQuickItem *middle = nullptr;
     QQuickItem *view = nullptr;
+    QElapsedTimer wheelClock;
+    QPointingDevice *touchDevice = QTest::createTouchDevice();
+
+    QObject *wheelHandler(bool pacmanView)
+    {
+        return window->property(pacmanView ? "pacmanWheel" : "comparisonWheel").value<QObject *>();
+    }
+
+    void sendWheel(QPoint angle, QPoint pixel = {}, Qt::ScrollPhase phase = Qt::NoScrollPhase,
+                   QPointF pos = {})
+    {
+        if (pos.isNull())
+            pos = position();
+        QWheelEvent event(pos, window->mapToGlobal(pos.toPoint()), pixel, angle,
+                          Qt::NoButton, Qt::NoModifier, phase, false,
+                          pixel.isNull() ? Qt::MouseEventNotSynthesized : Qt::MouseEventSynthesizedBySystem);
+        event.setTimestamp(wheelClock.elapsed() + 1);
+        QCoreApplication::sendEvent(window, &event);
+    }
 
     static void viewRows()
     {
@@ -59,6 +78,10 @@ class UpdatesWindowKeysTest : public QObject
     {
         // Establish hover before pressing, including after native window
         // mapping or a view switch (where configure/enter events are queued).
+        // Kirigami's wheel overlay can refresh hover when it disappears; keep
+        // the platform cursor aligned with the synthetic event where supported.
+        if (QGuiApplication::platformName() != QStringLiteral("wayland"))
+            QCursor::setPos(window->mapToGlobal(position()));
         QTest::mouseMove(window, position());
         QTest::qWait(30);
         QTest::mouseClick(window, Qt::MiddleButton, Qt::NoModifier, position());
@@ -89,6 +112,7 @@ class UpdatesWindowKeysTest : public QObject
 private Q_SLOTS:
     void init()
     {
+        wheelClock.start();
         // Each row gets new native windows. Reusing a hidden transient across
         // rows can deliver the previous row's focus events to the next one.
         host = std::make_unique<QQuickWindow>();
@@ -108,8 +132,8 @@ private Q_SLOTS:
             property alias pacmanMiddle: pacmanMiddleScroll
             property alias comparisonWheel: comparisonWheelHandler
             property alias pacmanWheel: pacmanWheelHandler
-            property alias comparisonCoast: comparisonMomentum
-            property alias pacmanCoast: pacmanMomentum
+            property alias comparisonBar: comparisonVerticalScrollBar
+            property alias pacmanBar: pacmanVerticalScrollBar
         )QML");
         QQmlComponent component(&engine);
         component.setData(QByteArray(R"QML(
@@ -153,10 +177,12 @@ private Q_SLOTS:
 
     void cleanup()
     {
-        window->close();
-        QCoreApplication::processEvents();
-        QVERIFY(!control("comparisonMiddle")->property("scrolling").toBool());
-        QVERIFY(!control("pacmanMiddle")->property("scrolling").toBool());
+        if (window) {
+            window->close();
+            QCoreApplication::processEvents();
+            QVERIFY(!control("comparisonMiddle")->property("scrolling").toBool());
+            QVERIFY(!control("pacmanMiddle")->property("scrolling").toBool());
+        }
         root.reset();
         host.reset();
         window = nullptr;
@@ -261,29 +287,132 @@ private Q_SLOTS:
         QCOMPARE(view->property("contentY").toReal(), stopped);
     }
 
-    void middleStopsOldMomentumAndYieldsToWheel_data() { viewRows(); }
-    void middleStopsOldMomentumAndYieldsToWheel()
+    void middleStopsWheelAnimationAndYieldsToWheel_data() { viewRows(); }
+    void middleStopsWheelAnimationAndYieldsToWheel()
     {
         QFETCH(bool, pacmanView);
         scrollableView(pacmanView);
-        auto *coast = window->property(pacmanView ? "pacmanCoast" : "comparisonCoast").value<QObject *>();
-        auto *wheel = window->property(pacmanView ? "pacmanWheel" : "comparisonWheel").value<QObject *>();
-        QVERIFY(coast && wheel);
-        coast->setProperty("velocityY", -1000);
-        coast->setProperty("running", true);
-        wheel->setProperty("touchpadGesture", true);
-        wheel->setProperty("velocityY", -1000);
-        startMiddle();
-        QVERIFY(!coast->property("running").toBool());
-        QCOMPARE(coast->property("velocityY").toReal(), 0.0);
-        QVERIFY(!wheel->property("touchpadGesture").toBool());
+        sendWheel(QPoint(0, -1200));
+        QTRY_VERIFY(view->property("contentY").toReal() > 0);
+        // Keep a real button grab while the old animation would run. Offscreen
+        // platforms can synthesize stale/scaled cursor hover when the wheel
+        // overlay expires; that is unrelated to animation cancellation.
+        QTest::mouseMove(window, position());
+        QTest::mousePress(window, Qt::MiddleButton, Qt::NoModifier, position());
+        QTRY_VERIFY(middle->property("scrolling").toBool());
         const qreal before = view->property("contentY").toReal();
-        const QPointF pos = position();
-        QWheelEvent event(pos, window->mapToGlobal(pos.toPoint()), {}, QPoint(0, -120),
-                          Qt::NoButton, Qt::NoModifier, Qt::NoScrollPhase, false);
-        QCoreApplication::sendEvent(window, &event);
+        QTest::qWait(500);
+        QCOMPARE(view->property("contentY").toReal(), before);
+        QCOMPARE(wheelHandler(pacmanView)->property("target").value<QObject *>(), view);
+        QTest::mouseRelease(window, Qt::MiddleButton, Qt::NoModifier, position());
+        sendWheel(QPoint(0, -120));
         QTRY_VERIFY(!middle->property("scrolling").toBool());
         QTRY_VERIFY(view->property("contentY").toReal() > before);
+    }
+
+    void kirigamiWheelAndBounds_data() { viewRows(); }
+    void kirigamiWheelAndBounds()
+    {
+        QFETCH(bool, pacmanView);
+        scrollableView(pacmanView);
+        auto *wheel = wheelHandler(pacmanView);
+        QVERIFY(wheel);
+        QCOMPARE(wheel->property("target").value<QObject *>(), view);
+        QVERIFY(wheel->property("blockTargetWheel").toBool());
+        QVERIFY(wheel->property("scrollFlickableTarget").toBool());
+        QVERIFY(!wheel->property("filterMouseEvents").toBool());
+        QVERIFY(view->property("interactive").toBool());
+        const qreal step = wheel->property("verticalStepSize").toReal();
+        QVERIFY(step > 0);
+        sendWheel(QPoint(0, -120));
+        QTRY_VERIFY(qAbs(view->property("contentY").toReal() - step) < 1);
+        QTest::qWait(100);
+        // Exactly one handler scrolls: the stock Flickable must not add motion.
+        QVERIFY(qAbs(view->property("contentY").toReal() - step) < 1);
+        auto *bar = control(pacmanView ? "pacmanBar" : "comparisonBar");
+        QVERIFY(bar && bar->isVisible());
+        sendWheel(QPoint(0, -120), {}, Qt::NoScrollPhase,
+                  bar->mapToScene(QPointF(bar->width() / 2, bar->height() / 2)));
+        QTRY_VERIFY(qAbs(view->property("contentY").toReal() - 2 * step) < 1);
+        sendWheel(QPoint(0, 12000));
+        QTRY_COMPARE(view->property("contentY").toReal(), view->property("originY").toReal());
+        sendWheel(QPoint(0, 120));
+        QTest::qWait(400);
+        QCOMPARE(view->property("contentY").toReal(), view->property("originY").toReal());
+        sendWheel(QPoint(0, -120000));
+        // ListView refines its last separator/delegate estimate at the end;
+        // Kirigami also rounds to physical pixels.
+        QTRY_VERIFY(qAbs(view->property("contentY").toReal()
+                        - (view->property("originY").toReal() + view->property("contentHeight").toReal()
+                           - view->height())) <= 1);
+    }
+
+    void touchpadGestures_data()
+    {
+        QTest::addColumn<bool>("pacmanView");
+        QTest::addColumn<bool>("pixelOnly");
+        for (const bool pacman : {false, true}) {
+            QTest::addRow("%s-pixels", pacman ? "pacman" : "comparison") << pacman << true;
+            QTest::addRow("%s-fine-angles", pacman ? "pacman" : "comparison") << pacman << false;
+        }
+    }
+    void touchpadGestures()
+    {
+        QFETCH(bool, pacmanView);
+        QFETCH(bool, pixelOnly);
+        scrollableView(pacmanView);
+        // Phased Linux touchpad events use fine angle deltas. Test the pixel-only
+        // fallback without phases: Qt discards angle-less ScrollUpdate events
+        // after an accepted event as duplicate compatibility wheel events.
+        // Repeated gestures must not reset content at the end or next beginning.
+        for (int gesture = 0; gesture < 2; ++gesture) {
+            const qreal before = view->property("contentY").toReal();
+            if (!pixelOnly)
+                sendWheel({}, {}, Qt::ScrollBegin);
+            for (int i = 0; i < 6; ++i) {
+                QTest::qWait(16);
+                sendWheel(pixelOnly ? QPoint() : QPoint(0, -24), QPoint(0, -12),
+                          pixelOnly ? Qt::NoScrollPhase : Qt::ScrollUpdate);
+            }
+            QTRY_VERIFY(view->property("contentY").toReal() > before + 20);
+            const qreal end = view->property("contentY").toReal();
+            QTest::qWait(16);
+            if (!pixelOnly)
+                sendWheel({}, {}, Qt::ScrollEnd);
+            QTest::qWait(350);
+            QVERIFY(view->property("contentY").toReal() >= end - 1);
+            QVERIFY(!middle->property("scrolling").toBool());
+        }
+    }
+
+    void horizontalWheel()
+    {
+        scrollableView(false);
+        const qreal step = wheelHandler(false)->property("horizontalStepSize").toReal();
+        sendWheel(QPoint(-120, 0));
+        QTRY_VERIFY(qAbs(view->property("contentX").toReal() - step) < 1);
+        QCOMPARE(view->property("contentY").toReal(), view->property("originY").toReal());
+        sendWheel(QPoint(120, 0));
+        QTRY_COMPARE(view->property("contentX").toReal(), view->property("originX").toReal());
+    }
+
+    void touchscreenFlick_data() { viewRows(); }
+    void touchscreenFlick()
+    {
+        QFETCH(bool, pacmanView);
+        scrollableView(pacmanView);
+        QTest::touchEvent(window, touchDevice).press(0, position(200, 300), window);
+        for (int y = 275; y >= 150; y -= 25) {
+            QTest::qWait(20);
+            QTest::touchEvent(window, touchDevice).move(0, position(200, y), window);
+        }
+        QTRY_VERIFY(view->property("contentY").toReal() > 60);
+        QVERIFY(view->property("dragging").toBool());
+        QTest::touchEvent(window, touchDevice).release(0, position(200, 125), window);
+        QTRY_VERIFY(!view->property("dragging").toBool());
+        QTRY_VERIFY(view->property("flicking").toBool());
+        QVERIFY(!middle->property("scrolling").toBool());
+        QVERIFY(QMetaObject::invokeMethod(view, "cancelFlick"));
     }
 
     void middleStopsOnViewExitAndClose_data() { viewRows(); }
@@ -348,6 +477,9 @@ private Q_SLOTS:
         QTRY_VERIFY(!middle->property("canScrollY").toBool());
         QTest::mouseClick(window, Qt::MiddleButton, Qt::NoModifier, position());
         QVERIFY(!middle->property("scrolling").toBool());
+        sendWheel(QPoint(0, -120));
+        QTest::qWait(400);
+        QCOMPARE(view->property("contentY").toReal(), view->property("originY").toReal());
     }
 };
 

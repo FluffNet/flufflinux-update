@@ -25,12 +25,6 @@ target_compile_definitions(uistatetest PRIVATE FLUFFLINUX_LOCALE_DIR=\"${KDE_INS
 target_link_libraries(uistatetest PRIVATE Qt6::Core Qt6::Test Qt6::Widgets Qt6::Network KF6::I18n flu_bridge)
 add_test(NAME uistatetest COMMAND uistatetest)
 
-add_executable(wheelmomentumtest wheelmomentumtest.cpp)
-target_link_libraries(wheelmomentumtest PRIVATE Qt6::Core Qt6::Qml Qt6::Test)
-target_compile_definitions(wheelmomentumtest PRIVATE
-    FLU_QML_PATH=\"${CMAKE_SOURCE_DIR}/src/ui/main.qml\")
-add_test(NAME wheelmomentumtest COMMAND wheelmomentumtest)
-
 add_executable(updateswindowkeystest updateswindowkeystest.cpp)
 target_link_libraries(updateswindowkeystest PRIVATE Qt6::Quick Qt6::Qml Qt6::Test)
 target_compile_definitions(updateswindowkeystest PRIVATE

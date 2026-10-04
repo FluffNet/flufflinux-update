@@ -13,7 +13,8 @@ verification and security diagnostics are implemented in Rust.
 - `rust/flu-service`: the Rust helper and worker executables, using the existing
   polkit action and systemd service.
 - `src/ui/main.qml`: the existing interface. Bindings now reference the Rust
-  backend; layout, controls, Close focus and touchpad momentum code are retained.
+  backend; layout, controls and Close focus are retained. Kirigami handles wheel
+  and touchpad scrolling; native Flickable touchscreen gestures remain enabled.
 - `src/fluffupdates.*` and `src/nativeqt.*`: small native KDE plugin and Qt
   interoperation adapters for host windows, translation, clipboard, URLs and
   network information. They contain no update or signing-key decisions.
@@ -106,6 +107,27 @@ does not reinterpret accessory batteries as a fallback or modify power settings.
 References: [UPower display-device contract](https://upower.freedesktop.org/docs/UPower.html#UPower.GetDisplayDevice)
 and [device type/power-supply definitions](https://upower.freedesktop.org/docs/Device.html).
 
+## Mouse, touchpad and touchscreen scrolling
+
+Both application-owned scrollable views in `main.qml` (the comparison ListView
+and Pacman Flickable) use `Kirigami.WheelHandler`, with an explicit target,
+`blockTargetWheel: true` and `scrollFlickableTarget: true`. The former custom
+QtQuick wheel handlers, velocity blending and momentum timers have been removed.
+Kirigami uses KDE's scrolling settings, including smooth-scroll preferences and
+wheel step sizes, and handles the attached scrollbars. The main `SimpleKCM`
+already uses Kirigami's ScrollablePage and KDE's ScrollView wheel handler; no
+second handler is added to that framework-owned container. There are no GridViews.
+
+`filterMouseEvents: false` and the views' existing interactive/flick properties
+preserve touchscreen flicks and left-button dragging. App Center's middle-mouse
+component remains unchanged. Starting middle autoscroll cancels native flicking
+and briefly detaches/restores the wheel target to stop Kirigami's separate
+animations. The next wheel event stops middle autoscroll and proceeds normally;
+the signal handler does not accept or rewrite that event.
+
+This is also recorded in the repository's `AGENTS.md` as the QML convention for
+future changes. Reference: [Kirigami WheelHandler](https://api.kde.org/qml-org-kde-kirigami-wheelhandler.html).
+
 ## Reference implementations
 
 The following repository snapshots were inspected on 1 October 2026:
@@ -140,12 +162,13 @@ recovery-lock exclusion, HTTPS-only artifact fetching and atomic state writes.
 A watcher regression prevents read-access notifications from feeding FLU's own
 status reads back into an endless refresh loop.
 
-The final VM run passed all six CTest suites: AppStream validation, 77
-signing-key QtTest results, 10 backend-state results, 10 scrolling results and
-20 updates-window keyboard/pointer results (QtTest totals include initialization and
+The Kirigami-scrolling VM run passed all five CTest suites: AppStream validation,
+77 signing-key QtTest results, 10 backend-state results and
+29 updates-window keyboard/pointer/touch results (QtTest totals include initialization and
 cleanup), and compiled battery-warning
 lookups in all 27 translation catalogs. Workspace Clippy with
-warnings denied and Cargo formatting checks passed. The original 24 Rust tests also
+warnings denied passed during the backend migration; Cargo formatting checks
+and all 34 Linux Rust core tests passed again on the Kirigami build. The original 24 Rust tests also
 passed on both the development host and Linux VM. The additional sleep-inhibitor
 failure test checks the existing translated startup error and retry state.
 
@@ -162,7 +185,8 @@ mock devices or test switches are installed in FLU or the system UPower service.
 The Qt suites exercise real disposable GnuPG certificates and the same Rust
 signing-key implementation used in production; the actual `UpdateBackend`
 QObject's properties, notifications and persisted settings; and the production
-QML momentum functions. AppStream metadata and workspace formatting/lint checks
+QML updates window. The superseded custom-momentum unit suite was replaced by
+real input-event tests against Kirigami. AppStream metadata and workspace formatting/lint checks
 were included in the final verification.
 
 The isolated Pacman fixture covers:
@@ -217,22 +241,29 @@ is consumed instead of activating underlying content. Escape stops autoscroll
 first; when not autoscrolling, Escape closes the list as before. The comparison
 view supports both axes, while the Pacman view scrolls vertically.
 
-Starting autoscroll cancels native flicking and FLU's custom touchpad momentum,
-including any pending wheel-gesture timeout; the next wheel event stops
-autoscroll and follows the existing wheel/touchpad path. These existing scroll
-equations are unchanged. Tests exercise both production list views with real
-Qt mouse/key events, including boundaries, dead zone, held scrolling, toggling,
+Tests exercise both production list views with real
+Qt mouse/key/touch events, including boundaries, dead zone, held scrolling, toggling,
 Escape, wheel handoff, view/window exit, reopening, click consumption, horizontal
 scrolling, and no-overflow lists. The reusable component is bundled in the KCM
 resources; no fixture data or test code is installed.
-The 20 keyboard/pointer checks pass at 100% and 150% offscreen scaling and in
-both the normal-user KDE XWayland and Wayland sessions (80 passing results).
+The wheel tests additionally check the requested Kirigami properties, single
+wheel-step movement without duplicate stock handling, wheel input over scrollbars,
+fine-angle phased touchpad gestures, the pixel-only fallback, repeated gestures
+without jump-back, and native touchscreen dragging/flicking. Pixel-only fallback
+events use no scroll phase: Qt filters angle-less ScrollUpdate events following
+accepted events as duplicate compatibility events before they reach the handler.
 Each test row uses fresh windows to isolate native transient-window focus
 events; reopening behavior is still exercised within the relevant test rows.
+All 29 results pass offscreen at 100% and 150% scaling and in normal-user KDE
+XWayland. Native Wayland passes 28 results, including every wheel, touchscreen
+and middle-mouse case. The pre-existing inactive-parent Escape test cannot
+programmatically activate its host window under the current compositor policy;
+it fails at the focus precondition, before sending Escape. That native focus
+limitation is not counted as a passing check.
 
 Native desktop screenshots are stored under `docs/screenshots/`. Physical
-touchpad feel still requires the user's hardware; the existing QML scrolling
-implementation is preserved and its momentum regressions are run.
+touchpad feel still requires the user's hardware; synthetic regression tests
+verify event routing and movement, not subjective device feel.
 
 The native KDE Power Management widget was also checked while an isolated
 update continued with FLU's window closed. Under the regular user's session it
