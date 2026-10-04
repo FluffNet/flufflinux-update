@@ -361,6 +361,16 @@ KCMUtils.SimpleKCM {
                     }
 
                     Controls.Label {
+                        objectName: "downloadTimeRemaining"
+                        Layout.fillWidth: true
+                        visible: backend.installPhase === "downloading"
+                            && backend.downloadTimeRemaining.length > 0
+                        wrapMode: Text.WordWrap
+                        text: i18nd("kcm_fluffupdates", "Estimated time: %1",
+                            "\u2066" + backend.downloadTimeRemaining + "\u2069")
+                    }
+
+                    Controls.Label {
                         Layout.fillWidth: true
                         visible: backend.installPhase === "installing"
                         wrapMode: Text.WordWrap

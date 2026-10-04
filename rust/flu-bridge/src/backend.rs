@@ -72,6 +72,13 @@ mod ffi {
             NOTIFY
         )]
         #[qproperty(QString, download_speed, cxx_name = "downloadSpeed", READ, NOTIFY)]
+        #[qproperty(
+            QString,
+            download_time_remaining,
+            cxx_name = "downloadTimeRemaining",
+            READ,
+            NOTIFY
+        )]
         #[qproperty(QString, install_error, cxx_name = "installError", READ, NOTIFY)]
         #[qproperty(
             bool,
@@ -221,6 +228,7 @@ pub struct UpdateBackendRust {
     downloaded_size: QString,
     total_download_size: QString,
     download_speed: QString,
+    download_time_remaining: QString,
     install_error: QString,
     signing_key_security_error: bool,
     signing_key_technical_details: QString,
@@ -268,6 +276,7 @@ impl Default for UpdateBackendRust {
             downloaded_size: Default::default(),
             total_download_size: Default::default(),
             download_speed: Default::default(),
+            download_time_remaining: Default::default(),
             install_error: Default::default(),
             signing_key_security_error: false,
             signing_key_technical_details: Default::default(),
@@ -517,6 +526,12 @@ impl ffi::UpdateBackend {
             self.download_speed_changed();
         }
     }
+    fn set_download_time_remaining(mut self: Pin<&mut Self>, value: QString) {
+        if self.rust().download_time_remaining != value {
+            self.as_mut().rust_mut().download_time_remaining = value;
+            self.download_time_remaining_changed();
+        }
+    }
     fn set_install_error(mut self: Pin<&mut Self>, value: QString) {
         if self.rust().install_error != value {
             self.as_mut().rust_mut().install_error = value;
@@ -673,6 +688,9 @@ impl ffi::UpdateBackend {
         ));
         self.as_mut().set_download_speed(QString::from(
             snapshot["downloadSpeed"].as_str().unwrap_or(""),
+        ));
+        self.as_mut().set_download_time_remaining(QString::from(
+            snapshot["downloadTimeRemaining"].as_str().unwrap_or(""),
         ));
         self.as_mut().set_install_error(QString::from(
             snapshot["installError"].as_str().unwrap_or(""),

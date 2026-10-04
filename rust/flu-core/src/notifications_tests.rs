@@ -77,6 +77,7 @@ fn download_matches_qml_and_estimates_only_with_real_speed() {
     assert!(
         body.contains("125 B/s") && body.contains("<br/>Estimated time: \u{2066}0:00:05\u{2069}")
     );
+    assert!(body.contains(&download_time_remaining(&data).unwrap()));
     data["download_speed_bytes"] = json!(0);
     let properties = progress_properties(&data, &Strings::new());
     assert!(

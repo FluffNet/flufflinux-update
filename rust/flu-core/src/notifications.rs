@@ -3,7 +3,7 @@
 //! Pacman. Panel presence belongs to a D-Bus connection, so crashes/unloads work
 //! without a final QML signal and multiple open panels are handled correctly.
 use crate::{
-    desktop::human_size,
+    desktop::{download_time_remaining, human_size},
     runtime::{STATE, read_json},
 };
 use serde_json::Value;
@@ -116,14 +116,7 @@ pub fn progress_properties(state: &Value, strings: &Strings) -> Properties {
         if let Some(rate) = state["speed"].as_str().filter(|s| !s.is_empty()) {
             body.push_str(&format!(" · \u{2066}{rate}\u{2069}"));
         }
-        if speed > 0 && total > received {
-            let seconds = (total - received).div_ceil(speed);
-            let duration = format!(
-                "{}:{:02}:{:02}",
-                seconds / 3600,
-                seconds / 60 % 60,
-                seconds % 60
-            );
+        if let Some(duration) = download_time_remaining(state) {
             body.push('\n');
             body.push_str(&format(strings, "Estimated time: %1", &[duration]));
         }

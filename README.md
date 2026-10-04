@@ -12,7 +12,8 @@ menu, and keeps manual system updates clear and approachable.
 - Show the total download size and expected storage change.
 - Preview every package and its old and new version before installation.
 - Install updates through polkit using `pacman -Syu --noconfirm`.
-- Show live download size, speed, installation progress, and completion.
+- Show live download size, speed, estimated remaining time, installation progress,
+  and completion.
 - Continue an update in the background if the panel is closed.
 - Prevent normal system sleep/hibernation throughout downloading and installing
   updates, even with the panel closed; release the protection when the worker ends.

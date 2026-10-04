@@ -293,7 +293,11 @@ running without the panel's visibility/translation state.
 
 Downloading uses the same per-phase percent, byte counts and speed as QML.
 The moving speed estimate supplies an `Estimated time: H:MM:SS` second line;
-it is omitted until a nonzero speed is available. Installation shows the same
+the same line appears underneath the total and speed inside FLU. Both surfaces
+call one shared Rust calculation, rounding remaining bytes/rate up to the next
+second. It is omitted until a nonzero speed and remaining bytes are available.
+Reopening mid-download derives the current estimate from the worker snapshot.
+Installation shows the same
 completed/total package count with no stale download speed or time estimate.
 All notification text uses the existing translation catalogs, with the ETA
 added to all 27 locales. Technical values remain directionally isolated.
@@ -316,12 +320,15 @@ native protocol, two simultaneous panels, disconnected clients, repeated
 detach/recreate, completion withdrawal, fast transactions, ETA and localization.
 `panelvisibilitytest` uses the production QML visibility block with a hidden
 render window and repeated parent-page hides/shows, guarding the KCM-specific
-case. Live normal-user Plasma verification additionally uses the production
+case. It also loads the production ETA label and verifies live text updates,
+an unavailable estimate, and hiding outside the download phase. Rust tests
+cover rounding, long durations, invalid/zero rates, reconnection and clearing
+on every terminal transition. Live normal-user Plasma verification additionally uses the production
 plugin, notifier and worker with disposable packages in a private mount/PID
 namespace; the real system package database and keyring are not modified.
 The compiled-catalog regression checks every tray message (including errors
 and completion) and its substitution placeholders in all 27 shipped locales.
-The release build passes all 40 Linux Rust tests, all six CTest suites, and all
+The release build passes all 43 Linux Rust tests, all six CTest suites, and all
 17 isolated Pacman workflow scenarios, including the desktop controller.
 Native captures cover [download progress](screenshots/1.5-notification-download.png),
 [installation](screenshots/1.5-notification-install.png),
@@ -332,6 +339,10 @@ Native captures cover [download progress](screenshots/1.5-notification-download.
 The final native pass verifies both standalone closure and navigation between
 FLU and another System Settings module, using an isolated real Pacman update
 and a forced HTTP failure. No machine-wide locale setting is changed for QA.
+The in-app ETA follow-up repeats all suites and workflow scenarios; its native
+[download capture](screenshots/1.5-download-estimate.png) shows the new second
+line. The subsequent installation screen was checked to contain no download
+estimate. All four disposable packages completed successfully.
 
 ## Reproducing validation
 

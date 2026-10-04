@@ -40,7 +40,7 @@ pub fn initial_model() -> Value {
     json!({"lastUpdate":"","hasLastUpdate":false,"stateMessage":"","freshnessText":"","freshnessColor":"#3daee9","relativeTime":"",
     "checking":false,"checkComplete":false,"updatesAvailable":false,"downloadSize":"","diskChange":"","diskSpaceFreed":false,"checkError":"",
     "updatePackages":[],"batteryLow":false,"installPhase":"idle","updateActive":false,"installProgress":0.0,"completedPackages":0,"totalPackages":0,
-    "downloadedSize":"0 B","totalDownloadSize":"0 B","downloadSpeed":"","installError":"","signingKeySecurityError":false,"signingKeyTechnicalDetails":"",
+    "downloadedSize":"0 B","totalDownloadSize":"0 B","downloadSpeed":"","downloadTimeRemaining":"","installError":"","signingKeySecurityError":false,"signingKeyTechnicalDetails":"",
     "signingKeyIssueUrl":"","cancellationNotice":false,"installationSuccessNotice":false,"networkConnected":true,"networkLimited":false,
     "recoveryDialogType":"","recoveryPackage":"","recoveryNotice":"","recoveryActionState":""})
 }
@@ -52,6 +52,26 @@ pub fn human_size(bytes: i64) -> String {
         }
     }
     format!("{} B", bytes.max(0))
+}
+/// Shared by the panel and native notification. An unknown/stopped rate or a
+/// non-download phase has no estimate; never carry one into installation.
+pub fn download_time_remaining(state: &Value) -> Option<String> {
+    if state["phase"] != "downloading" {
+        return None;
+    }
+    let total = state["total_download_bytes"].as_u64()?;
+    let received = state["downloaded_bytes"].as_u64()?;
+    let speed = state["download_speed_bytes"].as_u64()?;
+    if speed == 0 || received >= total {
+        return None;
+    }
+    let seconds = (total - received).div_ceil(speed);
+    Some(format!(
+        "{}:{:02}:{:02}",
+        seconds / 3600,
+        seconds / 60 % 60,
+        seconds % 60
+    ))
 }
 pub fn friendly_error(output: &str) -> &'static str {
     let output = output.to_lowercase();
@@ -292,6 +312,11 @@ impl Controller {
     }
     fn emit(&mut self) {
         self.model["updateActive"] = json!(self.active());
+        // Some transitions (e.g. authorization failure) do not read worker
+        // state. Clear the estimate before publishing those transitions too.
+        if self.string("installPhase") != "downloading" {
+            self.model["downloadTimeRemaining"] = json!("");
+        }
         // Recompute eligibility before every published transition, not just
         // on the periodic tick: checking, completion and failure must never
         // publish a stale low-battery warning from the previous phase.
@@ -950,6 +975,8 @@ impl Controller {
         self.model["totalDownloadSize"] = json!(human_size(
             state["total_download_bytes"].as_i64().unwrap_or(0)
         ));
+        self.model["downloadTimeRemaining"] =
+            json!(download_time_remaining(state).unwrap_or_default());
         let id = state["recovery_notice_id"].as_i64().unwrap_or(0);
         if id > 0 && id != self.last_notice {
             self.last_notice = id;
@@ -1184,6 +1211,75 @@ mod tests {
         c.apply_install(&json!({"phase":"complete"}));
         assert_eq!(c.string("installPhase"), "idle");
         assert!(!c.boolean("installationSuccessNotice"));
+    }
+    #[test]
+    fn download_estimate_rounds_up_and_formats_hours_minutes_seconds() {
+        for (remaining, speed, expected) in [
+            (1, 1000, "0:00:01"),
+            (60, 1, "0:01:00"),
+            (601, 10, "0:01:01"),
+            (3601, 1, "1:00:01"),
+            (90061, 1, "25:01:01"),
+        ] {
+            assert_eq!(
+                download_time_remaining(&json!({"phase":"downloading",
+                    "total_download_bytes":100 + remaining, "downloaded_bytes":100,
+                    "download_speed_bytes":speed}))
+                .as_deref(),
+                Some(expected)
+            );
+        }
+    }
+    #[test]
+    fn download_estimate_requires_valid_remaining_bytes_and_speed() {
+        let data = json!({"phase":"downloading", "total_download_bytes":1000,
+            "downloaded_bytes":375, "download_speed_bytes":125});
+        for (field, invalid) in [
+            ("download_speed_bytes", json!(0)),
+            ("download_speed_bytes", json!(-1)),
+            ("download_speed_bytes", Value::Null),
+            ("total_download_bytes", json!(0)),
+            ("total_download_bytes", Value::Null),
+            ("downloaded_bytes", json!(1000)),
+            ("downloaded_bytes", json!(1001)),
+            ("downloaded_bytes", json!(-1)),
+            ("downloaded_bytes", Value::Null),
+        ] {
+            let mut state = data.clone();
+            state[field] = invalid;
+            assert_eq!(download_time_remaining(&state), None, "{state}");
+        }
+    }
+    #[test]
+    fn panel_download_estimate_reconnects_updates_and_clears() {
+        let mut c = controller();
+        assert_eq!(c.string("downloadTimeRemaining"), "");
+        let mut state = json!({"phase":"downloading", "total_download_bytes":1000,
+            "downloaded_bytes":375, "download_speed_bytes":125});
+        // Reopening mid-download immediately derives the current estimate.
+        c.apply_install(&state);
+        assert_eq!(c.string("downloadTimeRemaining"), "0:00:05");
+        state["downloaded_bytes"] = json!(750);
+        c.apply_install(&state);
+        assert_eq!(c.string("downloadTimeRemaining"), "0:00:02");
+        state["download_speed_bytes"] = json!(0);
+        c.apply_install(&state);
+        assert_eq!(c.string("downloadTimeRemaining"), "");
+        state["download_speed_bytes"] = json!(125);
+        for phase in ["starting", "installing", "complete", "failed", "cancelled"] {
+            state["phase"] = json!("downloading");
+            c.apply_install(&state);
+            assert_eq!(c.string("downloadTimeRemaining"), "0:00:02");
+            // Even if the worker retains old byte/speed fields, the ETA clears.
+            state["phase"] = json!(phase);
+            c.apply_install(&state);
+            assert_eq!(c.string("downloadTimeRemaining"), "", "{phase}");
+        }
+        // Direct controller transitions must not publish stale estimates.
+        c.model["downloadTimeRemaining"] = json!("0:00:02");
+        c.model["installPhase"] = json!("idle");
+        c.emit();
+        assert_eq!(c.string("downloadTimeRemaining"), "");
     }
     #[test]
     fn live_worker_reconnect_and_completion() {

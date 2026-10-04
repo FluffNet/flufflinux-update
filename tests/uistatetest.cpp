@@ -25,6 +25,7 @@ private Q_SLOTS:
         QCOMPARE(state.getUpdateWindowHeight(),0);
         QCOMPARE(state.getUpdateWindowMaximized(),false);
         QCOMPARE(state.getInstallPhase(),QStringLiteral("idle"));
+        QCOMPARE(state.getDownloadTimeRemaining(),QString());
     }
     void viewChangeNotifiesExactlyOnceAndPersists() {
         flu::UpdateBackend state;
