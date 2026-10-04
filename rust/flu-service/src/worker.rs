@@ -246,6 +246,11 @@ impl Worker {
         loop {
             append_log("\n[download]\n");
             self.state["phase"] = json!("downloading");
+            self.state["download_speed_bytes"] = json!(0);
+            self.state["download_elapsed_ms"] = json!(0);
+            self.state["speed"] = json!("");
+            self.recent_deltas.clear();
+            let download_started = Instant::now();
             let mut last_bytes = self.cached_bytes();
             self.download_snapshot(last_bytes);
             let Ok(mut process) = Process::spawn(
@@ -274,6 +279,9 @@ impl Worker {
                     let average = self.recent_deltas.iter().sum::<i64>()
                         / self.recent_deltas.len().max(1) as i64;
                     self.state["speed"] = json!(human_speed(average));
+                    self.state["download_speed_bytes"] = json!(average);
+                    self.state["download_elapsed_ms"] =
+                        json!(download_started.elapsed().as_millis() as u64);
                     self.download_snapshot(bytes);
                 }
             }

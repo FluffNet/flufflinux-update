@@ -13,6 +13,10 @@ path = "src/helper.rs"
 name = "flufflinux-update-worker"
 path = "src/worker.rs"
 
+[[bin]]
+name = "flufflinux-update-notifier"
+path = "src/notifier.rs"
+
 [dependencies]
 flu-core = { path = "../flu-core" }
 serde_json.workspace = true

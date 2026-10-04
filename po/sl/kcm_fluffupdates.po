@@ -340,3 +340,7 @@ msgstr "Kopiraj tehnične podrobnosti"
 
 msgid "Open an Issue on GitHub"
 msgstr "Odprite izdajo na GitHubu"
+
+#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Predvideni čas: %1"

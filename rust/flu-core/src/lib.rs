@@ -2,5 +2,6 @@
 
 mod battery;
 pub mod desktop;
+pub mod notifications;
 pub mod runtime;
 pub mod signing_key;

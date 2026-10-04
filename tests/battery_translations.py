@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Compile every shipped catalog and verify the new battery-warning lookup."""
+"""Verify battery and every tray-notification lookup in compiled catalogs."""
 import argparse
+from collections import Counter
 import gettext
+import json
 from pathlib import Path
+import re
 import subprocess
 import tempfile
+import xml.etree.ElementTree as ET
 
 WARNING = (
     "The battery is low. Please connect your computer to a charger "
@@ -26,6 +30,20 @@ def main():
     assert template.count(f'msgid "{WARNING}"') == 1 and OLD_WARNING not in template
     catalogs = sorted((root / "po").glob("*/kcm_fluffupdates.po"))
     assert {po.parent.name for po in catalogs} == LOCALES
+    notifier = (root / "rust/flu-core/src/notifications.rs").read_text()
+    messages = notifier.split("pub const MESSAGES: &[&str] = &[", 1)[1].split("];", 1)[0]
+    notification_messages = [json.loads(value) for value in re.findall(r'"(?:[^"\\]|\\.)*"', messages)]
+    assert len(notification_messages) >= 13
+    cmake = (root / "src/CMakeLists.txt").read_text()
+    for status, color in (("success", "#27ae60"), ("error", "#d71920")):
+        name = f"flufflinux-update-{status}"
+        assert f'"icons/{name}.svg"' in qml
+        assert f'"{name}"' in notifier and f"ui/icons/{name}.svg" in cmake
+        svg = ET.parse(root / f"src/ui/icons/{name}.svg").getroot()
+        circle = svg.find("{http://www.w3.org/2000/svg}circle")
+        glyph = svg.find("{http://www.w3.org/2000/svg}path")
+        assert circle is not None and circle.attrib["fill"] == color
+        assert glyph is not None and glyph.attrib["fill"] == "white"
     with tempfile.TemporaryDirectory(prefix="flu-battery-translations-") as scratch:
         for po in catalogs:
             locale = po.parent.name
@@ -44,9 +62,19 @@ def main():
             # msgfmt excludes fuzzy/empty entries, so this verifies the actual
             # installed-format lookup, not just the presence of a PO string.
             assert translated.strip() and translated != WARNING, locale
+            for message in notification_messages:
+                translated_message = catalog.gettext(message)
+                assert message in catalog._catalog, (locale, message)
+                assert translated_message.strip(), (locale, message)
+                if message != "Fluff Linux Update":
+                    assert translated_message != message, (locale, message)
+                assert Counter(re.findall(r"%[1-9][0-9]*", translated_message)) == Counter(
+                    re.findall(r"%[1-9][0-9]*", message)
+                ), (locale, message, translated_message)
             if locale == "he":
                 print(f"Hebrew: {translated}")
-    print(f"PASS: updated battery warning in all {len(catalogs)} compiled catalogs")
+    print(f"PASS: battery warning and all {len(notification_messages)} tray messages "
+          f"in all {len(catalogs)} compiled catalogs")
 
 
 if __name__ == "__main__":

@@ -11,7 +11,8 @@ verification and security diagnostics are implemented in Rust.
 - `rust/flu-bridge`: the Rust `UpdateBackend` QObject exposed through CXX-Qt
   0.10.0. It queues background results onto the Qt UI thread.
 - `rust/flu-service`: the Rust helper and worker executables, using the existing
-  polkit action and systemd service.
+  polkit action and systemd service, plus an unprivileged D-Bus-activated session
+  notifier independent of System Settings/kcmshell6.
 - `src/ui/main.qml`: the existing interface. Bindings now reference the Rust
   backend; layout, controls and Close focus are retained. Kirigami handles wheel
   and touchpad scrolling; native Flickable touchscreen gestures remain enabled.
@@ -271,6 +272,66 @@ displayed the updates icon and "Fluff Linux Update is blocking sleep. (Updating)
 battery/power widget was opened standalone for this capture. This is KDE's native
 formatting, not a custom FLU label. Its inhibition
 entry disappeared again after completion.
+
+## Background progress notifications
+
+FLU uses Plasma's native JobViewServerV2/JobViewV3 protocol, the same protocol
+used by App Center's KUiServerV2JobTracker. The notification observer is Rust
+and runs in the regular user's session, never in the privileged update worker.
+It only reads the existing worker state. D-Bus activation installs with the
+application; there is no extra visible launcher or login autostart entry.
+
+The QML page reports its effective visibility. Selecting a different System
+Settings module hides the page and hands progress to Plasma; returning to FLU
+withdraws that job view. QQuickWidget's hidden render window is deliberately
+not used to infer panel visibility. Each backend has its own session-bus
+connection; unloading/closing/crashing a host drops its presence, and any
+remaining visible FLU panel suppresses the notification.
+Only one notifier may own the session service; duplicate launches cannot
+replace it, and loss of ownership ends an old observer instead of leaving it
+running without the panel's visibility/translation state.
+
+Downloading uses the same per-phase percent, byte counts and speed as QML.
+The moving speed estimate supplies an `Estimated time: H:MM:SS` second line;
+it is omitted until a nonzero speed is available. Installation shows the same
+completed/total package count with no stale download speed or time estimate.
+All notification text uses the existing translation catalogs, with the ETA
+added to all 27 locales. Technical values remain directionally isolated.
+
+Reopening discards only the KDE job proxy (KilledJobError), never the worker.
+No native cancel/suspend control is offered for a Pacman installation. A new
+background success/failure/cancellation produces one standard notification,
+withdrawn on reopen; old finished operations are not replayed. Unique operation
+IDs also detect transactions that finish between observer ticks. Plasma's
+normal notification preferences and Do Not Disturb still apply.
+Completion and errors reuse FLU's own flat green/check and red/cross status
+icons, extracted from its existing circle and Qt glyph drawing. The exact same
+SVG assets are embedded in the panel and installed for the notification body;
+KDE's differently styled success/error icons are not substituted. Existing
+non-green freshness variants remain unchanged. The header retains FLU's update
+icon and name. No checkmark or cross characters are inserted into translated text.
+
+Regression coverage includes a private session bus exercising the actual
+native protocol, two simultaneous panels, disconnected clients, repeated
+detach/recreate, completion withdrawal, fast transactions, ETA and localization.
+`panelvisibilitytest` uses the production QML visibility block with a hidden
+render window and repeated parent-page hides/shows, guarding the KCM-specific
+case. Live normal-user Plasma verification additionally uses the production
+plugin, notifier and worker with disposable packages in a private mount/PID
+namespace; the real system package database and keyring are not modified.
+The compiled-catalog regression checks every tray message (including errors
+and completion) and its substitution placeholders in all 27 shipped locales.
+The release build passes all 40 Linux Rust tests, all six CTest suites, and all
+17 isolated Pacman workflow scenarios, including the desktop controller.
+Native captures cover [download progress](screenshots/1.5-notification-download.png),
+[installation](screenshots/1.5-notification-install.png),
+[completion](screenshots/1.5-notification-complete.png),
+[errors](screenshots/1.5-notification-error.png),
+[Hebrew error text](screenshots/1.5-notification-error-hebrew.png), and
+[progress withdrawn with FLU visible](screenshots/1.5-notification-hidden.png).
+The final native pass verifies both standalone closure and navigation between
+FLU and another System Settings module, using an isolated real Pacman update
+and a forced HTTP failure. No machine-wide locale setting is changed for QA.
 
 ## Reproducing validation
 

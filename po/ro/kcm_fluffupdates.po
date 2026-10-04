@@ -336,3 +336,7 @@ msgstr "Copiați detaliile tehnice"
 
 msgid "Open an Issue on GitHub"
 msgstr "Deschideți o problemă pe GitHub"
+
+#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Timp estimat: %1"

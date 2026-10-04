@@ -54,7 +54,21 @@ KCMUtils.SimpleKCM {
         }
     }
 
-    Component.onCompleted: Qt.callLater(enforceWindowMinimumSize)
+    // Visibility of this page, not focus: changing System Settings modules or
+    // closing either host hands progress to the session notification observer.
+    // Minimizing or focusing another app does not count as closing the panel.
+    // A KCM is embedded in QQuickWidget: its render window is permanently
+    // invisible even while the page is on screen. Use the page's effective
+    // visibility; backend destruction/disconnection handles host closure.
+    readonly property bool panelShown: visible
+    onPanelShownChanged: backend.setPanelVisible(panelShown)
+    Component.onCompleted: {
+        backend.setPanelVisible(panelShown)
+        Qt.callLater(enforceWindowMinimumSize)
+    }
+    Component.onDestruction: {
+        if (backend) backend.setPanelVisible(false)
+    }
 
     Layout.minimumWidth: minimumUsableWidth
     Layout.minimumHeight: minimumUsableHeight
@@ -97,9 +111,22 @@ KCMUtils.SimpleKCM {
                             ? i18nd("kcm_fluffupdates", "System is up to date")
                             : backend.freshnessText
 
+                        Image {
+                            id: sharedStatusIcon
+                            anchors.fill: parent
+                            visible: root.criticalActionRequired
+                                || (root.systemUpToDate && backend.freshnessColor === "#27ae60")
+                            source: root.criticalActionRequired
+                                ? "icons/flufflinux-update-error.svg"
+                                : "icons/flufflinux-update-success.svg"
+                            sourceSize: Qt.size(width, height)
+                            Accessible.ignored: true
+                        }
+
+                        // Preserve the existing non-green freshness variants.
                         Text {
                             anchors.centerIn: parent
-                            visible: root.systemUpToDate
+                            visible: root.systemUpToDate && !sharedStatusIcon.visible
                             text: "\u2713"
                             color: "white"
                             font.pixelSize: parent.width * 0.62
@@ -108,16 +135,6 @@ KCMUtils.SimpleKCM {
                             Accessible.ignored: true
                         }
 
-                        Text {
-                            anchors.centerIn: parent
-                            visible: root.criticalActionRequired
-                            text: "\u00d7"
-                            color: "white"
-                            font.pixelSize: parent.width * 0.72
-                            font.weight: Font.Black
-
-                            Accessible.ignored: true
-                        }
                     }
 
                     ColumnLayout {

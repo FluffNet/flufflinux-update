@@ -344,3 +344,7 @@ msgstr "Cóipeáil Sonraí Teicniúla"
 
 msgid "Open an Issue on GitHub"
 msgstr "Oscail Saincheist ar GitHub"
+
+#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Am measta: %1"

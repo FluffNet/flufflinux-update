@@ -386,6 +386,7 @@ fn start_installation(download: &str, storage: &str, freed: bool, updates: &str)
         .filter(Value::is_array)
         .unwrap_or(json!([]));
     let mut state = json!({"phase":"starting", "progress":0, "completed_packages":0, "total_packages":0,
+        "operation_id":format!("{}-{}", std::process::id(), std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap_or_default().as_nanos()),
         "speed":"", "download_size":download.chars().take(128).collect::<String>(),
         "storage_change":storage.chars().take(128).collect::<String>(), "storage_freed":freed, "updates":packages, "error":""});
     if !write_json(STATE, &state) {

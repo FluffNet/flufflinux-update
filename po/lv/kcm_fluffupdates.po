@@ -336,3 +336,7 @@ msgstr "Kopējiet tehniskos datus"
 
 msgid "Open an Issue on GitHub"
 msgstr "Atveriet problēmu vietnē GitHub"
+
+#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Aptuvenais laiks: %1"

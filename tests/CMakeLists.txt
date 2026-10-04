@@ -31,6 +31,12 @@ target_compile_definitions(updateswindowkeystest PRIVATE
     FLU_QML_PATH=\"${CMAKE_SOURCE_DIR}/src/ui/main.qml\")
 add_test(NAME updateswindowkeystest COMMAND updateswindowkeystest)
 
+add_executable(panelvisibilitytest panelvisibilitytest.cpp)
+target_link_libraries(panelvisibilitytest PRIVATE Qt6::Quick Qt6::Qml Qt6::Test)
+target_compile_definitions(panelvisibilitytest PRIVATE
+    FLU_QML_PATH=\"${CMAKE_SOURCE_DIR}/src/ui/main.qml\")
+add_test(NAME panelvisibilitytest COMMAND panelvisibilitytest)
+
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 find_program(FLU_MSGFMT msgfmt REQUIRED)
 add_test(NAME batterytranslationstest

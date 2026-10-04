@@ -16,6 +16,9 @@ menu, and keeps manual system updates clear and approachable.
 - Continue an update in the background if the panel is closed.
 - Prevent normal system sleep/hibernation throughout downloading and installing
   updates, even with the panel closed; release the protection when the worker ends.
+- Show native Plasma download/install progress, completion and errors when the FLU
+  panel is closed or another System Settings module is selected; hide it when
+  FLU is reopened. Downloads include speed and an estimated remaining time.
 - Reconnect to an update already in progress when the panel is opened again.
 - Detect another running pacman process and handle a stale database lock.
 - Protect important packages when an update proposes removing them, ask before
@@ -60,7 +63,8 @@ Configure and compile:
 The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
 newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
 locked Cargo dependencies and the pinned CXX-Qt CMake integration. CMake builds
-the Rust desktop backend, privileged helper and background worker automatically;
+the Rust desktop backend, privileged helper, background worker and user-session
+notifier automatically;
 no separate Cargo build is needed for packaging. See the architecture and
 validation record in [`docs/rust-migration.md`](docs/rust-migration.md).
 

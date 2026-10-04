@@ -2,6 +2,7 @@
 use cxx_qt::{CxxQtType, Threading};
 use cxx_qt_lib::{QList, QString, QVariant};
 use flu_core::desktop::{self, Command};
+use flu_core::notifications;
 use std::{
     path::PathBuf,
     pin::Pin,
@@ -143,6 +144,9 @@ mod ffi {
         )]
         type UpdateBackend = super::UpdateBackendRust;
         #[qinvokable]
+        #[cxx_name = "setPanelVisible"]
+        fn set_panel_visible(self: Pin<&mut UpdateBackend>, visible: bool);
+        #[qinvokable]
         #[cxx_name = "refresh"]
         fn refresh(self: Pin<&mut UpdateBackend>);
         #[qinvokable]
@@ -235,6 +239,7 @@ pub struct UpdateBackendRust {
     update_window_maximized: bool,
     sender: Option<Sender<Command>>,
     stop: Arc<AtomicBool>,
+    panel_visible: Arc<AtomicBool>,
     settings: PathBuf,
 }
 impl Default for UpdateBackendRust {
@@ -281,6 +286,7 @@ impl Default for UpdateBackendRust {
             update_window_maximized: false,
             sender: None,
             stop: Arc::new(AtomicBool::new(false)),
+            panel_visible: Arc::new(AtomicBool::new(true)),
             settings: PathBuf::new(),
         }
     }
@@ -306,6 +312,27 @@ impl cxx_qt::Initialize for ffi::UpdateBackend {
             })
             .unwrap_or_default();
         ffi::initialize_locale(&languages);
+        let strings = notifications::MESSAGES
+            .iter()
+            .map(|message| {
+                let arguments = if message.contains("%2") {
+                    vec!["%1".into(), "%2".into()]
+                } else if message.contains("%1") {
+                    vec!["%1".into()]
+                } else {
+                    vec![]
+                };
+                (
+                    (*message).into(),
+                    ffi::translate(message, "", -1, &arguments),
+                )
+            })
+            .collect();
+        notifications::watch_panel(
+            self.rust().panel_visible.clone(),
+            self.rust().stop.clone(),
+            strings,
+        );
         let path = directory.join("flufflinux-update/settings.conf");
         let settings = desktop::parse_ini(&path);
         self.as_mut().update_pacman_view(
@@ -349,6 +376,9 @@ impl cxx_qt::Initialize for ffi::UpdateBackend {
     }
 }
 impl ffi::UpdateBackend {
+    fn set_panel_visible(self: Pin<&mut Self>, visible: bool) {
+        self.rust().panel_visible.store(visible, Ordering::Relaxed);
+    }
     fn set_last_update(mut self: Pin<&mut Self>, value: QString) {
         if self.rust().last_update != value {
             self.as_mut().rust_mut().last_update = value;

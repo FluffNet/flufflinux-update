@@ -332,3 +332,7 @@ msgstr "Másolja a műszaki adatokat"
 
 msgid "Open an Issue on GitHub"
 msgstr "Nyisson meg egy problémát a GitHubon"
+
+#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Becsült idő: %1"
