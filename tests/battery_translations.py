@@ -34,6 +34,9 @@ def main():
     messages = notifier.split("pub const MESSAGES: &[&str] = &[", 1)[1].split("];", 1)[0]
     notification_messages = [json.loads(value) for value in re.findall(r'"(?:[^"\\]|\\.)*"', messages)]
     assert len(notification_messages) >= 13
+    operational = (root / "rust/flu-core/src/operational_error.rs").read_text()
+    messages = operational.split("pub const MESSAGES: &[&str] = &[", 1)[1].split("];", 1)[0]
+    notification_messages += [json.loads(value) for value in re.findall(r'"(?:[^"\\]|\\.)*"', messages)]
     cmake = (root / "src/CMakeLists.txt").read_text()
     for status, color in (("success", "#27ae60"), ("error", "#d71920")):
         name = f"flufflinux-update-{status}"

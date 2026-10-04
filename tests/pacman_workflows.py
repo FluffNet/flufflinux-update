@@ -62,7 +62,18 @@ class Server(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *_):
         pass
 
+    def send_header(self, keyword, value):
+        # libcurl also compares the response timestamp itself, even after a
+        # 200 response. Every fixture database is a new revision, including
+        # repairs of deliberately corrupt archives; never cache by timestamp.
+        if keyword.lower() != "last-modified":
+            super().send_header(keyword, value)
+
     def do_GET(self):
+        # Fixtures rebuild the repository several times per second. Do not let
+        # HTTP's one-second timestamp resolution hide a new fixture behind 304.
+        if "If-Modified-Since" in self.headers:
+            del self.headers["If-Modified-Since"]
         if self.path.rsplit("/", 1)[-1] in self.unavailable:
             self.send_error(503, "Deliberate regression-test failure")
         elif self.headers.get("Range", "").startswith("bytes="):
@@ -410,7 +421,13 @@ class Workflows:
         self.policy.write_text(json.dumps({"protected": [], "warning": []}))
         self.refresh(newer, replacement)
         model = json.loads(run([self.controller, "check"]).stdout)
-        assert model["checkComplete"] and model["updatesAvailable"], model
+        assert model["checkComplete"] and model["updatesAvailable"], {
+            "model": model,
+            "pacman_query": self.pacman("-Qu", "--dbpath", "/tmp/flufflinux-checkupdates-0", expected=None).stdout,
+            "checkupdates_query": run(["checkupdates", "--nosync", "--nocolor"], expected=None,
+                env={**os.environ, "CHECKUPDATES_DB": "/tmp/flufflinux-checkupdates-0", "LC_ALL": "C"}).stdout,
+            "installed": self.installed("flu-test-controller"),
+        }
         assert model["checkError"] == "", model
         assert any(p["newName"] == "flu-test-controller-new" for p in model["updatePackages"]), model
         assert self.installed("flu-test-controller") == "flu-test-controller 1-1"
@@ -549,10 +566,164 @@ class Workflows:
         state, _ = self.finish()
         Server.unavailable.clear()
         assert state["phase"] == "failed", state
-        assert state["error"] == "DOWNLOAD_CONNECTION_FAILED", state
+        assert state["error"] == "REPOSITORY_UNAVAILABLE", state
         assert self.installed("flu-test-network") == "flu-test-network 1-1"
         assert not (self.base / "db/db.lck").exists()
         return {"error": state["error"], "installed_version_unchanged": True}
+
+    def operational_failure(self, kind):
+        """Real Pacman failures; only fixture mounts, archives and keys change."""
+        repo = self.base / "repo"
+        name = f"flu-test-error-{kind}"
+        initial = package(repo, name, "1-1")
+        newer = package(repo, name, "2-1", payload=os.urandom(256 * 1024))
+        self.pacman("-U", "--noconfirm", initial)
+        self.refresh(newer)
+        config = self.base / "pacman.conf"
+        saved_config = config.read_text()
+        mounted = None
+        corrupted = None
+        expected = {"signature": "SIGNATURE_INVALID", "storage": "INSUFFICIENT_STORAGE",
+                    "storage-install": "INSUFFICIENT_STORAGE",
+                    "database": "DATABASE_INVALID", "archive": "PACKAGE_CORRUPTED",
+                    "filesystem": "DATABASE_LOCKED", "network": "NETWORK_FAILED"}[kind]
+        try:
+            if kind == "signature":
+                # Private /etc/pacman.d/gnupg, never the VM's keyring.
+                run(["pacman-key", "--init"])
+                Path(str(newer) + ".sig").write_bytes(b"invalid signature test data\n")
+                config.write_text(saved_config.replace("SigLevel = Never", "SigLevel = Required DatabaseOptional"))
+            elif kind == "storage":
+                mounted = "/var/cache/pacman/pkg"
+                run(["mount", "-t", "tmpfs", "-o", "size=64k", "tmpfs", mounted])
+                (Path(mounted) / "full").write_bytes(b"x" * 65536)
+            elif kind == "storage-install":
+                mounted = self.base / "root"
+                run(["mount", "-t", "tmpfs", "-o", "size=128k", "tmpfs", mounted])
+                config.write_text(saved_config.replace("[options]", "[options]\nCheckSpace"))
+            elif kind == "database":
+                corrupted = repo / "flu-test.db.tar.gz"
+                original = corrupted.read_bytes()
+                corrupted.write_bytes(b"not a package database\n")
+                (self.checkdb / "sync/flu-test.db").write_bytes(corrupted.read_bytes())
+                plan = self.plan(expected=1)
+                assert "Unrecognized archive format" in plan.stdout, plan.stdout
+                assert not any(marker in plan.stdout for marker in
+                    ("FLU_AUTOREMOV", "FLU_WARNING", "FLU_PROTECTED")), plan.stdout
+            elif kind == "archive":
+                data = bytearray(newer.read_bytes())
+                data[len(data) // 2] ^= 0xff
+                newer.write_bytes(data)
+            elif kind == "filesystem":
+                # Pacman hides EROFS behind "unable to lock database" here;
+                # the UI must not claim another process is definitely running.
+                mounted = "/var/lib/pacman"
+                run(["mount", "--bind", self.base / "db", mounted])
+                run(["mount", "-o", "remount,bind,ro", mounted])
+            elif kind == "network":
+                # Reserve a local port without listening: deterministic refusal,
+                # no external DNS or public repository involved.
+                import socket
+                port = socket.socket()
+                port.bind(("127.0.0.1", 0))
+                config.write_text(saved_config.replace(str(self.server.server_address[1]), str(port.getsockname()[1])))
+            self.start()
+            state, _ = self.finish()
+            assert state["phase"] == "failed" and state["error"] == expected, state
+            assert not state.get("recovery_notice_type"), state
+            assert not state.get("security_failure_category"), state
+            assert self.installed(name) == f"{name} 1-1"
+            if self.controller and kind in ("database", "network"):
+                model = json.loads(run([self.controller, "check"]).stdout)
+                assert model["checkError"] and "unknown error" not in model["checkError"], model
+                assert not model["updatesAvailable"] and not model["signingKeySecurityError"], model
+                assert not model["recoveryDialogType"] and not model["recoveryActionState"], model
+                assert not model["recoveryNotice"], model
+            log = (self.base / "etc/flufflinux-update.log").read_text()
+            assert "[file conflict recovered]" not in log
+            if kind == "storage-install":
+                assert "[installation]" in log, log
+            return {"error": expected, "real_pacman": True,
+                    "no_removal_or_key_recovery": True, "installed_version_unchanged": True}
+        finally:
+            if mounted:
+                run(["umount", mounted])
+            if corrupted:
+                corrupted.write_bytes(original)
+            config.write_text(saved_config)
+            if kind == "network":
+                port.close()
+            # Put only the fixture's databases back in a healthy state.
+            self.pacman("-Syy", "--noconfirm")
+
+    def mirror_fallback(self):
+        import socket
+        repo = self.base / "repo"
+        name = "flu-test-mirror-fallback"
+        initial = package(repo, name, "1-1")
+        newer = package(repo, name, "2-1")
+        self.pacman("-U", "--noconfirm", initial)
+        self.refresh(newer)
+        config = self.base / "pacman.conf"
+        saved = config.read_text()
+        port = socket.socket()
+        port.bind(("127.0.0.1", 0))
+        config.write_text(saved.replace("[flu-test]", f"[flu-test]\nServer = http://127.0.0.1:{port.getsockname()[1]}"))
+        try:
+            if self.controller:
+                model = json.loads(run([self.controller, "check"]).stdout)
+                assert not model["checkError"] and model["updatesAvailable"], model
+            (self.base / "db/sync/flu-test.db").write_bytes(b"old broken database\n")
+            self.start()
+            state, _ = self.finish()
+            assert state["phase"] == "complete", state
+            assert self.installed(name) == f"{name} 2-1"
+            log = (self.base / "etc/flufflinux-update.log").read_text()
+            assert "Failed to connect" in log, log
+            return {"failed_first_mirror": True, "successful_fallback_not_rejected": True,
+                    "successful_database_refresh_not_rejected": True}
+        finally:
+            config.write_text(saved)
+            port.close()
+
+    def operational_removal_guards(self):
+        """Adversarial mixed diagnostics may never authorize package removal.
+
+        Only this namespace's Pacman executable is overlaid. The real helper
+        and worker run unchanged; any unexpected command is recorded/rejected.
+        """
+        shim = self.base / "pacman-errors"
+        calls = self.base / "pacman-error-calls"
+        transcript = self.base / "pacman-error-output"
+        shim.write_text(
+            "#!/usr/bin/python3\nimport sys\nfrom pathlib import Path\n"
+            f"with Path({str(calls)!r}).open('a') as f: f.write(repr(sys.argv[1:]) + '\\n')\n"
+            f"print(Path({str(transcript)!r}).read_text(), flush=True)\nsys.exit(1)\n")
+        shim.chmod(0o755)
+        self.policy.write_text(json.dumps({"protected": [], "warning": []}))
+        run(["mount", "--bind", shim, "/usr/bin/pacman"])
+        try:
+            for cause in ("No space left on device", "invalid or corrupted database",
+                          "invalid or corrupted package (PGP signature)", "Could not resolve host"):
+                for conflict in (":: new and old are in conflict. Remove old? [y/N]",
+                                 ":: installing new breaks dependency 'new=1' required by old"):
+                    calls.write_text("")
+                    transcript.write_text(f"error: {cause}\n{conflict}\n")
+                    result = self.plan()
+                    assert result.returncode not in (0, 20, 21, 22, 23, 24), result.stdout
+                    assert not any(marker in result.stdout for marker in
+                        ("FLU_AUTOREMOV", "FLU_WARNING", "FLU_PROTECTED", "FLU_SIGNING_KEY")), result.stdout
+                    invoked = calls.read_text().splitlines()
+                    assert len(invoked) == 1 and "'-Su'" in invoked[0], invoked
+            # A bare phrase in an unrelated error is not a dependency report.
+            calls.write_text("")
+            transcript.write_text("error: service required by old is unavailable\n")
+            self.plan(expected=1)
+            assert not any("-R" in line for line in calls.read_text().splitlines())
+            return {"mixed_diagnostics": 8, "no_removal_calls": True,
+                    "unrelated_required_by_not_a_dependency": True}
+        finally:
+            run(["umount", "/usr/bin/pacman"])
 
     def guards(self):
         invalid = run([self.helper, "/tmp/flufflinux-checkupdates-9999"], expected=2,
@@ -589,6 +760,10 @@ def child(args):
         tests.test("package-owned file conflict fails safely", tests.owned_file_conflict)
         tests.test("download cancellation and resume", tests.cancellation)
         tests.test("download connection failure", tests.failed_download)
+        for kind in ("network", "signature", "storage", "storage-install", "database", "archive", "filesystem"):
+            tests.test(f"operational failure: {kind}", lambda kind=kind: tests.operational_failure(kind))
+        tests.test("operational failures never authorize removal", tests.operational_removal_guards)
+        tests.test("mirror fallback remains successful", tests.mirror_fallback)
         tests.test("native sleep inhibition lifetime", tests.sleep_inhibition)
         tests.test("unavailable sleep inhibitor fails closed", tests.sleep_inhibitor_failure)
         tests.test("planner path and policy guards", tests.guards)

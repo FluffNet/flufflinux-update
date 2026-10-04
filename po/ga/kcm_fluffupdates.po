@@ -345,6 +345,42 @@ msgstr "Cóipeáil Sonraí Teicniúla"
 msgid "Open an Issue on GitHub"
 msgstr "Oscail Saincheist ar GitHub"
 
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Níl go leor spáis stórála saor ann chun leanúint leis an nuashonrú. Saor spás agus bain triail eile as."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Níorbh fhéidir síniú pacáiste nó stórais a fhíorú. Cuireadh stop leis an nuashonrú. Seiceáil dáta an chórais agus an fáinne eochracha, ansin bain triail eile as."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Tá bunachar sonraí na bpacáistí damáistithe nó doléite. Cuireadh stop leis an nuashonrú. Iarr cabhair sula ndeisíonn tú an bunachar sonraí."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Tá pacáiste íoslódáilte damáistithe nó neamhiomlán. Cuireadh stop leis an nuashonrú. Bain triail eile as nó úsáid scáthán eile."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Níorbh fhéidir comhaid riachtanacha don nuashonrú a léamh nó a scríobh. Seiceáil ceadanna an chórais comhad agus sláinte an diosca, ansin bain triail eile as."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Níorbh fhéidir na nuashonruithe a íoslódáil. Bain triail eile as nó iarr cabhair."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Níorbh fhéidir an t-idirbheart nuashonraithe a ullmhú. Bain triail eile as nó iarr cabhair."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Níorbh fhéidir an nuashonrú a thosú mar níorbh fhéidir cosc ar chodladh a chumasú. Bain triail eile as."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Níorbh fhéidir bunachar sonraí na bpacáistí a ghlasáil. Dún bainisteoirí pacáistí eile agus cinntigh gur féidir scríobh chuig an gcóras comhad, ansin bain triail eile as."
+
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Am measta: %1"

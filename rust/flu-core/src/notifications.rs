@@ -29,7 +29,7 @@ const TIMEOUT: Duration = Duration::from_secs(2);
 pub type Strings = HashMap<String, String>;
 type Properties = HashMap<String, OwnedValue>;
 
-// Reuse the exact QML translations; only the ETA wording is new.
+// Reuse the exact panel translations, including operational failures.
 pub const MESSAGES: &[&str] = &[
     "Fluff Linux Update",
     "Install Updates",
@@ -44,7 +44,15 @@ pub const MESSAGES: &[&str] = &[
     "The update process could not be started.",
     "Connection failed while downloading updates. Check your network and try again.",
     "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system.",
+    "pacman process is already running.",
 ];
+
+pub fn messages() -> impl Iterator<Item = &'static str> {
+    MESSAGES
+        .iter()
+        .chain(crate::operational_error::MESSAGES)
+        .copied()
+}
 
 fn text(strings: &Strings, key: &str) -> String {
     strings
@@ -365,14 +373,7 @@ impl Presentation {
         let message = match state["phase"].as_str() {
             Some("complete") => "System updates were installed successfully.",
             Some("cancelled") => "Update process was cancelled",
-            _ => match state["error"].as_str().unwrap_or("") {
-                "SIGNING_KEY_VERIFICATION_FAILED" => MESSAGES[12],
-                "DOWNLOAD_FAILED" | "DOWNLOAD_CONNECTION_FAILED" | "TRANSACTION_PREPARE_FAILED" => {
-                    MESSAGES[11]
-                }
-                "INSTALL_FAILED" => "The system update failed.",
-                _ => "The update process could not be started.",
-            },
+            _ => crate::operational_error::message(state["error"].as_str().unwrap_or("")),
         };
         // Plasma uses Notify's app_icon as the themed message-side icon.
         // desktop-entry supplies FLU's separate name/update icon in the header.

@@ -263,6 +263,42 @@ msgstr "技術的な詳細をコピーする"
 msgid "Open an Issue on GitHub"
 msgstr "GitHub で問題を開く"
 
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "更新を続行するための空き容量が不足しています。空き容量を確保してから再試行してください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "パッケージまたはリポジトリの署名を検証できませんでした。更新を停止しました。システムの日付とキーリングを確認してから再試行してください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "パッケージデータベースが破損しているか、読み取れません。更新を停止しました。データベースを修復する前にサポートにお問い合わせください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ダウンロードしたパッケージが破損しているか、不完全です。更新を停止しました。再試行するか、別のミラーを使用してください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "更新に必要なファイルを読み書きできませんでした。ファイルシステムの権限とディスクの状態を確認してから再試行してください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "更新をダウンロードできませんでした。再試行するか、サポートにお問い合わせください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "更新処理を準備できませんでした。再試行するか、サポートにお問い合わせください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "スリープの抑止を有効にできなかったため、更新を開始できませんでした。再試行してください。"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "パッケージデータベースをロックできませんでした。他のパッケージマネージャーを閉じ、ファイルシステムに書き込めることを確認してから再試行してください。"
+
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "推定時間: %1"

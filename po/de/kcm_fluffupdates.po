@@ -267,6 +267,42 @@ msgstr "Technische Details kopieren"
 msgid "Open an Issue on GitHub"
 msgstr "Öffnen Sie ein Problem auf GitHub"
 
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Es ist nicht genügend freier Speicherplatz vorhanden, um die Aktualisierung fortzusetzen. Geben Sie Speicherplatz frei und versuchen Sie es erneut."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Eine Paket- oder Repository-Signatur konnte nicht überprüft werden. Die Aktualisierung wurde angehalten. Prüfen Sie das Systemdatum und den Schlüsselbund und versuchen Sie es erneut."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Die Paketdatenbank ist beschädigt oder nicht lesbar. Die Aktualisierung wurde angehalten. Wenden Sie sich an den Support, bevor Sie die Datenbank reparieren."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Ein heruntergeladenes Paket ist beschädigt oder unvollständig. Die Aktualisierung wurde angehalten. Versuchen Sie es erneut oder verwenden Sie einen anderen Spiegelserver."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Für die Aktualisierung erforderliche Dateien konnten nicht gelesen oder geschrieben werden. Prüfen Sie die Dateisystemberechtigungen und den Zustand des Datenträgers und versuchen Sie es erneut."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Die Aktualisierungen konnten nicht heruntergeladen werden. Versuchen Sie es erneut oder wenden Sie sich an den Support."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Die Aktualisierungstransaktion konnte nicht vorbereitet werden. Versuchen Sie es erneut oder wenden Sie sich an den Support."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Die Aktualisierung konnte nicht gestartet werden, da die Verhinderung des Ruhezustands nicht aktiviert werden konnte. Versuchen Sie es erneut."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Die Paketdatenbank konnte nicht gesperrt werden. Schließen Sie andere Paketverwaltungen und prüfen Sie, ob das Dateisystem beschreibbar ist. Versuchen Sie es dann erneut."
+
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Geschätzte Zeit: %1"

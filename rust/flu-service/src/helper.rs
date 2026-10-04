@@ -4,6 +4,7 @@ use base64::{
     engine::general_purpose::{URL_SAFE, URL_SAFE_NO_PAD},
 };
 use flu_core::{
+    operational_error,
     runtime::*,
     signing_key::{self, RecoveryResult},
 };
@@ -307,6 +308,14 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
             continue;
         }
         if let Some(found) = removal.captures(unparsed) {
+            if operational_error::classify(&text).is_some() {
+                return abort_planner(
+                    &mut process,
+                    &temporary_lock,
+                    &mut output,
+                    "operational-error",
+                );
+            }
             let package = found[1].to_string();
             stop_planner(&mut process, &temporary_lock);
             return removal_result(&policy, &package, false, &output);
@@ -323,9 +332,13 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
             final_answered = true;
         }
     }
-    let status = process.exit_code();
     let text = String::from_utf8_lossy(&output);
-    if status != 0 && signing_key::contains_unknown_key_report(&text) {
+    let status = if operational_error::database_unusable(&text) {
+        1
+    } else {
+        process.exit_code()
+    };
+    if status != 0 && operational_error::may_recover_key(&text) {
         let repository = signing_key::repository_name(&text);
         let result = if signing_retry && repository == "fluffnet" {
             RecoveryResult {
@@ -344,6 +357,10 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
         failure_marker(&result, status);
         return 24;
     }
+    if status != 0 && operational_error::classify(&text).is_some() {
+        print_output(&output);
+        return if status < 0 { 1 } else { status };
+    }
     for (old, new) in replacements {
         let old_version = installed_version(&old);
         let new_version = sync_version(database, &new);
@@ -355,7 +372,7 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
         println!("FLU_PLANNED_PACKAGE:{package}|{version}");
     }
     if status != 0 {
-        let required = Regex::new(r"required by\s+([A-Za-z0-9@._+:-]+)").unwrap();
+        let required = Regex::new(r"(?m)^.*(?:breaks dependency|unable to satisfy dependency)[^\n]*\brequired by\s+([A-Za-z0-9@._+:-]+)").unwrap();
         let blockers: BTreeSet<_> = required
             .captures_iter(&text)
             .map(|m| m[1].to_string())

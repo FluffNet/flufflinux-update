@@ -3,6 +3,7 @@
 mod power;
 
 use flu_core::{
+    operational_error,
     runtime::*,
     signing_key::{self, RecoveryResult},
 };
@@ -33,6 +34,29 @@ fn human_speed(bytes: i64) -> String {
     } else {
         format!("{bytes} B/s")
     }
+}
+
+fn database_unusable_after_refresh(output: &str) -> bool {
+    if !operational_error::database_unusable(output) {
+        return false;
+    }
+    // A refresh can complain about the old database before successfully
+    // replacing it. Validate the current data without refreshing again.
+    let result = run(
+        PACMAN,
+        &arguments(&["-Qu", "--noconfirm", "--color", "never"]),
+        Duration::from_secs(30),
+        &[],
+    );
+    let current = String::from_utf8_lossy(&result.output);
+    append_log(&format!("[database validation after refresh]\n{current}\n"));
+    !result.started
+        || !result.finished
+        || !matches!(result.exit_code, 0 | 1)
+        || operational_error::classify(&current).is_some()
+        || current
+            .lines()
+            .any(|line| line.trim_start().starts_with("error:"))
 }
 fn integer(state: &Value, key: &str) -> i64 {
     state[key].as_i64().unwrap_or(0)
@@ -113,6 +137,9 @@ impl Worker {
     }
     /// Some(true): retry; Some(false): terminal security failure; None: not a key error.
     fn recover_signing_key(&mut self, output: &str, status: i32) -> Option<bool> {
+        if !operational_error::may_recover_key(output) {
+            return None;
+        }
         let unknown = signing_key::contains_unknown_key_report(output);
         let repository = signing_key::repository_name(output);
         let requested = signing_key::requested_fingerprint(output);
@@ -177,12 +204,19 @@ impl Worker {
             );
             let output = String::from_utf8_lossy(&result.output);
             append_log(&format!("[transaction preparation]\n{output}\n"));
-            if !result.started || !result.finished || result.exit_code != 0 {
+            if !result.started
+                || !result.finished
+                || result.exit_code != 0
+                || database_unusable_after_refresh(&output)
+            {
                 match self.recover_signing_key(&output, result.exit_code) {
                     Some(true) => continue,
                     Some(false) => return false,
                     None => {
-                        self.fail("TRANSACTION_PREPARE_FAILED");
+                        self.fail(
+                            operational_error::classify(&output)
+                                .map_or("TRANSACTION_PREPARE_FAILED", |failure| failure.code()),
+                        );
                         return false;
                     }
                 }
@@ -285,28 +319,17 @@ impl Worker {
                     self.download_snapshot(bytes);
                 }
             }
-            if process.exit_code() == 0 {
+            if process.exit_code() == 0 && !database_unusable_after_refresh(&output) {
                 return true;
             }
             match self.recover_signing_key(&output, process.exit_code()) {
                 Some(true) => continue,
                 Some(false) => return false,
                 None => {
-                    let lower = output.to_lowercase();
-                    let connection = [
-                        "failed retrieving file",
-                        "could not resolve host",
-                        "failed to connect",
-                        "connection timed out",
-                        "network is unreachable",
-                    ]
-                    .iter()
-                    .any(|s| lower.contains(s));
-                    self.fail(if connection {
-                        "DOWNLOAD_CONNECTION_FAILED"
-                    } else {
-                        "DOWNLOAD_FAILED"
-                    });
+                    self.fail(
+                        operational_error::classify_download(&output, Path::new(CACHE))
+                            .map_or("DOWNLOAD_FAILED", |failure| failure.code()),
+                    );
                     return false;
                 }
             }
@@ -492,7 +515,7 @@ impl Worker {
             }
             self.process_install_output(&mut pending, "\n");
             self.read_install_log();
-            if process.exit_code() == 0 {
+            if process.exit_code() == 0 && !database_unusable_after_refresh(&output) {
                 self.state["progress"] = json!(100);
                 self.state["completed_packages"] = self.state["total_packages"].clone();
                 self.state["error"] = json!("");
@@ -503,6 +526,10 @@ impl Worker {
                 Some(true) => continue,
                 Some(false) => return,
                 None => {
+                    if let Some(failure) = operational_error::classify(&output) {
+                        self.fail(failure.code());
+                        return;
+                    }
                     if self.file_conflict(&output) {
                         continue;
                     }

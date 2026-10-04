@@ -333,6 +333,42 @@ msgstr "Копиране на техническите подробности"
 msgid "Open an Issue on GitHub"
 msgstr "Отворете проблем в GitHub"
 
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Няма достатъчно свободно място за продължаване на обновяването. Освободете място и опитайте отново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Подписът на пакет или хранилище не може да бъде проверен. Обновяването е спряно. Проверете датата на системата и набора от ключове, след което опитайте отново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Базата данни с пакети е повредена или не може да бъде прочетена. Обновяването е спряно. Потърсете помощ, преди да поправяте базата данни."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Изтеглен пакет е повреден или непълен. Обновяването е спряно. Опитайте отново или използвайте друг огледален сървър."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Не могат да бъдат прочетени или записани необходимите за обновяването файлове. Проверете правата на файловата система и състоянието на диска, след което опитайте отново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Обновяванията не могат да бъдат изтеглени. Опитайте отново или потърсете помощ."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Операцията по обновяване не може да бъде подготвена. Опитайте отново или потърсете помощ."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Обновяването не може да започне, защото предотвратяването на заспиване не може да бъде включено. Опитайте отново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Базата данни с пакети не може да бъде заключена. Затворете другите мениджъри на пакети и проверете дали файловата система позволява запис, след което опитайте отново."
+
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Очаквано време: %1"

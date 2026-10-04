@@ -1,6 +1,6 @@
 //! Desktop controller: all update state, orchestration and presentation data.
 //! Qt/KDE only supplies translation and publishes snapshots on its GUI thread.
-use crate::{battery::BatteryMonitor, runtime::*, signing_key};
+use crate::{battery::BatteryMonitor, operational_error, runtime::*, signing_key};
 use base64::{Engine, engine::general_purpose::URL_SAFE_NO_PAD};
 use chrono::{DateTime, Local, Months};
 use notify::{RecursiveMode, Watcher};
@@ -78,40 +78,7 @@ pub fn download_time_remaining(state: &Value) -> Option<String> {
     })
 }
 pub fn friendly_error(output: &str) -> &'static str {
-    let output = output.to_lowercase();
-    if [
-        "could not resolve host",
-        "name or service not known",
-        "temporary failure in name resolution",
-        "network is unreachable",
-        "failed to connect",
-        "connection timed out",
-        "resolving timed out",
-        "connection reset by peer",
-        "operation too slow",
-        "ssl connection timeout",
-        "recv failure",
-    ]
-    .iter()
-    .any(|s| output.contains(s))
-    {
-        "No internet connection. Check your network and try again."
-    } else if [
-        "failed retrieving file",
-        "failed to synchronize all databases",
-        "failed to update database",
-        "failed to download",
-        "could not find database",
-        "the requested url returned error",
-        "too many errors from",
-    ]
-    .iter()
-    .any(|s| output.contains(s))
-    {
-        "The repository servers could not be reached. Try again later or check your mirror configuration."
-    } else {
-        UNKNOWN
-    }
+    operational_error::classify(output).map_or(UNKNOWN, |failure| failure.message())
 }
 pub fn authorized_error(code: i32, output: &str) -> bool {
     let output = output.to_lowercase();
@@ -627,8 +594,10 @@ impl Controller {
                 self.fail_check("The update check stopped unexpectedly.");
                 return;
             }
+            // A successful refresh may have replaced an unreadable old DB.
+            // The diagnostic-preserving probe below validates the new DB.
             if sync.exit_code != 0 {
-                if signing_key::contains_unknown_key_report(&output)
+                if operational_error::may_recover_key(&output)
                     && self.recover_check(&output, sync.exit_code)
                 {
                     continue;
@@ -636,6 +605,35 @@ impl Controller {
                 if !self.boolean("signingKeySecurityError") {
                     self.fail_check(friendly_error(&output));
                 }
+                return;
+            }
+            // checkupdates discards Pacman's stderr and maps an empty result
+            // to "no updates", even when a sync database could not be read.
+            // Read the same private database without suppressing diagnostics
+            // before accepting either its package list or its empty result.
+            let probe = self.execute(
+                PACMAN,
+                &["-Qu", "--dbpath", &db, "--color", "never", "--noconfirm"].map(String::from),
+                &environment,
+            );
+            let output = String::from_utf8_lossy(&probe.output);
+            if !probe.started || !probe.finished || probe.exit_code < 0 {
+                self.fail_check("The update check stopped unexpectedly.");
+                return;
+            }
+            if operational_error::may_recover_key(&output) {
+                if self.recover_check(&output, probe.exit_code) {
+                    continue;
+                }
+                return;
+            }
+            if operational_error::classify(&output).is_some()
+                || output
+                    .lines()
+                    .any(|line| line.trim_start().starts_with("error:"))
+                || !matches!(probe.exit_code, 0 | 1)
+            {
+                self.fail_check(friendly_error(&output));
                 return;
             }
             let query = self.execute(
@@ -652,7 +650,11 @@ impl Controller {
                 self.fail_check("The update check stopped unexpectedly.");
                 return;
             }
-            if query.exit_code != 0 && signing_key::contains_unknown_key_report(&output) {
+            if operational_error::database_unusable(&output) {
+                self.fail_check(friendly_error(&output));
+                return;
+            }
+            if query.exit_code != 0 && operational_error::may_recover_key(&output) {
                 if self.recover_check(&output, query.exit_code) {
                     continue;
                 }
@@ -690,6 +692,15 @@ impl Controller {
             let output = ansi
                 .replace_all(&String::from_utf8_lossy(&summary.output), "")
                 .into_owned();
+            if self.security_token(&output, true) {
+                return;
+            }
+            if summary.exit_code != 0 && !authorized_error(summary.exit_code, &output) {
+                if let Some(failure) = operational_error::classify(&output) {
+                    self.fail_check(failure.message());
+                    return;
+                }
+            }
             let mut packages = self.model["updatePackages"]
                 .as_array()
                 .cloned()
@@ -710,9 +721,6 @@ impl Controller {
             if let Some(m) = autoremove.captures(&output) {
                 self.pending_removed.push(m[1].into());
                 continue;
-            }
-            if self.security_token(&output, true) {
-                return;
             }
             if !summary.started {
                 self.fail_check("The privileged update check could not be started.");
@@ -1033,7 +1041,7 @@ impl Controller {
                     false,
                 );
             } else {
-                self.model["installError"]=json!(self.tr(match error {"DOWNLOAD_FAILED"|"DOWNLOAD_CONNECTION_FAILED"|"TRANSACTION_PREPARE_FAILED"=>"Connection failed while downloading updates. Check your network and try again.","INSTALL_FAILED"=>"The system update failed.",_=>"The update process could not be started."}));
+                self.model["installError"] = json!(self.tr(operational_error::message(error)));
             }
         } else if phase == "cancelled" {
             self.model["checkComplete"] = json!(true);
@@ -1176,8 +1184,34 @@ mod tests {
         );
         assert_eq!(
             friendly_error("failed to synchronize all databases"),
-            "The repository servers could not be reached. Try again later or check your mirror configuration."
+            UNKNOWN
         );
+    }
+    #[test]
+    fn operational_errors_stay_distinct_and_do_not_open_recovery() {
+        use operational_error::Failure;
+        for failure in [
+            Failure::Network,
+            Failure::Repository,
+            Failure::Storage,
+            Failure::Signature,
+            Failure::Database,
+            Failure::Archive,
+            Failure::Filesystem,
+            Failure::Locked,
+        ] {
+            let mut c = controller();
+            c.apply_install(&json!({"phase":"downloading", "total_download_bytes":1000,
+                "downloaded_bytes":100,"download_speed_bytes":100}));
+            c.apply_install(&json!({"phase":"failed", "error":failure.code()}));
+            assert_eq!(c.string("installError"), failure.message());
+            assert_eq!(c.string("downloadTimeRemaining"), "");
+            assert!(!c.boolean("signingKeySecurityError"));
+            assert!(!c.boolean("installationSuccessNotice"));
+            assert_eq!(c.string("recoveryDialogType"), "");
+            assert_eq!(c.string("recoveryActionState"), "");
+            assert_eq!(c.string("recoveryNotice"), "");
+        }
     }
     #[test]
     fn replacements_and_dependencies_are_listed_once() {
@@ -1392,11 +1426,10 @@ mod tests {
         assert!(!c.active());
         assert!(c.boolean("updatesAvailable"));
         assert!(!c.boolean("installationSuccessNotice"));
-        // Reuse the existing translated startup error; the diagnostic log
-        // records the exact logind failure without exposing raw D-Bus errors.
+        // Give a specific translated error without exposing raw D-Bus errors.
         assert_eq!(
             c.string("installError"),
-            "The update process could not be started."
+            operational_error::message("SLEEP_INHIBITOR_FAILED")
         );
     }
     #[test]

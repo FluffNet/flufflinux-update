@@ -283,6 +283,42 @@ msgstr "نسخ التفاصيل الفنية"
 msgid "Open an Issue on GitHub"
 msgstr "افتح مشكلة على جيثب"
 
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "لا توجد مساحة تخزين خالية كافية لمتابعة التحديث. حرّر بعض المساحة وحاول مجددًا."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "تعذّر التحقق من توقيع حزمة أو مستودع. أُوقف التحديث. تحقّق من تاريخ النظام وحلقة المفاتيح، ثم حاول مجددًا."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "قاعدة بيانات الحزم تالفة أو غير قابلة للقراءة. أُوقف التحديث. اطلب الدعم قبل إصلاح قاعدة البيانات."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "إحدى الحزم المنزّلة تالفة أو غير مكتملة. أُوقف التحديث. حاول مجددًا أو استخدم خادم مرآة آخر."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "تعذّرت قراءة الملفات المطلوبة للتحديث أو الكتابة إليها. تحقّق من أذونات نظام الملفات وسلامة القرص، ثم حاول مجددًا."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "تعذّر تنزيل التحديثات. حاول مجددًا أو اطلب الدعم."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "تعذّر تجهيز عملية التحديث. حاول مجددًا أو اطلب الدعم."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "تعذّر بدء التحديث لأن منع السكون لم يُفعّل. حاول مجددًا."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "تعذّر قفل قاعدة بيانات الحزم. أغلق مديري الحزم الآخرين وتحقّق من إمكانية الكتابة إلى نظام الملفات، ثم حاول مجددًا."
+
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "الوقت المقدر: %1"

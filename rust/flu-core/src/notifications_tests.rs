@@ -110,6 +110,31 @@ fn translated_eta_keeps_technical_duration_ltr() {
     );
 }
 
+#[test]
+fn every_error_message_is_supplied_to_the_notifier_translation_table() {
+    for code in [
+        "NETWORK_FAILED",
+        "REPOSITORY_UNAVAILABLE",
+        "INSUFFICIENT_STORAGE",
+        "SIGNATURE_INVALID",
+        "DATABASE_INVALID",
+        "PACKAGE_CORRUPTED",
+        "FILESYSTEM_ERROR",
+        "DATABASE_LOCKED",
+        "PACMAN_RUNNING",
+        "DOWNLOAD_FAILED",
+        "TRANSACTION_PREPARE_FAILED",
+        "SLEEP_INHIBITOR_FAILED",
+        "DOWNLOAD_CONNECTION_FAILED",
+        "SIGNING_KEY_VERIFICATION_FAILED",
+        "INSTALL_FAILED",
+        "UNKNOWN_STARTUP_FAILURE",
+    ] {
+        let message = crate::operational_error::message(code);
+        assert!(messages().any(|key| key == message), "{code}: {message}");
+    }
+}
+
 #[cfg(target_os = "linux")]
 mod wire {
     use super::*;
@@ -280,6 +305,25 @@ mod wire {
         failed["error"] = json!("DOWNLOAD_CONNECTION_FAILED");
         ui.finished(&client, &failed, &strings).unwrap();
         ui.clear_finished(&client).unwrap();
+        for failure in [
+            crate::operational_error::Failure::Storage,
+            crate::operational_error::Failure::Signature,
+            crate::operational_error::Failure::Database,
+            crate::operational_error::Failure::Archive,
+        ] {
+            failed["error"] = json!(failure.code());
+            let translated = format!("translated: {}", failure.message());
+            let strings = Strings::from([(failure.message().into(), translated.clone())]);
+            ui.finished(&client, &failed, &strings).unwrap();
+            ui.clear_finished(&client).unwrap();
+            assert!(
+                calls
+                    .lock()
+                    .unwrap()
+                    .contains(&format!("notice:{translated}"))
+            );
+            assert!(super::messages().any(|message| message == failure.message()));
+        }
         for _ in 0..100 {
             if calls
                 .lock()
@@ -296,7 +340,7 @@ mod wire {
         assert_eq!(result.iter().filter(|s| *s == "detach").count(), 2);
         assert_eq!(
             result.iter().filter(|s| s.starts_with("notice:")).count(),
-            2
+            6
         );
         assert!(
             result
@@ -318,7 +362,7 @@ mod wire {
                 .iter()
                 .any(|s| s == "status-icon:flufflinux-update-error")
         );
-        assert_eq!(result.iter().filter(|s| *s == "close-notice").count(), 2);
+        assert_eq!(result.iter().filter(|s| *s == "close-notice").count(), 6);
         assert_eq!(result.last().unwrap(), "close-notice");
         _service.release_name(SERVICE).unwrap();
         assert!(!owns_service(&_service));

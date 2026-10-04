@@ -321,8 +321,7 @@ impl cxx_qt::Initialize for ffi::UpdateBackend {
             })
             .unwrap_or_default();
         ffi::initialize_locale(&languages);
-        let strings = notifications::MESSAGES
-            .iter()
+        let strings = notifications::messages()
             .map(|message| {
                 let arguments = if message.contains("%2") {
                     vec!["%1".into(), "%2".into()]
@@ -331,10 +330,7 @@ impl cxx_qt::Initialize for ffi::UpdateBackend {
                 } else {
                     vec![]
                 };
-                (
-                    (*message).into(),
-                    ffi::translate(message, "", -1, &arguments),
-                )
+                (message.into(), ffi::translate(message, "", -1, &arguments))
             })
             .collect();
         notifications::watch_panel(

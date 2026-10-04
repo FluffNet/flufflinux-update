@@ -62,8 +62,8 @@ shutdown and low-level hardware-key handling are not inhibited. A forced
 administrator override or power loss cannot be prevented by an inhibitor.
 
 If logind inhibition cannot be acquired, the worker publishes
-`SLEEP_INHIBITOR_FAILED` and does not start Pacman. The UI uses the existing
-localized startup-error message and permits retry; the diagnostic log records
+`SLEEP_INHIBITOR_FAILED` and does not start Pacman. The UI uses a specific
+localized sleep-prevention error and permits retry; the diagnostic log records
 the D-Bus error. The D-Bus method has a five-second timeout. The Cargo lockfile
 pins the Rust D-Bus implementation to an MSRV-compatible version.
 
@@ -77,6 +77,46 @@ Two safety checks were strengthened during the migration:
 - File-conflict recovery checks Pacman ownership before preserving a file.
   Package-owned files and inconclusive ownership checks stop the update;
   only explicitly unowned files may be renamed without overwriting anything.
+
+## Operational failures
+
+The checker, privileged worker and session notifier share the Rust operational
+error classifier. Network failures, unavailable mirrors, insufficient storage,
+invalid signatures, damaged/unreadable databases, corrupt package archives,
+filesystem failures and database locks remain separate from package conflicts.
+Generic preparation/download failures do not imply a network outage. All new
+messages are translated in the 27 supported catalogs, with Hebrew reviewed by
+the user. The panel and background notification use the same message mapping.
+
+Classification prefers a specific cause over Pacman's generic transaction or
+download wrapper. An invalid database **signature** is a signature error, not
+database corruption; a failed local write is not a failed mirror. If libcurl
+hides ENOSPC behind a write failure, the worker checks the download cache's
+available blocks/inodes before reporting exhausted storage.
+
+Pacman can also print an unreadable database error, skip that repository and
+exit zero with "there is nothing to do". Explicit fatal database diagnostics
+override that status in checking, planning and all worker phases. After a
+refresh, the worker first validates the current database: a healthy replacement
+must not be rejected because the old database was unreadable. Ordinary
+mirror errors do not override a successful exit: Pacman can legitimately
+recover through another mirror within the same command.
+Because `checkupdates` suppresses Pacman's stderr, FLU first performs a read-only
+query of the same private check database with diagnostics retained. This prevents
+both a partial list and an empty list from hiding an unreadable repository.
+
+When Pacman reports only "unable to lock database", FLU does not assert that
+another process exists: read-only filesystems can produce the same diagnostic.
+The message covers competing package managers and filesystem write access.
+
+Operational failures stop without removing packages, renaming conflicting files,
+disabling signature checking, or automatically rebuilding databases. Dependency
+recovery requires an actual Pacman dependency diagnostic, not an unrelated
+"required by" phrase. Mixed operational/removal diagnostics fail closed. Existing
+explicitly scoped FluffNet unknown-key verification remains available; unrelated
+storage or I/O failures do not initiate key import. Detailed worker output remains
+in `/etc/pacman.d/flufflinux-update.log`; the user-facing messages do not direct
+users to a nonexistent log-viewer button.
 
 ## Low system-power warning
 
@@ -209,12 +249,43 @@ The isolated Pacman fixture covers:
     termination and successful retry, and fail-closed startup when the system
     bus is unavailable. Cancellation and every terminal worker scenario check
     that no FLU inhibitor remains.
+13. Refused network connections, invalid package signatures, an exhausted
+    download cache, insufficient installation space, unreadable repository
+    databases, corrupted archives and read-only database storage.
+14. Mixed operational/conflict diagnostics that must never invoke removal,
+    and successful fallback after the first mirror refuses a connection.
 
 All 17 named scenarios passed again on the system-power-warning build; the three policy classifications are separate
 scenarios for both dependency and direct package conflicts. The fixture creates
 a private mount/PID namespace and a repository of disposable packages. Its
 temporary service and authorization launchers exist only inside that namespace.
 All package operations use the compiled production helper and worker.
+
+The operational-error build passed all 26 named Pacman scenarios on 4 October
+2026, including both real full-filesystem cases, the corrupt-database exit-zero
+case, successful mirror fallback and a complete normal update afterwards.
+The fixture disables HTTP timestamp caching because several distinct test
+repositories can be generated within the same second. This is test-server
+behavior only, not a production mirror/download change.
+
+The same build passed 50 Linux Rust tests (48 on the development host), all six
+CTest suites with the Qt offscreen platform, formatting and Clippy checks, and
+compiled lookups for all 25 notification messages in every supported locale.
+The additional notification test ensures each error code's message is included
+in the translated string table passed from the panel to the session notifier.
+
+Native regular-user KDE captures use the release plugin and real Pacman
+failures in the same disposable namespace, with the newly built catalog
+overlaid at its installation path. No failure is injected into the shipped UI:
+
+- [Network failure](screenshots/1.5-error-network.png)
+- [Signature verification failure](screenshots/1.5-error-signature.png)
+- [Insufficient storage](screenshots/1.5-error-storage.png)
+- [Unreadable database](screenshots/1.5-error-database.png)
+- [Corrupt package archive](screenshots/1.5-error-archive.png)
+- [Database lock failure on read-only storage](screenshots/1.5-error-filesystem.png)
+- [Signature failure in the background notification](screenshots/1.5-error-signature-notification.png)
+- [Approved Hebrew storage message](screenshots/1.5-error-storage-hebrew.png)
 
 The final package was installed and launched through the normal Plasma session.
 Its installed plugin, helper and worker hashes match the tested build. Native
