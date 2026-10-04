@@ -66,12 +66,16 @@ pub fn download_time_remaining(state: &Value) -> Option<String> {
         return None;
     }
     let seconds = (total - received).div_ceil(speed);
-    Some(format!(
-        "{}:{:02}:{:02}",
-        seconds / 3600,
-        seconds / 60 % 60,
-        seconds % 60
-    ))
+    Some(if seconds < 3600 {
+        format!("{}:{:02}", seconds / 60, seconds % 60)
+    } else {
+        format!(
+            "{}:{:02}:{:02}",
+            seconds / 3600,
+            seconds / 60 % 60,
+            seconds % 60
+        )
+    })
 }
 pub fn friendly_error(output: &str) -> &'static str {
     let output = output.to_lowercase();
@@ -1213,12 +1217,17 @@ mod tests {
         assert!(!c.boolean("installationSuccessNotice"));
     }
     #[test]
-    fn download_estimate_rounds_up_and_formats_hours_minutes_seconds() {
+    fn download_estimate_rounds_up_and_only_shows_hours_when_needed() {
         for (remaining, speed, expected) in [
-            (1, 1000, "0:00:01"),
-            (60, 1, "0:01:00"),
-            (601, 10, "0:01:01"),
+            (1, 1000, "0:01"),
+            (36, 1, "0:36"),
+            (60, 1, "1:00"),
+            (601, 10, "1:01"),
+            (96, 1, "1:36"),
+            (3599, 1, "59:59"),
+            (3600, 1, "1:00:00"),
             (3601, 1, "1:00:01"),
+            (3696, 1, "1:01:36"),
             (90061, 1, "25:01:01"),
         ] {
             assert_eq!(
@@ -1258,10 +1267,10 @@ mod tests {
             "downloaded_bytes":375, "download_speed_bytes":125});
         // Reopening mid-download immediately derives the current estimate.
         c.apply_install(&state);
-        assert_eq!(c.string("downloadTimeRemaining"), "0:00:05");
+        assert_eq!(c.string("downloadTimeRemaining"), "0:05");
         state["downloaded_bytes"] = json!(750);
         c.apply_install(&state);
-        assert_eq!(c.string("downloadTimeRemaining"), "0:00:02");
+        assert_eq!(c.string("downloadTimeRemaining"), "0:02");
         state["download_speed_bytes"] = json!(0);
         c.apply_install(&state);
         assert_eq!(c.string("downloadTimeRemaining"), "");
@@ -1269,14 +1278,14 @@ mod tests {
         for phase in ["starting", "installing", "complete", "failed", "cancelled"] {
             state["phase"] = json!("downloading");
             c.apply_install(&state);
-            assert_eq!(c.string("downloadTimeRemaining"), "0:00:02");
+            assert_eq!(c.string("downloadTimeRemaining"), "0:02");
             // Even if the worker retains old byte/speed fields, the ETA clears.
             state["phase"] = json!(phase);
             c.apply_install(&state);
             assert_eq!(c.string("downloadTimeRemaining"), "", "{phase}");
         }
         // Direct controller transitions must not publish stale estimates.
-        c.model["downloadTimeRemaining"] = json!("0:00:02");
+        c.model["downloadTimeRemaining"] = json!("0:02");
         c.model["installPhase"] = json!("idle");
         c.emit();
         assert_eq!(c.string("downloadTimeRemaining"), "");

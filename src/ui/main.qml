@@ -82,7 +82,7 @@ KCMUtils.SimpleKCM {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
             text: i18nd("kcm_fluffupdates", "Keep Fluff Linux secure and up to date by installing system updates.")
-            color: Kirigami.Theme.disabledTextColor
+            color: Kirigami.Theme.textColor
         }
 
         Kirigami.Card {
@@ -428,6 +428,7 @@ KCMUtils.SimpleKCM {
                 }
 
                 Controls.Button {
+                    Layout.topMargin: Kirigami.Units.smallSpacing
                     visible: backend.installPhase === "downloading"
                     text: i18nd("kcm_fluffupdates", "Cancel")
                     icon.name: "dialog-cancel"

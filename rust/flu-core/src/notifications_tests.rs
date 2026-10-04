@@ -74,9 +74,7 @@ fn download_matches_qml_and_estimates_only_with_real_speed() {
     assert_eq!(u64::try_from(&properties["processedBytes"]).unwrap(), 375);
     assert_eq!(u64::try_from(&properties["speed"]).unwrap(), 125);
     let body = <&str>::try_from(&properties["infoMessage"]).unwrap();
-    assert!(
-        body.contains("125 B/s") && body.contains("<br/>Estimated time: \u{2066}0:00:05\u{2069}")
-    );
+    assert!(body.contains("125 B/s") && body.contains("<br/>Estimated time: \u{2066}0:05\u{2069}"));
     assert!(body.contains(&download_time_remaining(&data).unwrap()));
     data["download_speed_bytes"] = json!(0);
     let properties = progress_properties(&data, &Strings::new());
@@ -108,7 +106,7 @@ fn translated_eta_keeps_technical_duration_ltr() {
     assert!(
         <&str>::try_from(&properties["infoMessage"])
             .unwrap()
-            .contains("<br/>זמן משוער: \u{2066}0:00:05\u{2069}")
+            .contains("<br/>זמן משוער: \u{2066}0:05\u{2069}")
     );
 }
 

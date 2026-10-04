@@ -341,6 +341,6 @@ msgstr "Ikkopja Dettalji Tekniċi"
 msgid "Open an Issue on GitHub"
 msgstr "Iftaħ Kwistjoni fuq GitHub"
 
-#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Ħin stmat: %1"

@@ -37,14 +37,14 @@ private Q_SLOTS:
         QVERIFY(!label->isVisible());
         backend->setProperty("installPhase", QStringLiteral("downloading"));
         QVERIFY(!label->isVisible());
-        backend->setProperty("downloadTimeRemaining", QStringLiteral("0:00:05"));
+        backend->setProperty("downloadTimeRemaining", QStringLiteral("0:05"));
         QTRY_VERIFY(label->isVisible());
-        QCOMPARE(label->property("text").toString(), QStringLiteral("Estimated time: \u20660:00:05\u2069"));
-        backend->setProperty("downloadTimeRemaining", QStringLiteral("0:00:02"));
-        QCOMPARE(label->property("text").toString(), QStringLiteral("Estimated time: \u20660:00:02\u2069"));
+        QCOMPARE(label->property("text").toString(), QStringLiteral("Estimated time: \u20660:05\u2069"));
+        backend->setProperty("downloadTimeRemaining", QStringLiteral("0:02"));
+        QCOMPARE(label->property("text").toString(), QStringLiteral("Estimated time: \u20660:02\u2069"));
         backend->setProperty("downloadTimeRemaining", QString());
         QTRY_VERIFY(!label->isVisible());
-        backend->setProperty("downloadTimeRemaining", QStringLiteral("0:00:02"));
+        backend->setProperty("downloadTimeRemaining", QStringLiteral("0:02"));
         for (const auto *phase : {"starting", "installing", "complete", "failed", "cancelled"}) {
             backend->setProperty("installPhase", QString::fromLatin1(phase));
             QTRY_VERIFY(!label->isVisible());

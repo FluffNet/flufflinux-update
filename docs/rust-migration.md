@@ -292,7 +292,8 @@ replace it, and loss of ownership ends an old observer instead of leaving it
 running without the panel's visibility/translation state.
 
 Downloading uses the same per-phase percent, byte counts and speed as QML.
-The moving speed estimate supplies an `Estimated time: H:MM:SS` second line;
+The moving speed estimate supplies an `Estimated time: M:SS` second line
+(`H:MM:SS` only when at least one hour remains);
 the same line appears underneath the total and speed inside FLU. Both surfaces
 call one shared Rust calculation, rounding remaining bytes/rate up to the next
 second. It is omitted until a nonzero speed and remaining bytes are available.
@@ -343,6 +344,11 @@ The in-app ETA follow-up repeats all suites and workflow scenarios; its native
 [download capture](screenshots/1.5-download-estimate.png) shows the new second
 line. The subsequent installation screen was checked to contain no download
 estimate. All four disposable packages completed successfully.
+The compact-format follow-up reruns the 43 Linux Rust tests and six CTest
+suites, including the exact `0:36`, `1:36`, and `1:01:36` examples and hour
+boundary. Updated native captures show the compact estimate in both surfaces,
+normal theme foreground for the introductory text, and extra space above
+Cancel; the disposable update again completed all four packages.
 
 ## Reproducing validation
 

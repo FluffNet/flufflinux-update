@@ -333,6 +333,6 @@ msgstr "Копиране на техническите подробности"
 msgid "Open an Issue on GitHub"
 msgstr "Отворете проблем в GitHub"
 
-#. Download ETA in the background notification. %1 is an isolated H:MM:SS duration.
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Очаквано време: %1"
