@@ -104,7 +104,7 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | The official FluffNet repository signing key was verified and added to Pacman. | Temporary notice after the verified certificate is imported successfully. |
 
 The panel name and description shown in the System Settings search results also
-have translations in `src/kcm_fluffupdates.json`. The application-menu entry is
+have translations in `src/kcm_flu.json`. The application-menu entry is
 translated in `src/org.flufflinux.update.desktop`. When adding a production
 translation, add matching locale entries to both metadata files, where `xx` is
 the same language code used by the PO catalog.

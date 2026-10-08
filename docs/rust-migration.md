@@ -16,11 +16,15 @@ verification and security diagnostics are implemented in Rust.
 - `src/ui/main.qml`: the existing interface. Bindings now reference the Rust
   backend; layout, controls and Close focus are retained. Kirigami handles wheel
   and touchpad scrolling; native Flickable touchscreen gestures remain enabled.
-- `src/fluffupdates.*` and `src/nativeqt.*`: small native KDE plugin and Qt
+- `src/flufflinuxupdate.*` and `src/nativeqt.*`: small native KDE plugin and Qt
   interoperation adapters for host windows, translation, clipboard, URLs and
   network information. They contain no update or signing-key decisions.
 - `rust/flu-test-bridge` and `tests/support`: regression-test adapters only.
   They are not linked into the shipped plugin or installed package.
+
+The four Qt integration suites in `tests/*.cpp` remain C++/Qt Test code.
+Rust core tests and Python packaging/workflow harnesses complement them.
+The application-backend migration did not port every development test to Rust.
 
 The superseded C++ controller, helper, worker and security implementation have
 been removed. CMake builds the Cargo workspace and stages the normal package.
