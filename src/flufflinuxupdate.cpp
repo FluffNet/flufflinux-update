@@ -1,4 +1,4 @@
-#include "fluffupdates.h"
+#include "flufflinuxupdate.h"
 #include "flu_bridge/src/backend.cxxqt.h"
 
 #include <KPluginFactory>
@@ -8,7 +8,7 @@
 #include <QTimer>
 #include <QWidget>
 
-K_PLUGIN_CLASS_WITH_JSON(FluffUpdates, "kcm_fluffupdates.json")
+K_PLUGIN_CLASS_WITH_JSON(FluffUpdates, "kcm_flu.json")
 
 FluffUpdates::FluffUpdates(QObject *parent, const KPluginMetaData &data)
     : KQuickConfigModule(parent, data)
@@ -67,4 +67,4 @@ QObject *FluffUpdates::backend() const
     return m_backend;
 }
 
-#include "fluffupdates.moc"
+#include "flufflinuxupdate.moc"
