@@ -460,6 +460,29 @@ audited across the whole package rather than suppressed or removed per binary.
 QML scrolling and touchscreen behavior were not changed in this cleanup. Input
 regressions were automated; physical-device feel was not re-evaluated.
 
+### Download estimate correction, package 1.5-2
+
+Download speed now divides bytes received by the actual monotonic elapsed time
+across the latest three samples. Polling remains approximately once per second;
+the smoothing window is still three samples. This preserves the old calculation
+at exact one-second intervals without inflating speed when a polling tick runs
+late. The panel and native Plasma notification continue to share the same
+remaining-bytes/rate estimate and compact time formatting.
+
+Already cached bytes do not contribute to speed, each recovery retry starts a
+new measurement window, and a sustained stall clears the estimate after three
+zero-progress samples. No dependencies, translations, or QML behavior change.
+Eight deterministic regressions cover irregular/fractional timing, weighted
+smoothing, window rollover, cache/retry baselines, invalid time observations,
+stalls, bounded arithmetic, and the shared panel/notification estimate.
+
+Validation on 2026-10-08 passed with Qt 6.11.2, Rust 1.99.0 and CMake 4.4.4:
+60 workspace Rust tests, workspace Clippy with warnings denied, all seven
+CTest suites, and all 26 isolated real-Pacman workflows. The full Release build
+and `make fakeroot` succeeded with refreshed 1.5-2 package metadata. Host-side
+Rust tests, Clippy, packaging tests and all 27 compiled translation catalogs
+also passed. Pacman scenarios used private test databases and package caches.
+
 ### Commands
 
 See the commands in the README. Build with `BUILD_TESTING=ON` for the Qt tests;
