@@ -1,6 +1,11 @@
 # Local build and packaging output
 /build/
 /fakeroot/
+/.fakeroot-stage-*/
+/.fakeroot-previous-*/
+/target/
+/build-tests/
+/build-full/
 
 # Generated archives and editor files
 /*.zip

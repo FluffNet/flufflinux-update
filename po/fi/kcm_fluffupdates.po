@@ -106,9 +106,9 @@ msgstr "%1/%2-päivitykset asennettu"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Päivityksiä asennetaan parhaillaan. Älä sammuta tai käynnistä tietokonetta uudelleen, kunnes asennus on valmis. Päivityksen keskeyttäminen voi vahingoittaa järjestelmätiedostoja."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Akku on vähissä. Liitä tietokoneesi ennen päivitysten asentamista."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Akun varaustaso on alhainen. Liitä tietokone laturiin päivitysten asentamisen ajaksi."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
@@ -332,3 +332,43 @@ msgstr "Kopioi tekniset tiedot"
 
 msgid "Open an Issue on GitHub"
 msgstr "Avaa ongelma GitHubissa"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Vapaata tallennustilaa ei ole riittävästi päivityksen jatkamiseen. Vapauta tilaa ja yritä uudelleen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Paketin tai pakettivaraston allekirjoitusta ei voitu vahvistaa. Päivitys keskeytettiin. Tarkista järjestelmän päivämäärä ja avainrengas ja yritä uudelleen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Pakettitietokanta on vioittunut tai sitä ei voida lukea. Päivitys keskeytettiin. Pyydä tukea ennen tietokannan korjaamista."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Ladattu paketti on vioittunut tai puutteellinen. Päivitys keskeytettiin. Yritä uudelleen tai käytä toista peilipalvelinta."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Päivityksen tarvitsemia tiedostoja ei voitu lukea tai kirjoittaa. Tarkista tiedostojärjestelmän käyttöoikeudet ja levyn kunto ja yritä uudelleen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Päivityksiä ei voitu ladata. Yritä uudelleen tai pyydä tukea."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Päivitystapahtumaa ei voitu valmistella. Yritä uudelleen tai pyydä tukea."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Päivitystä ei voitu aloittaa, koska lepotilan estoa ei voitu ottaa käyttöön. Yritä uudelleen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Pakettitietokantaa ei voitu lukita. Sulje muut paketinhallintaohjelmat ja varmista, että tiedostojärjestelmään voi kirjoittaa. Yritä sitten uudelleen."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Arvioitu aika: %1"

@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.flufflinux.Update.Notifications
+Exec=/usr/lib/flufflinux-update/flufflinux-update-notifier

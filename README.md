@@ -12,8 +12,14 @@ menu, and keeps manual system updates clear and approachable.
 - Show the total download size and expected storage change.
 - Preview every package and its old and new version before installation.
 - Install updates through polkit using `pacman -Syu --noconfirm`.
-- Show live download size, speed, installation progress, and completion.
+- Show live download size, speed, estimated remaining time, installation progress,
+  and completion.
 - Continue an update in the background if the panel is closed.
+- Prevent normal system sleep/hibernation throughout downloading and installing
+  updates, even with the panel closed; release the protection when the worker ends.
+- Show native Plasma download/install progress, completion and errors when the FLU
+  panel is closed or another System Settings module is selected; hide it when
+  FLU is reopened. Downloads include speed and an estimated remaining time.
 - Reconnect to an update already in progress when the panel is opened again.
 - Detect another running pacman process and handle a stale database lock.
 - Protect important packages when an update proposes removing them, ask before
@@ -22,7 +28,7 @@ menu, and keeps manual system updates clear and approachable.
 - Preserve unmanaged files that conflict with an update, then restart the
   interrupted installation automatically.
 - Allow downloads to be cancelled while protecting the installation phase.
-- Warn laptop users when the system battery is low.
+- Warn when a system battery or UPS is low and discharging; ignore accessory batteries.
 - Read the last successful update time from
   `/etc/pacman.d/lastupdate.json`.
 - Follow the Plasma theme, scale with the window, and support RTL layouts.
@@ -48,12 +54,42 @@ currently English only while their wording and behavior are being reviewed.
 Install the build requirements:
 
 ```sh
-sudo pacman -S --needed base-devel cmake extra-cmake-modules \
+sudo pacman -S --needed base-devel rust cmake git gettext extra-cmake-modules \
     qt6-declarative kcmutils ki18n kcoreaddons kirigami \
-    pacman-contrib polkit
+    pacman-contrib polkit upower
 ```
 
-Configure and compile:
+Build and stage the package in one command (run as your normal user):
+
+```sh
+make fakeroot
+```
+
+This configures a Release build in `build/`, compiles the Rust backend and KDE
+plugin, and creates a fresh `fakeroot/` containing the complete package filesystem
+and **`fakeroot/.PKGINFO`**. No `sudo` or separate `fakeroot` utility is needed.
+It does not install FLU onto the build machine or create a package archive.
+
+To choose a build directory or increase parallel compilation:
+
+```sh
+make fakeroot BUILD_DIR=build-package JOBS=4
+```
+
+The default is two parallel build jobs. `make` (or `make build`) compiles without
+staging. Keep the build directory outside `fakeroot/`.
+The build directory does not need to exist. Preflight validation is read-only
+and checks existing parent directories for unsafe symlinks before configuring.
+
+The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
+newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
+locked Cargo dependencies and the pinned CXX-Qt CMake integration. CMake builds
+the Rust desktop backend, privileged helper, background worker and user-session
+notifier automatically;
+no separate Cargo build is needed for packaging. See the architecture and
+validation record in [`docs/rust-migration.md`](docs/rust-migration.md).
+
+For manual configuration and compilation instead:
 
 ```sh
 cmake -S . -B build \
@@ -63,29 +99,35 @@ cmake -S . -B build \
 cmake --build build
 ```
 
-If an older copy was built in the same directory, remove `build/` and
-`fakeroot/` first. The
-QML interface is embedded in the compiled KCM, so an old build directory can
-retain outdated resources and cached non-Arch installation paths.
+The QML interface is embedded in the compiled KCM. Always rebuild after changing
+QML. If reusing a build directory from an older release or different CMake
+generator causes configuration problems, select a fresh `BUILD_DIR`.
 
 ## Stage for packaging
 
 Fluff Linux packages are assembled from a fakeroot instead of being installed
-directly onto the build machine:
+directly onto the build machine.
 
-```sh
-# fakeroot/ becomes the package filesystem and can be passed to the Fluff Linux packaging tools.
-DESTDIR="$PWD/fakeroot/" cmake --install build
-```
+Use `make fakeroot` above to compile and stage everything together. The directory
+can then be passed to the Fluff Linux packaging tools. The maintained `.PKGINFO`
+at the project root supplies the package version, architecture and dependencies.
+Staging copies it and refreshes `builddate` and `size` from the new build, without
+modifying the source template. `SOURCE_DATE_EPOCH`, when set, supplies the build
+timestamp for reproducible packaging.
 
-Everything that belongs in the package will now be under `fakeroot/`, beginning
-with `fakeroot/usr/`. The package-removal policy is staged separately at
+Everything that belongs in the package is under `fakeroot/`, including the
+hidden `.PKGINFO` file and `fakeroot/usr/`. The package-removal policy is staged at
 `fakeroot/etc/pacman.d/flufflinux-update-package-protection.json`. This
 directory is only a packaging workspace; it is not a
 privileged chroot and staging into it does not modify the host system.
 
-Use a clean `fakeroot/` for each package build so files removed in a newer
-version cannot remain in the finished package.
+Each successful run replaces the previous `fakeroot/`, so obsolete files cannot
+remain in the new package. A failed configure, compile or install leaves the
+previous staging tree intact. Keep personal files outside this generated folder.
+
+The lower-level `DESTDIR="$PWD/fakeroot" cmake --install build` command still
+works, but it neither refreshes `.PKGINFO` nor cleans old staging files; prefer
+`make fakeroot` for packaging.
 
 ## Test locally
 
@@ -171,14 +213,58 @@ recovery still requires working HTTPS, compatible GnuPG/Pacman tooling, an
 initialized Pacman keyring, and the current 40-character OpenPGP v4 fingerprint
 format.
 
-The isolated signing-key tests use disposable OpenPGP keys and mocked
-fingerprint endpoint, certificate endpoint, and Pacman-key operations:
+The regression suite exercises signing-key recovery through the production
+Rust bridge using disposable OpenPGP keys and mocked HTTPS/Pacman-key
+operations. It also checks Rust-backed Qt state, the unchanged QML scrolling
+calculations, and AppStream metadata:
 
 ```sh
 cmake -S . -B build-tests -DBUILD_TESTING=ON
 cmake --build build-tests
 ctest --test-dir build-tests --output-on-failure
+cargo fmt --all --check
+cargo test --locked -p flu-core -p flu-service
+cargo clippy --locked --workspace --all-targets -- -D warnings
 ```
+
+For a headless test session, prefix the `ctest` command with
+`QT_QPA_PLATFORM=offscreen`. The packaging tests exercise fresh builds, paths
+with spaces, symlinks, metadata, repeat staging and failure preservation; they
+also reject CMake developer warnings. They can run without Qt or KDE installed:
+
+```sh
+python3 tests/fakeroot_packaging.py --source .
+```
+
+`flu-service` has three binaries sharing one dependency list, so a crate used
+by the worker can be unused by the helper without being an unused dependency.
+The Qt regression adapter also retains runtime linkage imports required by
+the generated CXX-Qt initializer. Audit these across their consumers before
+removing them; the lockfile also includes dependencies needed by other crates.
+
+The real Pacman workflow tests are separate because they require root and Linux
+mount/PID namespaces. Run them only on a disposable development VM with Python
+3, util-linux, pacman, `repo-add`, and a running systemd-logind/system bus available:
+
+```sh
+cargo build --locked --release -p flu-core --example controller-regression
+sudo python3 tests/pacman_workflows.py \
+    --helper "$PWD/build-tests/bin/flufflinux-update-helper" \
+    --worker "$PWD/build-tests/bin/flufflinux-update-worker" \
+    --controller "$PWD/target/release/examples/controller-regression" \
+    --parent "$PWD" --output "$PWD/pacman-workflows-results.json"
+```
+
+The runner binds fresh databases, cache, configuration and state directories
+inside a private namespace. Its unsigned local repository contains only
+synthetic packages. The compiled production helper/worker are unchanged;
+`systemctl` is substituted inside that namespace to start and stop the real
+worker, and the already-root controller test uses a namespace-local polkit
+launcher. Nothing from this fixture is installed into the FLU package.
+Sleep-inhibitor checks query the VM's real logind and temporarily inhibit sleep
+while the isolated worker is running. Do not run another FLU update concurrently.
+See the [1.5 validation record](docs/rust-migration.md#validation-record) for
+tested behavior and remaining checks.
 
 The existing `lastupdate` hook provides this field:
 

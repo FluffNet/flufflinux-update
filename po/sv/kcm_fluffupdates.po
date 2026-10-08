@@ -82,8 +82,8 @@ msgstr "%1/%2 uppdateringar installerade"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Uppdateringar installeras för närvarande. Undvik att stänga av eller starta om datorn tills installationen är klar. Om uppdateringen avbryts kan systemfiler skadas."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Batterinivån är låg. Anslut datorn till ström innan du installerar uppdateringar."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batterinivån är låg. Anslut datorn till en laddare medan uppdateringar installeras."
 
 msgid "Update process was cancelled"
 msgstr "Uppdateringsprocessen avbröts"
@@ -266,3 +266,43 @@ msgstr "Kopiera tekniska detaljer"
 
 msgid "Open an Issue on GitHub"
 msgstr "Öppna ett problem på GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Det finns inte tillräckligt med ledigt lagringsutrymme för att fortsätta uppdateringen. Frigör utrymme och försök igen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "En paket- eller arkivsignatur kunde inte verifieras. Uppdateringen stoppades. Kontrollera systemets datum och nyckelring och försök igen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Paketdatabasen är skadad eller oläsbar. Uppdateringen stoppades. Sök hjälp innan du reparerar databasen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Ett hämtat paket är skadat eller ofullständigt. Uppdateringen stoppades. Försök igen eller använd en annan spegelserver."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Filer som krävs för uppdateringen kunde inte läsas eller skrivas. Kontrollera filsystemets behörigheter och diskens hälsa och försök igen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Uppdateringarna kunde inte hämtas. Försök igen eller sök hjälp."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Uppdateringstransaktionen kunde inte förberedas. Försök igen eller sök hjälp."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Uppdateringen kunde inte starta eftersom förhindrande av viloläge inte kunde aktiveras. Försök igen."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Paketdatabasen kunde inte låsas. Stäng andra pakethanterare och kontrollera att filsystemet är skrivbart. Försök sedan igen."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Uppskattad tid: %1"

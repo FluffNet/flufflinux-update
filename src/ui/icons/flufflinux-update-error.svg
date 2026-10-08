@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- FLU's existing #d71920 status circle and Qt-rendered cross glyph. -->
+  <circle cx="32" cy="32" r="32" fill="#d71920"/>
+  <path fill="white" d="M38.0234 23.1719 L42.2578 27.2656 L36.1016 33.4375 L42.1641 39.5469 L38.0234 43.6875 L31.8672 37.625 L25.7891 43.6406 L21.7422 39.4531 L27.6797 33.4375 L21.6953 27.4063 L25.7891 23.1719 L31.8672 29.1563 L38.0234 23.1719 Z"/>
+</svg>

@@ -1,4 +1,5 @@
 #pragma once
+// Test adapter for the Rust signing-key implementation.
 
 #include <QByteArray>
 #include <QString>
@@ -54,9 +55,6 @@ public:
     static qsizetype signingKeyImportPromptEnd(const QString &pacmanOutput);
 
 private:
-    SigningKeyCommandResult run(const QString &program,
-                                const QStringList &arguments) const;
-
     SigningKeyRecoveryConfig m_config;
     Fetcher m_fingerprintFetcher;
     Fetcher m_certificateFetcher;

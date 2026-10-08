@@ -82,8 +82,8 @@ msgstr "%1/%2 actualizaciones instaladas"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Se están instalando actualizaciones. Evite apagar o reiniciar el equipo hasta que finalice la instalación. Interrumpir la actualización puede dañar archivos del sistema."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "La batería está baja. Conecte el equipo a la corriente antes de instalar actualizaciones."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "La batería está baja. Conecte el equipo a un cargador mientras se instalan las actualizaciones."
 
 msgid "Update process was cancelled"
 msgstr "El proceso de actualización fue cancelado"
@@ -266,3 +266,43 @@ msgstr "Copiar detalles técnicos"
 
 msgid "Open an Issue on GitHub"
 msgstr "Abrir una incidencia en GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "No hay suficiente espacio libre para continuar la actualización. Libere espacio e inténtelo de nuevo."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "No se pudo verificar la firma de un paquete o repositorio. Se detuvo la actualización. Compruebe la fecha del sistema y el llavero e inténtelo de nuevo."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "La base de datos de paquetes está dañada o no se puede leer. Se detuvo la actualización. Solicite ayuda antes de reparar la base de datos."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Un paquete descargado está dañado o incompleto. Se detuvo la actualización. Inténtelo de nuevo o utilice otro servidor espejo."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "No se pudieron leer o escribir archivos necesarios para la actualización. Compruebe los permisos del sistema de archivos y el estado del disco e inténtelo de nuevo."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "No se pudieron descargar las actualizaciones. Inténtelo de nuevo o solicite ayuda."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "No se pudo preparar la operación de actualización. Inténtelo de nuevo o solicite ayuda."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "No se pudo iniciar la actualización porque no se pudo activar el bloqueo de la suspensión. Inténtelo de nuevo."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "No se pudo bloquear la base de datos de paquetes. Cierre otros gestores de paquetes y compruebe que el sistema de archivos permite la escritura; después, inténtelo de nuevo."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Tiempo estimado: %1"

@@ -82,8 +82,8 @@ msgstr "Установлено обновлений: %1/%2"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Сейчас устанавливаются обновления. Не выключайте и не перезагружайте компьютер до завершения установки. Прерывание обновления может повредить системные файлы."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Низкий заряд аккумулятора. Подключите компьютер к питанию перед установкой обновлений."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Низкий заряд аккумулятора. Подключите компьютер к зарядному устройству на время установки обновлений."
 
 msgid "Update process was cancelled"
 msgstr "Процесс обновления отменён"
@@ -270,3 +270,43 @@ msgstr "Копировать технические детали"
 
 msgid "Open an Issue on GitHub"
 msgstr "Откройте проблему на GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Недостаточно свободного места для продолжения обновления. Освободите место и повторите попытку."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Не удалось проверить подпись пакета или репозитория. Обновление остановлено. Проверьте системную дату и набор ключей, затем повторите попытку."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "База данных пакетов повреждена или недоступна для чтения. Обновление остановлено. Обратитесь за поддержкой перед восстановлением базы данных."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Загруженный пакет повреждён или неполон. Обновление остановлено. Повторите попытку или используйте другое зеркало."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Не удалось прочитать или записать файлы, необходимые для обновления. Проверьте права доступа к файловой системе и состояние диска, затем повторите попытку."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Не удалось загрузить обновления. Повторите попытку или обратитесь за поддержкой."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Не удалось подготовить транзакцию обновления. Повторите попытку или обратитесь за поддержкой."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Не удалось начать обновление, поскольку не удалось включить блокировку спящего режима. Повторите попытку."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Не удалось заблокировать базу данных пакетов. Закройте другие менеджеры пакетов и убедитесь, что файловая система доступна для записи, затем повторите попытку."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Расчётное время: %1"

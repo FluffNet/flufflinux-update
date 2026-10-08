@@ -82,8 +82,8 @@ msgstr "הותקנו %1/%2 עדכונים"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "עדכונים מותקנים כעת. נא להימנע מכיבוי או מהפעלה מחדש של המחשב עד לסיום ההתקנה. הפסקת העדכון עלולה לפגוע בתפקוד המערכת."
 
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "רמת הסוללה נמוכה. מומלץ לחבר את המחשב לחשמל לפני התקנת העדכונים."
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "רמת הסוללה נמוכה. נא לחבר את המחשב למטען בזמן התקנת העדכונים."
 
 msgid "Update process was cancelled"
 msgstr "תהליך העדכון בוטל"
@@ -274,3 +274,43 @@ msgstr "העתקת הפרטים הטכניים"
 
 msgid "Open an Issue on GitHub"
 msgstr "פתיחת דיווח ב Github"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "אין מספיק שטח אחסון פנוי להמשך העדכון. יש לפנות מקום ולנסות שוב."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "לא ניתן לאמת חתימה של חבילה או מאגר. העדכון הופסק. יש לבדוק את תאריך המערכת ואת מאגר המפתחות ולנסות שוב."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "מסד הנתונים של החבילות פגום או שאינו ניתן לקריאה. העדכון הופסק. יש לפנות לתמיכה לפני תיקון מסד הנתונים."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "חבילה שהורדה פגומה או לא שלמה. העדכון הופסק. יש לנסות שוב או להשתמש בשרת מראה אחר."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "לא ניתן לקרוא או לכתוב קבצים הנדרשים לעדכון. יש לבדוק את הרשאות מערכת הקבצים ואת תקינות הכונן ולנסות שוב."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "לא ניתן להוריד את העדכונים. יש לנסות שוב או לפנות לתמיכה."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "לא ניתן להכין את פעולת העדכון. יש לנסות שוב או לפנות לתמיכה."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "לא ניתן להתחיל את העדכון כי לא ניתן להפעיל מניעת שינה. יש לנסות שוב."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "לא ניתן לנעול את מסד הנתונים של החבילות. יש לסגור מנהלי חבילות אחרים ולוודא שניתן לכתוב למערכת הקבצים, ואז לנסות שוב."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "זמן משוער: %1"

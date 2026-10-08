@@ -1,6 +1,6 @@
 # Translating the Fluff Linux System Updates panel
 
-Thank you for helping translate Fluff Linux. You do not need to understand C++
+Thank you for helping translate Fluff Linux. You do not need to understand Rust
 or QML to add a language.
 
 Included catalogs cover every official European Union language together with
@@ -55,7 +55,7 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | Installing updates… | Heading during the non-cancellable installation phase. |
 | %1/%2 updates installed | Installed-update counter; preserve `%1` and `%2`. |
 | Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files. | Safety warning shown only during package installation. |
-| The battery is low. Please plug in your computer before installing updates. | Non-blocking warning shown after updates are found when a laptop is discharging at twenty percent battery or less. |
+| The battery is low. Please connect your computer to a charger while installing updates. | Advisory for a low system battery or UPS. Shown after a successful check with updates available and during preparation, downloading and installation; cleared on completion or failure. |
 | Update process was cancelled | Five-second notice after cancelling a download. |
 | Cancel | Button available only while packages are downloading. |
 | The update process could not be started. | Background worker launch failure. |

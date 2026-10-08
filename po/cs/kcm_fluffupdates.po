@@ -106,9 +106,9 @@ msgstr "Nainstalované aktualizace %1/%2"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Aktuálně se instalují aktualizace. Dokud nebude instalace dokončena, nevypínejte nebo nerestartujte počítač. Přerušení aktualizace může poškodit systémové soubory."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Baterie je vybitá. Před instalací aktualizací připojte počítač."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Baterie je téměř vybitá. Během instalace aktualizací připojte počítač k nabíječce."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
@@ -336,3 +336,43 @@ msgstr "Zkopírujte technické podrobnosti"
 
 msgid "Open an Issue on GitHub"
 msgstr "Otevřete problém na GitHubu"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Pro pokračování aktualizace není dostatek volného místa. Uvolněte místo a zkuste to znovu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Podpis balíčku nebo repozitáře se nepodařilo ověřit. Aktualizace byla zastavena. Zkontrolujte systémové datum a svazek klíčů a zkuste to znovu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Databáze balíčků je poškozená nebo nečitelná. Aktualizace byla zastavena. Před opravou databáze se obraťte na podporu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Stažený balíček je poškozený nebo neúplný. Aktualizace byla zastavena. Zkuste to znovu nebo použijte jiné zrcadlo."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Nelze číst nebo zapisovat soubory potřebné k aktualizaci. Zkontrolujte oprávnění souborového systému a stav disku a zkuste to znovu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Aktualizace se nepodařilo stáhnout. Zkuste to znovu nebo se obraťte na podporu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Transakci aktualizace se nepodařilo připravit. Zkuste to znovu nebo se obraťte na podporu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Aktualizaci nelze zahájit, protože se nepodařilo zabránit uspání. Zkuste to znovu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Databázi balíčků se nepodařilo zamknout. Zavřete ostatní správce balíčků a ověřte, že lze do souborového systému zapisovat, a zkuste to znovu."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Odhadovaný čas: %1"

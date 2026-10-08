@@ -8,22 +8,23 @@ import org.kde.kcmutils as KCMUtils
 
 KCMUtils.SimpleKCM {
     id: root
+    readonly property var backend: kcm.backend
 
     readonly property int minimumUsableWidth: 480
     readonly property int minimumUsableHeight: 400
-    readonly property bool systemUpToDate: kcm.checkComplete
-        && !kcm.updatesAvailable && kcm.checkError.length === 0
-        && kcm.recoveryActionState.length === 0
+    readonly property bool systemUpToDate: backend.checkComplete
+        && !backend.updatesAvailable && backend.checkError.length === 0
+        && backend.recoveryActionState.length === 0
     readonly property bool recoveryActionRequired:
-        kcm.recoveryActionState.length > 0 || kcm.signingKeySecurityError
+        backend.recoveryActionState.length > 0 || backend.signingKeySecurityError
     readonly property bool criticalActionRequired:
-        kcm.recoveryActionState === "protected" || kcm.signingKeySecurityError
+        backend.recoveryActionState === "protected" || backend.signingKeySecurityError
     property bool signingKeyDialogDismissed: false
 
     Connections {
-        target: kcm
+        target: backend
         function onInstallStateChanged() {
-            if (kcm.signingKeySecurityError) {
+            if (backend.signingKeySecurityError) {
                 root.signingKeyDialogDismissed = false
             }
         }
@@ -37,7 +38,7 @@ KCMUtils.SimpleKCM {
     onVisibleChanged: {
         if (!visible) {
             updatesWindow.close()
-            kcm.clearCheckResult()
+            backend.clearCheckResult()
         } else {
             Qt.callLater(enforceWindowMinimumSize)
         }
@@ -53,7 +54,21 @@ KCMUtils.SimpleKCM {
         }
     }
 
-    Component.onCompleted: Qt.callLater(enforceWindowMinimumSize)
+    // Visibility of this page, not focus: changing System Settings modules or
+    // closing either host hands progress to the session notification observer.
+    // Minimizing or focusing another app does not count as closing the panel.
+    // A KCM is embedded in QQuickWidget: its render window is permanently
+    // invisible even while the page is on screen. Use the page's effective
+    // visibility; backend destruction/disconnection handles host closure.
+    readonly property bool panelShown: visible
+    onPanelShownChanged: backend.setPanelVisible(panelShown)
+    Component.onCompleted: {
+        backend.setPanelVisible(panelShown)
+        Qt.callLater(enforceWindowMinimumSize)
+    }
+    Component.onDestruction: {
+        if (backend) backend.setPanelVisible(false)
+    }
 
     Layout.minimumWidth: minimumUsableWidth
     Layout.minimumHeight: minimumUsableHeight
@@ -67,7 +82,7 @@ KCMUtils.SimpleKCM {
             Layout.fillWidth: true
             wrapMode: Text.WordWrap
             text: i18nd("kcm_fluffupdates", "Keep Fluff Linux secure and up to date by installing system updates.")
-            color: Kirigami.Theme.disabledTextColor
+            color: Kirigami.Theme.textColor
         }
 
         Kirigami.Card {
@@ -86,7 +101,7 @@ KCMUtils.SimpleKCM {
                         implicitHeight: width
                         radius: width / 2
                         color: root.recoveryActionRequired
-                            ? "#d71920" : kcm.freshnessColor
+                            ? "#d71920" : backend.freshnessColor
 
                         Accessible.name: root.recoveryActionRequired
                             ? (root.criticalActionRequired
@@ -94,11 +109,24 @@ KCMUtils.SimpleKCM {
                                 : i18nd("kcm_fluffupdates", "Action is required"))
                             : root.systemUpToDate
                             ? i18nd("kcm_fluffupdates", "System is up to date")
-                            : kcm.freshnessText
+                            : backend.freshnessText
 
+                        Image {
+                            id: sharedStatusIcon
+                            anchors.fill: parent
+                            visible: root.criticalActionRequired
+                                || (root.systemUpToDate && backend.freshnessColor === "#27ae60")
+                            source: root.criticalActionRequired
+                                ? "icons/flufflinux-update-error.svg"
+                                : "icons/flufflinux-update-success.svg"
+                            sourceSize: Qt.size(width, height)
+                            Accessible.ignored: true
+                        }
+
+                        // Preserve the existing non-green freshness variants.
                         Text {
                             anchors.centerIn: parent
-                            visible: root.systemUpToDate
+                            visible: root.systemUpToDate && !sharedStatusIcon.visible
                             text: "\u2713"
                             color: "white"
                             font.pixelSize: parent.width * 0.62
@@ -107,16 +135,6 @@ KCMUtils.SimpleKCM {
                             Accessible.ignored: true
                         }
 
-                        Text {
-                            anchors.centerIn: parent
-                            visible: root.criticalActionRequired
-                            text: "\u00d7"
-                            color: "white"
-                            font.pixelSize: parent.width * 0.72
-                            font.weight: Font.Black
-
-                            Accessible.ignored: true
-                        }
                     }
 
                     ColumnLayout {
@@ -134,24 +152,24 @@ KCMUtils.SimpleKCM {
                                     : i18nd("kcm_fluffupdates", "Action is required"))
                                 : root.systemUpToDate
                                 ? i18nd("kcm_fluffupdates", "System is up to date")
-                                : kcm.freshnessText
+                                : backend.freshnessText
                             color: root.recoveryActionRequired
-                                ? "#d71920" : kcm.freshnessColor
+                                ? "#d71920" : backend.freshnessColor
                             font.bold: true
                         }
 
                         Controls.Label {
                             Layout.fillWidth: true
-                            visible: kcm.hasLastUpdate
+                            visible: backend.hasLastUpdate
                             wrapMode: Text.WordWrap
                             text: i18nd("kcm_fluffupdates", "System last updated: %1 (%2)",
-                                "\u2066" + kcm.lastUpdate + "\u2069",
-                                "\u2066" + kcm.relativeTime + "\u2069")
+                                "\u2066" + backend.lastUpdate + "\u2069",
+                                "\u2066" + backend.relativeTime + "\u2069")
                         }
 
                         Controls.Label {
                             Layout.fillWidth: true
-                            visible: !kcm.hasLastUpdate
+                            visible: !backend.hasLastUpdate
                             wrapMode: Text.WordWrap
                             text: i18nd("kcm_fluffupdates", "To update the system, check for available updates using the button below.")
                         }
@@ -161,34 +179,34 @@ KCMUtils.SimpleKCM {
                             Layout.alignment: Qt.AlignLeading
                             text: i18nd("kcm_fluffupdates", "Check for Updates")
                             icon.name: "view-refresh"
-                            enabled: kcm.networkConnected && !kcm.checking
-                                && !kcm.updateActive
-                            onClicked: kcm.checkForUpdates()
+                            enabled: backend.networkConnected && !backend.checking
+                                && !backend.updateActive
+                            onClicked: backend.checkForUpdates()
                         }
                     }
                 }
 
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
-                    visible: kcm.checking
+                    visible: backend.checking
                     type: Kirigami.MessageType.Information
                     text: i18nd("kcm_fluffupdates", "Checking for updates…")
                 }
 
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
-                    visible: kcm.checkComplete && !kcm.checking && kcm.checkError.length > 0
+                    visible: backend.checkComplete && !backend.checking && backend.checkError.length > 0
                     type: Kirigami.MessageType.Error
-                    text: kcm.checkError
+                    text: backend.checkError
                 }
             }
         }
 
         Kirigami.Card {
             Layout.fillWidth: true
-            visible: (kcm.checkComplete && !kcm.checking
-                && kcm.checkError.length === 0 && kcm.updatesAvailable)
-                || kcm.updateActive || kcm.installPhase === "failed"
+            visible: (backend.checkComplete && !backend.checking
+                && backend.checkError.length === 0 && backend.updatesAvailable)
+                || backend.updateActive || backend.installPhase === "failed"
 
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
@@ -197,9 +215,9 @@ KCMUtils.SimpleKCM {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
                     level: 3
-                    text: kcm.installPhase === "downloading"
+                    text: backend.installPhase === "downloading"
                         ? i18nd("kcm_fluffupdates", "Downloading updates…")
-                        : kcm.installPhase === "installing"
+                        : backend.installPhase === "installing"
                             ? i18nd("kcm_fluffupdates", "Installing updates…")
                             : i18nd("kcm_fluffupdates", "Install Updates")
                 }
@@ -207,7 +225,7 @@ KCMUtils.SimpleKCM {
                 Controls.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    visible: !kcm.updateActive
+                    visible: !backend.updateActive
                     text: i18nd("kcm_fluffupdates", "System updates are available")
                     font.bold: true
                 }
@@ -215,27 +233,27 @@ KCMUtils.SimpleKCM {
                 Controls.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    visible: !kcm.updateActive
+                    visible: !backend.updateActive
                     text: i18nd("kcm_fluffupdates", "Download size: %1",
-                        "\u2066" + kcm.downloadSize + "\u2069")
+                        "\u2066" + backend.downloadSize + "\u2069")
                 }
 
                 Controls.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.WordWrap
-                    visible: !kcm.updateActive && kcm.diskChange.length > 0
-                    text: kcm.diskSpaceFreed
+                    visible: !backend.updateActive && backend.diskChange.length > 0
+                    text: backend.diskSpaceFreed
                         ? i18nd("kcm_fluffupdates", "Storage freed after update: %1",
-                            "\u2066" + kcm.diskChange + "\u2069")
+                            "\u2066" + backend.diskChange + "\u2069")
                         : i18nd("kcm_fluffupdates", "Storage required for system updates: %1",
-                            "\u2066" + kcm.diskChange + "\u2069")
+                            "\u2066" + backend.diskChange + "\u2069")
                 }
 
                 ColumnLayout {
                     Layout.fillWidth: true
                     Layout.topMargin: Kirigami.Units.smallSpacing * 2
                     spacing: Kirigami.Units.smallSpacing
-                    visible: kcm.updateActive
+                    visible: backend.updateActive
 
                     Item {
                         id: updateProgressBar
@@ -247,7 +265,7 @@ KCMUtils.SimpleKCM {
                         implicitHeight: Kirigami.Units.gridUnit * 1.5
 
                         readonly property real position: Math.max(0,
-                            Math.min(1, kcm.installProgress / 100))
+                            Math.min(1, backend.installProgress / 100))
                         // The contrasting outline remains visible in both
                         // light and dark themes as the window is resized.
                         Rectangle {
@@ -327,33 +345,43 @@ KCMUtils.SimpleKCM {
 
                     RowLayout {
                         Layout.fillWidth: true
-                        visible: kcm.installPhase === "downloading"
+                        visible: backend.installPhase === "downloading"
 
                         Controls.Label {
                             text: i18nd("kcm_fluffupdates", "%1 / %2 downloaded",
-                                "\u2066" + kcm.downloadedSize + "\u2069",
-                                "\u2066" + kcm.totalDownloadSize + "\u2069")
+                                "\u2066" + backend.downloadedSize + "\u2069",
+                                "\u2066" + backend.totalDownloadSize + "\u2069")
                         }
 
                         Item { Layout.fillWidth: true }
 
                         Controls.Label {
-                            text: "\u2066" + kcm.downloadSpeed + "\u2069"
+                            text: "\u2066" + backend.downloadSpeed + "\u2069"
                         }
                     }
 
                     Controls.Label {
+                        objectName: "downloadTimeRemaining"
                         Layout.fillWidth: true
-                        visible: kcm.installPhase === "installing"
+                        visible: backend.installPhase === "downloading"
+                            && backend.downloadTimeRemaining.length > 0
+                        wrapMode: Text.WordWrap
+                        text: i18nd("kcm_fluffupdates", "Estimated time: %1",
+                            "\u2066" + backend.downloadTimeRemaining + "\u2069")
+                    }
+
+                    Controls.Label {
+                        Layout.fillWidth: true
+                        visible: backend.installPhase === "installing"
                         wrapMode: Text.WordWrap
                         text: i18nd("kcm_fluffupdates", "%1/%2 updates installed",
-                            "\u2066" + kcm.completedPackages + "\u2069",
-                            "\u2066" + kcm.totalPackages + "\u2069")
+                            "\u2066" + backend.completedPackages + "\u2069",
+                            "\u2066" + backend.totalPackages + "\u2069")
                     }
 
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
-                        visible: kcm.installPhase === "installing"
+                        visible: backend.installPhase === "installing"
                         type: Kirigami.MessageType.Warning
                         text: i18nd("kcm_fluffupdates", "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files.")
                     }
@@ -361,36 +389,36 @@ KCMUtils.SimpleKCM {
 
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
-                    visible: kcm.cancellationNotice
+                    visible: backend.cancellationNotice
                     type: Kirigami.MessageType.Information
                     text: i18nd("kcm_fluffupdates", "Update process was cancelled")
                 }
 
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
-                    visible: kcm.installError.length > 0
+                    visible: backend.installError.length > 0
                     type: Kirigami.MessageType.Error
                     icon.name: "dialog-error"
-                    text: kcm.installError
+                    text: backend.installError
                 }
 
                 RowLayout {
                     Layout.fillWidth: true
-                    visible: !kcm.updateActive
+                    visible: !backend.updateActive
 
                     Controls.Button {
                         text: i18nd("kcm_fluffupdates", "Install Updates")
                         icon.name: "system-software-update"
-                        enabled: kcm.networkConnected
-                        onClicked: kcm.startInstallation()
+                        enabled: backend.networkConnected
+                        onClicked: backend.startInstallation()
                     }
 
                     Controls.Button {
-                        visible: !kcm.updateActive
-                            && kcm.installPhase !== "downloading"
-                            && kcm.installPhase !== "installing"
-                            && (kcm.updatesAvailable
-                                || kcm.updatePackages.length > 0)
+                        visible: !backend.updateActive
+                            && backend.installPhase !== "downloading"
+                            && backend.installPhase !== "installing"
+                            && (backend.updatesAvailable
+                                || backend.updatePackages.length > 0)
                         text: i18nd("kcm_fluffupdates", "View Updates")
                         icon.name: "dialog-information"
                         onClicked: updatesWindow.present()
@@ -400,48 +428,49 @@ KCMUtils.SimpleKCM {
                 }
 
                 Controls.Button {
-                    visible: kcm.installPhase === "downloading"
+                    Layout.topMargin: Kirigami.Units.smallSpacing
+                    visible: backend.installPhase === "downloading"
                     text: i18nd("kcm_fluffupdates", "Cancel")
                     icon.name: "dialog-cancel"
-                    onClicked: kcm.cancelInstallation()
+                    onClicked: backend.cancelInstallation()
                 }
             }
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
-            visible: !kcm.networkConnected
+            visible: !backend.networkConnected
             type: Kirigami.MessageType.Warning
             text: i18nd("kcm_fluffupdates", "No network connection!")
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
-            visible: kcm.networkConnected && kcm.networkLimited
+            visible: backend.networkConnected && backend.networkLimited
             type: Kirigami.MessageType.Information
             text: i18nd("kcm_fluffupdates", "Network connection is limited. If you are not connected to an organizational network, please check your internet connection.")
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
-            visible: kcm.installationSuccessNotice
+            visible: backend.installationSuccessNotice
             type: Kirigami.MessageType.Positive
             text: i18nd("kcm_fluffupdates", "System updates were installed successfully.")
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
-            visible: kcm.recoveryNotice.length > 0
+            visible: backend.recoveryNotice.length > 0
             type: Kirigami.MessageType.Information
-            text: kcm.recoveryNotice
+            text: backend.recoveryNotice
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
-            visible: kcm.batteryLow
+            visible: backend.batteryLow
             type: Kirigami.MessageType.Warning
             icon.name: "battery-low"
-            text: i18nd("kcm_fluffupdates", "The battery is low. Please plug in your computer before installing updates.")
+            text: i18nd("kcm_fluffupdates", "The battery is low. Please connect your computer to a charger while installing updates.")
         }
 
         Rectangle {
@@ -514,8 +543,8 @@ KCMUtils.SimpleKCM {
 
         function widestField(fieldName) {
             let widest = 0
-            for (let index = 0; index < kcm.updatePackages.length; ++index) {
-                const entry = kcm.updatePackages[index]
+            for (let index = 0; index < backend.updatePackages.length; ++index) {
+                const entry = backend.updatePackages[index]
                 widest = Math.max(widest,
                     updateListFontMetrics.advanceWidth(
                         String(entry[fieldName] || "")))
@@ -525,8 +554,8 @@ KCMUtils.SimpleKCM {
 
         function widestComparisonRow() {
             let widest = 0
-            for (let index = 0; index < kcm.updatePackages.length; ++index) {
-                const entry = kcm.updatePackages[index]
+            for (let index = 0; index < backend.updatePackages.length; ++index) {
+                const entry = backend.updatePackages[index]
                 const packageName = String(entry.name || "")
                 const currentVersion = String(entry.currentVersion || "")
                 const replacementName = entry.newName
@@ -546,166 +575,13 @@ KCMUtils.SimpleKCM {
             return widest
         }
 
-        function beginWheelGesture(handler) {
-            handler.touchpadGesture = false
-            handler.velocityX = 0
-            handler.velocityY = 0
-            handler.lastEventTime = Date.now()
-        }
-
-        function blendWheelVelocity(currentVelocity,
-                                    instantaneousVelocity) {
-            if (currentVelocity === 0
-                    || currentVelocity * instantaneousVelocity < 0)
-                return instantaneousVelocity
-
-            return currentVelocity * 0.65
-                + instantaneousVelocity * 0.35
-        }
-
-        function scrollFromWheel(flickable, wheel, handler,
-                                 momentum, horizontal) {
-            const pixelX = wheel.pixelDelta.x
-            const pixelY = wheel.pixelDelta.y
-            const preciseGesture = pixelX !== 0 || pixelY !== 0
-
-            if (preciseGesture) {
-                const now = Date.now()
-                const elapsed = Math.max(8,
-                    Math.min(50, now - handler.lastEventTime))
-                handler.lastEventTime = now
-                handler.touchpadGesture = true
-
-                if (horizontal && pixelX !== 0) {
-                    if (momentum.velocityX * pixelX < 0)
-                        momentum.velocityX *= 0.7
-                    const maximumX = Math.max(flickable.originX,
-                        flickable.originX + flickable.contentWidth
-                            - flickable.width)
-                    flickable.contentX = Math.max(flickable.originX,
-                        Math.min(maximumX,
-                            flickable.contentX - pixelX))
-                    const instantaneousX = pixelX * 1000 / elapsed
-                    handler.velocityX = blendWheelVelocity(
-                        handler.velocityX, instantaneousX)
-                }
-
-                if (pixelY !== 0) {
-                    if (momentum.velocityY * pixelY < 0)
-                        momentum.velocityY *= 0.7
-                    const maximumY = Math.max(flickable.originY,
-                        flickable.originY + flickable.contentHeight
-                            - flickable.height)
-                    flickable.contentY = Math.max(flickable.originY,
-                        Math.min(maximumY,
-                            flickable.contentY - pixelY))
-                    const instantaneousY = pixelY * 1000 / elapsed
-                    handler.velocityY = blendWheelVelocity(
-                        handler.velocityY, instantaneousY)
-                }
-            } else {
-                const wheelStep = Kirigami.Units.gridUnit * 5
-                const deltaX = wheel.angleDelta.x / 120 * wheelStep
-                const deltaY = wheel.angleDelta.y / 120 * wheelStep
-
-                if (horizontal && deltaX !== 0) {
-                    if (momentum.velocityX * deltaX < 0)
-                        momentum.velocityX *= 0.5
-                    const maximumX = Math.max(flickable.originX,
-                        flickable.originX + flickable.contentWidth
-                            - flickable.width)
-                    flickable.contentX = Math.max(flickable.originX,
-                        Math.min(maximumX,
-                            flickable.contentX - deltaX))
-                }
-
-                if (deltaY !== 0) {
-                    if (momentum.velocityY * deltaY < 0)
-                        momentum.velocityY *= 0.5
-                    const maximumY = Math.max(flickable.originY,
-                        flickable.originY + flickable.contentHeight
-                            - flickable.height)
-                    flickable.contentY = Math.max(flickable.originY,
-                        Math.min(maximumY,
-                            flickable.contentY - deltaY))
-                }
-            }
-
-            wheel.accepted = true
-        }
-
-        function finishWheelGesture(flickable, handler,
-                                    momentum, horizontal) {
-            if (!handler.touchpadGesture)
-                return
-
-            const accumulatedX = momentum.velocityX
-                    * handler.velocityX > 0
-                ? handler.velocityX + momentum.velocityX * 0.75
-                : handler.velocityX
-            const accumulatedY = momentum.velocityY
-                    * handler.velocityY > 0
-                ? handler.velocityY + momentum.velocityY * 0.75
-                : handler.velocityY
-            const velocityX = horizontal
-                ? Math.max(-flickable.maximumFlickVelocity,
-                    Math.min(flickable.maximumFlickVelocity,
-                        accumulatedX)) : 0
-            const velocityY = Math.max(-flickable.maximumFlickVelocity,
-                Math.min(flickable.maximumFlickVelocity,
-                    accumulatedY))
-
-            momentum.velocityX = Math.abs(velocityX) >= 80
-                ? velocityX : 0
-            momentum.velocityY = Math.abs(velocityY) >= 80
-                ? velocityY : 0
-            momentum.lastFrameTime = Date.now()
-            if (momentum.velocityX !== 0 || momentum.velocityY !== 0)
-                momentum.start()
-        }
-
-        function advanceWheelMomentum(flickable, momentum,
-                                      horizontal, gestureActive) {
-            const now = Date.now()
-            const elapsed = Math.max(1,
-                Math.min(32, now - momentum.lastFrameTime))
-            momentum.lastFrameTime = now
-
-            if (horizontal && momentum.velocityX !== 0) {
-                const minimumX = flickable.originX
-                const maximumX = Math.max(minimumX,
-                    minimumX + flickable.contentWidth - flickable.width)
-                const nextX = flickable.contentX
-                    - momentum.velocityX * elapsed / 1000
-                flickable.contentX = Math.max(minimumX,
-                    Math.min(maximumX, nextX))
-                if (nextX <= minimumX || nextX >= maximumX)
-                    momentum.velocityX = 0
-            }
-
-            if (momentum.velocityY !== 0) {
-                const minimumY = flickable.originY
-                const maximumY = Math.max(minimumY,
-                    minimumY + flickable.contentHeight - flickable.height)
-                const nextY = flickable.contentY
-                    - momentum.velocityY * elapsed / 1000
-                flickable.contentY = Math.max(minimumY,
-                    Math.min(maximumY, nextY))
-                if (nextY <= minimumY || nextY >= maximumY)
-                    momentum.velocityY = 0
-            }
-
-            const friction = gestureActive ? 0.006 : 0.002
-            const decay = Math.pow(1 - friction, elapsed)
-            momentum.velocityX *= decay
-            momentum.velocityY *= decay
-
-            if (Math.abs(momentum.velocityX) < 20)
-                momentum.velocityX = 0
-            if (Math.abs(momentum.velocityY) < 20)
-                momentum.velocityY = 0
-            if (momentum.velocityX === 0 && momentum.velocityY === 0)
-                momentum.stop()
+        function stopWheelAnimation(handler) {
+            // Kirigami owns wheel animations separately from cancelFlick().
+            // Detaching the target stops them before middle-mouse autoscroll
+            // takes over; immediately restore wheel delivery to the same view.
+            const scrollTarget = handler.target
+            handler.target = null
+            handler.target = scrollTarget
         }
 
         readonly property real preferredPackageWidth: Math.max(
@@ -738,15 +614,15 @@ KCMUtils.SimpleKCM {
         readonly property real maximumRestorableHeight:
             Math.max(minimumHeight, Screen.desktopAvailableHeight
                 - Kirigami.Units.largeSpacing * 2)
-        property real rememberedWidth: kcm.updateWindowWidth > 0
+        property real rememberedWidth: backend.updateWindowWidth > 0
             ? Math.min(maximumRestorableWidth,
-                Math.max(minimumWidth, kcm.updateWindowWidth))
+                Math.max(minimumWidth, backend.updateWindowWidth))
             : defaultWindowWidth
-        property real rememberedHeight: kcm.updateWindowHeight > 0
+        property real rememberedHeight: backend.updateWindowHeight > 0
             ? Math.min(maximumRestorableHeight,
-                Math.max(minimumHeight, kcm.updateWindowHeight))
+                Math.max(minimumHeight, backend.updateWindowHeight))
             : defaultWindowHeight
-        property bool rememberedMaximized: kcm.updateWindowMaximized
+        property bool rememberedMaximized: backend.updateWindowMaximized
         property bool restoringWindowState: false
 
         visible: false
@@ -793,7 +669,7 @@ KCMUtils.SimpleKCM {
             }
         }
         onClosing: function(close) {
-            kcm.saveUpdateWindowState(
+            backend.saveUpdateWindowState(
                 Math.round(rememberedWidth),
                 Math.round(rememberedHeight),
                 rememberedMaximized)
@@ -806,6 +682,7 @@ KCMUtils.SimpleKCM {
         ColumnLayout {
             anchors.fill: parent
             spacing: 0
+            Keys.onEscapePressed: updatesWindow.close()
 
             Item {
                 id: comparisonViewContainer
@@ -828,7 +705,7 @@ KCMUtils.SimpleKCM {
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                visible: !kcm.pacmanView
+                visible: !backend.pacmanView
                 LayoutMirroring.enabled: false
                 LayoutMirroring.childrenInherit: true
 
@@ -896,55 +773,28 @@ KCMUtils.SimpleKCM {
                     contentWidth: Math.max(width,
                         updatesWindow.preferredComparisonContentWidth)
                     layoutDirection: Qt.LeftToRight
-                    model: kcm.updatePackages
+                    model: backend.updatePackages
                     spacing: Kirigami.Units.smallSpacing
                     boundsBehavior: Flickable.StopAtBounds
                     maximumFlickVelocity: 6000
                     pixelAligned: false
 
-                    WheelHandler {
-                        id: comparisonWheelHandler
-
-                        property bool touchpadGesture: false
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastEventTime: 0
-
-                        target: null
-                        acceptedDevices: PointerDevice.Mouse
-                            | PointerDevice.TouchPad
-                        activeTimeout: 0.05
-                        blocking: true
-                        onActiveChanged: {
-                            if (active) {
-                                updatesWindow.beginWheelGesture(
-                                    comparisonWheelHandler)
-                            } else {
-                                updatesWindow.finishWheelGesture(
-                                    updateList, comparisonWheelHandler,
-                                    comparisonMomentum, true)
-                            }
-                        }
-                        onWheel: function(event) {
-                            updatesWindow.scrollFromWheel(
-                                updateList, event,
-                                comparisonWheelHandler,
-                                comparisonMomentum, true)
-                        }
+                    MiddleMouseScroll {
+                        id: comparisonMiddleScroll
+                        scrollTarget: updateList
+                        horizontal: true
+                        onStarted: updatesWindow.stopWheelAnimation(
+                            comparisonWheelHandler)
                     }
 
-                    Timer {
-                        id: comparisonMomentum
+                    Kirigami.WheelHandler {
+                        id: comparisonWheelHandler
 
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastFrameTime: 0
-
-                        interval: 16
-                        repeat: true
-                        onTriggered: updatesWindow.advanceWheelMomentum(
-                            updateList, comparisonMomentum, true,
-                            comparisonWheelHandler.active)
+                        target: updateList
+                        blockTargetWheel: true
+                        scrollFlickableTarget: true
+                        filterMouseEvents: false
+                        onWheel: comparisonMiddleScroll.stop()
                     }
 
                     Controls.ScrollBar.vertical: Controls.ScrollBar {
@@ -1068,7 +918,7 @@ KCMUtils.SimpleKCM {
 
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                visible: kcm.pacmanView
+                visible: backend.pacmanView
                 LayoutMirroring.enabled: false
                 LayoutMirroring.childrenInherit: true
 
@@ -1113,50 +963,21 @@ KCMUtils.SimpleKCM {
                     maximumFlickVelocity: 6000
                     pixelAligned: false
 
-                    WheelHandler {
-                        id: pacmanWheelHandler
-
-                        property bool touchpadGesture: false
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastEventTime: 0
-
-                        target: null
-                        acceptedDevices: PointerDevice.Mouse
-                            | PointerDevice.TouchPad
-                        activeTimeout: 0.05
-                        blocking: true
-                        onActiveChanged: {
-                            if (active) {
-                                updatesWindow.beginWheelGesture(
-                                    pacmanWheelHandler)
-                            } else {
-                                updatesWindow.finishWheelGesture(
-                                    pacmanViewFlickable,
-                                    pacmanWheelHandler,
-                                    pacmanMomentum, false)
-                            }
-                        }
-                        onWheel: function(event) {
-                            updatesWindow.scrollFromWheel(
-                                pacmanViewFlickable, event,
-                                pacmanWheelHandler,
-                                pacmanMomentum, false)
-                        }
+                    MiddleMouseScroll {
+                        id: pacmanMiddleScroll
+                        scrollTarget: pacmanViewFlickable
+                        onStarted: updatesWindow.stopWheelAnimation(
+                            pacmanWheelHandler)
                     }
 
-                    Timer {
-                        id: pacmanMomentum
+                    Kirigami.WheelHandler {
+                        id: pacmanWheelHandler
 
-                        property real velocityX: 0
-                        property real velocityY: 0
-                        property real lastFrameTime: 0
-
-                        interval: 16
-                        repeat: true
-                        onTriggered: updatesWindow.advanceWheelMomentum(
-                            pacmanViewFlickable, pacmanMomentum, false,
-                            pacmanWheelHandler.active)
+                        target: pacmanViewFlickable
+                        blockTargetWheel: true
+                        scrollFlickableTarget: true
+                        filterMouseEvents: false
+                        onWheel: pacmanMiddleScroll.stop()
                     }
 
                     Controls.ScrollBar.vertical: Controls.ScrollBar {
@@ -1177,7 +998,7 @@ KCMUtils.SimpleKCM {
                         layoutDirection: Qt.LeftToRight
 
                         Repeater {
-                            model: kcm.updatePackages
+                            model: backend.updatePackages
 
                             delegate: Row {
                                 required property var modelData
@@ -1222,7 +1043,7 @@ KCMUtils.SimpleKCM {
                     anchors.leftMargin: Kirigami.Units.smallSpacing
                     anchors.verticalCenter: parent.verticalCenter
                     checkable: true
-                    checked: kcm.pacmanView
+                    checked: backend.pacmanView
                     display: Controls.AbstractButton.IconOnly
                     icon.name: "view-visible"
                     Accessible.name: i18nd("kcm_fluffupdates", "Change view")
@@ -1230,7 +1051,7 @@ KCMUtils.SimpleKCM {
                     Controls.ToolTip.visible: hovered
                     KeyNavigation.tab: closeUpdatesWindowButton
                     KeyNavigation.backtab: closeUpdatesWindowButton
-                    onToggled: kcm.setPacmanView(checked)
+                    onToggled: backend.setPacmanView(checked)
                 }
 
                 Controls.Button {
@@ -1259,8 +1080,8 @@ KCMUtils.SimpleKCM {
         anchors.centerIn: parent
         modal: true
         title: i18nd("kcm_fluffupdates", "Action required")
-        visible: kcm.recoveryDialogType === "protected"
-        onRejected: kcm.resolveRemovalWarning(false)
+        visible: backend.recoveryDialogType === "protected"
+        onRejected: backend.resolveRemovalWarning(false)
 
         contentItem: RowLayout {
             width: Math.min(Kirigami.Units.gridUnit * 28,
@@ -1279,7 +1100,7 @@ KCMUtils.SimpleKCM {
                 wrapMode: Text.WordWrap
                 text: i18nd("kcm_fluffupdates",
                     "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance.",
-                    kcm.recoveryPackage)
+                    backend.recoveryPackage)
             }
         }
 
@@ -1296,7 +1117,7 @@ KCMUtils.SimpleKCM {
                 Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.ActionRole
                 onClicked: {
                     Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
-                    kcm.resolveRemovalWarning(false)
+                    backend.resolveRemovalWarning(false)
                 }
             }
         }
@@ -1308,9 +1129,9 @@ KCMUtils.SimpleKCM {
         anchors.centerIn: parent
         modal: true
         title: i18nd("kcm_fluffupdates", "Action required")
-        visible: kcm.recoveryDialogType === "warning"
-        onAccepted: kcm.resolveRemovalWarning(true)
-        onRejected: kcm.resolveRemovalWarning(false)
+        visible: backend.recoveryDialogType === "warning"
+        onAccepted: backend.resolveRemovalWarning(true)
+        onRejected: backend.resolveRemovalWarning(false)
 
         contentItem: RowLayout {
             width: Math.min(Kirigami.Units.gridUnit * 28,
@@ -1329,7 +1150,7 @@ KCMUtils.SimpleKCM {
                 wrapMode: Text.WordWrap
                 text: i18nd("kcm_fluffupdates",
                     "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help.",
-                    kcm.recoveryPackage)
+                    backend.recoveryPackage)
             }
         }
 
@@ -1352,7 +1173,7 @@ KCMUtils.SimpleKCM {
                 Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.ActionRole
                 onClicked: {
                     Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
-                    kcm.resolveRemovalWarning(false)
+                    backend.resolveRemovalWarning(false)
                 }
             }
         }
@@ -1364,7 +1185,7 @@ KCMUtils.SimpleKCM {
         anchors.centerIn: parent
         modal: true
         title: i18nd("kcm_fluffupdates", "Action required")
-        visible: kcm.signingKeySecurityError
+        visible: backend.signingKeySecurityError
             && !root.signingKeyDialogDismissed
         onRejected: root.signingKeyDialogDismissed = true
 
@@ -1406,7 +1227,7 @@ KCMUtils.SimpleKCM {
                 selectByMouse: true
                 wrapMode: TextEdit.WrapAnywhere
                 horizontalAlignment: Text.AlignLeft
-                text: kcm.signingKeyTechnicalDetails
+                text: backend.signingKeyTechnicalDetails
                 Accessible.name: i18nd("kcm_fluffupdates",
                     "Repository signing-key verification technical details")
             }
@@ -1418,7 +1239,7 @@ KCMUtils.SimpleKCM {
                 icon.name: "view-refresh"
                 Controls.DialogButtonBox.buttonRole:
                     Controls.DialogButtonBox.ActionRole
-                onClicked: kcm.retrySigningKeyUpdate()
+                onClicked: backend.retrySigningKeyUpdate()
             }
 
             Controls.Button {
@@ -1426,7 +1247,7 @@ KCMUtils.SimpleKCM {
                 icon.name: "edit-copy"
                 Controls.DialogButtonBox.buttonRole:
                     Controls.DialogButtonBox.ActionRole
-                onClicked: kcm.copySigningKeyTechnicalDetails()
+                onClicked: backend.copySigningKeyTechnicalDetails()
             }
 
             Controls.Button {
@@ -1434,7 +1255,7 @@ KCMUtils.SimpleKCM {
                 icon.name: "internet-services"
                 Controls.DialogButtonBox.buttonRole:
                     Controls.DialogButtonBox.ActionRole
-                onClicked: kcm.openSigningKeyIssue()
+                onClicked: backend.openSigningKeyIssue()
             }
 
             Controls.Button {

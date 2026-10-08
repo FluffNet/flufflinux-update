@@ -106,9 +106,9 @@ msgstr "Εγκαταστάθηκαν ενημερώσεις %1/%2"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Οι ενημερώσεις εγκαθίστανται αυτήν τη στιγμή. Αποφύγετε την απενεργοποίηση ή επανεκκίνηση του υπολογιστή μέχρι να ολοκληρωθεί η εγκατάσταση. Η διακοπή της ενημέρωσης μπορεί να προκαλέσει βλάβη στα αρχεία συστήματος."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "Η μπαταρία είναι χαμηλή. Συνδέστε τον υπολογιστή σας πριν εγκαταστήσετε ενημερώσεις."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Η στάθμη της μπαταρίας είναι χαμηλή. Συνδέστε τον υπολογιστή σας σε φορτιστή κατά την εγκατάσταση ενημερώσεων."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
@@ -332,3 +332,43 @@ msgstr "Αντιγραφή Τεχνικών Στοιχείων"
 
 msgid "Open an Issue on GitHub"
 msgstr "Ανοίξτε ένα ζήτημα στο GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Δεν υπάρχει αρκετός ελεύθερος χώρος για να συνεχιστεί η ενημέρωση. Ελευθερώστε χώρο και δοκιμάστε ξανά."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Δεν ήταν δυνατή η επαλήθευση υπογραφής πακέτου ή αποθετηρίου. Η ενημέρωση διακόπηκε. Ελέγξτε την ημερομηνία του συστήματος και την κλειδοθήκη και δοκιμάστε ξανά."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Η βάση δεδομένων πακέτων είναι κατεστραμμένη ή μη αναγνώσιμη. Η ενημέρωση διακόπηκε. Ζητήστε υποστήριξη πριν επισκευάσετε τη βάση δεδομένων."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Ένα πακέτο που λήφθηκε είναι κατεστραμμένο ή ελλιπές. Η ενημέρωση διακόπηκε. Δοκιμάστε ξανά ή χρησιμοποιήστε διαφορετικό διακομιστή κατοπτρισμού."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Δεν ήταν δυνατή η ανάγνωση ή εγγραφή απαραίτητων αρχείων για την ενημέρωση. Ελέγξτε τα δικαιώματα του συστήματος αρχείων και την κατάσταση του δίσκου και δοκιμάστε ξανά."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Δεν ήταν δυνατή η λήψη των ενημερώσεων. Δοκιμάστε ξανά ή ζητήστε υποστήριξη."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Δεν ήταν δυνατή η προετοιμασία της συναλλαγής ενημέρωσης. Δοκιμάστε ξανά ή ζητήστε υποστήριξη."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Η ενημέρωση δεν μπόρεσε να ξεκινήσει επειδή δεν ενεργοποιήθηκε η αποτροπή αναστολής λειτουργίας. Δοκιμάστε ξανά."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Δεν ήταν δυνατό το κλείδωμα της βάσης δεδομένων πακέτων. Κλείστε τους άλλους διαχειριστές πακέτων και βεβαιωθείτε ότι το σύστημα αρχείων είναι εγγράψιμο, έπειτα δοκιμάστε ξανά."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Εκτιμώμενος χρόνος: %1"

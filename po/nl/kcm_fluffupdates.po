@@ -106,9 +106,9 @@ msgstr "%1/%2-updates geïnstalleerd"
 msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
 msgstr "Updates worden momenteel geïnstalleerd. Vermijd het uitschakelen of opnieuw opstarten van de computer voordat de installatie is voltooid. Het onderbreken van de update kan systeembestanden beschadigen."
 
-#. Non-blocking warning shown after finding updates on a discharging laptop at twenty percent battery or less.
-msgid "The battery is low. Please plug in your computer before installing updates."
-msgstr "De batterij is bijna leeg. Sluit uw computer aan voordat u updates installeert."
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "De batterij is bijna leeg. Sluit uw computer aan op een oplader tijdens het installeren van updates."
 
 #. Five-second notice after cancelling during the download phase.
 msgid "Update process was cancelled"
@@ -332,3 +332,43 @@ msgstr "Kopieer technische details"
 
 msgid "Open an Issue on GitHub"
 msgstr "Open een probleem op GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Er is onvoldoende vrije opslagruimte om de update voort te zetten. Maak ruimte vrij en probeer het opnieuw."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Een pakket- of repositoryhandtekening kon niet worden geverifieerd. De update is gestopt. Controleer de systeemdatum en de sleutelring en probeer het opnieuw."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "De pakketdatabase is beschadigd of onleesbaar. De update is gestopt. Vraag ondersteuning voordat u de database herstelt."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Een gedownload pakket is beschadigd of onvolledig. De update is gestopt. Probeer het opnieuw of gebruik een andere spiegelserver."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Bestanden die nodig zijn voor de update konden niet worden gelezen of geschreven. Controleer de bestandssysteemrechten en de schijfstatus en probeer het opnieuw."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "De updates konden niet worden gedownload. Probeer het opnieuw of vraag ondersteuning."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "De updatetransactie kon niet worden voorbereid. Probeer het opnieuw of vraag ondersteuning."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "De update kon niet starten omdat het blokkeren van de slaapstand niet kon worden ingeschakeld. Probeer het opnieuw."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "De pakketdatabase kon niet worden vergrendeld. Sluit andere pakketbeheerders en controleer of het bestandssysteem beschrijfbaar is. Probeer het daarna opnieuw."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Geschatte tijd: %1"
