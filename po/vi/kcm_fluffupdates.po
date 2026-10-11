@@ -1,0 +1,376 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: vi\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "Cập nhật hệ thống"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Giữ Fluff Linux an toàn và luôn mới bằng cách cài đặt các bản cập nhật hệ thống."
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "Lần cập nhật hệ thống gần nhất: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "Kiểm tra cập nhật"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "Cài đặt bản cập nhật"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "Xem bản cập nhật"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "Đổi chế độ xem"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "Các bản cập nhật sẽ cài đặt"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "Không có thông tin chi tiết về gói."
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update vẫn đang được phát triển. Nếu gặp vấn đề, vui lòng báo cáo trên trang GitHub của chúng tôi."
+
+msgid "System updates were installed successfully."
+msgstr "Đã cài đặt thành công các bản cập nhật hệ thống."
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "Không có kết nối mạng!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Kết nối mạng bị hạn chế. Nếu không kết nối với mạng của tổ chức, vui lòng kiểm tra kết nối internet."
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "Tiến trình pacman đang chạy."
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "Không thể bắt đầu quá trình cập nhật."
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "Không thể hủy quá trình cập nhật."
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Kết nối bị lỗi khi tải các bản cập nhật. Kiểm tra mạng và thử lại."
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "Cập nhật hệ thống thất bại."
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "Đang tải các bản cập nhật…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "Đang cài đặt các bản cập nhật…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "Đã tải %1 / %2"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "Đã cài đặt %1/%2 bản cập nhật"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Các bản cập nhật đang được cài đặt. Không tắt hoặc khởi động lại máy tính cho đến khi cài đặt hoàn tất. Làm gián đoạn cập nhật có thể làm hỏng các tệp hệ thống."
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Pin yếu. Vui lòng kết nối máy tính với bộ sạc trong khi cài đặt các bản cập nhật."
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "Đã hủy quá trình cập nhật"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "Hủy"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "Đang kiểm tra cập nhật…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "Có các bản cập nhật hệ thống"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "Dung lượng tải xuống: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "Dung lượng lưu trữ cần cho cập nhật hệ thống: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "Dung lượng được giải phóng sau cập nhật: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "Không cần tải thêm"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Không thể khởi động trình kiểm tra cập nhật. Đảm bảo đã cài đặt pacman-contrib."
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "Quá trình kiểm tra cập nhật dừng đột ngột."
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Đã xảy ra lỗi không xác định. Vui lòng báo cáo vấn đề trên trang GitHub của chúng tôi để được hỗ trợ."
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "Không có kết nối internet. Kiểm tra mạng và thử lại."
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Không thể kết nối với máy chủ kho phần mềm. Thử lại sau hoặc kiểm tra cấu hình máy chủ bản sao."
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "Lỗi cấp quyền, vui lòng thử lại."
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Quá trình kiểm tra cập nhật với quyền quản trị dừng đột ngột."
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "Không thể bắt đầu kiểm tra cập nhật với quyền quản trị."
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "Hệ thống chưa từng được cập nhật."
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "Không thể đọc thông tin cập nhật gần nhất."
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "Thông tin cập nhật gần nhất không hợp lệ."
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "Chưa có bản cập nhật nào được cài đặt trên hệ thống này"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "Để cập nhật hệ thống, hãy kiểm tra các bản cập nhật bằng nút bên dưới."
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "Có ngày cập nhật"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "Mới cập nhật gần đây"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "Hệ thống đã được cập nhật"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "Bản cập nhật gần nhất được cài đặt hơn một tháng trước"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "Bản cập nhật gần nhất được cài đặt hơn ba tháng trước"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 giây trước"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 phút trước"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 giờ trước"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ngày trước"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "Cần thực hiện thao tác"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "Cần thực hiện thao tác!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "Yêu cầu thao tác"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update không thể tiếp tục vì bản cập nhật sắp tới yêu cầu gỡ bỏ “%1”, một gói hệ thống được bảo vệ. Gỡ bỏ gói này có thể khiến Fluff Linux hoạt động không đúng. Vui lòng báo cáo vấn đề trên GitHub để được hỗ trợ."
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Để hệ thống cài đặt các bản cập nhật, Fluff Linux Update cần gỡ bỏ “%1”. Gỡ bỏ gói này có thể ảnh hưởng đến phần mềm liên quan. Nếu không chắc chắn, vui lòng báo cáo vấn đề trên GitHub để được hỗ trợ."
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "Chấp nhận"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "Đóng"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Để tiếp tục cập nhật hệ thống, %1 đã được tự động gỡ bỏ sau khi được xác định là an toàn để gỡ bỏ."
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Để tiếp tục cập nhật hệ thống, các gói sau đã được tự động gỡ bỏ sau khi được xác định là an toàn để gỡ bỏ: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Đã phát hiện và xử lý xung đột tệp. %1 đã được đổi tên thành %2. Quá trình cập nhật đã bắt đầu lại."
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Không thể gỡ bỏ gói gây xung đột. Vui lòng liên hệ hỗ trợ."
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update không thể xác minh khóa ký của kho FluffNet. Quá trình cập nhật đã dừng để bảo vệ hệ thống."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update không thể xác minh khóa ký của kho FluffNet. Quá trình cập nhật đã dừng để bảo vệ hệ thống. Điều này có thể do lỗi mạng, máy chủ FluffNet không khả dụng, khóa ký hết hạn hoặc đã thay đổi, lỗi cấu hình kho, khóa không mong đợi hoặc kho có thể đã bị xâm nhập. Không chấp nhận thủ công một khóa không mong đợi trừ khi Fluff Linux công bố hướng dẫn đã được xác minh."
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "Kho phần mềm: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Khóa ký chính thức của kho FluffNet đã được xác minh và thêm vào Pacman."
+
+msgid "Technical details"
+msgstr "Chi tiết kỹ thuật"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Chi tiết kỹ thuật xác minh khóa ký của kho phần mềm"
+
+msgid "Failure category: %1"
+msgstr "Loại lỗi: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Dấu vân tay dự kiến: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Dấu vân tay nhận được: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Dấu vân tay khóa ký được yêu cầu: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Trạng thái thoát của Pacman: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "Phiên bản FLU: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "Phiên bản Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Thử lại"
+
+msgid "Copy Technical Details"
+msgstr "Sao chép chi tiết kỹ thuật"
+
+msgid "Open an Issue on GitHub"
+msgstr "Báo cáo vấn đề trên GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Không đủ dung lượng trống để tiếp tục cập nhật. Giải phóng dung lượng và thử lại."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Không thể xác minh chữ ký của gói hoặc kho phần mềm. Quá trình cập nhật đã dừng. Kiểm tra ngày hệ thống và bộ khóa rồi thử lại."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Cơ sở dữ liệu gói bị hỏng hoặc không thể đọc. Quá trình cập nhật đã dừng. Vui lòng liên hệ hỗ trợ trước khi sửa cơ sở dữ liệu."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Gói đã tải xuống bị hỏng hoặc không đầy đủ. Quá trình cập nhật đã dừng. Thử lại hoặc dùng máy chủ bản sao khác."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Quá trình cập nhật không thể đọc hoặc ghi các tệp cần thiết. Kiểm tra quyền hệ thống tệp và tình trạng ổ đĩa rồi thử lại."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Không thể tải các bản cập nhật. Vui lòng thử lại hoặc liên hệ hỗ trợ."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Không thể chuẩn bị giao dịch cập nhật. Vui lòng thử lại hoặc liên hệ hỗ trợ."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Không thể bắt đầu cập nhật vì không thể bật tính năng ngăn chế độ ngủ. Vui lòng thử lại."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Không thể khóa cơ sở dữ liệu gói. Đóng các trình quản lý gói khác, kiểm tra hệ thống tệp có thể ghi rồi thử lại."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Thời gian ước tính: %1"

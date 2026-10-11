@@ -1,0 +1,376 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: th\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "การอัปเดตระบบ"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "รักษา Fluff Linux ให้ปลอดภัยและเป็นปัจจุบันด้วยการติดตั้งการอัปเดตระบบ"
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "อัปเดตระบบล่าสุด: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "ตรวจสอบการอัปเดต"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "ติดตั้งการอัปเดต"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "ดูการอัปเดต"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "เปลี่ยนมุมมอง"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "การอัปเดตที่จะติดตั้ง"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "ไม่มีรายละเอียดแพ็กเกจ"
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ยังอยู่ระหว่างการพัฒนา หากพบปัญหา โปรดรายงานที่หน้า GitHub ของเรา"
+
+msgid "System updates were installed successfully."
+msgstr "ติดตั้งการอัปเดตระบบสำเร็จแล้ว"
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "ไม่มีการเชื่อมต่อเครือข่าย!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "การเชื่อมต่อเครือข่ายมีข้อจำกัด หากไม่ได้เชื่อมต่อกับเครือข่ายขององค์กร โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ต"
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "มีกระบวนการ pacman ทำงานอยู่แล้ว"
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "ไม่สามารถเริ่มกระบวนการอัปเดตได้"
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "ไม่สามารถยกเลิกกระบวนการอัปเดตได้"
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "การเชื่อมต่อล้มเหลวขณะดาวน์โหลดการอัปเดต ตรวจสอบเครือข่ายแล้วลองอีกครั้ง"
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "การอัปเดตระบบล้มเหลว"
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "กำลังดาวน์โหลดการอัปเดต…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "กำลังติดตั้งการอัปเดต…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "ดาวน์โหลดแล้ว %1 / %2"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "ติดตั้งการอัปเดตแล้ว %1/%2"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "กำลังติดตั้งการอัปเดต โปรดอย่าปิดหรือเริ่มคอมพิวเตอร์ใหม่จนกว่าจะติดตั้งเสร็จ การขัดจังหวะการอัปเดตอาจทำให้ไฟล์ระบบเสียหาย"
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "แบตเตอรี่เหลือน้อย โปรดเชื่อมต่อคอมพิวเตอร์กับเครื่องชาร์จขณะติดตั้งการอัปเดต"
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "ยกเลิกกระบวนการอัปเดตแล้ว"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "กำลังตรวจสอบการอัปเดต…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "มีการอัปเดตระบบ"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "ขนาดการดาวน์โหลด: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "พื้นที่จัดเก็บที่ต้องใช้สำหรับการอัปเดตระบบ: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "พื้นที่ที่จะคืนหลังอัปเดต: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "ไม่ต้องดาวน์โหลดเพิ่มเติม"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "ไม่สามารถเริ่มตัวตรวจสอบการอัปเดตได้ ตรวจสอบว่าติดตั้ง pacman-contrib แล้ว"
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "การตรวจสอบการอัปเดตหยุดโดยไม่คาดคิด"
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ โปรดรายงานปัญหาที่หน้า GitHub ของเราเพื่อขอความช่วยเหลือ"
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "ไม่มีการเชื่อมต่ออินเทอร์เน็ต ตรวจสอบเครือข่ายแล้วลองอีกครั้ง"
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ไม่สามารถเข้าถึงเซิร์ฟเวอร์คลังแพ็กเกจได้ ลองอีกครั้งภายหลังหรือตรวจสอบการตั้งค่ามิเรอร์"
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "เกิดข้อผิดพลาดในการอนุญาต โปรดลองอีกครั้ง"
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "การตรวจสอบการอัปเดตด้วยสิทธิ์ผู้ดูแลระบบหยุดโดยไม่คาดคิด"
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "ไม่สามารถเริ่มการตรวจสอบการอัปเดตด้วยสิทธิ์ผู้ดูแลระบบได้"
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "ระบบไม่เคยได้รับการอัปเดต"
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "ไม่สามารถอ่านข้อมูลการอัปเดตล่าสุดได้"
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "ข้อมูลการอัปเดตล่าสุดไม่ถูกต้อง"
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "ยังไม่เคยติดตั้งการอัปเดตบนระบบนี้"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "หากต้องการอัปเดตระบบ ให้ตรวจสอบการอัปเดตที่มีโดยใช้ปุ่มด้านล่าง"
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "มีข้อมูลวันที่อัปเดต"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "อัปเดตเมื่อไม่นานมานี้"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "ระบบเป็นปัจจุบัน"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "ติดตั้งการอัปเดตล่าสุดมานานกว่าหนึ่งเดือนแล้ว"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "ติดตั้งการอัปเดตล่าสุดมานานกว่าสามเดือนแล้ว"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 วินาทีที่แล้ว"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 นาทีที่แล้ว"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ชั่วโมงที่แล้ว"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 วันที่แล้ว"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "ต้องดำเนินการ"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "ต้องดำเนินการ!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "จำเป็นต้องดำเนินการ"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update ไม่สามารถดำเนินการต่อได้ เนื่องจากการอัปเดตที่กำลังจะมาถึงต้องลบ “%1” ซึ่งเป็นแพ็กเกจระบบที่ได้รับการป้องกัน การลบอาจทำให้ Fluff Linux ทำงานไม่ถูกต้อง โปรดรายงานปัญหาที่ GitHub เพื่อขอความช่วยเหลือ"
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "เพื่อให้ระบบติดตั้งการอัปเดตได้ Fluff Linux Update ต้องลบ “%1” การลบแพ็กเกจนี้อาจส่งผลต่อซอฟต์แวร์ที่เกี่ยวข้อง หากไม่แน่ใจ โปรดรายงานปัญหาที่ GitHub เพื่อขอความช่วยเหลือ"
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "ยอมรับ"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "ปิด"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "เพื่อให้การอัปเดตระบบดำเนินต่อได้ ระบบได้ลบ %1 โดยอัตโนมัติหลังจากพิจารณาแล้วว่าลบได้อย่างปลอดภัย"
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "เพื่อให้การอัปเดตระบบดำเนินต่อได้ ระบบได้ลบแพ็กเกจต่อไปนี้โดยอัตโนมัติหลังจากพิจารณาแล้วว่าลบได้อย่างปลอดภัย: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ตรวจพบและแก้ไขข้อขัดแย้งของไฟล์แล้ว เปลี่ยนชื่อ %1 เป็น %2 กระบวนการอัปเดตเริ่มใหม่แล้ว"
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "ไม่สามารถลบแพ็กเกจที่ขัดแย้งได้ โปรดติดต่อฝ่ายสนับสนุน"
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update ไม่สามารถตรวจสอบกุญแจลงลายเซ็นของคลัง FluffNet ได้ หยุดการอัปเดตเพื่อปกป้องระบบของคุณแล้ว"
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update ไม่สามารถตรวจสอบกุญแจลงลายเซ็นของคลัง FluffNet ได้ หยุดการอัปเดตเพื่อปกป้องระบบของคุณแล้ว สาเหตุอาจเป็นปัญหาเครือข่าย เซิร์ฟเวอร์ FluffNet ไม่พร้อมใช้งาน กุญแจลงลายเซ็นหมดอายุหรือถูกเปลี่ยน ปัญหาการตั้งค่าคลัง กุญแจที่ไม่คาดคิด หรือคลังอาจถูกบุกรุก อย่ายอมรับกุญแจที่ไม่คาดคิดด้วยตนเอง เว้นแต่ Fluff Linux จะเผยแพร่คำแนะนำที่ผ่านการตรวจสอบแล้ว"
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "คลังแพ็กเกจ: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "ตรวจสอบกุญแจลงลายเซ็นอย่างเป็นทางการของคลัง FluffNet และเพิ่มลงใน Pacman แล้ว"
+
+msgid "Technical details"
+msgstr "รายละเอียดทางเทคนิค"
+
+msgid "Repository signing-key verification technical details"
+msgstr "รายละเอียดทางเทคนิคของการตรวจสอบกุญแจลงลายเซ็นของคลัง"
+
+msgid "Failure category: %1"
+msgstr "ประเภทข้อผิดพลาด: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "ลายนิ้วมือที่คาดไว้: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ลายนิ้วมือที่ได้รับ: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "ลายนิ้วมือกุญแจลงลายเซ็นที่ร้องขอ: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "สถานะการออกของ Pacman: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "รุ่น FLU: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "รุ่น Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "ลองอีกครั้ง"
+
+msgid "Copy Technical Details"
+msgstr "คัดลอกรายละเอียดทางเทคนิค"
+
+msgid "Open an Issue on GitHub"
+msgstr "รายงานปัญหาบน GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "พื้นที่ว่างไม่เพียงพอที่จะอัปเดตต่อ เพิ่มพื้นที่ว่างแล้วลองอีกครั้ง"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "ไม่สามารถตรวจสอบลายเซ็นของแพ็กเกจหรือคลังได้ หยุดการอัปเดตแล้ว ตรวจสอบวันที่ระบบและพวงกุญแจ แล้วลองอีกครั้ง"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "ฐานข้อมูลแพ็กเกจเสียหายหรืออ่านไม่ได้ หยุดการอัปเดตแล้ว โปรดติดต่อฝ่ายสนับสนุนก่อนซ่อมแซมฐานข้อมูล"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "แพ็กเกจที่ดาวน์โหลดเสียหายหรือไม่สมบูรณ์ หยุดการอัปเดตแล้ว โปรดลองอีกครั้งหรือใช้มิเรอร์อื่น"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "การอัปเดตไม่สามารถอ่านหรือเขียนไฟล์ที่จำเป็นได้ ตรวจสอบสิทธิ์ของระบบไฟล์และสภาพดิสก์ แล้วลองอีกครั้ง"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "ไม่สามารถดาวน์โหลดการอัปเดตได้ โปรดลองอีกครั้งหรือติดต่อฝ่ายสนับสนุน"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "ไม่สามารถเตรียมธุรกรรมการอัปเดตได้ โปรดลองอีกครั้งหรือติดต่อฝ่ายสนับสนุน"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "ไม่สามารถเริ่มการอัปเดตได้ เนื่องจากเปิดใช้การป้องกันโหมดพักไม่ได้ โปรดลองอีกครั้ง"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "ไม่สามารถล็อกฐานข้อมูลแพ็กเกจได้ ปิดตัวจัดการแพ็กเกจอื่นและตรวจสอบว่าระบบไฟล์เขียนได้ แล้วลองอีกครั้ง"
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "เวลาโดยประมาณ: %1"

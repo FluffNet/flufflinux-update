@@ -1,0 +1,376 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: ko\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "시스템 업데이트"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "시스템 업데이트를 설치하여 Fluff Linux를 안전하고 최신 상태로 유지하세요."
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "마지막 시스템 업데이트: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "업데이트 확인"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "업데이트 설치"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "업데이트 보기"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "보기 전환"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "설치할 업데이트"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "패키지 세부 정보를 사용할 수 없습니다."
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update는 아직 개발 중입니다. 문제가 발생하면 GitHub 페이지에 보고해 주세요."
+
+msgid "System updates were installed successfully."
+msgstr "시스템 업데이트를 설치했습니다."
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "네트워크에 연결되지 않았습니다!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "네트워크 연결이 제한되어 있습니다. 조직 네트워크에 연결된 것이 아니라면 인터넷 연결을 확인하세요."
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "pacman 프로세스가 이미 실행 중입니다."
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "업데이트 프로세스를 시작할 수 없습니다."
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "업데이트 프로세스를 취소할 수 없습니다."
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "업데이트를 다운로드하는 중에 연결이 끊어졌습니다. 네트워크를 확인하고 다시 시도하세요."
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "시스템 업데이트에 실패했습니다."
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "업데이트 다운로드 중…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "업데이트 설치 중…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 다운로드됨"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "업데이트 %1/%2개 설치됨"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "현재 업데이트를 설치하고 있습니다. 설치가 완료될 때까지 컴퓨터를 끄거나 다시 시작하지 마세요. 업데이트를 중단하면 시스템 파일이 손상될 수 있습니다."
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "배터리 잔량이 부족합니다. 업데이트를 설치하는 동안 컴퓨터를 충전기에 연결하세요."
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "업데이트 프로세스가 취소되었습니다"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "취소"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "업데이트 확인 중…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "시스템 업데이트를 사용할 수 있습니다"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "다운로드 크기: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "시스템 업데이트에 필요한 저장 공간: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "업데이트 후 확보될 저장 공간: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "추가 다운로드가 필요하지 않습니다"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "업데이트 확인 도구를 시작할 수 없습니다. pacman-contrib가 설치되어 있는지 확인하세요."
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "업데이트 확인이 예기치 않게 중지되었습니다."
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "알 수 없는 오류가 발생했습니다. 도움을 받으려면 GitHub 페이지에 이 문제를 보고해 주세요."
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "인터넷에 연결되지 않았습니다. 네트워크를 확인하고 다시 시도하세요."
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "저장소 서버에 연결할 수 없습니다. 나중에 다시 시도하거나 미러 설정을 확인하세요."
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "권한 인증 오류입니다. 다시 시도하세요."
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "관리자 권한으로 실행한 업데이트 확인이 예기치 않게 중지되었습니다."
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "관리자 권한으로 업데이트 확인을 시작할 수 없습니다."
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "시스템을 이전에 업데이트한 적이 없습니다."
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "마지막 업데이트 정보를 읽을 수 없습니다."
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "마지막 업데이트 정보가 잘못되었습니다."
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "이 시스템에는 업데이트가 설치된 적이 없습니다"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "시스템을 업데이트하려면 아래 버튼으로 사용 가능한 업데이트를 확인하세요."
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "업데이트 날짜를 사용할 수 있습니다"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "최근 업데이트됨"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "시스템이 최신 상태입니다"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "마지막 업데이트를 설치한 지 한 달이 넘었습니다"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "마지막 업데이트를 설치한 지 세 달이 넘었습니다"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1초 전"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1분 전"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1시간 전"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1일 전"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "조치가 필요합니다"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "조치가 필요합니다!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "조치 필요"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "예정된 업데이트에 보호된 시스템 패키지인 “%1”의 제거가 필요하므로 Fluff Linux Update를 계속할 수 없습니다. 이를 제거하면 Fluff Linux가 제대로 작동하지 않을 수 있습니다. 도움을 받으려면 GitHub에 문제를 보고해 주세요."
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "시스템 업데이트를 설치하려면 Fluff Linux Update에서 “%1”을 제거해야 합니다. 이 패키지를 제거하면 관련 소프트웨어에 영향을 줄 수 있습니다. 확실하지 않다면 GitHub에 문제를 보고하여 도움을 받으세요."
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "수락"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "닫기"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "시스템 업데이트를 계속하기 위해 안전하게 제거할 수 있다고 판단된 %1을 자동으로 제거했습니다."
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "시스템 업데이트를 계속하기 위해 안전하게 제거할 수 있다고 판단된 다음 패키지를 자동으로 제거했습니다: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "파일 충돌을 발견하여 해결했습니다. %1의 이름을 %2로 변경했습니다. 업데이트 프로세스를 다시 시작했습니다."
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "충돌하는 패키지를 제거할 수 없습니다. 지원을 요청하세요."
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update에서 FluffNet 저장소의 서명 키를 검증할 수 없습니다. 시스템을 보호하기 위해 업데이트를 중지했습니다."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update에서 FluffNet 저장소의 서명 키를 검증할 수 없습니다. 시스템을 보호하기 위해 업데이트를 중지했습니다. 네트워크 문제, FluffNet 서버의 접근 불가, 만료되거나 교체된 서명 키, 저장소 설정 문제, 예상하지 못한 키 또는 저장소 침해 가능성을 나타낼 수 있습니다. Fluff Linux에서 검증된 지침을 게시하지 않는 한 예상하지 못한 키를 수동으로 수락하지 마세요."
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "저장소: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet 저장소의 공식 서명 키를 검증하여 Pacman에 추가했습니다."
+
+msgid "Technical details"
+msgstr "기술 세부 정보"
+
+msgid "Repository signing-key verification technical details"
+msgstr "저장소 서명 키 검증 기술 세부 정보"
+
+msgid "Failure category: %1"
+msgstr "오류 범주: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "예상한 지문: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "받은 지문: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "요청된 서명 키 지문: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman 종료 상태: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "FLU 버전: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux 버전: %1"
+
+msgid "Try Again"
+msgstr "다시 시도"
+
+msgid "Copy Technical Details"
+msgstr "기술 세부 정보 복사"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub에 문제 보고"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "업데이트를 계속할 여유 저장 공간이 부족합니다. 공간을 확보하고 다시 시도하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "패키지 또는 저장소 서명을 검증할 수 없습니다. 업데이트를 중지했습니다. 시스템 날짜와 키 모음을 확인한 후 다시 시도하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "패키지 데이터베이스가 손상되었거나 읽을 수 없습니다. 업데이트를 중지했습니다. 데이터베이스를 복구하기 전에 지원을 요청하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "다운로드한 패키지가 손상되었거나 불완전합니다. 업데이트를 중지했습니다. 다시 시도하거나 다른 미러를 사용하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "업데이트에 필요한 파일을 읽거나 쓸 수 없습니다. 파일 시스템 권한과 디스크 상태를 확인한 후 다시 시도하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "업데이트를 다운로드할 수 없습니다. 다시 시도하거나 지원을 요청하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "업데이트 트랜잭션을 준비할 수 없습니다. 다시 시도하거나 지원을 요청하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "절전 방지 기능을 활성화할 수 없어 업데이트를 시작할 수 없습니다. 다시 시도하세요."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "패키지 데이터베이스를 잠글 수 없습니다. 다른 패키지 관리자를 닫고 파일 시스템에 쓸 수 있는지 확인한 후 다시 시도하세요."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "예상 시간: %1"

@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: hi\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "सिस्टम अपडेट"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "सिस्टम अपडेट इंस्टॉल करके Fluff Linux को सुरक्षित और अद्यतन रखें।"
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "सिस्टम का पिछला अपडेट: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "अपडेट जाँचें"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "अपडेट इंस्टॉल करें"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "अपडेट देखें"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "दृश्य बदलें"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "इंस्टॉल किए जाने वाले अपडेट"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "पैकेज का विवरण उपलब्ध नहीं है।"
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update अभी विकासाधीन है। कोई समस्या होने पर हमारे GitHub पेज पर उसकी रिपोर्ट करें।"
+
+msgid "System updates were installed successfully."
+msgstr "सिस्टम अपडेट सफलतापूर्वक इंस्टॉल हो गए।"
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "नेटवर्क कनेक्शन नहीं है!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "नेटवर्क कनेक्शन सीमित है। यदि आप किसी संगठन के नेटवर्क से जुड़े नहीं हैं, तो अपना इंटरनेट कनेक्शन जाँचें।"
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "pacman प्रक्रिया पहले से चल रही है।"
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "अपडेट प्रक्रिया शुरू नहीं हो सकी।"
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "अपडेट प्रक्रिया रद्द नहीं हो सकी।"
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "अपडेट डाउनलोड करते समय कनेक्शन विफल हो गया। नेटवर्क जाँचें और फिर से प्रयास करें।"
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "सिस्टम अपडेट विफल हो गया।"
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "अपडेट डाउनलोड हो रहे हैं…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "अपडेट इंस्टॉल हो रहे हैं…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 डाउनलोड हो गया"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 अपडेट इंस्टॉल हो गए"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "अपडेट अभी इंस्टॉल हो रहे हैं। इंस्टॉलेशन पूरा होने तक कंप्यूटर बंद या पुनः चालू न करें। अपडेट रोकने से सिस्टम की फ़ाइलें क्षतिग्रस्त हो सकती हैं।"
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "बैटरी कम है। अपडेट इंस्टॉल करते समय कंप्यूटर को चार्जर से जोड़ें।"
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "अपडेट प्रक्रिया रद्द कर दी गई"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "रद्द करें"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "अपडेट जाँचे जा रहे हैं…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "सिस्टम अपडेट उपलब्ध हैं"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "डाउनलोड का आकार: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "सिस्टम अपडेट के लिए आवश्यक जगह: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "अपडेट के बाद खाली होने वाली जगह: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "अतिरिक्त डाउनलोड आवश्यक नहीं है"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "अपडेट जाँचकर्ता शुरू नहीं हो सका। सुनिश्चित करें कि pacman-contrib इंस्टॉल है।"
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "अपडेट की जाँच अचानक रुक गई।"
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "एक अज्ञात त्रुटि हुई है। सहायता के लिए हमारे GitHub पेज पर इस समस्या की रिपोर्ट करें।"
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "इंटरनेट कनेक्शन नहीं है। नेटवर्क जाँचें और फिर से प्रयास करें।"
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "रिपॉज़िटरी सर्वर तक पहुँचा नहीं जा सका। बाद में प्रयास करें या मिरर कॉन्फ़िगरेशन जाँचें।"
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "प्राधिकरण त्रुटि, फिर से प्रयास करें।"
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "प्रशासकीय अधिकारों से चल रही अपडेट जाँच अचानक रुक गई।"
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "प्रशासकीय अधिकारों से अपडेट की जाँच शुरू नहीं हो सकी।"
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "सिस्टम पहले अपडेट नहीं किया गया था।"
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "पिछले अपडेट की जानकारी पढ़ी नहीं जा सकी।"
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "पिछले अपडेट की जानकारी अमान्य है।"
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "इस सिस्टम पर अपडेट इंस्टॉल नहीं किए गए हैं"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "सिस्टम अपडेट करने के लिए नीचे दिए गए बटन से उपलब्ध अपडेट जाँचें।"
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "अपडेट की तारीख उपलब्ध है"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "हाल ही में अपडेट किया गया"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "सिस्टम अद्यतन है"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "पिछला अपडेट एक महीने से अधिक समय पहले इंस्टॉल किया गया था"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "पिछला अपडेट तीन महीने से अधिक समय पहले इंस्टॉल किया गया था"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 सेकंड पहले"
+msgstr[1] "%1 सेकंड पहले"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 मिनट पहले"
+msgstr[1] "%1 मिनट पहले"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 घंटे पहले"
+msgstr[1] "%1 घंटे पहले"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 दिन पहले"
+msgstr[1] "%1 दिन पहले"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "कार्रवाई आवश्यक है"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "कार्रवाई आवश्यक है!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "कार्रवाई आवश्यक"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update आगे नहीं बढ़ सकता क्योंकि आगामी अपडेट के लिए सुरक्षित सिस्टम पैकेज “%1” को हटाना आवश्यक है। इसे हटाने से Fluff Linux का सही ढंग से काम करना रुक सकता है। सहायता के लिए GitHub पर इस समस्या की रिपोर्ट करें।"
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "सिस्टम को अपडेट इंस्टॉल करने देने के लिए Fluff Linux Update को “%1” हटाना होगा। इस पैकेज को हटाने से संबंधित सॉफ़्टवेयर प्रभावित हो सकता है। यदि आप सुनिश्चित नहीं हैं, तो सहायता के लिए GitHub पर समस्या की रिपोर्ट करें।"
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "स्वीकार करें"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "बंद करें"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "सिस्टम अपडेट जारी रखने के लिए %1 को हटाना सुरक्षित पाए जाने के बाद अपने आप हटा दिया गया।"
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "सिस्टम अपडेट जारी रखने के लिए निम्नलिखित पैकेजों को हटाना सुरक्षित पाए जाने के बाद अपने आप हटा दिया गया: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "फ़ाइल टकराव का पता चला और उसे हल कर दिया गया। %1 का नाम बदलकर %2 किया गया। अपडेट प्रक्रिया फिर से शुरू हो गई।"
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "टकराव वाले पैकेज को हटाया नहीं जा सका। सहायता प्राप्त करें।"
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update, FluffNet रिपॉज़िटरी की हस्ताक्षर कुंजी सत्यापित नहीं कर सका। आपके सिस्टम की सुरक्षा के लिए अपडेट रोक दिया गया।"
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update, FluffNet रिपॉज़िटरी की हस्ताक्षर कुंजी सत्यापित नहीं कर सका। आपके सिस्टम की सुरक्षा के लिए अपडेट रोक दिया गया। यह नेटवर्क की समस्या, अनुपलब्ध FluffNet सर्वर, समय सीमा समाप्त या बदली गई हस्ताक्षर कुंजी, रिपॉज़िटरी कॉन्फ़िगरेशन की समस्या, अप्रत्याशित कुंजी या रिपॉज़िटरी में संभावित सेंध का संकेत हो सकता है। जब तक Fluff Linux सत्यापित निर्देश प्रकाशित न करे, अप्रत्याशित कुंजी को स्वयं स्वीकार न करें।"
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "रिपॉज़िटरी: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet रिपॉज़िटरी की आधिकारिक हस्ताक्षर कुंजी सत्यापित करके Pacman में जोड़ दी गई।"
+
+msgid "Technical details"
+msgstr "तकनीकी विवरण"
+
+msgid "Repository signing-key verification technical details"
+msgstr "रिपॉज़िटरी हस्ताक्षर कुंजी सत्यापन का तकनीकी विवरण"
+
+msgid "Failure category: %1"
+msgstr "विफलता की श्रेणी: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "अपेक्षित फ़िंगरप्रिंट: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "प्राप्त फ़िंगरप्रिंट: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "अनुरोधित हस्ताक्षर कुंजी का फ़िंगरप्रिंट: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman निकास स्थिति: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "FLU संस्करण: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux संस्करण: %1"
+
+msgid "Try Again"
+msgstr "फिर से प्रयास करें"
+
+msgid "Copy Technical Details"
+msgstr "तकनीकी विवरण कॉपी करें"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub पर समस्या की रिपोर्ट करें"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "अपडेट जारी रखने के लिए पर्याप्त खाली जगह नहीं है। जगह खाली करें और फिर से प्रयास करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "पैकेज या रिपॉज़िटरी के हस्ताक्षर सत्यापित नहीं हो सके। अपडेट रोक दिया गया। सिस्टम की तारीख और कीरिंग जाँचें, फिर प्रयास करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "पैकेज डेटाबेस क्षतिग्रस्त है या पढ़ा नहीं जा सकता। अपडेट रोक दिया गया। डेटाबेस सुधारने से पहले सहायता प्राप्त करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "डाउनलोड किया गया पैकेज क्षतिग्रस्त या अधूरा है। अपडेट रोक दिया गया। फिर से प्रयास करें या दूसरा मिरर इस्तेमाल करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "अपडेट आवश्यक फ़ाइलें पढ़ या लिख नहीं सका। फ़ाइल सिस्टम की अनुमतियाँ और डिस्क की स्थिति जाँचें, फिर प्रयास करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "अपडेट डाउनलोड नहीं हो सके। फिर से प्रयास करें या सहायता प्राप्त करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "अपडेट लेन-देन तैयार नहीं हो सका। फिर से प्रयास करें या सहायता प्राप्त करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "स्लीप रोकथाम सक्षम न होने के कारण अपडेट शुरू नहीं हो सका। फिर से प्रयास करें।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "पैकेज डेटाबेस लॉक नहीं हो सका। अन्य पैकेज प्रबंधक बंद करें और सुनिश्चित करें कि फ़ाइल सिस्टम पर लिखा जा सकता है, फिर प्रयास करें।"
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "अनुमानित समय: %1"

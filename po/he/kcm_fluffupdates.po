@@ -38,7 +38,7 @@ msgid "Package details are unavailable."
 msgstr "פרטי העדכונים אינם זמינים"
 
 msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
-msgstr "אם אתם נתקלים בבעיה, נא לדווח עליה בעמוד ה־GitHub שלנו."
+msgstr "אם אתם נתקלים בבעיה, נא לדווח עליה בעמוד הGitHub שלנו."
 
 msgid "System updates were installed successfully."
 msgstr "עדכוני המערכת הותקנו בהצלחה."
@@ -116,7 +116,7 @@ msgid "The update check stopped unexpectedly."
 msgstr "בדיקת העדכונים נעצרה באופן בלתי צפוי."
 
 msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
-msgstr "אירעה שגיאה. נא לדווח על הבעיה בעמוד ה־GitHub שלנו לקבלת סיוע."
+msgstr "אירעה שגיאה. נא לדווח על הבעיה בעמוד הGitHub שלנו לקבלת סיוע."
 
 msgid "No internet connection. Check your network and try again."
 msgstr "אין חיבור לאינטרנט. יש לבדוק את הרשת ולנסות שוב."
@@ -201,10 +201,10 @@ msgid "Action required"
 msgstr "נדרשת פעולה"
 
 msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
-msgstr "לא ניתן היה להמשיך מכיוון שהעדכון הקרוב דורש להסיר את „%1”, שהוא רכיב מערכת מוגן. הסרתו עלולה למנוע מ־Fluff Linux לפעול כראוי. נא לדווח על הבעיה ב־GitHub לקבלת עזרה."
+msgstr "לא ניתן היה להמשיך מכיוון שהעדכון הקרוב דורש להסיר את „%1”, שהוא רכיב מערכת מוגן. הסרתו עלולה למנוע מFluff Linux לפעול כראוי. נא לדווח על הבעיה בGitHub לקבלת עזרה."
 
 msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
-msgstr "כדי לאפשר למערכת להתקין עדכונים, Fluff Linux Update צריך להסיר את „%1”. הסרת הרכיב עלולה להשפיע על תוכנות קשורות. אם אינך בטוח, נא לדווח על הבעיה ב־GitHub לקבלת עזרה."
+msgstr "כדי לאפשר למערכת להתקין עדכונים, Fluff Linux Update צריך להסיר את „%1”. הסרת הרכיב עלולה להשפיע על תוכנות קשורות. אם אינך בטוח, נא לדווח על הבעיה בGitHub לקבלת עזרה."
 
 msgid "Accept"
 msgstr "אישור"
@@ -237,7 +237,7 @@ msgid "Repository: %1"
 msgstr "מאגר: %1"
 
 msgid "The official FluffNet repository signing key was verified and added to Pacman."
-msgstr "מפתח החתימה הרשמי של מאגר FluffNet אומת ונוסף ל־Pacman."
+msgstr "מפתח החתימה הרשמי של מאגר FluffNet אומת ונוסף לPacman."
 
 msgid "Technical details"
 msgstr "פרטים טכניים"
@@ -273,7 +273,7 @@ msgid "Copy Technical Details"
 msgstr "העתקת הפרטים הטכניים"
 
 msgid "Open an Issue on GitHub"
-msgstr "פתיחת דיווח ב Github"
+msgstr "פתיחת דיווח בGitHub"
 
 #. Operational failure, shown in the panel and background notification.
 msgid "There is not enough free storage to continue the update. Free up space and try again."

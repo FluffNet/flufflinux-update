@@ -3,8 +3,11 @@
 Thank you for helping translate Fluff Linux. You do not need to understand Rust
 or QML to add a language.
 
-Included catalogs cover every official European Union language together with
-Arabic, Hebrew, Japanese, and Russian. English is the source language.
+The 42 catalogs plus English cover the 43 supported base languages: every
+official European Union language, plus Arabic, Bengali, Filipino, Hebrew,
+Hindi, Indonesian, Japanese, Korean, Malay, Norwegian Bokmål, Persian,
+Russian, Serbian, Swahili, Thai, Turkish, Ukrainian, Urdu, and Vietnamese.
+Regional variants are not maintained separately. English is the source language.
 
 ## Add your language
 
@@ -15,7 +18,8 @@ Arabic, Hebrew, Japanese, and Russian. English is the source language.
    `po/<language-code>/kcm_fluffupdates.po`.
 4. In the copied file, set the `Language:` line to your language code.
 5. For every English `msgid`, write the translation in the following `msgstr`.
-6. Keep `%1` unchanged. KDE replaces it with the recorded update date.
+6. Preserve every placeholder, such as `%1` and `%2`, and translate every plural
+   form required by the catalog's `Plural-Forms` header.
 7. Save the file as UTF-8 and compile the project normally. The translation is
    automatically included when the project is staged into the fakeroot.
 
@@ -107,12 +111,14 @@ The panel name and description shown in the System Settings search results also
 have translations in `src/kcm_flu.json`. The application-menu entry is
 translated in `src/org.flufflinux.update.desktop`. When adding a production
 translation, add matching locale entries to both metadata files, where `xx` is
-the same language code used by the PO catalog.
+the same language code used by the PO catalog. Also translate both the
+description and password prompt in `src/org.flufflinux.update.policy`, and
+include localized search keywords in the launcher and settings metadata.
 
 ## Right-to-left languages
 
 No special layout code is required in a translation. KDE and Qt automatically
-select right-to-left direction for languages such as Arabic and Hebrew, and the
+select right-to-left direction for Arabic, Hebrew, Persian, and Urdu, and the
 panel mirrors its rows and controls accordingly. The package/version list
 intentionally remains left-to-right because package names, versions, and the
 old-to-new arrow use technical notation.

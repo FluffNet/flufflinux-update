@@ -15,7 +15,7 @@ WARNING = (
     "while installing updates."
 )
 OLD_WARNING = "The battery is low. Please plug in your computer before installing updates."
-LOCALES = set("ar bg cs da de el es et fi fr ga he hr hu it ja lt lv mt nl pl pt ro ru sk sl sv".split())
+LOCALES = set("ar bg bn cs da de el es et fa fi fil fr ga he hi hr hu id it ja ko lt lv ms mt nb nl pl pt ro ru sk sl sr sv sw th tr uk ur vi".split())
 
 
 def main():

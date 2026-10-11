@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: fa\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "به‌روزرسانی‌های سیستم"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "با نصب به‌روزرسانی‌های سیستم، Fluff Linux را امن و به‌روز نگه دارید."
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "آخرین به‌روزرسانی سیستم: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "بررسی به‌روزرسانی‌ها"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "نصب به‌روزرسانی‌ها"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "نمایش به‌روزرسانی‌ها"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "تغییر نما"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "به‌روزرسانی‌های قابل نصب"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "جزئیات بسته در دسترس نیست."
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update هنوز در حال توسعه است. اگر با مشکلی روبه‌رو شدید، آن را در صفحهٔ GitHub ما گزارش کنید."
+
+msgid "System updates were installed successfully."
+msgstr "به‌روزرسانی‌های سیستم با موفقیت نصب شدند."
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "اتصال شبکه وجود ندارد!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "اتصال شبکه محدود است. اگر به شبکهٔ یک سازمان متصل نیستید، اتصال اینترنت خود را بررسی کنید."
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "یک فرایند pacman از قبل در حال اجراست."
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "فرایند به‌روزرسانی آغاز نشد."
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "فرایند به‌روزرسانی لغو نشد."
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "اتصال هنگام دریافت به‌روزرسانی‌ها قطع شد. شبکهٔ خود را بررسی کرده و دوباره تلاش کنید."
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "به‌روزرسانی سیستم ناموفق بود."
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "در حال دریافت به‌روزرسانی‌ها…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "در حال نصب به‌روزرسانی‌ها…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "%1 از %2 دریافت شد"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "%1 از %2 به‌روزرسانی نصب شد"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "به‌روزرسانی‌ها در حال نصب هستند. تا پایان نصب، رایانه را خاموش یا راه‌اندازی مجدد نکنید. قطع به‌روزرسانی ممکن است به پرونده‌های سیستم آسیب برساند."
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "شارژ باتری کم است. هنگام نصب به‌روزرسانی‌ها، رایانه را به شارژر متصل کنید."
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "فرایند به‌روزرسانی لغو شد"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "لغو"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "در حال بررسی به‌روزرسانی‌ها…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "به‌روزرسانی‌های سیستم در دسترس هستند"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "حجم دریافت: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "فضای لازم برای به‌روزرسانی‌های سیستم: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "فضای آزادشده پس از به‌روزرسانی: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "نیازی به دریافت بیشتر نیست"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "بررسی‌کنندهٔ به‌روزرسانی آغاز نشد. مطمئن شوید pacman-contrib نصب شده است."
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "بررسی به‌روزرسانی به‌طور غیرمنتظره متوقف شد."
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "خطایی ناشناخته رخ داده است. برای دریافت کمک، این مشکل را در صفحهٔ GitHub ما گزارش کنید."
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "اتصال اینترنت وجود ندارد. شبکهٔ خود را بررسی کرده و دوباره تلاش کنید."
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "دسترسی به سرورهای مخزن ممکن نیست. بعداً دوباره تلاش کنید یا تنظیمات سرور آینه را بررسی کنید."
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "خطای مجوز، دوباره تلاش کنید."
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "بررسی به‌روزرسانی با دسترسی مدیر به‌طور غیرمنتظره متوقف شد."
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "بررسی به‌روزرسانی با دسترسی مدیر آغاز نشد."
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "سیستم قبلاً به‌روزرسانی نشده است."
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "اطلاعات آخرین به‌روزرسانی خوانده نشد."
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "اطلاعات آخرین به‌روزرسانی نامعتبر است."
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "به‌روزرسانی‌ای روی این سیستم نصب نشده است"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "برای به‌روزرسانی سیستم، با دکمهٔ زیر به‌روزرسانی‌های موجود را بررسی کنید."
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "تاریخ به‌روزرسانی در دسترس است"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "به‌تازگی به‌روزرسانی شده"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "سیستم به‌روز است"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "آخرین به‌روزرسانی بیش از یک ماه پیش نصب شده است"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "آخرین به‌روزرسانی بیش از سه ماه پیش نصب شده است"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 ثانیه پیش"
+msgstr[1] "%1 ثانیه پیش"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 دقیقه پیش"
+msgstr[1] "%1 دقیقه پیش"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ساعت پیش"
+msgstr[1] "%1 ساعت پیش"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 روز پیش"
+msgstr[1] "%1 روز پیش"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "نیاز به اقدام است"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "نیاز به اقدام است!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "اقدام لازم است"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update نمی‌تواند ادامه دهد زیرا به‌روزرسانی پیش رو نیازمند حذف «%1» است که یک بستهٔ سیستمی محافظت‌شده است. حذف آن ممکن است مانع کارکرد درست Fluff Linux شود. برای دریافت کمک، این مشکل را در GitHub گزارش کنید."
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "برای نصب به‌روزرسانی‌های سیستم، Fluff Linux Update باید «%1» را حذف کند. حذف این بسته ممکن است بر نرم‌افزارهای مرتبط تأثیر بگذارد. اگر مطمئن نیستید، برای دریافت کمک مشکل را در GitHub گزارش کنید."
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "پذیرش"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "بستن"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "برای ادامهٔ به‌روزرسانی‌های سیستم، %1 پس از تشخیص بی‌خطر بودن حذف آن، به‌طور خودکار حذف شد."
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "برای ادامهٔ به‌روزرسانی‌های سیستم، بسته‌های زیر پس از تشخیص بی‌خطر بودن حذف آن‌ها، به‌طور خودکار حذف شدند: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "تداخل پرونده شناسایی و برطرف شد. نام %1 به %2 تغییر کرد. فرایند به‌روزرسانی دوباره آغاز شد."
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "بستهٔ دارای تداخل حذف نشد. از پشتیبانی کمک بگیرید."
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update نتوانست کلید امضای مخزن FluffNet را تأیید کند. به‌روزرسانی برای محافظت از سیستم شما متوقف شد."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update نتوانست کلید امضای مخزن FluffNet را تأیید کند. به‌روزرسانی برای محافظت از سیستم شما متوقف شد. این ممکن است نشان‌دهندهٔ مشکل شبکه، در دسترس نبودن سرور FluffNet، کلید امضای منقضی یا تعویض‌شده، مشکل تنظیمات مخزن، کلید غیرمنتظره یا احتمال نفوذ به مخزن باشد. کلید غیرمنتظره را به‌صورت دستی نپذیرید، مگر اینکه Fluff Linux دستورالعمل‌های تأییدشده منتشر کند."
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "مخزن: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "کلید رسمی امضای مخزن FluffNet تأیید و به Pacman افزوده شد."
+
+msgid "Technical details"
+msgstr "جزئیات فنی"
+
+msgid "Repository signing-key verification technical details"
+msgstr "جزئیات فنی تأیید کلید امضای مخزن"
+
+msgid "Failure category: %1"
+msgstr "دستهٔ خطا: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "اثر انگشت مورد انتظار: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "اثر انگشت دریافت‌شده: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "اثر انگشت کلید امضای درخواستی: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "وضعیت خروج Pacman: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "نسخهٔ FLU: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "نسخهٔ Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "تلاش دوباره"
+
+msgid "Copy Technical Details"
+msgstr "رونوشت جزئیات فنی"
+
+msgid "Open an Issue on GitHub"
+msgstr "گزارش مشکل در GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "فضای آزاد کافی برای ادامهٔ به‌روزرسانی وجود ندارد. فضا آزاد کنید و دوباره تلاش کنید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "امضای یک بسته یا مخزن تأیید نشد. به‌روزرسانی متوقف شد. تاریخ سیستم و دسته‌کلید را بررسی کرده و دوباره تلاش کنید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "پایگاه دادهٔ بسته‌ها آسیب دیده یا خواندنی نیست. به‌روزرسانی متوقف شد. پیش از تعمیر پایگاه داده، از پشتیبانی کمک بگیرید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "بستهٔ دریافت‌شده آسیب دیده یا ناقص است. به‌روزرسانی متوقف شد. دوباره تلاش کنید یا از سرور آینهٔ دیگری استفاده کنید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "به‌روزرسانی نتوانست پرونده‌های لازم را بخواند یا بنویسد. مجوزهای سامانهٔ پرونده و سلامت دیسک را بررسی کرده و دوباره تلاش کنید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "به‌روزرسانی‌ها دریافت نشدند. دوباره تلاش کنید یا از پشتیبانی کمک بگیرید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "تراکنش به‌روزرسانی آماده نشد. دوباره تلاش کنید یا از پشتیبانی کمک بگیرید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "به‌روزرسانی آغاز نشد زیرا جلوگیری از خواب فعال نشد. دوباره تلاش کنید."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "پایگاه دادهٔ بسته‌ها قفل نشد. دیگر مدیران بسته را ببندید و مطمئن شوید سامانهٔ پرونده قابل نوشتن است، سپس دوباره تلاش کنید."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "زمان تخمینی: %1"
