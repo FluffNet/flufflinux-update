@@ -9,6 +9,9 @@ import org.kde.kcmutils as KCMUtils
 KCMUtils.SimpleKCM {
     id: root
     readonly property var backend: kcm.backend
+    readonly property int interfaceDirection: backend.interfaceRightToLeft === undefined
+        ? Qt.application.layoutDirection
+        : (backend.interfaceRightToLeft ? Qt.RightToLeft : Qt.LeftToRight)
 
     readonly property int minimumUsableWidth: 480
     readonly property int minimumUsableHeight: 400
@@ -30,9 +33,9 @@ KCMUtils.SimpleKCM {
         }
     }
 
-    // Qt selects RightToLeft for Arabic and Hebrew. Explicit mirroring makes
-    // every nested row follow that direction as well.
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    // The selected FLU translation can differ from the System Settings host.
+    // Mirror this page without changing the host or technical-value direction.
+    LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     onVisibleChanged: {
@@ -1090,7 +1093,7 @@ KCMUtils.SimpleKCM {
 
         contentItem: Flickable {
             id: protectedScroll
-            LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+            LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
             LayoutMirroring.childrenInherit: true
             contentWidth: width
             implicitHeight: protectedBody.implicitHeight
@@ -1105,7 +1108,7 @@ KCMUtils.SimpleKCM {
             }
             RowLayout {
                 id: protectedBody
-                x: Qt.application.layoutDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
+                x: root.interfaceDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
                 width: protectedScroll.width - Kirigami.Units.largeSpacing * 2
                 spacing: Kirigami.Units.largeSpacing
 
@@ -1128,7 +1131,7 @@ KCMUtils.SimpleKCM {
 
         footer: Flow {
             spacing: Kirigami.Units.smallSpacing
-            layoutDirection: Qt.application.layoutDirection
+            layoutDirection: root.interfaceDirection
             Controls.Button {
                 width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Close")
@@ -1163,7 +1166,7 @@ KCMUtils.SimpleKCM {
 
         contentItem: Flickable {
             id: warningScroll
-            LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+            LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
             LayoutMirroring.childrenInherit: true
             contentWidth: width
             implicitHeight: warningBody.implicitHeight
@@ -1178,7 +1181,7 @@ KCMUtils.SimpleKCM {
             }
             RowLayout {
                 id: warningBody
-                x: Qt.application.layoutDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
+                x: root.interfaceDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
                 width: warningScroll.width - Kirigami.Units.largeSpacing * 2
                 spacing: Kirigami.Units.largeSpacing
 
@@ -1201,7 +1204,7 @@ KCMUtils.SimpleKCM {
 
         footer: Flow {
             spacing: Kirigami.Units.smallSpacing
-            layoutDirection: Qt.application.layoutDirection
+            layoutDirection: root.interfaceDirection
             Controls.Button {
                 width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Cancel")
@@ -1243,7 +1246,7 @@ KCMUtils.SimpleKCM {
 
         contentItem: Flickable {
             id: signingScroll
-            LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+            LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
             LayoutMirroring.childrenInherit: true
             contentWidth: width
             implicitHeight: signingBody.implicitHeight
@@ -1258,7 +1261,7 @@ KCMUtils.SimpleKCM {
             }
             ColumnLayout {
                 id: signingBody
-                x: Qt.application.layoutDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
+                x: root.interfaceDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
                 width: signingScroll.width - Kirigami.Units.largeSpacing * 2
                 spacing: Kirigami.Units.largeSpacing
 
@@ -1304,7 +1307,7 @@ KCMUtils.SimpleKCM {
 
         footer: Flow {
             spacing: Kirigami.Units.smallSpacing
-            layoutDirection: Qt.application.layoutDirection
+            layoutDirection: root.interfaceDirection
             Controls.Button {
                 width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Try Again")

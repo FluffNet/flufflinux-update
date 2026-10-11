@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ps\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "د سیسټم اوسمهالونې"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "د سیسټم د اوسمهالونو په نصبولو Fluff Linux خوندي او تازه وساتئ."
+
+msgid "System last updated: %1 (%2)"
+msgstr "د سیسټم وروستۍ اوسمهالونه: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "اوسمهالونې وګورئ"
+
+msgid "Install Updates"
+msgstr "اوسمهالونې نصب کړئ"
+
+msgid "View Updates"
+msgstr "د اوسمهالونو لړ وګورئ"
+
+msgid "Change view"
+msgstr "لید بدل کړئ"
+
+msgid "Updates to Install"
+msgstr "د نصب لپاره اوسمهالونې"
+
+msgid "Package details are unavailable."
+msgstr "د بستې جزییات نشته."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update لا هم د پراختیا په حال کې دی. که له ستونزې سره مخ شئ، زموږ په GitHub پاڼه کې یې راپور ورکړئ."
+
+msgid "System updates were installed successfully."
+msgstr "د سیسټم اوسمهالونې په بریالیتوب نصب شوې."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "د شبکې اړیکه نشته!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "د شبکې اړیکه محدوده ده. که د ادارې له شبکې سره نه یاست نښتي، خپله انټرنېټي اړیکه وګورئ."
+
+msgid "pacman process is already running."
+msgstr "د pacman بهیر لا له مخکې روان دی."
+
+msgid "The update process could not be started."
+msgstr "د اوسمهالونې بهیر پیل نه شو."
+
+msgid "The update process could not be cancelled."
+msgstr "د اوسمهالونې بهیر لغوه نه شو."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "د اوسمهالونو د ښکته کولو پر مهال اړیکه ناکامه شوه. شبکه وګورئ او بیا هڅه وکړئ."
+
+msgid "The system update failed."
+msgstr "د سیسټم اوسمهالونه ناکامه شوه."
+
+msgid "Downloading updates…"
+msgstr "اوسمهالونې ښکته کېږي…"
+
+msgid "Installing updates…"
+msgstr "اوسمهالونې نصبېږي…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ښکته شوي"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 اوسمهالونې نصب شوې"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "اوسمهالونې نصبېږي. تر نصب بشپړېدو پورې کمپیوټر مه بندوئ او مه یې بیا چالانوئ. د اوسمهالونې پرېکول د سیسټم دوتنې زیانمنولای شي."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "د بیټرۍ چارج کم دی. د اوسمهالونو د نصب پر مهال کمپیوټر له چارجر سره ونښلوئ."
+
+msgid "Update process was cancelled"
+msgstr "د اوسمهالونې بهیر لغوه شو"
+
+msgid "Cancel"
+msgstr "لغوه کول"
+
+msgid "Checking for updates…"
+msgstr "اوسمهالونې کتل کېږي…"
+
+msgid "System updates are available"
+msgstr "د سیسټم اوسمهالونې شته"
+
+msgid "Download size: %1"
+msgstr "د ښکته کولو کچه: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "د سیسټم اوسمهالونو لپاره اړین ځای: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "له اوسمهالونې وروسته تشېدونکی ځای: %1"
+
+msgid "No additional download required"
+msgstr "نور ښکته کول اړین نه دي"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "د اوسمهالونو کتونکی پیل نه شو. ډاډ ترلاسه کړئ چې pacman-contrib نصب دی."
+
+msgid "The update check stopped unexpectedly."
+msgstr "د اوسمهالونو کتنه ناڅاپه ودرېده."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "نامعلومه تېروتنه رامنځته شوه. د مرستې لپاره زموږ په GitHub پاڼه کې دا ستونزه راپور کړئ."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "انټرنېټي اړیکه نشته. شبکه وګورئ او بیا هڅه وکړئ."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "د زېرمتون سرورونو ته لاسرسی ونه شو. وروسته بیا هڅه وکړئ یا د هنداره سرور امستنې وګورئ."
+
+msgid "Authorization error, please try again."
+msgstr "د اجازې تېروتنه، بیا هڅه وکړئ."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "د لوړو واکونو سره د اوسمهالونو کتنه ناڅاپه ودرېده."
+
+msgid "The privileged update check could not be started."
+msgstr "د لوړو واکونو سره د اوسمهالونو کتنه پیل نه شوه."
+
+msgid "System was not previously updated."
+msgstr "سیسټم مخکې نه و اوسمهال شوی."
+
+msgid "The last update information could not be read."
+msgstr "د وروستۍ اوسمهالونې معلومات ونه لوستل شول."
+
+msgid "The last update information is invalid."
+msgstr "د وروستۍ اوسمهالونې معلومات ناسم دي."
+
+msgid "Updates were not installed on this system"
+msgstr "پر دې سیسټم اوسمهالونې نه دي نصب شوې"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "د سیسټم اوسمهالولو لپاره په لاندې تڼۍ شته اوسمهالونې وګورئ."
+
+msgid "Update date available"
+msgstr "د اوسمهالونې نېټه شته"
+
+msgid "Updated recently"
+msgstr "په دې وروستیو کې اوسمهال شوی"
+
+msgid "System is up to date"
+msgstr "سیسټم تازه دی"
+
+msgid "Last update was installed more than a month ago"
+msgstr "وروستۍ اوسمهالونه تر یوې میاشتې ډېر مخکې نصب شوې"
+
+msgid "Last update was installed more than three months ago"
+msgstr "وروستۍ اوسمهالونه تر دریو میاشتو ډېر مخکې نصب شوې"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 ثانیه مخکې"
+msgstr[1] "%1 ثانیې مخکې"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 دقیقه مخکې"
+msgstr[1] "%1 دقیقې مخکې"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ساعت مخکې"
+msgstr[1] "%1 ساعتونه مخکې"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ورځ مخکې"
+msgstr[1] "%1 ورځې مخکې"
+
+msgid "Action is required"
+msgstr "اقدام اړین دی"
+
+msgid "Action is required!"
+msgstr "اقدام اړین دی!"
+
+msgid "Action required"
+msgstr "اړین اقدام"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update دوام نه شي کولای، ځکه راتلونکې اوسمهالونه د خوندي سیسټمي بستې “%1” لرې کول غواړي. لرې کول یې د Fluff Linux د سم کار خنډ کېدای شي. د مرستې لپاره دا ستونزه په GitHub کې راپور کړئ."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "د سیسټم د اوسمهالونو د نصب لپاره Fluff Linux Update باید “%1” لرې کړي. د دې بستې لرې کول پر اړوندو سافټویرونو اغېز کولای شي. که ډاډه نه یاست، د مرستې لپاره ستونزه په GitHub کې راپور کړئ."
+
+msgid "Accept"
+msgstr "منل"
+
+msgid "Close"
+msgstr "تړل"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "د سیسټم اوسمهالونو ته د دوام ورکولو لپاره %1، وروسته له دې چې لرې کول یې خوندي وګڼل شول، په اوتومات ډول لرې شو."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "د سیسټم اوسمهالونو ته د دوام ورکولو لپاره دا بستې، وروسته له دې چې لرې کول یې خوندي وګڼل شول، په اوتومات ډول لرې شوې: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "د دوتنې ټکر وموندل شو او حل شو. د %1 نوم %2 ته واوښت. د اوسمهالونې بهیر بیا پیل شو."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "ټکر لرونکې بسته لرې نه شوه. مرسته وغواړئ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update د FluffNet زېرمتون د لاسلیک کیلي تایید نه شوه کولای. ستاسو د سیسټم د ساتنې لپاره اوسمهالونه ودرول شوه."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update د FluffNet زېرمتون د لاسلیک کیلي تایید نه شوه کولای. ستاسو د سیسټم د ساتنې لپاره اوسمهالونه ودرول شوه. دا د شبکې ستونزه، د FluffNet سرور نه شتون، د لاسلیک د کیلي د مودې پای یا بدلون، د زېرمتون د امستنو ستونزه، ناڅاپي کیلي یا پر زېرمتون احتمالي برید ښودلای شي. تر څو چې Fluff Linux تایید شوې لارښوونې نه وي خپرې کړې، ناڅاپي کیلي په لاس مه منئ."
+
+msgid "Repository: %1"
+msgstr "زېرمتون: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "د FluffNet زېرمتون رسمي د لاسلیک کیلي تایید او Pacman ته ورزیاته شوه."
+
+msgid "Technical details"
+msgstr "تخنیکي جزییات"
+
+msgid "Repository signing-key verification technical details"
+msgstr "د زېرمتون د لاسلیک کیلي د تایید تخنیکي جزییات"
+
+msgid "Failure category: %1"
+msgstr "د ناکامۍ ډول: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "تمه شوې ګوتنښه: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ترلاسه شوې ګوتنښه: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "د غوښتل شوې لاسلیک کیلي ګوتنښه: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "د Pacman د وتلو حالت: %1"
+
+msgid "FLU version: %1"
+msgstr "د FLU نسخه: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "د Fluff Linux نسخه: %1"
+
+msgid "Try Again"
+msgstr "بیا هڅه وکړئ"
+
+msgid "Copy Technical Details"
+msgstr "تخنیکي جزییات کاپي کړئ"
+
+msgid "Open an Issue on GitHub"
+msgstr "په GitHub کې ستونزه ثبت کړئ"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "د اوسمهالونې د دوام لپاره کافي تش ځای نشته. ځای تش کړئ او بیا هڅه وکړئ."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "د بستې یا زېرمتون لاسلیک تایید نه شو. اوسمهالونه ودرول شوه. د سیسټم نېټه او د کیلیو زېرمه وګورئ، بیا هڅه وکړئ."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "د بستیو ډیټابېس زیانمن دی یا نه لوستل کېږي. اوسمهالونه ودرول شوه. د ډیټابېس له ترمیم مخکې مرسته وغواړئ."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ښکته شوې بسته زیانمنه یا نیمګړې ده. اوسمهالونه ودرول شوه. بیا هڅه وکړئ یا بل هنداره سرور وکاروئ."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "اوسمهالونې اړینې دوتنې لوستل یا لیکل نه شوای کولای. د دوتنو د سیسټم اجازې او د ډیسک روغتیا وګورئ، بیا هڅه وکړئ."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "اوسمهالونې ښکته نه شوې. بیا هڅه وکړئ یا مرسته وغواړئ."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "د اوسمهالونې راکړه ورکړه چمتو نه شوه. بیا هڅه وکړئ یا مرسته وغواړئ."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "د خوب مخنیوی فعال نه شو، نو اوسمهالونه پیل نه شوه. بیا هڅه وکړئ."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "د بستیو ډیټابېس قلف نه شو. د بستیو نور سمبالوونکي وتړئ او وګورئ چې د دوتنو سیسټم د لیکلو وړ دی، بیا هڅه وکړئ."
+
+msgid "Estimated time: %1"
+msgstr "اټکلي وخت: %1"

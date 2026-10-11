@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕਰਕੇ Fluff Linux ਨੂੰ ਸੁਰੱਖਿਅਤ ਅਤੇ ਨਵਾਂ ਰੱਖੋ।"
+
+msgid "System last updated: %1 (%2)"
+msgstr "ਸਿਸਟਮ ਆਖਰੀ ਵਾਰ ਅੱਪਡੇਟ ਕੀਤਾ: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ"
+
+msgid "Install Updates"
+msgstr "ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕਰੋ"
+
+msgid "View Updates"
+msgstr "ਅੱਪਡੇਟ ਵੇਖੋ"
+
+msgid "Change view"
+msgstr "ਝਲਕ ਬਦਲੋ"
+
+msgid "Updates to Install"
+msgstr "ਇੰਸਟਾਲ ਹੋਣ ਵਾਲੇ ਅੱਪਡੇਟ"
+
+msgid "Package details are unavailable."
+msgstr "ਪੈਕੇਜ ਦੇ ਵੇਰਵੇ ਉਪਲਬਧ ਨਹੀਂ ਹਨ।"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ਹਾਲੇ ਵਿਕਾਸ ਅਧੀਨ ਹੈ। ਜੇ ਕੋਈ ਸਮੱਸਿਆ ਆਵੇ, ਤਾਂ ਸਾਡੇ GitHub ਪੰਨੇ ਉੱਤੇ ਰਿਪੋਰਟ ਕਰੋ।"
+
+msgid "System updates were installed successfully."
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਸਫਲਤਾਪੂਰਵਕ ਇੰਸਟਾਲ ਹੋ ਗਏ।"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "ਕੋਈ ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਨਹੀਂ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨ ਸੀਮਿਤ ਹੈ। ਜੇ ਤੁਸੀਂ ਕਿਸੇ ਸੰਸਥਾ ਦੇ ਨੈੱਟਵਰਕ ਨਾਲ ਨਹੀਂ ਜੁੜੇ, ਤਾਂ ਆਪਣਾ ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਜਾਂਚੋ।"
+
+msgid "pacman process is already running."
+msgstr "pacman ਕਾਰਵਾਈ ਪਹਿਲਾਂ ਹੀ ਚੱਲ ਰਹੀ ਹੈ।"
+
+msgid "The update process could not be started."
+msgstr "ਅੱਪਡੇਟ ਕਾਰਵਾਈ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
+
+msgid "The update process could not be cancelled."
+msgstr "ਅੱਪਡੇਟ ਕਾਰਵਾਈ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਕਰਨ ਵੇਲੇ ਕਨੈਕਸ਼ਨ ਅਸਫਲ ਹੋ ਗਿਆ। ਨੈੱਟਵਰਕ ਜਾਂਚੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "The system update failed."
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਅਸਫਲ ਹੋਇਆ।"
+
+msgid "Downloading updates…"
+msgstr "ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…"
+
+msgid "Installing updates…"
+msgstr "ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ਡਾਊਨਲੋਡ ਹੋਇਆ"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਹੋਏ"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਹੋ ਰਹੇ ਹਨ। ਇੰਸਟਾਲੇਸ਼ਨ ਮੁਕੰਮਲ ਹੋਣ ਤੱਕ ਕੰਪਿਊਟਰ ਬੰਦ ਜਾਂ ਮੁੜ ਚਾਲੂ ਨਾ ਕਰੋ। ਅੱਪਡੇਟ ਵਿਚਾਲੇ ਰੋਕਣ ਨਾਲ ਸਿਸਟਮ ਫਾਇਲਾਂ ਨੂੰ ਨੁਕਸਾਨ ਹੋ ਸਕਦਾ ਹੈ।"
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ਬੈਟਰੀ ਘੱਟ ਹੈ। ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕਰਦੇ ਸਮੇਂ ਕੰਪਿਊਟਰ ਨੂੰ ਚਾਰਜਰ ਨਾਲ ਜੋੜੋ।"
+
+msgid "Update process was cancelled"
+msgstr "ਅੱਪਡੇਟ ਕਾਰਵਾਈ ਰੱਦ ਕੀਤੀ ਗਈ"
+
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+msgid "Checking for updates…"
+msgstr "ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"
+
+msgid "System updates are available"
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਉਪਲਬਧ ਹਨ"
+
+msgid "Download size: %1"
+msgstr "ਡਾਊਨਲੋਡ ਦਾ ਆਕਾਰ: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟਾਂ ਲਈ ਲੋੜੀਂਦੀ ਥਾਂ: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "ਅੱਪਡੇਟ ਤੋਂ ਬਾਅਦ ਖਾਲੀ ਹੋਣ ਵਾਲੀ ਥਾਂ: %1"
+
+msgid "No additional download required"
+msgstr "ਹੋਰ ਡਾਊਨਲੋਡ ਦੀ ਲੋੜ ਨਹੀਂ"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "ਅੱਪਡੇਟ ਜਾਂਚਕਰਤਾ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ pacman-contrib ਇੰਸਟਾਲ ਹੈ।"
+
+msgid "The update check stopped unexpectedly."
+msgstr "ਅੱਪਡੇਟ ਜਾਂਚ ਅਚਾਨਕ ਰੁਕ ਗਈ।"
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "ਅਣਜਾਣ ਗਲਤੀ ਆਈ ਹੈ। ਮਦਦ ਲਈ ਸਾਡੇ GitHub ਪੰਨੇ ਉੱਤੇ ਇਹ ਸਮੱਸਿਆ ਰਿਪੋਰਟ ਕਰੋ।"
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨਹੀਂ ਹੈ। ਨੈੱਟਵਰਕ ਜਾਂਚੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ਰਿਪੋਜ਼ਟਰੀ ਸਰਵਰਾਂ ਨਾਲ ਸੰਪਰਕ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਬਾਅਦ ਵਿੱਚ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਮਿਰਰ ਦੀ ਸੰਰਚਨਾ ਜਾਂਚੋ।"
+
+msgid "Authorization error, please try again."
+msgstr "ਅਧਿਕਾਰ ਦੀ ਗਲਤੀ, ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ਵੱਧ ਅਧਿਕਾਰਾਂ ਵਾਲੀ ਅੱਪਡੇਟ ਜਾਂਚ ਅਚਾਨਕ ਰੁਕ ਗਈ।"
+
+msgid "The privileged update check could not be started."
+msgstr "ਵੱਧ ਅਧਿਕਾਰਾਂ ਵਾਲੀ ਅੱਪਡੇਟ ਜਾਂਚ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।"
+
+msgid "System was not previously updated."
+msgstr "ਸਿਸਟਮ ਪਹਿਲਾਂ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।"
+
+msgid "The last update information could not be read."
+msgstr "ਪਿਛਲੇ ਅੱਪਡੇਟ ਦੀ ਜਾਣਕਾਰੀ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
+
+msgid "The last update information is invalid."
+msgstr "ਪਿਛਲੇ ਅੱਪਡੇਟ ਦੀ ਜਾਣਕਾਰੀ ਅਵੈਧ ਹੈ।"
+
+msgid "Updates were not installed on this system"
+msgstr "ਇਸ ਸਿਸਟਮ ਉੱਤੇ ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਨਹੀਂ ਹੋਏ"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਕਰਨ ਲਈ ਹੇਠਲੇ ਬਟਨ ਨਾਲ ਉਪਲਬਧ ਅੱਪਡੇਟ ਜਾਂਚੋ।"
+
+msgid "Update date available"
+msgstr "ਅੱਪਡੇਟ ਦੀ ਤਾਰੀਖ ਉਪਲਬਧ ਹੈ"
+
+msgid "Updated recently"
+msgstr "ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਡੇਟ ਕੀਤਾ"
+
+msgid "System is up to date"
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਹੈ"
+
+msgid "Last update was installed more than a month ago"
+msgstr "ਪਿਛਲਾ ਅੱਪਡੇਟ ਇੱਕ ਮਹੀਨੇ ਤੋਂ ਵੱਧ ਪਹਿਲਾਂ ਇੰਸਟਾਲ ਹੋਇਆ ਸੀ"
+
+msgid "Last update was installed more than three months ago"
+msgstr "ਪਿਛਲਾ ਅੱਪਡੇਟ ਤਿੰਨ ਮਹੀਨਿਆਂ ਤੋਂ ਵੱਧ ਪਹਿਲਾਂ ਇੰਸਟਾਲ ਹੋਇਆ ਸੀ"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 ਸਕਿੰਟ ਪਹਿਲਾਂ"
+msgstr[1] "%1 ਸਕਿੰਟ ਪਹਿਲਾਂ"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 ਮਿੰਟ ਪਹਿਲਾਂ"
+msgstr[1] "%1 ਮਿੰਟ ਪਹਿਲਾਂ"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ਘੰਟਾ ਪਹਿਲਾਂ"
+msgstr[1] "%1 ਘੰਟੇ ਪਹਿਲਾਂ"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ਦਿਨ ਪਹਿਲਾਂ"
+msgstr[1] "%1 ਦਿਨ ਪਹਿਲਾਂ"
+
+msgid "Action is required"
+msgstr "ਕਾਰਵਾਈ ਦੀ ਲੋੜ ਹੈ"
+
+msgid "Action is required!"
+msgstr "ਕਾਰਵਾਈ ਦੀ ਲੋੜ ਹੈ!"
+
+msgid "Action required"
+msgstr "ਕਾਰਵਾਈ ਲੋੜੀਂਦੀ ਹੈ"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update ਅੱਗੇ ਨਹੀਂ ਵਧ ਸਕਦਾ ਕਿਉਂਕਿ ਅਗਲੇ ਅੱਪਡੇਟ ਲਈ ਸੁਰੱਖਿਅਤ ਸਿਸਟਮ ਪੈਕੇਜ “%1” ਨੂੰ ਹਟਾਉਣਾ ਲਾਜ਼ਮੀ ਹੈ। ਇਸ ਨੂੰ ਹਟਾਉਣ ਨਾਲ Fluff Linux ਦਾ ਠੀਕ ਕੰਮ ਕਰਨਾ ਰੁਕ ਸਕਦਾ ਹੈ। ਮਦਦ ਲਈ GitHub ਉੱਤੇ ਸਮੱਸਿਆ ਰਿਪੋਰਟ ਕਰੋ।"
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਇੰਸਟਾਲ ਕਰਨ ਲਈ Fluff Linux Update ਨੂੰ “%1” ਹਟਾਉਣ ਦੀ ਲੋੜ ਹੈ। ਇਸ ਪੈਕੇਜ ਨੂੰ ਹਟਾਉਣ ਨਾਲ ਸੰਬੰਧਿਤ ਸਾਫਟਵੇਅਰ ਪ੍ਰਭਾਵਿਤ ਹੋ ਸਕਦਾ ਹੈ। ਜੇ ਯਕੀਨ ਨਹੀਂ ਹੈ, ਤਾਂ ਮਦਦ ਲਈ GitHub ਉੱਤੇ ਸਮੱਸਿਆ ਰਿਪੋਰਟ ਕਰੋ।"
+
+msgid "Accept"
+msgstr "ਮਨਜ਼ੂਰ ਕਰੋ"
+
+msgid "Close"
+msgstr "ਬੰਦ ਕਰੋ"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਜਾਰੀ ਰੱਖਣ ਲਈ %1 ਨੂੰ ਹਟਾਉਣਾ ਸੁਰੱਖਿਅਤ ਮੰਨਣ ਤੋਂ ਬਾਅਦ ਆਪਣੇ ਆਪ ਹਟਾਇਆ ਗਿਆ।"
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "ਸਿਸਟਮ ਅੱਪਡੇਟ ਜਾਰੀ ਰੱਖਣ ਲਈ ਹੇਠਲੇ ਪੈਕੇਜਾਂ ਨੂੰ ਹਟਾਉਣਾ ਸੁਰੱਖਿਅਤ ਮੰਨਣ ਤੋਂ ਬਾਅਦ ਆਪਣੇ ਆਪ ਹਟਾਇਆ ਗਿਆ: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ਫਾਇਲ ਟਕਰਾਅ ਲੱਭਿਆ ਅਤੇ ਹੱਲ ਕੀਤਾ ਗਿਆ। %1 ਦਾ ਨਾਂ ਬਦਲ ਕੇ %2 ਰੱਖਿਆ ਗਿਆ। ਅੱਪਡੇਟ ਕਾਰਵਾਈ ਮੁੜ ਸ਼ੁਰੂ ਹੋ ਗਈ।"
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "ਟਕਰਾਅ ਵਾਲਾ ਪੈਕੇਜ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਮਦਦ ਲਵੋ।"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update, FluffNet ਰਿਪੋਜ਼ਟਰੀ ਦੀ ਦਸਤਖਤ ਕੁੰਜੀ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਸਿਸਟਮ ਦੀ ਸੁਰੱਖਿਆ ਲਈ ਅੱਪਡੇਟ ਰੋਕ ਦਿੱਤਾ ਗਿਆ।"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update, FluffNet ਰਿਪੋਜ਼ਟਰੀ ਦੀ ਦਸਤਖਤ ਕੁੰਜੀ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਸਿਸਟਮ ਦੀ ਸੁਰੱਖਿਆ ਲਈ ਅੱਪਡੇਟ ਰੋਕ ਦਿੱਤਾ ਗਿਆ। ਇਹ ਨੈੱਟਵਰਕ ਸਮੱਸਿਆ, ਅਣਉਪਲਬਧ FluffNet ਸਰਵਰ, ਮਿਆਦ ਮੁੱਕੀ ਜਾਂ ਬਦਲੀ ਦਸਤਖਤ ਕੁੰਜੀ, ਰਿਪੋਜ਼ਟਰੀ ਸੰਰਚਨਾ ਦੀ ਸਮੱਸਿਆ, ਅਣਕਿਆਸੀ ਕੁੰਜੀ ਜਾਂ ਰਿਪੋਜ਼ਟਰੀ ਹੈਕ ਹੋਣ ਦਾ ਸੰਕੇਤ ਹੋ ਸਕਦਾ ਹੈ। ਜਦੋਂ ਤੱਕ Fluff Linux ਪੁਸ਼ਟੀ ਕੀਤੀਆਂ ਹਦਾਇਤਾਂ ਪ੍ਰਕਾਸ਼ਿਤ ਨਹੀਂ ਕਰਦਾ, ਅਣਕਿਆਸੀ ਕੁੰਜੀ ਨੂੰ ਹੱਥੀਂ ਮਨਜ਼ੂਰ ਨਾ ਕਰੋ।"
+
+msgid "Repository: %1"
+msgstr "ਰਿਪੋਜ਼ਟਰੀ: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet ਦੀ ਅਧਿਕਾਰਤ ਰਿਪੋਜ਼ਟਰੀ ਦੀ ਦਸਤਖਤ ਕੁੰਜੀ ਦੀ ਪੁਸ਼ਟੀ ਕਰਕੇ Pacman ਵਿੱਚ ਜੋੜ ਦਿੱਤੀ ਗਈ।"
+
+msgid "Technical details"
+msgstr "ਤਕਨੀਕੀ ਵੇਰਵੇ"
+
+msgid "Repository signing-key verification technical details"
+msgstr "ਰਿਪੋਜ਼ਟਰੀ ਦੀ ਦਸਤਖਤ ਕੁੰਜੀ ਦੀ ਪੁਸ਼ਟੀ ਦੇ ਤਕਨੀਕੀ ਵੇਰਵੇ"
+
+msgid "Failure category: %1"
+msgstr "ਅਸਫਲਤਾ ਦੀ ਕਿਸਮ: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "ਉਮੀਦ ਕੀਤਾ ਫਿੰਗਰਪ੍ਰਿੰਟ: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ਮਿਲਿਆ ਫਿੰਗਰਪ੍ਰਿੰਟ: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "ਮੰਗੀ ਦਸਤਖਤ ਕੁੰਜੀ ਦਾ ਫਿੰਗਰਪ੍ਰਿੰਟ: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman ਦੀ ਸਮਾਪਤੀ ਹਾਲਤ: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU ਵਰਜਨ: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux ਵਰਜਨ: %1"
+
+msgid "Try Again"
+msgstr "ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+
+msgid "Copy Technical Details"
+msgstr "ਤਕਨੀਕੀ ਵੇਰਵੇ ਕਾਪੀ ਕਰੋ"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub ਉੱਤੇ ਸਮੱਸਿਆ ਰਿਪੋਰਟ ਕਰੋ"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "ਅੱਪਡੇਟ ਜਾਰੀ ਰੱਖਣ ਲਈ ਖਾਲੀ ਥਾਂ ਕਾਫ਼ੀ ਨਹੀਂ। ਥਾਂ ਖਾਲੀ ਕਰੋ ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "ਪੈਕੇਜ ਜਾਂ ਰਿਪੋਜ਼ਟਰੀ ਦੇ ਦਸਤਖਤ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਹੋ ਸਕੀ। ਅੱਪਡੇਟ ਰੋਕ ਦਿੱਤਾ ਗਿਆ। ਸਿਸਟਮ ਦੀ ਤਾਰੀਖ ਅਤੇ ਕੁੰਜੀ-ਸਮੂਹ ਜਾਂਚੋ, ਫਿਰ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "ਪੈਕੇਜ ਡਾਟਾਬੇਸ ਖਰਾਬ ਹੈ ਜਾਂ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ। ਅੱਪਡੇਟ ਰੋਕ ਦਿੱਤਾ ਗਿਆ। ਡਾਟਾਬੇਸ ਠੀਕ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਮਦਦ ਲਵੋ।"
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ਡਾਊਨਲੋਡ ਕੀਤਾ ਪੈਕੇਜ ਖਰਾਬ ਜਾਂ ਅਧੂਰਾ ਹੈ। ਅੱਪਡੇਟ ਰੋਕ ਦਿੱਤਾ ਗਿਆ। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਹੋਰ ਮਿਰਰ ਵਰਤੋ।"
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "ਅੱਪਡੇਟ ਲਈ ਲੋੜੀਂਦੀਆਂ ਫਾਇਲਾਂ ਪੜ੍ਹੀਆਂ ਜਾਂ ਲਿਖੀਆਂ ਨਹੀਂ ਜਾ ਸਕੀਆਂ। ਫਾਇਲ ਸਿਸਟਮ ਅਧਿਕਾਰ ਅਤੇ ਡਿਸਕ ਦੀ ਸਿਹਤ ਜਾਂਚੋ, ਫਿਰ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਮਦਦ ਲਵੋ।"
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "ਅੱਪਡੇਟ ਲੈਣ-ਦੇਣ ਤਿਆਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਮਦਦ ਲਵੋ।"
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "ਸਲੀਪ ਰੋਕਥਾਮ ਚਾਲੂ ਨਹੀਂ ਹੋ ਸਕੀ, ਇਸ ਲਈ ਅੱਪਡੇਟ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "ਪੈਕੇਜ ਡਾਟਾਬੇਸ ਲਾਕ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਹੋਰ ਪੈਕੇਜ ਮੈਨੇਜਰ ਬੰਦ ਕਰੋ ਅਤੇ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਫਾਇਲ ਸਿਸਟਮ ਵਿੱਚ ਲਿਖਿਆ ਜਾ ਸਕਦਾ ਹੈ, ਫਿਰ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+
+msgid "Estimated time: %1"
+msgstr "ਅੰਦਾਜ਼ਨ ਸਮਾਂ: %1"

@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: quz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Llikapa musuqyachiykuna"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Llikapa musuqyachiykunata churaykuspa Fluff Linux-ta hark'asqa musuqllata waqaychay."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Llikapa qhipa musuqyachiynin: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Musuqyachiykunata qhaway"
+
+msgid "Install Updates"
+msgstr "Musuqyachiykunata churaykuy"
+
+msgid "View Updates"
+msgstr "Musuqyachiykunata rikuchiy"
+
+msgid "Change view"
+msgstr "Rikuyta tikray"
+
+msgid "Updates to Install"
+msgstr "Churaykuna musuqyachiykuna"
+
+msgid "Package details are unavailable."
+msgstr "Q'ipipa sut'inchayninkuna manam kanchu."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update-ta ruwachkankuraq. Sasachakuyta tarispaqa GitHub p'anqaykupi willawayku."
+
+msgid "System updates were installed successfully."
+msgstr "Llikapa musuqyachiykuna allinta churaykusqa."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Manam llika t'inkinachu kan!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Llika t'inkina saywasqam. Mana huk tantanakuypa llikanman t'inkisqa kanki chayqa internet t'inkinaykita qhaway."
+
+msgid "pacman process is already running."
+msgstr "pacman ruwayqa ñam purichkan."
+
+msgid "The update process could not be started."
+msgstr "Musuqyachiy ruwayta manam qallariyta atikurqanchu."
+
+msgid "The update process could not be cancelled."
+msgstr "Musuqyachiy ruwayta manam sayachiyta atikurqanchu."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Musuqyachiykunata urayachichkaptin t'inkina pantarqan. Llikaykita qhaway hinaspa wakmanta kallpachakuy."
+
+msgid "The system update failed."
+msgstr "Llikata musuqyachiy pantarqan."
+
+msgid "Downloading updates…"
+msgstr "Musuqyachiykunata urayachichkan…"
+
+msgid "Installing updates…"
+msgstr "Musuqyachiykunata churaykuchkan…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 urayachisqa"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 musuqyachiykuna churaykusqa"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Musuqyachiykunata churaykuchkan. Churaykuy tukukunankama yupaqta ama wañuchiychu nitaq wakmanta qallarichiychu. Musuqyachiyta p'itispaqa llikapa khipunkunata waqlliyta atin."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Bateriyapa kallpan pisim. Musuqyachiykunata churaykuchkaspa yupaqniykita kargadurman t'inkiy."
+
+msgid "Update process was cancelled"
+msgstr "Musuqyachiy ruway sayachisqa"
+
+msgid "Cancel"
+msgstr "Sayachiy"
+
+msgid "Checking for updates…"
+msgstr "Musuqyachiykunata qhawachkan…"
+
+msgid "System updates are available"
+msgstr "Llikapa musuqyachiykuna kanmi"
+
+msgid "Download size: %1"
+msgstr "Urayachina sayaynin: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Llikapa musuqyachiyninpaq munasqa kit'i: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Musuqyachiy qhipaman qispichisqa kit'i: %1"
+
+msgid "No additional download required"
+msgstr "Manam aswan urayachiyta munanchu"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Musuqyachiy qhawaqta manam qallarichiyta atikurqanchu. pacman-contrib churaykusqa kasqanta chiqaqchay."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Musuqyachiy qhaway qunqaymanta sayarqan."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Mana riqsisqa pantay rikurirqan. Yanapaypaq kay sasachakuyta GitHub p'anqaykupi willay."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Manam internet t'inkinachu kan. Llikaykita qhaway hinaspa wakmanta kallpachakuy."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Waqaychana sirwiqkunaman manam chayayta atikurqanchu. Qhipaman kallpachakuy utaq espejo sirwiqpa wakichiyninta qhaway."
+
+msgid "Authorization error, please try again."
+msgstr "Saqillay pantay, wakmanta kallpachakuy."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Hatun atiyniyuq musuqyachiy qhaway qunqaymanta sayarqan."
+
+msgid "The privileged update check could not be started."
+msgstr "Hatun atiyniyuq musuqyachiy qhawayta manam qallarichiyta atikurqanchu."
+
+msgid "System was not previously updated."
+msgstr "Llikaqa manam ñawpaqta musuqyachisqachu karqan."
+
+msgid "The last update information could not be read."
+msgstr "Qhipa musuqyachiypa willayninta manam ñawinchayta atikurqanchu."
+
+msgid "The last update information is invalid."
+msgstr "Qhipa musuqyachiypa willaynin mana allinchu."
+
+msgid "Updates were not installed on this system"
+msgstr "Kay llikapi musuqyachiykuna manam churaykusqachu"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Llikata musuqyachinapaq uraypi ñit'inawan kaq musuqyachiykunata qhaway."
+
+msgid "Update date available"
+msgstr "Musuqyachiy p'unchaw kanmi"
+
+msgid "Updated recently"
+msgstr "Chayraq musuqyachisqa"
+
+msgid "System is up to date"
+msgstr "Llikaqa musuqmi"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Qhipa musuqyachiy huk killamanta aswan ñawpaqta churaykusqa"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Qhipa musuqyachiy kimsa killamanta aswan ñawpaqta churaykusqa"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 sikundu ñawpaqta"
+msgstr[1] "%1 sikundukuna ñawpaqta"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 minutu ñawpaqta"
+msgstr[1] "%1 minutukuna ñawpaqta"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ura ñawpaqta"
+msgstr[1] "%1 urakuna ñawpaqta"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 p'unchaw ñawpaqta"
+msgstr[1] "%1 p'unchawkuna ñawpaqta"
+
+msgid "Action is required"
+msgstr "Ruwaymi munakun"
+
+msgid "Action is required!"
+msgstr "Ruwaymi munakun!"
+
+msgid "Action required"
+msgstr "Munasqa ruway"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update mana qatipuyta atinchu, hamuq musuqyachiy hark'asqa llikapa “%1” q'ipinta qichuyta munasqanrayku. Chayta qichuspaqa Fluff Linux allin puriyninta hark'ayta atin. Yanapaypaq kay sasachakuyta GitHub-pi willay."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Llikapa musuqyachiykunata churaykunapaq Fluff Linux Update “%1”-ta qichunan. Kay q'ipita qichuyqa t'inkisqa programakunata llakichiyta atin. Mana yachaspaykiqa yanapaypaq GitHub-pi willay."
+
+msgid "Accept"
+msgstr "Chaskiy"
+
+msgid "Close"
+msgstr "Wichq'ay"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Llikapa musuqyachiykuna qatipunanpaq %1 kikinmanta qichusqa, qichuynin mana chiki kasqanta chiqaqchaspa."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Llikapa musuqyachiykuna qatipunanpaq kay q'ipikuna kikinmanta qichusqa, qichuyninku mana chiki kasqanta chiqaqchaspa: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Khipu ch'aqway tarisqa hinaspa allchasqa. %1 sutinqa %2-man tikrasqa. Musuqyachiy ruway wakmanta qallarirqan."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Ch'aqwaq q'ipita manam qichuyta atikurqanchu. Yanapayta maskhay."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update manam FluffNet waqaychanapa firmanan llavinta chiqaqchayta atirqanchu. Llikaykita hark'anapaq musuqyachiy sayachisqa."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update manam FluffNet waqaychanapa firmanan llavinta chiqaqchayta atirqanchu. Llikaykita hark'anapaq musuqyachiy sayachisqa. Kayqa llika sasachakuy, mana kaq FluffNet sirwiq, pachasqan tukusqa utaq tikrasqa firmana llavi, waqaychana wakichiy sasachakuy, mana suyasqa llavi utaq waqaychanaman yaykuq suwa kasqanta rikuchinman. Fluff Linux chiqaqchasqa kamachiykunata mana lluqsichiptinqa mana suyasqa llavita makiwan ama chaskiychu."
+
+msgid "Repository: %1"
+msgstr "Waqaychana: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet waqaychanapa chiqaq firmana llavin chiqaqchasqa hinaspa Pacman-man yapasqa."
+
+msgid "Technical details"
+msgstr "Técnica sut'inchaykuna"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Waqaychanapa firmana llavin chiqaqchaypa técnica sut'inchayninkuna"
+
+msgid "Failure category: %1"
+msgstr "Pantaypa t'aqan: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Suyasqa riru yupin: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Chaskisqa riru yupin: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Mañasqa firmana llavipa riru yupin: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman lluqsiy kaynin: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU rikch'aynin: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux rikch'aynin: %1"
+
+msgid "Try Again"
+msgstr "Wakmanta kallpachakuy"
+
+msgid "Copy Technical Details"
+msgstr "Técnica sut'inchaykunata kikinchay"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub-pi sasachakuyta kichay"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Musuqyachiy qatipunanpaq manam aswan ch'usaq kit'ichu kan. Kit'ita qispichiy hinaspa wakmanta kallpachakuy."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Q'ipipa utaq waqaychanapa firmananta manam chiqaqchayta atikurqanchu. Musuqyachiy sayachisqa. Llikapa p'unchawninta llavi huñuntapas qhaway hinaspa wakmanta kallpachakuy."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Q'ipikunapa willay waqaychanan waqllisqa utaq mana ñawinchanachu. Musuqyachiy sayachisqa. Willay waqaychanata allchanayki ñawpaqta yanapayta maskhay."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Urayachisqa q'ipi waqllisqa utaq mana hunt'asqachu. Musuqyachiy sayachisqa. Wakmanta kallpachakuy utaq huk espejo sirwiqta llamk'achiy."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Musuqyachiy manam munasqa khipukunata ñawinchayta utaq qillqayta atirqanchu. Khipu llikapa saqillayninkunata disco allin kaynintapas qhaway hinaspa wakmanta kallpachakuy."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Musuqyachiykunata manam urayachiyta atikurqanchu. Wakmanta kallpachakuy utaq yanapayta maskhay."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Musuqyachiy ruwayta manam wakichiyta atikurqanchu. Wakmanta kallpachakuy utaq yanapayta maskhay."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Puñuy hark'ayta mana llamk'achiyta atisqanrayku musuqyachiy mana qallarirqanchu. Wakmanta kallpachakuy."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Q'ipikunapa willay waqaychananta manam wichq'ayta atikurqanchu. Huk q'ipi kamachiqkunata wichq'ay hinaspa khipu llikapi qillqay atikunanta qhaway, chaymanta wakmanta kallpachakuy."
+
+msgid "Estimated time: %1"
+msgstr "Tantiyasqa pacha: %1"

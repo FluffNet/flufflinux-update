@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: yo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "Àwọn ìmúdójúìwọ̀n ètò"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Jẹ́ kí Fluff Linux wà ní ààbò, kí ó sì ṣe déédéé nípa fífi àwọn ìmúdójúìwọ̀n ètò sílẹ̀."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Ìmúdójúìwọ̀n ètò tó kẹ́yìn: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Ṣàyẹ̀wò àwọn ìmúdójúìwọ̀n"
+
+msgid "Install Updates"
+msgstr "Fi àwọn ìmúdójúìwọ̀n sílẹ̀"
+
+msgid "View Updates"
+msgstr "Wo àwọn ìmúdójúìwọ̀n"
+
+msgid "Change view"
+msgstr "Yí ìwòpadà"
+
+msgid "Updates to Install"
+msgstr "Àwọn ìmúdójúìwọ̀n láti fi sílẹ̀"
+
+msgid "Package details are unavailable."
+msgstr "Àwọn àlàyé àkójọpọ̀ kò sí."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ṣì wà ní ìdàgbàsókè. Bí o bá rí ìṣòro, jọ̀wọ́ ròyìn rẹ̀ lórí ojú-ewé GitHub wa."
+
+msgid "System updates were installed successfully."
+msgstr "A ti fi àwọn ìmúdójúìwọ̀n ètò sílẹ̀ ní àṣeyọrí."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Kò sí ìsopọ̀ nẹ́tíwọ́ọ̀kì!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Ìsopọ̀ nẹ́tíwọ́ọ̀kì ní ààlà. Bí o kò bá sopọ̀ mọ́ nẹ́tíwọ́ọ̀kì àjọ kan, jọ̀wọ́ ṣàyẹ̀wò ìsopọ̀ íntánẹ́ẹ̀tì rẹ."
+
+msgid "pacman process is already running."
+msgstr "Ìlànà pacman ń ṣiṣẹ́ tẹ́lẹ̀."
+
+msgid "The update process could not be started."
+msgstr "Kò ṣeé bẹ̀rẹ̀ ìlànà ìmúdójúìwọ̀n."
+
+msgid "The update process could not be cancelled."
+msgstr "Kò ṣeé fagilé ìlànà ìmúdójúìwọ̀n."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Ìsopọ̀ kùnà nígbà gbígba àwọn ìmúdójúìwọ̀n. Ṣàyẹ̀wò nẹ́tíwọ́ọ̀kì rẹ, kí o sì tún gbìyànjú."
+
+msgid "The system update failed."
+msgstr "Ìmúdójúìwọ̀n ètò kùnà."
+
+msgid "Downloading updates…"
+msgstr "Ń gba àwọn ìmúdójúìwọ̀n…"
+
+msgid "Installing updates…"
+msgstr "Ń fi àwọn ìmúdójúìwọ̀n sílẹ̀…"
+
+msgid "%1 / %2 downloaded"
+msgstr "A ti gba %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "A ti fi ìmúdójúìwọ̀n %1/%2 sílẹ̀"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "A ń fi àwọn ìmúdójúìwọ̀n sílẹ̀ báyìí. Jọ̀wọ́ má pa kọ̀ǹpútà tàbí tún un bẹ̀rẹ̀ títí fífisílẹ̀ yóò fi parí. Dídá ìmúdójúìwọ̀n dúró lè ba àwọn fáìlì ètò jẹ́."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Agbára bátírì kéré. Jọ̀wọ́ so kọ̀ǹpútà rẹ mọ́ ṣájà nígbà fífi àwọn ìmúdójúìwọ̀n sílẹ̀."
+
+msgid "Update process was cancelled"
+msgstr "A ti fagilé ìlànà ìmúdójúìwọ̀n"
+
+msgid "Cancel"
+msgstr "Fagilé"
+
+msgid "Checking for updates…"
+msgstr "Ń ṣàyẹ̀wò àwọn ìmúdójúìwọ̀n…"
+
+msgid "System updates are available"
+msgstr "Àwọn ìmúdójúìwọ̀n ètò wà"
+
+msgid "Download size: %1"
+msgstr "Ìwọ̀n gbígbà: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Ààyè tí ìmúdójúìwọ̀n ètò nílò: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Ààyè tí yóò ṣí sílẹ̀ lẹ́yìn ìmúdójúìwọ̀n: %1"
+
+msgid "No additional download required"
+msgstr "Kò nílò gbígbà síi"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Kò ṣeé bẹ̀rẹ̀ olùṣàyẹ̀wò ìmúdójúìwọ̀n. Rí i dájú pé a ti fi pacman-contrib sílẹ̀."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Àyẹ̀wò ìmúdójúìwọ̀n dúró láìròtẹ́lẹ̀."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Àṣìṣe àìmọ̀ kan ti ṣẹlẹ̀. Jọ̀wọ́ ròyìn ìṣòro yìí lórí ojú-ewé GitHub wa fún ìrànlọ́wọ́."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Kò sí ìsopọ̀ íntánẹ́ẹ̀tì. Ṣàyẹ̀wò nẹ́tíwọ́ọ̀kì rẹ, kí o sì tún gbìyànjú."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Kò ṣeé dé àwọn sáfà ibi ìpamọ́. Tún gbìyànjú nígbà míì tàbí ṣàyẹ̀wò ètò sáfà ẹ̀dà rẹ."
+
+msgid "Authorization error, please try again."
+msgstr "Àṣìṣe ìfúnláṣẹ, jọ̀wọ́ tún gbìyànjú."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Àyẹ̀wò ìmúdójúìwọ̀n aláṣẹ gíga dúró láìròtẹ́lẹ̀."
+
+msgid "The privileged update check could not be started."
+msgstr "Kò ṣeé bẹ̀rẹ̀ àyẹ̀wò ìmúdójúìwọ̀n aláṣẹ gíga."
+
+msgid "System was not previously updated."
+msgstr "A kò tíì mú ètò náà dójúìwọ̀n rí."
+
+msgid "The last update information could not be read."
+msgstr "Kò ṣeé ka àlàyé ìmúdójúìwọ̀n tó kẹ́yìn."
+
+msgid "The last update information is invalid."
+msgstr "Àlàyé ìmúdójúìwọ̀n tó kẹ́yìn kò tọ́."
+
+msgid "Updates were not installed on this system"
+msgstr "A kò tíì fi ìmúdójúìwọ̀n sílẹ̀ lórí ètò yìí"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Láti mú ètò dójúìwọ̀n, lo bọ́tìnì tó wà nísàlẹ̀ láti ṣàyẹ̀wò àwọn ìmúdójúìwọ̀n."
+
+msgid "Update date available"
+msgstr "Ọjọ́ ìmúdójúìwọ̀n wà"
+
+msgid "Updated recently"
+msgstr "A mú un dójúìwọ̀n láìpẹ́"
+
+msgid "System is up to date"
+msgstr "Ètò náà ṣe déédéé"
+
+msgid "Last update was installed more than a month ago"
+msgstr "A fi ìmúdójúìwọ̀n tó kẹ́yìn sílẹ̀ ní ohun tó lé ní oṣù kan sẹ́yìn"
+
+msgid "Last update was installed more than three months ago"
+msgstr "A fi ìmúdójúìwọ̀n tó kẹ́yìn sílẹ̀ ní ohun tó lé ní oṣù mẹ́ta sẹ́yìn"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Ní ìṣẹ́jú-àáyá %1 sẹ́yìn"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Ní ìṣẹ́jú %1 sẹ́yìn"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Ní wákàtí %1 sẹ́yìn"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Ní ọjọ́ %1 sẹ́yìn"
+
+msgid "Action is required"
+msgstr "Ìgbésẹ̀ ṣe pàtàkì"
+
+msgid "Action is required!"
+msgstr "Ìgbésẹ̀ ṣe pàtàkì!"
+
+msgid "Action required"
+msgstr "A nílò ìgbésẹ̀"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update kò lè tẹ̀síwájú nítorí ìmúdójúìwọ̀n tó ń bọ̀ nílò yíyọ “%1”, àkójọpọ̀ ètò tí a dáàbò bò. Yíyọ ọ́ lè dí Fluff Linux lọ́wọ́ láti ṣiṣẹ́ dáadáa. Jọ̀wọ́ ròyìn ìṣòro yìí lórí GitHub fún ìrànlọ́wọ́."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Láti jẹ́ kí ètò fi ìmúdójúìwọ̀n sílẹ̀, Fluff Linux Update nílò láti yọ “%1”. Yíyọ àkójọpọ̀ yìí lè ní ipa lórí sọ́fitiwia tó jọmọ́ ọn. Bí o kò bá dájú, jọ̀wọ́ ròyìn ìṣòro náà lórí GitHub fún ìrànlọ́wọ́."
+
+msgid "Accept"
+msgstr "Gba"
+
+msgid "Close"
+msgstr "Pa"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Láti jẹ́ kí ìmúdójúìwọ̀n ètò tẹ̀síwájú, a yọ %1 láìfọwọ́yí lẹ́yìn tí a pinnu pé yíyọ rẹ̀ kò léwu."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Láti jẹ́ kí ìmúdójúìwọ̀n ètò tẹ̀síwájú, a yọ àwọn àkójọpọ̀ wọ̀nyí láìfọwọ́yí lẹ́yìn tí a pinnu pé yíyọ wọn kò léwu: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "A rí ìtakora fáìlì, a sì yanjú rẹ̀. A yí orúkọ %1 padà sí %2. Ìlànà ìmúdójúìwọ̀n ti tún bẹ̀rẹ̀."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Kò ṣeé yọ àkójọpọ̀ tó ń takora. Jọ̀wọ́ wá ìrànlọ́wọ́."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update kò lè jẹ́rìí kọ́kọ́rọ́ ìbuwọ́lu ibi ìpamọ́ FluffNet. A dá ìmúdójúìwọ̀n dúró láti dáàbò bo ètò rẹ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update kò lè jẹ́rìí kọ́kọ́rọ́ ìbuwọ́lu ibi ìpamọ́ FluffNet. A dá ìmúdójúìwọ̀n dúró láti dáàbò bo ètò rẹ. Èyí lè túmọ̀ sí ìṣòro nẹ́tíwọ́ọ̀kì, sáfà FluffNet tí kò sí, kọ́kọ́rọ́ ìbuwọ́lu tó ti parí àkókò tàbí tí a rọ́pò, ìṣòro ètò ibi ìpamọ́, kọ́kọ́rọ́ àìròtẹ́lẹ̀, tàbí ìkọlù ibi ìpamọ́. Má ṣe gba kọ́kọ́rọ́ àìròtẹ́lẹ̀ fúnra rẹ àyàfi tí Fluff Linux bá tẹ ìtọ́nisọ́nà tí a jẹ́rìí sí jáde."
+
+msgid "Repository: %1"
+msgstr "Ibi ìpamọ́: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "A ti jẹ́rìí kọ́kọ́rọ́ ìbuwọ́lu ojúlówó ibi ìpamọ́ FluffNet, a sì ti fi kún Pacman."
+
+msgid "Technical details"
+msgstr "Àwọn àlàyé ìmọ̀ ẹ̀rọ"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Àwọn àlàyé ìmọ̀ ẹ̀rọ fún ìjẹ́rìí kọ́kọ́rọ́ ìbuwọ́lu ibi ìpamọ́"
+
+msgid "Failure category: %1"
+msgstr "Ẹ̀ka ìkùnà: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Àmì kọ́kọ́rọ́ tí a retí: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Àmì kọ́kọ́rọ́ tí a rí gbà: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Àmì kọ́kọ́rọ́ ìbuwọ́lu tí a béèrè: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Ipò ìjáde Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Ẹ̀dà FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Ẹ̀dà Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Tún gbìyànjú"
+
+msgid "Copy Technical Details"
+msgstr "Da àwọn àlàyé ìmọ̀ ẹ̀rọ kọ"
+
+msgid "Open an Issue on GitHub"
+msgstr "Ṣí ìròyìn ìṣòro lórí GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Ààyè òfìfo kò tó láti tẹ̀síwájú ìmúdójúìwọ̀n. Ṣí ààyè sílẹ̀, kí o sì tún gbìyànjú."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Kò ṣeé jẹ́rìí ìbuwọ́lu àkójọpọ̀ tàbí ibi ìpamọ́. A dá ìmúdójúìwọ̀n dúró. Ṣàyẹ̀wò ọjọ́ ètò rẹ àti àkójọpọ̀ kọ́kọ́rọ́, kí o sì tún gbìyànjú."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Ibùdó dátà àkójọpọ̀ bàjẹ́ tàbí kò ṣeé kà. A dá ìmúdójúìwọ̀n dúró. Jọ̀wọ́ wá ìrànlọ́wọ́ kí o tó tún ibùdó dátà ṣe."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Àkójọpọ̀ tí a gbà bàjẹ́ tàbí kò pé. A dá ìmúdójúìwọ̀n dúró. Jọ̀wọ́ tún gbìyànjú tàbí lo sáfà ẹ̀dà míì."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Ìmúdójúìwọ̀n kò lè ka tàbí kọ àwọn fáìlì tí a nílò. Ṣàyẹ̀wò ìgbaniláàyè ètò fáìlì àti ìlera dísíkì, kí o sì tún gbìyànjú."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Kò ṣeé gba àwọn ìmúdójúìwọ̀n. Jọ̀wọ́ tún gbìyànjú tàbí wá ìrànlọ́wọ́."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Kò ṣeé pèsè iṣẹ́ ìmúdójúìwọ̀n. Jọ̀wọ́ tún gbìyànjú tàbí wá ìrànlọ́wọ́."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ìmúdójúìwọ̀n kò lè bẹ̀rẹ̀ nítorí kò ṣeé tan ìdènà oorun. Jọ̀wọ́ tún gbìyànjú."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Kò ṣeé ti ibùdó dátà àkójọpọ̀ pa. Pa àwọn olùṣàkóso àkójọpọ̀ mìíràn, kí o sì ṣàyẹ̀wò pé ètò fáìlì ṣeé kọ sí, lẹ́yìn náà tún gbìyànjú."
+
+msgid "Estimated time: %1"
+msgstr "Àkókò tí a fojú díwọ̀n: %1"

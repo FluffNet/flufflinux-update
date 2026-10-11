@@ -15,7 +15,6 @@ WARNING = (
     "while installing updates."
 )
 OLD_WARNING = "The battery is low. Please plug in your computer before installing updates."
-LOCALES = set("ar bg bn cs da de el es et fa fi fil fr ga he hi hr hu id it ja ko lt lv ms mt nb nl pl pt ro ru sk sl sr sv sw th tr uk ur vi".split())
 
 
 def main():
@@ -24,12 +23,17 @@ def main():
     parser.add_argument("--msgfmt", required=True)
     args = parser.parse_args()
     root = args.source.resolve(strict=True)
+    inventory = json.loads((root / "po/languages.json").read_text())
+    assert len(inventory["languages"]) == 96
+    locales = {item["code"] for item in inventory["languages"]} - {"en"}
+    locales.update(inventory["regional_catalogs"])
+    assert len(locales) == 97
     qml = (root / "src/ui/main.qml").read_text()
     template = (root / "po/kcm_fluffupdates.pot").read_text()
     assert WARNING in qml and OLD_WARNING not in qml
     assert template.count(f'msgid "{WARNING}"') == 1 and OLD_WARNING not in template
     catalogs = sorted((root / "po").glob("*/kcm_fluffupdates.po"))
-    assert {po.parent.name for po in catalogs} == LOCALES
+    assert {po.parent.name for po in catalogs} == locales
     notifier = (root / "rust/flu-core/src/notifications.rs").read_text()
     messages = notifier.split("pub const MESSAGES: &[&str] = &[", 1)[1].split("];", 1)[0]
     notification_messages = [json.loads(value) for value in re.findall(r'"(?:[^"\\]|\\.)*"', messages)]

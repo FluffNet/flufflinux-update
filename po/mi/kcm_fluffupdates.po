@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "System Updates"
+msgstr "Ngā whakahōunga pūnaha"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Kia haumaru, kia hou tonu a Fluff Linux mā te tāuta whakahōunga pūnaha."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Te whakahōunga whakamutunga o te pūnaha: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Tirohia ngā whakahōunga"
+
+msgid "Install Updates"
+msgstr "Tāutahia ngā whakahōunga"
+
+msgid "View Updates"
+msgstr "Tirohia te rārangi whakahōunga"
+
+msgid "Change view"
+msgstr "Hurihia te tirohanga"
+
+msgid "Updates to Install"
+msgstr "Ngā whakahōunga hei tāuta"
+
+msgid "Package details are unavailable."
+msgstr "Kāore ngā taipitopito mōkī i te wātea."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Kei te whakawhanaketia tonutia a Fluff Linux Update. Ki te kitea he raru, tukuna mai he pūrongo ki tō mātou whārangi GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Kua oti pai te tāuta ngā whakahōunga pūnaha."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Kāore he hononga whatunga!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "He iti te hononga whatunga. Mēnā kāore koe i te hono ki tētahi whatunga whakahaere, tirohia tō hononga ipurangi."
+
+msgid "pacman process is already running."
+msgstr "Kei te haere kē te tukanga pacman."
+
+msgid "The update process could not be started."
+msgstr "Kāore i taea te tīmata te tukanga whakahōu."
+
+msgid "The update process could not be cancelled."
+msgstr "Kāore i taea te whakakore te tukanga whakahōu."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "I rahua te hononga i te tikiake whakahōunga. Tirohia tō whatunga, ka ngana anō."
+
+msgid "The system update failed."
+msgstr "I rahua te whakahōunga pūnaha."
+
+msgid "Downloading updates…"
+msgstr "Kei te tikiake whakahōunga…"
+
+msgid "Installing updates…"
+msgstr "Kei te tāuta whakahōunga…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 kua tikiake"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 whakahōunga kua tāuta"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Kei te tāutahia ngā whakahōunga. Kaua e whakaweto, e tīmata anō rānei i te rorohiko kia oti rā anō te tāuta. Mā te haukoti i te whakahōunga e tūkino pea ngā kōnae pūnaha."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "He iti te pūhiko. Tūhonohia tō rorohiko ki tētahi pūwhakahiko i te wā e tāuta whakahōunga ana."
+
+msgid "Update process was cancelled"
+msgstr "Kua whakakorea te tukanga whakahōu"
+
+msgid "Cancel"
+msgstr "Whakakore"
+
+msgid "Checking for updates…"
+msgstr "Kei te tirotiro whakahōunga…"
+
+msgid "System updates are available"
+msgstr "Kei te wātea ngā whakahōunga pūnaha"
+
+msgid "Download size: %1"
+msgstr "Rahi tikiake: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Mokowā e hiahiatia ana mō ngā whakahōunga pūnaha: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Mokowā ka whakawāteatia i muri i te whakahōunga: %1"
+
+msgid "No additional download required"
+msgstr "Kāore he tikiake anō e hiahiatia ana"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Kāore i taea te tīmata te kaitirotiro whakahōunga. Me whakarite kua tāutahia a pacman-contrib."
+
+msgid "The update check stopped unexpectedly."
+msgstr "I mutu ohorere te tirotiro whakahōunga."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Kua puta he hapa tē mōhiotia. Tukuna mai he pūrongo ki tō mātou whārangi GitHub kia āwhinatia ai."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Kāore he hononga ipurangi. Tirohia tō whatunga, ka ngana anō."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Kāore i taea te toro atu ki ngā tūmau putunga. Ngana anō ā muri ake, tirohia rānei tō whirihoranga whakaata."
+
+msgid "Authorization error, please try again."
+msgstr "He hapa whakamanatanga, ngana anō."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "I mutu ohorere te tirotiro whakahōunga whai mana teitei."
+
+msgid "The privileged update check could not be started."
+msgstr "Kāore i taea te tīmata te tirotiro whakahōunga whai mana teitei."
+
+msgid "System was not previously updated."
+msgstr "Kāore anō te pūnaha kia whakahōutia."
+
+msgid "The last update information could not be read."
+msgstr "Kāore i taea te pānui ngā mōhiohio mō te whakahōunga whakamutunga."
+
+msgid "The last update information is invalid."
+msgstr "He muhu ngā mōhiohio mō te whakahōunga whakamutunga."
+
+msgid "Updates were not installed on this system"
+msgstr "Kāore anō kia tāutahia he whakahōunga ki tēnei pūnaha"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Hei whakahōu i te pūnaha, tirohia ngā whakahōunga e wātea ana mā te pātene i raro."
+
+msgid "Update date available"
+msgstr "Kei te wātea te rā whakahōunga"
+
+msgid "Updated recently"
+msgstr "Kātahi anō ka whakahōutia"
+
+msgid "System is up to date"
+msgstr "Kei te hou te pūnaha"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Neke atu i te marama mai i te tāutanga o te whakahōunga whakamutunga"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Neke atu i te toru marama mai i te tāutanga o te whakahōunga whakamutunga"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 hēkona ki muri"
+msgstr[1] "%1 hēkona ki muri"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 meneti ki muri"
+msgstr[1] "%1 meneti ki muri"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 hāora ki muri"
+msgstr[1] "%1 hāora ki muri"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 rā ki muri"
+msgstr[1] "%1 rā ki muri"
+
+msgid "Action is required"
+msgstr "Me mahi"
+
+msgid "Action is required!"
+msgstr "Me mahi!"
+
+msgid "Action required"
+msgstr "He mahi e hiahiatia ana"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Kāore e taea e Fluff Linux Update te haere tonu nā te mea me tango te mōkī pūnaha tiakina “%1” mō te whakahōunga e whai ake nei. Mā te tango e kore pea a Fluff Linux e mahi tika. Tukuna he pūrongo ki GitHub mō te āwhina."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Hei tāuta whakahōunga pūnaha, me tango e Fluff Linux Update a “%1”. Ka pā pea te tangohanga ki ētahi atu pūmanawa. Ki te kore koe e tino mōhio, tukuna he pūrongo ki GitHub mō te āwhina."
+
+msgid "Accept"
+msgstr "Whakaae"
+
+msgid "Close"
+msgstr "Katia"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Hei haere tonu ngā whakahōunga pūnaha, kua tangohia aunoatia a %1 i muri i te whakatau he haumaru te tango."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Hei haere tonu ngā whakahōunga pūnaha, kua tangohia aunoatia ēnei mōkī i muri i te whakatau he haumaru te tango: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Kua kitea, kua whakatikaina he taupatupatu kōnae. Kua whakaingoatia anō a %1 hei %2. Kua tīmata anō te tukanga whakahōu."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Kāore i taea te tango te mōkī taupatupatu. Rapua he tautoko."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Kāore i taea e Fluff Linux Update te manatoko i te kī waitohu o te putunga FluffNet. Kua whakamutua te whakahōunga hei tiaki i tō pūnaha."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Kāore i taea e Fluff Linux Update te manatoko i te kī waitohu o te putunga FluffNet. Kua whakamutua te whakahōunga hei tiaki i tō pūnaha. He raru whatunga pea, kāore te tūmau FluffNet i te wātea, kua pau te wā, kua whakakapia rānei te kī waitohu, he hapa whirihoranga putunga, he kī ohorere, kua whakaekehia rānei te putunga. Kaua e whakaae ā-ringa ki tētahi kī ohorere ki te kore a Fluff Linux e whakaputa tohutohu kua manatoko."
+
+msgid "Repository: %1"
+msgstr "Putunga: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Kua manatokohia te kī waitohu mana o te putunga FluffNet, kua tāpirihia ki Pacman."
+
+msgid "Technical details"
+msgstr "Ngā taipitopito hangarau"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Ngā taipitopito hangarau mō te manatoko kī waitohu putunga"
+
+msgid "Failure category: %1"
+msgstr "Kāwai rahunga: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Tapumati e tūmanakohia ana: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Tapumati kua whiwhi: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Tapumati kī waitohu i tonoa: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Tūnga putanga Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Putanga FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Putanga Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Ngana anō"
+
+msgid "Copy Technical Details"
+msgstr "Tāruatia ngā taipitopito hangarau"
+
+msgid "Open an Issue on GitHub"
+msgstr "Whakatuwheratia he pūrongo ki GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Kāore e rahi te mokowā wātea hei haere tonu te whakahōunga. Whakawāteatia he mokowā, ka ngana anō."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Kāore i taea te manatoko he waitohu mōkī, putunga rānei. Kua whakamutua te whakahōunga. Tirohia te rā pūnaha me te huinga kī, ka ngana anō."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Kua kino te pātengi raraunga mōkī, kāore rānei e taea te pānui. Kua whakamutua te whakahōunga. Rapua he tautoko i mua i te whakatika i te pātengi raraunga."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Kua kino, kāore rānei i oti tētahi mōkī kua tikiake. Kua whakamutua te whakahōunga. Ngana anō, whakamahia rānei tētahi atu whakaata."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Kāore i taea te pānui, te tuhi rānei i ngā kōnae e hiahiatia ana mō te whakahōunga. Tirohia ngā whakaaetanga pūnaha kōnae me te hauora kōpae, ka ngana anō."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Kāore i taea te tikiake ngā whakahōunga. Ngana anō, rapua rānei he tautoko."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Kāore i taea te whakarite te tauwhitinga whakahōu. Ngana anō, rapua rānei he tautoko."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Kāore i taea te tīmata te whakahōunga nā te kore e taea te whakahohe i te ārai moe. Ngana anō."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Kāore i taea te maukati te pātengi raraunga mōkī. Katia ētahi atu kaiwhakahaere mōkī, tirohia ka taea te tuhi ki te pūnaha kōnae, ka ngana anō."
+
+msgid "Estimated time: %1"
+msgstr "Wā whakatau tata: %1"

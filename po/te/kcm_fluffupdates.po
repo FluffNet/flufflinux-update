@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "వ్యవస్థ నవీకరణలు"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "వ్యవస్థ నవీకరణలను స్థాపించి Fluff Linux ను సురక్షితంగా, తాజాగా ఉంచండి."
+
+msgid "System last updated: %1 (%2)"
+msgstr "వ్యవస్థ చివరిగా నవీకరించబడింది: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "నవీకరణలను తనిఖీ చేయి"
+
+msgid "Install Updates"
+msgstr "నవీకరణలను స్థాపించు"
+
+msgid "View Updates"
+msgstr "నవీకరణలను చూడు"
+
+msgid "Change view"
+msgstr "వీక్షణను మార్చు"
+
+msgid "Updates to Install"
+msgstr "స్థాపించాల్సిన నవీకరణలు"
+
+msgid "Package details are unavailable."
+msgstr "ప్యాకేజీ వివరాలు అందుబాటులో లేవు."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ఇంకా అభివృద్ధిలో ఉంది. సమస్య ఎదురైతే మా GitHub పేజీలో నివేదించండి."
+
+msgid "System updates were installed successfully."
+msgstr "వ్యవస్థ నవీకరణలు విజయవంతంగా స్థాపించబడ్డాయి."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "నెట్‌వర్క్ అనుసంధానం లేదు!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "నెట్‌వర్క్ అనుసంధానం పరిమితంగా ఉంది. సంస్థ నెట్‌వర్క్‌కు అనుసంధానించకపోతే మీ ఇంటర్నెట్ అనుసంధానాన్ని తనిఖీ చేయండి."
+
+msgid "pacman process is already running."
+msgstr "pacman ప్రక్రియ ఇప్పటికే నడుస్తోంది."
+
+msgid "The update process could not be started."
+msgstr "నవీకరణ ప్రక్రియను ప్రారంభించలేకపోయాము."
+
+msgid "The update process could not be cancelled."
+msgstr "నవీకరణ ప్రక్రియను రద్దు చేయలేకపోయాము."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "నవీకరణల డౌన్‌లోడ్ సమయంలో అనుసంధానం విఫలమైంది. నెట్‌వర్క్‌ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "The system update failed."
+msgstr "వ్యవస్థ నవీకరణ విఫలమైంది."
+
+msgid "Downloading updates…"
+msgstr "నవీకరణలను డౌన్‌లోడ్ చేస్తోంది…"
+
+msgid "Installing updates…"
+msgstr "నవీకరణలను స్థాపిస్తోంది…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 డౌన్‌లోడ్ అయింది"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 నవీకరణలు స్థాపించబడ్డాయి"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "నవీకరణలు స్థాపించబడుతున్నాయి. స్థాపన పూర్తయ్యే వరకు కంప్యూటర్‌ను ఆపవద్దు లేదా పునఃప్రారంభించవద్దు. నవీకరణకు అంతరాయం కలిగిస్తే వ్యవస్థ దస్త్రాలు దెబ్బతినవచ్చు."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "బ్యాటరీ తక్కువగా ఉంది. నవీకరణలను స్థాపించేటప్పుడు కంప్యూటర్‌ను ఛార్జర్‌కు అనుసంధానించండి."
+
+msgid "Update process was cancelled"
+msgstr "నవీకరణ ప్రక్రియ రద్దయింది"
+
+msgid "Cancel"
+msgstr "రద్దు చేయి"
+
+msgid "Checking for updates…"
+msgstr "నవీకరణలను తనిఖీ చేస్తోంది…"
+
+msgid "System updates are available"
+msgstr "వ్యవస్థ నవీకరణలు అందుబాటులో ఉన్నాయి"
+
+msgid "Download size: %1"
+msgstr "డౌన్‌లోడ్ పరిమాణం: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "వ్యవస్థ నవీకరణలకు అవసరమైన స్థలం: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "నవీకరణ తర్వాత ఖాళీ అయ్యే స్థలం: %1"
+
+msgid "No additional download required"
+msgstr "అదనపు డౌన్‌లోడ్ అవసరం లేదు"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "నవీకరణ తనిఖీ సాధనాన్ని ప్రారంభించలేకపోయాము. pacman-contrib స్థాపించబడిందని నిర్ధారించండి."
+
+msgid "The update check stopped unexpectedly."
+msgstr "నవీకరణ తనిఖీ అనుకోకుండా ఆగిపోయింది."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "తెలియని దోషం సంభవించింది. సహాయం కోసం మా GitHub పేజీలో ఈ సమస్యను నివేదించండి."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ఇంటర్నెట్ అనుసంధానం లేదు. నెట్‌వర్క్‌ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "రిపోజిటరీ సర్వర్‌లను చేరుకోలేకపోయాము. తర్వాత ప్రయత్నించండి లేదా మిర్రర్ ఆకృతీకరణను తనిఖీ చేయండి."
+
+msgid "Authorization error, please try again."
+msgstr "అనుమతి దోషం, మళ్లీ ప్రయత్నించండి."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ఉన్నత అధికారాలతో నవీకరణ తనిఖీ అనుకోకుండా ఆగిపోయింది."
+
+msgid "The privileged update check could not be started."
+msgstr "ఉన్నత అధికారాలతో నవీకరణ తనిఖీని ప్రారంభించలేకపోయాము."
+
+msgid "System was not previously updated."
+msgstr "వ్యవస్థ ఇంతకు ముందు నవీకరించబడలేదు."
+
+msgid "The last update information could not be read."
+msgstr "చివరి నవీకరణ సమాచారాన్ని చదవలేకపోయాము."
+
+msgid "The last update information is invalid."
+msgstr "చివరి నవీకరణ సమాచారం చెల్లదు."
+
+msgid "Updates were not installed on this system"
+msgstr "ఈ వ్యవస్థలో నవీకరణలు స్థాపించబడలేదు"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "వ్యవస్థను నవీకరించడానికి కింది బటన్‌తో అందుబాటులోని నవీకరణలను తనిఖీ చేయండి."
+
+msgid "Update date available"
+msgstr "నవీకరణ తేదీ అందుబాటులో ఉంది"
+
+msgid "Updated recently"
+msgstr "ఇటీవల నవీకరించబడింది"
+
+msgid "System is up to date"
+msgstr "వ్యవస్థ తాజాగా ఉంది"
+
+msgid "Last update was installed more than a month ago"
+msgstr "చివరి నవీకరణ నెల కంటే ముందు స్థాపించబడింది"
+
+msgid "Last update was installed more than three months ago"
+msgstr "చివరి నవీకరణ మూడు నెలల కంటే ముందు స్థాపించబడింది"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 సెకను క్రితం"
+msgstr[1] "%1 సెకన్ల క్రితం"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 నిమిషం క్రితం"
+msgstr[1] "%1 నిమిషాల క్రితం"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 గంట క్రితం"
+msgstr[1] "%1 గంటల క్రితం"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 రోజు క్రితం"
+msgstr[1] "%1 రోజుల క్రితం"
+
+msgid "Action is required"
+msgstr "చర్య అవసరం"
+
+msgid "Action is required!"
+msgstr "చర్య అవసరం!"
+
+msgid "Action required"
+msgstr "అవసరమైన చర్య"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "తదుపరి నవీకరణకు రక్షిత వ్యవస్థ ప్యాకేజీ “%1” ను తొలగించాలి కాబట్టి Fluff Linux Update కొనసాగలేదు. దానిని తొలగిస్తే Fluff Linux సరిగ్గా పనిచేయకపోవచ్చు. సహాయం కోసం GitHub లో సమస్యను నివేదించండి."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "వ్యవస్థ నవీకరణలను స్థాపించడానికి Fluff Linux Update “%1” ను తొలగించాలి. ఈ ప్యాకేజీ తొలగింపు సంబంధిత సాఫ్ట్‌వేర్‌ను ప్రభావితం చేయవచ్చు. ఖచ్చితంగా తెలియకపోతే సహాయం కోసం GitHub లో సమస్యను నివేదించండి."
+
+msgid "Accept"
+msgstr "అంగీకరించు"
+
+msgid "Close"
+msgstr "మూసివేయి"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "వ్యవస్థ నవీకరణలు కొనసాగడానికి %1 తొలగింపు సురక్షితమని నిర్ధారించిన తర్వాత స్వయంచాలకంగా తొలగించబడింది."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "వ్యవస్థ నవీకరణలు కొనసాగడానికి కింది ప్యాకేజీల తొలగింపు సురక్షితమని నిర్ధారించిన తర్వాత స్వయంచాలకంగా తొలగించబడ్డాయి: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "దస్త్ర వైరుధ్యం గుర్తించి పరిష్కరించబడింది. %1 పేరు %2 గా మార్చబడింది. నవీకరణ ప్రక్రియ తిరిగి ప్రారంభమైంది."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "విరుద్ధ ప్యాకేజీని తొలగించలేకపోయాము. సహాయం పొందండి."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update FluffNet రిపోజిటరీ సంతకం కీని ధృవీకరించలేకపోయింది. మీ వ్యవస్థ రక్షణ కోసం నవీకరణ ఆపబడింది."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update FluffNet రిపోజిటరీ సంతకం కీని ధృవీకరించలేకపోయింది. మీ వ్యవస్థ రక్షణ కోసం నవీకరణ ఆపబడింది. ఇది నెట్‌వర్క్ సమస్య, అందుబాటులో లేని FluffNet సర్వర్, గడువు ముగిసిన లేదా మార్చబడిన సంతకం కీ, రిపోజిటరీ ఆకృతీకరణ సమస్య, ఊహించని కీ లేదా రిపోజిటరీపై దాడిని సూచించవచ్చు. Fluff Linux ధృవీకరించిన సూచనలను ప్రచురించకపోతే ఊహించని కీని స్వయంగా అంగీకరించవద్దు."
+
+msgid "Repository: %1"
+msgstr "రిపోజిటరీ: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet రిపోజిటరీ అధికారిక సంతకం కీ ధృవీకరించబడి Pacman కు జోడించబడింది."
+
+msgid "Technical details"
+msgstr "సాంకేతిక వివరాలు"
+
+msgid "Repository signing-key verification technical details"
+msgstr "రిపోజిటరీ సంతకం కీ ధృవీకరణ సాంకేతిక వివరాలు"
+
+msgid "Failure category: %1"
+msgstr "వైఫల్య వర్గం: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "ఆశించిన వేలిముద్ర: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "అందుకున్న వేలిముద్ర: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "అభ్యర్థించిన సంతకం కీ వేలిముద్ర: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman నిష్క్రమణ స్థితి: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU సంచిక: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux సంచిక: %1"
+
+msgid "Try Again"
+msgstr "మళ్లీ ప్రయత్నించు"
+
+msgid "Copy Technical Details"
+msgstr "సాంకేతిక వివరాలను నకలు చేయి"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub లో సమస్యను నమోదు చేయి"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "నవీకరణ కొనసాగడానికి సరిపడా ఖాళీ స్థలం లేదు. స్థలాన్ని ఖాళీ చేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "ప్యాకేజీ లేదా రిపోజిటరీ సంతకాన్ని ధృవీకరించలేకపోయాము. నవీకరణ ఆపబడింది. వ్యవస్థ తేదీ, కీరింగ్‌ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "ప్యాకేజీ డేటాబేస్ దెబ్బతింది లేదా చదవలేకపోతున్నాము. నవీకరణ ఆపబడింది. డేటాబేస్ మరమ్మతుకు ముందు సహాయం పొందండి."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "డౌన్‌లోడ్ చేసిన ప్యాకేజీ దెబ్బతింది లేదా అసంపూర్ణంగా ఉంది. నవీకరణ ఆపబడింది. మళ్లీ ప్రయత్నించండి లేదా మరొక మిర్రర్ వాడండి."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "నవీకరణ అవసరమైన దస్త్రాలను చదవడం లేదా రాయడం చేయలేకపోయింది. దస్త్ర వ్యవస్థ అనుమతులు, డిస్క్ స్థితిని తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "నవీకరణలను డౌన్‌లోడ్ చేయలేకపోయాము. మళ్లీ ప్రయత్నించండి లేదా సహాయం పొందండి."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "నవీకరణ లావాదేవీని సిద్ధం చేయలేకపోయాము. మళ్లీ ప్రయత్నించండి లేదా సహాయం పొందండి."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "నిద్ర నిరోధాన్ని ప్రారంభించలేకపోవడంతో నవీకరణ ప్రారంభం కాలేదు. మళ్లీ ప్రయత్నించండి."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "ప్యాకేజీ డేటాబేస్‌ను లాక్ చేయలేకపోయాము. ఇతర ప్యాకేజీ నిర్వాహకులను మూసి, దస్త్ర వ్యవస్థకు రాయవచ్చని తనిఖీ చేసి మళ్లీ ప్రయత్నించండి."
+
+msgid "Estimated time: %1"
+msgstr "అంచనా సమయం: %1"

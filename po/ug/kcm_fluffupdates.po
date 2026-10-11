@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "سىستېما يېڭىلانمىلىرى"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "سىستېما يېڭىلانمىلىرىنى ئورنىتىپ Fluff Linux نى بىخەتەر ۋە يېڭى ھالەتتە ساقلاڭ."
+
+msgid "System last updated: %1 (%2)"
+msgstr "سىستېمىنىڭ ئاخىرقى يېڭىلانغان ۋاقتى: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "يېڭىلانمىلارنى تەكشۈر"
+
+msgid "Install Updates"
+msgstr "يېڭىلانمىلارنى ئورنات"
+
+msgid "View Updates"
+msgstr "يېڭىلانمىلارنى كۆرسەت"
+
+msgid "Change view"
+msgstr "كۆرۈنۈشنى ئۆزگەرت"
+
+msgid "Updates to Install"
+msgstr "ئورنىتىلىدىغان يېڭىلانمىلار"
+
+msgid "Package details are unavailable."
+msgstr "بوغچا تەپسىلاتلىرى يوق."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update تېخى ئېچىش باسقۇچىدا. مەسىلىگە يولۇقسىڭىز GitHub بېتىمىزدە مەلۇم قىلىڭ."
+
+msgid "System updates were installed successfully."
+msgstr "سىستېما يېڭىلانمىلىرى مۇۋەپپەقىيەتلىك ئورنىتىلدى."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "تور ئۇلىنىشى يوق!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "تور ئۇلىنىشى چەكلىك. تەشكىلات تورىغا ئۇلانمىغان بولسىڭىز، ئىنتېرنېت ئۇلىنىشىڭىزنى تەكشۈرۈڭ."
+
+msgid "pacman process is already running."
+msgstr "pacman جەريانى ئاللىقاچان ئىجرا بولۇۋاتىدۇ."
+
+msgid "The update process could not be started."
+msgstr "يېڭىلاش جەريانىنى باشلىغىلى بولمىدى."
+
+msgid "The update process could not be cancelled."
+msgstr "يېڭىلاش جەريانىنى بىكار قىلغىلى بولمىدى."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "يېڭىلانمىلارنى چۈشۈرۈۋاتقاندا ئۇلىنىش مەغلۇپ بولدى. تورنى تەكشۈرۈپ قايتا سىناڭ."
+
+msgid "The system update failed."
+msgstr "سىستېمىنى يېڭىلاش مەغلۇپ بولدى."
+
+msgid "Downloading updates…"
+msgstr "يېڭىلانمىلار چۈشۈرۈلۈۋاتىدۇ…"
+
+msgid "Installing updates…"
+msgstr "يېڭىلانمىلار ئورنىتىلىۋاتىدۇ…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 چۈشۈرۈلدى"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 يېڭىلانما ئورنىتىلدى"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "يېڭىلانمىلار ئورنىتىلىۋاتىدۇ. ئورنىتىش تاماملانغۇچە كومپيۇتېرنى تاقىماڭ ياكى قايتا قوزغاتماڭ. يېڭىلاشنى ئۈزۈش سىستېما ھۆججەتلىرىنى بۇزۇشى مۇمكىن."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "باتارېيە توكى تۆۋەن. يېڭىلانمىلارنى ئورنىتىۋاتقاندا كومپيۇتېرنى توكلىغۇچقا ئۇلاڭ."
+
+msgid "Update process was cancelled"
+msgstr "يېڭىلاش جەريانى بىكار قىلىندى"
+
+msgid "Cancel"
+msgstr "بىكار قىل"
+
+msgid "Checking for updates…"
+msgstr "يېڭىلانمىلار تەكشۈرۈلۈۋاتىدۇ…"
+
+msgid "System updates are available"
+msgstr "سىستېما يېڭىلانمىلىرى بار"
+
+msgid "Download size: %1"
+msgstr "چۈشۈرۈش چوڭلۇقى: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "سىستېما يېڭىلانمىلىرىغا كېرەكلىك بوشلۇق: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "يېڭىلانغاندىن كېيىن بىكار بولىدىغان بوشلۇق: %1"
+
+msgid "No additional download required"
+msgstr "قوشۇمچە چۈشۈرۈش ھاجەتسىز"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "يېڭىلانما تەكشۈرگۈچنى قوزغاتقىلى بولمىدى. pacman-contrib ئورنىتىلغانلىقىنى جەزملەشتۈرۈڭ."
+
+msgid "The update check stopped unexpectedly."
+msgstr "يېڭىلانما تەكشۈرۈش كۈتۈلمىگەندە توختىدى."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "نامەلۇم خاتالىق كۆرۈلدى. ياردەم ئۈچۈن بۇ مەسىلىنى GitHub بېتىمىزدە مەلۇم قىلىڭ."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ئىنتېرنېت ئۇلىنىشى يوق. تورنى تەكشۈرۈپ قايتا سىناڭ."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ئامبار مۇلازىمېتىرلىرىغا ئۇلانغىلى بولمىدى. كېيىن قايتا سىناڭ ياكى ئەينەك مۇلازىمېتىر سەپلىمىسىنى تەكشۈرۈڭ."
+
+msgid "Authorization error, please try again."
+msgstr "ھوقۇق بېرىش خاتالىقى، قايتا سىناڭ."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "يۇقىرى ھوقۇقلۇق يېڭىلانما تەكشۈرۈش كۈتۈلمىگەندە توختىدى."
+
+msgid "The privileged update check could not be started."
+msgstr "يۇقىرى ھوقۇقلۇق يېڭىلانما تەكشۈرۈشنى باشلىغىلى بولمىدى."
+
+msgid "System was not previously updated."
+msgstr "سىستېما بۇرۇن يېڭىلانمىغان."
+
+msgid "The last update information could not be read."
+msgstr "ئاخىرقى يېڭىلانما ئۇچۇرىنى ئوقۇغىلى بولمىدى."
+
+msgid "The last update information is invalid."
+msgstr "ئاخىرقى يېڭىلانما ئۇچۇرى ئىناۋەتسىز."
+
+msgid "Updates were not installed on this system"
+msgstr "بۇ سىستېمىغا يېڭىلانما ئورنىتىلمىغان"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "سىستېمىنى يېڭىلاش ئۈچۈن تۆۋەندىكى توپچا بىلەن بار يېڭىلانمىلارنى تەكشۈرۈڭ."
+
+msgid "Update date available"
+msgstr "يېڭىلانغان چېسلا بار"
+
+msgid "Updated recently"
+msgstr "يېقىندا يېڭىلانغان"
+
+msgid "System is up to date"
+msgstr "سىستېما ئەڭ يېڭى ھالەتتە"
+
+msgid "Last update was installed more than a month ago"
+msgstr "ئاخىرقى يېڭىلانما بىر ئايدىن بۇرۇن ئورنىتىلغان"
+
+msgid "Last update was installed more than three months ago"
+msgstr "ئاخىرقى يېڭىلانما ئۈچ ئايدىن بۇرۇن ئورنىتىلغان"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 سېكۇنت بۇرۇن"
+msgstr[1] "%1 سېكۇنت بۇرۇن"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 مىنۇت بۇرۇن"
+msgstr[1] "%1 مىنۇت بۇرۇن"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 سائەت بۇرۇن"
+msgstr[1] "%1 سائەت بۇرۇن"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 كۈن بۇرۇن"
+msgstr[1] "%1 كۈن بۇرۇن"
+
+msgid "Action is required"
+msgstr "مەشغۇلات تەلەپ قىلىنىدۇ"
+
+msgid "Action is required!"
+msgstr "مەشغۇلات تەلەپ قىلىنىدۇ!"
+
+msgid "Action required"
+msgstr "كېرەكلىك مەشغۇلات"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "كېيىنكى يېڭىلانما قوغدىلىدىغان سىستېما بوغچىسى “%1” نى ئۆچۈرۈشنى تەلەپ قىلغاچقا، Fluff Linux Update داۋاملاشتۇرالمايدۇ. ئۇنى ئۆچۈرۈش Fluff Linux نىڭ توغرا ئىشلىشىگە توسالغۇ بولۇشى مۇمكىن. ياردەم ئۈچۈن GitHub دا مەلۇم قىلىڭ."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "سىستېما يېڭىلانمىلىرىنى ئورنىتىش ئۈچۈن Fluff Linux Update “%1” نى ئۆچۈرۈشى كېرەك. بۇ بوغچىنى ئۆچۈرۈش مۇناسىۋەتلىك يۇمشاق دېتالغا تەسىر قىلىشى مۇمكىن. جەزم قىلالمىسىڭىز، ياردەم ئۈچۈن GitHub دا مەلۇم قىلىڭ."
+
+msgid "Accept"
+msgstr "قوبۇل قىل"
+
+msgid "Close"
+msgstr "ياپ"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "سىستېما يېڭىلانمىلىرىنى داۋاملاشتۇرۇش ئۈچۈن %1 نى ئۆچۈرۈش بىخەتەر دەپ قارالغاندىن كېيىن ئاپتوماتىك ئۆچۈرۈلدى."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "سىستېما يېڭىلانمىلىرىنى داۋاملاشتۇرۇش ئۈچۈن تۆۋەندىكى بوغچىلارنى ئۆچۈرۈش بىخەتەر دەپ قارالغاندىن كېيىن ئاپتوماتىك ئۆچۈرۈلدى: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ھۆججەت توقۇنۇشى بايقالدى ۋە ھەل قىلىندى. %1 نىڭ ئىسمى %2 غا ئۆزگەرتىلدى. يېڭىلاش جەريانى قايتا باشلاندى."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "توقۇنۇشقان بوغچىنى ئۆچۈرگىلى بولمىدى. ياردەم سوراڭ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update FluffNet ئامبىرىنىڭ ئىمزا ئاچقۇچىنى دەلىللىيەلمىدى. سىستېمىڭىزنى قوغداش ئۈچۈن يېڭىلاش توختىتىلدى."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update FluffNet ئامبىرىنىڭ ئىمزا ئاچقۇچىنى دەلىللىيەلمىدى. سىستېمىڭىزنى قوغداش ئۈچۈن يېڭىلاش توختىتىلدى. بۇ تور مەسىلىسى، ئىشلەتكىلى بولمايدىغان FluffNet مۇلازىمېتىرى، ۋاقتى ئۆتكەن ياكى ئالماشتۇرۇلغان ئىمزا ئاچقۇچى، ئامبار سەپلىمە مەسىلىسى، كۈتۈلمىگەن ئاچقۇچ ياكى ئامبارغا قىلىنغان ھۇجۇمنى كۆرسىتىشى مۇمكىن. Fluff Linux دەلىللەنگەن كۆرسەتمىلەرنى ئېلان قىلمىغۇچە كۈتۈلمىگەن ئاچقۇچنى قولدا قوبۇل قىلماڭ."
+
+msgid "Repository: %1"
+msgstr "ئامبار: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet ئامبىرىنىڭ رەسمىي ئىمزا ئاچقۇچى دەلىللىنىپ Pacman غا قوشۇلدى."
+
+msgid "Technical details"
+msgstr "تېخنىكىلىق تەپسىلاتلار"
+
+msgid "Repository signing-key verification technical details"
+msgstr "ئامبار ئىمزا ئاچقۇچىنى دەلىللەشنىڭ تېخنىكىلىق تەپسىلاتلىرى"
+
+msgid "Failure category: %1"
+msgstr "مەغلۇبىيەت تۈرى: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "كۈتۈلگەن بارماق ئىزى: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "تاپشۇرۇۋېلىنغان بارماق ئىزى: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "تەلەپ قىلىنغان ئىمزا ئاچقۇچىنىڭ بارماق ئىزى: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman چېكىنىش ھالىتى: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU نەشرى: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux نەشرى: %1"
+
+msgid "Try Again"
+msgstr "قايتا سىنا"
+
+msgid "Copy Technical Details"
+msgstr "تېخنىكىلىق تەپسىلاتلارنى كۆچۈر"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub دا مەسىلە ئاچ"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "يېڭىلاشنى داۋاملاشتۇرۇشقا يېتەرلىك بوش ئورۇن يوق. ئورۇن بوشىتىپ قايتا سىناڭ."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "بوغچا ياكى ئامبار ئىمزاسىنى دەلىللىگىلى بولمىدى. يېڭىلاش توختىتىلدى. سىستېما چېسلاسى ۋە ئاچقۇچ ھالقىسىنى تەكشۈرۈپ قايتا سىناڭ."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "بوغچا ساندانى بۇزۇلغان ياكى ئوقۇغىلى بولمايدۇ. يېڭىلاش توختىتىلدى. سانداننى ئوڭشاشتىن بۇرۇن ياردەم سوراڭ."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "چۈشۈرۈلگەن بوغچا بۇزۇلغان ياكى تولۇق ئەمەس. يېڭىلاش توختىتىلدى. قايتا سىناڭ ياكى باشقا ئەينەك مۇلازىمېتىر ئىشلىتىڭ."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "يېڭىلاش كېرەكلىك ھۆججەتلەرنى ئوقۇيالمىدى ياكى يازالمىدى. ھۆججەت سىستېمىسىنىڭ ھوقۇقلىرى ۋە دىسكا ھالىتىنى تەكشۈرۈپ قايتا سىناڭ."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "يېڭىلانمىلارنى چۈشۈرگىلى بولمىدى. قايتا سىناڭ ياكى ياردەم سوراڭ."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "يېڭىلاش مەشغۇلاتىنى تەييارلىغىلى بولمىدى. قايتا سىناڭ ياكى ياردەم سوراڭ."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "ئۇيقۇنىڭ ئالدىنى ئېلىشنى قوزغاتقىلى بولمىغاچقا يېڭىلاش باشلانمىدى. قايتا سىناڭ."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "بوغچا ساندانىنى قۇلۇپلىغىلى بولمىدى. باشقا بوغچا باشقۇرغۇچلارنى تاقاپ، ھۆججەت سىستېمىسىغا يازغىلى بولىدىغانلىقىنى تەكشۈرۈڭ، ئاندىن قايتا سىناڭ."
+
+msgid "Estimated time: %1"
+msgstr "مۆلچەرلەنگەن ۋاقىت: %1"

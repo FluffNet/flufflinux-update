@@ -1,0 +1,303 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: gd\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11 ? 0 : n==2 || n==12 ? 1 : n>2 && n<20 ? 2 : 3);\n"
+
+msgid "System Updates"
+msgstr "Ùrachaidhean an t-siostaim"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Cùm Fluff Linux sàbhailte agus ùraichte le bhith a' stàladh ùrachaidhean an t-siostaim."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Chaidh an siostam ùrachadh mu dheireadh: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Thoir sùil airson ùrachaidhean"
+
+msgid "Install Updates"
+msgstr "Stàlaich ùrachaidhean"
+
+msgid "View Updates"
+msgstr "Seall ùrachaidhean"
+
+msgid "Change view"
+msgstr "Atharraich an sealladh"
+
+msgid "Updates to Install"
+msgstr "Ùrachaidhean ri stàladh"
+
+msgid "Package details are unavailable."
+msgstr "Chan eil mion-fhiosrachadh nam pacaidean ri fhaighinn."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Tha Fluff Linux Update fhathast ga leasachadh. Ma thachras duilgheadas dhut, cuir aithisg air an duilleag GitHub againn."
+
+msgid "System updates were installed successfully."
+msgstr "Chaidh ùrachaidhean an t-siostaim a stàladh gu soirbheachail."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Chan eil ceangal lìonra ann!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Tha an ceangal lìonra cuingichte. Mur eil thu ceangailte ri lìonra buidhne, thoir sùil air a' cheangal eadar-lìn agad."
+
+msgid "pacman process is already running."
+msgstr "Tha pròiseas pacman a' ruith mu thràth."
+
+msgid "The update process could not be started."
+msgstr "Cha b' urrainn dhuinn pròiseas an ùrachaidh a thòiseachadh."
+
+msgid "The update process could not be cancelled."
+msgstr "Cha b' urrainn dhuinn pròiseas an ùrachaidh a chur dheth."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Dh'fhàillig an ceangal fhad 's a bha na h-ùrachaidhean gan luchdadh a-nuas. Thoir sùil air an lìonra is feuch ris a-rithist."
+
+msgid "The system update failed."
+msgstr "Dh'fhàillig ùrachadh an t-siostaim."
+
+msgid "Downloading updates…"
+msgstr "A' luchdadh ùrachaidhean a-nuas…"
+
+msgid "Installing updates…"
+msgstr "A' stàladh ùrachaidhean…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 air a luchdadh a-nuas"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 ùrachaidhean air an stàladh"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Tha ùrachaidhean gan stàladh. Na cuir an coimpiutair dheth agus na ath-thòisich e gus am bi an stàladh deiseil. Faodaidh stad air an ùrachadh faidhlichean an t-siostaim a mhilleadh."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Tha am bataraidh ìosal. Ceangail an coimpiutair ri inneal-teairrdsidh fhad 's a tha ùrachaidhean gan stàladh."
+
+msgid "Update process was cancelled"
+msgstr "Chaidh pròiseas an ùrachaidh a chur dheth"
+
+msgid "Cancel"
+msgstr "Sguir dheth"
+
+msgid "Checking for updates…"
+msgstr "A' lorg ùrachaidhean…"
+
+msgid "System updates are available"
+msgstr "Tha ùrachaidhean an t-siostaim ri fhaighinn"
+
+msgid "Download size: %1"
+msgstr "Meud an luchdaidh a-nuas: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Àite-stòrais a tha a dhìth airson ùrachaidhean an t-siostaim: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Àite-stòrais a thèid a shaoradh às dèidh an ùrachaidh: %1"
+
+msgid "No additional download required"
+msgstr "Chan eil luchdadh a-nuas a bharrachd a dhìth"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Cha b' urrainn dhuinn lorgaire nan ùrachaidhean a thòiseachadh. Dèan cinnteach gu bheil pacman-contrib stàlaichte."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Stad sgrùdadh nan ùrachaidhean gun dùil."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Thachair mearachd neo-aithnichte. Cuir aithisg air an duilleag GitHub againn airson cuideachadh."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Chan eil ceangal eadar-lìn ann. Thoir sùil air an lìonra is feuch ris a-rithist."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Cha b' urrainn dhuinn frithealaichean nan tasglann a ruigsinn. Feuch ris nas anmoiche no thoir sùil air roghainnean nan sgàthan."
+
+msgid "Authorization error, please try again."
+msgstr "Mearachd ceadachaidh. Feuch ris a-rithist."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Stad sgrùdadh nan ùrachaidhean le sochairean àrda gun dùil."
+
+msgid "The privileged update check could not be started."
+msgstr "Cha b' urrainn dhuinn sgrùdadh nan ùrachaidhean le sochairean àrda a thòiseachadh."
+
+msgid "System was not previously updated."
+msgstr "Cha deach an siostam ùrachadh roimhe."
+
+msgid "The last update information could not be read."
+msgstr "Cha b' urrainn dhuinn fiosrachadh an ùrachaidh mu dheireadh a leughadh."
+
+msgid "The last update information is invalid."
+msgstr "Tha fiosrachadh an ùrachaidh mu dheireadh mì-dhligheach."
+
+msgid "Updates were not installed on this system"
+msgstr "Cha deach ùrachaidhean a stàladh air an t-siostam seo"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Airson an siostam ùrachadh, lorg ùrachaidhean leis a' phutan gu h-ìosal."
+
+msgid "Update date available"
+msgstr "Tha ceann-là ùrachaidh ri fhaighinn"
+
+msgid "Updated recently"
+msgstr "Air ùrachadh o chionn ghoirid"
+
+msgid "System is up to date"
+msgstr "Tha an siostam ùraichte"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Chaidh an t-ùrachadh mu dheireadh a stàladh còrr is mìos air ais"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Chaidh an t-ùrachadh mu dheireadh a stàladh còrr is trì mìosan air ais"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 diog air ais"
+msgstr[1] "%1 dhiog air ais"
+msgstr[2] "%1 diogan air ais"
+msgstr[3] "%1 diog air ais"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 mionaid air ais"
+msgstr[1] "%1 mhionaid air ais"
+msgstr[2] "%1 mionaidean air ais"
+msgstr[3] "%1 mionaid air ais"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 uair air ais"
+msgstr[1] "%1 uair air ais"
+msgstr[2] "%1 uairean air ais"
+msgstr[3] "%1 uair air ais"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 latha air ais"
+msgstr[1] "%1 latha air ais"
+msgstr[2] "%1 làithean air ais"
+msgstr[3] "%1 latha air ais"
+
+msgid "Action is required"
+msgstr "Tha gnìomh a dhìth"
+
+msgid "Action is required!"
+msgstr "Tha gnìomh a dhìth!"
+
+msgid "Action required"
+msgstr "Gnìomh a dhìth"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Chan urrainn do Fluff Linux Update leantainn air adhart oir tha an ath ùrachadh ag iarraidh gun tèid “%1”, pacaid dhìonta an t-siostaim, a thoirt air falbh. Dh'fhaodadh seo bacadh a chur air Fluff Linux bho bhith ag obair gu ceart. Cuir aithisg air GitHub airson cuideachadh."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Airson ùrachaidhean an t-siostaim a stàladh, feumaidh Fluff Linux Update “%1” a thoirt air falbh. Dh'fhaodadh seo buaidh a thoirt air bathar-bog co-cheangailte. Mur eil thu cinnteach, cuir aithisg air GitHub airson cuideachadh."
+
+msgid "Accept"
+msgstr "Gabh ris"
+
+msgid "Close"
+msgstr "Dùin"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Airson leantainn air adhart le ùrachaidhean an t-siostaim, chaidh %1 a thoirt air falbh gu fèin-obrachail an dèidh measadh gun robh e sàbhailte sin a dhèanamh."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Airson leantainn air adhart le ùrachaidhean an t-siostaim, chaidh na pacaidean seo a thoirt air falbh gu fèin-obrachail an dèidh measadh gun robh e sàbhailte sin a dhèanamh: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Chaidh còmhstri fhaidhlichean a lorg is a rèiteach. Chaidh %1 ath-ainmeachadh gu %2. Tha pròiseas an ùrachaidh air tòiseachadh a-rithist."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Cha b' urrainn dhuinn a' phacaid a tha ann an còmhstri a thoirt air falbh. Iarr taic."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Cha b' urrainn do Fluff Linux Update iuchair soidhnidh tasglann FluffNet a dhearbhadh. Chaidh an t-ùrachadh a stad gus an siostam a dhìon."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Cha b' urrainn do Fluff Linux Update iuchair soidhnidh tasglann FluffNet a dhearbhadh. Chaidh an t-ùrachadh a stad gus an siostam a dhìon. Dh'fhaodadh seo a bhith na dhuilgheadas lìonra, frithealaiche FluffNet nach eil ri fhaighinn, iuchair a dh'fhalbh an ùine oirre no a chaidh a chur na h-àite, duilgheadas rèiteachaidh tasglainn, iuchair ris nach robh dùil, no ionnsaigh air an tasglann. Na gabh ri iuchair ris nach robh dùil a làimh mur foillsich Fluff Linux stiùireadh air a dhearbhadh."
+
+msgid "Repository: %1"
+msgstr "Tasglann: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Chaidh iuchair soidhnidh oifigeil tasglann FluffNet a dhearbhadh is a chur ri Pacman."
+
+msgid "Technical details"
+msgstr "Mion-fhiosrachadh teicnigeach"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Mion-fhiosrachadh teicnigeach mu dhearbhadh iuchair soidhnidh an tasglainn"
+
+msgid "Failure category: %1"
+msgstr "Roinn-seòrsa na fàilligeadh: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Lorg-meòir ris an robh dùil: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Lorg-meòir a fhuaradh: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Lorg-meòir na h-iuchrach soidhnidh a chaidh iarraidh: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Staid fàgail Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Tionndadh FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Tionndadh Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Feuch ris a-rithist"
+
+msgid "Copy Technical Details"
+msgstr "Dèan lethbhreac dhen mhion-fhiosrachadh teicnigeach"
+
+msgid "Open an Issue on GitHub"
+msgstr "Fosgail cùis air GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Chan eil àite-stòrais saor gu leòr ann airson leantainn air adhart. Saor àite is feuch ris a-rithist."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Cha b' urrainn dhuinn soidhneadh pacaid no tasglainn a dhearbhadh. Chaidh an t-ùrachadh a stad. Thoir sùil air ceann-là an t-siostaim is an cearcall-iuchraichean, agus feuch ris a-rithist."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Tha stòr-dàta nam pacaidean millte no cha ghabh a leughadh. Chaidh an t-ùrachadh a stad. Iarr taic mus càraich thu an stòr-dàta."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Tha pacaid a chaidh a luchdadh a-nuas millte no neo-iomlan. Chaidh an t-ùrachadh a stad. Feuch ris a-rithist no cleachd sgàthan eile."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Cha b' urrainn dhan ùrachadh na faidhlichean a tha a dhìth a leughadh no a sgrìobhadh. Thoir sùil air ceadan an t-siostaim fhaidhlichean agus staid an diosga, agus feuch ris a-rithist."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Cha b' urrainn dhuinn na h-ùrachaidhean a luchdadh a-nuas. Feuch ris a-rithist no iarr taic."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Cha b' urrainn dhuinn tar-ghnìomh an ùrachaidh ullachadh. Feuch ris a-rithist no iarr taic."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Cha b' urrainn dhan ùrachadh tòiseachadh oir cha b' urrainn dhuinn casg a chur air cadal. Feuch ris a-rithist."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Cha b' urrainn dhuinn stòr-dàta nam pacaidean a ghlasadh. Dùin manaidsearan pacaid eile agus dèan cinnteach gu bheil sgrìobhadh ceadaichte san t-siostam fhaidhlichean, agus feuch ris a-rithist."
+
+msgid "Estimated time: %1"
+msgstr "Ùine mheasta: %1"

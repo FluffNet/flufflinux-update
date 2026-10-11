@@ -65,6 +65,7 @@ endif()
 
 # Install gettext catalogs into the fakeroot alongside the KCM.
 ki18n_install(po)
+include(cmake/TranslationAliases.cmake)
 
 # Include the project license in packages staged through DESTDIR.
 install(FILES LICENSE

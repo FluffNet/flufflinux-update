@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: mn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Системийн шинэчлэлтүүд"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Системийн шинэчлэлтүүдийг суулгаж Fluff Linux-ийг аюулгүй, шинэ байлгаарай."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Системийг хамгийн сүүлд шинэчилсэн: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Шинэчлэлт шалгах"
+
+msgid "Install Updates"
+msgstr "Шинэчлэлт суулгах"
+
+msgid "View Updates"
+msgstr "Шинэчлэлт харах"
+
+msgid "Change view"
+msgstr "Харагдац солих"
+
+msgid "Updates to Install"
+msgstr "Суулгах шинэчлэлтүүд"
+
+msgid "Package details are unavailable."
+msgstr "Багцын дэлгэрэнгүй мэдээлэл боломжгүй."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update хөгжүүлэлтийн шатанд байна. Асуудал гарвал манай GitHub хуудсанд мэдээлнэ үү."
+
+msgid "System updates were installed successfully."
+msgstr "Системийн шинэчлэлтүүд амжилттай суулаа."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Сүлжээний холболт алга!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Сүлжээний холболт хязгаарлагдмал байна. Байгууллагын сүлжээнд холбогдоогүй бол интернэт холболтоо шалгана уу."
+
+msgid "pacman process is already running."
+msgstr "pacman процесс аль хэдийн ажиллаж байна."
+
+msgid "The update process could not be started."
+msgstr "Шинэчлэх процессыг эхлүүлж чадсангүй."
+
+msgid "The update process could not be cancelled."
+msgstr "Шинэчлэх процессыг цуцалж чадсангүй."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Шинэчлэлт татах үед холболт тасарлаа. Сүлжээгээ шалгаад дахин оролдоно уу."
+
+msgid "The system update failed."
+msgstr "Системийн шинэчлэлт амжилтгүй боллоо."
+
+msgid "Downloading updates…"
+msgstr "Шинэчлэлт татаж байна…"
+
+msgid "Installing updates…"
+msgstr "Шинэчлэлт суулгаж байна…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 татсан"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 шинэчлэлт суулгасан"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Шинэчлэлтүүдийг суулгаж байна. Суулгаж дуусах хүртэл компьютерыг унтраах эсвэл дахин асаахаас зайлсхийнэ үү. Шинэчлэлтийг тасалбал системийн файлууд гэмтэж болзошгүй."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Зайны цэнэг бага байна. Шинэчлэлт суулгах үед компьютерыг цэнэглэгчид холбоно уу."
+
+msgid "Update process was cancelled"
+msgstr "Шинэчлэх процессыг цуцаллаа"
+
+msgid "Cancel"
+msgstr "Цуцлах"
+
+msgid "Checking for updates…"
+msgstr "Шинэчлэлт шалгаж байна…"
+
+msgid "System updates are available"
+msgstr "Системийн шинэчлэлтүүд байна"
+
+msgid "Download size: %1"
+msgstr "Татах хэмжээ: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Системийн шинэчлэлтэд шаардлагатай зай: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Шинэчилсний дараа чөлөөлөгдөх зай: %1"
+
+msgid "No additional download required"
+msgstr "Нэмж татах шаардлагагүй"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Шинэчлэлт шалгагчийг эхлүүлж чадсангүй. pacman-contrib суусан эсэхийг шалгана уу."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Шинэчлэлт шалгах ажиллагаа гэнэт зогслоо."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Тодорхойгүй алдаа гарлаа. Тусламж авахын тулд манай GitHub хуудсанд энэ асуудлыг мэдээлнэ үү."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Интернэт холболт алга. Сүлжээгээ шалгаад дахин оролдоно уу."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Багцын сангийн серверүүдэд холбогдож чадсангүй. Дараа дахин оролдох эсвэл толин серверийн тохиргоогоо шалгана уу."
+
+msgid "Authorization error, please try again."
+msgstr "Зөвшөөрлийн алдаа, дахин оролдоно уу."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Өндөр эрхтэй шинэчлэлт шалгах ажиллагаа гэнэт зогслоо."
+
+msgid "The privileged update check could not be started."
+msgstr "Өндөр эрхтэй шинэчлэлт шалгах ажиллагааг эхлүүлж чадсангүй."
+
+msgid "System was not previously updated."
+msgstr "Системийг өмнө нь шинэчлээгүй."
+
+msgid "The last update information could not be read."
+msgstr "Сүүлийн шинэчлэлтийн мэдээллийг уншиж чадсангүй."
+
+msgid "The last update information is invalid."
+msgstr "Сүүлийн шинэчлэлтийн мэдээлэл буруу байна."
+
+msgid "Updates were not installed on this system"
+msgstr "Энэ системд шинэчлэлт суулгаагүй"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Системийг шинэчлэхийн тулд доорх товчоор боломжтой шинэчлэлтүүдийг шалгана уу."
+
+msgid "Update date available"
+msgstr "Шинэчлэлтийн огноо байна"
+
+msgid "Updated recently"
+msgstr "Саяхан шинэчилсэн"
+
+msgid "System is up to date"
+msgstr "Систем шинэ байна"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Сүүлийн шинэчлэлтийг сар гаруйн өмнө суулгасан"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Сүүлийн шинэчлэлтийг гурван сар гаруйн өмнө суулгасан"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 секундын өмнө"
+msgstr[1] "%1 секундын өмнө"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 минутын өмнө"
+msgstr[1] "%1 минутын өмнө"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 цагийн өмнө"
+msgstr[1] "%1 цагийн өмнө"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 өдрийн өмнө"
+msgstr[1] "%1 өдрийн өмнө"
+
+msgid "Action is required"
+msgstr "Үйлдэл шаардлагатай"
+
+msgid "Action is required!"
+msgstr "Үйлдэл шаардлагатай!"
+
+msgid "Action required"
+msgstr "Шаардлагатай үйлдэл"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Дараагийн шинэчлэлт нь хамгаалагдсан системийн “%1” багцыг устгахыг шаардсан тул Fluff Linux Update үргэлжлүүлэх боломжгүй. Үүнийг устгавал Fluff Linux зөв ажиллахгүй болж болзошгүй. Тусламж авахын тулд GitHub дээр мэдээлнэ үү."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Системийн шинэчлэлт суулгахын тулд Fluff Linux Update “%1”-ийг устгах шаардлагатай. Энэ багцыг устгах нь холбоотой програмд нөлөөлж болзошгүй. Эргэлзэж байвал GitHub дээр асуудлыг мэдээлж тусламж авна уу."
+
+msgid "Accept"
+msgstr "Зөвшөөрөх"
+
+msgid "Close"
+msgstr "Хаах"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Системийн шинэчлэлтийг үргэлжлүүлэхийн тулд %1-ийг устгахад аюулгүй гэж үзсэний дараа автоматаар устгалаа."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Системийн шинэчлэлтийг үргэлжлүүлэхийн тулд дараах багцуудыг устгахад аюулгүй гэж үзсэний дараа автоматаар устгалаа: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Файлын зөрчил илэрч шийдвэрлэгдлээ. %1-ийн нэрийг %2 болголоо. Шинэчлэх процесс дахин эхэллээ."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Зөрчилтэй багцыг устгаж чадсангүй. Тусламж авна уу."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update нь FluffNet сангийн гарын үсгийн түлхүүрийг баталгаажуулж чадсангүй. Системийг тань хамгаалахын тулд шинэчлэлтийг зогсоолоо."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update нь FluffNet сангийн гарын үсгийн түлхүүрийг баталгаажуулж чадсангүй. Системийг тань хамгаалахын тулд шинэчлэлтийг зогсоолоо. Энэ нь сүлжээний асуудал, FluffNet сервер боломжгүй байх, гарын үсгийн түлхүүрийн хугацаа дуусах эсвэл солигдох, сангийн тохиргооны алдаа, хүлээгээгүй түлхүүр эсвэл сан халдлагад өртсөнийг илэрхийлж болно. Fluff Linux баталгаажсан заавар нийтлээгүй бол хүлээгээгүй түлхүүрийг гараар бүү зөвшөөр."
+
+msgid "Repository: %1"
+msgstr "Багцын сан: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet сангийн албан ёсны гарын үсгийн түлхүүрийг баталгаажуулж Pacman-д нэмлээ."
+
+msgid "Technical details"
+msgstr "Техникийн дэлгэрэнгүй"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Сангийн гарын үсгийн түлхүүр баталгаажуулах техникийн дэлгэрэнгүй"
+
+msgid "Failure category: %1"
+msgstr "Алдааны ангилал: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Хүлээгдэж буй хурууны хээ: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Хүлээн авсан хурууны хээ: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Хүссэн гарын үсгийн түлхүүрийн хурууны хээ: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman гаралтын төлөв: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU хувилбар: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux хувилбар: %1"
+
+msgid "Try Again"
+msgstr "Дахин оролдох"
+
+msgid "Copy Technical Details"
+msgstr "Техникийн дэлгэрэнгүйг хуулах"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub дээр асуудал нээх"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Шинэчлэлтийг үргэлжлүүлэхэд сул зай хүрэлцэхгүй байна. Зай чөлөөлөөд дахин оролдоно уу."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Багц эсвэл сангийн гарын үсгийг баталгаажуулж чадсангүй. Шинэчлэлтийг зогсоолоо. Системийн огноо болон түлхүүрийн сангаа шалгаад дахин оролдоно уу."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Багцын өгөгдлийн сан гэмтсэн эсвэл унших боломжгүй байна. Шинэчлэлтийг зогсоолоо. Өгөгдлийн санг засахаас өмнө тусламж авна уу."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Татсан багц гэмтсэн эсвэл дутуу байна. Шинэчлэлтийг зогсоолоо. Дахин оролдох эсвэл өөр толин сервер ашиглана уу."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Шинэчлэлт шаардлагатай файлуудыг унших эсвэл бичих боломжгүй байна. Файлын системийн зөвшөөрөл болон дискний төлөвийг шалгаад дахин оролдоно уу."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Шинэчлэлтүүдийг татаж чадсангүй. Дахин оролдох эсвэл тусламж авна уу."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Шинэчлэх гүйлгээг бэлтгэж чадсангүй. Дахин оролдох эсвэл тусламж авна уу."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Унтах горимоос сэргийлэхийг идэвхжүүлж чадаагүй тул шинэчлэлтийг эхлүүлэх боломжгүй. Дахин оролдоно уу."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Багцын өгөгдлийн санг түгжиж чадсангүй. Бусад багц удирдагчийг хааж, файлын системд бичих боломжтой эсэхийг шалгаад дахин оролдоно уу."
+
+msgid "Estimated time: %1"
+msgstr "Тооцоолсон хугацаа: %1"

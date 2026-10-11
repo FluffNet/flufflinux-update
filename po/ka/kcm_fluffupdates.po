@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "სისტემის განახლებები"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "შეინარჩუნეთ Fluff Linux-ის უსაფრთხოება და სიახლე სისტემის განახლებების დაყენებით."
+
+msgid "System last updated: %1 (%2)"
+msgstr "სისტემა ბოლოს განახლდა: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "განახლებების შემოწმება"
+
+msgid "Install Updates"
+msgstr "განახლებების დაყენება"
+
+msgid "View Updates"
+msgstr "განახლებების ნახვა"
+
+msgid "Change view"
+msgstr "ხედის შეცვლა"
+
+msgid "Updates to Install"
+msgstr "დასაყენებელი განახლებები"
+
+msgid "Package details are unavailable."
+msgstr "პაკეტის დეტალები მიუწვდომელია."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ჯერ კიდევ მუშავდება. პრობლემის აღმოჩენისას შეგვატყობინეთ ჩვენს GitHub გვერდზე."
+
+msgid "System updates were installed successfully."
+msgstr "სისტემის განახლებები წარმატებით დაყენდა."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "ქსელთან კავშირი არ არის!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ქსელთან კავშირი შეზღუდულია. თუ ორგანიზაციის ქსელს არ იყენებთ, შეამოწმეთ ინტერნეტკავშირი."
+
+msgid "pacman process is already running."
+msgstr "pacman-ის პროცესი უკვე გაშვებულია."
+
+msgid "The update process could not be started."
+msgstr "განახლების პროცესის დაწყება ვერ მოხერხდა."
+
+msgid "The update process could not be cancelled."
+msgstr "განახლების პროცესის გაუქმება ვერ მოხერხდა."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "განახლებების ჩამოტვირთვისას კავშირი გაწყდა. შეამოწმეთ ქსელი და სცადეთ ხელახლა."
+
+msgid "The system update failed."
+msgstr "სისტემის განახლება ვერ მოხერხდა."
+
+msgid "Downloading updates…"
+msgstr "განახლებების ჩამოტვირთვა…"
+
+msgid "Installing updates…"
+msgstr "განახლებების დაყენება…"
+
+msgid "%1 / %2 downloaded"
+msgstr "ჩამოტვირთულია %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "დაყენებულია %1/%2 განახლება"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "მიმდინარეობს განახლებების დაყენება. დაყენების დასრულებამდე არ გამორთოთ და არ გადატვირთოთ კომპიუტერი. განახლების შეწყვეტამ შეიძლება სისტემის ფაილები დააზიანოს."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ბატარეის მუხტი დაბალია. განახლებების დაყენებისას კომპიუტერი დამტენს შეუერთეთ."
+
+msgid "Update process was cancelled"
+msgstr "განახლების პროცესი გაუქმდა"
+
+msgid "Cancel"
+msgstr "გაუქმება"
+
+msgid "Checking for updates…"
+msgstr "განახლებების შემოწმება…"
+
+msgid "System updates are available"
+msgstr "სისტემის განახლებები ხელმისაწვდომია"
+
+msgid "Download size: %1"
+msgstr "ჩამოტვირთვის ზომა: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "სისტემის განახლებებისთვის საჭირო ადგილი: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "განახლების შემდეგ გათავისუფლებული ადგილი: %1"
+
+msgid "No additional download required"
+msgstr "დამატებითი ჩამოტვირთვა საჭირო არ არის"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "განახლებების შემმოწმებლის გაშვება ვერ მოხერხდა. დარწმუნდით, რომ pacman-contrib დაყენებულია."
+
+msgid "The update check stopped unexpectedly."
+msgstr "განახლებების შემოწმება მოულოდნელად შეწყდა."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "მოხდა უცნობი შეცდომა. დახმარებისთვის შეგვატყობინეთ ჩვენს GitHub გვერდზე."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ინტერნეტკავშირი არ არის. შეამოწმეთ ქსელი და სცადეთ ხელახლა."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "საცავის სერვერები მიუწვდომელია. სცადეთ მოგვიანებით ან შეამოწმეთ სარკის კონფიგურაცია."
+
+msgid "Authorization error, please try again."
+msgstr "ავტორიზაციის შეცდომა, სცადეთ ხელახლა."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "მაღალი უფლებებით განახლებების შემოწმება მოულოდნელად შეწყდა."
+
+msgid "The privileged update check could not be started."
+msgstr "მაღალი უფლებებით განახლებების შემოწმების დაწყება ვერ მოხერხდა."
+
+msgid "System was not previously updated."
+msgstr "სისტემა ადრე არ განახლებულა."
+
+msgid "The last update information could not be read."
+msgstr "ბოლო განახლების ინფორმაციის წაკითხვა ვერ მოხერხდა."
+
+msgid "The last update information is invalid."
+msgstr "ბოლო განახლების ინფორმაცია არასწორია."
+
+msgid "Updates were not installed on this system"
+msgstr "ამ სისტემაზე განახლებები არ დაყენებულა"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "სისტემის გასაახლებლად შეამოწმეთ ხელმისაწვდომი განახლებები ქვემოთ მოცემული ღილაკით."
+
+msgid "Update date available"
+msgstr "განახლების თარიღი ხელმისაწვდომია"
+
+msgid "Updated recently"
+msgstr "ახლახან განახლდა"
+
+msgid "System is up to date"
+msgstr "სისტემა განახლებულია"
+
+msgid "Last update was installed more than a month ago"
+msgstr "ბოლო განახლება თვეზე მეტი ხნის წინ დაყენდა"
+
+msgid "Last update was installed more than three months ago"
+msgstr "ბოლო განახლება სამ თვეზე მეტი ხნის წინ დაყენდა"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 წამის წინ"
+msgstr[1] "%1 წამის წინ"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 წუთის წინ"
+msgstr[1] "%1 წუთის წინ"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 საათის წინ"
+msgstr[1] "%1 საათის წინ"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 დღის წინ"
+msgstr[1] "%1 დღის წინ"
+
+msgid "Action is required"
+msgstr "საჭიროა მოქმედება"
+
+msgid "Action is required!"
+msgstr "საჭიროა მოქმედება!"
+
+msgid "Action required"
+msgstr "მოქმედებაა საჭირო"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update ვერ გააგრძელებს, რადგან მომავალი განახლება მოითხოვს დაცული სისტემური პაკეტის “%1” წაშლას. მისმა წაშლამ შეიძლება Fluff Linux-ის გამართულ მუშაობას ხელი შეუშალოს. დახმარებისთვის შეგვატყობინეთ GitHub-ზე."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "განახლებების დასაყენებლად Fluff Linux Update-ს სჭირდება “%1”-ის წაშლა. ამ პაკეტის წაშლამ შეიძლება დაკავშირებულ პროგრამებზე იმოქმედოს. თუ დარწმუნებული არ ხართ, დახმარებისთვის შეგვატყობინეთ GitHub-ზე."
+
+msgid "Accept"
+msgstr "მიღება"
+
+msgid "Close"
+msgstr "დახურვა"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "სისტემის განახლებების გასაგრძელებლად %1 ავტომატურად წაიშალა მას შემდეგ, რაც მისი წაშლა უსაფრთხოდ ჩაითვალა."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "სისტემის განახლებების გასაგრძელებლად შემდეგი პაკეტები ავტომატურად წაიშალა მას შემდეგ, რაც მათი წაშლა უსაფრთხოდ ჩაითვალა: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ფაილის კონფლიქტი აღმოჩენილია და მოგვარებულია. %1-ს სახელი გადაერქვა და გახდა %2. განახლების პროცესი თავიდან დაიწყო."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "კონფლიქტური პაკეტის წაშლა ვერ მოხერხდა. მიმართეთ მხარდაჭერას."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update-მა ვერ გადაამოწმა FluffNet-ის საცავის ხელმოწერის გასაღები. თქვენი სისტემის დასაცავად განახლება შეჩერდა."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update-მა ვერ გადაამოწმა FluffNet-ის საცავის ხელმოწერის გასაღები. თქვენი სისტემის დასაცავად განახლება შეჩერდა. მიზეზი შეიძლება იყოს ქსელის პრობლემა, მიუწვდომელი FluffNet სერვერი, ვადაგასული ან შეცვლილი ხელმოწერის გასაღები, საცავის კონფიგურაციის პრობლემა, მოულოდნელი გასაღები ან საცავის შესაძლო გატეხვა. მოულოდნელ გასაღებს ხელით ნუ მიიღებთ, თუ Fluff Linux-ს გადამოწმებული ინსტრუქციები არ გამოუქვეყნებია."
+
+msgid "Repository: %1"
+msgstr "საცავი: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet-ის საცავის ოფიციალური ხელმოწერის გასაღები გადამოწმდა და დაემატა Pacman-ს."
+
+msgid "Technical details"
+msgstr "ტექნიკური დეტალები"
+
+msgid "Repository signing-key verification technical details"
+msgstr "საცავის ხელმოწერის გასაღების გადამოწმების ტექნიკური დეტალები"
+
+msgid "Failure category: %1"
+msgstr "შეცდომის კატეგორია: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "მოსალოდნელი ანაბეჭდი: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "მიღებული ანაბეჭდი: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "მოთხოვნილი ხელმოწერის გასაღების ანაბეჭდი: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman-ის გამოსვლის სტატუსი: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-ის ვერსია: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-ის ვერსია: %1"
+
+msgid "Try Again"
+msgstr "ხელახლა ცდა"
+
+msgid "Copy Technical Details"
+msgstr "ტექნიკური დეტალების კოპირება"
+
+msgid "Open an Issue on GitHub"
+msgstr "პრობლემის გახსნა GitHub-ზე"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "განახლების გასაგრძელებლად თავისუფალი ადგილი არასაკმარისია. გაათავისუფლეთ ადგილი და სცადეთ ხელახლა."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "პაკეტის ან საცავის ხელმოწერის გადამოწმება ვერ მოხერხდა. განახლება შეჩერდა. შეამოწმეთ სისტემის თარიღი და გასაღებების საცავი, შემდეგ სცადეთ ხელახლა."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "პაკეტების მონაცემთა ბაზა დაზიანებულია ან ვერ იკითხება. განახლება შეჩერდა. ბაზის შეკეთებამდე მიმართეთ მხარდაჭერას."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ჩამოტვირთული პაკეტი დაზიანებულია ან არასრულია. განახლება შეჩერდა. სცადეთ ხელახლა ან გამოიყენეთ სხვა სარკე."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "განახლებისას საჭირო ფაილების წაკითხვა ან ჩაწერა ვერ მოხერხდა. შეამოწმეთ ფაილური სისტემის უფლებები და დისკის მდგომარეობა, შემდეგ სცადეთ ხელახლა."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "განახლებების ჩამოტვირთვა ვერ მოხერხდა. სცადეთ ხელახლა ან მიმართეთ მხარდაჭერას."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "განახლების ტრანზაქციის მომზადება ვერ მოხერხდა. სცადეთ ხელახლა ან მიმართეთ მხარდაჭერას."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "განახლება ვერ დაიწყო, რადგან ძილის რეჟიმის დაბლოკვა ვერ ჩაირთო. სცადეთ ხელახლა."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "პაკეტების მონაცემთა ბაზის ჩაკეტვა ვერ მოხერხდა. დახურეთ პაკეტების სხვა მმართველები და შეამოწმეთ, შესაძლებელია თუ არა ფაილურ სისტემაში ჩაწერა, შემდეგ სცადეთ ხელახლა."
+
+msgid "Estimated time: %1"
+msgstr "სავარაუდო დრო: %1"

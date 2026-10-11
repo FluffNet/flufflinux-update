@@ -1,0 +1,299 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+msgid "System Updates"
+msgstr "Абнаўленні сістэмы"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Усталёўвайце абнаўленні сістэмы, каб Fluff Linux заставаўся бяспечным і актуальным."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Апошняе абнаўленне сістэмы: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Праверыць абнаўленні"
+
+msgid "Install Updates"
+msgstr "Усталяваць абнаўленні"
+
+msgid "View Updates"
+msgstr "Праглядзець абнаўленні"
+
+msgid "Change view"
+msgstr "Змяніць выгляд"
+
+msgid "Updates to Install"
+msgstr "Абнаўленні для ўсталявання"
+
+msgid "Package details are unavailable."
+msgstr "Звесткі пра пакеты недаступныя."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update яшчэ распрацоўваецца. Калі ўзнікне праблема, паведаміце пра яе на нашай старонцы GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Абнаўленні сістэмы паспяхова ўсталяваны."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Няма злучэння з сеткай!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Злучэнне з сеткай абмежавана. Калі вы не падключаны да сеткі арганізацыі, праверце злучэнне з інтэрнэтам."
+
+msgid "pacman process is already running."
+msgstr "Працэс pacman ужо працуе."
+
+msgid "The update process could not be started."
+msgstr "Не ўдалося запусціць працэс абнаўлення."
+
+msgid "The update process could not be cancelled."
+msgstr "Не ўдалося скасаваць працэс абнаўлення."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Злучэнне перарвалася падчас спампоўвання абнаўленняў. Праверце сетку і паспрабуйце яшчэ раз."
+
+msgid "The system update failed."
+msgstr "Не ўдалося абнавіць сістэму."
+
+msgid "Downloading updates…"
+msgstr "Спампоўванне абнаўленняў…"
+
+msgid "Installing updates…"
+msgstr "Усталяванне абнаўленняў…"
+
+msgid "%1 / %2 downloaded"
+msgstr "Спампавана %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "Усталявана %1/%2 абнаўленняў"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Зараз усталёўваюцца абнаўленні. Не выключайце і не перазапускайце камп'ютар, пакуль усталяванне не завершыцца. Перапыненне абнаўлення можа пашкодзіць сістэмныя файлы."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Нізкі зарад батарэі. Падключыце камп'ютар да зараднай прылады падчас усталявання абнаўленняў."
+
+msgid "Update process was cancelled"
+msgstr "Працэс абнаўлення скасаваны"
+
+msgid "Cancel"
+msgstr "Скасаваць"
+
+msgid "Checking for updates…"
+msgstr "Праверка абнаўленняў…"
+
+msgid "System updates are available"
+msgstr "Даступныя абнаўленні сістэмы"
+
+msgid "Download size: %1"
+msgstr "Памер спампоўвання: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Месца, патрэбнае для абнаўленняў сістэмы: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Месца, вызваленае пасля абнаўлення: %1"
+
+msgid "No additional download required"
+msgstr "Дадатковае спампоўванне не патрэбнае"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Не ўдалося запусціць праверку абнаўленняў. Пераканайцеся, што pacman-contrib усталяваны."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Праверка абнаўленняў нечакана спынілася."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Узнікла невядомая памылка. Паведаміце пра яе на нашай старонцы GitHub, каб атрымаць дапамогу."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Няма злучэння з інтэрнэтам. Праверце сетку і паспрабуйце яшчэ раз."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Не ўдалося злучыцца з серверамі рэпазіторыяў. Паспрабуйце пазней або праверце налады люстэркаў."
+
+msgid "Authorization error, please try again."
+msgstr "Памылка аўтарызацыі. Паспрабуйце яшчэ раз."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Праверка абнаўленняў з павышанымі правамі нечакана спынілася."
+
+msgid "The privileged update check could not be started."
+msgstr "Не ўдалося запусціць праверку абнаўленняў з павышанымі правамі."
+
+msgid "System was not previously updated."
+msgstr "Сістэма раней не абнаўлялася."
+
+msgid "The last update information could not be read."
+msgstr "Не ўдалося прачытаць звесткі пра апошняе абнаўленне."
+
+msgid "The last update information is invalid."
+msgstr "Звесткі пра апошняе абнаўленне няправільныя."
+
+msgid "Updates were not installed on this system"
+msgstr "У гэтай сістэме абнаўленні яшчэ не ўсталёўваліся"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Каб абнавіць сістэму, праверце даступныя абнаўленні кнопкай ніжэй."
+
+msgid "Update date available"
+msgstr "Дата абнаўлення даступная"
+
+msgid "Updated recently"
+msgstr "Нядаўна абноўлена"
+
+msgid "System is up to date"
+msgstr "Сістэма актуальная"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Апошняе абнаўленне ўсталявана больш за месяц таму"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Апошняе абнаўленне ўсталявана больш за тры месяцы таму"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 секунду таму"
+msgstr[1] "%1 секунды таму"
+msgstr[2] "%1 секунд таму"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 хвіліну таму"
+msgstr[1] "%1 хвіліны таму"
+msgstr[2] "%1 хвілін таму"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 гадзіну таму"
+msgstr[1] "%1 гадзіны таму"
+msgstr[2] "%1 гадзін таму"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 дзень таму"
+msgstr[1] "%1 дні таму"
+msgstr[2] "%1 дзён таму"
+
+msgid "Action is required"
+msgstr "Патрэбнае дзеянне"
+
+msgid "Action is required!"
+msgstr "Патрэбнае дзеянне!"
+
+msgid "Action required"
+msgstr "Патрабуецца дзеянне"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update не можа працягнуць, бо наступнае абнаўленне патрабуе выдалення «%1», абароненага сістэмнага пакета. Яго выдаленне можа парушыць працу Fluff Linux. Паведаміце пра праблему на GitHub, каб атрымаць дапамогу."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Каб усталяваць абнаўленні сістэмы, Fluff Linux Update мусіць выдаліць «%1». Выдаленне гэтага пакета можа паўплываць на звязаныя праграмы. Калі вы не ўпэўнены, паведаміце пра праблему на GitHub, каб атрымаць дапамогу."
+
+msgid "Accept"
+msgstr "Прыняць"
+
+msgid "Close"
+msgstr "Закрыць"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Каб працягнуць абнаўленні сістэмы, %1 быў аўтаматычна выдалены пасля прызнання яго выдалення бяспечным."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Каб працягнуць абнаўленні сістэмы, наступныя пакеты былі аўтаматычна выдалены пасля прызнання іх выдалення бяспечным: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Выяўлены і вырашаны канфлікт файлаў. %1 перайменаваны ў %2. Працэс абнаўлення перазапушчаны."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Не ўдалося выдаліць канфліктны пакет. Звярніцеся па падтрымку."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update не здолеў праверыць ключ подпісу рэпазіторыя FluffNet. Абнаўленне спынена для абароны сістэмы."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update не здолеў праверыць ключ подпісу рэпазіторыя FluffNet. Абнаўленне спынена для абароны сістэмы. Гэта можа сведчыць пра праблему сеткі, недаступны сервер FluffNet, пратэрмінаваны або заменены ключ подпісу, праблему налад рэпазіторыя, нечаканы ключ або магчымы ўзлом рэпазіторыя. Не прымайце нечаканы ключ уручную, калі Fluff Linux не апублікаваў правераныя інструкцыі."
+
+msgid "Repository: %1"
+msgstr "Рэпазіторый: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Афіцыйны ключ подпісу рэпазіторыя FluffNet правераны і дададзены ў Pacman."
+
+msgid "Technical details"
+msgstr "Тэхнічныя звесткі"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Тэхнічныя звесткі праверкі ключа подпісу рэпазіторыя"
+
+msgid "Failure category: %1"
+msgstr "Катэгорыя збою: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Чаканы адбітак: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Атрыманы адбітак: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Адбітак запытанага ключа подпісу: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Код завяршэння Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Версія FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Версія Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Паўтарыць"
+
+msgid "Copy Technical Details"
+msgstr "Скапіяваць тэхнічныя звесткі"
+
+msgid "Open an Issue on GitHub"
+msgstr "Паведаміць пра праблему на GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Недастаткова вольнага месца для працягу абнаўлення. Вызваліце месца і паспрабуйце яшчэ раз."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Не ўдалося праверыць подпіс пакета або рэпазіторыя. Абнаўленне спынена. Праверце дату сістэмы і сховішча ключоў, затым паспрабуйце яшчэ раз."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "База даных пакетаў пашкоджана або нечытэльная. Абнаўленне спынена. Звярніцеся па падтрымку перад выпраўленнем базы даных."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Спампаваны пакет пашкоджаны або няпоўны. Абнаўленне спынена. Паспрабуйце яшчэ раз або скарыстайцеся іншым люстэркам."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Падчас абнаўлення не ўдалося прачытаць або запісаць патрэбныя файлы. Праверце правы файлавай сістэмы і стан дыска, затым паспрабуйце яшчэ раз."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Не ўдалося спампаваць абнаўленні. Паспрабуйце яшчэ раз або звярніцеся па падтрымку."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Не ўдалося падрыхтаваць транзакцыю абнаўлення. Паспрабуйце яшчэ раз або звярніцеся па падтрымку."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Не ўдалося пачаць абнаўленне, бо не ўдалося забараніць рэжым сну. Паспрабуйце яшчэ раз."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Не ўдалося заблакіраваць базу даных пакетаў. Закрыйце іншыя кіраўнікі пакетаў і пераканайцеся, што файлавая сістэма даступная для запісу, затым паспрабуйце яшчэ раз."
+
+msgid "Estimated time: %1"
+msgstr "Прыблізны час: %1"

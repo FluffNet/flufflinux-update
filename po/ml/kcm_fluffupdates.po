@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ml\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്ത് Fluff Linux സുരക്ഷിതവും കാലികവുമായി നിലനിർത്തുക."
+
+msgid "System last updated: %1 (%2)"
+msgstr "സിസ്റ്റം അവസാനമായി പുതുക്കിയത്: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "പുതുക്കലുകൾ പരിശോധിക്കുക"
+
+msgid "Install Updates"
+msgstr "പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്യുക"
+
+msgid "View Updates"
+msgstr "പുതുക്കലുകൾ കാണുക"
+
+msgid "Change view"
+msgstr "കാഴ്ച മാറ്റുക"
+
+msgid "Updates to Install"
+msgstr "ഇൻസ്റ്റാൾ ചെയ്യേണ്ട പുതുക്കലുകൾ"
+
+msgid "Package details are unavailable."
+msgstr "പാക്കേജ് വിവരങ്ങൾ ലഭ്യമല്ല."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ഇപ്പോഴും വികസനത്തിലാണ്. പ്രശ്നമുണ്ടെങ്കിൽ ഞങ്ങളുടെ GitHub പേജിൽ അറിയിക്കുക."
+
+msgid "System updates were installed successfully."
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ വിജയകരമായി ഇൻസ്റ്റാൾ ചെയ്തു."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "നെറ്റ്‌വർക്ക് ബന്ധമില്ല!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "നെറ്റ്‌വർക്ക് ബന്ധം പരിമിതമാണ്. സ്ഥാപനത്തിന്റെ നെറ്റ്‌വർക്കിലല്ലെങ്കിൽ നിങ്ങളുടെ ഇന്റർനെറ്റ് ബന്ധം പരിശോധിക്കുക."
+
+msgid "pacman process is already running."
+msgstr "pacman പ്രക്രിയ ഇതിനകം പ്രവർത്തിക്കുന്നു."
+
+msgid "The update process could not be started."
+msgstr "പുതുക്കൽ പ്രക്രിയ ആരംഭിക്കാനായില്ല."
+
+msgid "The update process could not be cancelled."
+msgstr "പുതുക്കൽ പ്രക്രിയ റദ്ദാക്കാനായില്ല."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "പുതുക്കലുകൾ ഡൗൺലോഡ് ചെയ്യുമ്പോൾ ബന്ധം പരാജയപ്പെട്ടു. നെറ്റ്‌വർക്ക് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+
+msgid "The system update failed."
+msgstr "സിസ്റ്റം പുതുക്കൽ പരാജയപ്പെട്ടു."
+
+msgid "Downloading updates…"
+msgstr "പുതുക്കലുകൾ ഡൗൺലോഡ് ചെയ്യുന്നു…"
+
+msgid "Installing updates…"
+msgstr "പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്യുന്നു…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ഡൗൺലോഡ് ചെയ്തു"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്തു"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്യുകയാണ്. ഇൻസ്റ്റലേഷൻ പൂർത്തിയാകുന്നതുവരെ കമ്പ്യൂട്ടർ ഓഫാക്കുകയോ പുനരാരംഭിക്കുകയോ ചെയ്യരുത്. പുതുക്കൽ തടസ്സപ്പെടുത്തുന്നത് സിസ്റ്റം ഫയലുകളെ കേടുവരുത്താം."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ബാറ്ററി ചാർജ് കുറവാണ്. പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്യുമ്പോൾ കമ്പ്യൂട്ടർ ചാർജറുമായി ബന്ധിപ്പിക്കുക."
+
+msgid "Update process was cancelled"
+msgstr "പുതുക്കൽ പ്രക്രിയ റദ്ദാക്കി"
+
+msgid "Cancel"
+msgstr "റദ്ദാക്കുക"
+
+msgid "Checking for updates…"
+msgstr "പുതുക്കലുകൾ പരിശോധിക്കുന്നു…"
+
+msgid "System updates are available"
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ ലഭ്യമാണ്"
+
+msgid "Download size: %1"
+msgstr "ഡൗൺലോഡ് വലുപ്പം: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "സിസ്റ്റം പുതുക്കലുകൾക്കാവശ്യമായ സ്ഥലം: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "പുതുക്കിയ ശേഷം ഒഴിവാകുന്ന സ്ഥലം: %1"
+
+msgid "No additional download required"
+msgstr "കൂടുതൽ ഡൗൺലോഡ് ആവശ്യമില്ല"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "പുതുക്കൽ പരിശോധകൻ ആരംഭിക്കാനായില്ല. pacman-contrib ഇൻസ്റ്റാൾ ചെയ്തിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക."
+
+msgid "The update check stopped unexpectedly."
+msgstr "പുതുക്കൽ പരിശോധന അപ്രതീക്ഷിതമായി നിന്നു."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "അജ്ഞാതമായ പിശകുണ്ടായി. സഹായത്തിനായി ഞങ്ങളുടെ GitHub പേജിൽ ഈ പ്രശ്നം അറിയിക്കുക."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ഇന്റർനെറ്റ് ബന്ധമില്ല. നെറ്റ്‌വർക്ക് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ശേഖരത്തിന്റെ സെർവറുകളിലെത്താനായില്ല. പിന്നീട് ശ്രമിക്കുക അല്ലെങ്കിൽ മിറർ ക്രമീകരണം പരിശോധിക്കുക."
+
+msgid "Authorization error, please try again."
+msgstr "അനുമതി പിശക്, വീണ്ടും ശ്രമിക്കുക."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ഉയർന്ന അധികാരങ്ങളുള്ള പുതുക്കൽ പരിശോധന അപ്രതീക്ഷിതമായി നിന്നു."
+
+msgid "The privileged update check could not be started."
+msgstr "ഉയർന്ന അധികാരങ്ങളുള്ള പുതുക്കൽ പരിശോധന ആരംഭിക്കാനായില്ല."
+
+msgid "System was not previously updated."
+msgstr "സിസ്റ്റം മുമ്പ് പുതുക്കിയിട്ടില്ല."
+
+msgid "The last update information could not be read."
+msgstr "അവസാന പുതുക്കലിന്റെ വിവരം വായിക്കാനായില്ല."
+
+msgid "The last update information is invalid."
+msgstr "അവസാന പുതുക്കലിന്റെ വിവരം അസാധുവാണ്."
+
+msgid "Updates were not installed on this system"
+msgstr "ഈ സിസ്റ്റത്തിൽ പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "സിസ്റ്റം പുതുക്കാൻ താഴെയുള്ള ബട്ടൺ ഉപയോഗിച്ച് ലഭ്യമായ പുതുക്കലുകൾ പരിശോധിക്കുക."
+
+msgid "Update date available"
+msgstr "പുതുക്കൽ തീയതി ലഭ്യമാണ്"
+
+msgid "Updated recently"
+msgstr "അടുത്തിടെ പുതുക്കി"
+
+msgid "System is up to date"
+msgstr "സിസ്റ്റം കാലികമാണ്"
+
+msgid "Last update was installed more than a month ago"
+msgstr "അവസാന പുതുക്കൽ ഒരു മാസത്തിലേറെ മുമ്പാണ് ഇൻസ്റ്റാൾ ചെയ്തത്"
+
+msgid "Last update was installed more than three months ago"
+msgstr "അവസാന പുതുക്കൽ മൂന്നു മാസത്തിലേറെ മുമ്പാണ് ഇൻസ്റ്റാൾ ചെയ്തത്"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 സെക്കൻഡ് മുമ്പ്"
+msgstr[1] "%1 സെക്കൻഡ് മുമ്പ്"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 മിനിറ്റ് മുമ്പ്"
+msgstr[1] "%1 മിനിറ്റ് മുമ്പ്"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 മണിക്കൂർ മുമ്പ്"
+msgstr[1] "%1 മണിക്കൂർ മുമ്പ്"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ദിവസം മുമ്പ്"
+msgstr[1] "%1 ദിവസം മുമ്പ്"
+
+msgid "Action is required"
+msgstr "നടപടി ആവശ്യമാണ്"
+
+msgid "Action is required!"
+msgstr "നടപടി ആവശ്യമാണ്!"
+
+msgid "Action required"
+msgstr "ആവശ്യമായ നടപടി"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "വരാനിരിക്കുന്ന പുതുക്കലിന് സംരക്ഷിത സിസ്റ്റം പാക്കേജായ “%1” നീക്കേണ്ടതിനാൽ Fluff Linux Update തുടരാനാവില്ല. അത് നീക്കുന്നത് Fluff Linux ശരിയായി പ്രവർത്തിക്കുന്നതിനെ തടസ്സപ്പെടുത്താം. സഹായത്തിനായി GitHub-ൽ ഈ പ്രശ്നം അറിയിക്കുക."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ ഇൻസ്റ്റാൾ ചെയ്യാൻ Fluff Linux Update “%1” നീക്കേണ്ടതുണ്ട്. ഈ പാക്കേജ് നീക്കുന്നത് ബന്ധപ്പെട്ട സോഫ്റ്റ്‌വെയറിനെ ബാധിക്കാം. ഉറപ്പില്ലെങ്കിൽ സഹായത്തിനായി GitHub-ൽ പ്രശ്നം അറിയിക്കുക."
+
+msgid "Accept"
+msgstr "അംഗീകരിക്കുക"
+
+msgid "Close"
+msgstr "അടയ്ക്കുക"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ തുടരാൻ %1 നീക്കുന്നത് സുരക്ഷിതമാണെന്ന് തീരുമാനിച്ച ശേഷം സ്വയം നീക്കി."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "സിസ്റ്റം പുതുക്കലുകൾ തുടരാൻ താഴെപ്പറയുന്ന പാക്കേജുകൾ നീക്കുന്നത് സുരക്ഷിതമാണെന്ന് തീരുമാനിച്ച ശേഷം സ്വയം നീക്കി: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ഫയൽ വൈരുദ്ധ്യം കണ്ടെത്തി പരിഹരിച്ചു. %1 എന്ന പേര് %2 എന്നാക്കി. പുതുക്കൽ പ്രക്രിയ വീണ്ടും ആരംഭിച്ചു."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "വൈരുദ്ധ്യമുള്ള പാക്കേജ് നീക്കാനായില്ല. സഹായം തേടുക."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update-ന് FluffNet ശേഖരത്തിന്റെ ഒപ്പിടൽ കീ പരിശോധിക്കാനായില്ല. നിങ്ങളുടെ സിസ്റ്റം സംരക്ഷിക്കാൻ പുതുക്കൽ നിർത്തി."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update-ന് FluffNet ശേഖരത്തിന്റെ ഒപ്പിടൽ കീ പരിശോധിക്കാനായില്ല. നിങ്ങളുടെ സിസ്റ്റം സംരക്ഷിക്കാൻ പുതുക്കൽ നിർത്തി. നെറ്റ്‌വർക്ക് പ്രശ്നം, ലഭ്യമല്ലാത്ത FluffNet സെർവർ, കാലാവധി കഴിഞ്ഞതോ മാറ്റിയതോ ആയ ഒപ്പിടൽ കീ, ശേഖര ക്രമീകരണ പ്രശ്നം, അപ്രതീക്ഷിത കീ, അല്ലെങ്കിൽ ശേഖരത്തിലേക്കുള്ള ആക്രമണം എന്നിവയാകാം കാരണം. Fluff Linux പരിശോധിച്ച നിർദ്ദേശങ്ങൾ പ്രസിദ്ധീകരിക്കാതെ അപ്രതീക്ഷിത കീ സ്വയം അംഗീകരിക്കരുത്."
+
+msgid "Repository: %1"
+msgstr "ശേഖരം: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet ശേഖരത്തിന്റെ ഔദ്യോഗിക ഒപ്പിടൽ കീ പരിശോധിച്ച് Pacman-ൽ ചേർത്തു."
+
+msgid "Technical details"
+msgstr "സാങ്കേതിക വിവരങ്ങൾ"
+
+msgid "Repository signing-key verification technical details"
+msgstr "ശേഖരത്തിന്റെ ഒപ്പിടൽ കീ പരിശോധനയുടെ സാങ്കേതിക വിവരങ്ങൾ"
+
+msgid "Failure category: %1"
+msgstr "പരാജയ വിഭാഗം: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "പ്രതീക്ഷിച്ച വിരലടയാളം: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ലഭിച്ച വിരലടയാളം: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "ആവശ്യപ്പെട്ട ഒപ്പിടൽ കീയുടെ വിരലടയാളം: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman പുറത്തുകടക്കൽ നില: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU പതിപ്പ്: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux പതിപ്പ്: %1"
+
+msgid "Try Again"
+msgstr "വീണ്ടും ശ്രമിക്കുക"
+
+msgid "Copy Technical Details"
+msgstr "സാങ്കേതിക വിവരങ്ങൾ പകർത്തുക"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub-ൽ പ്രശ്നം രേഖപ്പെടുത്തുക"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "പുതുക്കൽ തുടരാൻ മതിയായ ഒഴിവുസ്ഥലമില്ല. സ്ഥലം ഒഴിവാക്കി വീണ്ടും ശ്രമിക്കുക."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "പാക്കേജിന്റെയോ ശേഖരത്തിന്റെയോ ഒപ്പ് പരിശോധിക്കാനായില്ല. പുതുക്കൽ നിർത്തി. സിസ്റ്റം തീയതിയും കീ ശേഖരവും പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "പാക്കേജ് ഡേറ്റാബേസ് കേടായതോ വായിക്കാനാവാത്തതോ ആണ്. പുതുക്കൽ നിർത്തി. ഡേറ്റാബേസ് നന്നാക്കുന്നതിന് മുമ്പ് സഹായം തേടുക."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ഡൗൺലോഡ് ചെയ്ത പാക്കേജ് കേടായതോ അപൂർണ്ണമോ ആണ്. പുതുക്കൽ നിർത്തി. വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ മറ്റൊരു മിറർ ഉപയോഗിക്കുക."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "പുതുക്കലിന് ആവശ്യമായ ഫയലുകൾ വായിക്കാനോ എഴുതാനോ കഴിഞ്ഞില്ല. ഫയൽസിസ്റ്റം അനുമതികളും ഡിസ്കിന്റെ നിലയും പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "പുതുക്കലുകൾ ഡൗൺലോഡ് ചെയ്യാനായില്ല. വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ സഹായം തേടുക."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "പുതുക്കൽ ഇടപാട് തയ്യാറാക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ സഹായം തേടുക."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "ഉറക്കം തടയൽ പ്രവർത്തനക്ഷമമാക്കാനാവാത്തതിനാൽ പുതുക്കൽ ആരംഭിക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "പാക്കേജ് ഡേറ്റാബേസ് പൂട്ടാനായില്ല. മറ്റു പാക്കേജ് മാനേജറുകൾ അടച്ച് ഫയൽസിസ്റ്റത്തിൽ എഴുതാനാകുമോ എന്ന് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+
+msgid "Estimated time: %1"
+msgstr "കണക്കാക്കിയ സമയം: %1"

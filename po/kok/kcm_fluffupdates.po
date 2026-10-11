@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: kok\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "प्रणाली अद्ययावतां"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "प्रणाली अद्ययावतां बसोवन Fluff Linux सुरक्षित आनी अद्ययावत दवरात."
+
+msgid "System last updated: %1 (%2)"
+msgstr "प्रणाली निमाणी अद्ययावत केल्ली: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "अद्ययावतां तपासात"
+
+msgid "Install Updates"
+msgstr "अद्ययावतां बसयात"
+
+msgid "View Updates"
+msgstr "अद्ययावतां पळयात"
+
+msgid "Change view"
+msgstr "दृश्य बदलात"
+
+msgid "Updates to Install"
+msgstr "बसोवपाचीं अद्ययावतां"
+
+msgid "Package details are unavailable."
+msgstr "पॅकेजाचो तपशील उपलब्ध ना."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update अजून विकसीत जाता. कसलीय समस्या आयल्यार आमच्या GitHub पानाचेर कळयात."
+
+msgid "System updates were installed successfully."
+msgstr "प्रणाली अद्ययावतां यशस्वीपणान बसयलीं."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "नेटवर्क जोडणी ना!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "नेटवर्क जोडणी मर्यादीत आसा. संस्थेच्या नेटवर्काक जोडिल्ले नासल्यार तुमची इंटरनेट जोडणी तपासात."
+
+msgid "pacman process is already running."
+msgstr "pacman प्रक्रिया पयलींच चालू आसा."
+
+msgid "The update process could not be started."
+msgstr "अद्ययावत प्रक्रिया सुरू करपाक मेळ्ळी ना."
+
+msgid "The update process could not be cancelled."
+msgstr "अद्ययावत प्रक्रिया रद्द करपाक मेळ्ळी ना."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "अद्ययावतां डावनलोड करतना जोडणी तुटली. नेटवर्क तपासून परत यत्न करात."
+
+msgid "The system update failed."
+msgstr "प्रणाली अद्ययावत करप अपेशी थारलें."
+
+msgid "Downloading updates…"
+msgstr "अद्ययावतां डावनलोड जातात…"
+
+msgid "Installing updates…"
+msgstr "अद्ययावतां बसयतात…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 डावनलोड जालें"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 अद्ययावतां बसयलीं"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "अद्ययावतां आतां बसयतात. बसोवप पुराय जायसर संगणक बंद करूं नाकात वा परत सुरू करूं नाकात. अद्ययावत मधेंच आडायल्यार प्रणाली फायलींक हानी जावंक शकता."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "बॅटरी कमी आसा. अद्ययावतां बसयतना संगणक चार्जराक जोडात."
+
+msgid "Update process was cancelled"
+msgstr "अद्ययावत प्रक्रिया रद्द जाली"
+
+msgid "Cancel"
+msgstr "रद्द करात"
+
+msgid "Checking for updates…"
+msgstr "अद्ययावतां तपासतात…"
+
+msgid "System updates are available"
+msgstr "प्रणाली अद्ययावतां उपलब्ध आसात"
+
+msgid "Download size: %1"
+msgstr "डावनलोड आकार: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "प्रणाली अद्ययावतां खातीर जाय आशिल्ली जागो: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "अद्ययावत केल्या उपरांत मोकळी जावपी जागो: %1"
+
+msgid "No additional download required"
+msgstr "आनीक डावनलोड गरजेचें ना"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "अद्ययावत तपासपी सुरू करपाक मेळ्ळो ना. pacman-contrib बसयला हाची खात्री करात."
+
+msgid "The update check stopped unexpectedly."
+msgstr "अद्ययावत तपासणी अनपेक्षीतपणान थांबली."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "अज्ञात चूक घडली. आदारा खातीर आमच्या GitHub पानाचेर ही समस्या कळयात."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "इंटरनेट जोडणी ना. नेटवर्क तपासून परत यत्न करात."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "संग्रह सर्व्हरां कडेन संपर्क जालो ना. मागीर परत यत्न करात वा मिरर मांडावळ तपासात."
+
+msgid "Authorization error, please try again."
+msgstr "अधिकार परवानगीची चूक, परत यत्न करात."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "उच्च अधिकारां सयत अद्ययावत तपासणी अनपेक्षीतपणान थांबली."
+
+msgid "The privileged update check could not be started."
+msgstr "उच्च अधिकारां सयत अद्ययावत तपासणी सुरू करपाक मेळ्ळी ना."
+
+msgid "System was not previously updated."
+msgstr "प्रणाली पयलीं अद्ययावत केल्ली ना."
+
+msgid "The last update information could not be read."
+msgstr "निमाण्या अद्ययावताची म्हायती वाचपाक मेळ्ळी ना."
+
+msgid "The last update information is invalid."
+msgstr "निमाण्या अद्ययावताची म्हायती वैध ना."
+
+msgid "Updates were not installed on this system"
+msgstr "ह्या प्रणालीचेर अद्ययावतां बसयल्लीं ना"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "प्रणाली अद्ययावत करपाक सकयल्या बटणान उपलब्ध अद्ययावतां तपासात."
+
+msgid "Update date available"
+msgstr "अद्ययावत तारीख उपलब्ध आसा"
+
+msgid "Updated recently"
+msgstr "हालींच अद्ययावत केल्ली"
+
+msgid "System is up to date"
+msgstr "प्रणाली अद्ययावत आसा"
+
+msgid "Last update was installed more than a month ago"
+msgstr "निमाणें अद्ययावत एका म्हयन्या परस आदीं बसयल्लें"
+
+msgid "Last update was installed more than three months ago"
+msgstr "निमाणें अद्ययावत तीन म्हयन्यां परस आदीं बसयल्लें"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 सेकंदा आदीं"
+msgstr[1] "%1 सेकंदां आदीं"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 मिनटा आदीं"
+msgstr[1] "%1 मिनटां आदीं"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 तासा आदीं"
+msgstr[1] "%1 तासां आदीं"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 दिसा आदीं"
+msgstr[1] "%1 दिसां आदीं"
+
+msgid "Action is required"
+msgstr "कृती गरजेची आसा"
+
+msgid "Action is required!"
+msgstr "कृती गरजेची आसा!"
+
+msgid "Action required"
+msgstr "गरजेची कृती"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "फुडल्या अद्ययावता खातीर सुरक्षित प्रणाली पॅकेज “%1” काडचें पडटा, देखून Fluff Linux Update फुडें वचूंक शकना. तें काडल्यार Fluff Linux बरोबर चलपाक आडमेळ येवंक शकता. आदारा खातीर GitHub चेर ही समस्या कळयात."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "प्रणाली अद्ययावतां बसोवपाक Fluff Linux Update क “%1” काडचें पडटलें. हें पॅकेज काडल्यार संबंदीत सॉफ्टवेअराचेर परिणाम जावंक शकता. खात्री नासल्यार आदारा खातीर GitHub चेर समस्या कळयात."
+
+msgid "Accept"
+msgstr "मान्य करात"
+
+msgid "Close"
+msgstr "बंद करात"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "प्रणाली अद्ययावतां फुडें व्हरपाक %1 काडप सुरक्षित थारयल्या उपरांत आपसूक काडलें."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "प्रणाली अद्ययावतां फुडें व्हरपाक हीं पॅकेजां काडप सुरक्षित थारयल्या उपरांत आपसूक काडलीं: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "फायल संघर्ष मेळ्ळो आनी सोडयलो. %1 चें नांव %2 केलें. अद्ययावत प्रक्रिया परत सुरू जाली."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "संघर्ष करपी पॅकेज काडपाक मेळ्ळें ना. आदार घेयात."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update क FluffNet संग्रहाची स्वाक्षरी चावी पडताळपाक मेळ्ळी ना. तुमची प्रणाली राखपाक अद्ययावत थांबयलें."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update क FluffNet संग्रहाची स्वाक्षरी चावी पडताळपाक मेळ्ळी ना. तुमची प्रणाली राखपाक अद्ययावत थांबयलें. हाचें कारण नेटवर्क समस्या, अनुपलब्ध FluffNet सर्व्हर, मुदत सोंपिल्ली वा बदलिल्ली स्वाक्षरी चावी, संग्रह मांडावळीची समस्या, अनपेक्षीत चावी वा संग्रहाचेर संभाव्य हल्लो आसूं येता. Fluff Linux न पडताळिल्ली सूचना प्रसिद्ध केल्या शिवाय अनपेक्षीत चावी स्वता स्वीकारूं नाकात."
+
+msgid "Repository: %1"
+msgstr "संग्रह: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet संग्रहाची अधिकृत स्वाक्षरी चावी पडताळून Pacman त जोडली."
+
+msgid "Technical details"
+msgstr "तांत्रिक तपशील"
+
+msgid "Repository signing-key verification technical details"
+msgstr "संग्रह स्वाक्षरी चावी पडताळणीचो तांत्रिक तपशील"
+
+msgid "Failure category: %1"
+msgstr "अपेसाचो प्रकार: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "अपेक्षीत ठसो: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "मेळिल्लो ठसो: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "मागिल्ली स्वाक्षरी चावीचो ठसो: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman निर्गमन स्थिती: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU आवृत्ती: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux आवृत्ती: %1"
+
+msgid "Try Again"
+msgstr "परत यत्न करात"
+
+msgid "Copy Technical Details"
+msgstr "तांत्रिक तपशील नक्कल करात"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub चेर समस्या नोंद करात"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "अद्ययावत फुडें व्हरपाक पुरेशी मोकळी जागो ना. जागो मोकळी करून परत यत्न करात."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "पॅकेज वा संग्रहाची स्वाक्षरी पडताळपाक मेळ्ळी ना. अद्ययावत थांबयलें. प्रणाली तारीख आनी चावी संग्रह तपासून परत यत्न करात."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "पॅकेज डेटाबेस बिघडलां वा वाचूंक जायना. अद्ययावत थांबयलें. डेटाबेस दुरुस्त करचे पयलीं आदार घेयात."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "डावनलोड केल्लें पॅकेज बिघडलां वा अपुरें आसा. अद्ययावत थांबयलें. परत यत्न करात वा दुसरो मिरर वापरात."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "अद्ययावताक गरजेच्यो फायली वाचपाक वा बरोवपाक मेळ्ळ्यो नात. फायल प्रणाली परवानगी आनी डिस्क स्थिती तपासून परत यत्न करात."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "अद्ययावतां डावनलोड करपाक मेळ्ळीं नात. परत यत्न करात वा आदार घेयात."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "अद्ययावत व्यवहार तयार करपाक मेळ्ळो ना. परत यत्न करात वा आदार घेयात."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "निद्रा आडावप सुरू करपाक मेळ्ळें ना देखून अद्ययावत सुरू जालें ना. परत यत्न करात."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "पॅकेज डेटाबेसाक कुलूप घालपाक मेळ्ळें ना. हेर पॅकेज वेवस्थापक बंद करात आनी फायल प्रणालींत बरोवप शक्य आसा हें तपासून परत यत्न करात."
+
+msgid "Estimated time: %1"
+msgstr "अंदाजीत वेळ: %1"

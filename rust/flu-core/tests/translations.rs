@@ -3,8 +3,39 @@ use regex::Regex;
 use serde_json::Value;
 use std::{collections::BTreeMap, fs, path::PathBuf, process::Command};
 
-// English is the source language. Keep the 42 base-language catalogs complete.
-const LANGUAGES: &str = "ar bg bn cs da de el es et fa fi fil fr ga he hi hr hu id it ja ko lt lv ms mt nb nl pl pt ro ru sk sl sr sv sw th tr uk ur vi";
+// English is the source language. The manifest is the complete translation target,
+// not a scan of whichever catalogs happen to exist in the checkout.
+fn languages() -> Vec<String> {
+    let manifest: Value =
+        serde_json::from_str(&fs::read_to_string(root().join("po/languages.json")).unwrap())
+            .unwrap();
+    let choices = manifest["languages"].as_array().unwrap();
+    assert_eq!(choices.len(), 96);
+    assert_eq!(
+        choices
+            .iter()
+            .map(|v| v["locales"].as_array().unwrap().len())
+            .sum::<usize>(),
+        172
+    );
+    let mut codes: Vec<String> = choices
+        .iter()
+        .map(|v| v["code"].as_str().unwrap())
+        .filter(|code| *code != "en")
+        .chain(
+            manifest["regional_catalogs"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .map(|v| v.as_str().unwrap()),
+        )
+        .map(str::to_owned)
+        .collect();
+    codes.sort();
+    codes.dedup();
+    assert_eq!(codes.len(), 97);
+    codes
+}
 
 fn root() -> PathBuf {
     PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..")
@@ -65,10 +96,10 @@ fn every_catalog_compiles_and_translates_every_message_and_plural() {
         .map(|e| e.file_name().into_string().unwrap())
         .collect();
     actual.sort();
-    assert_eq!(actual, LANGUAGES.split_whitespace().collect::<Vec<_>>());
+    assert_eq!(actual, languages());
     let scratch = tempfile::tempdir().unwrap();
     let plural_count = Regex::new(r"nplurals=(\d+)").unwrap();
-    for language in LANGUAGES.split_whitespace() {
+    for language in languages() {
         let output = scratch.path().join(format!("{language}.mo"));
         let result = Command::new(std::env::var_os("MSGFMT").unwrap_or_else(|| "msgfmt".into()))
             .args(["--check", "--check-format", "-o"])
@@ -144,7 +175,13 @@ fn every_language_has_launcher_settings_and_authorization_translations() {
         serde_json::from_str(&fs::read_to_string(root.join("src/kcm_flu.json")).unwrap()).unwrap();
     let desktop = fs::read_to_string(root.join("src/org.flufflinux.update.desktop")).unwrap();
     let policy = fs::read_to_string(root.join("src/org.flufflinux.update.policy")).unwrap();
-    for language in LANGUAGES.split_whitespace() {
+    let manifest: Value =
+        serde_json::from_str(&fs::read_to_string(root.join("po/languages.json")).unwrap()).unwrap();
+    let mut metadata_languages = languages();
+    metadata_languages.extend(manifest["aliases"].as_object().unwrap().keys().cloned());
+    metadata_languages.sort();
+    metadata_languages.dedup();
+    for language in metadata_languages {
         for field in ["Name", "Description"] {
             assert!(
                 !metadata["KPlugin"][format!("{field}[{language}]")]
@@ -187,6 +224,84 @@ fn every_language_has_launcher_settings_and_authorization_translations() {
     let hebrew = fs::read_to_string(root.join("po/he/kcm_fluffupdates.po")).unwrap();
     assert!(!separated_prefix.is_match(&hebrew));
     assert!(!separated_prefix.is_match(&policy));
+}
+
+#[test]
+fn regional_locales_keep_the_selected_script_and_complete_catalog() {
+    let root = root();
+    let manifest: Value =
+        serde_json::from_str(&fs::read_to_string(root.join("po/languages.json")).unwrap()).unwrap();
+    let catalogs = languages();
+    let aliases = manifest["aliases"].as_object().unwrap();
+    for (alias, target) in aliases {
+        let target = target.as_str().unwrap();
+        assert!(
+            catalogs.iter().any(|code| code == target),
+            "{alias}: {target}"
+        );
+        assert!(
+            alias
+                .chars()
+                .all(|c| c.is_ascii_alphanumeric() || "_@".contains(c))
+        );
+    }
+    let mut locales = std::collections::BTreeSet::new();
+    let mut rtl = Vec::new();
+    for language in manifest["languages"].as_array().unwrap() {
+        let code = language["code"].as_str().unwrap();
+        let regions = language["locales"].as_array().unwrap();
+        assert!(
+            regions.contains(&language["locale"]),
+            "{code}: missing default"
+        );
+        assert!(!language["native"].as_str().unwrap().is_empty());
+        if language["rtl"].as_bool().unwrap() {
+            rtl.push(code);
+        }
+        for region in regions {
+            let region = region.as_str().unwrap();
+            assert!(locales.insert(region), "Duplicate locale: {region}");
+            // Remove the encoding only, never the script modifier after it.
+            let normalized = region.replace(".UTF-8", "");
+            let resolved = aliases
+                .get(&normalized)
+                .and_then(Value::as_str)
+                .unwrap_or_else(|| normalized.split('_').next().unwrap());
+            assert!(
+                resolved == code
+                    || manifest["regional_catalogs"]
+                        .as_array()
+                        .unwrap()
+                        .iter()
+                        .any(|v| v.as_str() == Some(resolved)),
+                "{region}: {resolved} != {code}"
+            );
+        }
+    }
+    assert_eq!(locales.len(), 172);
+    rtl.sort();
+    assert_eq!(rtl, ["ar", "fa", "he", "pa_Arab", "ps", "ug", "ur"]);
+    for (locale, target) in [
+        ("zh_CN", "zh_Hans"),
+        ("zh_SG", "zh_Hans"),
+        ("zh_TW", "zh_Hant"),
+        ("zh_HK", "zh_Hant"),
+        ("sr_RS@latin", "sr_Latn"),
+        ("ca_ES@valencia", "ca_valencia"),
+        ("pa_PK", "pa_Arab"),
+        ("pa_IN", "pa"),
+    ] {
+        assert_eq!(aliases[locale], target);
+    }
+    let swiss = fs::read_to_string(root.join("po/de_CH/kcm_fluffupdates.po")).unwrap();
+    assert!(!swiss.contains(['ß', 'ẞ']));
+    let latin = fs::read_to_string(root.join("po/sr_Latn/kcm_fluffupdates.po")).unwrap();
+    assert!(!Regex::new(r"\p{Cyrillic}").unwrap().is_match(&latin));
+    for (code, script) in [("pa", r"\p{Gurmukhi}"), ("pa_Arab", r"\p{Arabic}")] {
+        let source =
+            fs::read_to_string(root.join(format!("po/{code}/kcm_fluffupdates.po"))).unwrap();
+        assert!(Regex::new(script).unwrap().is_match(&source));
+    }
 }
 
 #[test]

@@ -33,12 +33,14 @@ menu, and keeps manual system updates clear and approachable.
   `/etc/pacman.d/lastupdate.json`.
 - Follow the Plasma theme, scale with the window, and support RTL layouts.
 
-The interface supports 43 base languages: English as the source language and
-42 translated catalogs. These cover every official European Union language,
-plus Arabic, Bengali, Filipino, Hebrew, Hindi, Indonesian, Japanese, Korean,
-Malay, Norwegian Bokmål, Persian, Russian, Serbian, Swahili, Thai, Turkish,
-Ukrainian, Urdu, and Vietnamese. Translations include recovery dialogs,
-notifications, authorization prompts, and launcher/settings metadata.
+The interface covers 96 language/script choices using English source text and
+97 translated catalogs, including Brazilian Portuguese and Swiss German
+regional wording. The inventory in `po/languages.json` records 172 regional
+locales; regions without separate wording share their language's catalog.
+Chinese, Serbian, and Punjabi script choices have separate catalogs.
+Translations include recovery dialogs, notifications, authorization prompts,
+and launcher/settings metadata. The catalogs remain editable translation drafts;
+automated completeness checks do not imply native-speaker validation.
 
 ## A quick look
 

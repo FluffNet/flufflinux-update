@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "បច្ចុប្បន្នភាពប្រព័ន្ធ"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "រក្សា Fluff Linux ឱ្យមានសុវត្ថិភាព និងទាន់សម័យដោយដំឡើងបច្ចុប្បន្នភាពប្រព័ន្ធ។"
+
+msgid "System last updated: %1 (%2)"
+msgstr "ប្រព័ន្ធបានធ្វើបច្ចុប្បន្នភាពចុងក្រោយ៖ %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "ពិនិត្យបច្ចុប្បន្នភាព"
+
+msgid "Install Updates"
+msgstr "ដំឡើងបច្ចុប្បន្នភាព"
+
+msgid "View Updates"
+msgstr "មើលបច្ចុប្បន្នភាព"
+
+msgid "Change view"
+msgstr "ប្ដូរទិដ្ឋភាព"
+
+msgid "Updates to Install"
+msgstr "បច្ចុប្បន្នភាពដែលត្រូវដំឡើង"
+
+msgid "Package details are unavailable."
+msgstr "មិនមានព័ត៌មានលម្អិតកញ្ចប់ទេ។"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update នៅកំពុងអភិវឌ្ឍ។ បើអ្នកជួបបញ្ហា សូមរាយការណ៍នៅលើទំព័រ GitHub របស់យើង។"
+
+msgid "System updates were installed successfully."
+msgstr "បច្ចុប្បន្នភាពប្រព័ន្ធបានដំឡើងដោយជោគជ័យ។"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "គ្មានការតភ្ជាប់បណ្ដាញ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ការតភ្ជាប់បណ្ដាញមានកម្រិត។ បើមិនបានភ្ជាប់បណ្ដាញអង្គភាពទេ សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក។"
+
+msgid "pacman process is already running."
+msgstr "ដំណើរការ pacman កំពុងដំណើរការរួចហើយ។"
+
+msgid "The update process could not be started."
+msgstr "មិនអាចចាប់ផ្ដើមដំណើរការបច្ចុប្បន្នភាពបានទេ។"
+
+msgid "The update process could not be cancelled."
+msgstr "មិនអាចបោះបង់ដំណើរការបច្ចុប្បន្នភាពបានទេ។"
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "ការតភ្ជាប់បានបរាជ័យពេលទាញយកបច្ចុប្បន្នភាព។ ពិនិត្យបណ្ដាញ ហើយព្យាយាមម្ដងទៀត។"
+
+msgid "The system update failed."
+msgstr "ការធ្វើបច្ចុប្បន្នភាពប្រព័ន្ធបានបរាជ័យ។"
+
+msgid "Downloading updates…"
+msgstr "កំពុងទាញយកបច្ចុប្បន្នភាព…"
+
+msgid "Installing updates…"
+msgstr "កំពុងដំឡើងបច្ចុប្បន្នភាព…"
+
+msgid "%1 / %2 downloaded"
+msgstr "បានទាញយក %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "បានដំឡើងបច្ចុប្បន្នភាព %1/%2"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "កំពុងដំឡើងបច្ចុប្បន្នភាព។ សូមកុំបិទ ឬចាប់ផ្ដើមកុំព្យូទ័រឡើងវិញរហូតដល់ដំឡើងចប់។ ការផ្អាកបច្ចុប្បន្នភាពអាចបំផ្លាញឯកសារប្រព័ន្ធ។"
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ថ្មនៅសល់តិច។ សូមភ្ជាប់កុំព្យូទ័រទៅឧបករណ៍សាកពេលដំឡើងបច្ចុប្បន្នភាព។"
+
+msgid "Update process was cancelled"
+msgstr "ដំណើរការបច្ចុប្បន្នភាពត្រូវបានបោះបង់"
+
+msgid "Cancel"
+msgstr "បោះបង់"
+
+msgid "Checking for updates…"
+msgstr "កំពុងពិនិត្យបច្ចុប្បន្នភាព…"
+
+msgid "System updates are available"
+msgstr "មានបច្ចុប្បន្នភាពប្រព័ន្ធ"
+
+msgid "Download size: %1"
+msgstr "ទំហំទាញយក៖ %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "ទំហំផ្ទុកដែលត្រូវការសម្រាប់បច្ចុប្បន្នភាពប្រព័ន្ធ៖ %1"
+
+msgid "Storage freed after update: %1"
+msgstr "ទំហំទំនេរក្រោយបច្ចុប្បន្នភាព៖ %1"
+
+msgid "No additional download required"
+msgstr "មិនត្រូវការទាញយកបន្ថែមទេ"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "មិនអាចចាប់ផ្ដើមកម្មវិធីពិនិត្យបច្ចុប្បន្នភាពបានទេ។ សូមប្រាកដថាបានដំឡើង pacman-contrib។"
+
+msgid "The update check stopped unexpectedly."
+msgstr "ការពិនិត្យបច្ចុប្បន្នភាពបានឈប់ដោយមិនបានរំពឹងទុក។"
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "មានកំហុសមិនស្គាល់មួយ។ សូមរាយការណ៍បញ្ហានេះលើទំព័រ GitHub របស់យើងដើម្បីទទួលជំនួយ។"
+
+msgid "No internet connection. Check your network and try again."
+msgstr "គ្មានការតភ្ជាប់អ៊ីនធឺណិត។ ពិនិត្យបណ្ដាញ ហើយព្យាយាមម្ដងទៀត។"
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "មិនអាចចូលដល់ម៉ាស៊ីនមេឃ្លាំងបានទេ។ ព្យាយាមពេលក្រោយ ឬពិនិត្យការកំណត់ម៉ាស៊ីនមេចម្លង។"
+
+msgid "Authorization error, please try again."
+msgstr "កំហុសអនុញ្ញាត សូមព្យាយាមម្ដងទៀត។"
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ការពិនិត្យបច្ចុប្បន្នភាពដោយសិទ្ធិខ្ពស់បានឈប់ដោយមិនបានរំពឹងទុក។"
+
+msgid "The privileged update check could not be started."
+msgstr "មិនអាចចាប់ផ្ដើមការពិនិត្យបច្ចុប្បន្នភាពដោយសិទ្ធិខ្ពស់បានទេ។"
+
+msgid "System was not previously updated."
+msgstr "ប្រព័ន្ធមិនធ្លាប់បានធ្វើបច្ចុប្បន្នភាពទេ។"
+
+msgid "The last update information could not be read."
+msgstr "មិនអាចអានព័ត៌មានបច្ចុប្បន្នភាពចុងក្រោយបានទេ។"
+
+msgid "The last update information is invalid."
+msgstr "ព័ត៌មានបច្ចុប្បន្នភាពចុងក្រោយមិនត្រឹមត្រូវ។"
+
+msgid "Updates were not installed on this system"
+msgstr "មិនទាន់បានដំឡើងបច្ចុប្បន្នភាពលើប្រព័ន្ធនេះទេ"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "ដើម្បីធ្វើបច្ចុប្បន្នភាពប្រព័ន្ធ សូមពិនិត្យបច្ចុប្បន្នភាពដោយប៊ូតុងខាងក្រោម។"
+
+msgid "Update date available"
+msgstr "មានកាលបរិច្ឆេទបច្ចុប្បន្នភាព"
+
+msgid "Updated recently"
+msgstr "បានធ្វើបច្ចុប្បន្នភាពថ្មីៗនេះ"
+
+msgid "System is up to date"
+msgstr "ប្រព័ន្ធទាន់សម័យ"
+
+msgid "Last update was installed more than a month ago"
+msgstr "បច្ចុប្បន្នភាពចុងក្រោយបានដំឡើងជាងមួយខែមុន"
+
+msgid "Last update was installed more than three months ago"
+msgstr "បច្ចុប្បន្នភាពចុងក្រោយបានដំឡើងជាងបីខែមុន"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 វិនាទីមុន"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 នាទីមុន"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ម៉ោងមុន"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ថ្ងៃមុន"
+
+msgid "Action is required"
+msgstr "ត្រូវការសកម្មភាព"
+
+msgid "Action is required!"
+msgstr "ត្រូវការសកម្មភាព!"
+
+msgid "Action required"
+msgstr "សកម្មភាពដែលត្រូវការ"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update មិនអាចបន្តបានទេ ព្រោះបច្ចុប្បន្នភាពបន្ទាប់តម្រូវឱ្យលុប “%1” ដែលជាកញ្ចប់ប្រព័ន្ធដែលបានការពារ។ ការលុបវាអាចរារាំង Fluff Linux មិនឱ្យដំណើរការត្រឹមត្រូវ។ សូមរាយការណ៍បញ្ហានេះនៅ GitHub ដើម្បីទទួលជំនួយ។"
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "ដើម្បីដំឡើងបច្ចុប្បន្នភាពប្រព័ន្ធ Fluff Linux Update ត្រូវលុប “%1”។ ការលុបកញ្ចប់នេះអាចប៉ះពាល់កម្មវិធីដែលពាក់ព័ន្ធ។ បើមិនប្រាកដ សូមរាយការណ៍នៅ GitHub ដើម្បីទទួលជំនួយ។"
+
+msgid "Accept"
+msgstr "យល់ព្រម"
+
+msgid "Close"
+msgstr "បិទ"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "ដើម្បីបន្តបច្ចុប្បន្នភាពប្រព័ន្ធ %1 ត្រូវបានលុបដោយស្វ័យប្រវត្តិបន្ទាប់ពីបានចាត់ទុកថាការលុបមានសុវត្ថិភាព។"
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "ដើម្បីបន្តបច្ចុប្បន្នភាពប្រព័ន្ធ កញ្ចប់ខាងក្រោមត្រូវបានលុបដោយស្វ័យប្រវត្តិបន្ទាប់ពីបានចាត់ទុកថាការលុបមានសុវត្ថិភាព៖ %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "បានរកឃើញនិងដោះស្រាយការប៉ះទង្គិចឯកសារ។ %1 ត្រូវបានប្ដូរឈ្មោះទៅជា %2។ ដំណើរការបច្ចុប្បន្នភាពបានចាប់ផ្ដើមឡើងវិញ។"
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "មិនអាចលុបកញ្ចប់ដែលប៉ះទង្គិចបានទេ។ សូមស្វែងរកជំនួយ។"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update មិនអាចផ្ទៀងផ្ទាត់សោចុះហត្ថលេខារបស់ឃ្លាំង FluffNet បានទេ។ បច្ចុប្បន្នភាពត្រូវបានបញ្ឈប់ដើម្បីការពារប្រព័ន្ធរបស់អ្នក។"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update មិនអាចផ្ទៀងផ្ទាត់សោចុះហត្ថលេខារបស់ឃ្លាំង FluffNet បានទេ។ បច្ចុប្បន្នភាពត្រូវបានបញ្ឈប់ដើម្បីការពារប្រព័ន្ធរបស់អ្នក។ វាអាចបង្ហាញពីបញ្ហាបណ្ដាញ ម៉ាស៊ីនមេ FluffNet ដែលមិនមាន សោចុះហត្ថលេខាផុតកំណត់ឬបានប្ដូរ បញ្ហាកំណត់ឃ្លាំង សោមិនបានរំពឹងទុក ឬការវាយប្រហារឃ្លាំង។ កុំទទួលសោមិនបានរំពឹងទុកដោយខ្លួនឯង លុះត្រាតែ Fluff Linux ផ្សព្វផ្សាយការណែនាំដែលបានផ្ទៀងផ្ទាត់។"
+
+msgid "Repository: %1"
+msgstr "ឃ្លាំង៖ %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "សោចុះហត្ថលេខាផ្លូវការរបស់ឃ្លាំង FluffNet ត្រូវបានផ្ទៀងផ្ទាត់ ហើយបន្ថែមទៅ Pacman។"
+
+msgid "Technical details"
+msgstr "ព័ត៌មានលម្អិតបច្ចេកទេស"
+
+msgid "Repository signing-key verification technical details"
+msgstr "ព័ត៌មានបច្ចេកទេសនៃការផ្ទៀងផ្ទាត់សោចុះហត្ថលេខាឃ្លាំង"
+
+msgid "Failure category: %1"
+msgstr "ប្រភេទបរាជ័យ៖ %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "ស្នាមម្រាមដៃដែលរំពឹងទុក៖ %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ស្នាមម្រាមដៃដែលទទួលបាន៖ %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "ស្នាមម្រាមដៃសោចុះហត្ថលេខាដែលបានស្នើ៖ %1"
+
+msgid "Pacman exit status: %1"
+msgstr "ស្ថានភាពចាកចេញរបស់ Pacman៖ %1"
+
+msgid "FLU version: %1"
+msgstr "កំណែ FLU៖ %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "កំណែ Fluff Linux៖ %1"
+
+msgid "Try Again"
+msgstr "ព្យាយាមម្ដងទៀត"
+
+msgid "Copy Technical Details"
+msgstr "ចម្លងព័ត៌មានលម្អិតបច្ចេកទេស"
+
+msgid "Open an Issue on GitHub"
+msgstr "បើករបាយការណ៍បញ្ហានៅ GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "មិនមានទំហំទំនេរគ្រប់គ្រាន់ដើម្បីបន្តបច្ចុប្បន្នភាពទេ។ សម្អាតទំហំផ្ទុក ហើយព្យាយាមម្ដងទៀត។"
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "មិនអាចផ្ទៀងផ្ទាត់ហត្ថលេខាកញ្ចប់ឬឃ្លាំងបានទេ។ បច្ចុប្បន្នភាពត្រូវបានបញ្ឈប់។ ពិនិត្យកាលបរិច្ឆេទប្រព័ន្ធនិងកន្លែងផ្ទុកសោ ហើយព្យាយាមម្ដងទៀត។"
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "មូលដ្ឋានទិន្នន័យកញ្ចប់ខូច ឬមិនអាចអានបាន។ បច្ចុប្បន្នភាពត្រូវបានបញ្ឈប់។ សូមស្វែងរកជំនួយមុនជួសជុលមូលដ្ឋានទិន្នន័យ។"
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "កញ្ចប់ដែលបានទាញយកខូច ឬមិនពេញលេញ។ បច្ចុប្បន្នភាពត្រូវបានបញ្ឈប់។ ព្យាយាមម្ដងទៀត ឬប្រើម៉ាស៊ីនមេចម្លងផ្សេង។"
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "បច្ចុប្បន្នភាពមិនអាចអានឬសរសេរឯកសារដែលត្រូវការបានទេ។ ពិនិត្យសិទ្ធិប្រព័ន្ធឯកសារ និងសុខភាពថាស ហើយព្យាយាមម្ដងទៀត។"
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "មិនអាចទាញយកបច្ចុប្បន្នភាពបានទេ។ ព្យាយាមម្ដងទៀត ឬស្វែងរកជំនួយ។"
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "មិនអាចរៀបចំប្រតិបត្តិការបច្ចុប្បន្នភាពបានទេ។ ព្យាយាមម្ដងទៀត ឬស្វែងរកជំនួយ។"
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "មិនអាចចាប់ផ្ដើមបច្ចុប្បន្នភាពបានទេ ព្រោះមិនអាចបើកការទប់ស្កាត់ការដេក។ ព្យាយាមម្ដងទៀត។"
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "មិនអាចចាក់សោមូលដ្ឋានទិន្នន័យកញ្ចប់បានទេ។ បិទកម្មវិធីគ្រប់គ្រងកញ្ចប់ផ្សេងៗ ហើយពិនិត្យថាអាចសរសេរទៅប្រព័ន្ធឯកសារ រួចព្យាយាមម្ដងទៀត។"
+
+msgid "Estimated time: %1"
+msgstr "ពេលវេលាប៉ាន់ស្មាន៖ %1"

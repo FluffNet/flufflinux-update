@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: mk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : 1);\n"
+
+msgid "System Updates"
+msgstr "Системски ажурирања"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Одржувајте го Fluff Linux безбеден и ажуриран со инсталирање системски ажурирања."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Последно ажурирање на системот: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Провери за ажурирања"
+
+msgid "Install Updates"
+msgstr "Инсталирај ажурирања"
+
+msgid "View Updates"
+msgstr "Прикажи ажурирања"
+
+msgid "Change view"
+msgstr "Промени приказ"
+
+msgid "Updates to Install"
+msgstr "Ажурирања за инсталирање"
+
+msgid "Package details are unavailable."
+msgstr "Деталите за пакетите не се достапни."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update сè уште се развива. Ако наидете на проблем, пријавете го на нашата страница на GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Системските ажурирања се успешно инсталирани."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Нема мрежна врска!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Мрежната врска е ограничена. Ако не сте поврзани на мрежа на организација, проверете ја интернет-врската."
+
+msgid "pacman process is already running."
+msgstr "Процес на pacman веќе работи."
+
+msgid "The update process could not be started."
+msgstr "Процесот на ажурирање не можеше да се започне."
+
+msgid "The update process could not be cancelled."
+msgstr "Процесот на ажурирање не можеше да се откаже."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Врската не успеа при преземањето ажурирања. Проверете ја мрежата и обидете се повторно."
+
+msgid "The system update failed."
+msgstr "Ажурирањето на системот не успеа."
+
+msgid "Downloading updates…"
+msgstr "Се преземаат ажурирања…"
+
+msgid "Installing updates…"
+msgstr "Се инсталираат ажурирања…"
+
+msgid "%1 / %2 downloaded"
+msgstr "Преземено %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "Инсталирани %1/%2 ажурирања"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Се инсталираат ажурирања. Не исклучувајте го и не рестартирајте го компјутерот додека не заврши инсталацијата. Прекинувањето на ажурирањето може да ги оштети системските датотеки."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Батеријата е слаба. Поврзете го компјутерот со полнач додека се инсталираат ажурирањата."
+
+msgid "Update process was cancelled"
+msgstr "Процесот на ажурирање е откажан"
+
+msgid "Cancel"
+msgstr "Откажи"
+
+msgid "Checking for updates…"
+msgstr "Се проверува за ажурирања…"
+
+msgid "System updates are available"
+msgstr "Достапни се системски ажурирања"
+
+msgid "Download size: %1"
+msgstr "Големина на преземањето: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Потребен простор за системските ажурирања: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Ослободен простор по ажурирањето: %1"
+
+msgid "No additional download required"
+msgstr "Не е потребно дополнително преземање"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Проверката за ажурирања не можеше да се започне. Проверете дали е инсталиран pacman-contrib."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Проверката за ажурирања неочекувано запре."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Настана непозната грешка. Пријавете го проблемот на нашата страница на GitHub за помош."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Нема интернет-врска. Проверете ја мрежата и обидете се повторно."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Серверите на складиштата не се достапни. Обидете се подоцна или проверете ги поставките за огледалата."
+
+msgid "Authorization error, please try again."
+msgstr "Грешка при овластување. Обидете се повторно."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Проверката за ажурирања со зголемени привилегии неочекувано запре."
+
+msgid "The privileged update check could not be started."
+msgstr "Проверката за ажурирања со зголемени привилегии не можеше да се започне."
+
+msgid "System was not previously updated."
+msgstr "Системот не бил ажуриран претходно."
+
+msgid "The last update information could not be read."
+msgstr "Информациите за последното ажурирање не можеа да се прочитаат."
+
+msgid "The last update information is invalid."
+msgstr "Информациите за последното ажурирање се неважечки."
+
+msgid "Updates were not installed on this system"
+msgstr "На овој систем не се инсталирани ажурирања"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "За да го ажурирате системот, проверете за достапни ажурирања со копчето подолу."
+
+msgid "Update date available"
+msgstr "Датумот на ажурирање е достапен"
+
+msgid "Updated recently"
+msgstr "Неодамна ажуриран"
+
+msgid "System is up to date"
+msgstr "Системот е ажуриран"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Последното ажурирање е инсталирано пред повеќе од еден месец"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Последното ажурирање е инсталирано пред повеќе од три месеци"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Пред %1 секунда"
+msgstr[1] "Пред %1 секунди"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Пред %1 минута"
+msgstr[1] "Пред %1 минути"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Пред %1 час"
+msgstr[1] "Пред %1 часа"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Пред %1 ден"
+msgstr[1] "Пред %1 дена"
+
+msgid "Action is required"
+msgstr "Потребно е дејство"
+
+msgid "Action is required!"
+msgstr "Потребно е дејство!"
+
+msgid "Action required"
+msgstr "Потребно дејство"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update не може да продолжи бидејќи претстојното ажурирање бара отстранување на „%1“, заштитен системски пакет. Неговото отстранување може да го спречи правилното работење на Fluff Linux. Пријавете го проблемот на GitHub за помош."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "За да се инсталираат системските ажурирања, Fluff Linux Update мора да го отстрани „%1“. Отстранувањето на пакетот може да влијае на поврзан софтвер. Ако не сте сигурни, пријавете го проблемот на GitHub за помош."
+
+msgid "Accept"
+msgstr "Прифати"
+
+msgid "Close"
+msgstr "Затвори"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "За да продолжат системските ажурирања, %1 беше автоматски отстранет откако беше проценето дека отстранувањето е безбедно."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "За да продолжат системските ажурирања, следниве пакети беа автоматски отстранети откако беше проценето дека отстранувањето е безбедно: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Откриен е и решен конфликт на датотеки. %1 е преименуван во %2. Процесот на ажурирање е повторно започнат."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Пакетот што предизвикува конфликт не можеше да се отстрани. Побарајте поддршка."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update не можеше да го провери клучот за потпишување на складиштето FluffNet. Ажурирањето е запрено за да се заштити системот."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update не можеше да го провери клучот за потпишување на складиштето FluffNet. Ажурирањето е запрено за да се заштити системот. Ова може да укажува на мрежен проблем, недостапен сервер на FluffNet, истечен или заменет клуч за потпишување, погрешни поставки на складиштето, неочекуван клуч или можно нарушување на безбедноста на складиштето. Не прифаќајте неочекуван клуч рачно освен ако Fluff Linux не објави проверени упатства."
+
+msgid "Repository: %1"
+msgstr "Складиште: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Официјалниот клуч за потпишување на складиштето FluffNet е проверен и додаден во Pacman."
+
+msgid "Technical details"
+msgstr "Технички детали"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Технички детали за проверката на клучот за потпишување на складиштето"
+
+msgid "Failure category: %1"
+msgstr "Категорија на неуспехот: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Очекуван отпечаток: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Примен отпечаток: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Отпечаток на бараниот клуч за потпишување: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Излезен статус на Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Верзија на FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Верзија на Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Обиди се повторно"
+
+msgid "Copy Technical Details"
+msgstr "Копирај технички детали"
+
+msgid "Open an Issue on GitHub"
+msgstr "Отвори пријава на GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Нема доволно слободен простор за да продолжи ажурирањето. Ослободете простор и обидете се повторно."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Потписот на пакет или складиште не можеше да се провери. Ажурирањето е запрено. Проверете ги системскиот датум и збирката клучеви, па обидете се повторно."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Базата на податоци за пакетите е оштетена или нечитлива. Ажурирањето е запрено. Побарајте поддршка пред да ја поправате базата."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Преземен пакет е оштетен или нецелосен. Ажурирањето е запрено. Обидете се повторно или користете друго огледало."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Ажурирањето не можеше да ги прочита или запише потребните датотеки. Проверете ги дозволите на датотечниот систем и состојбата на дискот, па обидете се повторно."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Ажурирањата не можеа да се преземат. Обидете се повторно или побарајте поддршка."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Трансакцијата за ажурирање не можеше да се подготви. Обидете се повторно или побарајте поддршка."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ажурирањето не можеше да започне бидејќи спречувањето на спиењето не можеше да се овозможи. Обидете се повторно."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Базата на податоци за пакетите не можеше да се заклучи. Затворете ги другите управувачи со пакети и проверете дали датотечниот систем дозволува запишување, па обидете се повторно."
+
+msgid "Estimated time: %1"
+msgstr "Проценето време: %1"

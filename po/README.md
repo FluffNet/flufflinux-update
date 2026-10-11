@@ -3,11 +3,15 @@
 Thank you for helping translate Fluff Linux. You do not need to understand Rust
 or QML to add a language.
 
-The 42 catalogs plus English cover the 43 supported base languages: every
-official European Union language, plus Arabic, Bengali, Filipino, Hebrew,
-Hindi, Indonesian, Japanese, Korean, Malay, Norwegian Bokmål, Persian,
-Russian, Serbian, Swahili, Thai, Turkish, Ukrainian, Urdu, and Vietnamese.
-Regional variants are not maintained separately. English is the source language.
+The 97 catalogs plus English source text cover the 96 language/script choices
+in `languages.json`. Two catalogs provide regional wording for Brazilian
+Portuguese and Swiss German. Other regions share their language's text.
+The manifest records all 172 supported regional locales and explicit aliases
+for script/modifier names. `cmake/TranslationAliases.cmake` compiles aliases
+from the same source catalogs, preserving the selected script.
+
+Catalogs remain editable drafts. Compilation, coverage, and layout checks are
+not native-speaker validation. Contributions improving wording are welcome.
 
 ## Add your language
 
@@ -117,9 +121,10 @@ include localized search keywords in the launcher and settings metadata.
 
 ## Right-to-left languages
 
-No special layout code is required in a translation. KDE and Qt automatically
-select right-to-left direction for Arabic, Hebrew, Persian, and Urdu, and the
-panel mirrors its rows and controls accordingly. The package/version list
+No special layout code is required in a translation. FLU resolves the selected
+translation against the manifest and mirrors its own page for Arabic, Hebrew,
+Persian, Urdu, Pashto, Uyghur, and Punjabi Shahmukhi. This does not depend on a
+matching Qt translation or change the System Settings host. The package/version list
 intentionally remains left-to-right because package names, versions, and the
 old-to-new arrow use technical notation.
 

@@ -52,6 +52,15 @@ void initialize_locale(const ::rust::Vec<::rust::String> &values)
     }
 }
 
+::rust::Vec<::rust::String> locale_languages()
+{
+    ::rust::Vec<::rust::String> result;
+    for (const auto &language : KLocalizedString::languages()) {
+        result.push_back(language.toStdString());
+    }
+    return result;
+}
+
 QList<QVariant> variants(::rust::Str json)
 {
     return QJsonDocument::fromJson(string(json).toUtf8()).array().toVariantList();

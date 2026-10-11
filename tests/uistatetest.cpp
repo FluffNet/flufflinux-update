@@ -1,4 +1,5 @@
 #include "flu_bridge/src/backend.cxxqt.h"
+#include <KLocalizedString>
 #include <QDir>
 #include <QFile>
 #include <QMetaProperty>
@@ -82,6 +83,35 @@ private Q_SLOTS:
             QCOMPARE(property.isWritable(),QByteArray(property.name())=="pacmanView");
         }
         QCOMPARE(state.property("updatePackages").toList().size(),0);
+    }
+    void translatedInterfaceDirection_data() {
+        QTest::addColumn<QString>("languages");
+        QTest::addColumn<bool>("rightToLeft");
+        QTest::newRow("shahmukhi") << QStringLiteral("pa_Arab:en_US") << true;
+        QTest::newRow("pakistan") << QStringLiteral("pa_PK.UTF-8:en_US") << true;
+        QTest::newRow("gurmukhi") << QStringLiteral("pa_IN:en_US") << false;
+        QTest::newRow("pashto") << QStringLiteral("ps_AF:en_US") << true;
+        QTest::newRow("uyghur") << QStringLiteral("ug_CN:en_US") << true;
+        QTest::newRow("hebrew") << QStringLiteral("he_IL:en_US") << true;
+        QTest::newRow("serbian-latin") << QStringLiteral("sr_RS.UTF-8@latin:en_US") << false;
+        QTest::newRow("brazil-first") << QStringLiteral("pt_BR:ar") << false;
+        QTest::newRow("english-first") << QStringLiteral("en_US:ar") << false;
+    }
+    void translatedInterfaceDirection() {
+        QFETCH(QString,languages);
+        QFETCH(bool,rightToLeft);
+        const auto localePath = config.path() + QStringLiteral("/plasma-localerc");
+        {
+            QSettings settings(localePath,QSettings::IniFormat);
+            settings.setValue("Translations/LANGUAGE",languages);
+            settings.sync();
+        }
+        {
+            flu::UpdateBackend state;
+            QCOMPARE(state.getInterfaceRightToLeft(),rightToLeft);
+        }
+        QFile::remove(localePath);
+        KLocalizedString::setLanguages({QStringLiteral("en_US")});
     }
     void queuedSnapshotsSurviveRepeatedConstructionAndDestruction() {
         for(int i=0;i<20;++i) {flu::UpdateBackend state;QCoreApplication::processEvents();}
