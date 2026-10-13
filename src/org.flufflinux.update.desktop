@@ -28,6 +28,21 @@ Name[he]=בדיקת עדכוני מערכת
 Name[ja]=システムアップデートを確認
 Name[ru]=Проверить системные обновления
 Name[sv]=Sök efter systemuppdateringar
+Name[bn]=সিস্টেম আপডেট পরীক্ষা করুন
+Name[fa]=بررسی به‌روزرسانی‌های سیستم
+Name[fil]=Tingnan kung may mga update ng sistema
+Name[hi]=सिस्टम अपडेट जाँचें
+Name[id]=Periksa pembaruan sistem
+Name[ko]=시스템 업데이트 확인
+Name[ms]=Semak kemas kini sistem
+Name[nb]=Se etter systemoppdateringer
+Name[sr]=Провери ажурирања система
+Name[sw]=Tafuta masasisho ya mfumo
+Name[th]=ตรวจสอบการอัปเดตระบบ
+Name[tr]=Sistem güncellemelerini denetle
+Name[uk]=Перевірити оновлення системи
+Name[ur]=سسٹم کی تازہ کاریاں تلاش کریں
+Name[vi]=Kiểm tra cập nhật hệ thống
 Comment=Update Fluff Linux
 Comment[bg]=Актуализирайте Fluff Linux
 Comment[cs]=Aktualizujte Fluff Linux
@@ -56,6 +71,21 @@ Comment[he]=Fluff Linux Update
 Comment[ja]=Fluff Linux をアップデート
 Comment[ru]=Обновить Fluff Linux
 Comment[sv]=Uppdatera Fluff Linux
+Comment[bn]=Fluff Linux আপডেট করুন
+Comment[fa]=به‌روزرسانی Fluff Linux
+Comment[fil]=I-update ang Fluff Linux
+Comment[hi]=Fluff Linux अपडेट करें
+Comment[id]=Perbarui Fluff Linux
+Comment[ko]=Fluff Linux 업데이트
+Comment[ms]=Kemas kini Fluff Linux
+Comment[nb]=Oppdater Fluff Linux
+Comment[sr]=Ажурирајте Fluff Linux
+Comment[sw]=Sasisha Fluff Linux
+Comment[th]=อัปเดต Fluff Linux
+Comment[tr]=Fluff Linux'u güncelle
+Comment[uk]=Оновити Fluff Linux
+Comment[ur]=Fluff Linux تازہ کریں
+Comment[vi]=Cập nhật Fluff Linux
 Exec=kcmshell6 kcm_fluffupdates
 Icon=system-software-update
 Terminal=false
@@ -88,4 +118,308 @@ Keywords[he]=Fluff Linux;עדכונים;עדכוני מערכת;פקמן;שדר�
 Keywords[ja]=Fluff Linux;アップデート;システムアップデート;pacman;更新;
 Keywords[ru]=Fluff Linux;обновления;системные обновления;pacman;обновление;
 Keywords[sv]=Fluff Linux;uppdateringar;systemuppdateringar;pacman;uppgradering;
+Keywords[bn]=Fluff Linux;সিস্টেম আপডেট;আপডেট পরীক্ষা করুন;pacman;
+Keywords[fa]=Fluff Linux;به‌روزرسانی‌های سیستم;بررسی به‌روزرسانی‌ها;pacman;
+Keywords[fil]=Fluff Linux;Mga Update ng Sistema;Tingnan kung May mga Update;pacman;
+Keywords[hi]=Fluff Linux;सिस्टम अपडेट;अपडेट जाँचें;pacman;
+Keywords[id]=Fluff Linux;Pembaruan Sistem;Periksa Pembaruan;pacman;
+Keywords[ko]=Fluff Linux;시스템 업데이트;업데이트 확인;pacman;
+Keywords[ms]=Fluff Linux;Kemas Kini Sistem;Semak Kemas Kini;pacman;
+Keywords[nb]=Fluff Linux;Systemoppdateringer;Se etter oppdateringer;pacman;
+Keywords[sr]=Fluff Linux;Ажурирања система;Провери ажурирања;pacman;
+Keywords[sw]=Fluff Linux;Masasisho ya Mfumo;Tafuta Masasisho;pacman;
+Keywords[th]=Fluff Linux;การอัปเดตระบบ;ตรวจสอบการอัปเดต;pacman;
+Keywords[tr]=Fluff Linux;Sistem Güncellemeleri;Güncellemeleri Denetle;pacman;
+Keywords[uk]=Fluff Linux;Оновлення системи;Перевірити оновлення;pacman;
+Keywords[ur]=Fluff Linux;سسٹم کی تازہ کاریاں;تازہ کاریاں تلاش کریں;pacman;
+Keywords[vi]=Fluff Linux;Cập nhật hệ thống;Kiểm tra cập nhật;pacman;
 StartupNotify=true
+
+Name[af]=Soek bywerkings
+Comment[af]=Werk Fluff Linux by
+Keywords[af]=Fluff Linux;Stelselbywerkings;Soek bywerkings;pacman;
+
+Name[az]=Yeniləmələri yoxla
+Comment[az]=Fluff Linux-u yenilə
+Keywords[az]=Fluff Linux;Sistem yeniləmələri;Yeniləmələri yoxla;pacman;
+
+Name[bs]=Provjerite ima li ažuriranja
+Comment[bs]=Ažuriraj Fluff Linux
+Keywords[bs]=Fluff Linux;Ažuriranja sistema;Provjerite ima li ažuriranja;pacman;
+
+Name[ca]=Comprova si hi ha actualitzacions
+Comment[ca]=Actualitza Fluff Linux
+Keywords[ca]=Fluff Linux;Actualitzacions del sistema;Comprova si hi ha actualitzacions;pacman;
+
+Name[ca_valencia]=Comprova si hi ha actualitzacions
+Comment[ca_valencia]=Actualitza Fluff Linux
+Keywords[ca_valencia]=Fluff Linux;Actualitzacions del sistema;Comprova si hi ha actualitzacions;pacman;
+
+Name[de_CH]=Nach Aktualisierungen suchen
+Comment[de_CH]=Fluff Linux aktualisieren
+Keywords[de_CH]=Fluff Linux;Systemaktualisierungen;Nach Aktualisierungen suchen;pacman;
+
+Name[eu]=Bilatu eguneratzeak
+Comment[eu]=Eguneratu Fluff Linux
+Keywords[eu]=Fluff Linux;Sistemaren eguneratzeak;Bilatu eguneratzeak;pacman;
+
+Name[gl]=Buscar actualizacións
+Comment[gl]=Actualizar Fluff Linux
+Keywords[gl]=Fluff Linux;Actualizacións do sistema;Buscar actualizacións;pacman;
+
+Name[is]=Leita að uppfærslum
+Comment[is]=Uppfæra Fluff Linux
+Keywords[is]=Fluff Linux;Kerfisuppfærslur;Leita að uppfærslum;pacman;
+
+Name[nn]=Sjå etter oppdateringar
+Comment[nn]=Oppdater Fluff Linux
+Keywords[nn]=Fluff Linux;Systemoppdateringar;Sjå etter oppdateringar;pacman;
+
+Name[pt_BR]=Verificar atualizações
+Comment[pt_BR]=Atualizar o Fluff Linux
+Keywords[pt_BR]=Fluff Linux;Atualizações do sistema;Verificar atualizações;pacman;
+
+Name[sq]=Kontrollo për përditësime
+Comment[sq]=Përditëso Fluff Linux
+Keywords[sq]=Fluff Linux;Përditësime të sistemit;Kontrollo për përditësime;pacman;
+
+Name[sr_Latn]=Proveri ažuriranja
+Comment[sr_Latn]=Ažuriraj Fluff Linux
+Keywords[sr_Latn]=Fluff Linux;Ažuriranja sistema;Proveri ažuriranja;pacman;
+
+Name[zh_Hans]=检查更新
+Comment[zh_Hans]=更新 Fluff Linux
+Keywords[zh_Hans]=Fluff Linux;系统更新;检查更新;pacman;
+
+Name[zh_Hant]=檢查更新
+Comment[zh_Hant]=更新 Fluff Linux
+Keywords[zh_Hant]=Fluff Linux;系統更新;檢查更新;pacman;
+
+Name[be]=Праверыць абнаўленні
+Comment[be]=Абнавіць Fluff Linux
+Keywords[be]=Fluff Linux;Абнаўленні сістэмы;Праверыць абнаўленні;pacman;
+
+Name[mk]=Провери за ажурирања
+Comment[mk]=Ажурирај Fluff Linux
+Keywords[mk]=Fluff Linux;Системски ажурирања;Провери за ажурирања;pacman;
+
+Name[uz]=Yangilanishlarni tekshirish
+Comment[uz]=Fluff Linux’ni yangilash
+Keywords[uz]=Fluff Linux;Tizim yangilanishlari;Yangilanishlarni tekshirish;pacman;
+
+Name[lb]=No Aktualiséierunge sichen
+Comment[lb]=Fluff Linux aktualiséieren
+Keywords[lb]=Fluff Linux;Systemaktualiséierungen;No Aktualiséierunge sichen;pacman;
+
+Name[so]=Hubi cusboonaysiinta
+Comment[so]=Cusboonaysii Fluff Linux
+Keywords[so]=Fluff Linux;Cusboonaysiinta nidaamka;Hubi cusboonaysiinta;pacman;
+
+Name[pa_Arab]=اپ ڈیٹاں چیک کرو
+Comment[pa_Arab]=Fluff Linux اپ ڈیٹ کرو
+Keywords[pa_Arab]=Fluff Linux;سسٹم دیاں اپ ڈیٹاں;اپ ڈیٹاں چیک کرو;pacman;
+
+Name[pa]=ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ
+Comment[pa]=Fluff Linux ਅੱਪਡੇਟ ਕਰੋ
+Keywords[pa]=Fluff Linux;ਸਿਸਟਮ ਅੱਪਡੇਟ;ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ;pacman;
+
+Name[ha]=Duba sabuntawa
+Comment[ha]=Sabunta Fluff Linux
+Keywords[ha]=Fluff Linux;Sabunta tsarin;Duba sabuntawa;pacman;
+
+Name[om]=Haaromsa barbaadi
+Comment[om]=Fluff Linux haaromsi
+Keywords[om]=Fluff Linux;Haaromsa sirnaa;Haaromsa barbaadi;pacman;
+
+Name[ku]=Li nûvekirinan bigere
+Comment[ku]=Fluff Linux nû bike
+Keywords[ku]=Fluff Linux;Nûvekirinên pergalê;Li nûvekirinan bigere;pacman;
+
+Name[cy]=Chwilio am ddiweddariadau
+Comment[cy]=Diweddaru Fluff Linux
+Keywords[cy]=Fluff Linux;Diweddariadau system;Chwilio am ddiweddariadau;pacman;
+
+Name[gd]=Thoir sùil airson ùrachaidhean
+Comment[gd]=Ùraich Fluff Linux
+Keywords[gd]=Fluff Linux;Ùrachaidhean an t-siostaim;Thoir sùil airson ùrachaidhean;pacman;
+
+Name[mi]=Tirohia ngā whakahōunga
+Comment[mi]=Whakahōutia a Fluff Linux
+Keywords[mi]=Fluff Linux;Ngā whakahōunga pūnaha;Tirohia ngā whakahōunga;pacman;
+
+Name[zu]=Hlola izibuyekezo
+Comment[zu]=Buyekeza iFluff Linux
+Keywords[zu]=Fluff Linux;Izibuyekezo zesistimu;Hlola izibuyekezo;pacman;
+
+Name[xh]=Khangela uhlaziyo
+Comment[xh]=Hlaziya iFluff Linux
+Keywords[xh]=Fluff Linux;Uhlaziyo lwenkqubo;Khangela uhlaziyo;pacman;
+
+Name[ig]=Lelee mmelite
+Comment[ig]=Melite Fluff Linux
+Keywords[ig]=Fluff Linux;Mmelite sistemụ;Lelee mmelite;pacman;
+
+Name[yo]=Ṣàyẹ̀wò àwọn ìmúdójúìwọ̀n
+Comment[yo]=Mú Fluff Linux dójúìwọ̀n
+Keywords[yo]=Fluff Linux;Àwọn ìmúdójúìwọ̀n ètò;Ṣàyẹ̀wò àwọn ìmúdójúìwọ̀n;pacman;
+
+Name[ka]=განახლებების შემოწმება
+Comment[ka]=Fluff Linux-ის განახლება
+Keywords[ka]=Fluff Linux;სისტემის განახლებები;განახლებების შემოწმება;pacman;
+
+Name[hy]=Ստուգել թարմացումները
+Comment[hy]=Թարմացնել Fluff Linux-ը
+Keywords[hy]=Fluff Linux;Համակարգի թարմացումներ;Ստուգել թարմացումները;pacman;
+
+Name[kk]=Жаңартуларды тексеру
+Comment[kk]=Fluff Linux жүйесін жаңарту
+Keywords[kk]=Fluff Linux;Жүйе жаңартулары;Жаңартуларды тексеру;pacman;
+
+Name[mn]=Шинэчлэлт шалгах
+Comment[mn]=Fluff Linux шинэчлэх
+Keywords[mn]=Fluff Linux;Системийн шинэчлэлтүүд;Шинэчлэлт шалгах;pacman;
+
+Name[tt]=Яңартуларны тикшерү
+Comment[tt]=Fluff Linux яңарту
+Keywords[tt]=Fluff Linux;Система яңартулары;Яңартуларны тикшерү;pacman;
+
+Name[ne]=अद्यावधिक जाँच्नुहोस्
+Comment[ne]=Fluff Linux अद्यावधिक गर्नुहोस्
+Keywords[ne]=Fluff Linux;प्रणाली अद्यावधिकहरू;अद्यावधिक जाँच्नुहोस्;pacman;
+
+Name[mr]=अद्यतने तपासा
+Comment[mr]=Fluff Linux अद्ययावत करा
+Keywords[mr]=Fluff Linux;प्रणाली अद्यतने;अद्यतने तपासा;pacman;
+
+Name[kok]=अद्ययावतां तपासात
+Comment[kok]=Fluff Linux अद्ययावत करात
+Keywords[kok]=Fluff Linux;प्रणाली अद्ययावतां;अद्ययावतां तपासात;pacman;
+
+Name[gu]=અપડેટ તપાસો
+Comment[gu]=Fluff Linux અપડેટ કરો
+Keywords[gu]=Fluff Linux;સિસ્ટમ અપડેટ;અપડેટ તપાસો;pacman;
+
+Name[ta]=புதுப்பிப்புகளைச் சரிபார்
+Comment[ta]=Fluff Linux-ஐ புதுப்பி
+Keywords[ta]=Fluff Linux;கணினிப் புதுப்பிப்புகள்;புதுப்பிப்புகளைச் சரிபார்;pacman;
+
+Name[te]=నవీకరణలను తనిఖీ చేయి
+Comment[te]=Fluff Linux ను నవీకరించు
+Keywords[te]=Fluff Linux;వ్యవస్థ నవీకరణలు;నవీకరణలను తనిఖీ చేయి;pacman;
+
+Name[kn]=ನವೀಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ
+Comment[kn]=Fluff Linux ನವೀಕರಿಸಿ
+Keywords[kn]=Fluff Linux;ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳು;ನವೀಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ;pacman;
+
+Name[ml]=പുതുക്കലുകൾ പരിശോധിക്കുക
+Comment[ml]=Fluff Linux പുതുക്കുക
+Keywords[ml]=Fluff Linux;സിസ്റ്റം പുതുക്കലുകൾ;പുതുക്കലുകൾ പരിശോധിക്കുക;pacman;
+
+Name[as]=আপডেইট পৰীক্ষা কৰক
+Comment[as]=Fluff Linux আপডেইট কৰক
+Keywords[as]=Fluff Linux;চিষ্টেমৰ আপডেইটসমূহ;আপডেইট পৰীক্ষা কৰক;pacman;
+
+Name[or]=ଅଦ୍ୟତନ ଯାଞ୍ଚ କରନ୍ତୁ
+Comment[or]=Fluff Linux ଅଦ୍ୟତନ କରନ୍ତୁ
+Keywords[or]=Fluff Linux;ସିଷ୍ଟମ୍ ଅଦ୍ୟତନ;ଅଦ୍ୟତନ ଯାଞ୍ଚ କରନ୍ତୁ;pacman;
+
+Name[si]=යාවත්කාලීන පරීක්ෂා කරන්න
+Comment[si]=Fluff Linux යාවත්කාලීන කරන්න
+Keywords[si]=Fluff Linux;පද්ධති යාවත්කාලීන;යාවත්කාලීන පරීක්ෂා කරන්න;pacman;
+
+Name[ps]=اوسمهالونې وګورئ
+Comment[ps]=Fluff Linux اوسمهال کړئ
+Keywords[ps]=Fluff Linux;د سیسټم اوسمهالونې;اوسمهالونې وګورئ;pacman;
+
+Name[ug]=يېڭىلانمىلارنى تەكشۈر
+Comment[ug]=Fluff Linux نى يېڭىلا
+Keywords[ug]=Fluff Linux;سىستېما يېڭىلانمىلىرى;يېڭىلانمىلارنى تەكشۈر;pacman;
+
+Name[quz]=Musuqyachiykunata qhaway
+Comment[quz]=Fluff Linux-ta musuqyachiy
+Keywords[quz]=Fluff Linux;Llikapa musuqyachiykuna;Musuqyachiykunata qhaway;pacman;
+
+Name[am]=ዝማኔዎችን ፈትሽ
+Comment[am]=Fluff Linux አዘምን
+Keywords[am]=Fluff Linux;የስርዓት ዝማኔዎች;ዝማኔዎችን ፈትሽ;pacman;
+
+Name[my]=အပ်ဒိတ်များ စစ်ဆေးရန်
+Comment[my]=Fluff Linux ကို အပ်ဒိတ်လုပ်ရန်
+Keywords[my]=Fluff Linux;စနစ်အပ်ဒိတ်များ;အပ်ဒိတ်များ စစ်ဆေးရန်;pacman;
+
+Name[km]=ពិនិត្យបច្ចុប្បន្នភាព
+Comment[km]=ធ្វើបច្ចុប្បន្នភាព Fluff Linux
+Keywords[km]=Fluff Linux;បច្ចុប្បន្នភាពប្រព័ន្ធ;ពិនិត្យបច្ចុប្បន្នភាព;pacman;
+
+Name[lo]=ກວດຫາອັບເດດ
+Comment[lo]=ອັບເດດ Fluff Linux
+Keywords[lo]=Fluff Linux;ການອັບເດດລະບົບ;ກວດຫາອັບເດດ;pacman;
+Name[sr@latin]=Proveri ažuriranja
+Comment[sr@latin]=Ažuriraj Fluff Linux
+Keywords[sr@latin]=Fluff Linux;Ažuriranja sistema;Proveri ažuriranja;pacman;
+Name[sr_RS]=Провери ажурирања система
+Comment[sr_RS]=Ажурирајте Fluff Linux
+Keywords[sr_RS]=Fluff Linux;Ажурирања система;Провери ажурирања;pacman;
+Name[sr_ME]=Провери ажурирања система
+Comment[sr_ME]=Ажурирајте Fluff Linux
+Keywords[sr_ME]=Fluff Linux;Ажурирања система;Провери ажурирања;pacman;
+Name[sr_RS@latin]=Proveri ažuriranja
+Comment[sr_RS@latin]=Ažuriraj Fluff Linux
+Keywords[sr_RS@latin]=Fluff Linux;Ažuriranja sistema;Proveri ažuriranja;pacman;
+Name[sr_ME@latin]=Proveri ažuriranja
+Comment[sr_ME@latin]=Ažuriraj Fluff Linux
+Keywords[sr_ME@latin]=Fluff Linux;Ažuriranja sistema;Proveri ažuriranja;pacman;
+Name[ca_ES]=Comprova si hi ha actualitzacions
+Comment[ca_ES]=Actualitza Fluff Linux
+Keywords[ca_ES]=Fluff Linux;Actualitzacions del sistema;Comprova si hi ha actualitzacions;pacman;
+Name[ca@valencia]=Comprova si hi ha actualitzacions
+Comment[ca@valencia]=Actualitza Fluff Linux
+Keywords[ca@valencia]=Fluff Linux;Actualitzacions del sistema;Comprova si hi ha actualitzacions;pacman;
+Name[ca_ES@valencia]=Comprova si hi ha actualitzacions
+Comment[ca_ES@valencia]=Actualitza Fluff Linux
+Keywords[ca_ES@valencia]=Fluff Linux;Actualitzacions del sistema;Comprova si hi ha actualitzacions;pacman;
+Name[zh_CN]=检查更新
+Comment[zh_CN]=更新 Fluff Linux
+Keywords[zh_CN]=Fluff Linux;系统更新;检查更新;pacman;
+Name[zh_SG]=检查更新
+Comment[zh_SG]=更新 Fluff Linux
+Keywords[zh_SG]=Fluff Linux;系统更新;检查更新;pacman;
+Name[zh_TW]=檢查更新
+Comment[zh_TW]=更新 Fluff Linux
+Keywords[zh_TW]=Fluff Linux;系統更新;檢查更新;pacman;
+Name[zh_HK]=檢查更新
+Comment[zh_HK]=更新 Fluff Linux
+Keywords[zh_HK]=Fluff Linux;系統更新;檢查更新;pacman;
+Name[pa_PK]=اپ ڈیٹاں چیک کرو
+Comment[pa_PK]=Fluff Linux اپ ڈیٹ کرو
+Keywords[pa_PK]=Fluff Linux;سسٹم دیاں اپ ڈیٹاں;اپ ڈیٹاں چیک کرو;pacman;
+Name[pa_IN]=ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ
+Comment[pa_IN]=Fluff Linux ਅੱਪਡੇਟ ਕਰੋ
+Keywords[pa_IN]=Fluff Linux;ਸਿਸਟਮ ਅੱਪਡੇਟ;ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ;pacman;
+Name[zh_Hans_CN]=检查更新
+Comment[zh_Hans_CN]=更新 Fluff Linux
+Keywords[zh_Hans_CN]=Fluff Linux;系统更新;检查更新;pacman;
+Name[zh_Hans_SG]=检查更新
+Comment[zh_Hans_SG]=更新 Fluff Linux
+Keywords[zh_Hans_SG]=Fluff Linux;系统更新;检查更新;pacman;
+Name[zh_Hant_TW]=檢查更新
+Comment[zh_Hant_TW]=更新 Fluff Linux
+Keywords[zh_Hant_TW]=Fluff Linux;系統更新;檢查更新;pacman;
+Name[zh_Hant_HK]=檢查更新
+Comment[zh_Hant_HK]=更新 Fluff Linux
+Keywords[zh_Hant_HK]=Fluff Linux;系統更新;檢查更新;pacman;
+Name[sr_Latn_RS]=Proveri ažuriranja
+Comment[sr_Latn_RS]=Ažuriraj Fluff Linux
+Keywords[sr_Latn_RS]=Fluff Linux;Ažuriranja sistema;Proveri ažuriranja;pacman;
+Name[sr_Latn_ME]=Proveri ažuriranja
+Comment[sr_Latn_ME]=Ažuriraj Fluff Linux
+Keywords[sr_Latn_ME]=Fluff Linux;Ažuriranja sistema;Proveri ažuriranja;pacman;
+Name[pa_Arab_PK]=اپ ڈیٹاں چیک کرو
+Comment[pa_Arab_PK]=Fluff Linux اپ ڈیٹ کرو
+Keywords[pa_Arab_PK]=Fluff Linux;سسٹم دیاں اپ ڈیٹاں;اپ ڈیٹاں چیک کرو;pacman;
+Name[pa_Guru]=ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ
+Comment[pa_Guru]=Fluff Linux ਅੱਪਡੇਟ ਕਰੋ
+Keywords[pa_Guru]=Fluff Linux;ਸਿਸਟਮ ਅੱਪਡੇਟ;ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ;pacman;
+Name[pa_Guru_IN]=ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ
+Comment[pa_Guru_IN]=Fluff Linux ਅੱਪਡੇਟ ਕਰੋ
+Keywords[pa_Guru_IN]=Fluff Linux;ਸਿਸਟਮ ਅੱਪਡੇਟ;ਅੱਪਡੇਟਾਂ ਦੀ ਜਾਂਚ ਕਰੋ;pacman;

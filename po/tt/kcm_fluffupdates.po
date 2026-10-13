@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: tt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Система яңартулары"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Система яңартуларын урнаштырып, Fluff Linux иминлеген һәм яңалыгын саклагыз."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Система соңгы тапкыр яңартылды: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Яңартуларны тикшерү"
+
+msgid "Install Updates"
+msgstr "Яңартуларны урнаштыру"
+
+msgid "View Updates"
+msgstr "Яңартуларны карау"
+
+msgid "Change view"
+msgstr "Күренешне үзгәртү"
+
+msgid "Updates to Install"
+msgstr "Урнаштырыласы яңартулар"
+
+msgid "Package details are unavailable."
+msgstr "Пакет турында мәгълүмат юк."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update әле эшләнә. Проблема килеп чыкса, безнең GitHub битендә хәбәр итегез."
+
+msgid "System updates were installed successfully."
+msgstr "Система яңартулары уңышлы урнаштырылды."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Челтәргә тоташу юк!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Челтәргә тоташу чикләнгән. Оешма челтәренә тоташмаган булсагыз, интернет тоташуын тикшерегез."
+
+msgid "pacman process is already running."
+msgstr "pacman процессы инде эшли."
+
+msgid "The update process could not be started."
+msgstr "Яңарту процессын башлап булмады."
+
+msgid "The update process could not be cancelled."
+msgstr "Яңарту процессын кире кагып булмады."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Яңартуларны йөкләгәндә тоташу өзелде. Челтәрне тикшереп, кабатлап карагыз."
+
+msgid "The system update failed."
+msgstr "Системаны яңарту уңышсыз тәмамланды."
+
+msgid "Downloading updates…"
+msgstr "Яңартулар йөкләнә…"
+
+msgid "Installing updates…"
+msgstr "Яңартулар урнаштырыла…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 йөкләнде"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 яңарту урнаштырылды"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Яңартулар урнаштырыла. Урнаштыру тәмамланганчы компьютерны сүндермәгез һәм яңадан кабызмагыз. Яңартуны өзү система файлларына зыян китерергә мөмкин."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Батарея корылмасы аз. Яңартуларны урнаштырганда компьютерны зарядлагычка тоташтырыгыз."
+
+msgid "Update process was cancelled"
+msgstr "Яңарту процессы кире кагылды"
+
+msgid "Cancel"
+msgstr "Кире кагу"
+
+msgid "Checking for updates…"
+msgstr "Яңартулар тикшерелә…"
+
+msgid "System updates are available"
+msgstr "Система яңартулары бар"
+
+msgid "Download size: %1"
+msgstr "Йөкләү күләме: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Система яңартуларына кирәкле урын: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Яңартудан соң бушаячак урын: %1"
+
+msgid "No additional download required"
+msgstr "Өстәмә йөкләү кирәк түгел"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Яңартулар тикшергечен башлап булмады. pacman-contrib урнаштырылганын тикшерегез."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Яңартуларны тикшерү көтмәгәндә туктады."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Билгесез хата килеп чыкты. Ярдәм алу өчен безнең GitHub битендә хәбәр итегез."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Интернетка тоташу юк. Челтәрне тикшереп, кабатлап карагыз."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Репозиторий серверларына тоташып булмады. Соңрак кабатлагыз яки көзге сервер көйләүләрен тикшерегез."
+
+msgid "Authorization error, please try again."
+msgstr "Рөхсәт бирү хатасы, кабатлап карагыз."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Югары хокуклар белән яңартуларны тикшерү көтмәгәндә туктады."
+
+msgid "The privileged update check could not be started."
+msgstr "Югары хокуклар белән яңартуларны тикшерүне башлап булмады."
+
+msgid "System was not previously updated."
+msgstr "Система моңарчы яңартылмаган."
+
+msgid "The last update information could not be read."
+msgstr "Соңгы яңарту турында мәгълүматны укып булмады."
+
+msgid "The last update information is invalid."
+msgstr "Соңгы яңарту мәгълүматы дөрес түгел."
+
+msgid "Updates were not installed on this system"
+msgstr "Бу системада яңартулар урнаштырылмаган"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Системаны яңарту өчен астагы төймә белән булган яңартуларны тикшерегез."
+
+msgid "Update date available"
+msgstr "Яңарту датасы бар"
+
+msgid "Updated recently"
+msgstr "Күптән түгел яңартылды"
+
+msgid "System is up to date"
+msgstr "Система яңартылган"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Соңгы яңарту бер айдан артык элек урнаштырылган"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Соңгы яңарту өч айдан артык элек урнаштырылган"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 секунд элек"
+msgstr[1] "%1 секунд элек"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 минут элек"
+msgstr[1] "%1 минут элек"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 сәгать элек"
+msgstr[1] "%1 сәгать элек"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 көн элек"
+msgstr[1] "%1 көн элек"
+
+msgid "Action is required"
+msgstr "Гамәл кирәк"
+
+msgid "Action is required!"
+msgstr "Гамәл кирәк!"
+
+msgid "Action required"
+msgstr "Кирәкле гамәл"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update дәвам итә алмый, чөнки киләсе яңарту сакланган система пакеты “%1”не бетерүне таләп итә. Аны бетерү Fluff Linux дөрес эшләвенә комачауларга мөмкин. Ярдәм алу өчен GitHub аша хәбәр итегез."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Системага яңартулар урнаштыру өчен Fluff Linux Update “%1”не бетерергә тиеш. Бу пакетны бетерү бәйле программаларга тәэсир итәргә мөмкин. Ышанмасагыз, ярдәм алу өчен GitHub аша хәбәр итегез."
+
+msgid "Accept"
+msgstr "Кабул итү"
+
+msgid "Close"
+msgstr "Ябу"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Система яңартуларын дәвам итү өчен %1, бетерү имин дип табылганнан соң, автоматик рәвештә бетерелде."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Система яңартуларын дәвам итү өчен түбәндәге пакетлар, бетерү имин дип табылганнан соң, автоматик рәвештә бетерелде: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Файл каршылыгы табылды һәм чишелде. %1 исеме %2 итеп үзгәртелде. Яңарту процессы яңадан башланды."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Каршылыклы пакетны бетереп булмады. Ярдәм сорагыз."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update FluffNet репозиторие имзалау ачкычын тикшерә алмады. Системагызны саклау өчен яңарту туктатылды."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update FluffNet репозиторие имзалау ачкычын тикшерә алмады. Системагызны саклау өчен яңарту туктатылды. Бу челтәр проблемасын, FluffNet серверы эшләмәвен, имзалау ачкычының вакыты чыгуын яки алмашынуын, репозиторий көйләү хатасын, көтелмәгән ачкычны яки репозиторийга һөҗүмне күрсәтергә мөмкин. Fluff Linux тикшерелгән күрсәтмәләр бастырмаса, көтелмәгән ачкычны кулдан кабул итмәгез."
+
+msgid "Repository: %1"
+msgstr "Репозиторий: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet репозиторие рәсми имзалау ачкычы тикшерелде һәм Pacman эченә өстәлде."
+
+msgid "Technical details"
+msgstr "Техник мәгълүмат"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Репозиторийның имзалау ачкычын тикшерү техник мәгълүматы"
+
+msgid "Failure category: %1"
+msgstr "Хата төркеме: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Көтелгән бармак эзе: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Алынган бармак эзе: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Соралган имзалау ачкычының бармак эзе: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman чыгу статусы: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU версиясе: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux версиясе: %1"
+
+msgid "Try Again"
+msgstr "Кабатлап карау"
+
+msgid "Copy Technical Details"
+msgstr "Техник мәгълүматны күчерү"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub аша проблема ачу"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Яңартуны дәвам итү өчен буш урын җитми. Урын бушатып, кабатлап карагыз."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Пакет яки репозиторий имзасын тикшереп булмады. Яңарту туктатылды. Система датасын һәм ачкычлар җыелмасын тикшереп, кабатлап карагыз."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Пакетлар базасы бозылган яки укылмый. Яңарту туктатылды. Базаны төзәткәнче ярдәм сорагыз."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Йөкләнгән пакет бозылган яки тулы түгел. Яңарту туктатылды. Кабатлап карагыз яки башка көзге сервер кулланыгыз."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Яңарту кирәкле файлларны укый яки яза алмады. Файл системасы рөхсәтләрен һәм диск хәлен тикшереп, кабатлап карагыз."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Яңартуларны йөкләп булмады. Кабатлап карагыз яки ярдәм сорагыз."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Яңарту транзакциясен әзерләп булмады. Кабатлап карагыз яки ярдәм сорагыз."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Йокы режимын тыюны кабызып булмаганга яңарту башланмады. Кабатлап карагыз."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Пакетлар базасын бикләп булмады. Башка пакет идарәчеләрен ябыгыз һәм файл системасына язып булуын тикшерегез, аннары кабатлап карагыз."
+
+msgid "Estimated time: %1"
+msgstr "Фаразланган вакыт: %1"

@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Stelselbywerkings"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Hou Fluff Linux veilig en op datum deur stelselbywerkings te installeer."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Stelsel laas bygewerk: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Soek bywerkings"
+
+msgid "Install Updates"
+msgstr "Installeer bywerkings"
+
+msgid "View Updates"
+msgstr "Bekyk bywerkings"
+
+msgid "Change view"
+msgstr "Verander aansig"
+
+msgid "Updates to Install"
+msgstr "Bywerkings om te installeer"
+
+msgid "Package details are unavailable."
+msgstr "Pakketbesonderhede is nie beskikbaar nie."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update is nog in ontwikkeling. Indien jy 'n probleem ondervind, rapporteer dit asseblief op ons GitHub-bladsy."
+
+msgid "System updates were installed successfully."
+msgstr "Stelselbywerkings is suksesvol geïnstalleer."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Geen netwerkverbinding nie!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Die netwerkverbinding is beperk. Indien jy nie aan 'n organisasie se netwerk gekoppel is nie, gaan jou internetverbinding na."
+
+msgid "pacman process is already running."
+msgstr "'n pacman-proses loop reeds."
+
+msgid "The update process could not be started."
+msgstr "Die bywerkingsproses kon nie begin word nie."
+
+msgid "The update process could not be cancelled."
+msgstr "Die bywerkingsproses kon nie gekanselleer word nie."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Die verbinding het tydens die aflaai van bywerkings misluk. Gaan jou netwerk na en probeer weer."
+
+msgid "The system update failed."
+msgstr "Die stelselbywerking het misluk."
+
+msgid "Downloading updates…"
+msgstr "Laai bywerkings af…"
+
+msgid "Installing updates…"
+msgstr "Installeer bywerkings…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 afgelaai"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 bywerkings geïnstalleer"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Bywerkings word tans geïnstalleer. Moet asseblief nie die rekenaar afskakel of herbegin voordat die installasie voltooi is nie. Onderbreking van die bywerking kan stelsellêers beskadig."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Die battery is pap. Koppel asseblief jou rekenaar aan 'n laaier terwyl bywerkings geïnstalleer word."
+
+msgid "Update process was cancelled"
+msgstr "Die bywerkingsproses is gekanselleer"
+
+msgid "Cancel"
+msgstr "Kanselleer"
+
+msgid "Checking for updates…"
+msgstr "Soek tans bywerkings…"
+
+msgid "System updates are available"
+msgstr "Stelselbywerkings is beskikbaar"
+
+msgid "Download size: %1"
+msgstr "Aflaaigrootte: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Bergingsruimte benodig vir stelselbywerkings: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Bergingsruimte vrygestel ná bywerking: %1"
+
+msgid "No additional download required"
+msgstr "Geen verdere aflaai nodig nie"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Die bywerkingskontroleerder kon nie begin word nie. Maak seker dat pacman-contrib geïnstalleer is."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Die soektog na bywerkings het onverwags gestop."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "'n Onbekende fout het voorgekom. Rapporteer hierdie probleem asseblief op ons GitHub-bladsy vir hulp."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Geen internetverbinding nie. Gaan jou netwerk na en probeer weer."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Die bewaarplekbedieners kon nie bereik word nie. Probeer later weer of gaan jou spieëlbedienerinstellings na."
+
+msgid "Authorization error, please try again."
+msgstr "Magtigingsfout, probeer asseblief weer."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Die soektog na bywerkings met verhoogde regte het onverwags gestop."
+
+msgid "The privileged update check could not be started."
+msgstr "Die soektog na bywerkings met verhoogde regte kon nie begin word nie."
+
+msgid "System was not previously updated."
+msgstr "Die stelsel is nie voorheen bygewerk nie."
+
+msgid "The last update information could not be read."
+msgstr "Die inligting oor die laaste bywerking kon nie gelees word nie."
+
+msgid "The last update information is invalid."
+msgstr "Die inligting oor die laaste bywerking is ongeldig."
+
+msgid "Updates were not installed on this system"
+msgstr "Geen bywerkings is op hierdie stelsel geïnstalleer nie"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Gebruik die knoppie hieronder om beskikbare bywerkings te soek en die stelsel by te werk."
+
+msgid "Update date available"
+msgstr "Bywerkingsdatum beskikbaar"
+
+msgid "Updated recently"
+msgstr "Onlangs bygewerk"
+
+msgid "System is up to date"
+msgstr "Die stelsel is op datum"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Die laaste bywerking is meer as 'n maand gelede geïnstalleer"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Die laaste bywerking is meer as drie maande gelede geïnstalleer"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 sekonde gelede"
+msgstr[1] "%1 sekondes gelede"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 minuut gelede"
+msgstr[1] "%1 minute gelede"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 uur gelede"
+msgstr[1] "%1 uur gelede"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 dag gelede"
+msgstr[1] "%1 dae gelede"
+
+msgid "Action is required"
+msgstr "Optrede is nodig"
+
+msgid "Action is required!"
+msgstr "Optrede is nodig!"
+
+msgid "Action required"
+msgstr "Optrede nodig"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update kan nie voortgaan nie omdat die komende bywerking vereis dat “%1”, 'n beskermde stelselpakket, verwyder word. Die verwydering daarvan kan keer dat Fluff Linux behoorlik werk. Rapporteer hierdie probleem asseblief op GitHub vir hulp."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Om stelselbywerkings te installeer, moet Fluff Linux Update “%1” verwyder. Die verwydering van hierdie pakket kan verwante sagteware beïnvloed. Indien jy onseker is, rapporteer die probleem asseblief op GitHub vir hulp."
+
+msgid "Accept"
+msgstr "Aanvaar"
+
+msgid "Close"
+msgstr "Sluit"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Om stelselbywerkings te laat voortgaan, is %1 outomaties verwyder nadat dit veilig geag is om te verwyder."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Om stelselbywerkings te laat voortgaan, is die volgende pakkette outomaties verwyder nadat dit veilig geag is om te verwyder: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "'n Lêerkonflik is opgespoor en opgelos. %1 is na %2 hernoem. Die bywerkingsproses het herbegin."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Die botsende pakket kon nie verwyder word nie. Vra asseblief ondersteuning."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update kon nie die FluffNet-bewaarplek se ondertekeningsleutel verifieer nie. Die bywerking is gestop om jou stelsel te beskerm."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update kon nie die FluffNet-bewaarplek se ondertekeningsleutel verifieer nie. Die bywerking is gestop om jou stelsel te beskerm. Dit kan dui op 'n netwerkprobleem, 'n onbeskikbare FluffNet-bediener, 'n vervalde of vervangde ondertekeningsleutel, verkeerde bewaarplekinstellings, 'n onverwagte sleutel, of 'n moontlike inbraak by die bewaarplek. Moenie 'n onverwagte sleutel handmatig aanvaar tensy Fluff Linux geverifieerde instruksies publiseer nie."
+
+msgid "Repository: %1"
+msgstr "Bewaarplek: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Die amptelike FluffNet-bewaarplek se ondertekeningsleutel is geverifieer en by Pacman gevoeg."
+
+msgid "Technical details"
+msgstr "Tegniese besonderhede"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Tegniese besonderhede van bewaarplek-ondertekeningsleutelverifikasie"
+
+msgid "Failure category: %1"
+msgstr "Foutkategorie: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Verwagte vingerafdruk: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Ontvange vingerafdruk: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Aangevraagde ondertekeningsleutel se vingerafdruk: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman-afsluitstatus: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-weergawe: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-weergawe: %1"
+
+msgid "Try Again"
+msgstr "Probeer weer"
+
+msgid "Copy Technical Details"
+msgstr "Kopieer tegniese besonderhede"
+
+msgid "Open an Issue on GitHub"
+msgstr "Rapporteer 'n probleem op GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Daar is nie genoeg vrye bergingsruimte om die bywerking voort te sit nie. Maak ruimte vry en probeer weer."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "'n Pakket- of bewaarplekhandtekening kon nie geverifieer word nie. Die bywerking is gestop. Gaan jou stelseldatum en sleutelring na en probeer weer."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Die pakketdatabasis is beskadig of onleesbaar. Die bywerking is gestop. Vra asseblief ondersteuning voordat jy die databasis herstel."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "'n Afgelaaide pakket is beskadig of onvolledig. Die bywerking is gestop. Probeer asseblief weer of gebruik 'n ander spieëlbediener."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Die bywerking kon nie vereiste lêers lees of skryf nie. Gaan lêerstelseltoestemmings en die skyf se toestand na en probeer weer."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Die bywerkings kon nie afgelaai word nie. Probeer asseblief weer of vra ondersteuning."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Die bywerkingstransaksie kon nie voorberei word nie. Probeer asseblief weer of vra ondersteuning."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Die bywerking kon nie begin nie omdat slaapvoorkoming nie geaktiveer kon word nie. Probeer asseblief weer."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Die pakketdatabasis kon nie gesluit word nie. Sluit ander pakketbestuurders, maak seker dat die lêerstelsel skryfbaar is en probeer weer."
+
+msgid "Estimated time: %1"
+msgstr "Geskatte tyd: %1"

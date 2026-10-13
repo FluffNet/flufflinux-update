@@ -9,6 +9,7 @@ namespace flu {
 ::rust::String translate(::rust::Str message, ::rust::Str plural, std::int64_t count, const ::rust::Vec<::rust::String> &arguments);
 ::rust::String config_directory();
 void initialize_locale(const ::rust::Vec<::rust::String> &languages);
+::rust::Vec<::rust::String> locale_languages();
 QList<QVariant> variants(::rust::Str json);
 void copy_text(const QString &text);
 void open_url(::rust::Str url);

@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: my\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "စနစ်အပ်ဒိတ်များ"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "စနစ်အပ်ဒိတ်များကို ထည့်သွင်းပြီး Fluff Linux ကို လုံခြုံ၍ နောက်ဆုံးအခြေအနေဖြစ်စေပါ။"
+
+msgid "System last updated: %1 (%2)"
+msgstr "စနစ်နောက်ဆုံးအပ်ဒိတ်လုပ်ချိန်: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "အပ်ဒိတ်များ စစ်ဆေးရန်"
+
+msgid "Install Updates"
+msgstr "အပ်ဒိတ်များ ထည့်သွင်းရန်"
+
+msgid "View Updates"
+msgstr "အပ်ဒိတ်များ ကြည့်ရန်"
+
+msgid "Change view"
+msgstr "မြင်ကွင်း ပြောင်းရန်"
+
+msgid "Updates to Install"
+msgstr "ထည့်သွင်းမည့် အပ်ဒိတ်များ"
+
+msgid "Package details are unavailable."
+msgstr "ပက်ကေ့ချ်အသေးစိတ် မရရှိနိုင်ပါ။"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ကို ဖွံ့ဖြိုးဆဲဖြစ်သည်။ ပြဿနာတွေ့ပါက ကျွန်ုပ်တို့၏ GitHub စာမျက်နှာတွင် သတင်းပို့ပါ။"
+
+msgid "System updates were installed successfully."
+msgstr "စနစ်အပ်ဒိတ်များကို အောင်မြင်စွာ ထည့်သွင်းပြီးပါပြီ။"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "ကွန်ရက်ချိတ်ဆက်မှု မရှိပါ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ကွန်ရက်ချိတ်ဆက်မှု အကန့်အသတ်ရှိသည်။ အဖွဲ့အစည်းကွန်ရက်သို့ မချိတ်ဆက်ထားပါက အင်တာနက်ချိတ်ဆက်မှုကို စစ်ဆေးပါ။"
+
+msgid "pacman process is already running."
+msgstr "pacman လုပ်ငန်းစဉ် လုပ်ဆောင်နေပြီးဖြစ်သည်။"
+
+msgid "The update process could not be started."
+msgstr "အပ်ဒိတ်လုပ်ငန်းစဉ်ကို စတင်၍မရပါ။"
+
+msgid "The update process could not be cancelled."
+msgstr "အပ်ဒိတ်လုပ်ငန်းစဉ်ကို ပယ်ဖျက်၍မရပါ။"
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "အပ်ဒိတ်များ ဒေါင်းလုဒ်လုပ်စဉ် ချိတ်ဆက်မှု မအောင်မြင်ပါ။ ကွန်ရက်ကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။"
+
+msgid "The system update failed."
+msgstr "စနစ်အပ်ဒိတ် မအောင်မြင်ပါ။"
+
+msgid "Downloading updates…"
+msgstr "အပ်ဒိတ်များ ဒေါင်းလုဒ်လုပ်နေသည်…"
+
+msgid "Installing updates…"
+msgstr "အပ်ဒိတ်များ ထည့်သွင်းနေသည်…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ဒေါင်းလုဒ်လုပ်ပြီး"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 အပ်ဒိတ်များ ထည့်သွင်းပြီး"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "အပ်ဒိတ်များ ထည့်သွင်းနေသည်။ ထည့်သွင်းမှုပြီးဆုံးသည်အထိ ကွန်ပျူတာကို ပိတ်ခြင်း သို့မဟုတ် ပြန်စခြင်း မပြုလုပ်ပါနှင့်။ အပ်ဒိတ်ကို ဖြတ်တောက်ပါက စနစ်ဖိုင်များ ပျက်စီးနိုင်သည်။"
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ဘက်ထရီအား နည်းနေသည်။ အပ်ဒိတ်များ ထည့်သွင်းစဉ် ကွန်ပျူတာကို အားသွင်းကိရိယာနှင့် ချိတ်ဆက်ပါ။"
+
+msgid "Update process was cancelled"
+msgstr "အပ်ဒိတ်လုပ်ငန်းစဉ်ကို ပယ်ဖျက်ပြီးပါပြီ"
+
+msgid "Cancel"
+msgstr "ပယ်ဖျက်ရန်"
+
+msgid "Checking for updates…"
+msgstr "အပ်ဒိတ်များ စစ်ဆေးနေသည်…"
+
+msgid "System updates are available"
+msgstr "စနစ်အပ်ဒိတ်များ ရရှိနိုင်သည်"
+
+msgid "Download size: %1"
+msgstr "ဒေါင်းလုဒ်အရွယ်အစား: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "စနစ်အပ်ဒိတ်များအတွက် လိုအပ်သောနေရာ: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "အပ်ဒိတ်ပြီးနောက် လွတ်မည့်နေရာ: %1"
+
+msgid "No additional download required"
+msgstr "နောက်ထပ် ဒေါင်းလုဒ်လုပ်ရန် မလိုပါ"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "အပ်ဒိတ်စစ်ဆေးကိရိယာကို စတင်၍မရပါ။ pacman-contrib ထည့်သွင်းထားကြောင်း သေချာစေပါ။"
+
+msgid "The update check stopped unexpectedly."
+msgstr "အပ်ဒိတ်စစ်ဆေးမှု မမျှော်လင့်ဘဲ ရပ်သွားသည်။"
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "မသိသောအမှား ဖြစ်ပွားခဲ့သည်။ အကူအညီရရန် ကျွန်ုပ်တို့၏ GitHub စာမျက်နှာတွင် ဤပြဿနာကို သတင်းပို့ပါ။"
+
+msgid "No internet connection. Check your network and try again."
+msgstr "အင်တာနက်ချိတ်ဆက်မှု မရှိပါ။ ကွန်ရက်ကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။"
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ဆော့ဖ်ဝဲသိုလှောင်ရုံ ဆာဗာများသို့ မရောက်နိုင်ပါ။ နောက်မှ ထပ်ကြိုးစားပါ သို့မဟုတ် မိတ္တူဆာဗာပြင်ဆင်မှုကို စစ်ဆေးပါ။"
+
+msgid "Authorization error, please try again."
+msgstr "ခွင့်ပြုချက်အမှား၊ ထပ်ကြိုးစားပါ။"
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "အဆင့်မြင့်ခွင့်ပြုချက်ဖြင့် အပ်ဒိတ်စစ်ဆေးမှု မမျှော်လင့်ဘဲ ရပ်သွားသည်။"
+
+msgid "The privileged update check could not be started."
+msgstr "အဆင့်မြင့်ခွင့်ပြုချက်ဖြင့် အပ်ဒိတ်စစ်ဆေးမှုကို စတင်၍မရပါ။"
+
+msgid "System was not previously updated."
+msgstr "စနစ်ကို ယခင်က အပ်ဒိတ်မလုပ်ထားပါ။"
+
+msgid "The last update information could not be read."
+msgstr "နောက်ဆုံးအပ်ဒိတ်အချက်အလက်ကို ဖတ်၍မရပါ။"
+
+msgid "The last update information is invalid."
+msgstr "နောက်ဆုံးအပ်ဒိတ်အချက်အလက် မမှန်ကန်ပါ။"
+
+msgid "Updates were not installed on this system"
+msgstr "ဤစနစ်တွင် အပ်ဒိတ်များ မထည့်သွင်းထားပါ"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "စနစ်ကို အပ်ဒိတ်လုပ်ရန် အောက်ပါခလုတ်ဖြင့် ရရှိနိုင်သောအပ်ဒိတ်များကို စစ်ဆေးပါ။"
+
+msgid "Update date available"
+msgstr "အပ်ဒိတ်ရက်စွဲ ရရှိနိုင်သည်"
+
+msgid "Updated recently"
+msgstr "မကြာသေးမီက အပ်ဒိတ်လုပ်ထားသည်"
+
+msgid "System is up to date"
+msgstr "စနစ်သည် နောက်ဆုံးအခြေအနေဖြစ်သည်"
+
+msgid "Last update was installed more than a month ago"
+msgstr "နောက်ဆုံးအပ်ဒိတ်ကို တစ်လကျော်က ထည့်သွင်းထားသည်"
+
+msgid "Last update was installed more than three months ago"
+msgstr "နောက်ဆုံးအပ်ဒိတ်ကို သုံးလကျော်က ထည့်သွင်းထားသည်"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 စက္ကန့်က"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 မိနစ်က"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 နာရီက"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ရက်က"
+
+msgid "Action is required"
+msgstr "လုပ်ဆောင်ရန် လိုအပ်သည်"
+
+msgid "Action is required!"
+msgstr "လုပ်ဆောင်ရန် လိုအပ်သည်!"
+
+msgid "Action required"
+msgstr "လိုအပ်သော လုပ်ဆောင်ချက်"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "လာမည့်အပ်ဒိတ်အတွက် ကာကွယ်ထားသော စနစ်ပက်ကေ့ချ် “%1” ကို ဖယ်ရှားရန်လိုသောကြောင့် Fluff Linux Update ဆက်မလုပ်နိုင်ပါ။ ၎င်းကို ဖယ်ရှားပါက Fluff Linux မှန်ကန်စွာ အလုပ်လုပ်နိုင်မည် မဟုတ်ပါ။ အကူအညီရရန် GitHub တွင် သတင်းပို့ပါ။"
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "စနစ်အပ်ဒိတ်များ ထည့်သွင်းရန် Fluff Linux Update သည် “%1” ကို ဖယ်ရှားရန်လိုသည်။ ဤပက်ကေ့ချ်ကို ဖယ်ရှားခြင်းသည် ဆက်စပ်ဆော့ဖ်ဝဲကို ထိခိုက်နိုင်သည်။ မသေချာပါက အကူအညီရရန် GitHub တွင် သတင်းပို့ပါ။"
+
+msgid "Accept"
+msgstr "လက်ခံရန်"
+
+msgid "Close"
+msgstr "ပိတ်ရန်"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "စနစ်အပ်ဒိတ်များ ဆက်လုပ်ရန် %1 ကို ဖယ်ရှားခြင်း လုံခြုံကြောင်း သတ်မှတ်ပြီးနောက် အလိုအလျောက် ဖယ်ရှားခဲ့သည်။"
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "စနစ်အပ်ဒိတ်များ ဆက်လုပ်ရန် အောက်ပါပက်ကေ့ချ်များကို ဖယ်ရှားခြင်း လုံခြုံကြောင်း သတ်မှတ်ပြီးနောက် အလိုအလျောက် ဖယ်ရှားခဲ့သည်: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ဖိုင်ပဋိပက္ခကို တွေ့ရှိပြီး ဖြေရှင်းခဲ့သည်။ %1 ကို %2 ဟု အမည်ပြောင်းခဲ့သည်။ အပ်ဒိတ်လုပ်ငန်းစဉ် ပြန်စတင်ခဲ့သည်။"
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "ပဋိပက္ခဖြစ်သော ပက်ကေ့ချ်ကို ဖယ်ရှား၍မရပါ။ အကူအညီတောင်းပါ။"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update သည် FluffNet သိုလှောင်ရုံ၏ လက်မှတ်ရေးထိုးသော့ကို အတည်မပြုနိုင်ပါ။ သင့်စနစ်ကို ကာကွယ်ရန် အပ်ဒိတ်ကို ရပ်ထားသည်။"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update သည် FluffNet သိုလှောင်ရုံ၏ လက်မှတ်ရေးထိုးသော့ကို အတည်မပြုနိုင်ပါ။ သင့်စနစ်ကို ကာကွယ်ရန် အပ်ဒိတ်ကို ရပ်ထားသည်။ ကွန်ရက်ပြဿနာ၊ မရရှိနိုင်သော FluffNet ဆာဗာ၊ သက်တမ်းကုန် သို့မဟုတ် ပြောင်းလဲထားသော လက်မှတ်ရေးထိုးသော့၊ သိုလှောင်ရုံပြင်ဆင်မှုပြဿနာ၊ မမျှော်လင့်သောသော့ သို့မဟုတ် သိုလှောင်ရုံတိုက်ခိုက်ခံရခြင်း ဖြစ်နိုင်သည်။ Fluff Linux က အတည်ပြုထားသော ညွှန်ကြားချက်များ မထုတ်ပြန်လျှင် မမျှော်လင့်သောသော့ကို ကိုယ်တိုင် လက်မခံပါနှင့်။"
+
+msgid "Repository: %1"
+msgstr "သိုလှောင်ရုံ: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet သိုလှောင်ရုံ၏ တရားဝင်လက်မှတ်ရေးထိုးသော့ကို အတည်ပြုပြီး Pacman သို့ ထည့်ခဲ့သည်။"
+
+msgid "Technical details"
+msgstr "နည်းပညာအသေးစိတ်"
+
+msgid "Repository signing-key verification technical details"
+msgstr "သိုလှောင်ရုံ လက်မှတ်ရေးထိုးသော့ အတည်ပြုခြင်းဆိုင်ရာ နည်းပညာအသေးစိတ်"
+
+msgid "Failure category: %1"
+msgstr "ပျက်ကွက်မှုအမျိုးအစား: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "မျှော်လင့်ထားသော လက်ဗွေ: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "လက်ခံရရှိသော လက်ဗွေ: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "တောင်းဆိုထားသော လက်မှတ်ရေးထိုးသော့၏ လက်ဗွေ: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman ထွက်ခွာမှုအခြေအနေ: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU ဗားရှင်း: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux ဗားရှင်း: %1"
+
+msgid "Try Again"
+msgstr "ထပ်ကြိုးစားရန်"
+
+msgid "Copy Technical Details"
+msgstr "နည်းပညာအသေးစိတ် ကူးယူရန်"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub တွင် ပြဿနာတင်ရန်"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "အပ်ဒိတ်ဆက်လုပ်ရန် နေရာလွတ် မလုံလောက်ပါ။ နေရာရှင်းပြီး ထပ်ကြိုးစားပါ။"
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "ပက်ကေ့ချ် သို့မဟုတ် သိုလှောင်ရုံ၏ လက်မှတ်ကို အတည်မပြုနိုင်ပါ။ အပ်ဒိတ် ရပ်ထားသည်။ စနစ်ရက်စွဲနှင့် သော့စုကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။"
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "ပက်ကေ့ချ်ဒေတာဘေ့စ် ပျက်စီးနေသည် သို့မဟုတ် ဖတ်၍မရပါ။ အပ်ဒိတ် ရပ်ထားသည်။ ဒေတာဘေ့စ်ကို မပြင်မီ အကူအညီတောင်းပါ။"
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ဒေါင်းလုဒ်လုပ်ထားသော ပက်ကေ့ချ် ပျက်စီးနေသည် သို့မဟုတ် မပြည့်စုံပါ။ အပ်ဒိတ် ရပ်ထားသည်။ ထပ်ကြိုးစားပါ သို့မဟုတ် အခြားမိတ္တူဆာဗာကို သုံးပါ။"
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "အပ်ဒိတ်သည် လိုအပ်သောဖိုင်များကို ဖတ်ခြင်း သို့မဟုတ် ရေးခြင်း မပြုလုပ်နိုင်ပါ။ ဖိုင်စနစ်ခွင့်ပြုချက်နှင့် ဒစ်ခ်အခြေအနေကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။"
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "အပ်ဒိတ်များ ဒေါင်းလုဒ်လုပ်၍မရပါ။ ထပ်ကြိုးစားပါ သို့မဟုတ် အကူအညီတောင်းပါ။"
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "အပ်ဒိတ်ဆောင်ရွက်ချက်ကို ပြင်ဆင်၍မရပါ။ ထပ်ကြိုးစားပါ သို့မဟုတ် အကူအညီတောင်းပါ။"
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "အိပ်စက်မှုတားဆီးခြင်းကို ဖွင့်၍မရသောကြောင့် အပ်ဒိတ် မစတင်နိုင်ပါ။ ထပ်ကြိုးစားပါ။"
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "ပက်ကေ့ချ်ဒေတာဘေ့စ်ကို သော့ခတ်၍မရပါ။ အခြားပက်ကေ့ချ်မန်နေဂျာများကို ပိတ်ပြီး ဖိုင်စနစ်တွင် ရေးနိုင်ကြောင်း စစ်ဆေးပါ၊ ထို့နောက် ထပ်ကြိုးစားပါ။"
+
+msgid "Estimated time: %1"
+msgstr "ခန့်မှန်းချိန်: %1"

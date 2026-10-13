@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Actualizacións do sistema"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Mantén Fluff Linux seguro e ao día instalando actualizacións do sistema."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Última actualización do sistema: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Buscar actualizacións"
+
+msgid "Install Updates"
+msgstr "Instalar actualizacións"
+
+msgid "View Updates"
+msgstr "Ver actualizacións"
+
+msgid "Change view"
+msgstr "Cambiar a vista"
+
+msgid "Updates to Install"
+msgstr "Actualizacións para instalar"
+
+msgid "Package details are unavailable."
+msgstr "Os detalles dos paquetes non están dispoñibles."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update aínda está en desenvolvemento. Se atopas algún problema, comunícao na nosa páxina de GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "As actualizacións do sistema instaláronse correctamente."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Non hai conexión de rede!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "A conexión de rede é limitada. Se non estás conectado á rede dunha organización, comproba a conexión a Internet."
+
+msgid "pacman process is already running."
+msgstr "Xa se está executando un proceso de pacman."
+
+msgid "The update process could not be started."
+msgstr "Non foi posible iniciar o proceso de actualización."
+
+msgid "The update process could not be cancelled."
+msgstr "Non foi posible cancelar o proceso de actualización."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "A conexión fallou ao descargar as actualizacións. Comproba a rede e téntao de novo."
+
+msgid "The system update failed."
+msgstr "A actualización do sistema fallou."
+
+msgid "Downloading updates…"
+msgstr "Descargando actualizacións…"
+
+msgid "Installing updates…"
+msgstr "Instalando actualizacións…"
+
+msgid "%1 / %2 downloaded"
+msgstr "Descargáronse %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "Instaláronse %1/%2 actualizacións"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Estanse instalando actualizacións. Non apagues nin reinicies o ordenador ata que remate a instalación. Interromper a actualización pode danar os ficheiros do sistema."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "A batería está baixa. Conecta o ordenador a un cargador mentres se instalan as actualizacións."
+
+msgid "Update process was cancelled"
+msgstr "Cancelouse o proceso de actualización"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Checking for updates…"
+msgstr "Buscando actualizacións…"
+
+msgid "System updates are available"
+msgstr "Hai actualizacións do sistema dispoñibles"
+
+msgid "Download size: %1"
+msgstr "Tamaño da descarga: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Espazo necesario para as actualizacións do sistema: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Espazo liberado tras a actualización: %1"
+
+msgid "No additional download required"
+msgstr "Non se precisa ningunha descarga adicional"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Non foi posible iniciar o comprobador de actualizacións. Asegúrate de que pacman-contrib estea instalado."
+
+msgid "The update check stopped unexpectedly."
+msgstr "A comprobación de actualizacións detívose inesperadamente."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Produciuse un erro descoñecido. Comunica o problema na nosa páxina de GitHub para obter axuda."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Non hai conexión a Internet. Comproba a rede e téntao de novo."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Non foi posible contactar cos servidores dos repositorios. Téntao máis tarde ou comproba a configuración dos servidores espello."
+
+msgid "Authorization error, please try again."
+msgstr "Erro de autorización. Téntao de novo."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "A comprobación de actualizacións con privilexios detívose inesperadamente."
+
+msgid "The privileged update check could not be started."
+msgstr "Non foi posible iniciar a comprobación de actualizacións con privilexios."
+
+msgid "System was not previously updated."
+msgstr "O sistema non se actualizara antes."
+
+msgid "The last update information could not be read."
+msgstr "Non foi posible ler a información da última actualización."
+
+msgid "The last update information is invalid."
+msgstr "A información da última actualización non é válida."
+
+msgid "Updates were not installed on this system"
+msgstr "Non se instalaron actualizacións neste sistema"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Para actualizar o sistema, busca actualizacións dispoñibles co botón de abaixo."
+
+msgid "Update date available"
+msgstr "Hai unha data de actualización dispoñible"
+
+msgid "Updated recently"
+msgstr "Actualizado recentemente"
+
+msgid "System is up to date"
+msgstr "O sistema está ao día"
+
+msgid "Last update was installed more than a month ago"
+msgstr "A última actualización instalouse hai máis dun mes"
+
+msgid "Last update was installed more than three months ago"
+msgstr "A última actualización instalouse hai máis de tres meses"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Hai %1 segundo"
+msgstr[1] "Hai %1 segundos"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Hai %1 minuto"
+msgstr[1] "Hai %1 minutos"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Hai %1 hora"
+msgstr[1] "Hai %1 horas"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Hai %1 día"
+msgstr[1] "Hai %1 días"
+
+msgid "Action is required"
+msgstr "É necesaria unha acción"
+
+msgid "Action is required!"
+msgstr "É necesaria unha acción!"
+
+msgid "Action required"
+msgstr "Acción necesaria"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update non pode continuar porque a próxima actualización require eliminar «%1», un paquete protexido do sistema. Eliminalo podería impedir que Fluff Linux funcione correctamente. Comunica o problema en GitHub para obter axuda."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Para poder instalar as actualizacións, Fluff Linux Update necesita eliminar «%1». Eliminar este paquete pode afectar o software relacionado. Se non estás seguro, comunica o problema en GitHub para pedir axuda."
+
+msgid "Accept"
+msgstr "Aceptar"
+
+msgid "Close"
+msgstr "Pechar"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Para continuar as actualizacións do sistema, eliminouse automaticamente %1 tras considerar segura a súa eliminación."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Para continuar as actualizacións do sistema, elimináronse automaticamente os seguintes paquetes tras considerar segura a súa eliminación: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Detectouse e resolveuse un conflito de ficheiros. Cambiouse o nome de %1 a %2. O proceso de actualización reiniciouse."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Non foi posible eliminar o paquete en conflito. Solicita asistencia."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update non puido verificar a chave de sinatura do repositorio FluffNet. A actualización detívose para protexer o sistema."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update non puido verificar a chave de sinatura do repositorio FluffNet. A actualización detívose para protexer o sistema. Isto pode indicar un problema de rede, un servidor FluffNet non dispoñible, unha chave de sinatura caducada ou substituída, un problema de configuración do repositorio, unha chave inesperada ou un posible compromiso do repositorio. Non aceptes manualmente unha chave inesperada salvo que Fluff Linux publique instrucións verificadas."
+
+msgid "Repository: %1"
+msgstr "Repositorio: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "A chave de sinatura oficial do repositorio FluffNet verificouse e engadiuse a Pacman."
+
+msgid "Technical details"
+msgstr "Detalles técnicos"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Detalles técnicos da verificación da chave de sinatura do repositorio"
+
+msgid "Failure category: %1"
+msgstr "Categoría do fallo: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Pegada dixital esperada: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Pegada dixital recibida: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Pegada dixital da chave de sinatura solicitada: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Estado de saída de Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Versión de FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Versión de Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Tentar de novo"
+
+msgid "Copy Technical Details"
+msgstr "Copiar os detalles técnicos"
+
+msgid "Open an Issue on GitHub"
+msgstr "Abrir unha incidencia en GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Non hai espazo libre suficiente para continuar a actualización. Libera espazo e téntao de novo."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Non foi posible verificar a sinatura dun paquete ou repositorio. A actualización detívose. Comproba a data do sistema e o anel de chaves e téntao de novo."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "A base de datos de paquetes está danada ou non se pode ler. A actualización detívose. Solicita asistencia antes de reparar a base de datos."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Un paquete descargado está danado ou incompleto. A actualización detívose. Téntao de novo ou usa outro servidor espello."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "A actualización non puido ler ou escribir os ficheiros necesarios. Comproba os permisos do sistema de ficheiros e o estado do disco e téntao de novo."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Non foi posible descargar as actualizacións. Téntao de novo ou solicita asistencia."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Non foi posible preparar a transacción de actualización. Téntao de novo ou solicita asistencia."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Non foi posible iniciar a actualización porque non se puido impedir a suspensión. Téntao de novo."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Non foi posible bloquear a base de datos de paquetes. Pecha outros xestores de paquetes, comproba que se poida escribir no sistema de ficheiros e téntao de novo."
+
+msgid "Estimated time: %1"
+msgstr "Tempo estimado: %1"

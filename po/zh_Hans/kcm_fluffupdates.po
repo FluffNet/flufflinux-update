@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: zh_Hans\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "系统更新"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "安装系统更新，让 Fluff Linux 保持安全和最新状态。"
+
+msgid "System last updated: %1 (%2)"
+msgstr "系统上次更新：%1（%2）"
+
+msgid "Check for Updates"
+msgstr "检查更新"
+
+msgid "Install Updates"
+msgstr "安装更新"
+
+msgid "View Updates"
+msgstr "查看更新"
+
+msgid "Change view"
+msgstr "切换视图"
+
+msgid "Updates to Install"
+msgstr "待安装的更新"
+
+msgid "Package details are unavailable."
+msgstr "无法获取软件包详情。"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update 仍在开发中。如遇到问题，请在我们的 GitHub 页面上报告。"
+
+msgid "System updates were installed successfully."
+msgstr "系统更新已成功安装。"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "没有网络连接！"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "网络连接受限。如果您未连接到组织内部网络，请检查互联网连接。"
+
+msgid "pacman process is already running."
+msgstr "pacman 进程已在运行。"
+
+msgid "The update process could not be started."
+msgstr "无法启动更新进程。"
+
+msgid "The update process could not be cancelled."
+msgstr "无法取消更新进程。"
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "下载更新时连接失败。请检查网络并重试。"
+
+msgid "The system update failed."
+msgstr "系统更新失败。"
+
+msgid "Downloading updates…"
+msgstr "正在下载更新…"
+
+msgid "Installing updates…"
+msgstr "正在安装更新…"
+
+msgid "%1 / %2 downloaded"
+msgstr "已下载 %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "已安装 %1/%2 项更新"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "正在安装更新。安装完成前，请勿关闭或重启计算机。中断更新可能损坏系统文件。"
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "电池电量低。安装更新时，请将计算机连接到充电器。"
+
+msgid "Update process was cancelled"
+msgstr "更新进程已取消"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Checking for updates…"
+msgstr "正在检查更新…"
+
+msgid "System updates are available"
+msgstr "有可用的系统更新"
+
+msgid "Download size: %1"
+msgstr "下载大小：%1"
+
+msgid "Storage required for system updates: %1"
+msgstr "系统更新所需的存储空间：%1"
+
+msgid "Storage freed after update: %1"
+msgstr "更新后释放的存储空间：%1"
+
+msgid "No additional download required"
+msgstr "无需额外下载"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "无法启动更新检查程序。请确保已安装 pacman-contrib。"
+
+msgid "The update check stopped unexpectedly."
+msgstr "更新检查意外停止。"
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "发生未知错误。请在我们的 GitHub 页面上报告此问题以获取帮助。"
+
+msgid "No internet connection. Check your network and try again."
+msgstr "没有互联网连接。请检查网络并重试。"
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "无法连接到软件仓库服务器。请稍后重试或检查镜像配置。"
+
+msgid "Authorization error, please try again."
+msgstr "授权错误，请重试。"
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "需要管理员权限的更新检查意外停止。"
+
+msgid "The privileged update check could not be started."
+msgstr "无法启动需要管理员权限的更新检查。"
+
+msgid "System was not previously updated."
+msgstr "系统此前未更新过。"
+
+msgid "The last update information could not be read."
+msgstr "无法读取上次更新信息。"
+
+msgid "The last update information is invalid."
+msgstr "上次更新信息无效。"
+
+msgid "Updates were not installed on this system"
+msgstr "此系统尚未安装过更新"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "要更新系统，请使用下方按钮检查可用更新。"
+
+msgid "Update date available"
+msgstr "有可用的更新日期"
+
+msgid "Updated recently"
+msgstr "最近已更新"
+
+msgid "System is up to date"
+msgstr "系统已是最新状态"
+
+msgid "Last update was installed more than a month ago"
+msgstr "上次更新是在一个多月前安装的"
+
+msgid "Last update was installed more than three months ago"
+msgstr "上次更新是在三个多月前安装的"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 秒前"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 分钟前"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 小时前"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 天前"
+
+msgid "Action is required"
+msgstr "需要采取操作"
+
+msgid "Action is required!"
+msgstr "需要采取操作！"
+
+msgid "Action required"
+msgstr "需要操作"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update 无法继续，因为即将进行的更新需要移除受保护的系统软件包“%1”。移除它可能导致 Fluff Linux 无法正常运行。请在 GitHub 上报告此问题以获取帮助。"
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "为了让系统安装更新，Fluff Linux Update 需要移除“%1”。移除此软件包可能影响相关软件。如不确定，请在 GitHub 上报告此问题以寻求帮助。"
+
+msgid "Accept"
+msgstr "接受"
+
+msgid "Close"
+msgstr "关闭"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "为了让系统更新继续，在确认移除安全后，已自动移除 %1。"
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "为了让系统更新继续，在确认移除安全后，已自动移除以下软件包：%1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "已发现并解决文件冲突。%1 已重命名为 %2。更新进程已重新启动。"
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "无法移除冲突的软件包。请寻求支持。"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update 无法验证 FluffNet 软件仓库的签名密钥。为保护系统，更新已停止。"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update 无法验证 FluffNet 软件仓库的签名密钥。为保护系统，更新已停止。这可能表示网络问题、FluffNet 服务器不可用、签名密钥过期或已轮换、软件仓库配置有误、出现意外密钥，或软件仓库可能已被入侵。除非 Fluff Linux 发布经过验证的说明，否则请勿手动接受意外密钥。"
+
+msgid "Repository: %1"
+msgstr "软件仓库：%1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet 官方软件仓库的签名密钥已验证并添加到 Pacman。"
+
+msgid "Technical details"
+msgstr "技术详情"
+
+msgid "Repository signing-key verification technical details"
+msgstr "软件仓库签名密钥验证的技术详情"
+
+msgid "Failure category: %1"
+msgstr "失败类别：%1"
+
+msgid "Expected fingerprint: %1"
+msgstr "预期的指纹：%1"
+
+msgid "Received fingerprint: %1"
+msgstr "收到的指纹：%1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "请求的签名密钥指纹：%1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman 退出状态：%1"
+
+msgid "FLU version: %1"
+msgstr "FLU 版本：%1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux 版本：%1"
+
+msgid "Try Again"
+msgstr "重试"
+
+msgid "Copy Technical Details"
+msgstr "复制技术详情"
+
+msgid "Open an Issue on GitHub"
+msgstr "在 GitHub 上报告问题"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "可用存储空间不足，无法继续更新。请释放空间并重试。"
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "无法验证软件包或软件仓库的签名。更新已停止。请检查系统日期和密钥环，然后重试。"
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "软件包数据库已损坏或无法读取。更新已停止。修复数据库前，请寻求支持。"
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "下载的软件包已损坏或不完整。更新已停止。请重试或使用其他镜像。"
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "更新无法读取或写入所需文件。请检查文件系统权限和磁盘健康状况，然后重试。"
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "无法下载更新。请重试或寻求支持。"
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "无法准备更新事务。请重试或寻求支持。"
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "无法启用阻止休眠功能，因此无法开始更新。请重试。"
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "无法锁定软件包数据库。请关闭其他软件包管理器并检查文件系统是否可写，然后重试。"
+
+msgid "Estimated time: %1"
+msgstr "预计时间：%1"

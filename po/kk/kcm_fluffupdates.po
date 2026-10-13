@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Жүйе жаңартулары"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Жүйе жаңартуларын орнатып, Fluff Linux қауіпсіздігі мен өзектілігін сақтаңыз."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Жүйенің соңғы жаңартылуы: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Жаңартуларды тексеру"
+
+msgid "Install Updates"
+msgstr "Жаңартуларды орнату"
+
+msgid "View Updates"
+msgstr "Жаңартуларды қарау"
+
+msgid "Change view"
+msgstr "Көріністі өзгерту"
+
+msgid "Updates to Install"
+msgstr "Орнатылатын жаңартулар"
+
+msgid "Package details are unavailable."
+msgstr "Пакет мәліметтері қолжетімсіз."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update әлі әзірленіп жатыр. Мәселеге тап болсаңыз, GitHub парақшамызда хабарлаңыз."
+
+msgid "System updates were installed successfully."
+msgstr "Жүйе жаңартулары сәтті орнатылды."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Желі байланысы жоқ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Желі байланысы шектеулі. Ұйым желісіне қосылмаған болсаңыз, интернет байланысын тексеріңіз."
+
+msgid "pacman process is already running."
+msgstr "pacman процесі іске қосылған."
+
+msgid "The update process could not be started."
+msgstr "Жаңарту процесін бастау мүмкін болмады."
+
+msgid "The update process could not be cancelled."
+msgstr "Жаңарту процесінен бас тарту мүмкін болмады."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Жаңартуларды жүктеу кезінде байланыс үзілді. Желіні тексеріп, қайталап көріңіз."
+
+msgid "The system update failed."
+msgstr "Жүйені жаңарту сәтсіз аяқталды."
+
+msgid "Downloading updates…"
+msgstr "Жаңартулар жүктелуде…"
+
+msgid "Installing updates…"
+msgstr "Жаңартулар орнатылуда…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 жүктелді"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 жаңарту орнатылды"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Жаңартулар орнатылып жатыр. Орнату аяқталғанша компьютерді өшірмеңіз және қайта іске қоспаңыз. Жаңартуды үзу жүйе файлдарын зақымдауы мүмкін."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Батарея заряды аз. Жаңартуларды орнату кезінде компьютерді зарядтағышқа қосыңыз."
+
+msgid "Update process was cancelled"
+msgstr "Жаңарту процесінен бас тартылды"
+
+msgid "Cancel"
+msgstr "Бас тарту"
+
+msgid "Checking for updates…"
+msgstr "Жаңартулар тексерілуде…"
+
+msgid "System updates are available"
+msgstr "Жүйе жаңартулары қолжетімді"
+
+msgid "Download size: %1"
+msgstr "Жүктеу көлемі: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Жүйе жаңартуларына қажетті орын: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Жаңартудан кейін босайтын орын: %1"
+
+msgid "No additional download required"
+msgstr "Қосымша жүктеу қажет емес"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Жаңартуларды тексергішті іске қосу мүмкін болмады. pacman-contrib орнатылғанына көз жеткізіңіз."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Жаңартуларды тексеру күтпеген жерден тоқтады."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Белгісіз қате орын алды. Көмек алу үшін GitHub парақшамызда осы мәселе туралы хабарлаңыз."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Интернет байланысы жоқ. Желіні тексеріп, қайталап көріңіз."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Репозиторий серверлеріне қосылу мүмкін болмады. Кейінірек қайталаңыз немесе айна баптауын тексеріңіз."
+
+msgid "Authorization error, please try again."
+msgstr "Рұқсат беру қатесі, қайталап көріңіз."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Жоғары құқықтармен жаңартуларды тексеру күтпеген жерден тоқтады."
+
+msgid "The privileged update check could not be started."
+msgstr "Жоғары құқықтармен жаңартуларды тексеруді бастау мүмкін болмады."
+
+msgid "System was not previously updated."
+msgstr "Жүйе бұрын жаңартылмаған."
+
+msgid "The last update information could not be read."
+msgstr "Соңғы жаңарту ақпаратын оқу мүмкін болмады."
+
+msgid "The last update information is invalid."
+msgstr "Соңғы жаңарту ақпараты жарамсыз."
+
+msgid "Updates were not installed on this system"
+msgstr "Бұл жүйеде жаңартулар орнатылмаған"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Жүйені жаңарту үшін төмендегі батырмамен қолжетімді жаңартуларды тексеріңіз."
+
+msgid "Update date available"
+msgstr "Жаңарту күні қолжетімді"
+
+msgid "Updated recently"
+msgstr "Жақында жаңартылды"
+
+msgid "System is up to date"
+msgstr "Жүйе өзекті"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Соңғы жаңарту бір айдан астам уақыт бұрын орнатылған"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Соңғы жаңарту үш айдан астам уақыт бұрын орнатылған"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 секунд бұрын"
+msgstr[1] "%1 секунд бұрын"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 минут бұрын"
+msgstr[1] "%1 минут бұрын"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 сағат бұрын"
+msgstr[1] "%1 сағат бұрын"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 күн бұрын"
+msgstr[1] "%1 күн бұрын"
+
+msgid "Action is required"
+msgstr "Әрекет қажет"
+
+msgid "Action is required!"
+msgstr "Әрекет қажет!"
+
+msgid "Action required"
+msgstr "Қажетті әрекет"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update жалғастыра алмайды, себебі келесі жаңарту қорғалған жүйелік “%1” пакетін жоюды талап етеді. Оны жою Fluff Linux дұрыс жұмыс істеуіне кедергі келтіруі мүмкін. Көмек алу үшін GitHub-та осы мәселе туралы хабарлаңыз."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Жүйе жаңартуларын орнату үшін Fluff Linux Update “%1” пакетін жоюы керек. Бұл пакетті жою байланысты бағдарламаларға әсер етуі мүмкін. Сенімді болмасаңыз, көмек алу үшін GitHub-та мәселе туралы хабарлаңыз."
+
+msgid "Accept"
+msgstr "Қабылдау"
+
+msgid "Close"
+msgstr "Жабу"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Жүйе жаңартуларын жалғастыру үшін %1 жою қауіпсіз деп танылғаннан кейін автоматты түрде жойылды."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Жүйе жаңартуларын жалғастыру үшін мына пакеттер жою қауіпсіз деп танылғаннан кейін автоматты түрде жойылды: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Файл қайшылығы анықталып, шешілді. %1 атауы %2 болып өзгертілді. Жаңарту процесі қайта басталды."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Қайшылық тудыратын пакетті жою мүмкін болмады. Қолдау қызметіне жүгініңіз."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update FluffNet репозиторийінің қол қою кілтін тексере алмады. Жүйеңізді қорғау үшін жаңарту тоқтатылды."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update FluffNet репозиторийінің қол қою кілтін тексере алмады. Жүйеңізді қорғау үшін жаңарту тоқтатылды. Бұл желі мәселесін, FluffNet серверінің қолжетімсіздігін, мерзімі өткен немесе ауыстырылған қол қою кілтін, репозиторий баптауының қатесін, күтпеген кілтті немесе репозиторийдің бұзылуын білдіруі мүмкін. Fluff Linux тексерілген нұсқаулар жарияламайынша, күтпеген кілтті қолмен қабылдамаңыз."
+
+msgid "Repository: %1"
+msgstr "Репозиторий: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet репозиторийінің ресми қол қою кілті тексеріліп, Pacman-ға қосылды."
+
+msgid "Technical details"
+msgstr "Техникалық мәліметтер"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Репозиторийдің қол қою кілтін тексерудің техникалық мәліметтері"
+
+msgid "Failure category: %1"
+msgstr "Қате санаты: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Күтілетін таңба: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Алынған таңба: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Сұралған қол қою кілтінің таңбасы: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman шығу күйі: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU нұсқасы: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux нұсқасы: %1"
+
+msgid "Try Again"
+msgstr "Қайталау"
+
+msgid "Copy Technical Details"
+msgstr "Техникалық мәліметтерді көшіру"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub-та мәселе ашу"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Жаңартуды жалғастыру үшін бос орын жеткіліксіз. Орын босатып, қайталап көріңіз."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Пакет немесе репозиторий қолтаңбасын тексеру мүмкін болмады. Жаңарту тоқтатылды. Жүйе күні мен кілттер қорын тексеріп, қайталап көріңіз."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Пакеттер дерекқоры зақымдалған немесе оқылмайды. Жаңарту тоқтатылды. Дерекқорды жөндемес бұрын қолдау қызметіне жүгініңіз."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Жүктелген пакет зақымдалған немесе толық емес. Жаңарту тоқтатылды. Қайталап көріңіз немесе басқа айнаны пайдаланыңыз."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Жаңарту қажетті файлдарды оқи немесе жаза алмады. Файлдық жүйе рұқсаттары мен диск күйін тексеріп, қайталап көріңіз."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Жаңартуларды жүктеу мүмкін болмады. Қайталап көріңіз немесе қолдау қызметіне жүгініңіз."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Жаңарту транзакциясын дайындау мүмкін болмады. Қайталап көріңіз немесе қолдау қызметіне жүгініңіз."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ұйқы режимін болдырмау іске қосылмағандықтан жаңарту басталмады. Қайталап көріңіз."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Пакеттер дерекқорын бұғаттау мүмкін болмады. Басқа пакет басқарғыштарын жауып, файлдық жүйеге жазуға болатынын тексеріңіз, содан кейін қайталап көріңіз."
+
+msgid "Estimated time: %1"
+msgstr "Болжамды уақыт: %1"

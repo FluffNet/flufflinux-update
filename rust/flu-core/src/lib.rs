@@ -2,6 +2,7 @@
 
 mod battery;
 pub mod desktop;
+pub mod locale;
 pub mod notifications;
 pub mod operational_error;
 pub mod runtime;

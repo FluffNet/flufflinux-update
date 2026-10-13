@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ca_valencia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Actualitzacions del sistema"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Manteniu Fluff Linux segur i al dia instal·lant actualitzacions del sistema."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Última actualització del sistema: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Comprova si hi ha actualitzacions"
+
+msgid "Install Updates"
+msgstr "Instal·la les actualitzacions"
+
+msgid "View Updates"
+msgstr "Mostra les actualitzacions"
+
+msgid "Change view"
+msgstr "Canvia la vista"
+
+msgid "Updates to Install"
+msgstr "Actualitzacions per instal·lar"
+
+msgid "Package details are unavailable."
+msgstr "Els detalls dels paquets no estan disponibles."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update encara està en desenvolupament. Si trobeu cap problema, informeu-ne a la nostra pàgina de GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Les actualitzacions del sistema s'han instal·lat correctament."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "No hi ha connexió de xarxa!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "La connexió de xarxa és limitada. Si no esteu connectat a una xarxa d'una organització, comproveu la connexió a Internet."
+
+msgid "pacman process is already running."
+msgstr "Ja s'està executant un procés de pacman."
+
+msgid "The update process could not be started."
+msgstr "No s'ha pogut iniciar el procés d'actualització."
+
+msgid "The update process could not be cancelled."
+msgstr "No s'ha pogut cancel·lar el procés d'actualització."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "La connexió ha fallat durant la baixada d'actualitzacions. Comproveu la xarxa i torneu-ho a provar."
+
+msgid "The system update failed."
+msgstr "L'actualització del sistema ha fallat."
+
+msgid "Downloading updates…"
+msgstr "S'estan baixant les actualitzacions…"
+
+msgid "Installing updates…"
+msgstr "S'estan instal·lant les actualitzacions…"
+
+msgid "%1 / %2 downloaded"
+msgstr "S'han baixat %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "S'han instal·lat %1/%2 actualitzacions"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "S'estan instal·lant actualitzacions. No apagueu ni reinicieu l'ordinador fins que acabe la instal·lació. Interrompre l'actualització pot malmetre fitxers del sistema."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "La bateria està baixa. Connecteu l'ordinador a un carregador mentre instal·leu actualitzacions."
+
+msgid "Update process was cancelled"
+msgstr "S'ha cancel·lat el procés d'actualització"
+
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgid "Checking for updates…"
+msgstr "S'estan cercant actualitzacions…"
+
+msgid "System updates are available"
+msgstr "Hi ha actualitzacions del sistema disponibles"
+
+msgid "Download size: %1"
+msgstr "Mida de la baixada: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Espai necessari per a les actualitzacions del sistema: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Espai alliberat després de l'actualització: %1"
+
+msgid "No additional download required"
+msgstr "No cal baixar res més"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "No s'ha pogut iniciar el comprovador d'actualitzacions. Assegureu-vos que pacman-contrib està instal·lat."
+
+msgid "The update check stopped unexpectedly."
+msgstr "La comprovació d'actualitzacions s'ha aturat inesperadament."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "S'ha produït un error desconegut. Informeu-ne a la nostra pàgina de GitHub per obtenir ajuda."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "No hi ha connexió a Internet. Comproveu la xarxa i torneu-ho a provar."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "No s'ha pogut contactar amb els servidors dels repositoris. Proveu-ho més tard o comproveu la configuració dels servidors rèplica."
+
+msgid "Authorization error, please try again."
+msgstr "Error d'autorització. Torneu-ho a provar."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "La comprovació d'actualitzacions amb privilegis s'ha aturat inesperadament."
+
+msgid "The privileged update check could not be started."
+msgstr "No s'ha pogut iniciar la comprovació d'actualitzacions amb privilegis."
+
+msgid "System was not previously updated."
+msgstr "El sistema no s'havia actualitzat abans."
+
+msgid "The last update information could not be read."
+msgstr "No s'ha pogut llegir la informació de la última actualització."
+
+msgid "The last update information is invalid."
+msgstr "La informació de la última actualització no és vàlida."
+
+msgid "Updates were not installed on this system"
+msgstr "No s'han instal·lat actualitzacions en este sistema"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Per actualitzar el sistema, cerqueu actualitzacions disponibles amb el botó següent."
+
+msgid "Update date available"
+msgstr "Hi ha una data d'actualització disponible"
+
+msgid "Updated recently"
+msgstr "Actualitzat recentment"
+
+msgid "System is up to date"
+msgstr "El sistema està al dia"
+
+msgid "Last update was installed more than a month ago"
+msgstr "La última actualització es va instal·lar fa més d'un mes"
+
+msgid "Last update was installed more than three months ago"
+msgstr "La última actualització es va instal·lar fa més de tres mesos"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Fa %1 segon"
+msgstr[1] "Fa %1 segons"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Fa %1 minut"
+msgstr[1] "Fa %1 minuts"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Fa %1 hora"
+msgstr[1] "Fa %1 hores"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Fa %1 dia"
+msgstr[1] "Fa %1 dies"
+
+msgid "Action is required"
+msgstr "Cal actuar"
+
+msgid "Action is required!"
+msgstr "Cal actuar!"
+
+msgid "Action required"
+msgstr "Cal una acció"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update no pot continuar perquè l'actualització requereix eliminar «%1», que és un paquet protegit del sistema. Eliminar-lo podria impedir que Fluff Linux funcione correctament. Informeu del problema a GitHub per obtenir ajuda."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Per poder instal·lar les actualitzacions, Fluff Linux Update ha d'eliminar «%1». Eliminar este paquet pot afectar programari relacionat. Si no n'esteu segur, informeu del problema a GitHub per demanar ajuda."
+
+msgid "Accept"
+msgstr "Accepta"
+
+msgid "Close"
+msgstr "Tanca"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Per poder continuar les actualitzacions del sistema, s'ha eliminat automàticament %1 després de considerar que era segur fer-ho."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Per poder continuar les actualitzacions del sistema, s'han eliminat automàticament els paquets següents després de considerar que era segur fer-ho: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "S'ha detectat i resolt un conflicte de fitxers. S'ha canviat el nom de %1 a %2. El procés d'actualització s'ha reiniciat."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "No s'ha pogut eliminar el paquet en conflicte. Demaneu assistència."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update no ha pogut verificar la clau de signatura del repositori FluffNet. S'ha aturat l'actualització per protegir el sistema."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update no ha pogut verificar la clau de signatura del repositori FluffNet. S'ha aturat l'actualització per protegir el sistema. Això pot indicar un problema de xarxa, un servidor FluffNet no disponible, una clau de signatura caducada o canviada, un problema de configuració del repositori, una clau inesperada o una possible intrusió al repositori. No accepteu manualment cap clau inesperada tret que Fluff Linux publique instruccions verificades."
+
+msgid "Repository: %1"
+msgstr "Repositori: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "S'ha verificat la clau de signatura oficial del repositori FluffNet i s'ha afegit a Pacman."
+
+msgid "Technical details"
+msgstr "Detalls tècnics"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Detalls tècnics de la verificació de la clau de signatura del repositori"
+
+msgid "Failure category: %1"
+msgstr "Categoria de l'error: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Empremta esperada: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Empremta rebuda: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Empremta de la clau de signatura sol·licitada: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Estat de eixida de Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Versió de FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Versió de Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Torna-ho a provar"
+
+msgid "Copy Technical Details"
+msgstr "Copia els detalls tècnics"
+
+msgid "Open an Issue on GitHub"
+msgstr "Obre una incidència a GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "No hi ha prou espai lliure per continuar l'actualització. Allibereu espai i torneu-ho a provar."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "No s'ha pogut verificar la signatura d'un paquet o repositori. S'ha aturat l'actualització. Comproveu la data del sistema i l'anell de claus i torneu-ho a provar."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "La base de dades de paquets està malmesa o no es pot llegir. S'ha aturat l'actualització. Demaneu assistència abans de reparar la base de dades."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Un paquet baixat està malmès o incomplet. S'ha aturat l'actualització. Torneu-ho a provar o utilitzeu un altre servidor rèplica."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "No s'han pogut llegir o escriure els fitxers necessaris per actualitzar. Comproveu els permisos del sistema de fitxers i l'estat del disc i torneu-ho a provar."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "No s'han pogut baixar les actualitzacions. Torneu-ho a provar o demaneu assistència."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "No s'ha pogut preparar la transacció d'actualització. Torneu-ho a provar o demaneu assistència."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "No s'ha pogut iniciar l'actualització perquè no s'ha pogut impedir la suspensió. Torneu-ho a provar."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "No s'ha pogut bloquejar la base de dades de paquets. Tanqueu altres gestors de paquets, comproveu que el sistema de fitxers permet escriure-hi i torneu-ho a provar."
+
+msgid "Estimated time: %1"
+msgstr "Temps estimat: %1"

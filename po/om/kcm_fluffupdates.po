@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: om\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Haaromsa sirnaa"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Haaromsa sirnaa fe'uun Fluff Linux nageenya qabuufi yeroo isaa eeggate taasisaa."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Sirni yeroo dhumaa haaromfame: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Haaromsa barbaadi"
+
+msgid "Install Updates"
+msgstr "Haaromsa fe'i"
+
+msgid "View Updates"
+msgstr "Haaromsa ilaali"
+
+msgid "Change view"
+msgstr "Mul'ata jijjiiri"
+
+msgid "Updates to Install"
+msgstr "Haaromsa fe'amu"
+
+msgid "Package details are unavailable."
+msgstr "Bal'ina paakeejii argachuun hin danda'amu."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update amma iyyuu hojjetamaa jira. Rakkoo yoo argitan, fuula GitHub keenya irratti gabaasaa."
+
+msgid "System updates were installed successfully."
+msgstr "Haaromsi sirnaa milkaa'inaan fe'ame."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Walqunnamtiin neetworkii hin jiru!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Walqunnamtiin neetworkii daangeffameera. Neetworkii dhaabbataatti yoo hin hidhamne, walqunnamtii interneetii keessan ilaalaa."
+
+msgid "pacman process is already running."
+msgstr "Adeemsi pacman duraanuu hojjechaa jira."
+
+msgid "The update process could not be started."
+msgstr "Adeemsa haaromsaa jalqabuu hin dandeenye."
+
+msgid "The update process could not be cancelled."
+msgstr "Adeemsa haaromsaa haquu hin dandeenye."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Yeroo haaromsi buufamu walqunnamtiin kufe. Neetworkii ilaalaatii irra deebi'aa yaalaa."
+
+msgid "The system update failed."
+msgstr "Haaromsi sirnaa hin milkoofne."
+
+msgid "Downloading updates…"
+msgstr "Haaromsi buufamaa jira…"
+
+msgid "Installing updates…"
+msgstr "Haaromsi fe'amaa jira…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 buufame"
+
+msgid "%1/%2 updates installed"
+msgstr "Haaromsa %1/%2 fe'ame"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Haaromsi amma fe'amaa jira. Hanga fe'iinsi xumuramutti kompiitara hin dhaamsinaa yookaan deebiftanii hin kaasinaa. Haaromsa addaan kutuun faayiloota sirnaa miidhuu danda'a."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Chaarjiin baatirii xiqqaateera. Yeroo haaromsi fe'amu kompiitara chaarjaratti hidhaa."
+
+msgid "Update process was cancelled"
+msgstr "Adeemsi haaromsaa haqame"
+
+msgid "Cancel"
+msgstr "Haqi"
+
+msgid "Checking for updates…"
+msgstr "Haaromsi barbaadamaa jira…"
+
+msgid "System updates are available"
+msgstr "Haaromsi sirnaa ni jira"
+
+msgid "Download size: %1"
+msgstr "Hamma buufamaa: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Bakka kuusaa haaromsa sirnaaf barbaachisu: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Bakka kuusaa haaromsa booda bilisa ta'u: %1"
+
+msgid "No additional download required"
+msgstr "Buufachuun dabalataa hin barbaachisu"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Sakatta'aa haaromsaa jalqabuu hin dandeenye. pacman-contrib fe'amuu isaa mirkaneessaa."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Sakatta'iinsi haaromsaa akka tasaa dhaabbate."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Dogoggorri hin beekamne uumame. Gargaarsaaf rakkoo kana fuula GitHub keenya irratti gabaasaa."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Walqunnamtiin interneetii hin jiru. Neetworkii ilaalaatii irra deebi'aa yaalaa."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Sarvaroota kuusaa bira gahuun hin danda'amne. Booda irra deebi'aa yaalaa yookaan qindaa'ina sarvara daawwitii ilaalaa."
+
+msgid "Authorization error, please try again."
+msgstr "Dogoggora hayyamaa, irra deebi'aa yaalaa."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Sakatta'iinsi haaromsaa mirga ol'aanaa qabu akka tasaa dhaabbate."
+
+msgid "The privileged update check could not be started."
+msgstr "Sakatta'iinsa haaromsaa mirga ol'aanaa qabu jalqabuu hin dandeenye."
+
+msgid "System was not previously updated."
+msgstr "Sirni kanaan dura hin haaromfamne."
+
+msgid "The last update information could not be read."
+msgstr "Odeeffannoo haaromsa dhumaa dubbisuu hin dandeenye."
+
+msgid "The last update information is invalid."
+msgstr "Odeeffannoon haaromsa dhumaa sirrii miti."
+
+msgid "Updates were not installed on this system"
+msgstr "Sirna kana irratti haaromsi hin fe'amne"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Sirna haaromsuuf, qabduu armaan gadii fayyadamuun haaromsa barbaadaa."
+
+msgid "Update date available"
+msgstr "Guyyaan haaromsaa ni jira"
+
+msgid "Updated recently"
+msgstr "Dhiheenya haaromfame"
+
+msgid "System is up to date"
+msgstr "Sirni haaromfameera"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Haaromsi dhumaa ji'a tokkoo ol dura fe'ame"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Haaromsi dhumaa ji'a sadii ol dura fe'ame"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Sekondii %1 dura"
+msgstr[1] "Sekondii %1 dura"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Daqiiqaa %1 dura"
+msgstr[1] "Daqiiqaa %1 dura"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Sa'aatii %1 dura"
+msgstr[1] "Sa'aatii %1 dura"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Guyyaa %1 dura"
+msgstr[1] "Guyyaa %1 dura"
+
+msgid "Action is required"
+msgstr "Tarkaanfiin barbaachisa"
+
+msgid "Action is required!"
+msgstr "Tarkaanfiin barbaachisa!"
+
+msgid "Action required"
+msgstr "Tarkaanfii barbaachisu"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update itti fufuu hin danda'u, sababni isaas haaromsi dhufu paakeejii sirnaa eegame “%1” haquu barbaada. Isa haquun Fluff Linux sirriitti akka hin hojjenne gochuu danda'a. Gargaarsaaf rakkoo kana GitHub irratti gabaasaa."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Haaromsa sirnaa fe'uuf Fluff Linux Update “%1” haquu qaba. Paakeejii kana haquun sooftiweerii walqabatu miidhuu danda'a. Yoo hin mirkaneeffanne, gargaarsaaf GitHub irratti gabaasaa."
+
+msgid "Accept"
+msgstr "Fudhadhu"
+
+msgid "Close"
+msgstr "Cufi"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Haaromsi sirnaa akka itti fufuuf, %1 haquun nageenya qaba jedhamee erga murtaa'ee booda ofumaan haqame."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Haaromsi sirnaa akka itti fufuuf, paakeejiiwwan armaan gadii haquun nageenya qaba jedhamee erga murtaa'ee booda ofumaan haqaman: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Walitti bu'iinsi faayilaa argamee furame. Maqaan %1 gara %2 jijjiirame. Adeemsi haaromsaa deebi'ee jalqabe."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Paakeejii walitti bu'u haquu hin dandeenye. Gargaarsa barbaadaa."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update furtuu mallattoo kuusaa FluffNet mirkaneessuu hin dandeenye. Sirna eeguuf haaromsi dhaabbate."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update furtuu mallattoo kuusaa FluffNet mirkaneessuu hin dandeenye. Sirna eeguuf haaromsi dhaabbate. Kun rakkoo neetworkii, sarvara FluffNet hin argamne, furtuu mallattoo yeroon isaa darbe yookaan jijjiirame, rakkoo qindaa'ina kuusaa, furtuu hin eegamne yookaan kuusaan haleelamuu isaa agarsiisuu danda'a. Fluff Linux qajeelfama mirkanaa'e yoo hin maxxansine, furtuu hin eegamne harkaan hin fudhatinaa."
+
+msgid "Repository: %1"
+msgstr "Kuusaa: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Furtuun mallattoo kuusaa FluffNet inni sirriin mirkanaa'ee Pacman keessatti dabalame."
+
+msgid "Technical details"
+msgstr "Bal'ina teeknikaa"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Bal'ina teeknikaa mirkaneessa furtuu mallattoo kuusaa"
+
+msgid "Failure category: %1"
+msgstr "Gosa kufaatii: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Asharaa furtuu eegame: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Asharaa furtuu argame: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Asharaa furtuu mallattoo gaafatame: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Haala ba'umsaa Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Fooyya'iinsa FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fooyya'iinsa Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Irra deebi'ii yaali"
+
+msgid "Copy Technical Details"
+msgstr "Bal'ina teeknikaa waraabi"
+
+msgid "Open an Issue on GitHub"
+msgstr "Rakkoo GitHub irratti gabaasi"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Haaromsa itti fufuuf bakka kuusaa bilisaa gahaan hin jiru. Bakka bilisa godhaatii irra deebi'aa yaalaa."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Mallattoo paakeejii yookaan kuusaa mirkaneessuu hin dandeenye. Haaromsi dhaabbate. Guyyaa sirnaafi kuusaa furtuu ilaalaatii irra deebi'aa yaalaa."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Kuusaan deetaa paakeejii miidhameera yookaan dubbifamuu hin danda'u. Haaromsi dhaabbate. Kuusaa deetaa suphuu dura gargaarsa barbaadaa."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Paakeejiin buufame miidhameera yookaan guutuu miti. Haaromsi dhaabbate. Irra deebi'aa yaalaa yookaan sarvara daawwitii biraa fayyadamaa."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Haaromsi faayiloota barbaachisan dubbisuu yookaan barreessuu hin dandeenye. Hayyama sirna faayilaafi haala diskii ilaalaatii irra deebi'aa yaalaa."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Haaromsa buufachuu hin dandeenye. Irra deebi'aa yaalaa yookaan gargaarsa barbaadaa."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Hojii haaromsaa qopheessuu hin dandeenye. Irra deebi'aa yaalaa yookaan gargaarsa barbaadaa."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ittisa rafuu dandeessisuu waan hin dandeenyeef haaromsi jalqabuu hin dandeenye. Irra deebi'aa yaalaa."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Kuusaa deetaa paakeejii cufuu hin dandeenye. Bulchitoota paakeejii biroo cufaatii sirni faayilaa barreeffamuu akka danda'u mirkaneessaa, sana booda irra deebi'aa yaalaa."
+
+msgid "Estimated time: %1"
+msgstr "Yeroo tilmaamame: %1"

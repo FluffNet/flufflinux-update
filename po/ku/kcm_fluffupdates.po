@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ku\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Nûvekirinên pergalê"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Bi sazkirina nûvekirinên pergalê Fluff Linux ewle û nû bihêlin."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Pergal cara dawî hate nûvekirin: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Li nûvekirinan bigere"
+
+msgid "Install Updates"
+msgstr "Nûvekirinan saz bike"
+
+msgid "View Updates"
+msgstr "Nûvekirinan bibîne"
+
+msgid "Change view"
+msgstr "Dîtinê biguherîne"
+
+msgid "Updates to Install"
+msgstr "Nûvekirinên ku dê werin sazkirin"
+
+msgid "Package details are unavailable."
+msgstr "Agahiyên pakêtan ne berdest in."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update hîn tê pêşxistin. Ger hûn rastî pirsgirêkekê hatin, li rûpela me ya GitHub rapor bikin."
+
+msgid "System updates were installed successfully."
+msgstr "Nûvekirinên pergalê bi serkeftî hatin sazkirin."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Girêdana torê tune ye!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Girêdana torê sînordar e. Ger hûn bi tora rêxistineke ve ne girêdayî ne, girêdana înternetê kontrol bikin."
+
+msgid "pacman process is already running."
+msgstr "Pêvajoyeke pacman jixwe dimeşe."
+
+msgid "The update process could not be started."
+msgstr "Pêvajoya nûvekirinê nehat destpêkirin."
+
+msgid "The update process could not be cancelled."
+msgstr "Pêvajoya nûvekirinê nehat betalkirin."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Di dema daxistina nûvekirinan de girêdan têk çû. Torê kontrol bikin û dîsa biceribînin."
+
+msgid "The system update failed."
+msgstr "Nûvekirina pergalê têk çû."
+
+msgid "Downloading updates…"
+msgstr "Nûvekirin tên daxistin…"
+
+msgid "Installing updates…"
+msgstr "Nûvekirin tên sazkirin…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 hat daxistin"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 nûvekirin hatin sazkirin"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Niha nûvekirin tên sazkirin. Heta sazkirin bi dawî nebe komputerê venemirînin an ji nû ve dest pê nekin. Qutkirina nûvekirinê dikare pelên pergalê xirab bike."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Baterî kêm e. Di dema sazkirina nûvekirinan de komputerê bi şarjkerê ve girêdin."
+
+msgid "Update process was cancelled"
+msgstr "Pêvajoya nûvekirinê hat betalkirin"
+
+msgid "Cancel"
+msgstr "Betal bike"
+
+msgid "Checking for updates…"
+msgstr "Li nûvekirinan tê gerîn…"
+
+msgid "System updates are available"
+msgstr "Nûvekirinên pergalê berdest in"
+
+msgid "Download size: %1"
+msgstr "Mezinahiya daxistinê: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Cihê pêwîst ji bo nûvekirinên pergalê: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Cihê ku piştî nûvekirinê vala dibe: %1"
+
+msgid "No additional download required"
+msgstr "Daxistina zêde ne pêwîst e"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Kontrolkera nûvekirinan nehat destpêkirin. Piştrast bikin ku pacman-contrib hatiye sazkirin."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Kontrola nûvekirinan ji nişkê ve rawestiya."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Çewtiyeke nenas çêbû. Ji bo alîkariyê vê pirsgirêkê li rûpela me ya GitHub rapor bikin."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Girêdana înternetê tune ye. Torê kontrol bikin û dîsa biceribînin."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Gihîştina rajekarên depoyan ne pêkan bû. Paşê dîsa biceribînin an mîhengên rajekarên neynikê kontrol bikin."
+
+msgid "Authorization error, please try again."
+msgstr "Çewtiya destûrê, dîsa biceribînin."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Kontrola nûvekirinan a bi desthilata bilind ji nişkê ve rawestiya."
+
+msgid "The privileged update check could not be started."
+msgstr "Kontrola nûvekirinan a bi desthilata bilind nehat destpêkirin."
+
+msgid "System was not previously updated."
+msgstr "Pergal berê nehatiye nûvekirin."
+
+msgid "The last update information could not be read."
+msgstr "Agahiyên nûvekirina dawî nehatin xwendin."
+
+msgid "The last update information is invalid."
+msgstr "Agahiyên nûvekirina dawî nederbasdar in."
+
+msgid "Updates were not installed on this system"
+msgstr "Li ser vê pergalê nûvekirin nehatine sazkirin"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Ji bo nûvekirina pergalê bi bişkoka jêrîn li nûvekirinên berdest bigerin."
+
+msgid "Update date available"
+msgstr "Dîroka nûvekirinê berdest e"
+
+msgid "Updated recently"
+msgstr "Nû hatiye nûvekirin"
+
+msgid "System is up to date"
+msgstr "Pergal nûkirî ye"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Nûvekirina dawî zêdetirî mehekê berê hatiye sazkirin"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Nûvekirina dawî zêdetirî sê mehan berê hatiye sazkirin"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Berî %1 çirkeyê"
+msgstr[1] "Berî %1 çirkeyan"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Berî %1 deqeyê"
+msgstr[1] "Berî %1 deqeyan"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Berî %1 saetê"
+msgstr[1] "Berî %1 saetan"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Berî %1 rojê"
+msgstr[1] "Berî %1 rojan"
+
+msgid "Action is required"
+msgstr "Çalakî pêwîst e"
+
+msgid "Action is required!"
+msgstr "Çalakî pêwîst e!"
+
+msgid "Action required"
+msgstr "Çalakiya pêwîst"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update nikare berdewam bike ji ber ku nûvekirina pêşerojê rakirina “%1”, pakêteke pergalê ya parastî, dixwaze. Rakirina wê dikare nehêle Fluff Linux rast bixebite. Ji bo alîkariyê pirsgirêkê li GitHub rapor bikin."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Ji bo sazkirina nûvekirinên pergalê divê Fluff Linux Update “%1” rake. Rakirina vê pakêtê dikare bandorê li nermalava têkildar bike. Ger hûn ne piştrast in, ji bo alîkariyê li GitHub rapor bikin."
+
+msgid "Accept"
+msgstr "Bipejirîne"
+
+msgid "Close"
+msgstr "Bigire"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Ji bo ku nûvekirinên pergalê berdewam bikin, %1 piştî ku rakirina wê ewle hat dîtin bixweber hate rakirin."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Ji bo ku nûvekirinên pergalê berdewam bikin, ev pakêt piştî ku rakirina wan ewle hat dîtin bixweber hatin rakirin: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Nakokiyeke pelan hat dîtin û çareserkirin. Navê %1 bû %2. Pêvajoya nûvekirinê ji nû ve dest pê kir."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Pakêta nakok nehat rakirin. Alîkariyê bixwazin."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nekarî mifteya îmzeyê ya depoya FluffNet piştrast bike. Ji bo parastina pergalê nûvekirin hate rawestandin."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nekarî mifteya îmzeyê ya depoya FluffNet piştrast bike. Ji bo parastina pergalê nûvekirin hate rawestandin. Ev dikare pirsgirêkeke torê, rajekarekî FluffNet ê ne berdest, mifteyeke îmzeyê ya bi dema derbasbûyî an guherandî, pirsgirêka mîhengên depoyê, mifteyeke neçaverêkirî an êrîşeke muhtemel li depoyê nîşan bide. Heta Fluff Linux rêwerzên piştrastkirî belav neke, mifteyeke neçaverêkirî bi destan nepejirînin."
+
+msgid "Repository: %1"
+msgstr "Depo: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Mifteya îmzeyê ya fermî ya depoya FluffNet hat piştrastkirin û li Pacman hate zêdekirin."
+
+msgid "Technical details"
+msgstr "Hûrgiliyên teknîkî"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Hûrgiliyên teknîkî yên piştrastkirina mifteya îmzeyê ya depoyê"
+
+msgid "Failure category: %1"
+msgstr "Kategoriya têkçûnê: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Şopa tiliyê ya bendewar: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Şopa tiliyê ya hatî wergirtin: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Şopa tiliyê ya mifteya îmzeyê ya hatî xwestin: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Rewşa derketina Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Guhertoya FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Guhertoya Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Dîsa biceribîne"
+
+msgid "Copy Technical Details"
+msgstr "Hûrgiliyên teknîkî kopî bike"
+
+msgid "Open an Issue on GitHub"
+msgstr "Li GitHub pirsgirêkekê veke"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Ji bo berdewamkirina nûvekirinê cihê vala yê têr tune ye. Cihê vala bikin û dîsa biceribînin."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Îmzeya pakêtekê an depoyekê nehat piştrastkirin. Nûvekirin hate rawestandin. Dîroka pergalê û depoya mifteyan kontrol bikin, paşê dîsa biceribînin."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Danegeha pakêtan xirab e an nayê xwendin. Nûvekirin hate rawestandin. Berî sererastkirina danegehê alîkariyê bixwazin."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Pakêteke daxistî xirab e an ne temam e. Nûvekirin hate rawestandin. Dîsa biceribînin an rajekarekî neynikê yê din bi kar bînin."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Nûvekirinê nekarî pelên pêwîst bixwîne an binivîse. Destûrên pergala pelan û tenduristiya dîskê kontrol bikin, paşê dîsa biceribînin."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Nûvekirin nehatin daxistin. Dîsa biceribînin an alîkariyê bixwazin."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Danûstandina nûvekirinê nehat amadekirin. Dîsa biceribînin an alîkariyê bixwazin."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Nûvekirin nekarî dest pê bike ji ber ku pêşîgirtina xewê nehat çalakkirin. Dîsa biceribînin."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Danegeha pakêtan nehat kilîtkirin. Rêveberên pakêtan ên din bigirin û kontrol bikin ku pergala pelan dikare were nivîsandin, paşê dîsa biceribînin."
+
+msgid "Estimated time: %1"
+msgstr "Dema texmînkirî: %1"

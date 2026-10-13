@@ -1,0 +1,311 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: cy\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n==3 ? 3 : n==6 ? 4 : 5);\n"
+
+msgid "System Updates"
+msgstr "Diweddariadau system"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Cadwch Fluff Linux yn ddiogel ac yn gyfredol drwy osod diweddariadau system."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Diweddarwyd y system ddiwethaf: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Chwilio am ddiweddariadau"
+
+msgid "Install Updates"
+msgstr "Gosod diweddariadau"
+
+msgid "View Updates"
+msgstr "Gweld diweddariadau"
+
+msgid "Change view"
+msgstr "Newid golwg"
+
+msgid "Updates to Install"
+msgstr "Diweddariadau i'w gosod"
+
+msgid "Package details are unavailable."
+msgstr "Nid yw manylion pecynnau ar gael."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Mae Fluff Linux Update yn dal i gael ei ddatblygu. Os cewch broblem, rhowch wybod ar ein tudalen GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Gosodwyd diweddariadau'r system yn llwyddiannus."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Dim cysylltiad rhwydwaith!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Mae'r cysylltiad rhwydwaith yn gyfyngedig. Os nad ydych wedi cysylltu â rhwydwaith sefydliad, gwiriwch eich cysylltiad rhyngrwyd."
+
+msgid "pacman process is already running."
+msgstr "Mae proses pacman eisoes yn rhedeg."
+
+msgid "The update process could not be started."
+msgstr "Methu cychwyn y broses ddiweddaru."
+
+msgid "The update process could not be cancelled."
+msgstr "Methu canslo'r broses ddiweddaru."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Methodd y cysylltiad wrth lawrlwytho diweddariadau. Gwiriwch y rhwydwaith a cheisiwch eto."
+
+msgid "The system update failed."
+msgstr "Methodd diweddariad y system."
+
+msgid "Downloading updates…"
+msgstr "Wrthi'n lawrlwytho diweddariadau…"
+
+msgid "Installing updates…"
+msgstr "Wrthi'n gosod diweddariadau…"
+
+msgid "%1 / %2 downloaded"
+msgstr "Lawrlwythwyd %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "Gosodwyd %1/%2 o ddiweddariadau"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Mae diweddariadau'n cael eu gosod. Peidiwch â diffodd nac ailgychwyn y cyfrifiadur nes bod y gosod wedi gorffen. Gall torri ar draws y diweddariad niweidio ffeiliau'r system."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Mae'r batri'n isel. Cysylltwch eich cyfrifiadur â gwefrydd wrth osod diweddariadau."
+
+msgid "Update process was cancelled"
+msgstr "Canslwyd y broses ddiweddaru"
+
+msgid "Cancel"
+msgstr "Canslo"
+
+msgid "Checking for updates…"
+msgstr "Wrthi'n chwilio am ddiweddariadau…"
+
+msgid "System updates are available"
+msgstr "Mae diweddariadau system ar gael"
+
+msgid "Download size: %1"
+msgstr "Maint y lawrlwythiad: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Lle storio sydd ei angen ar gyfer diweddariadau system: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Lle storio a ryddheir ar ôl diweddaru: %1"
+
+msgid "No additional download required"
+msgstr "Nid oes angen lawrlwytho rhagor"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Methu cychwyn y gwiriwr diweddariadau. Sicrhewch fod pacman-contrib wedi'i osod."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Daeth y gwiriad diweddariadau i ben yn annisgwyl."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Digwyddodd gwall anhysbys. Rhowch wybod am y broblem ar ein tudalen GitHub i gael cymorth."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Dim cysylltiad rhyngrwyd. Gwiriwch y rhwydwaith a cheisiwch eto."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Methu cyrraedd gweinyddion yr ystorfeydd. Ceisiwch eto'n ddiweddarach neu gwiriwch osodiadau'r drychau."
+
+msgid "Authorization error, please try again."
+msgstr "Gwall awdurdodi. Ceisiwch eto."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Daeth y gwiriad diweddariadau â breintiau uchel i ben yn annisgwyl."
+
+msgid "The privileged update check could not be started."
+msgstr "Methu cychwyn y gwiriad diweddariadau â breintiau uchel."
+
+msgid "System was not previously updated."
+msgstr "Nid yw'r system wedi'i diweddaru o'r blaen."
+
+msgid "The last update information could not be read."
+msgstr "Methu darllen gwybodaeth y diweddariad diwethaf."
+
+msgid "The last update information is invalid."
+msgstr "Mae gwybodaeth y diweddariad diwethaf yn annilys."
+
+msgid "Updates were not installed on this system"
+msgstr "Nid oes diweddariadau wedi'u gosod ar y system hon"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "I ddiweddaru'r system, chwiliwch am ddiweddariadau gyda'r botwm isod."
+
+msgid "Update date available"
+msgstr "Mae dyddiad diweddaru ar gael"
+
+msgid "Updated recently"
+msgstr "Diweddarwyd yn ddiweddar"
+
+msgid "System is up to date"
+msgstr "Mae'r system yn gyfredol"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Gosodwyd y diweddariad diwethaf dros fis yn ôl"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Gosodwyd y diweddariad diwethaf dros dri mis yn ôl"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 eiliad yn ôl"
+msgstr[1] "%1 eiliad yn ôl"
+msgstr[2] "%1 eiliad yn ôl"
+msgstr[3] "%1 eiliad yn ôl"
+msgstr[4] "%1 eiliad yn ôl"
+msgstr[5] "%1 eiliad yn ôl"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 munud yn ôl"
+msgstr[1] "%1 munud yn ôl"
+msgstr[2] "%1 funud yn ôl"
+msgstr[3] "%1 munud yn ôl"
+msgstr[4] "%1 munud yn ôl"
+msgstr[5] "%1 munud yn ôl"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 awr yn ôl"
+msgstr[1] "%1 awr yn ôl"
+msgstr[2] "%1 awr yn ôl"
+msgstr[3] "%1 awr yn ôl"
+msgstr[4] "%1 awr yn ôl"
+msgstr[5] "%1 awr yn ôl"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 diwrnod yn ôl"
+msgstr[1] "%1 diwrnod yn ôl"
+msgstr[2] "%1 ddiwrnod yn ôl"
+msgstr[3] "%1 diwrnod yn ôl"
+msgstr[4] "%1 diwrnod yn ôl"
+msgstr[5] "%1 diwrnod yn ôl"
+
+msgid "Action is required"
+msgstr "Mae angen gweithredu"
+
+msgid "Action is required!"
+msgstr "Mae angen gweithredu!"
+
+msgid "Action required"
+msgstr "Angen gweithredu"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Ni all Fluff Linux Update barhau oherwydd bod y diweddariad nesaf yn gofyn am ddileu “%1”, sef pecyn system wedi'i ddiogelu. Gallai ei ddileu atal Fluff Linux rhag gweithio'n iawn. Rhowch wybod am y broblem ar GitHub i gael cymorth."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Er mwyn gosod diweddariadau system, mae angen i Fluff Linux Update ddileu “%1”. Gall dileu'r pecyn effeithio ar feddalwedd gysylltiedig. Os nad ydych yn siŵr, rhowch wybod am y broblem ar GitHub i gael cymorth."
+
+msgid "Accept"
+msgstr "Derbyn"
+
+msgid "Close"
+msgstr "Cau"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Er mwyn parhau â diweddariadau system, dilëwyd %1 yn awtomatig ar ôl barnu ei fod yn ddiogel i'w ddileu."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Er mwyn parhau â diweddariadau system, dilëwyd y pecynnau canlynol yn awtomatig ar ôl barnu eu bod yn ddiogel i'w dileu: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Canfuwyd gwrthdaro ffeiliau a'i ddatrys. Ailenwyd %1 yn %2. Mae'r broses ddiweddaru wedi ailgychwyn."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Methu dileu'r pecyn sy'n gwrthdaro. Gofynnwch am gymorth."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Ni allai Fluff Linux Update ddilysu allwedd lofnodi ystorfa FluffNet. Ataliwyd y diweddariad i ddiogelu'r system."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Ni allai Fluff Linux Update ddilysu allwedd lofnodi ystorfa FluffNet. Ataliwyd y diweddariad i ddiogelu'r system. Gallai hyn ddangos problem rhwydwaith, gweinydd FluffNet nad yw ar gael, allwedd lofnodi sydd wedi dod i ben neu wedi'i disodli, problem gosodiadau ystorfa, allwedd annisgwyl neu ymosodiad posibl ar yr ystorfa. Peidiwch â derbyn allwedd annisgwyl â llaw oni bai bod Fluff Linux yn cyhoeddi cyfarwyddiadau wedi'u dilysu."
+
+msgid "Repository: %1"
+msgstr "Ystorfa: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Dilyswyd allwedd lofnodi swyddogol ystorfa FluffNet a'i hychwanegu at Pacman."
+
+msgid "Technical details"
+msgstr "Manylion technegol"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Manylion technegol dilysu allwedd lofnodi'r ystorfa"
+
+msgid "Failure category: %1"
+msgstr "Categori methiant: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Ôl bys disgwyliedig: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Ôl bys a dderbyniwyd: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Ôl bys yr allwedd lofnodi y gofynnwyd amdani: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Statws ymadael Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Fersiwn FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fersiwn Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Ceisio eto"
+
+msgid "Copy Technical Details"
+msgstr "Copïo manylion technegol"
+
+msgid "Open an Issue on GitHub"
+msgstr "Agor adroddiad ar GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Nid oes digon o le storio rhydd i barhau â'r diweddariad. Rhyddhewch le a cheisiwch eto."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Methu dilysu llofnod pecyn neu ystorfa. Ataliwyd y diweddariad. Gwiriwch ddyddiad y system a'r cylch allweddi, yna ceisiwch eto."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Mae cronfa ddata'r pecynnau wedi'i difrodi neu'n annarllenadwy. Ataliwyd y diweddariad. Gofynnwch am gymorth cyn trwsio'r gronfa ddata."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Mae pecyn a lawrlwythwyd wedi'i ddifrodi neu'n anghyflawn. Ataliwyd y diweddariad. Ceisiwch eto neu defnyddiwch ddrych arall."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Ni allai'r diweddariad ddarllen nac ysgrifennu'r ffeiliau angenrheidiol. Gwiriwch ganiatadau'r system ffeiliau ac iechyd y ddisg, yna ceisiwch eto."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Methu lawrlwytho'r diweddariadau. Ceisiwch eto neu gofynnwch am gymorth."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Methu paratoi'r trafodiad diweddaru. Ceisiwch eto neu gofynnwch am gymorth."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Methu cychwyn y diweddariad oherwydd na ellid atal y cyfrifiadur rhag cysgu. Ceisiwch eto."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Methu cloi cronfa ddata'r pecynnau. Caewch reolwyr pecynnau eraill a gwiriwch fod modd ysgrifennu i'r system ffeiliau, yna ceisiwch eto."
+
+msgid "Estimated time: %1"
+msgstr "Amser amcangyfrifedig: %1"

@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: ig\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "Mmelite sistemụ"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Debe Fluff Linux n' nchekwa na n'ọnọdụ ọhụrụ site n'ịwụnye mmelite sistemụ."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Emelitere sistemụ ikpeazụ: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Lelee mmelite"
+
+msgid "Install Updates"
+msgstr "Wụnye mmelite"
+
+msgid "View Updates"
+msgstr "Gosi mmelite"
+
+msgid "Change view"
+msgstr "Gbanwee nlele"
+
+msgid "Updates to Install"
+msgstr "Mmelite a ga-awụnye"
+
+msgid "Package details are unavailable."
+msgstr "Nkọwa ngwugwu adịghị."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "A ka na-emepụta Fluff Linux Update. Ọ bụrụ na ị hụ nsogbu, biko kọọ ya na ibe GitHub anyị."
+
+msgid "System updates were installed successfully."
+msgstr "Awụnyela mmelite sistemụ nke ọma."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Enweghị njikọ netwọkụ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Njikọ netwọkụ nwere oke. Ọ bụrụ na ị naghị ejikọ na netwọkụ otu ọrụ, biko lelee njikọ ịntanetị gị."
+
+msgid "pacman process is already running."
+msgstr "Usoro pacman na-arụ ọrụ ugbua."
+
+msgid "The update process could not be started."
+msgstr "Enweghị ike ịmalite usoro mmelite."
+
+msgid "The update process could not be cancelled."
+msgstr "Enweghị ike ịkagbu usoro mmelite."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Njikọ dara mgbe a na-ebudata mmelite. Lelee netwọkụ gị wee nwaa ọzọ."
+
+msgid "The system update failed."
+msgstr "Mmelite sistemụ dara."
+
+msgid "Downloading updates…"
+msgstr "Na-ebudata mmelite…"
+
+msgid "Installing updates…"
+msgstr "Na-awụnye mmelite…"
+
+msgid "%1 / %2 downloaded"
+msgstr "Ebudatala %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "Awụnyela mmelite %1/%2"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "A na-awụnye mmelite ugbu a. Biko agbanyụla ma ọ bụ malitegharịa kọmputa ruo mgbe nrụnye gwụchara. Ịkwụsị mmelite nwere ike imebi faịlụ sistemụ."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batrị adịghị ike. Biko jikọọ kọmputa gị na chaja mgbe ị na-awụnye mmelite."
+
+msgid "Update process was cancelled"
+msgstr "Akagbuola usoro mmelite"
+
+msgid "Cancel"
+msgstr "Kagbuo"
+
+msgid "Checking for updates…"
+msgstr "Na-enyocha mmelite…"
+
+msgid "System updates are available"
+msgstr "Mmelite sistemụ dị"
+
+msgid "Download size: %1"
+msgstr "Nha nbudata: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Oghere achọrọ maka mmelite sistemụ: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Oghere a ga-atọhapụ mgbe mmelite gasịrị: %1"
+
+msgid "No additional download required"
+msgstr "Enweghị nbudata ọzọ achọrọ"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Enweghị ike ịmalite ihe nyocha mmelite. Hụ na awụnyela pacman-contrib."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Nyocha mmelite kwụsịrị na mberede."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Njehie a na-amaghị mere. Biko kọọ nsogbu a na ibe GitHub anyị maka enyemaka."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Enweghị njikọ ịntanetị. Lelee netwọkụ gị wee nwaa ọzọ."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Enweghị ike iru sava ebe nchekwa ngwugwu. Nwaa ọzọ ma emechaa ma ọ bụ lelee nhazi sava nnomi gị."
+
+msgid "Authorization error, please try again."
+msgstr "Njehie ikike, biko nwaa ọzọ."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Nyocha mmelite nwere ikike dị elu kwụsịrị na mberede."
+
+msgid "The privileged update check could not be started."
+msgstr "Enweghị ike ịmalite nyocha mmelite nwere ikike dị elu."
+
+msgid "System was not previously updated."
+msgstr "Emelitebeghị sistemụ mbụ."
+
+msgid "The last update information could not be read."
+msgstr "Enweghị ike ịgụ ozi mmelite ikpeazụ."
+
+msgid "The last update information is invalid."
+msgstr "Ozi mmelite ikpeazụ adịghị irè."
+
+msgid "Updates were not installed on this system"
+msgstr "Awụnyebeghị mmelite na sistemụ a"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Iji melite sistemụ, jiri bọtịnụ dị n'okpuru lelee mmelite dị."
+
+msgid "Update date available"
+msgstr "Ụbọchị mmelite dị"
+
+msgid "Updated recently"
+msgstr "Emelitere n'oge na-adịbeghị anya"
+
+msgid "System is up to date"
+msgstr "Sistemụ dị ọhụrụ"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Awụnyela mmelite ikpeazụ ihe karịrị otu ọnwa gara aga"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Awụnyela mmelite ikpeazụ ihe karịrị ọnwa atọ gara aga"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Sekọnd %1 gara aga"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Nkeji %1 gara aga"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Awa %1 gara aga"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Ụbọchị %1 gara aga"
+
+msgid "Action is required"
+msgstr "Achọrọ ime ihe"
+
+msgid "Action is required!"
+msgstr "Achọrọ ime ihe!"
+
+msgid "Action required"
+msgstr "Ihe a ga-eme"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update enweghị ike ịga n'ihu n'ihi na mmelite na-abịa chọrọ iwepụ “%1”, nke bụ ngwugwu sistemụ echedoro. Iwepụ ya nwere ike igbochi Fluff Linux ịrụ ọrụ nke ọma. Biko kọọ nsogbu a na GitHub maka enyemaka."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Iji kwe ka sistemụ wụnye mmelite, Fluff Linux Update kwesịrị iwepụ “%1”. Iwepụ ngwugwu a nwere ike imetụta sọftụwia metụtara ya. Ọ bụrụ na ị maghị nke ọma, biko kọọ nsogbu ahụ na GitHub maka enyemaka."
+
+msgid "Accept"
+msgstr "Nabata"
+
+msgid "Close"
+msgstr "Mechie"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Iji kwe ka mmelite sistemụ gaa n'ihu, e wepụrụ %1 na-akpaghị aka mgbe a chọpụtara na ọ dị mma iwepụ ya."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Iji kwe ka mmelite sistemụ gaa n'ihu, e wepụrụ ngwugwu ndị a na-akpaghị aka mgbe a chọpụtara na ọ dị mma iwepụ ha: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Achọpụtara esemokwu faịlụ ma dozie ya. A gbanwere aha %1 ka ọ bụrụ %2. Usoro mmelite amalitegharịrị."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Enweghị ike iwepụ ngwugwu na-emegiderịta onwe ya. Biko chọọ enyemaka."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update enweghị ike ịchọpụta na igodo mbinye aka ebe nchekwa FluffNet bụ nke ziri ezi. A kwụsịrị mmelite iji chebe sistemụ gị."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update enweghị ike ịchọpụta na igodo mbinye aka ebe nchekwa FluffNet bụ nke ziri ezi. A kwụsịrị mmelite iji chebe sistemụ gị. Nke a nwere ike igosi nsogbu netwọkụ, sava FluffNet adịghị, igodo mbinye aka kubiela ma ọ bụ gbanwere, nsogbu nhazi ebe nchekwa, igodo a na-atụghị anya ya, ma ọ bụ mwakpo ebe nchekwa. Anabatala igodo a na-atụghị anya ya n'onwe gị ma ọ bụrụ na Fluff Linux ebipụtaghị ntuziaka akwadoro."
+
+msgid "Repository: %1"
+msgstr "Ebe nchekwa: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "A chọpụtala na igodo mbinye aka gọọmentị ebe nchekwa FluffNet ziri ezi ma tinye ya na Pacman."
+
+msgid "Technical details"
+msgstr "Nkọwa teknụzụ"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Nkọwa teknụzụ nyocha igodo mbinye aka ebe nchekwa"
+
+msgid "Failure category: %1"
+msgstr "Ụdị ọdịda: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Akara igodo a tụrụ anya ya: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Akara igodo enwetara: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Akara igodo mbinye aka a rịọrọ: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Ọnọdụ ọpụpụ Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Ụdị FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Ụdị Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Nwaa ọzọ"
+
+msgid "Copy Technical Details"
+msgstr "Detuo nkọwa teknụzụ"
+
+msgid "Open an Issue on GitHub"
+msgstr "Mepee mkpesa na GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Oghere efu ezughị iji gaa n'ihu na mmelite. Tọhapụ oghere wee nwaa ọzọ."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Enweghị ike ịchọpụta na mbinye aka ngwugwu ma ọ bụ ebe nchekwa ziri ezi. A kwụsịrị mmelite. Lelee ụbọchị sistemụ na nchịkọta igodo gị, wee nwaa ọzọ."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Ebe nchekwa data ngwugwu mebiri emebi ma ọ bụ enweghị ike ịgụ ya. A kwụsịrị mmelite. Biko chọọ enyemaka tupu idozi ebe nchekwa data."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Ngwugwu ebudatara mebiri emebi ma ọ bụ ezughị ezu. A kwụsịrị mmelite. Biko nwaa ọzọ ma ọ bụ jiri sava nnomi ọzọ."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Mmelite enweghị ike ịgụ ma ọ bụ dee faịlụ achọrọ. Lelee ikike sistemụ faịlụ na ahụike diski, wee nwaa ọzọ."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Enweghị ike ibudata mmelite. Biko nwaa ọzọ ma ọ bụ chọọ enyemaka."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Enweghị ike ịkwadebe ọrụ mmelite. Biko nwaa ọzọ ma ọ bụ chọọ enyemaka."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Enweghị ike ịmalite mmelite n'ihi na enweghị ike ịgbanye mgbochi ụra. Biko nwaa ọzọ."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Enweghị ike igbachi ebe nchekwa data ngwugwu. Mechie ndị njikwa ngwugwu ndị ọzọ ma hụ na a pụrụ ide na sistemụ faịlụ, wee nwaa ọzọ."
+
+msgid "Estimated time: %1"
+msgstr "Oge e mere atụmatụ: %1"

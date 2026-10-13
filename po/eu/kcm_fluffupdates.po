@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Sistemaren eguneratzeak"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Mantendu Fluff Linux seguru eta eguneratuta sistemaren eguneratzeak instalatuz."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Sistema azken aldiz eguneratua: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Bilatu eguneratzeak"
+
+msgid "Install Updates"
+msgstr "Instalatu eguneratzeak"
+
+msgid "View Updates"
+msgstr "Ikusi eguneratzeak"
+
+msgid "Change view"
+msgstr "Aldatu ikuspegia"
+
+msgid "Updates to Install"
+msgstr "Instalatzeko eguneratzeak"
+
+msgid "Package details are unavailable."
+msgstr "Paketeen xehetasunak ez daude erabilgarri."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update garatzen ari da oraindik. Arazoren bat aurkituz gero, jakinarazi gure GitHub orrian."
+
+msgid "System updates were installed successfully."
+msgstr "Sistemaren eguneratzeak behar bezala instalatu dira."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Ez dago sare-konexiorik!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Sare-konexioa mugatua da. Erakunde baten sarera konektatuta ez bazaude, egiaztatu Interneteko konexioa."
+
+msgid "pacman process is already running."
+msgstr "pacman prozesu bat dagoeneko martxan dago."
+
+msgid "The update process could not be started."
+msgstr "Ezin izan da eguneratze-prozesua abiarazi."
+
+msgid "The update process could not be cancelled."
+msgstr "Ezin izan da eguneratze-prozesua bertan behera utzi."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Konexioak huts egin du eguneratzeak deskargatzean. Egiaztatu sarea eta saiatu berriro."
+
+msgid "The system update failed."
+msgstr "Sistemaren eguneratzeak huts egin du."
+
+msgid "Downloading updates…"
+msgstr "Eguneratzeak deskargatzen…"
+
+msgid "Installing updates…"
+msgstr "Eguneratzeak instalatzen…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 deskargatuta"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 eguneratze instalatuta"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Eguneratzeak instalatzen ari dira. Ez itzali edo berrabiarazi ordenagailua instalazioa amaitu arte. Eguneratzea eteteak sistemako fitxategiak kaltetu ditzake."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Bateria gutxi dago. Konektatu ordenagailua kargagailu batera eguneratzeak instalatzen diren bitartean."
+
+msgid "Update process was cancelled"
+msgstr "Eguneratze-prozesua bertan behera utzi da"
+
+msgid "Cancel"
+msgstr "Utzi"
+
+msgid "Checking for updates…"
+msgstr "Eguneratzeak bilatzen…"
+
+msgid "System updates are available"
+msgstr "Sistemaren eguneratzeak erabilgarri daude"
+
+msgid "Download size: %1"
+msgstr "Deskargaren tamaina: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Sistemaren eguneratzeetarako behar den biltegiratzea: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Eguneratzearen ondoren askatutako biltegiratzea: %1"
+
+msgid "No additional download required"
+msgstr "Ez da deskarga gehigarririk behar"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Ezin izan da eguneratze-egiaztatzailea abiarazi. Ziurtatu pacman-contrib instalatuta dagoela."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Eguneratzeen egiaztapena ustekabean gelditu da."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Errore ezezagun bat gertatu da. Jakinarazi arazoa gure GitHub orrian laguntza jasotzeko."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Ez dago Interneteko konexiorik. Egiaztatu sarea eta saiatu berriro."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Ezin izan da biltegien zerbitzariekin konektatu. Saiatu geroago edo egiaztatu ispilu-zerbitzarien konfigurazioa."
+
+msgid "Authorization error, please try again."
+msgstr "Baimen-errorea; saiatu berriro."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Pribilegiodun eguneratze-egiaztapena ustekabean gelditu da."
+
+msgid "The privileged update check could not be started."
+msgstr "Ezin izan da pribilegiodun eguneratze-egiaztapena abiarazi."
+
+msgid "System was not previously updated."
+msgstr "Sistema ez da lehenago eguneratu."
+
+msgid "The last update information could not be read."
+msgstr "Ezin izan da azken eguneratzearen informazioa irakurri."
+
+msgid "The last update information is invalid."
+msgstr "Azken eguneratzearen informazioa baliogabea da."
+
+msgid "Updates were not installed on this system"
+msgstr "Ez da eguneratzerik instalatu sistema honetan"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Sistema eguneratzeko, bilatu eguneratze erabilgarriak beheko botoiarekin."
+
+msgid "Update date available"
+msgstr "Eguneratze-data erabilgarri dago"
+
+msgid "Updated recently"
+msgstr "Duela gutxi eguneratua"
+
+msgid "System is up to date"
+msgstr "Sistema eguneratuta dago"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Azken eguneratzea duela hilabete baino gehiago instalatu zen"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Azken eguneratzea duela hiru hilabete baino gehiago instalatu zen"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Duela %1 segundo"
+msgstr[1] "Duela %1 segundo"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Duela %1 minutu"
+msgstr[1] "Duela %1 minutu"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Duela %1 ordu"
+msgstr[1] "Duela %1 ordu"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Duela %1 egun"
+msgstr[1] "Duela %1 egun"
+
+msgid "Action is required"
+msgstr "Ekintza bat behar da"
+
+msgid "Action is required!"
+msgstr "Ekintza bat behar da!"
+
+msgid "Action required"
+msgstr "Ekintza behar da"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update-k ezin du jarraitu, hurrengo eguneratzeak “%1” babestutako sistema-paketea kentzea eskatzen duelako. Kentzeak Fluff Linux behar bezala ibiltzea eragotz dezake. Jakinarazi arazoa GitHub-en laguntza jasotzeko."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Sistemaren eguneratzeak instalatzeko, Fluff Linux Update-k “%1” kendu behar du. Paketea kentzeak lotutako softwareari eragin diezaioke. Ziur ez bazaude, jakinarazi arazoa GitHub-en laguntza eskatzeko."
+
+msgid "Accept"
+msgstr "Onartu"
+
+msgid "Close"
+msgstr "Itxi"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Sistemaren eguneratzeek jarrai dezaten, %1 automatikoki kendu da, kentzea segurutzat jo ondoren."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Sistemaren eguneratzeek jarrai dezaten, pakete hauek automatikoki kendu dira, kentzea segurutzat jo ondoren: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Fitxategi-gatazka bat aurkitu eta konpondu da. %1 fitxategiari %2 izena eman zaio. Eguneratze-prozesua berrabiarazi da."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Ezin izan da gatazkan dagoen paketea kendu. Eskatu laguntza."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update-k ezin izan du FluffNet biltegiaren sinadura-gakoa egiaztatu. Eguneratzea gelditu da sistema babesteko."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update-k ezin izan du FluffNet biltegiaren sinadura-gakoa egiaztatu. Eguneratzea gelditu da sistema babesteko. Sare-arazo bat, FluffNet zerbitzari erabiltezina, iraungitako edo aldatutako sinadura-gakoa, biltegiaren konfigurazio-arazo bat, ustekabeko gako bat edo biltegiaren balizko arriskuan jartze bat adieraz dezake. Ez onartu eskuz ustekabeko gakorik, Fluff Linux-ek egiaztatutako argibideak argitaratzen ez baditu."
+
+msgid "Repository: %1"
+msgstr "Biltegia: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet biltegi ofizialaren sinadura-gakoa egiaztatu eta Pacman-era gehitu da."
+
+msgid "Technical details"
+msgstr "Xehetasun teknikoak"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Biltegiaren sinadura-gakoaren egiaztapenaren xehetasun teknikoak"
+
+msgid "Failure category: %1"
+msgstr "Hutsegite-kategoria: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Espero zen hatz-marka: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Jasotako hatz-marka: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Eskatutako sinadura-gakoaren hatz-marka: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman-en irteera-egoera: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU bertsioa: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux bertsioa: %1"
+
+msgid "Try Again"
+msgstr "Saiatu berriro"
+
+msgid "Copy Technical Details"
+msgstr "Kopiatu xehetasun teknikoak"
+
+msgid "Open an Issue on GitHub"
+msgstr "Ireki arazo bat GitHub-en"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Ez dago eguneratzearekin jarraitzeko behar adina leku libre. Askatu lekua eta saiatu berriro."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Ezin izan da pakete edo biltegi baten sinadura egiaztatu. Eguneratzea gelditu da. Egiaztatu sistemaren data eta gako-sorta, eta saiatu berriro."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Paketeen datu-basea hondatuta dago edo ezin da irakurri. Eguneratzea gelditu da. Eskatu laguntza datu-basea konpondu aurretik."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Deskargatutako pakete bat hondatuta edo osatu gabe dago. Eguneratzea gelditu da. Saiatu berriro edo erabili beste ispilu-zerbitzari bat."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Eguneratzeak ezin izan ditu beharrezko fitxategiak irakurri edo idatzi. Egiaztatu fitxategi-sistemaren baimenak eta diskoaren egoera, eta saiatu berriro."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Ezin izan dira eguneratzeak deskargatu. Saiatu berriro edo eskatu laguntza."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Ezin izan da eguneratze-transakzioa prestatu. Saiatu berriro edo eskatu laguntza."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Eguneratzea ezin izan da hasi esekitzea eragozteko funtzioa ezin izan delako gaitu. Saiatu berriro."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Ezin izan da paketeen datu-basea blokeatu. Itxi beste pakete-kudeatzaileak, egiaztatu fitxategi-sisteman idatz daitekeela eta saiatu berriro."
+
+msgid "Estimated time: %1"
+msgstr "Aurreikusitako denbora: %1"

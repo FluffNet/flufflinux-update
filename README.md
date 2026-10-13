@@ -33,11 +33,14 @@ menu, and keeps manual system updates clear and approachable.
   `/etc/pacman.d/lastupdate.json`.
 - Follow the Plasma theme, scale with the window, and support RTL layouts.
 
-The interface includes every official European Union language together with
-Arabic, Hebrew, Japanese, and Russian. English remains the source language.
-
-The new package-recovery dialogs introduced in the 1.2 testing build are
-currently English only while their wording and behavior are being reviewed.
+The interface covers 96 language/script choices using English source text and
+97 translated catalogs, including Brazilian Portuguese and Swiss German
+regional wording. The inventory in `po/languages.json` records 172 regional
+locales; regions without separate wording share their language's catalog.
+Chinese, Serbian, and Punjabi script choices have separate catalogs.
+Translations include recovery dialogs, notifications, authorization prompts,
+and launcher/settings metadata. The catalogs remain editable translation drafts;
+automated completeness checks do not imply native-speaker validation.
 
 ## A quick look
 
@@ -81,13 +84,16 @@ staging. Keep the build directory outside `fakeroot/`.
 The build directory does not need to exist. Preflight validation is read-only
 and checks existing parent directories for unsafe symlinks before configuring.
 
-The 1.5 development line uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
+The project uses Rust 2024 (Rust 1.85 or newer), CMake 3.24 or
 newer, and CXX-Qt 0.10.0. The first build requires network access to fetch
 locked Cargo dependencies and the pinned CXX-Qt CMake integration. CMake builds
 the Rust desktop backend, privileged helper, background worker and user-session
-notifier automatically;
-no separate Cargo build is needed for packaging. See the architecture and
-validation record in [`docs/rust-migration.md`](docs/rust-migration.md).
+notifier automatically; no separate Cargo build is needed for packaging.
+
+Application logic lives in `rust/flu-core`, the Qt-facing Rust backend in
+`rust/flu-bridge`, and the helper, worker and notifier in `rust/flu-service`.
+The interface is QML under `src/ui/`, with small C++ adapters for KDE and Qt
+integration in `src/flufflinuxupdate.*` and `src/nativeqt.*`.
 
 For manual configuration and compilation instead:
 
@@ -216,7 +222,11 @@ format.
 The regression suite exercises signing-key recovery through the production
 Rust bridge using disposable OpenPGP keys and mocked HTTPS/Pacman-key
 operations. It also checks Rust-backed Qt state, the unchanged QML scrolling
-calculations, and AppStream metadata:
+calculations, and AppStream metadata. The four Qt integration suites use
+C++/Qt Test alongside Rust core tests and Python packaging/workflow harnesses.
+Test adapters and fixtures are not linked into or installed with FLU.
+
+Run the regression tests with:
 
 ```sh
 cmake -S . -B build-tests -DBUILD_TESTING=ON
@@ -263,8 +273,6 @@ worker, and the already-root controller test uses a namespace-local polkit
 launcher. Nothing from this fixture is installed into the FLU package.
 Sleep-inhibitor checks query the VM's real logind and temporarily inhibit sleep
 while the isolated worker is running. Do not run another FLU update concurrently.
-See the [1.5 validation record](docs/rust-migration.md#validation-record) for
-tested behavior and remaining checks.
 
 The existing `lastupdate` hook provides this field:
 

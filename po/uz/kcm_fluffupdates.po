@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Tizim yangilanishlari"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Tizim yangilanishlarini o‘rnatib, Fluff Linux xavfsizligi va dolzarbligini saqlang."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Tizim oxirgi marta yangilangan: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Yangilanishlarni tekshirish"
+
+msgid "Install Updates"
+msgstr "Yangilanishlarni o‘rnatish"
+
+msgid "View Updates"
+msgstr "Yangilanishlarni ko‘rish"
+
+msgid "Change view"
+msgstr "Ko‘rinishni o‘zgartirish"
+
+msgid "Updates to Install"
+msgstr "O‘rnatiladigan yangilanishlar"
+
+msgid "Package details are unavailable."
+msgstr "Paket tafsilotlari mavjud emas."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update hali ishlab chiqilmoqda. Muammoga duch kelsangiz, GitHub sahifamizda xabar bering."
+
+msgid "System updates were installed successfully."
+msgstr "Tizim yangilanishlari muvaffaqiyatli o‘rnatildi."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Tarmoq ulanishi yo‘q!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Tarmoq ulanishi cheklangan. Tashkilot tarmog‘iga ulanmagan bo‘lsangiz, internet ulanishini tekshiring."
+
+msgid "pacman process is already running."
+msgstr "pacman jarayoni allaqachon ishlamoqda."
+
+msgid "The update process could not be started."
+msgstr "Yangilash jarayonini boshlashning imkoni bo‘lmadi."
+
+msgid "The update process could not be cancelled."
+msgstr "Yangilash jarayonini bekor qilishning imkoni bo‘lmadi."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Yangilanishlarni yuklab olishda ulanish uzildi. Tarmoqni tekshirib, qayta urining."
+
+msgid "The system update failed."
+msgstr "Tizimni yangilash amalga oshmadi."
+
+msgid "Downloading updates…"
+msgstr "Yangilanishlar yuklab olinmoqda…"
+
+msgid "Installing updates…"
+msgstr "Yangilanishlar o‘rnatilmoqda…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 yuklab olindi"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 yangilanish o‘rnatildi"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Yangilanishlar o‘rnatilmoqda. O‘rnatish tugamaguncha kompyuterni o‘chirmang yoki qayta ishga tushirmang. Yangilashni to‘xtatish tizim fayllariga zarar yetkazishi mumkin."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batareya quvvati kam. Yangilanishlarni o‘rnatish vaqtida kompyuterni quvvatlagichga ulang."
+
+msgid "Update process was cancelled"
+msgstr "Yangilash jarayoni bekor qilindi"
+
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+msgid "Checking for updates…"
+msgstr "Yangilanishlar tekshirilmoqda…"
+
+msgid "System updates are available"
+msgstr "Tizim yangilanishlari mavjud"
+
+msgid "Download size: %1"
+msgstr "Yuklab olish hajmi: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Tizim yangilanishlari uchun kerakli joy: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Yangilangandan keyin bo‘shaydigan joy: %1"
+
+msgid "No additional download required"
+msgstr "Qo‘shimcha yuklab olish shart emas"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Yangilanish tekshiruvchisini ishga tushirib bo‘lmadi. pacman-contrib o‘rnatilganiga ishonch hosil qiling."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Yangilanishlarni tekshirish kutilmaganda to‘xtadi."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Noma’lum xato yuz berdi. Yordam olish uchun GitHub sahifamizda bu muammo haqida xabar bering."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Internet ulanishi yo‘q. Tarmoqni tekshirib, qayta urining."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Repozitoriy serverlariga ulanib bo‘lmadi. Keyinroq qayta urining yoki ko‘zgu server sozlamalarini tekshiring."
+
+msgid "Authorization error, please try again."
+msgstr "Ruxsat berish xatosi. Qayta urining."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Yuqori huquqlar bilan yangilanishlarni tekshirish kutilmaganda to‘xtadi."
+
+msgid "The privileged update check could not be started."
+msgstr "Yuqori huquqlar bilan yangilanishlarni tekshirishni boshlab bo‘lmadi."
+
+msgid "System was not previously updated."
+msgstr "Tizim ilgari yangilanmagan."
+
+msgid "The last update information could not be read."
+msgstr "Oxirgi yangilanish ma’lumotlarini o‘qib bo‘lmadi."
+
+msgid "The last update information is invalid."
+msgstr "Oxirgi yangilanish ma’lumotlari yaroqsiz."
+
+msgid "Updates were not installed on this system"
+msgstr "Bu tizimda yangilanishlar o‘rnatilmagan"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Tizimni yangilash uchun quyidagi tugma orqali mavjud yangilanishlarni tekshiring."
+
+msgid "Update date available"
+msgstr "Yangilanish sanasi mavjud"
+
+msgid "Updated recently"
+msgstr "Yaqinda yangilangan"
+
+msgid "System is up to date"
+msgstr "Tizim dolzarb"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Oxirgi yangilanish bir oydan ko‘proq vaqt oldin o‘rnatilgan"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Oxirgi yangilanish uch oydan ko‘proq vaqt oldin o‘rnatilgan"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 soniya oldin"
+msgstr[1] "%1 soniya oldin"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 daqiqa oldin"
+msgstr[1] "%1 daqiqa oldin"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 soat oldin"
+msgstr[1] "%1 soat oldin"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 kun oldin"
+msgstr[1] "%1 kun oldin"
+
+msgid "Action is required"
+msgstr "Amal talab etiladi"
+
+msgid "Action is required!"
+msgstr "Amal talab etiladi!"
+
+msgid "Action required"
+msgstr "Amal kerak"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update davom eta olmaydi, chunki navbatdagi yangilanish himoyalangan tizim paketi bo‘lgan “%1”ni olib tashlashni talab qiladi. Uni olib tashlash Fluff Linux to‘g‘ri ishlashiga to‘sqinlik qilishi mumkin. Yordam uchun GitHub’da muammo haqida xabar bering."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Tizim yangilanishlarini o‘rnatish uchun Fluff Linux Update “%1”ni olib tashlashi kerak. Bu paketni olib tashlash unga bog‘liq dasturlarga ta’sir qilishi mumkin. Ishonchingiz komil bo‘lmasa, yordam uchun GitHub’da muammo haqida xabar bering."
+
+msgid "Accept"
+msgstr "Qabul qilish"
+
+msgid "Close"
+msgstr "Yopish"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Tizim yangilanishlari davom etishi uchun %1ni olib tashlash xavfsiz deb topilgach, u avtomatik olib tashlandi."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Tizim yangilanishlari davom etishi uchun quyidagi paketlarni olib tashlash xavfsiz deb topilgach, ular avtomatik olib tashlandi: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Fayl ziddiyati aniqlandi va hal qilindi. %1 nomi %2ga o‘zgartirildi. Yangilash jarayoni qayta boshlandi."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Ziddiyatli paketni olib tashlab bo‘lmadi. Yordam so‘rang."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update FluffNet repozitoriysining imzolash kalitini tasdiqlay olmadi. Tizimni himoyalash uchun yangilash to‘xtatildi."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update FluffNet repozitoriysining imzolash kalitini tasdiqlay olmadi. Tizimni himoyalash uchun yangilash to‘xtatildi. Bu tarmoq muammosi, ishlamayotgan FluffNet serveri, muddati tugagan yoki almashtirilgan imzolash kaliti, repozitoriy sozlamalaridagi muammo, kutilmagan kalit yoki repozitoriy buzib kirilgan bo‘lishi mumkinligini bildiradi. Fluff Linux tasdiqlangan ko‘rsatmalarni e’lon qilmasa, kutilmagan kalitni qo‘lda qabul qilmang."
+
+msgid "Repository: %1"
+msgstr "Repozitoriy: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Rasmiy FluffNet repozitoriysining imzolash kaliti tekshirildi va Pacman’ga qo‘shildi."
+
+msgid "Technical details"
+msgstr "Texnik tafsilotlar"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Repozitoriy imzolash kalitini tekshirishning texnik tafsilotlari"
+
+msgid "Failure category: %1"
+msgstr "Xato toifasi: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Kutilgan barmoq izi: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Olingan barmoq izi: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "So‘ralgan imzolash kalitining barmoq izi: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman chiqish holati: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU versiyasi: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux versiyasi: %1"
+
+msgid "Try Again"
+msgstr "Qayta urinish"
+
+msgid "Copy Technical Details"
+msgstr "Texnik tafsilotlarni nusxalash"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub’da muammo ochish"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Yangilashni davom ettirish uchun bo‘sh joy yetarli emas. Joy bo‘shatib, qayta urining."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Paket yoki repozitoriy imzosini tasdiqlab bo‘lmadi. Yangilash to‘xtatildi. Tizim sanasi va kalitlar to‘plamini tekshirib, qayta urining."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Paketlar ma’lumotlar bazasi shikastlangan yoki o‘qib bo‘lmaydi. Yangilash to‘xtatildi. Bazani tuzatishdan oldin yordam so‘rang."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Yuklab olingan paket shikastlangan yoki to‘liq emas. Yangilash to‘xtatildi. Qayta urining yoki boshqa ko‘zgu serverdan foydalaning."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Yangilash kerakli fayllarni o‘qiy yoki yoza olmadi. Fayl tizimi ruxsatlari va disk holatini tekshirib, qayta urining."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Yangilanishlarni yuklab olib bo‘lmadi. Qayta urining yoki yordam so‘rang."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Yangilash amalini tayyorlab bo‘lmadi. Qayta urining yoki yordam so‘rang."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Uyqu rejimini to‘sishni yoqib bo‘lmagani uchun yangilashni boshlab bo‘lmadi. Qayta urining."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Paketlar ma’lumotlar bazasini qulflab bo‘lmadi. Boshqa paket boshqaruvchilarini yoping, fayl tizimiga yozish mumkinligini tekshirib, qayta urining."
+
+msgid "Estimated time: %1"
+msgstr "Taxminiy vaqt: %1"

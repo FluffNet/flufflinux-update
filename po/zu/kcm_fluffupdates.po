@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: zu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Izibuyekezo zesistimu"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Gcina iFluff Linux ivikelekile futhi isesikhathini ngokufaka izibuyekezo zesistimu."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Isistimu igcine ukubuyekezwa: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Hlola izibuyekezo"
+
+msgid "Install Updates"
+msgstr "Faka izibuyekezo"
+
+msgid "View Updates"
+msgstr "Buka izibuyekezo"
+
+msgid "Change view"
+msgstr "Shintsha ukubuka"
+
+msgid "Updates to Install"
+msgstr "Izibuyekezo ezizofakwa"
+
+msgid "Package details are unavailable."
+msgstr "Imininingwane yephakheji ayitholakali."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "IFluff Linux Update isathuthukiswa. Uma uhlangabezana nenkinga, sicela uyibike ekhasini lethu leGitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Izibuyekezo zesistimu zifakwe ngempumelelo."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Akukho ukuxhumeka kunethiwekhi!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Ukuxhumeka kunethiwekhi kulinganiselwe. Uma ungaxhunyiwe kunethiwekhi yenhlangano, sicela uhlole ukuxhumeka kwakho ku-inthanethi."
+
+msgid "pacman process is already running."
+msgstr "Inqubo yepacman isivele iyasebenza."
+
+msgid "The update process could not be started."
+msgstr "Inqubo yokubuyekeza ayikwazanga ukuqalwa."
+
+msgid "The update process could not be cancelled."
+msgstr "Inqubo yokubuyekeza ayikwazanga ukukhanselwa."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Ukuxhumeka kuhlulekile ngenkathi kulandwa izibuyekezo. Hlola inethiwekhi yakho bese uzama futhi."
+
+msgid "The system update failed."
+msgstr "Ukubuyekezwa kwesistimu kuhlulekile."
+
+msgid "Downloading updates…"
+msgstr "Kulandwa izibuyekezo…"
+
+msgid "Installing updates…"
+msgstr "Kufakwa izibuyekezo…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 kulandiwe"
+
+msgid "%1/%2 updates installed"
+msgstr "Kufakwe izibuyekezo ezingu-%1/%2"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Izibuyekezo ziyafakwa manje. Sicela ungacimi noma uqalise kabusha ikhompyutha kuze kuphele ukufakwa. Ukuphazamisa ukubuyekeza kungalimaza amafayela esistimu."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Ibhethri liphansi. Sicela uxhume ikhompyutha yakho kushaja ngenkathi ufaka izibuyekezo."
+
+msgid "Update process was cancelled"
+msgstr "Inqubo yokubuyekeza ikhanseliwe"
+
+msgid "Cancel"
+msgstr "Khansela"
+
+msgid "Checking for updates…"
+msgstr "Kuhlolwa izibuyekezo…"
+
+msgid "System updates are available"
+msgstr "Izibuyekezo zesistimu ziyatholakala"
+
+msgid "Download size: %1"
+msgstr "Usayizi wokulanda: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Isikhala esidingekayo sezibuyekezo zesistimu: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Isikhala esizokhululeka ngemva kokubuyekeza: %1"
+
+msgid "No additional download required"
+msgstr "Akudingeki ukulanda okwengeziwe"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Isihloli sezibuyekezo asikwazanga ukuqalwa. Qinisekisa ukuthi ipacman-contrib ifakiwe."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Ukuhlola izibuyekezo kumile kungalindelekile."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Kwenzeke iphutha elingaziwa. Sicela ubike le nkinga ekhasini lethu leGitHub ukuze uthole usizo."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Akukho ukuxhumeka ku-inthanethi. Hlola inethiwekhi yakho bese uzama futhi."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Amaseva ezinqolobane awafinyeleleki. Zama futhi kamuva noma uhlole ukumiswa kwesibuko sakho."
+
+msgid "Authorization error, please try again."
+msgstr "Iphutha lokugunyaza, sicela uzame futhi."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Ukuhlola izibuyekezo okunamalungelo aphakeme kumile kungalindelekile."
+
+msgid "The privileged update check could not be started."
+msgstr "Ukuhlola izibuyekezo okunamalungelo aphakeme akukwazanga ukuqalwa."
+
+msgid "System was not previously updated."
+msgstr "Isistimu ayikaze ibuyekezwe."
+
+msgid "The last update information could not be read."
+msgstr "Ulwazi lokubuyekeza kokugcina alukwazanga ukufundwa."
+
+msgid "The last update information is invalid."
+msgstr "Ulwazi lokubuyekeza kokugcina aluvumelekile."
+
+msgid "Updates were not installed on this system"
+msgstr "Azikho izibuyekezo ezifakiwe kule sistimu"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Ukuze ubuyekeze isistimu, hlola izibuyekezo ezitholakalayo usebenzisa inkinobho engezansi."
+
+msgid "Update date available"
+msgstr "Usuku lokubuyekeza luyatholakala"
+
+msgid "Updated recently"
+msgstr "Kubuyekezwe muva nje"
+
+msgid "System is up to date"
+msgstr "Isistimu isesikhathini"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Isibuyekezo sokugcina safakwa ngaphezu kwenyanga edlule"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Isibuyekezo sokugcina safakwa ngaphezu kwezinyanga ezintathu ezedlule"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Emizuzwaneni engu-%1 edlule"
+msgstr[1] "Emizuzwaneni engu-%1 edlule"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Emizuzwini engu-%1 edlule"
+msgstr[1] "Emizuzwini engu-%1 edlule"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Emahoreni angu-%1 edlule"
+msgstr[1] "Emahoreni angu-%1 edlule"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Ezinsukwini ezingu-%1 ezedlule"
+msgstr[1] "Ezinsukwini ezingu-%1 ezedlule"
+
+msgid "Action is required"
+msgstr "Kudingeka isenzo"
+
+msgid "Action is required!"
+msgstr "Kudingeka isenzo!"
+
+msgid "Action required"
+msgstr "Isenzo siyadingeka"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "IFluff Linux Update ayikwazi ukuqhubeka ngoba isibuyekezo esilandelayo sidinga ukususa “%1”, okuyiphakheji yesistimu evikelwe. Ukuyisusa kungavimbela iFluff Linux ekusebenzeni kahle. Sicela ubike le nkinga kuGitHub ukuze uthole usizo."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Ukuze isistimu ifake izibuyekezo, iFluff Linux Update idinga ukususa “%1”. Ukususa le phakheji kungathinta isofthiwe ehlobene nayo. Uma ungaqiniseki, sicela ubike inkinga kuGitHub ukuze uthole usizo."
+
+msgid "Accept"
+msgstr "Yamukela"
+
+msgid "Close"
+msgstr "Vala"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Ukuze izibuyekezo zesistimu ziqhubeke, i-%1 isuswe ngokuzenzakalela ngemva kokutholakala iphephile ukuyisusa."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Ukuze izibuyekezo zesistimu ziqhubeke, amaphakheji alandelayo asuswe ngokuzenzakalela ngemva kokutholakala ephephile ukuwasusa: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Kutholwe ukungqubuzana kwefayela futhi kwaxazululwa. I-%1 iqanjwe kabusha ngokuthi %2. Inqubo yokubuyekeza iqale kabusha."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Iphakheji engqubuzanayo ayikwazanga ukususwa. Sicela ufune usizo."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "IFluff Linux Update ayikwazanga ukuqinisekisa ukhiye wokusayina wenqolobane yeFluffNet. Ukubuyekeza kumisiwe ukuze kuvikelwe isistimu yakho."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "IFluff Linux Update ayikwazanga ukuqinisekisa ukhiye wokusayina wenqolobane yeFluffNet. Ukubuyekeza kumisiwe ukuze kuvikelwe isistimu yakho. Lokhu kungasho inkinga yenethiwekhi, iseva yeFluffNet engatholakali, ukhiye wokusayina ophelelwe isikhathi noma oshintshiwe, inkinga yokumiswa kwenqolobane, ukhiye ongalindelekile, noma ukuhlaselwa kwenqolobane. Ungawamukeli ngokwakho ukhiye ongalindelekile ngaphandle uma iFluff Linux ishicilela imiyalelo eqinisekisiwe."
+
+msgid "Repository: %1"
+msgstr "Inqolobane: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Ukhiye wokusayina osemthethweni wenqolobane yeFluffNet uqinisekisiwe futhi wengezwe kuPacman."
+
+msgid "Technical details"
+msgstr "Imininingwane yobuchwepheshe"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Imininingwane yobuchwepheshe yokuqinisekisa ukhiye wokusayina wenqolobane"
+
+msgid "Failure category: %1"
+msgstr "Uhlobo lokwehluleka: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Isigxivizo esilindelekile: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Isigxivizo esitholiwe: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Isigxivizo sokhiye wokusayina esiceliwe: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Isimo sokuphuma kwePacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Inguqulo yeFLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Inguqulo yeFluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Zama futhi"
+
+msgid "Copy Technical Details"
+msgstr "Kopisha imininingwane yobuchwepheshe"
+
+msgid "Open an Issue on GitHub"
+msgstr "Vula umbiko wenkinga kuGitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Asikho isikhala esanele sokuqhubeka nokubuyekeza. Khulula isikhala bese uzama futhi."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Isiginesha yephakheji noma yenqolobane ayikwazanga ukuqinisekiswa. Ukubuyekeza kumisiwe. Hlola usuku lwesistimu yakho nenqolobane yokhiye, bese uzama futhi."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Isizindalwazi samaphakheji sonakele noma asifundeki. Ukubuyekeza kumisiwe. Sicela ufune usizo ngaphambi kokulungisa isizindalwazi."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Iphakheji elandiwe yonakele noma ayiphelele. Ukubuyekeza kumisiwe. Sicela uzame futhi noma usebenzise esinye isibuko."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Ukubuyekeza akukwazanga ukufunda noma ukubhala amafayela adingekayo. Hlola izimvume zesistimu yamafayela nesimo sediski, bese uzama futhi."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Izibuyekezo azikwazanga ukulandwa. Sicela uzame futhi noma ufune usizo."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Umsebenzi wokubuyekeza awukwazanga ukulungiselelwa. Sicela uzame futhi noma ufune usizo."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ukubuyekeza akukwazanga ukuqala ngoba ukuvimbela ukulala akukwazanga ukunikwa amandla. Sicela uzame futhi."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Isizindalwazi samaphakheji asikwazanga ukukhiywa. Vala abanye abaphathi bamaphakheji futhi uhlole ukuthi isistimu yamafayela iyabhaleka, bese uzama futhi."
+
+msgid "Estimated time: %1"
+msgstr "Isikhathi esilinganisiwe: %1"

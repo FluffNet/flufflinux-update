@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: so\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Cusboonaysiinta nidaamka"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Ku rakib cusboonaysiinta nidaamka si Fluff Linux u ahaado ammaan oo casri ah."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Nidaamka markii ugu dambaysay la cusboonaysiiyay: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Hubi cusboonaysiinta"
+
+msgid "Install Updates"
+msgstr "Rakib cusboonaysiinta"
+
+msgid "View Updates"
+msgstr "Eeg cusboonaysiinta"
+
+msgid "Change view"
+msgstr "Beddel muuqaalka"
+
+msgid "Updates to Install"
+msgstr "Cusboonaysiinta la rakibayo"
+
+msgid "Package details are unavailable."
+msgstr "Faahfaahinta xirmooyinka lama heli karo."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update weli waa la horumarinayaa. Haddii aad dhibaato la kulanto, ku soo sheeg boggayaga GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Cusboonaysiinta nidaamka si guul leh ayaa loo rakibay."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Ma jiro xiriir shabakad!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Xiriirka shabakadu waa xaddidan yahay. Haddii aadan ku xirnayn shabakad urur, hubi xiriirka internetka."
+
+msgid "pacman process is already running."
+msgstr "Hawl pacman ah ayaa hore u socota."
+
+msgid "The update process could not be started."
+msgstr "Hawsha cusboonaysiinta lama bilaabi karin."
+
+msgid "The update process could not be cancelled."
+msgstr "Hawsha cusboonaysiinta lama joojin karin."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Xiriirku wuu fashilmay intii cusboonaysiinta la soo dejinayay. Hubi shabakadda oo isku day mar kale."
+
+msgid "The system update failed."
+msgstr "Cusboonaysiinta nidaamka way fashilantay."
+
+msgid "Downloading updates…"
+msgstr "Cusboonaysiinta ayaa la soo dejinayaa…"
+
+msgid "Installing updates…"
+msgstr "Cusboonaysiinta ayaa la rakibayaa…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ayaa la soo dejiyay"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 cusboonaysiin ayaa la rakibay"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Cusboonaysiinta ayaa hadda la rakibayaa. Ha damin ama dib ha u bilaabin kombiyuutarka ilaa rakibiddu dhammaato. Joojinta cusboonaysiintu waxay dhaawici kartaa faylasha nidaamka."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batarigu wuu hooseeyaa. Ku xir kombiyuutarka dallace inta cusboonaysiinta la rakibayo."
+
+msgid "Update process was cancelled"
+msgstr "Hawshii cusboonaysiinta waa la joojiyay"
+
+msgid "Cancel"
+msgstr "Jooji"
+
+msgid "Checking for updates…"
+msgstr "Cusboonaysiinta ayaa la hubinayaa…"
+
+msgid "System updates are available"
+msgstr "Cusboonaysiin nidaam ayaa la heli karaa"
+
+msgid "Download size: %1"
+msgstr "Cabbirka soo dejinta: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Kaydka loo baahan yahay cusboonaysiinta nidaamka: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Kaydka bannaanaaday cusboonaysiinta ka dib: %1"
+
+msgid "No additional download required"
+msgstr "Soo dejin dheeraad ah looma baahna"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Hubiyaha cusboonaysiinta lama bilaabi karin. Hubi in pacman-contrib la rakibay."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Hubinta cusboonaysiintu si lama filaan ah ayay u joogsatay."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Khalad aan la aqoon ayaa dhacay. Ku soo sheeg dhibaatada boggayaga GitHub si aad caawimaad u hesho."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Ma jiro xiriir internet. Hubi shabakadda oo isku day mar kale."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Lama gaari karin adeegayaasha kaydka xirmooyinka. Isku day mar dambe ama hubi habaynta adeegayaasha muraayadda."
+
+msgid "Authorization error, please try again."
+msgstr "Khalad oggolaansho, isku day mar kale."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Hubinta cusboonaysiinta ee leh awoodda sare si lama filaan ah ayay u joogsatay."
+
+msgid "The privileged update check could not be started."
+msgstr "Hubinta cusboonaysiinta ee leh awoodda sare lama bilaabi karin."
+
+msgid "System was not previously updated."
+msgstr "Nidaamka horay looma cusboonaysiin."
+
+msgid "The last update information could not be read."
+msgstr "Macluumaadka cusboonaysiintii ugu dambaysay lama akhrin karin."
+
+msgid "The last update information is invalid."
+msgstr "Macluumaadka cusboonaysiintii ugu dambaysay waa khaldan yahay."
+
+msgid "Updates were not installed on this system"
+msgstr "Nidaamkan laguma rakibin cusboonaysiin"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Si aad nidaamka u cusboonaysiiso, ka hubi cusboonaysiinta badhanka hoose."
+
+msgid "Update date available"
+msgstr "Taariikhda cusboonaysiinta waa la heli karaa"
+
+msgid "Updated recently"
+msgstr "Dhawaan la cusboonaysiiyay"
+
+msgid "System is up to date"
+msgstr "Nidaamku waa casri"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Cusboonaysiintii ugu dambaysay waxaa la rakibay bil ka hor wax ka badan"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Cusboonaysiintii ugu dambaysay waxaa la rakibay saddex bilood ka hor wax ka badan"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 ilbiriqsi ka hor"
+msgstr[1] "%1 ilbiriqsi ka hor"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 daqiiqo ka hor"
+msgstr[1] "%1 daqiiqo ka hor"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 saac ka hor"
+msgstr[1] "%1 saacadood ka hor"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 maalin ka hor"
+msgstr[1] "%1 maalmood ka hor"
+
+msgid "Action is required"
+msgstr "Tallaabo ayaa loo baahan yahay"
+
+msgid "Action is required!"
+msgstr "Tallaabo ayaa loo baahan yahay!"
+
+msgid "Action required"
+msgstr "Tallaabo loo baahan yahay"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update ma sii wadi karo sababtoo ah cusboonaysiinta soo socota waxay u baahan tahay in la saaro “%1”, oo ah xirmo nidaam oo la ilaaliyo. Saaristeedu waxay ka hor istaagi kartaa Fluff Linux inuu si sax ah u shaqeeyo. Dhibaatada ku soo sheeg GitHub si aad caawimaad u hesho."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Si cusboonaysiinta nidaamka loo rakibo, Fluff Linux Update wuxuu u baahan yahay inuu saaro “%1”. Saarista xirmadani waxay saamayn kartaa barnaamijyada la xiriira. Haddii aadan hubin, ku soo sheeg dhibaatada GitHub si aad caawimaad u hesho."
+
+msgid "Accept"
+msgstr "Aqbal"
+
+msgid "Close"
+msgstr "Xir"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Si cusboonaysiinta nidaamku u sii socoto, %1 si otomaatig ah ayaa loo saaray ka dib markii saaristiisa loo arkay mid ammaan ah."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Si cusboonaysiinta nidaamku u sii socoto, xirmooyinkan si otomaatig ah ayaa loo saaray ka dib markii saaristooda loo arkay mid ammaan ah: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Isku dhac faylal ayaa la helay oo la xalliyay. %1 waxaa loo beddelay magaca %2. Hawsha cusboonaysiinta dib ayaa loo bilaabay."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Xirmada isku dhaca keentay lama saari karin. Raadso taageero."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update ma xaqiijin karin furaha saxiixa kaydka FluffNet. Cusboonaysiinta waa la joojiyay si nidaamka loo ilaaliyo."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update ma xaqiijin karin furaha saxiixa kaydka FluffNet. Cusboonaysiinta waa la joojiyay si nidaamka loo ilaaliyo. Tani waxay tilmaami kartaa dhibaato shabakad, adeegaha FluffNet oo aan la heli karin, furaha saxiixa oo dhacay ama la beddelay, habayn kayd oo khaldan, fure aan la filayn, ama kaydka oo laga yaabo in la jabsaday. Gacanta ha ku aqbalin fure aan la filayn ilaa Fluff Linux uu daabaco tilmaamo la xaqiijiyay."
+
+msgid "Repository: %1"
+msgstr "Kaydka xirmooyinka: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Furaha rasmiga ah ee saxiixa kaydka FluffNet waa la xaqiijiyay waxaana lagu daray Pacman."
+
+msgid "Technical details"
+msgstr "Faahfaahin farsamo"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Faahfaahinta farsamo ee xaqiijinta furaha saxiixa kaydka"
+
+msgid "Failure category: %1"
+msgstr "Nooca fashilka: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Raadka furaha ee la filayay: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Raadka furaha ee la helay: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Raadka furaha saxiixa ee la codsaday: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Xaaladda bixitaanka Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Nooca FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Nooca Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Isku day mar kale"
+
+msgid "Copy Technical Details"
+msgstr "Nuqul ka samee faahfaahinta farsamo"
+
+msgid "Open an Issue on GitHub"
+msgstr "Dhibaato ku soo sheeg GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Ma jiro kayd bannaan oo ku filan si cusboonaysiinta loo sii wado. Meel bannee oo isku day mar kale."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Saxiixa xirmo ama kayd lama xaqiijin karin. Cusboonaysiinta waa la joojiyay. Hubi taariikhda nidaamka iyo keydka furayaasha, dabadeed isku day mar kale."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Xogta xirmooyinka way dhaawacantay ama lama akhrin karo. Cusboonaysiinta waa la joojiyay. Raadso taageero ka hor hagaajinta xogta."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Xirmo la soo dejiyay way dhaawacantay ama ma dhammaystirna. Cusboonaysiinta waa la joojiyay. Isku day mar kale ama isticmaal adeegaha muraayadda oo kale."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Cusboonaysiintu ma akhrin karin ama qori karin faylasha loo baahan yahay. Hubi oggolaanshaha nidaamka faylasha iyo caafimaadka diskiga, dabadeed isku day mar kale."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Cusboonaysiinta lama soo dejin karin. Isku day mar kale ama raadso taageero."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Hawlgalka cusboonaysiinta lama diyaarin karin. Isku day mar kale ama raadso taageero."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Cusboonaysiintu ma bilaaban karin sababtoo ah ka hortagga hurdada lama hawlgelin karin. Isku day mar kale."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Xogta xirmooyinka lama qufuli karin. Xir maamulayaasha xirmooyinka kale oo hubi in nidaamka faylasha wax lagu qori karo, dabadeed isku day mar kale."
+
+msgid "Estimated time: %1"
+msgstr "Waqtiga la qiyaasay: %1"

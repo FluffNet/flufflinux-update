@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n % 10 != 1 || n % 100 == 11);\n"
+
+msgid "System Updates"
+msgstr "Kerfisuppfærslur"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Haltu Fluff Linux öruggu og uppfærðu með því að setja inn kerfisuppfærslur."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Kerfið síðast uppfært: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Leita að uppfærslum"
+
+msgid "Install Updates"
+msgstr "Setja inn uppfærslur"
+
+msgid "View Updates"
+msgstr "Skoða uppfærslur"
+
+msgid "Change view"
+msgstr "Breyta sýn"
+
+msgid "Updates to Install"
+msgstr "Uppfærslur til uppsetningar"
+
+msgid "Package details are unavailable."
+msgstr "Upplýsingar um pakka eru ekki tiltækar."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update er enn í þróun. Ef þú lendir í vandamáli skaltu tilkynna það á GitHub-síðunni okkar."
+
+msgid "System updates were installed successfully."
+msgstr "Kerfisuppfærslur voru settar inn."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Engin nettenging!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Nettengingin er takmörkuð. Athugaðu internettenginguna ef þú ert ekki tengdur innra neti stofnunar."
+
+msgid "pacman process is already running."
+msgstr "pacman-ferli er þegar í gangi."
+
+msgid "The update process could not be started."
+msgstr "Ekki tókst að hefja uppfærsluferlið."
+
+msgid "The update process could not be cancelled."
+msgstr "Ekki tókst að hætta við uppfærsluferlið."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Tengingin brást við niðurhal uppfærslna. Athugaðu netið og reyndu aftur."
+
+msgid "The system update failed."
+msgstr "Kerfisuppfærslan mistókst."
+
+msgid "Downloading updates…"
+msgstr "Sæki uppfærslur…"
+
+msgid "Installing updates…"
+msgstr "Set inn uppfærslur…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 sótt"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 uppfærslur settar inn"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Verið er að setja inn uppfærslur. Ekki slökkva á tölvunni eða endurræsa hana fyrr en uppsetningu er lokið. Rof á uppfærslunni getur skemmt kerfisskrár."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Lítil hleðsla er á rafhlöðunni. Tengdu tölvuna við hleðslutæki meðan uppfærslur eru settar inn."
+
+msgid "Update process was cancelled"
+msgstr "Hætt var við uppfærsluferlið"
+
+msgid "Cancel"
+msgstr "Hætta við"
+
+msgid "Checking for updates…"
+msgstr "Leita að uppfærslum…"
+
+msgid "System updates are available"
+msgstr "Kerfisuppfærslur eru tiltækar"
+
+msgid "Download size: %1"
+msgstr "Stærð niðurhals: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Geymslupláss sem þarf fyrir kerfisuppfærslur: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Geymslupláss sem losnar eftir uppfærslu: %1"
+
+msgid "No additional download required"
+msgstr "Ekki þarf frekara niðurhal"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Ekki tókst að hefja athugun á uppfærslum. Gakktu úr skugga um að pacman-contrib sé uppsett."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Athugun á uppfærslum stöðvaðist óvænt."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Óþekkt villa kom upp. Tilkynntu vandamálið á GitHub-síðunni okkar til að fá aðstoð."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Engin internettenging. Athugaðu netið og reyndu aftur."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Ekki náðist samband við pakkasöfnin. Reyndu síðar eða athugaðu stillingar spegilþjóna."
+
+msgid "Authorization error, please try again."
+msgstr "Heimildarvilla. Reyndu aftur."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Athugun á uppfærslum með auknum réttindum stöðvaðist óvænt."
+
+msgid "The privileged update check could not be started."
+msgstr "Ekki tókst að hefja athugun á uppfærslum með auknum réttindum."
+
+msgid "System was not previously updated."
+msgstr "Kerfið hefur ekki áður verið uppfært."
+
+msgid "The last update information could not be read."
+msgstr "Ekki tókst að lesa upplýsingar um síðustu uppfærslu."
+
+msgid "The last update information is invalid."
+msgstr "Upplýsingar um síðustu uppfærslu eru ógildar."
+
+msgid "Updates were not installed on this system"
+msgstr "Engar uppfærslur hafa verið settar inn á þetta kerfi"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Notaðu hnappinn hér fyrir neðan til að leita að uppfærslum fyrir kerfið."
+
+msgid "Update date available"
+msgstr "Dagsetning uppfærslu er tiltæk"
+
+msgid "Updated recently"
+msgstr "Nýlega uppfært"
+
+msgid "System is up to date"
+msgstr "Kerfið er uppfært"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Síðasta uppfærsla var sett inn fyrir meira en mánuði"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Síðasta uppfærsla var sett inn fyrir meira en þremur mánuðum"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Fyrir %1 sekúndu"
+msgstr[1] "Fyrir %1 sekúndum"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Fyrir %1 mínútu"
+msgstr[1] "Fyrir %1 mínútum"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Fyrir %1 klukkustund"
+msgstr[1] "Fyrir %1 klukkustundum"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Fyrir %1 degi"
+msgstr[1] "Fyrir %1 dögum"
+
+msgid "Action is required"
+msgstr "Aðgerðar er þörf"
+
+msgid "Action is required!"
+msgstr "Aðgerðar er þörf!"
+
+msgid "Action required"
+msgstr "Aðgerð nauðsynleg"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update getur ekki haldið áfram því næsta uppfærsla krefst þess að „%1“, sem er verndaður kerfispakki, verði fjarlægður. Það gæti komið í veg fyrir að Fluff Linux virki rétt. Tilkynntu vandamálið á GitHub til að fá aðstoð."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Til að setja inn kerfisuppfærslur þarf Fluff Linux Update að fjarlægja „%1“. Það getur haft áhrif á tengdan hugbúnað. Tilkynntu vandamálið á GitHub til að fá aðstoð ef þú ert óviss."
+
+msgid "Accept"
+msgstr "Samþykkja"
+
+msgid "Close"
+msgstr "Loka"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Til að halda kerfisuppfærslum áfram var %1 fjarlægt sjálfkrafa eftir að það var metið öruggt."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Til að halda kerfisuppfærslum áfram voru eftirfarandi pakkar fjarlægðir sjálfkrafa eftir að það var metið öruggt: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Skráarárekstur fannst og var leystur. %1 var endurnefnt í %2. Uppfærsluferlið hefur hafist aftur."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Ekki tókst að fjarlægja pakkann sem veldur árekstri. Leitaðu aðstoðar."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update gat ekki staðfest undirritunarlykil FluffNet-pakkasafnsins. Uppfærslan var stöðvuð til að vernda kerfið."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update gat ekki staðfest undirritunarlykil FluffNet-pakkasafnsins. Uppfærslan var stöðvuð til að vernda kerfið. Þetta getur bent til netvanda, óaðgengilegs FluffNet-þjóns, útrunnins eða endurnýjaðs undirritunarlykils, rangrar stillingar pakkasafns, óvænts lykils eða hugsanlegrar innrásar í pakkasafnið. Ekki samþykkja óvæntan lykil handvirkt nema Fluff Linux birti staðfestar leiðbeiningar."
+
+msgid "Repository: %1"
+msgstr "Pakkasafn: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Opinberi undirritunarlykill FluffNet-pakkasafnsins var staðfestur og bætt við Pacman."
+
+msgid "Technical details"
+msgstr "Tæknilegar upplýsingar"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Tæknilegar upplýsingar um staðfestingu undirritunarlykils pakkasafns"
+
+msgid "Failure category: %1"
+msgstr "Villuflokkur: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Væntanlegt fingrafar: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Móttekið fingrafar: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Fingrafar umbeðins undirritunarlykils: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Lokastaða Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Útgáfa FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Útgáfa Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Reyna aftur"
+
+msgid "Copy Technical Details"
+msgstr "Afrita tæknilegar upplýsingar"
+
+msgid "Open an Issue on GitHub"
+msgstr "Tilkynna vandamál á GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Ekki er nóg laust geymslupláss til að halda uppfærslunni áfram. Losaðu pláss og reyndu aftur."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Ekki tókst að staðfesta undirritun pakka eða pakkasafns. Uppfærslan var stöðvuð. Athugaðu kerfisdagsetningu og lyklakippu og reyndu aftur."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Pakkagagnagrunnurinn er skemmdur eða ólæsilegur. Uppfærslan var stöðvuð. Leitaðu aðstoðar áður en þú gerir við gagnagrunninn."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Sótti pakkinn er skemmdur eða ófullgerður. Uppfærslan var stöðvuð. Reyndu aftur eða notaðu annan spegilþjón."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Uppfærslan gat ekki lesið eða skrifað nauðsynlegar skrár. Athugaðu heimildir skráarkerfisins og ástand disksins og reyndu aftur."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Ekki tókst að sækja uppfærslurnar. Reyndu aftur eða leitaðu aðstoðar."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Ekki tókst að undirbúa uppfærsluaðgerðina. Reyndu aftur eða leitaðu aðstoðar."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ekki tókst að hefja uppfærsluna því ekki var hægt að koma í veg fyrir svefnstillingu. Reyndu aftur."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Ekki tókst að læsa pakkagagnagrunninum. Lokaðu öðrum pakkastjórum og athugaðu að hægt sé að skrifa í skráarkerfið. Reyndu síðan aftur."
+
+msgid "Estimated time: %1"
+msgstr "Áætlaður tími: %1"

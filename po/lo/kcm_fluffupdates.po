@@ -1,0 +1,291 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: lo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "System Updates"
+msgstr "ການອັບເດດລະບົບ"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "ຮັກສາ Fluff Linux ໃຫ້ປອດໄພ ແລະ ທັນສະໄໝໂດຍຕິດຕັ້ງການອັບເດດລະບົບ."
+
+msgid "System last updated: %1 (%2)"
+msgstr "ລະບົບອັບເດດຫຼ້າສຸດ: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "ກວດຫາອັບເດດ"
+
+msgid "Install Updates"
+msgstr "ຕິດຕັ້ງອັບເດດ"
+
+msgid "View Updates"
+msgstr "ເບິ່ງອັບເດດ"
+
+msgid "Change view"
+msgstr "ປ່ຽນມຸມມອງ"
+
+msgid "Updates to Install"
+msgstr "ອັບເດດທີ່ຈະຕິດຕັ້ງ"
+
+msgid "Package details are unavailable."
+msgstr "ບໍ່ມີລາຍລະອຽດແພັກເກດ."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ຍັງຢູ່ໃນການພັດທະນາ. ຖ້າພົບບັນຫາ ກະລຸນາລາຍງານທີ່ໜ້າ GitHub ຂອງພວກເຮົາ."
+
+msgid "System updates were installed successfully."
+msgstr "ຕິດຕັ້ງອັບເດດລະບົບສຳເລັດແລ້ວ."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "ບໍ່ມີການເຊື່ອມຕໍ່ເຄືອຂ່າຍ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ການເຊື່ອມຕໍ່ເຄືອຂ່າຍຖືກຈຳກັດ. ຖ້າບໍ່ໄດ້ເຊື່ອມກັບເຄືອຂ່າຍອົງກອນ ກະລຸນາກວດການເຊື່ອມຕໍ່ອິນເຕີເນັດ."
+
+msgid "pacman process is already running."
+msgstr "ຂະບວນການ pacman ກຳລັງເຮັດວຽກຢູ່ແລ້ວ."
+
+msgid "The update process could not be started."
+msgstr "ບໍ່ສາມາດເລີ່ມຂະບວນການອັບເດດໄດ້."
+
+msgid "The update process could not be cancelled."
+msgstr "ບໍ່ສາມາດຍົກເລີກຂະບວນການອັບເດດໄດ້."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "ການເຊື່ອມຕໍ່ລົ້ມເຫຼວຂະນະດາວໂຫຼດອັບເດດ. ກວດເຄືອຂ່າຍແລ້ວລອງອີກຄັ້ງ."
+
+msgid "The system update failed."
+msgstr "ການອັບເດດລະບົບລົ້ມເຫຼວ."
+
+msgid "Downloading updates…"
+msgstr "ກຳລັງດາວໂຫຼດອັບເດດ…"
+
+msgid "Installing updates…"
+msgstr "ກຳລັງຕິດຕັ້ງອັບເດດ…"
+
+msgid "%1 / %2 downloaded"
+msgstr "ດາວໂຫຼດແລ້ວ %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "ຕິດຕັ້ງອັບເດດແລ້ວ %1/%2"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "ກຳລັງຕິດຕັ້ງອັບເດດ. ຢ່າປິດ ຫຼື ເລີ່ມຄອມພິວເຕີໃໝ່ຈົນກວ່າຕິດຕັ້ງສຳເລັດ. ການຂັດຈັງຫວະອັບເດດອາດເຮັດໃຫ້ໄຟລ໌ລະບົບເສຍຫາຍ."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ແບັດເຕີຣີຕ່ຳ. ກະລຸນາຕໍ່ຄອມພິວເຕີກັບເຄື່ອງສາກໃນຂະນະຕິດຕັ້ງອັບເດດ."
+
+msgid "Update process was cancelled"
+msgstr "ຍົກເລີກຂະບວນການອັບເດດແລ້ວ"
+
+msgid "Cancel"
+msgstr "ຍົກເລີກ"
+
+msgid "Checking for updates…"
+msgstr "ກຳລັງກວດຫາອັບເດດ…"
+
+msgid "System updates are available"
+msgstr "ມີອັບເດດລະບົບ"
+
+msgid "Download size: %1"
+msgstr "ຂະໜາດດາວໂຫຼດ: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "ພື້ນທີ່ທີ່ຕ້ອງໃຊ້ສຳລັບອັບເດດລະບົບ: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "ພື້ນທີ່ວ່າງຫຼັງອັບເດດ: %1"
+
+msgid "No additional download required"
+msgstr "ບໍ່ຕ້ອງດາວໂຫຼດເພີ່ມ"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "ບໍ່ສາມາດເລີ່ມຕົວກວດອັບເດດໄດ້. ກວດໃຫ້ແນ່ໃຈວ່າໄດ້ຕິດຕັ້ງ pacman-contrib."
+
+msgid "The update check stopped unexpectedly."
+msgstr "ການກວດອັບເດດຢຸດໂດຍບໍ່ຄາດຄິດ."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "ເກີດຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ. ກະລຸນາລາຍງານບັນຫານີ້ທີ່ໜ້າ GitHub ຂອງພວກເຮົາເພື່ອຮັບການຊ່ວຍເຫຼືອ."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ. ກວດເຄືອຂ່າຍແລ້ວລອງອີກຄັ້ງ."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ບໍ່ສາມາດເຂົ້າເຖິງເຊີບເວີຄັງໄດ້. ລອງພາຍຫຼັງ ຫຼື ກວດການຕັ້ງຄ່າເຊີບເວີສຳເນົາ."
+
+msgid "Authorization error, please try again."
+msgstr "ຂໍ້ຜິດພາດການອະນຸຍາດ, ກະລຸນາລອງອີກຄັ້ງ."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ການກວດອັບເດດດ້ວຍສິດສູງຢຸດໂດຍບໍ່ຄາດຄິດ."
+
+msgid "The privileged update check could not be started."
+msgstr "ບໍ່ສາມາດເລີ່ມການກວດອັບເດດດ້ວຍສິດສູງໄດ້."
+
+msgid "System was not previously updated."
+msgstr "ລະບົບບໍ່ເຄີຍຖືກອັບເດດ."
+
+msgid "The last update information could not be read."
+msgstr "ບໍ່ສາມາດອ່ານຂໍ້ມູນອັບເດດຫຼ້າສຸດໄດ້."
+
+msgid "The last update information is invalid."
+msgstr "ຂໍ້ມູນອັບເດດຫຼ້າສຸດບໍ່ຖືກຕ້ອງ."
+
+msgid "Updates were not installed on this system"
+msgstr "ລະບົບນີ້ບໍ່ໄດ້ຕິດຕັ້ງອັບເດດ"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "ເພື່ອອັບເດດລະບົບ ໃຊ້ປຸ່ມຂ້າງລຸ່ມກວດຫາອັບເດດ."
+
+msgid "Update date available"
+msgstr "ມີວັນທີອັບເດດ"
+
+msgid "Updated recently"
+msgstr "ອັບເດດເມື່ອໄວໆນີ້"
+
+msgid "System is up to date"
+msgstr "ລະບົບທັນສະໄໝແລ້ວ"
+
+msgid "Last update was installed more than a month ago"
+msgstr "ອັບເດດຫຼ້າສຸດຕິດຕັ້ງເມື່ອຫຼາຍກວ່າໜຶ່ງເດືອນກ່ອນ"
+
+msgid "Last update was installed more than three months ago"
+msgstr "ອັບເດດຫຼ້າສຸດຕິດຕັ້ງເມື່ອຫຼາຍກວ່າສາມເດືອນກ່ອນ"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 ວິນາທີກ່ອນ"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 ນາທີກ່ອນ"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ຊົ່ວໂມງກ່ອນ"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ມື້ກ່ອນ"
+
+msgid "Action is required"
+msgstr "ຕ້ອງດຳເນີນການ"
+
+msgid "Action is required!"
+msgstr "ຕ້ອງດຳເນີນການ!"
+
+msgid "Action required"
+msgstr "ການດຳເນີນການທີ່ຕ້ອງການ"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update ບໍ່ສາມາດສືບຕໍ່ໄດ້ ເພາະອັບເດດຕໍ່ໄປຕ້ອງລຶບ “%1” ເຊິ່ງເປັນແພັກເກດລະບົບທີ່ປ້ອງກັນໄວ້. ການລຶບອາດເຮັດໃຫ້ Fluff Linux ເຮັດວຽກບໍ່ຖືກຕ້ອງ. ລາຍງານທີ່ GitHub ເພື່ອຮັບການຊ່ວຍເຫຼືອ."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "ເພື່ອຕິດຕັ້ງອັບເດດລະບົບ Fluff Linux Update ຕ້ອງລຶບ “%1”. ການລຶບແພັກເກດນີ້ອາດກະທົບຊອບແວທີ່ກ່ຽວຂ້ອງ. ຖ້າບໍ່ແນ່ໃຈ ລາຍງານທີ່ GitHub ເພື່ອຮັບການຊ່ວຍເຫຼືອ."
+
+msgid "Accept"
+msgstr "ຍອມຮັບ"
+
+msgid "Close"
+msgstr "ປິດ"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "ເພື່ອສືບຕໍ່ອັບເດດລະບົບ %1 ຖືກລຶບອັດຕະໂນມັດຫຼັງຈາກພິຈາລະນາວ່າການລຶບປອດໄພ."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "ເພື່ອສືບຕໍ່ອັບເດດລະບົບ ແພັກເກດຕໍ່ໄປນີ້ຖືກລຶບອັດຕະໂນມັດຫຼັງຈາກພິຈາລະນາວ່າການລຶບປອດໄພ: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ພົບແລະແກ້ໄຂຄວາມຂັດແຍ່ງໄຟລ໌ແລ້ວ. %1 ຖືກປ່ຽນຊື່ເປັນ %2. ຂະບວນການອັບເດດເລີ່ມໃໝ່ແລ້ວ."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "ບໍ່ສາມາດລຶບແພັກເກດທີ່ຂັດແຍ່ງໄດ້. ກະລຸນາຂໍຄວາມຊ່ວຍເຫຼືອ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update ບໍ່ສາມາດຢືນຢັນກະແຈລົງລາຍເຊັນຂອງຄັງ FluffNet. ຢຸດອັບເດດເພື່ອປົກປ້ອງລະບົບຂອງທ່ານ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update ບໍ່ສາມາດຢືນຢັນກະແຈລົງລາຍເຊັນຂອງຄັງ FluffNet. ຢຸດອັບເດດເພື່ອປົກປ້ອງລະບົບຂອງທ່ານ. ອາດເປັນບັນຫາເຄືອຂ່າຍ, ເຊີບເວີ FluffNet ບໍ່ພ້ອມ, ກະແຈລົງລາຍເຊັນໝົດອາຍຸຫຼືຖືກປ່ຽນ, ບັນຫາການຕັ້ງຄ່າຄັງ, ກະແຈທີ່ບໍ່ຄາດຄິດ ຫຼື ຄັງຖືກໂຈມຕີ. ຢ່າຍອມຮັບກະແຈທີ່ບໍ່ຄາດຄິດເອງ ນອກຈາກ Fluff Linux ຈະເຜີຍແຜ່ຄຳແນະນຳທີ່ຢືນຢັນແລ້ວ."
+
+msgid "Repository: %1"
+msgstr "ຄັງ: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "ກະແຈລົງລາຍເຊັນທາງການຂອງຄັງ FluffNet ຖືກຢືນຢັນ ແລະ ເພີ່ມໃສ່ Pacman ແລ້ວ."
+
+msgid "Technical details"
+msgstr "ລາຍລະອຽດທາງເຕັກນິກ"
+
+msgid "Repository signing-key verification technical details"
+msgstr "ລາຍລະອຽດເຕັກນິກການຢືນຢັນກະແຈລົງລາຍເຊັນຄັງ"
+
+msgid "Failure category: %1"
+msgstr "ປະເພດຄວາມລົ້ມເຫຼວ: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "ລາຍນິ້ວມືທີ່ຄາດໄວ້: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ລາຍນິ້ວມືທີ່ໄດ້ຮັບ: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "ລາຍນິ້ວມືກະແຈລົງລາຍເຊັນທີ່ຮ້ອງຂໍ: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "ສະຖານະອອກຂອງ Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "ລຸ້ນ FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "ລຸ້ນ Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "ລອງອີກຄັ້ງ"
+
+msgid "Copy Technical Details"
+msgstr "ຄັດລອກລາຍລະອຽດເຕັກນິກ"
+
+msgid "Open an Issue on GitHub"
+msgstr "ເປີດລາຍງານບັນຫາທີ່ GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "ບໍ່ມີພື້ນທີ່ວ່າງພໍທີ່ຈະສືບຕໍ່ອັບເດດ. ເຮັດໃຫ້ມີບ່ອນວ່າງ ແລ້ວລອງອີກຄັ້ງ."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "ບໍ່ສາມາດຢືນຢັນລາຍເຊັນແພັກເກດຫຼືຄັງໄດ້. ຢຸດອັບເດດແລ້ວ. ກວດວັນທີລະບົບ ແລະ ຄັງກະແຈ ແລ້ວລອງອີກຄັ້ງ."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "ຖານຂໍ້ມູນແພັກເກດເສຍຫາຍ ຫຼື ອ່ານບໍ່ໄດ້. ຢຸດອັບເດດແລ້ວ. ຂໍຄວາມຊ່ວຍເຫຼືອກ່ອນສ້ອມແປງຖານຂໍ້ມູນ."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ແພັກເກດທີ່ດາວໂຫຼດເສຍຫາຍ ຫຼື ບໍ່ຄົບ. ຢຸດອັບເດດແລ້ວ. ລອງອີກຄັ້ງ ຫຼື ໃຊ້ເຊີບເວີສຳເນົາອື່ນ."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "ອັບເດດບໍ່ສາມາດອ່ານຫຼືຂຽນໄຟລ໌ທີ່ຕ້ອງການ. ກວດສິດລະບົບໄຟລ໌ ແລະ ສະພາບດິສກ໌ ແລ້ວລອງອີກຄັ້ງ."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "ບໍ່ສາມາດດາວໂຫຼດອັບເດດໄດ້. ລອງອີກຄັ້ງ ຫຼື ຂໍຄວາມຊ່ວຍເຫຼືອ."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "ບໍ່ສາມາດກຽມທຸລະກຳອັບເດດໄດ້. ລອງອີກຄັ້ງ ຫຼື ຂໍຄວາມຊ່ວຍເຫຼືອ."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "ບໍ່ສາມາດເລີ່ມອັບເດດ ເພາະເປີດການປ້ອງກັນພັກລະບົບບໍ່ໄດ້. ລອງອີກຄັ້ງ."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "ບໍ່ສາມາດລັອກຖານຂໍ້ມູນແພັກເກດໄດ້. ປິດຕົວຈັດການແພັກເກດອື່ນ ແລະ ກວດວ່າລະບົບໄຟລ໌ຂຽນໄດ້ ແລ້ວລອງອີກຄັ້ງ."
+
+msgid "Estimated time: %1"
+msgstr "ເວລາຄາດຄະເນ: %1"

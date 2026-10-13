@@ -9,6 +9,9 @@ import org.kde.kcmutils as KCMUtils
 KCMUtils.SimpleKCM {
     id: root
     readonly property var backend: kcm.backend
+    readonly property int interfaceDirection: backend.interfaceRightToLeft === undefined
+        ? Qt.application.layoutDirection
+        : (backend.interfaceRightToLeft ? Qt.RightToLeft : Qt.LeftToRight)
 
     readonly property int minimumUsableWidth: 480
     readonly property int minimumUsableHeight: 400
@@ -30,9 +33,9 @@ KCMUtils.SimpleKCM {
         }
     }
 
-    // Qt selects RightToLeft for Arabic and Hebrew. Explicit mirroring makes
-    // every nested row follow that direction as well.
-    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    // The selected FLU translation can differ from the System Settings host.
+    // Mirror this page without changing the host or technical-value direction.
+    LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
     onVisibleChanged: {
@@ -1074,8 +1077,13 @@ KCMUtils.SimpleKCM {
         }
     }
 
+    // Keep recovery actions visible at minimum size. Long translations scroll
+    // within the dialog, while the native buttons wrap onto additional rows.
     Controls.Dialog {
         id: protectedRemovalDialog
+        parent: Controls.Overlay.overlay
+        width: Math.min(Math.min(root.width, parent.width) - margins * 2, Kirigami.Units.gridUnit * 40)
+        height: Math.min(implicitHeight, Math.min(root.height, parent.height) - margins * 2)
 
         anchors.centerIn: parent
         modal: true
@@ -1083,119 +1091,25 @@ KCMUtils.SimpleKCM {
         visible: backend.recoveryDialogType === "protected"
         onRejected: backend.resolveRemovalWarning(false)
 
-        contentItem: RowLayout {
-            width: Math.min(Kirigami.Units.gridUnit * 28,
-                            root.width - Kirigami.Units.largeSpacing * 4)
-            spacing: Kirigami.Units.largeSpacing
-
-            Kirigami.Icon {
-                Layout.alignment: Qt.AlignTop
-                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                Layout.preferredHeight: width
-                source: "dialog-error"
+        contentItem: Flickable {
+            id: protectedScroll
+            LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
+            LayoutMirroring.childrenInherit: true
+            contentWidth: width
+            implicitHeight: protectedBody.implicitHeight
+            contentHeight: protectedBody.implicitHeight
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            Controls.ScrollBar.vertical: Controls.ScrollBar { activeFocusOnTab: true }
+            Kirigami.WheelHandler {
+                target: protectedScroll
+                blockTargetWheel: true
+                scrollFlickableTarget: true
             }
-
-            Controls.Label {
-                Layout.fillWidth: true
-                wrapMode: Text.WordWrap
-                text: i18nd("kcm_fluffupdates",
-                    "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance.",
-                    backend.recoveryPackage)
-            }
-        }
-
-        footer: Controls.DialogButtonBox {
-            Controls.Button {
-                text: i18nd("kcm_fluffupdates", "Close")
-                icon.name: "dialog-close"
-                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.RejectRole
-            }
-
-            Controls.Button {
-                text: i18nd("kcm_fluffupdates", "GitHub")
-                icon.name: "internet-services"
-                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.ActionRole
-                onClicked: {
-                    Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
-                    backend.resolveRemovalWarning(false)
-                }
-            }
-        }
-    }
-
-    Controls.Dialog {
-        id: warningRemovalDialog
-
-        anchors.centerIn: parent
-        modal: true
-        title: i18nd("kcm_fluffupdates", "Action required")
-        visible: backend.recoveryDialogType === "warning"
-        onAccepted: backend.resolveRemovalWarning(true)
-        onRejected: backend.resolveRemovalWarning(false)
-
-        contentItem: RowLayout {
-            width: Math.min(Kirigami.Units.gridUnit * 28,
-                            root.width - Kirigami.Units.largeSpacing * 4)
-            spacing: Kirigami.Units.largeSpacing
-
-            Kirigami.Icon {
-                Layout.alignment: Qt.AlignTop
-                Layout.preferredWidth: Kirigami.Units.iconSizes.huge
-                Layout.preferredHeight: width
-                source: "dialog-warning"
-            }
-
-            Controls.Label {
-                Layout.fillWidth: true
-                wrapMode: Text.WordWrap
-                text: i18nd("kcm_fluffupdates",
-                    "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help.",
-                    backend.recoveryPackage)
-            }
-        }
-
-        footer: Controls.DialogButtonBox {
-            Controls.Button {
-                text: i18nd("kcm_fluffupdates", "Cancel")
-                icon.name: "dialog-cancel"
-                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.RejectRole
-            }
-
-            Controls.Button {
-                text: i18nd("kcm_fluffupdates", "Accept")
-                icon.name: "dialog-ok-apply"
-                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.AcceptRole
-            }
-
-            Controls.Button {
-                text: i18nd("kcm_fluffupdates", "GitHub")
-                icon.name: "internet-services"
-                Controls.DialogButtonBox.buttonRole: Controls.DialogButtonBox.ActionRole
-                onClicked: {
-                    Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
-                    backend.resolveRemovalWarning(false)
-                }
-            }
-        }
-    }
-
-    Controls.Dialog {
-        id: signingKeySecurityDialog
-
-        anchors.centerIn: parent
-        modal: true
-        title: i18nd("kcm_fluffupdates", "Action required")
-        visible: backend.signingKeySecurityError
-            && !root.signingKeyDialogDismissed
-        onRejected: root.signingKeyDialogDismissed = true
-
-        contentItem: ColumnLayout {
-            width: Math.min(Kirigami.Units.gridUnit * 34,
-                            root.width - Kirigami.Units.largeSpacing * 4)
-            spacing: Kirigami.Units.largeSpacing
-
             RowLayout {
-                Layout.fillWidth: true
+                id: protectedBody
+                x: root.interfaceDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
+                width: protectedScroll.width - Kirigami.Units.largeSpacing * 2
                 spacing: Kirigami.Units.largeSpacing
 
                 Kirigami.Icon {
@@ -1207,62 +1121,219 @@ KCMUtils.SimpleKCM {
 
                 Controls.Label {
                     Layout.fillWidth: true
-                    wrapMode: Text.WordWrap
+                    wrapMode: Text.Wrap
                     text: i18nd("kcm_fluffupdates",
-                        "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions.")
+                        "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance.",
+                        backend.recoveryPackage)
                 }
-            }
-
-            Controls.Label {
-                Layout.fillWidth: true
-                text: i18nd("kcm_fluffupdates", "Technical details")
-                font.bold: true
-            }
-
-            Controls.TextArea {
-                Layout.fillWidth: true
-                Layout.preferredHeight: Kirigami.Units.gridUnit * 7
-                LayoutMirroring.enabled: false
-                readOnly: true
-                selectByMouse: true
-                wrapMode: TextEdit.WrapAnywhere
-                horizontalAlignment: Text.AlignLeft
-                text: backend.signingKeyTechnicalDetails
-                Accessible.name: i18nd("kcm_fluffupdates",
-                    "Repository signing-key verification technical details")
             }
         }
 
-        footer: Controls.DialogButtonBox {
+        footer: Flow {
+            spacing: Kirigami.Units.smallSpacing
+            layoutDirection: root.interfaceDirection
             Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
+                text: i18nd("kcm_fluffupdates", "Close")
+                icon.name: "dialog-close"
+                onClicked: protectedRemovalDialog.reject()
+            }
+
+            Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
+                text: i18nd("kcm_fluffupdates", "GitHub")
+                icon.name: "internet-services"
+                onClicked: {
+                    Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
+                    backend.resolveRemovalWarning(false)
+                }
+            }
+        }
+    }
+
+    Controls.Dialog {
+        id: warningRemovalDialog
+        parent: Controls.Overlay.overlay
+        width: Math.min(Math.min(root.width, parent.width) - margins * 2, Kirigami.Units.gridUnit * 40)
+        height: Math.min(implicitHeight, Math.min(root.height, parent.height) - margins * 2)
+
+        anchors.centerIn: parent
+        modal: true
+        title: i18nd("kcm_fluffupdates", "Action required")
+        visible: backend.recoveryDialogType === "warning"
+        onAccepted: backend.resolveRemovalWarning(true)
+        onRejected: backend.resolveRemovalWarning(false)
+
+        contentItem: Flickable {
+            id: warningScroll
+            LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
+            LayoutMirroring.childrenInherit: true
+            contentWidth: width
+            implicitHeight: warningBody.implicitHeight
+            contentHeight: warningBody.implicitHeight
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            Controls.ScrollBar.vertical: Controls.ScrollBar { activeFocusOnTab: true }
+            Kirigami.WheelHandler {
+                target: warningScroll
+                blockTargetWheel: true
+                scrollFlickableTarget: true
+            }
+            RowLayout {
+                id: warningBody
+                x: root.interfaceDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
+                width: warningScroll.width - Kirigami.Units.largeSpacing * 2
+                spacing: Kirigami.Units.largeSpacing
+
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignTop
+                    Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                    Layout.preferredHeight: width
+                    source: "dialog-warning"
+                }
+
+                Controls.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: i18nd("kcm_fluffupdates",
+                        "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help.",
+                        backend.recoveryPackage)
+                }
+            }
+        }
+
+        footer: Flow {
+            spacing: Kirigami.Units.smallSpacing
+            layoutDirection: root.interfaceDirection
+            Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
+                text: i18nd("kcm_fluffupdates", "Cancel")
+                icon.name: "dialog-cancel"
+                onClicked: warningRemovalDialog.reject()
+            }
+
+            Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
+                text: i18nd("kcm_fluffupdates", "Accept")
+                icon.name: "dialog-ok-apply"
+                onClicked: warningRemovalDialog.accept()
+            }
+
+            Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
+                text: i18nd("kcm_fluffupdates", "GitHub")
+                icon.name: "internet-services"
+                onClicked: {
+                    Qt.openUrlExternally("https://github.com/FluffNet/flufflinux-update/issues")
+                    backend.resolveRemovalWarning(false)
+                }
+            }
+        }
+    }
+
+    Controls.Dialog {
+        id: signingKeySecurityDialog
+        parent: Controls.Overlay.overlay
+        width: Math.min(Math.min(root.width, parent.width) - margins * 2, Kirigami.Units.gridUnit * 40)
+        height: Math.min(implicitHeight, Math.min(root.height, parent.height) - margins * 2)
+
+        anchors.centerIn: parent
+        modal: true
+        title: i18nd("kcm_fluffupdates", "Action required")
+        visible: backend.signingKeySecurityError
+            && !root.signingKeyDialogDismissed
+        onRejected: root.signingKeyDialogDismissed = true
+
+        contentItem: Flickable {
+            id: signingScroll
+            LayoutMirroring.enabled: root.interfaceDirection === Qt.RightToLeft
+            LayoutMirroring.childrenInherit: true
+            contentWidth: width
+            implicitHeight: signingBody.implicitHeight
+            contentHeight: signingBody.implicitHeight
+            clip: true
+            boundsBehavior: Flickable.StopAtBounds
+            Controls.ScrollBar.vertical: Controls.ScrollBar { activeFocusOnTab: true }
+            Kirigami.WheelHandler {
+                target: signingScroll
+                blockTargetWheel: true
+                scrollFlickableTarget: true
+            }
+            ColumnLayout {
+                id: signingBody
+                x: root.interfaceDirection === Qt.RightToLeft ? Kirigami.Units.largeSpacing * 2 : 0
+                width: signingScroll.width - Kirigami.Units.largeSpacing * 2
+                spacing: Kirigami.Units.largeSpacing
+
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignTop
+                        Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+                        Layout.preferredHeight: width
+                        source: "dialog-error"
+                    }
+
+                    Controls.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: i18nd("kcm_fluffupdates",
+                            "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions.")
+                    }
+                }
+
+                Controls.Label {
+                    Layout.fillWidth: true
+                    text: i18nd("kcm_fluffupdates", "Technical details")
+                    font.bold: true
+                }
+
+                Controls.TextArea {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: Math.max(implicitHeight, Kirigami.Units.gridUnit * 7)
+                    LayoutMirroring.enabled: false
+                    readOnly: true
+                    selectByMouse: true
+                    wrapMode: TextEdit.WrapAnywhere
+                    horizontalAlignment: Text.AlignLeft
+                    text: backend.signingKeyTechnicalDetails
+                    Accessible.name: i18nd("kcm_fluffupdates",
+                        "Repository signing-key verification technical details")
+                }
+            }
+        }
+
+        footer: Flow {
+            spacing: Kirigami.Units.smallSpacing
+            layoutDirection: root.interfaceDirection
+            Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Try Again")
                 icon.name: "view-refresh"
-                Controls.DialogButtonBox.buttonRole:
-                    Controls.DialogButtonBox.ActionRole
                 onClicked: backend.retrySigningKeyUpdate()
             }
 
             Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Copy Technical Details")
                 icon.name: "edit-copy"
-                Controls.DialogButtonBox.buttonRole:
-                    Controls.DialogButtonBox.ActionRole
                 onClicked: backend.copySigningKeyTechnicalDetails()
             }
 
             Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Open an Issue on GitHub")
                 icon.name: "internet-services"
-                Controls.DialogButtonBox.buttonRole:
-                    Controls.DialogButtonBox.ActionRole
                 onClicked: backend.openSigningKeyIssue()
             }
 
             Controls.Button {
+                width: Math.min(implicitWidth, parent.width)
                 text: i18nd("kcm_fluffupdates", "Close")
                 icon.name: "dialog-close"
-                Controls.DialogButtonBox.buttonRole:
-                    Controls.DialogButtonBox.RejectRole
+                onClicked: signingKeySecurityDialog.reject()
             }
         }
     }

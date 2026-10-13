@@ -3,7 +3,7 @@ members = ["rust/flu-core", "rust/flu-bridge", "rust/flu-service", "rust/flu-tes
 resolver = "3"
 
 [workspace.package]
-version = "1.5.0"
+version = "1.6.0"
 edition = "2024"
 rust-version = "1.85"
 license = "MIT"

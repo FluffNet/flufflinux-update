@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: lb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Systemaktualiséierungen"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Halt Fluff Linux sécher an aktuell andeems Dir Systemaktualiséierungen installéiert."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Lescht Systemaktualiséierung: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "No Aktualiséierunge sichen"
+
+msgid "Install Updates"
+msgstr "Aktualiséierungen installéieren"
+
+msgid "View Updates"
+msgstr "Aktualiséierunge kucken"
+
+msgid "Change view"
+msgstr "Usiicht änneren"
+
+msgid "Updates to Install"
+msgstr "Aktualiséierungen déi installéiert ginn"
+
+msgid "Package details are unavailable."
+msgstr "D'Detailer vun de Pakete sinn net disponibel."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ass nach an der Entwécklung. Wann Dir e Problem fannt, mellt en op eiser GitHub-Säit."
+
+msgid "System updates were installed successfully."
+msgstr "D'Systemaktualiséierunge goufen erfollegräich installéiert."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Keng Netzwierkverbindung!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "D'Netzwierkverbindung ass limitéiert. Wann Dir net mat engem Organisatiounsnetzwierk verbonne sidd, kontrolléiert Är Internetverbindung."
+
+msgid "pacman process is already running."
+msgstr "E pacman-Prozess leeft schonn."
+
+msgid "The update process could not be started."
+msgstr "Den Aktualiséierungsprozess konnt net gestart ginn."
+
+msgid "The update process could not be cancelled."
+msgstr "Den Aktualiséierungsprozess konnt net ofgebrach ginn."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "D'Verbindung ass beim Erofluede vun Aktualiséierungen ausgefall. Kontrolléiert d'Netzwierk a probéiert nach eng Kéier."
+
+msgid "The system update failed."
+msgstr "D'Systemaktualiséierung ass feelgeschloen."
+
+msgid "Downloading updates…"
+msgstr "Aktualiséierunge ginn erofgelueden…"
+
+msgid "Installing updates…"
+msgstr "Aktualiséierunge ginn installéiert…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 erofgelueden"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 Aktualiséierungen installéiert"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Aktualiséierunge ginn installéiert. Schalt de Computer net aus a start en net nei bis d'Installatioun fäerdeg ass. Eng Ënnerbriechung kann Systemdateie beschiedegen."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "D'Batterie ass bal eidel. Verbannt de Computer mat engem Ladegerät wärend Aktualiséierungen installéiert ginn."
+
+msgid "Update process was cancelled"
+msgstr "Den Aktualiséierungsprozess gouf ofgebrach"
+
+msgid "Cancel"
+msgstr "Ofbriechen"
+
+msgid "Checking for updates…"
+msgstr "No Aktualiséierunge gëtt gesicht…"
+
+msgid "System updates are available"
+msgstr "Systemaktualiséierunge sinn disponibel"
+
+msgid "Download size: %1"
+msgstr "Gréisst vum Download: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Späicherplaz fir Systemaktualiséierungen: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Fräigemaachte Späicherplaz no der Aktualiséierung: %1"
+
+msgid "No additional download required"
+msgstr "Keen zousätzlechen Download néideg"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "D'Aktualiséierungskontroll konnt net gestart ginn. Gitt sécher datt pacman-contrib installéiert ass."
+
+msgid "The update check stopped unexpectedly."
+msgstr "D'Aktualiséierungskontroll ass onerwaart gestoppt."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "En onbekannte Feeler ass opgetrueden. Mellt de Problem op eiser GitHub-Säit fir Hëllef ze kréien."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Keng Internetverbindung. Kontrolléiert d'Netzwierk a probéiert nach eng Kéier."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "D'Servere vun de Repositorië konnten net erreecht ginn. Probéiert méi spéit oder kontrolléiert d'Astellunge vun de Spigelserveren."
+
+msgid "Authorization error, please try again."
+msgstr "Autorisatiounsfeeler. Probéiert nach eng Kéier."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "D'Aktualiséierungskontroll mat erweiderte Rechter ass onerwaart gestoppt."
+
+msgid "The privileged update check could not be started."
+msgstr "D'Aktualiséierungskontroll mat erweiderte Rechter konnt net gestart ginn."
+
+msgid "System was not previously updated."
+msgstr "De System gouf nach net aktualiséiert."
+
+msgid "The last update information could not be read."
+msgstr "D'Informatiounen iwwer déi lescht Aktualiséierung konnten net gelies ginn."
+
+msgid "The last update information is invalid."
+msgstr "D'Informatiounen iwwer déi lescht Aktualiséierung sinn ongëlteg."
+
+msgid "Updates were not installed on this system"
+msgstr "Op dësem System goufen nach keng Aktualiséierungen installéiert"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Benotzt de Knäppchen hei drënner fir no Aktualiséierungen ze sichen an de System ze aktualiséieren."
+
+msgid "Update date available"
+msgstr "En Aktualiséierungsdatum ass disponibel"
+
+msgid "Updated recently"
+msgstr "Viru Kuerzem aktualiséiert"
+
+msgid "System is up to date"
+msgstr "De System ass aktuell"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Déi lescht Aktualiséierung gouf viru méi wéi engem Mount installéiert"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Déi lescht Aktualiséierung gouf viru méi wéi dräi Méint installéiert"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Viru %1 Sekonn"
+msgstr[1] "Viru %1 Sekonnen"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Viru %1 Minutt"
+msgstr[1] "Viru %1 Minutten"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Viru %1 Stonn"
+msgstr[1] "Viru %1 Stonnen"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Viru %1 Dag"
+msgstr[1] "Viru %1 Deeg"
+
+msgid "Action is required"
+msgstr "Eng Aktioun ass néideg"
+
+msgid "Action is required!"
+msgstr "Eng Aktioun ass néideg!"
+
+msgid "Action required"
+msgstr "Aktioun néideg"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update kann net weiderfuere well déi nächst Aktualiséierung d'Ewechhuele vu „%1“, engem geschützte Systempaket, verlaangt. Dat kéint verhënneren datt Fluff Linux richteg funktionéiert. Mellt de Problem op GitHub fir Hëllef ze kréien."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Fir Systemaktualiséierungen z'installéieren, muss Fluff Linux Update „%1“ ewechhuelen. Dat kann verbonne Software beaflossen. Wann Dir net sécher sidd, mellt de Problem op GitHub fir Hëllef ze kréien."
+
+msgid "Accept"
+msgstr "Akzeptéieren"
+
+msgid "Close"
+msgstr "Zoumaachen"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Fir d'Systemaktualiséierunge weiderzeféieren, gouf %1 automatesch ewechgeholl nodeems dëst als sécher agestuuft gouf."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Fir d'Systemaktualiséierunge weiderzeféieren, goufen dës Paketen automatesch ewechgeholl nodeems dëst als sécher agestuuft gouf: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "En Dateikonflikt gouf fonnt a geléist. %1 gouf op %2 ëmbenannt. Den Aktualiséierungsprozess gouf nei gestart."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "De konfliktverursaachende Paket konnt net ewechgeholl ginn. Sicht wgl. Hëllef."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update konnt den Ënnerschrëftsschlëssel vum FluffNet-Repositorium net iwwerpréiwen. D'Aktualiséierung gouf gestoppt fir de System ze schützen."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update konnt den Ënnerschrëftsschlëssel vum FluffNet-Repositorium net iwwerpréiwen. D'Aktualiséierung gouf gestoppt fir de System ze schützen. Dat kann op en Netzwierkproblem, en net disponibele FluffNet-Server, en ofgelafenen oder ersate Schlëssel, falsch Repositorium-Astellungen, en onerwaarte Schlëssel oder e méiglechen Agrëff an de Repositorium hindeiten. Akzeptéiert keen onerwaarte Schlëssel manuell ausser Fluff Linux publizéiert iwwerpréiften Instruktiounen."
+
+msgid "Repository: %1"
+msgstr "Repositorium: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Den offiziellen Ënnerschrëftsschlëssel vum FluffNet-Repositorium gouf iwwerpréift an zu Pacman bäigefüügt."
+
+msgid "Technical details"
+msgstr "Technesch Detailer"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Technesch Detailer vun der Iwwerpréiwung vum Repositorium-Schlëssel"
+
+msgid "Failure category: %1"
+msgstr "Feelertyp: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Erwaarte Fangerofdrock: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Empfaangene Fangerofdrock: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Fangerofdrock vum ugefroten Ënnerschrëftsschlëssel: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman-Ausgangsstatus: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-Versioun: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-Versioun: %1"
+
+msgid "Try Again"
+msgstr "Nach eng Kéier probéieren"
+
+msgid "Copy Technical Details"
+msgstr "Technesch Detailer kopéieren"
+
+msgid "Open an Issue on GitHub"
+msgstr "E Problem op GitHub mellen"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Et ass net genuch fräi Späicherplaz fir d'Aktualiséierung. Maacht Plaz fräi a probéiert nach eng Kéier."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "D'Ënnerschrëft vun engem Paket oder Repositorium konnt net iwwerpréift ginn. D'Aktualiséierung gouf gestoppt. Kontrolléiert de Systemdatum an de Schlësselrank a probéiert nach eng Kéier."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "D'Pakete-Datebank ass beschiedegt oder net liesbar. D'Aktualiséierung gouf gestoppt. Sicht Hëllef ier Dir d'Datebank reparéiert."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "En erofgeluedene Paket ass beschiedegt oder onvollstänneg. D'Aktualiséierung gouf gestoppt. Probéiert nach eng Kéier oder benotzt en anere Spigelserver."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "D'Aktualiséierung konnt néideg Dateien net liesen oder schreiwen. Kontrolléiert d'Dateisystemrechter an den Zoustand vum Datenträger a probéiert nach eng Kéier."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "D'Aktualiséierunge konnten net erofgeluede ginn. Probéiert nach eng Kéier oder sicht Hëllef."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "D'Aktualiséierungstransaktioun konnt net virbereet ginn. Probéiert nach eng Kéier oder sicht Hëllef."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "D'Aktualiséierung konnt net starten well d'Schlofverhënnerung net aktivéiert konnt ginn. Probéiert nach eng Kéier."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "D'Pakete-Datebank konnt net gespaart ginn. Maacht aner Pakete-Verwaltungen zou a kontrolléiert datt den Dateisystem beschreiwbar ass, da probéiert nach eng Kéier."
+
+msgid "Estimated time: %1"
+msgstr "Geschaten Zäit: %1"

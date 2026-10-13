@@ -39,6 +39,52 @@ fn human_speed(bytes: i64) -> String {
     }
 }
 
+struct DownloadRate {
+    last_bytes: i64,
+    last_sample: Instant,
+    samples: VecDeque<(u64, Duration)>,
+}
+
+impl DownloadRate {
+    fn new(bytes: i64, now: Instant) -> Self {
+        Self {
+            last_bytes: bytes,
+            last_sample: now,
+            samples: VecDeque::new(),
+        }
+    }
+
+    fn sample(&mut self, bytes: i64, now: Instant) -> i64 {
+        if let Some(elapsed) = now
+            .checked_duration_since(self.last_sample)
+            .filter(|elapsed| !elapsed.is_zero())
+        {
+            let delta = bytes.saturating_sub(self.last_bytes).max(0) as u64;
+            self.samples.push_back((delta, elapsed));
+            self.last_bytes = bytes;
+            self.last_sample = now;
+            if self.samples.len() > 3 {
+                self.samples.pop_front();
+            }
+        }
+
+        // Weight the last three samples by their real duration. A delayed
+        // polling tick must not count several seconds of bytes as one second.
+        let bytes: u128 = self
+            .samples
+            .iter()
+            .map(|(bytes, _)| u128::from(*bytes))
+            .sum();
+        let nanos: u128 = self
+            .samples
+            .iter()
+            .map(|(_, elapsed)| elapsed.as_nanos())
+            .sum();
+        let rate = (bytes * 1_000_000_000).checked_div(nanos).unwrap_or(0);
+        rate.min(i64::MAX as u128) as i64
+    }
+}
+
 fn database_unusable_after_refresh(output: &str) -> bool {
     if !operational_error::database_unusable(output) {
         return false;
@@ -69,7 +115,6 @@ struct Worker {
     state: Value,
     packages: BTreeMap<String, i64>,
     total_bytes: i64,
-    recent_deltas: VecDeque<i64>,
     attempted_keys: BTreeSet<String>,
     log_offset: u64,
     log_buffer: String,
@@ -92,7 +137,6 @@ impl Worker {
             state,
             packages: BTreeMap::new(),
             total_bytes: 0,
-            recent_deltas: VecDeque::new(),
             attempted_keys: BTreeSet::new(),
             log_offset: 0,
             log_buffer: String::new(),
@@ -285,10 +329,12 @@ impl Worker {
             self.state["download_speed_bytes"] = json!(0);
             self.state["download_elapsed_ms"] = json!(0);
             self.state["speed"] = json!("");
-            self.recent_deltas.clear();
+            let initial_bytes = self.cached_bytes();
             let download_started = Instant::now();
-            let mut last_bytes = self.cached_bytes();
-            self.download_snapshot(last_bytes);
+            // Cached bytes are progress, not new traffic. Each retry starts
+            // a fresh rate window so idle recovery time is not carried over.
+            let mut rate = DownloadRate::new(initial_bytes, download_started);
+            self.download_snapshot(initial_bytes);
             let Ok(mut process) = Process::spawn(
                 PACMAN,
                 &arguments(&["-Syu", "--downloadonly", "--noconfirm", "--color", "never"]),
@@ -298,26 +344,19 @@ impl Worker {
                 return false;
             };
             let mut output = String::new();
-            let mut tick = Instant::now();
             while !process.finished() {
                 let chunk = process.receive(Duration::from_millis(20));
                 let chunk = String::from_utf8_lossy(&chunk);
                 append_log(&chunk);
                 append_bounded(&mut output, &chunk);
-                if tick.elapsed() >= Duration::from_secs(1) {
-                    tick = Instant::now();
+                if rate.last_sample.elapsed() >= Duration::from_secs(1) {
                     let bytes = self.cached_bytes();
-                    self.recent_deltas.push_back((bytes - last_bytes).max(0));
-                    last_bytes = bytes;
-                    while self.recent_deltas.len() > 3 {
-                        self.recent_deltas.pop_front();
-                    }
-                    let average = self.recent_deltas.iter().sum::<i64>()
-                        / self.recent_deltas.len().max(1) as i64;
+                    let sampled_at = Instant::now();
+                    let average = rate.sample(bytes, sampled_at);
                     self.state["speed"] = json!(human_speed(average));
                     self.state["download_speed_bytes"] = json!(average);
                     self.state["download_elapsed_ms"] =
-                        json!(download_started.elapsed().as_millis() as u64);
+                        json!(sampled_at.duration_since(download_started).as_millis() as u64);
                     self.download_snapshot(bytes);
                 }
             }
@@ -619,7 +658,139 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use super::cache_archive_name;
+    use super::{DownloadRate, cache_archive_name};
+    use flu_core::{
+        desktop::download_time_remaining,
+        notifications::{Strings, progress_properties},
+    };
+    use serde_json::json;
+    use std::time::{Duration, Instant};
+
+    #[test]
+    fn rate_preserves_three_sample_smoothing_at_one_second_intervals() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(0, start);
+        for (second, bytes, expected) in [
+            (1, 100, 100),
+            (2, 300, 150),
+            (3, 600, 200),
+            (4, 1200, 1100 / 3),
+        ] {
+            assert_eq!(
+                rate.sample(bytes, start + Duration::from_secs(second)),
+                expected
+            );
+            assert!(rate.samples.len() <= 3);
+        }
+    }
+
+    #[test]
+    fn rate_normalizes_delayed_and_fractional_ticks() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(0, start);
+        for (millis, bytes) in [(500, 50), (2500, 250), (3750, 375), (8750, 875)] {
+            assert_eq!(
+                rate.sample(bytes, start + Duration::from_millis(millis)),
+                100
+            );
+        }
+    }
+
+    #[test]
+    fn rate_weights_samples_by_duration_not_sample_count() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(0, start);
+        assert_eq!(rate.sample(100, start + Duration::from_secs(1)), 100);
+        // The next interval transfers 900 bytes in three seconds. Together
+        // these intervals average 1000 / 4, not (100 + 300) / 2.
+        assert_eq!(rate.sample(1000, start + Duration::from_secs(4)), 250);
+    }
+
+    #[test]
+    fn rate_excludes_cached_bytes_and_resets_on_retry() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(5000, start);
+        assert_eq!(rate.sample(5200, start + Duration::from_secs(2)), 100);
+        let mut retry = DownloadRate::new(5200, start + Duration::from_secs(30));
+        assert_eq!(retry.sample(5600, start + Duration::from_secs(31)), 400);
+    }
+
+    #[test]
+    fn rate_ignores_zero_or_backwards_time_without_losing_bytes() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(0, start);
+        assert_eq!(rate.sample(10, start), 0);
+        assert_eq!(rate.sample(20, start - Duration::from_secs(1)), 0);
+        assert_eq!(rate.sample(100, start + Duration::from_secs(1)), 100);
+        assert_eq!(rate.sample(200, start + Duration::from_secs(1)), 100);
+        assert_eq!(rate.sample(300, start + Duration::from_secs(2)), 150);
+    }
+
+    #[test]
+    fn rate_decays_during_stalls_and_handles_cache_restarts() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(0, start);
+        for (second, bytes, expected) in [
+            (1, 300, 300),
+            (2, 300, 150),
+            (3, 300, 100),
+            (4, 300, 0),
+            (5, 0, 0),
+            (6, 300, 100),
+        ] {
+            assert_eq!(
+                rate.sample(bytes, start + Duration::from_secs(second)),
+                expected
+            );
+        }
+    }
+
+    #[test]
+    fn rate_uses_wide_arithmetic_and_bounds_extreme_results() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(0, start);
+        assert_eq!(
+            rate.sample(i64::MAX, start + Duration::from_nanos(1)),
+            i64::MAX
+        );
+        let mut rate = DownloadRate::new(0, start);
+        assert_eq!(
+            rate.sample(i64::MAX, start + Duration::from_secs(2)),
+            i64::MAX / 2
+        );
+    }
+
+    #[test]
+    fn elapsed_time_rate_drives_shared_panel_and_notification_estimate() {
+        let start = Instant::now();
+        let mut rate = DownloadRate::new(5000, start);
+        let speed = rate.sample(5200, start + Duration::from_secs(2));
+        let mut state = json!({
+            "phase": "downloading",
+            "total_download_bytes": 14800,
+            "downloaded_bytes": 5200,
+            "download_speed_bytes": speed,
+        });
+        assert_eq!(download_time_remaining(&state).as_deref(), Some("1:36"));
+        let properties = progress_properties(&state, &Strings::new());
+        assert_eq!(u64::try_from(&properties["speed"]).unwrap(), 100);
+        assert!(
+            <&str>::try_from(&properties["infoMessage"])
+                .unwrap()
+                .contains("1:36")
+        );
+        for second in 3..=5 {
+            state["download_speed_bytes"] =
+                json!(rate.sample(5200, start + Duration::from_secs(second)));
+        }
+        assert_eq!(download_time_remaining(&state), None);
+        let properties = progress_properties(&state, &Strings::new());
+        assert!(
+            !<&str>::try_from(&properties["infoMessage"])
+                .unwrap()
+                .contains("Estimated time:")
+        );
+    }
 
     #[test]
     fn cache_names_decode_unicode_and_ignore_url_query() {

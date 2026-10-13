@@ -1,0 +1,380 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: bn\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "সিস্টেম আপডেট"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "সিস্টেম আপডেট ইনস্টল করে Fluff Linux নিরাপদ ও হালনাগাদ রাখুন।"
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "সিস্টেম সর্বশেষ আপডেট হয়েছে: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "আপডেট পরীক্ষা করুন"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "আপডেট ইনস্টল করুন"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "আপডেট দেখুন"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "দৃশ্য বদলান"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "ইনস্টল করার আপডেট"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "প্যাকেজের বিস্তারিত পাওয়া যাচ্ছে না।"
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update এখনও উন্নয়নাধীন। কোনো সমস্যা হলে আমাদের GitHub পাতায় জানান।"
+
+msgid "System updates were installed successfully."
+msgstr "সিস্টেম আপডেট সফলভাবে ইনস্টল হয়েছে।"
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "নেটওয়ার্ক সংযোগ নেই!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "নেটওয়ার্ক সংযোগ সীমিত। আপনি কোনো প্রতিষ্ঠানের নেটওয়ার্কে যুক্ত না থাকলে ইন্টারনেট সংযোগ পরীক্ষা করুন।"
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "pacman প্রক্রিয়া ইতিমধ্যে চলছে।"
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "আপডেট প্রক্রিয়া শুরু করা যায়নি।"
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "আপডেট প্রক্রিয়া বাতিল করা যায়নি।"
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "আপডেট ডাউনলোড করার সময় সংযোগ ব্যর্থ হয়েছে। নেটওয়ার্ক পরীক্ষা করে আবার চেষ্টা করুন।"
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "সিস্টেম আপডেট ব্যর্থ হয়েছে।"
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "আপডেট ডাউনলোড হচ্ছে…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "আপডেট ইনস্টল হচ্ছে…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ডাউনলোড হয়েছে"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "%1/%2টি আপডেট ইনস্টল হয়েছে"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "এখন আপডেট ইনস্টল হচ্ছে। ইনস্টল শেষ না হওয়া পর্যন্ত কম্পিউটার বন্ধ বা পুনরায় চালু করবেন না। আপডেট বাধাগ্রস্ত হলে সিস্টেমের ফাইল ক্ষতিগ্রস্ত হতে পারে।"
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ব্যাটারির চার্জ কম। আপডেট ইনস্টল করার সময় কম্পিউটার চার্জারে যুক্ত করুন।"
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "আপডেট প্রক্রিয়া বাতিল হয়েছে"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "আপডেট পরীক্ষা হচ্ছে…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "সিস্টেম আপডেট পাওয়া গেছে"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "ডাউনলোডের আকার: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "সিস্টেম আপডেটের জন্য প্রয়োজনীয় জায়গা: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "আপডেটের পরে খালি হবে: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "অতিরিক্ত ডাউনলোড প্রয়োজন নেই"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "আপডেট পরীক্ষক চালু করা যায়নি। pacman-contrib ইনস্টল আছে কি না নিশ্চিত করুন।"
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "আপডেট পরীক্ষা অপ্রত্যাশিতভাবে থেমে গেছে।"
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "অজানা ত্রুটি ঘটেছে। সহায়তার জন্য আমাদের GitHub পাতায় সমস্যাটি জানান।"
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "ইন্টারনেট সংযোগ নেই। নেটওয়ার্ক পরীক্ষা করে আবার চেষ্টা করুন।"
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "রিপোজিটরি সার্ভারে পৌঁছানো যায়নি। পরে চেষ্টা করুন অথবা মিরর কনফিগারেশন পরীক্ষা করুন।"
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "অনুমোদনের ত্রুটি, আবার চেষ্টা করুন।"
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "প্রশাসনিক অধিকারসহ আপডেট পরীক্ষা অপ্রত্যাশিতভাবে থেমে গেছে।"
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "প্রশাসনিক অধিকারসহ আপডেট পরীক্ষা শুরু করা যায়নি।"
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "সিস্টেম আগে আপডেট করা হয়নি।"
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "সর্বশেষ আপডেটের তথ্য পড়া যায়নি।"
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "সর্বশেষ আপডেটের তথ্য অবৈধ।"
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "এই সিস্টেমে আপডেট ইনস্টল করা হয়নি"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "সিস্টেম আপডেট করতে নিচের বোতাম দিয়ে উপলব্ধ আপডেট পরীক্ষা করুন।"
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "আপডেটের তারিখ পাওয়া গেছে"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "সম্প্রতি আপডেট হয়েছে"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "সিস্টেম হালনাগাদ আছে"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "সর্বশেষ আপডেট এক মাসেরও আগে ইনস্টল হয়েছে"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "সর্বশেষ আপডেট তিন মাসেরও আগে ইনস্টল হয়েছে"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 সেকেন্ড আগে"
+msgstr[1] "%1 সেকেন্ড আগে"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 মিনিট আগে"
+msgstr[1] "%1 মিনিট আগে"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ঘণ্টা আগে"
+msgstr[1] "%1 ঘণ্টা আগে"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 দিন আগে"
+msgstr[1] "%1 দিন আগে"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "পদক্ষেপ নেওয়া প্রয়োজন"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "পদক্ষেপ নেওয়া প্রয়োজন!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "পদক্ষেপ প্রয়োজন"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update এগোতে পারছে না, কারণ আসন্ন আপডেটের জন্য সুরক্ষিত সিস্টেম প্যাকেজ “%1” সরাতে হবে। এটি সরালে Fluff Linux সঠিকভাবে কাজ না-ও করতে পারে। সহায়তার জন্য GitHub-এ সমস্যাটি জানান।"
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "সিস্টেমে আপডেট ইনস্টল করতে Fluff Linux Update-এর “%1” সরানো প্রয়োজন। প্যাকেজটি সরালে সংশ্লিষ্ট সফটওয়্যার প্রভাবিত হতে পারে। নিশ্চিত না হলে সহায়তার জন্য GitHub-এ সমস্যাটি জানান।"
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "গ্রহণ করুন"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "বন্ধ করুন"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "সিস্টেম আপডেট চালিয়ে যেতে %1 সরানো নিরাপদ বিবেচিত হওয়ার পরে স্বয়ংক্রিয়ভাবে সরানো হয়েছে।"
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "সিস্টেম আপডেট চালিয়ে যেতে নিচের প্যাকেজগুলো সরানো নিরাপদ বিবেচিত হওয়ার পরে স্বয়ংক্রিয়ভাবে সরানো হয়েছে: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ফাইলের দ্বন্দ্ব শনাক্ত করে সমাধান করা হয়েছে। %1-এর নাম বদলে %2 করা হয়েছে। আপডেট প্রক্রিয়া আবার শুরু হয়েছে।"
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "দ্বন্দ্ব সৃষ্টিকারী প্যাকেজ সরানো যায়নি। সহায়তা নিন।"
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update, FluffNet রিপোজিটরির স্বাক্ষর কী যাচাই করতে পারেনি। সিস্টেম সুরক্ষিত রাখতে আপডেট থামানো হয়েছে।"
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update, FluffNet রিপোজিটরির স্বাক্ষর কী যাচাই করতে পারেনি। সিস্টেম সুরক্ষিত রাখতে আপডেট থামানো হয়েছে। এটি নেটওয়ার্কের সমস্যা, FluffNet সার্ভার অনুপলব্ধ থাকা, মেয়াদোত্তীর্ণ বা পরিবর্তিত স্বাক্ষর কী, রিপোজিটরি কনফিগারেশনের সমস্যা, অপ্রত্যাশিত কী অথবা রিপোজিটরি আক্রান্ত হওয়ার সম্ভাবনা নির্দেশ করতে পারে। Fluff Linux যাচাইকৃত নির্দেশনা প্রকাশ না করলে অপ্রত্যাশিত কী নিজে গ্রহণ করবেন না।"
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "রিপোজিটরি: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet রিপোজিটরির আনুষ্ঠানিক স্বাক্ষর কী যাচাই করে Pacman-এ যুক্ত করা হয়েছে।"
+
+msgid "Technical details"
+msgstr "কারিগরি বিবরণ"
+
+msgid "Repository signing-key verification technical details"
+msgstr "রিপোজিটরির স্বাক্ষর কী যাচাইয়ের কারিগরি বিবরণ"
+
+msgid "Failure category: %1"
+msgstr "ব্যর্থতার ধরন: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "প্রত্যাশিত ফিঙ্গারপ্রিন্ট: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "প্রাপ্ত ফিঙ্গারপ্রিন্ট: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "অনুরোধ করা স্বাক্ষর কীর ফিঙ্গারপ্রিন্ট: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman প্রস্থান অবস্থা: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "FLU সংস্করণ: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux সংস্করণ: %1"
+
+msgid "Try Again"
+msgstr "আবার চেষ্টা করুন"
+
+msgid "Copy Technical Details"
+msgstr "কারিগরি বিবরণ অনুলিপি করুন"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub-এ সমস্যা জানান"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "আপডেট চালিয়ে যাওয়ার জন্য যথেষ্ট খালি জায়গা নেই। জায়গা খালি করে আবার চেষ্টা করুন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "প্যাকেজ বা রিপোজিটরির স্বাক্ষর যাচাই করা যায়নি। আপডেট থামানো হয়েছে। সিস্টেমের তারিখ ও কীরিং পরীক্ষা করে আবার চেষ্টা করুন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "প্যাকেজ ডেটাবেস ক্ষতিগ্রস্ত বা পড়া যাচ্ছে না। আপডেট থামানো হয়েছে। ডেটাবেস মেরামতের আগে সহায়তা নিন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ডাউনলোড করা প্যাকেজ ক্ষতিগ্রস্ত বা অসম্পূর্ণ। আপডেট থামানো হয়েছে। আবার চেষ্টা করুন বা অন্য মিরর ব্যবহার করুন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "আপডেট প্রয়োজনীয় ফাইল পড়তে বা লিখতে পারেনি। ফাইল সিস্টেমের অনুমতি ও ডিস্কের অবস্থা পরীক্ষা করে আবার চেষ্টা করুন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "আপডেট ডাউনলোড করা যায়নি। আবার চেষ্টা করুন বা সহায়তা নিন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "আপডেট লেনদেন প্রস্তুত করা যায়নি। আবার চেষ্টা করুন বা সহায়তা নিন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "স্লিপ প্রতিরোধ চালু করা যায়নি বলে আপডেট শুরু হয়নি। আবার চেষ্টা করুন।"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "প্যাকেজ ডেটাবেস লক করা যায়নি। অন্য প্যাকেজ ব্যবস্থাপক বন্ধ করুন এবং ফাইল সিস্টেমে লেখা যায় কি না পরীক্ষা করে আবার চেষ্টা করুন।"
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "আনুমানিক সময়: %1"

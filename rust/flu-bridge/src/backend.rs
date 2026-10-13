@@ -29,6 +29,7 @@ mod ffi {
         fn translate(message: &str, plural: &str, count: i64, arguments: &Vec<String>) -> String;
         fn config_directory() -> String;
         fn initialize_locale(languages: &Vec<String>);
+        fn locale_languages() -> Vec<String>;
         fn variants(json: &str) -> QList_QVariant;
         fn copy_text(text: &QString);
         fn open_url(url: &str);
@@ -37,6 +38,13 @@ mod ffi {
     }
     extern "RustQt" {
         #[qobject]
+        #[qproperty(
+            bool,
+            interface_right_to_left,
+            cxx_name = "interfaceRightToLeft",
+            READ,
+            NOTIFY
+        )]
         #[qproperty(QString, last_update, cxx_name = "lastUpdate", READ, NOTIFY)]
         #[qproperty(bool, has_last_update, cxx_name = "hasLastUpdate", READ, NOTIFY)]
         #[qproperty(QString, state_message, cxx_name = "stateMessage", READ, NOTIFY)]
@@ -205,6 +213,7 @@ mod ffi {
     impl cxx_qt::Initialize for UpdateBackend {}
 }
 pub struct UpdateBackendRust {
+    interface_right_to_left: bool,
     last_update: QString,
     has_last_update: bool,
     state_message: QString,
@@ -253,6 +262,7 @@ pub struct UpdateBackendRust {
 impl Default for UpdateBackendRust {
     fn default() -> Self {
         Self {
+            interface_right_to_left: false,
             last_update: Default::default(),
             has_last_update: false,
             state_message: Default::default(),
@@ -321,6 +331,9 @@ impl cxx_qt::Initialize for ffi::UpdateBackend {
             })
             .unwrap_or_default();
         ffi::initialize_locale(&languages);
+        self.as_mut().rust_mut().interface_right_to_left =
+            flu_core::locale::is_right_to_left(&ffi::locale_languages());
+        self.as_mut().interface_right_to_left_changed();
         let strings = notifications::messages()
             .map(|message| {
                 let arguments = if message.contains("%2") {

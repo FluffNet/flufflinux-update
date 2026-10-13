@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 
-project(flufflinux_update_kcm VERSION 1.5.0 LANGUAGES CXX)
+project(flufflinux_update_kcm VERSION 1.6.0 LANGUAGES CXX)
 
 option(BUILD_TESTING "Build the isolated regression tests" OFF)
 include(CTest)
@@ -65,6 +65,7 @@ endif()
 
 # Install gettext catalogs into the fakeroot alongside the KCM.
 ki18n_install(po)
+include(cmake/TranslationAliases.cmake)
 
 # Include the project license in packages staged through DESTDIR.
 install(FILES LICENSE

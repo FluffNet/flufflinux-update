@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: sq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Përditësime të sistemit"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Mbajeni Fluff Linux të sigurt dhe të përditësuar duke instaluar përditësimet e sistemit."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Përditësimi i fundit i sistemit: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Kontrollo për përditësime"
+
+msgid "Install Updates"
+msgstr "Instalo përditësimet"
+
+msgid "View Updates"
+msgstr "Shiko përditësimet"
+
+msgid "Change view"
+msgstr "Ndrysho pamjen"
+
+msgid "Updates to Install"
+msgstr "Përditësime për t'u instaluar"
+
+msgid "Package details are unavailable."
+msgstr "Hollësitë e paketave nuk janë të disponueshme."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update është ende në zhvillim. Nëse hasni ndonjë problem, raportojeni në faqen tonë në GitHub."
+
+msgid "System updates were installed successfully."
+msgstr "Përditësimet e sistemit u instaluan me sukses."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Nuk ka lidhje rrjeti!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Lidhja e rrjetit është e kufizuar. Nëse nuk jeni lidhur me rrjetin e një organizate, kontrolloni lidhjen tuaj me internetin."
+
+msgid "pacman process is already running."
+msgstr "Një proces pacman është tashmë në ekzekutim."
+
+msgid "The update process could not be started."
+msgstr "Procesi i përditësimit nuk mund të nisej."
+
+msgid "The update process could not be cancelled."
+msgstr "Procesi i përditësimit nuk mund të anulohej."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Lidhja dështoi gjatë shkarkimit të përditësimeve. Kontrolloni rrjetin dhe provoni përsëri."
+
+msgid "The system update failed."
+msgstr "Përditësimi i sistemit dështoi."
+
+msgid "Downloading updates…"
+msgstr "Po shkarkohen përditësimet…"
+
+msgid "Installing updates…"
+msgstr "Po instalohen përditësimet…"
+
+msgid "%1 / %2 downloaded"
+msgstr "U shkarkuan %1 / %2"
+
+msgid "%1/%2 updates installed"
+msgstr "U instaluan %1/%2 përditësime"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Përditësimet po instalohen. Mos e fikni ose rinisni kompjuterin derisa të përfundojë instalimi. Ndërprerja e përditësimit mund të dëmtojë skedarët e sistemit."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Bateria është e ulët. Lidheni kompjuterin me një karikues gjatë instalimit të përditësimeve."
+
+msgid "Update process was cancelled"
+msgstr "Procesi i përditësimit u anulua"
+
+msgid "Cancel"
+msgstr "Anulo"
+
+msgid "Checking for updates…"
+msgstr "Po kontrollohet për përditësime…"
+
+msgid "System updates are available"
+msgstr "Ka përditësime të sistemit"
+
+msgid "Download size: %1"
+msgstr "Madhësia e shkarkimit: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Hapësira e nevojshme për përditësimet e sistemit: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Hapësira e liruar pas përditësimit: %1"
+
+msgid "No additional download required"
+msgstr "Nuk nevojitet shkarkim shtesë"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Kontrolluesi i përditësimeve nuk mund të nisej. Sigurohuni që pacman-contrib është instaluar."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Kontrolli i përditësimeve ndaloi papritur."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Ndodhi një gabim i panjohur. Raportojeni problemin në faqen tonë në GitHub për ndihmë."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Nuk ka lidhje interneti. Kontrolloni rrjetin dhe provoni përsëri."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Nuk mund të lidhej me serverët e depove. Provoni më vonë ose kontrolloni konfigurimin e serverëve pasqyrë."
+
+msgid "Authorization error, please try again."
+msgstr "Gabim autorizimi. Provoni përsëri."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Kontrolli i përditësimeve me privilegje ndaloi papritur."
+
+msgid "The privileged update check could not be started."
+msgstr "Kontrolli i përditësimeve me privilegje nuk mund të nisej."
+
+msgid "System was not previously updated."
+msgstr "Sistemi nuk është përditësuar më parë."
+
+msgid "The last update information could not be read."
+msgstr "Informacioni i përditësimit të fundit nuk mund të lexohej."
+
+msgid "The last update information is invalid."
+msgstr "Informacioni i përditësimit të fundit është i pavlefshëm."
+
+msgid "Updates were not installed on this system"
+msgstr "Në këtë sistem nuk janë instaluar përditësime"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Për të përditësuar sistemin, kontrolloni për përditësime me butonin më poshtë."
+
+msgid "Update date available"
+msgstr "Data e përditësimit është e disponueshme"
+
+msgid "Updated recently"
+msgstr "I përditësuar së fundmi"
+
+msgid "System is up to date"
+msgstr "Sistemi është i përditësuar"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Përditësimi i fundit u instalua para më shumë se një muaji"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Përditësimi i fundit u instalua para më shumë se tre muajsh"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "Para %1 sekonde"
+msgstr[1] "Para %1 sekondash"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "Para %1 minute"
+msgstr[1] "Para %1 minutash"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "Para %1 ore"
+msgstr[1] "Para %1 orësh"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "Para %1 dite"
+msgstr[1] "Para %1 ditësh"
+
+msgid "Action is required"
+msgstr "Nevojitet veprim"
+
+msgid "Action is required!"
+msgstr "Nevojitet veprim!"
+
+msgid "Action required"
+msgstr "Veprim i nevojshëm"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update nuk mund të vazhdojë sepse përditësimi i ardhshëm kërkon heqjen e “%1”, një paketë e mbrojtur e sistemit. Heqja e saj mund të pengojë funksionimin e saktë të Fluff Linux. Raportojeni problemin në GitHub për ndihmë."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Për të instaluar përditësimet e sistemit, Fluff Linux Update duhet të heqë “%1”. Heqja e kësaj pakete mund të ndikojë në programe të lidhura me të. Nëse nuk jeni të sigurt, raportojeni problemin në GitHub për ndihmë."
+
+msgid "Accept"
+msgstr "Prano"
+
+msgid "Close"
+msgstr "Mbyll"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Për të vazhduar përditësimet e sistemit, %1 u hoq automatikisht pasi heqja e saj u vlerësua e sigurt."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Për të vazhduar përditësimet e sistemit, paketat e mëposhtme u hoqën automatikisht pasi heqja e tyre u vlerësua e sigurt: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "U zbulua dhe u zgjidh një konflikt skedarësh. %1 u riemërtua në %2. Procesi i përditësimit ka rinisur."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Paketa në konflikt nuk mund të hiqej. Kërkoni mbështetje."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update nuk mund të verifikonte çelësin e nënshkrimit të depos FluffNet. Përditësimi u ndal për të mbrojtur sistemin."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update nuk mund të verifikonte çelësin e nënshkrimit të depos FluffNet. Përditësimi u ndal për të mbrojtur sistemin. Kjo mund të tregojë një problem rrjeti, një server FluffNet të padisponueshëm, një çelës nënshkrimi të skaduar ose të zëvendësuar, një problem konfigurimi të depos, një çelës të papritur ose një komprometim të mundshëm të depos. Mos pranoni manualisht një çelës të papritur nëse Fluff Linux nuk publikon udhëzime të verifikuara."
+
+msgid "Repository: %1"
+msgstr "Depoja: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Çelësi zyrtar i nënshkrimit të depos FluffNet u verifikua dhe u shtua në Pacman."
+
+msgid "Technical details"
+msgstr "Hollësi teknike"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Hollësitë teknike të verifikimit të çelësit të nënshkrimit të depos"
+
+msgid "Failure category: %1"
+msgstr "Kategoria e dështimit: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Gjurma e pritur: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Gjurma e marrë: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Gjurma e çelësit të kërkuar të nënshkrimit: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Statusi i daljes së Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "Versioni i FLU: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Versioni i Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Provo përsëri"
+
+msgid "Copy Technical Details"
+msgstr "Kopjo hollësitë teknike"
+
+msgid "Open an Issue on GitHub"
+msgstr "Hap një raport në GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Nuk ka hapësirë të lirë të mjaftueshme për të vazhduar përditësimin. Lironi hapësirë dhe provoni përsëri."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Nënshkrimi i një pakete ose depoje nuk mund të verifikohej. Përditësimi u ndal. Kontrolloni datën e sistemit dhe grupin e çelësave, pastaj provoni përsëri."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Baza e të dhënave të paketave është e dëmtuar ose e palexueshme. Përditësimi u ndal. Kërkoni mbështetje përpara riparimit të bazës së të dhënave."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Një paketë e shkarkuar është e dëmtuar ose e paplotë. Përditësimi u ndal. Provoni përsëri ose përdorni një server tjetër pasqyrë."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Përditësimi nuk mund të lexonte ose shkruante skedarët e nevojshëm. Kontrolloni lejet e sistemit të skedarëve dhe gjendjen e diskut, pastaj provoni përsëri."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Përditësimet nuk mund të shkarkoheshin. Provoni përsëri ose kërkoni mbështetje."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Transaksioni i përditësimit nuk mund të përgatitej. Provoni përsëri ose kërkoni mbështetje."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Përditësimi nuk mund të fillonte sepse parandalimi i gjumit nuk mund të aktivizohej. Provoni përsëri."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Baza e të dhënave të paketave nuk mund të kyçej. Mbyllni menaxhuesit e tjerë të paketave dhe kontrolloni që sistemi i skedarëve lejon shkrimin, pastaj provoni përsëri."
+
+msgid "Estimated time: %1"
+msgstr "Koha e parashikuar: %1"

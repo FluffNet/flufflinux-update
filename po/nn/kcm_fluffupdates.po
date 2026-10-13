@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Systemoppdateringar"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Hald Fluff Linux trygt og oppdatert ved å installera systemoppdateringar."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Systemet vart sist oppdatert: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Sjå etter oppdateringar"
+
+msgid "Install Updates"
+msgstr "Installer oppdateringar"
+
+msgid "View Updates"
+msgstr "Vis oppdateringar"
+
+msgid "Change view"
+msgstr "Byt vising"
+
+msgid "Updates to Install"
+msgstr "Oppdateringar som skal installerast"
+
+msgid "Package details are unavailable."
+msgstr "Pakkedetaljar er ikkje tilgjengelege."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update er framleis under utvikling. Meld frå på GitHub-sida vår dersom du opplever problem."
+
+msgid "System updates were installed successfully."
+msgstr "Systemoppdateringane vart installerte."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Inga nettverkstilkopling!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Nettverkstilkoplinga er avgrensa. Kontroller internettilkoplinga dersom du ikkje er kopla til eit organisasjonsnettverk."
+
+msgid "pacman process is already running."
+msgstr "Ein pacman-prosess køyrer allereie."
+
+msgid "The update process could not be started."
+msgstr "Klarte ikkje starta oppdateringsprosessen."
+
+msgid "The update process could not be cancelled."
+msgstr "Klarte ikkje avbryta oppdateringsprosessen."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Tilkoplinga svikta under nedlasting av oppdateringar. Kontroller nettverket og prøv igjen."
+
+msgid "The system update failed."
+msgstr "Systemoppdateringa feila."
+
+msgid "Downloading updates…"
+msgstr "Lastar ned oppdateringar…"
+
+msgid "Installing updates…"
+msgstr "Installerer oppdateringar…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 lasta ned"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 oppdateringar installerte"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Oppdateringar vert installerte. Ikkje slå av eller start datamaskina på nytt før installasjonen er ferdig. Avbrot kan skada systemfiler."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batterinivået er lågt. Kopla datamaskina til ein ladar medan oppdateringar vert installerte."
+
+msgid "Update process was cancelled"
+msgstr "Oppdateringsprosessen vart avbroten"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Checking for updates…"
+msgstr "Ser etter oppdateringar…"
+
+msgid "System updates are available"
+msgstr "Systemoppdateringar er tilgjengelege"
+
+msgid "Download size: %1"
+msgstr "Nedlastingsstorleik: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Lagringsplass som trengst for systemoppdateringar: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Lagringsplass frigjord etter oppdatering: %1"
+
+msgid "No additional download required"
+msgstr "Inga ekstra nedlasting trengst"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Klarte ikkje starta oppdateringskontrollen. Sjå til at pacman-contrib er installert."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Oppdateringskontrollen stoppa uventa."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Det oppstod ein ukjend feil. Meld frå på GitHub-sida vår for å få hjelp."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "Inga internettilkopling. Kontroller nettverket og prøv igjen."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Klarte ikkje nå pakkelager-tenarane. Prøv igjen seinare eller kontroller oppsettet for spegltenarar."
+
+msgid "Authorization error, please try again."
+msgstr "Autoriseringsfeil. Prøv igjen."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Oppdateringskontrollen med utvida rettar stoppa uventa."
+
+msgid "The privileged update check could not be started."
+msgstr "Klarte ikkje starta oppdateringskontrollen med utvida rettar."
+
+msgid "System was not previously updated."
+msgstr "Systemet har ikkje vore oppdatert før."
+
+msgid "The last update information could not be read."
+msgstr "Klarte ikkje lesa informasjon om siste oppdatering."
+
+msgid "The last update information is invalid."
+msgstr "Informasjonen om siste oppdatering er ugyldig."
+
+msgid "Updates were not installed on this system"
+msgstr "Ingen oppdateringar er installerte på dette systemet"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Bruk knappen nedanfor til å sjå etter oppdateringar for systemet."
+
+msgid "Update date available"
+msgstr "Oppdateringsdato er tilgjengeleg"
+
+msgid "Updated recently"
+msgstr "Nyleg oppdatert"
+
+msgid "System is up to date"
+msgstr "Systemet er oppdatert"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Siste oppdatering vart installert for meir enn ein månad sidan"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Siste oppdatering vart installert for meir enn tre månader sidan"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "For %1 sekund sidan"
+msgstr[1] "For %1 sekund sidan"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "For %1 minutt sidan"
+msgstr[1] "For %1 minutt sidan"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "For %1 time sidan"
+msgstr[1] "For %1 timar sidan"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "For %1 dag sidan"
+msgstr[1] "For %1 dagar sidan"
+
+msgid "Action is required"
+msgstr "Handling er nødvendig"
+
+msgid "Action is required!"
+msgstr "Handling er nødvendig!"
+
+msgid "Action required"
+msgstr "Handling nødvendig"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update kan ikkje halda fram fordi den komande oppdateringa krev at «%1», ein verna systempakke, vert fjerna. Fjerning kan hindra Fluff Linux i å fungera rett. Meld frå på GitHub for å få hjelp."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "For å kunna installera systemoppdateringar må Fluff Linux Update fjerna «%1». Fjerning av denne pakken kan påverka tilknytt programvare. Meld frå på GitHub for å få hjelp dersom du er usikker."
+
+msgid "Accept"
+msgstr "Godta"
+
+msgid "Close"
+msgstr "Lukk"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "For at systemoppdateringane skal kunna halda fram, vart %1 fjerna automatisk etter at det vart vurdert som trygt å fjerna pakken."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "For at systemoppdateringane skal kunna halda fram, vart desse pakkane fjerna automatisk etter at det vart vurdert som trygt å fjerna dei: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Ein filkonflikt vart oppdaga og løyst. %1 fekk namnet %2. Oppdateringsprosessen har starta på nytt."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Klarte ikkje fjerna pakken som skapar konflikt. Søk hjelp."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update klarte ikkje stadfesta signeringsnøkkelen til FluffNet-pakkelageret. Oppdateringa vart stoppa for å verna systemet."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update klarte ikkje stadfesta signeringsnøkkelen til FluffNet-pakkelageret. Oppdateringa vart stoppa for å verna systemet. Dette kan tyda på eit nettverksproblem, ein utilgjengeleg FluffNet-tenar, ein utgått eller skifta signeringsnøkkel, feil oppsett av pakkelageret, ein uventa nøkkel eller eit mogleg innbrot i pakkelageret. Ikkje godta ein uventa nøkkel manuelt med mindre Fluff Linux publiserer stadfesta instruksjonar."
+
+msgid "Repository: %1"
+msgstr "Pakkelager: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Den offisielle signeringsnøkkelen til FluffNet-pakkelageret vart stadfesta og lagd til i Pacman."
+
+msgid "Technical details"
+msgstr "Tekniske detaljar"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Tekniske detaljar om kontroll av signeringsnøkkelen til pakkelageret"
+
+msgid "Failure category: %1"
+msgstr "Feilkategori: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Venta fingeravtrykk: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Motteke fingeravtrykk: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Fingeravtrykk for den førespurde signeringsnøkkelen: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Avsluttingsstatus for Pacman: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU-versjon: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux-versjon: %1"
+
+msgid "Try Again"
+msgstr "Prøv igjen"
+
+msgid "Copy Technical Details"
+msgstr "Kopier tekniske detaljar"
+
+msgid "Open an Issue on GitHub"
+msgstr "Meld eit problem på GitHub"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Det er ikkje nok ledig lagringsplass til å halda fram med oppdateringa. Frigjer plass og prøv igjen."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Klarte ikkje stadfesta signaturen til ein pakke eller eit pakkelager. Oppdateringa vart stoppa. Kontroller systemdatoen og nøkkelringen, og prøv igjen."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Pakkedatabasen er skadd eller uleseleg. Oppdateringa vart stoppa. Søk hjelp før du reparerer databasen."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Ein nedlasta pakke er skadd eller ufullstendig. Oppdateringa vart stoppa. Prøv igjen eller bruk ein annan spegltenar."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Oppdateringa klarte ikkje lesa eller skriva nødvendige filer. Kontroller filsystemrettane og tilstanden til disken, og prøv igjen."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Klarte ikkje lasta ned oppdateringane. Prøv igjen eller søk hjelp."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Klarte ikkje førebu oppdateringstransaksjonen. Prøv igjen eller søk hjelp."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Klarte ikkje starta oppdateringa fordi hindring av kvilemodus ikkje kunne slåast på. Prøv igjen."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Klarte ikkje låsa pakkedatabasen. Lukk andre pakkehandsamarar og sjå til at filsystemet er skrivbart, og prøv igjen."
+
+msgid "Estimated time: %1"
+msgstr "Estimert tid: %1"

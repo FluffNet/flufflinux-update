@@ -1,11 +1,25 @@
-kcmutils_add_qml_kcm(kcm_fluffupdates)
+kcmutils_add_qml_kcm(kcm_fluffupdates DISABLE_DESKTOP_FILE_GENERATION)
+
+# KDE derives the launcher identity from the metadata filename. Keep the
+# installed module name stable while maintaining the source as kcm_flu.json.
+configure_file(kcm_flu.json ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.json COPYONLY)
+add_custom_target(kcm_fluffupdates-kcm-desktop-gen
+    COMMAND KF6::kcmdesktopfilegenerator
+        ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.json
+        ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.json
+    BYPRODUCTS ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
+    VERBATIM)
+add_dependencies(kcm_fluffupdates kcm_fluffupdates-kcm-desktop-gen)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
+    DESTINATION ${KDE_INSTALL_APPDIR})
 
 target_sources(kcm_fluffupdates PRIVATE
-    fluffupdates.cpp
-    fluffupdates.h
+    flufflinuxupdate.cpp
+    flufflinuxupdate.h
     nativeqt.cpp
     nativeqt.h
-    kcm_fluffupdates.json
+    kcm_flu.json
 )
 
 target_link_libraries(kcm_fluffupdates PRIVATE

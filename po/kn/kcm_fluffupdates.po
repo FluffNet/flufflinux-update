@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: kn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳು"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸಿ Fluff Linux ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ನವೀಕೃತವಾಗಿ ಇರಿಸಿ."
+
+msgid "System last updated: %1 (%2)"
+msgstr "ವ್ಯವಸ್ಥೆಯ ಕೊನೆಯ ನವೀಕರಣ: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "ನವೀಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ"
+
+msgid "Install Updates"
+msgstr "ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸಿ"
+
+msgid "View Updates"
+msgstr "ನವೀಕರಣಗಳನ್ನು ನೋಡಿ"
+
+msgid "Change view"
+msgstr "ನೋಟ ಬದಲಿಸಿ"
+
+msgid "Updates to Install"
+msgstr "ಸ್ಥಾಪಿಸಬೇಕಾದ ನವೀಕರಣಗಳು"
+
+msgid "Package details are unavailable."
+msgstr "ಪ್ಯಾಕೇಜ್ ವಿವರಗಳು ಲಭ್ಯವಿಲ್ಲ."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ಇನ್ನೂ ಅಭಿವೃದ್ಧಿಯಲ್ಲಿದೆ. ಸಮಸ್ಯೆ ಎದುರಾದರೆ ನಮ್ಮ GitHub ಪುಟದಲ್ಲಿ ವರದಿ ಮಾಡಿ."
+
+msgid "System updates were installed successfully."
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳು ಯಶಸ್ವಿಯಾಗಿ ಸ್ಥಾಪನೆಯಾದವು."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "ಜಾಲ ಸಂಪರ್ಕವಿಲ್ಲ!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "ಜಾಲ ಸಂಪರ್ಕ ಸೀಮಿತವಾಗಿದೆ. ಸಂಸ್ಥೆಯ ಜಾಲಕ್ಕೆ ಸಂಪರ್ಕಿಸದಿದ್ದರೆ ನಿಮ್ಮ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವನ್ನು ಪರಿಶೀಲಿಸಿ."
+
+msgid "pacman process is already running."
+msgstr "pacman ಪ್ರಕ್ರಿಯೆ ಈಗಾಗಲೇ ನಡೆಯುತ್ತಿದೆ."
+
+msgid "The update process could not be started."
+msgstr "ನವೀಕರಣ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಲಿಲ್ಲ."
+
+msgid "The update process could not be cancelled."
+msgstr "ನವೀಕರಣ ಪ್ರಕ್ರಿಯೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಲಿಲ್ಲ."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "ನವೀಕರಣಗಳ ಡೌನ್‌ಲೋಡ್ ವೇಳೆ ಸಂಪರ್ಕ ವಿಫಲವಾಯಿತು. ಜಾಲವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "The system update failed."
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣ ವಿಫಲವಾಯಿತು."
+
+msgid "Downloading updates…"
+msgstr "ನವೀಕರಣಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…"
+
+msgid "Installing updates…"
+msgstr "ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ಡೌನ್‌ಲೋಡ್ ಆಗಿದೆ"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 ನವೀಕರಣಗಳು ಸ್ಥಾಪನೆಯಾಗಿವೆ"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ. ಸ್ಥಾಪನೆ ಪೂರ್ಣಗೊಳ್ಳುವವರೆಗೆ ಗಣಕವನ್ನು ನಿಲ್ಲಿಸಬೇಡಿ ಅಥವಾ ಮರುಪ್ರಾರಂಭಿಸಬೇಡಿ. ನವೀಕರಣವನ್ನು ಅಡ್ಡಿಪಡಿಸಿದರೆ ವ್ಯವಸ್ಥೆಯ ಕಡತಗಳು ಹಾನಿಗೊಳಗಾಗಬಹುದು."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "ಬ್ಯಾಟರಿಯ ಚಾರ್ಜ್ ಕಡಿಮೆಯಿದೆ. ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸುವಾಗ ಗಣಕವನ್ನು ಚಾರ್ಜರ್‌ಗೆ ಸಂಪರ್ಕಿಸಿ."
+
+msgid "Update process was cancelled"
+msgstr "ನವೀಕರಣ ಪ್ರಕ್ರಿಯೆ ರದ್ದಾಗಿದೆ"
+
+msgid "Cancel"
+msgstr "ರದ್ದುಮಾಡಿ"
+
+msgid "Checking for updates…"
+msgstr "ನವೀಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ…"
+
+msgid "System updates are available"
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳು ಲಭ್ಯವಿವೆ"
+
+msgid "Download size: %1"
+msgstr "ಡೌನ್‌ಲೋಡ್ ಗಾತ್ರ: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳಿಗೆ ಬೇಕಾದ ಸ್ಥಳ: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "ನವೀಕರಣದ ನಂತರ ಖಾಲಿಯಾಗುವ ಸ್ಥಳ: %1"
+
+msgid "No additional download required"
+msgstr "ಹೆಚ್ಚುವರಿ ಡೌನ್‌ಲೋಡ್ ಅಗತ್ಯವಿಲ್ಲ"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "ನವೀಕರಣ ಪರಿಶೀಲಕವನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಲಿಲ್ಲ. pacman-contrib ಸ್ಥಾಪನೆಯಾಗಿದೆಯೇ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
+
+msgid "The update check stopped unexpectedly."
+msgstr "ನವೀಕರಣ ಪರಿಶೀಲನೆ ಅನಿರೀಕ್ಷಿತವಾಗಿ ನಿಂತಿತು."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "ಅಪರಿಚಿತ ದೋಷ ಸಂಭವಿಸಿದೆ. ಸಹಾಯಕ್ಕಾಗಿ ನಮ್ಮ GitHub ಪುಟದಲ್ಲಿ ಈ ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಿ."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವಿಲ್ಲ. ಜಾಲವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "ಭಂಡಾರದ ಸರ್ವರ್‌ಗಳನ್ನು ತಲುಪಲಾಗಲಿಲ್ಲ. ನಂತರ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಮಿರರ್ ಸಂರಚನೆಯನ್ನು ಪರಿಶೀಲಿಸಿ."
+
+msgid "Authorization error, please try again."
+msgstr "ಅಧಿಕಾರ ದೋಷ, ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ಉನ್ನತ ಅಧಿಕಾರದ ನವೀಕರಣ ಪರಿಶೀಲನೆ ಅನಿರೀಕ್ಷಿತವಾಗಿ ನಿಂತಿತು."
+
+msgid "The privileged update check could not be started."
+msgstr "ಉನ್ನತ ಅಧಿಕಾರದ ನವೀಕರಣ ಪರಿಶೀಲನೆಯನ್ನು ಪ್ರಾರಂಭಿಸಲಾಗಲಿಲ್ಲ."
+
+msgid "System was not previously updated."
+msgstr "ವ್ಯವಸ್ಥೆಯನ್ನು ಹಿಂದೆ ನವೀಕರಿಸಿಲ್ಲ."
+
+msgid "The last update information could not be read."
+msgstr "ಕೊನೆಯ ನವೀಕರಣದ ಮಾಹಿತಿಯನ್ನು ಓದಲಾಗಲಿಲ್ಲ."
+
+msgid "The last update information is invalid."
+msgstr "ಕೊನೆಯ ನವೀಕರಣದ ಮಾಹಿತಿ ಅಮಾನ್ಯವಾಗಿದೆ."
+
+msgid "Updates were not installed on this system"
+msgstr "ಈ ವ್ಯವಸ್ಥೆಯಲ್ಲಿ ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸಿಲ್ಲ"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "ವ್ಯವಸ್ಥೆಯನ್ನು ನವೀಕರಿಸಲು ಕೆಳಗಿನ ಗುಂಡಿಯಿಂದ ಲಭ್ಯವಿರುವ ನವೀಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ."
+
+msgid "Update date available"
+msgstr "ನವೀಕರಣದ ದಿನಾಂಕ ಲಭ್ಯವಿದೆ"
+
+msgid "Updated recently"
+msgstr "ಇತ್ತೀಚೆಗೆ ನವೀಕರಿಸಲಾಗಿದೆ"
+
+msgid "System is up to date"
+msgstr "ವ್ಯವಸ್ಥೆ ನವೀಕೃತವಾಗಿದೆ"
+
+msgid "Last update was installed more than a month ago"
+msgstr "ಕೊನೆಯ ನವೀಕರಣವನ್ನು ಒಂದು ತಿಂಗಳಿಗಿಂತ ಹಿಂದೆ ಸ್ಥಾಪಿಸಲಾಗಿದೆ"
+
+msgid "Last update was installed more than three months ago"
+msgstr "ಕೊನೆಯ ನವೀಕರಣವನ್ನು ಮೂರು ತಿಂಗಳಿಗಿಂತ ಹಿಂದೆ ಸ್ಥಾಪಿಸಲಾಗಿದೆ"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 ಸೆಕೆಂಡಿನ ಹಿಂದೆ"
+msgstr[1] "%1 ಸೆಕೆಂಡುಗಳ ಹಿಂದೆ"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 ನಿಮಿಷದ ಹಿಂದೆ"
+msgstr[1] "%1 ನಿಮಿಷಗಳ ಹಿಂದೆ"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 ಗಂಟೆಯ ಹಿಂದೆ"
+msgstr[1] "%1 ಗಂಟೆಗಳ ಹಿಂದೆ"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 ದಿನದ ಹಿಂದೆ"
+msgstr[1] "%1 ದಿನಗಳ ಹಿಂದೆ"
+
+msgid "Action is required"
+msgstr "ಕ್ರಮ ಅಗತ್ಯವಿದೆ"
+
+msgid "Action is required!"
+msgstr "ಕ್ರಮ ಅಗತ್ಯವಿದೆ!"
+
+msgid "Action required"
+msgstr "ಅಗತ್ಯ ಕ್ರಮ"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "ಮುಂದಿನ ನವೀಕರಣಕ್ಕಾಗಿ ಸಂರಕ್ಷಿತ ವ್ಯವಸ್ಥೆಯ ಪ್ಯಾಕೇಜ್ “%1” ಅನ್ನು ತೆಗೆದುಹಾಕಬೇಕಾದ್ದರಿಂದ Fluff Linux Update ಮುಂದುವರಿಯಲು ಸಾಧ್ಯವಿಲ್ಲ. ಅದನ್ನು ತೆಗೆದರೆ Fluff Linux ಸರಿಯಾಗಿ ಕೆಲಸ ಮಾಡದಿರಬಹುದು. ಸಹಾಯಕ್ಕಾಗಿ GitHub ನಲ್ಲಿ ಈ ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಿ."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸಲು Fluff Linux Update “%1” ಅನ್ನು ತೆಗೆದುಹಾಕಬೇಕು. ಈ ಪ್ಯಾಕೇಜ್ ತೆಗೆದರೆ ಸಂಬಂಧಿತ ತಂತ್ರಾಂಶಕ್ಕೆ ಪರಿಣಾಮವಾಗಬಹುದು. ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ ಸಹಾಯಕ್ಕಾಗಿ GitHub ನಲ್ಲಿ ಸಮಸ್ಯೆಯನ್ನು ವರದಿ ಮಾಡಿ."
+
+msgid "Accept"
+msgstr "ಒಪ್ಪಿಕೊಳ್ಳಿ"
+
+msgid "Close"
+msgstr "ಮುಚ್ಚಿ"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳನ್ನು ಮುಂದುವರಿಸಲು %1 ತೆಗೆದುಹಾಕುವುದು ಸುರಕ್ಷಿತವೆಂದು ನಿರ್ಧರಿಸಿದ ನಂತರ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ತೆಗೆದುಹಾಕಲಾಯಿತು."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "ವ್ಯವಸ್ಥೆಯ ನವೀಕರಣಗಳನ್ನು ಮುಂದುವರಿಸಲು ಈ ಪ್ಯಾಕೇಜ್‌ಗಳನ್ನು ತೆಗೆದುಹಾಕುವುದು ಸುರಕ್ಷಿತವೆಂದು ನಿರ್ಧರಿಸಿದ ನಂತರ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ತೆಗೆದುಹಾಕಲಾಯಿತು: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "ಕಡತ ಸಂಘರ್ಷವನ್ನು ಪತ್ತೆಮಾಡಿ ಪರಿಹರಿಸಲಾಗಿದೆ. %1 ಅನ್ನು %2 ಎಂದು ಮರುಹೆಸರಿಸಲಾಗಿದೆ. ನವೀಕರಣ ಪ್ರಕ್ರಿಯೆ ಮತ್ತೆ ಪ್ರಾರಂಭವಾಗಿದೆ."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "ಸಂಘರ್ಷದ ಪ್ಯಾಕೇಜ್ ತೆಗೆದುಹಾಕಲಾಗಲಿಲ್ಲ. ಸಹಾಯ ಪಡೆಯಿರಿ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update ಗೆ FluffNet ಭಂಡಾರದ ಸಹಿ ಕೀಲಿಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ವ್ಯವಸ್ಥೆಯನ್ನು ರಕ್ಷಿಸಲು ನವೀಕರಣವನ್ನು ನಿಲ್ಲಿಸಲಾಗಿದೆ."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update ಗೆ FluffNet ಭಂಡಾರದ ಸಹಿ ಕೀಲಿಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ವ್ಯವಸ್ಥೆಯನ್ನು ರಕ್ಷಿಸಲು ನವೀಕರಣವನ್ನು ನಿಲ್ಲಿಸಲಾಗಿದೆ. ಇದು ಜಾಲದ ಸಮಸ್ಯೆ, ಲಭ್ಯವಿಲ್ಲದ FluffNet ಸರ್ವರ್, ಅವಧಿ ಮುಗಿದ ಅಥವಾ ಬದಲಾದ ಸಹಿ ಕೀಲಿ, ಭಂಡಾರದ ಸಂರಚನೆ ಸಮಸ್ಯೆ, ಅನಿರೀಕ್ಷಿತ ಕೀಲಿ ಅಥವಾ ಭಂಡಾರದ ಮೇಲಿನ ದಾಳಿಯನ್ನು ಸೂಚಿಸಬಹುದು. Fluff Linux ಪರಿಶೀಲಿಸಿದ ಸೂಚನೆಗಳನ್ನು ಪ್ರಕಟಿಸದ ಹೊರತು ಅನಿರೀಕ್ಷಿತ ಕೀಲಿಯನ್ನು ಕೈಯಾರೆ ಒಪ್ಪಿಕೊಳ್ಳಬೇಡಿ."
+
+msgid "Repository: %1"
+msgstr "ಭಂಡಾರ: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "FluffNet ಭಂಡಾರದ ಅಧಿಕೃತ ಸಹಿ ಕೀಲಿಯನ್ನು ಪರಿಶೀಲಿಸಿ Pacman ಗೆ ಸೇರಿಸಲಾಗಿದೆ."
+
+msgid "Technical details"
+msgstr "ತಾಂತ್ರಿಕ ವಿವರಗಳು"
+
+msgid "Repository signing-key verification technical details"
+msgstr "ಭಂಡಾರದ ಸಹಿ ಕೀಲಿ ಪರಿಶೀಲನೆಯ ತಾಂತ್ರಿಕ ವಿವರಗಳು"
+
+msgid "Failure category: %1"
+msgstr "ವೈಫಲ್ಯದ ವರ್ಗ: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "ನಿರೀಕ್ಷಿತ ಬೆರಳಚ್ಚು: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "ಪಡೆದ ಬೆರಳಚ್ಚು: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "ವಿನಂತಿಸಿದ ಸಹಿ ಕೀಲಿಯ ಬೆರಳಚ್ಚು: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman ನಿರ್ಗಮನ ಸ್ಥಿತಿ: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU ಆವೃತ್ತಿ: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux ಆವೃತ್ತಿ: %1"
+
+msgid "Try Again"
+msgstr "ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ"
+
+msgid "Copy Technical Details"
+msgstr "ತಾಂತ್ರಿಕ ವಿವರಗಳನ್ನು ನಕಲಿಸಿ"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub ನಲ್ಲಿ ಸಮಸ್ಯೆ ದಾಖಲಿಸಿ"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "ನವೀಕರಣವನ್ನು ಮುಂದುವರಿಸಲು ಸಾಕಷ್ಟು ಖಾಲಿ ಸ್ಥಳವಿಲ್ಲ. ಸ್ಥಳ ಖಾಲಿಮಾಡಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "ಪ್ಯಾಕೇಜ್ ಅಥವಾ ಭಂಡಾರದ ಸಹಿಯನ್ನು ಪರಿಶೀಲಿಸಲಾಗಲಿಲ್ಲ. ನವೀಕರಣ ನಿಂತಿದೆ. ವ್ಯವಸ್ಥೆಯ ದಿನಾಂಕ ಮತ್ತು ಕೀಲಿ ಸಂಗ್ರಹವನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "ಪ್ಯಾಕೇಜ್ ದತ್ತಸಂಚಯ ಹಾನಿಗೊಂಡಿದೆ ಅಥವಾ ಓದಲಾಗುತ್ತಿಲ್ಲ. ನವೀಕರಣ ನಿಂತಿದೆ. ದತ್ತಸಂಚಯವನ್ನು ಸರಿಪಡಿಸುವ ಮೊದಲು ಸಹಾಯ ಪಡೆಯಿರಿ."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ ಪ್ಯಾಕೇಜ್ ಹಾನಿಗೊಂಡಿದೆ ಅಥವಾ ಅಪೂರ್ಣವಾಗಿದೆ. ನವೀಕರಣ ನಿಂತಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಬೇರೆ ಮಿರರ್ ಬಳಸಿ."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "ನವೀಕರಣಕ್ಕೆ ಅಗತ್ಯ ಕಡತಗಳನ್ನು ಓದಲು ಅಥವಾ ಬರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಕಡತ ವ್ಯವಸ್ಥೆಯ ಅನುಮತಿಗಳು ಮತ್ತು ಡಿಸ್ಕ್ ಸ್ಥಿತಿಯನ್ನು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "ನವೀಕರಣಗಳನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಸಹಾಯ ಪಡೆಯಿರಿ."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "ನವೀಕರಣ ವ್ಯವಹಾರವನ್ನು ಸಿದ್ಧಪಡಿಸಲಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಸಹಾಯ ಪಡೆಯಿರಿ."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "ನಿದ್ರೆ ತಡೆಯುವಿಕೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲಾಗದ ಕಾರಣ ನವೀಕರಣ ಪ್ರಾರಂಭವಾಗಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "ಪ್ಯಾಕೇಜ್ ದತ್ತಸಂಚಯವನ್ನು ಲಾಕ್ ಮಾಡಲಾಗಲಿಲ್ಲ. ಇತರ ಪ್ಯಾಕೇಜ್ ನಿರ್ವಾಹಕರನ್ನು ಮುಚ್ಚಿ, ಕಡತ ವ್ಯವಸ್ಥೆಗೆ ಬರೆಯಲು ಸಾಧ್ಯವೇ ಎಂದು ಪರಿಶೀಲಿಸಿ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ."
+
+msgid "Estimated time: %1"
+msgstr "ಅಂದಾಜು ಸಮಯ: %1"

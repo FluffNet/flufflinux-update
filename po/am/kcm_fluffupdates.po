@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: am\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "System Updates"
+msgstr "የስርዓት ዝማኔዎች"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "የስርዓት ዝማኔዎችን በመጫን Fluff Linux ደህንነቱ የተጠበቀ እና ወቅታዊ እንዲሆን ያድርጉ።"
+
+msgid "System last updated: %1 (%2)"
+msgstr "ስርዓቱ በመጨረሻ የተዘመነው፦ %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "ዝማኔዎችን ፈትሽ"
+
+msgid "Install Updates"
+msgstr "ዝማኔዎችን ጫን"
+
+msgid "View Updates"
+msgstr "ዝማኔዎችን አሳይ"
+
+msgid "Change view"
+msgstr "እይታ ቀይር"
+
+msgid "Updates to Install"
+msgstr "የሚጫኑ ዝማኔዎች"
+
+msgid "Package details are unavailable."
+msgstr "የጥቅል ዝርዝሮች አይገኙም።"
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update ገና በልማት ላይ ነው። ችግር ካጋጠመዎት በGitHub ገጻችን ያሳውቁን።"
+
+msgid "System updates were installed successfully."
+msgstr "የስርዓት ዝማኔዎች በተሳካ ሁኔታ ተጭነዋል።"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "የአውታረ መረብ ግንኙነት የለም!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "የአውታረ መረብ ግንኙነት ውስን ነው። ከድርጅት አውታረ መረብ ጋር ካልተገናኙ የበይነመረብ ግንኙነትዎን ይፈትሹ።"
+
+msgid "pacman process is already running."
+msgstr "የpacman ሂደት አስቀድሞ እየሰራ ነው።"
+
+msgid "The update process could not be started."
+msgstr "የማዘመን ሂደቱን ማስጀመር አልተቻለም።"
+
+msgid "The update process could not be cancelled."
+msgstr "የማዘመን ሂደቱን መሰረዝ አልተቻለም።"
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "ዝማኔዎችን በማውረድ ላይ ግንኙነቱ አልተሳካም። አውታረ መረብዎን ፈትሸው እንደገና ይሞክሩ።"
+
+msgid "The system update failed."
+msgstr "የስርዓት ዝማኔው አልተሳካም።"
+
+msgid "Downloading updates…"
+msgstr "ዝማኔዎች እየወረዱ ነው…"
+
+msgid "Installing updates…"
+msgstr "ዝማኔዎች እየተጫኑ ነው…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 ወርዷል"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 ዝማኔዎች ተጭነዋል"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "ዝማኔዎች እየተጫኑ ነው። መጫኑ እስኪጠናቀቅ ድረስ ኮምፒውተሩን አያጥፉ ወይም እንደገና አያስጀምሩ። ዝማኔውን ማቋረጥ የስርዓት ፋይሎችን ሊጎዳ ይችላል።"
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "የባትሪ ኃይል ዝቅተኛ ነው። ዝማኔዎችን ሲጭኑ ኮምፒውተሩን ከኃይል መሙያ ጋር ያገናኙ።"
+
+msgid "Update process was cancelled"
+msgstr "የማዘመን ሂደቱ ተሰርዟል"
+
+msgid "Cancel"
+msgstr "ሰርዝ"
+
+msgid "Checking for updates…"
+msgstr "ዝማኔዎች እየተፈተሹ ነው…"
+
+msgid "System updates are available"
+msgstr "የስርዓት ዝማኔዎች አሉ"
+
+msgid "Download size: %1"
+msgstr "የማውረጃ መጠን፦ %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "ለስርዓት ዝማኔዎች የሚያስፈልግ ቦታ፦ %1"
+
+msgid "Storage freed after update: %1"
+msgstr "ከዝማኔው በኋላ ነጻ የሚሆን ቦታ፦ %1"
+
+msgid "No additional download required"
+msgstr "ተጨማሪ ማውረድ አያስፈልግም"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "የዝማኔ መፈተሻውን ማስጀመር አልተቻለም። pacman-contrib መጫኑን ያረጋግጡ።"
+
+msgid "The update check stopped unexpectedly."
+msgstr "የዝማኔ ፍተሻው ባልተጠበቀ ሁኔታ ቆሟል።"
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "ያልታወቀ ስህተት ተከስቷል። ለእርዳታ ችግሩን በGitHub ገጻችን ያሳውቁ።"
+
+msgid "No internet connection. Check your network and try again."
+msgstr "የበይነመረብ ግንኙነት የለም። አውታረ መረብዎን ፈትሸው እንደገና ይሞክሩ።"
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "የማከማቻ አገልጋዮችን ማግኘት አልተቻለም። በኋላ ይሞክሩ ወይም የቅጂ አገልጋይ ውቅርዎን ይፈትሹ።"
+
+msgid "Authorization error, please try again."
+msgstr "የፈቃድ ስህተት፣ እንደገና ይሞክሩ።"
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "ከፍተኛ ስልጣን ያለው የዝማኔ ፍተሻ ባልተጠበቀ ሁኔታ ቆሟል።"
+
+msgid "The privileged update check could not be started."
+msgstr "ከፍተኛ ስልጣን ያለውን የዝማኔ ፍተሻ ማስጀመር አልተቻለም።"
+
+msgid "System was not previously updated."
+msgstr "ስርዓቱ ከዚህ በፊት አልተዘመነም።"
+
+msgid "The last update information could not be read."
+msgstr "የመጨረሻውን ዝማኔ መረጃ ማንበብ አልተቻለም።"
+
+msgid "The last update information is invalid."
+msgstr "የመጨረሻው ዝማኔ መረጃ ልክ አይደለም።"
+
+msgid "Updates were not installed on this system"
+msgstr "በዚህ ስርዓት ላይ ዝማኔዎች አልተጫኑም"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "ስርዓቱን ለማዘመን ከታች ባለው አዝራር የሚገኙ ዝማኔዎችን ይፈትሹ።"
+
+msgid "Update date available"
+msgstr "የዝማኔ ቀን አለ"
+
+msgid "Updated recently"
+msgstr "በቅርቡ ተዘምኗል"
+
+msgid "System is up to date"
+msgstr "ስርዓቱ ወቅታዊ ነው"
+
+msgid "Last update was installed more than a month ago"
+msgstr "የመጨረሻው ዝማኔ ከአንድ ወር በፊት ተጭኗል"
+
+msgid "Last update was installed more than three months ago"
+msgstr "የመጨረሻው ዝማኔ ከሦስት ወር በፊት ተጭኗል"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "ከ%1 ሰከንድ በፊት"
+msgstr[1] "ከ%1 ሰከንዶች በፊት"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "ከ%1 ደቂቃ በፊት"
+msgstr[1] "ከ%1 ደቂቃዎች በፊት"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "ከ%1 ሰዓት በፊት"
+msgstr[1] "ከ%1 ሰዓታት በፊት"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "ከ%1 ቀን በፊት"
+msgstr[1] "ከ%1 ቀናት በፊት"
+
+msgid "Action is required"
+msgstr "እርምጃ ያስፈልጋል"
+
+msgid "Action is required!"
+msgstr "እርምጃ ያስፈልጋል!"
+
+msgid "Action required"
+msgstr "የሚያስፈልግ እርምጃ"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "የሚቀጥለው ዝማኔ የተጠበቀውን የስርዓት ጥቅል “%1” ማስወገድ ስለሚፈልግ Fluff Linux Update መቀጠል አይችልም። ማስወገዱ Fluff Linux በትክክል እንዳይሰራ ሊያደርግ ይችላል። ለእርዳታ ችግሩን በGitHub ያሳውቁ።"
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "የስርዓት ዝማኔዎችን ለመጫን Fluff Linux Update “%1” ማስወገድ አለበት። ይህን ጥቅል ማስወገድ ተዛማጅ ሶፍትዌርን ሊነካ ይችላል። እርግጠኛ ካልሆኑ ለእርዳታ ችግሩን በGitHub ያሳውቁ።"
+
+msgid "Accept"
+msgstr "ተቀበል"
+
+msgid "Close"
+msgstr "ዝጋ"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "የስርዓት ዝማኔዎችን ለመቀጠል %1 ማስወገድ ደህንነቱ የተጠበቀ መሆኑ ከተወሰነ በኋላ በራስ-ሰር ተወግዷል።"
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "የስርዓት ዝማኔዎችን ለመቀጠል የሚከተሉት ጥቅሎች ማስወገድ ደህንነቱ የተጠበቀ መሆኑ ከተወሰነ በኋላ በራስ-ሰር ተወግደዋል፦ %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "የፋይል ግጭት ተገኝቶ ተፈቷል። %1 ወደ %2 ተሰይሟል። የማዘመን ሂደቱ እንደገና ተጀምሯል።"
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "የሚጋጨውን ጥቅል ማስወገድ አልተቻለም። እርዳታ ይፈልጉ።"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update የFluffNet ማከማቻ የፊርማ ቁልፍን ማረጋገጥ አልቻለም። ስርዓትዎን ለመጠበቅ ዝማኔው ቆሟል።"
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update የFluffNet ማከማቻ የፊርማ ቁልፍን ማረጋገጥ አልቻለም። ስርዓትዎን ለመጠበቅ ዝማኔው ቆሟል። ይህ የአውታረ መረብ ችግር፣ የማይገኝ FluffNet አገልጋይ፣ ጊዜው ያለፈ ወይም የተቀየረ የፊርማ ቁልፍ፣ የማከማቻ ውቅር ችግር፣ ያልተጠበቀ ቁልፍ ወይም በማከማቻው ላይ የተፈጸመ ጥቃት ሊያመለክት ይችላል። Fluff Linux የተረጋገጡ መመሪያዎችን ካላወጣ ያልተጠበቀ ቁልፍን በእጅ አይቀበሉ።"
+
+msgid "Repository: %1"
+msgstr "ማከማቻ፦ %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "የFluffNet ማከማቻ ይፋዊ የፊርማ ቁልፍ ተረጋግጦ ወደ Pacman ተጨምሯል።"
+
+msgid "Technical details"
+msgstr "ቴክኒካዊ ዝርዝሮች"
+
+msgid "Repository signing-key verification technical details"
+msgstr "የማከማቻ የፊርማ ቁልፍ ማረጋገጫ ቴክኒካዊ ዝርዝሮች"
+
+msgid "Failure category: %1"
+msgstr "የውድቀት ምድብ፦ %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "የሚጠበቅ አሻራ፦ %1"
+
+msgid "Received fingerprint: %1"
+msgstr "የተቀበለ አሻራ፦ %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "የተጠየቀ የፊርማ ቁልፍ አሻራ፦ %1"
+
+msgid "Pacman exit status: %1"
+msgstr "የPacman መውጫ ሁኔታ፦ %1"
+
+msgid "FLU version: %1"
+msgstr "የFLU ስሪት፦ %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "የFluff Linux ስሪት፦ %1"
+
+msgid "Try Again"
+msgstr "እንደገና ሞክር"
+
+msgid "Copy Technical Details"
+msgstr "ቴክኒካዊ ዝርዝሮችን ቅዳ"
+
+msgid "Open an Issue on GitHub"
+msgstr "በGitHub ችግር መዝግብ"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "ዝማኔውን ለመቀጠል በቂ ነጻ ቦታ የለም። ቦታ ነጻ አድርገው እንደገና ይሞክሩ።"
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "የጥቅል ወይም የማከማቻ ፊርማን ማረጋገጥ አልተቻለም። ዝማኔው ቆሟል። የስርዓቱን ቀን እና የቁልፍ ስብስብ ፈትሸው እንደገና ይሞክሩ።"
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "የጥቅል ዳታቤዝ ተጎድቷል ወይም አይነበብም። ዝማኔው ቆሟል። ዳታቤዙን ከመጠገንዎ በፊት እርዳታ ይፈልጉ።"
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "የወረደ ጥቅል ተጎድቷል ወይም ያልተሟላ ነው። ዝማኔው ቆሟል። እንደገና ይሞክሩ ወይም ሌላ የቅጂ አገልጋይ ይጠቀሙ።"
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "ዝማኔው አስፈላጊ ፋይሎችን ማንበብ ወይም መጻፍ አልቻለም። የፋይል ስርዓት ፈቃዶችን እና የዲስክ ጤንነት ፈትሸው እንደገና ይሞክሩ።"
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "ዝማኔዎችን ማውረድ አልተቻለም። እንደገና ይሞክሩ ወይም እርዳታ ይፈልጉ።"
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "የዝማኔ ግብይቱን ማዘጋጀት አልተቻለም። እንደገና ይሞክሩ ወይም እርዳታ ይፈልጉ።"
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "እንቅልፍን መከላከል ማንቃት ስላልተቻለ ዝማኔው አልተጀመረም። እንደገና ይሞክሩ።"
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "የጥቅል ዳታቤዝ መቆለፍ አልተቻለም። ሌሎች የጥቅል አስተዳዳሪዎችን ይዝጉና የፋይል ስርዓቱ ሊጻፍበት የሚችል መሆኑን ፈትሸው እንደገና ይሞክሩ።"
+
+msgid "Estimated time: %1"
+msgstr "የተገመተ ጊዜ፦ %1"

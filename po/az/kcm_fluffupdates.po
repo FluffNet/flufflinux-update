@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.6\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "System Updates"
+msgstr "Sistem yeniləmələri"
+
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Sistem yeniləmələrini quraşdıraraq Fluff Linux-u təhlükəsiz və aktual saxlayın."
+
+msgid "System last updated: %1 (%2)"
+msgstr "Sistemin son yenilənməsi: %1 (%2)"
+
+msgid "Check for Updates"
+msgstr "Yeniləmələri yoxla"
+
+msgid "Install Updates"
+msgstr "Yeniləmələri quraşdır"
+
+msgid "View Updates"
+msgstr "Yeniləmələrə bax"
+
+msgid "Change view"
+msgstr "Görünüşü dəyiş"
+
+msgid "Updates to Install"
+msgstr "Quraşdırılacaq yeniləmələr"
+
+msgid "Package details are unavailable."
+msgstr "Paket təfərrüatları əlçatan deyil."
+
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update hələ hazırlanır. Problemlə qarşılaşsanız, onu GitHub səhifəmizdə bildirin."
+
+msgid "System updates were installed successfully."
+msgstr "Sistem yeniləmələri uğurla quraşdırıldı."
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "No network connection!"
+msgstr "Şəbəkə bağlantısı yoxdur!"
+
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Şəbəkə bağlantısı məhduddur. Təşkilat şəbəkəsinə qoşulmamısınızsa, internet bağlantınızı yoxlayın."
+
+msgid "pacman process is already running."
+msgstr "pacman prosesi artıq işləyir."
+
+msgid "The update process could not be started."
+msgstr "Yeniləmə prosesini başlatmaq mümkün olmadı."
+
+msgid "The update process could not be cancelled."
+msgstr "Yeniləmə prosesini ləğv etmək mümkün olmadı."
+
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Yeniləmələr endirilərkən bağlantı kəsildi. Şəbəkəni yoxlayıb yenidən cəhd edin."
+
+msgid "The system update failed."
+msgstr "Sistem yeniləməsi uğursuz oldu."
+
+msgid "Downloading updates…"
+msgstr "Yeniləmələr endirilir…"
+
+msgid "Installing updates…"
+msgstr "Yeniləmələr quraşdırılır…"
+
+msgid "%1 / %2 downloaded"
+msgstr "%1 / %2 endirilib"
+
+msgid "%1/%2 updates installed"
+msgstr "%1/%2 yeniləmə quraşdırılıb"
+
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Yeniləmələr quraşdırılır. Quraşdırma bitənədək kompüteri söndürməyin və yenidən başlatmayın. Yeniləmənin kəsilməsi sistem fayllarını zədələyə bilər."
+
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Batareyanın səviyyəsi aşağıdır. Yeniləmələri quraşdırarkən kompüteri şarj cihazına qoşun."
+
+msgid "Update process was cancelled"
+msgstr "Yeniləmə prosesi ləğv edildi"
+
+msgid "Cancel"
+msgstr "Ləğv et"
+
+msgid "Checking for updates…"
+msgstr "Yeniləmələr yoxlanılır…"
+
+msgid "System updates are available"
+msgstr "Sistem yeniləmələri mövcuddur"
+
+msgid "Download size: %1"
+msgstr "Endirmə ölçüsü: %1"
+
+msgid "Storage required for system updates: %1"
+msgstr "Sistem yeniləmələri üçün tələb olunan yaddaş sahəsi: %1"
+
+msgid "Storage freed after update: %1"
+msgstr "Yeniləmədən sonra boşaldılan yaddaş sahəsi: %1"
+
+msgid "No additional download required"
+msgstr "Əlavə endirmə tələb olunmur"
+
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Yeniləmə yoxlayıcısını başlatmaq mümkün olmadı. pacman-contrib paketinin quraşdırıldığından əmin olun."
+
+msgid "The update check stopped unexpectedly."
+msgstr "Yeniləmə yoxlaması gözlənilmədən dayandı."
+
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Naməlum xəta baş verdi. Kömək üçün problemi GitHub səhifəmizdə bildirin."
+
+msgid "No internet connection. Check your network and try again."
+msgstr "İnternet bağlantısı yoxdur. Şəbəkəni yoxlayıb yenidən cəhd edin."
+
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Repozitoriya serverlərinə qoşulmaq mümkün olmadı. Daha sonra yenidən cəhd edin və ya güzgü serverinin ayarlarını yoxlayın."
+
+msgid "Authorization error, please try again."
+msgstr "İcazə xətası, yenidən cəhd edin."
+
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Yüksək səlahiyyətli yeniləmə yoxlaması gözlənilmədən dayandı."
+
+msgid "The privileged update check could not be started."
+msgstr "Yüksək səlahiyyətli yeniləmə yoxlamasını başlatmaq mümkün olmadı."
+
+msgid "System was not previously updated."
+msgstr "Sistem əvvəllər yenilənməyib."
+
+msgid "The last update information could not be read."
+msgstr "Son yeniləmə məlumatını oxumaq mümkün olmadı."
+
+msgid "The last update information is invalid."
+msgstr "Son yeniləmə məlumatı etibarsızdır."
+
+msgid "Updates were not installed on this system"
+msgstr "Bu sistemdə yeniləmələr quraşdırılmayıb"
+
+msgid "To update the system, check for available updates using the button below."
+msgstr "Sistemi yeniləmək üçün aşağıdakı düymə ilə mövcud yeniləmələri yoxlayın."
+
+msgid "Update date available"
+msgstr "Yeniləmə tarixi mövcuddur"
+
+msgid "Updated recently"
+msgstr "Bu yaxınlarda yenilənib"
+
+msgid "System is up to date"
+msgstr "Sistem aktualdır"
+
+msgid "Last update was installed more than a month ago"
+msgstr "Son yeniləmə bir aydan çox əvvəl quraşdırılıb"
+
+msgid "Last update was installed more than three months ago"
+msgstr "Son yeniləmə üç aydan çox əvvəl quraşdırılıb"
+
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "%1 saniyə əvvəl"
+msgstr[1] "%1 saniyə əvvəl"
+
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "%1 dəqiqə əvvəl"
+msgstr[1] "%1 dəqiqə əvvəl"
+
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "%1 saat əvvəl"
+msgstr[1] "%1 saat əvvəl"
+
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "%1 gün əvvəl"
+msgstr[1] "%1 gün əvvəl"
+
+msgid "Action is required"
+msgstr "Əməl tələb olunur"
+
+msgid "Action is required!"
+msgstr "Əməl tələb olunur!"
+
+msgid "Action required"
+msgstr "Əməl tələb olunur"
+
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update davam edə bilmir, çünki növbəti yeniləmə qorunan sistem paketi olan “%1” paketinin silinməsini tələb edir. Onun silinməsi Fluff Linux-un düzgün işləməsinə mane ola bilər. Kömək üçün problemi GitHub-da bildirin."
+
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Sistem yeniləmələrini quraşdırmaq üçün Fluff Linux Update “%1” paketini silməlidir. Bu paketin silinməsi əlaqəli proqramlara təsir edə bilər. Əmin deyilsinizsə, kömək üçün problemi GitHub-da bildirin."
+
+msgid "Accept"
+msgstr "Qəbul et"
+
+msgid "Close"
+msgstr "Bağla"
+
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Sistem yeniləmələrinin davam etməsi üçün %1 silinməsi təhlükəsiz hesab edildikdən sonra avtomatik silindi."
+
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Sistem yeniləmələrinin davam etməsi üçün aşağıdakı paketlər silinməsi təhlükəsiz hesab edildikdən sonra avtomatik silindi: %1"
+
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Fayl ziddiyyəti aşkarlanıb həll edildi. %1 faylının adı %2 olaraq dəyişdirildi. Yeniləmə prosesi yenidən başladı."
+
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Ziddiyyətli paketi silmək mümkün olmadı. Dəstək istəyin."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update FluffNet repozitoriyasının imzalama açarını doğrulaya bilmədi. Sistemi qorumaq üçün yeniləmə dayandırıldı."
+
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update FluffNet repozitoriyasının imzalama açarını doğrulaya bilmədi. Sistemi qorumaq üçün yeniləmə dayandırıldı. Bu, şəbəkə problemi, əlçatmaz FluffNet serveri, vaxtı bitmiş və ya dəyişdirilmiş imzalama açarı, repozitoriya ayarlarında problem, gözlənilməz açar və ya repozitoriyanın ələ keçirilməsi ehtimalını göstərə bilər. Fluff Linux təsdiqlənmiş təlimatlar dərc etmədikcə gözlənilməz açarı əl ilə qəbul etməyin."
+
+msgid "Repository: %1"
+msgstr "Repozitoriya: %1"
+
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Rəsmi FluffNet repozitoriyasının imzalama açarı doğrulandı və Pacman-a əlavə edildi."
+
+msgid "Technical details"
+msgstr "Texniki təfərrüatlar"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Repozitoriyanın imzalama açarının yoxlanmasının texniki təfərrüatları"
+
+msgid "Failure category: %1"
+msgstr "Xəta kateqoriyası: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Gözlənilən barmaq izi: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Alınan barmaq izi: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Sorğulanan imzalama açarının barmaq izi: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Pacman çıxış statusu: %1"
+
+msgid "FLU version: %1"
+msgstr "FLU versiyası: %1"
+
+msgid "Fluff Linux version: %1"
+msgstr "Fluff Linux versiyası: %1"
+
+msgid "Try Again"
+msgstr "Yenidən cəhd et"
+
+msgid "Copy Technical Details"
+msgstr "Texniki təfərrüatları kopyala"
+
+msgid "Open an Issue on GitHub"
+msgstr "GitHub-da problem bildir"
+
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Yeniləməyə davam etmək üçün kifayət qədər boş yaddaş sahəsi yoxdur. Yer boşaldıb yenidən cəhd edin."
+
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Paket və ya repozitoriya imzasını doğrulamaq mümkün olmadı. Yeniləmə dayandırıldı. Sistem tarixini və açar dəstini yoxlayıb yenidən cəhd edin."
+
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "Paket verilənlər bazası zədələnib və ya oxunmur. Yeniləmə dayandırıldı. Verilənlər bazasını təmir etməzdən əvvəl dəstək istəyin."
+
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Endirilmiş paket zədələnib və ya natamamdır. Yeniləmə dayandırıldı. Yenidən cəhd edin və ya başqa güzgü serverindən istifadə edin."
+
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Yeniləmə tələb olunan faylları oxuya və ya yaza bilmədi. Fayl sistemi icazələrini və diskin vəziyyətini yoxlayıb yenidən cəhd edin."
+
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Yeniləmələri endirmək mümkün olmadı. Yenidən cəhd edin və ya dəstək istəyin."
+
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Yeniləmə əməliyyatını hazırlamaq mümkün olmadı. Yenidən cəhd edin və ya dəstək istəyin."
+
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Yuxu rejiminin qarşısını almaq mümkün olmadığı üçün yeniləmə başlaya bilmədi. Yenidən cəhd edin."
+
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "Paket verilənlər bazasını kilidləmək mümkün olmadı. Digər paket menecerlərini bağlayın, fayl sisteminin yazıla bilən olduğunu yoxlayıb yenidən cəhd edin."
+
+msgid "Estimated time: %1"
+msgstr "Təxmini vaxt: %1"

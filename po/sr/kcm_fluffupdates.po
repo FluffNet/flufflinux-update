@@ -1,0 +1,384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcm_fluffupdates 1.5\n"
+"PO-Revision-Date: 2026-10-11 12:00+0300\n"
+"Last-Translator: Fluff Linux translation team\n"
+"Language-Team: sr\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#. First half of the runtime window title.
+msgid "System Updates"
+msgstr "Ажурирања система"
+
+#. Second half of the runtime window title.
+msgid "Fluff Linux Update"
+msgstr "Fluff Linux Update"
+
+#. Introductory sentence at the top of the page.
+msgid "Keep Fluff Linux secure and up to date by installing system updates."
+msgstr "Одржавајте Fluff Linux безбедним и ажурним инсталирањем системских ажурирања."
+
+#. Date and relative age. Keep both %1 and %2 unchanged.
+msgid "System last updated: %1 (%2)"
+msgstr "Систем је последњи пут ажуриран: %1 (%2)"
+
+#. Manually checks repositories for available system updates.
+msgid "Check for Updates"
+msgstr "Провери ажурирања"
+
+#. Starts installation after a successful update check.
+msgid "Install Updates"
+msgstr "Инсталирај ажурирања"
+
+#. Button beside Install Updates that opens the package/version list.
+msgid "View Updates"
+msgstr "Прикажи ажурирања"
+
+#. Accessible name and tooltip for the eye button that switches update-list views.
+msgid "Change view"
+msgstr "Промени приказ"
+
+#. Title of the dialog listing packages and their version changes.
+msgid "Updates to Install"
+msgstr "Ажурирања за инсталирање"
+
+#. Fallback shown if the package/version list could not be parsed.
+msgid "Package details are unavailable."
+msgstr "Детаљи пакета нису доступни."
+
+#. Information banner with development status and issue-reporting guidance.
+msgid "Fluff Linux Update is still under development. If you encounter an issue, please report it on our GitHub page."
+msgstr "Fluff Linux Update је још у развоју. Ако наиђете на проблем, пријавите га на нашој GitHub страници."
+
+msgid "System updates were installed successfully."
+msgstr "Ажурирања система су успешно инсталирана."
+
+#. Opens the Fluff Linux Update issue tracker.
+msgid "GitHub"
+msgstr "GitHub"
+
+#. Warning shown when the system reports no connected network link.
+msgid "No network connection!"
+msgstr "Нема мрежне везе!"
+
+#. Informational note for a local or organizational link without confirmed internet access.
+msgid "Network connection is limited. If you are not connected to an organizational network, please check your internet connection."
+msgstr "Мрежна веза је ограничена. Ако нисте повезани на мрежу организације, проверите интернет везу."
+
+#. Error shown when another pacman command is active.
+msgid "pacman process is already running."
+msgstr "Процес pacman је већ покренут."
+
+#. Error shown when the background updater cannot be launched.
+msgid "The update process could not be started."
+msgstr "Процес ажурирања није могао да се покрене."
+
+#. Error shown when a requested download cancellation fails.
+msgid "The update process could not be cancelled."
+msgstr "Процес ажурирања није могао да се откаже."
+
+#. Error shown when downloading packages fails.
+msgid "Connection failed while downloading updates. Check your network and try again."
+msgstr "Веза је прекинута током преузимања ажурирања. Проверите мрежу и покушајте поново."
+
+#. Error shown when pacman fails during package installation.
+msgid "The system update failed."
+msgstr "Ажурирање система није успело."
+
+#. Heading during the cancellable package download phase.
+msgid "Downloading updates…"
+msgstr "Преузимање ажурирања…"
+
+#. Heading during the non-cancellable package installation phase.
+msgid "Installing updates…"
+msgstr "Инсталирање ажурирања…"
+
+#. Downloaded and total data below the progress bar. Keep %1 and %2 unchanged.
+msgid "%1 / %2 downloaded"
+msgstr "Преузето %1 / %2"
+
+#. Package counter below the installation progress bar.
+msgid "%1/%2 updates installed"
+msgstr "Инсталирано %1/%2 ажурирања"
+
+#. Safety warning shown while packages are being installed.
+msgid "Updates are currently being installed. Please avoid powering off or restarting the computer until installation is complete. Interrupting the update may damage system files."
+msgstr "Ажурирања се тренутно инсталирају. Немојте искључивати или поново покретати рачунар док се инсталација не заврши. Прекидање ажурирања може оштетити системске датотеке."
+
+#. Advisory for low system battery/UPS: shown when ready to install and during updates; cleared on completion or failure.
+msgid "The battery is low. Please connect your computer to a charger while installing updates."
+msgstr "Батерија је слаба. Повежите рачунар са пуњачем током инсталирања ажурирања."
+
+#. Five-second notice after cancelling during the download phase.
+msgid "Update process was cancelled"
+msgstr "Процес ажурирања је отказан"
+
+#. Button which cancels only the package download phase.
+msgid "Cancel"
+msgstr "Откажи"
+
+#. Status shown while the temporary package database is being synchronized.
+msgid "Checking for updates…"
+msgstr "Провера ажурирања…"
+
+#. Successful check result when pending upgrades exist.
+msgid "System updates are available"
+msgstr "Доступна су ажурирања система"
+
+#. Total data pacman must download. Keep %1 unchanged.
+msgid "Download size: %1"
+msgstr "Величина преузимања: %1"
+
+#. Net additional storage required. Keep %1 unchanged.
+msgid "Storage required for system updates: %1"
+msgstr "Потребан простор за ажурирања система: %1"
+
+#. Net storage recovered when the transaction size is negative. Keep %1 unchanged.
+msgid "Storage freed after update: %1"
+msgstr "Ослобођен простор након ажурирања: %1"
+
+#. Shown when all required package archives are already cached.
+msgid "No additional download required"
+msgstr "Додатно преузимање није потребно"
+
+#. Error shown when the pacman-contrib helper is missing.
+msgid "The update checker could not be started. Make sure pacman-contrib is installed."
+msgstr "Провера ажурирања није могла да се покрене. Проверите да ли је pacman-contrib инсталиран."
+
+#. Error shown when the checker process crashes or is terminated.
+msgid "The update check stopped unexpectedly."
+msgstr "Провера ажурирања се неочекивано зауставила."
+
+#. Generic fallback when an update-check failure cannot be classified.
+msgid "An unknown error has occurred. Please report this issue on our GitHub page for assistance."
+msgstr "Дошло је до непознате грешке. Пријавите проблем на нашој GitHub страници ради помоћи."
+
+#. Red error below the update button when networking is unavailable.
+msgid "No internet connection. Check your network and try again."
+msgstr "Нема интернет везе. Проверите мрежу и покушајте поново."
+
+#. Red error below the update button when mirrors or repositories are unavailable.
+msgid "The repository servers could not be reached. Try again later or check your mirror configuration."
+msgstr "Сервери ризница нису доступни. Покушајте касније или проверите подешавања огледала."
+
+#. Error when polkit authorization is cancelled, denied, or otherwise fails.
+msgid "Authorization error, please try again."
+msgstr "Грешка при овлашћивању, покушајте поново."
+
+#. Error when the privileged pacman calculation terminates abnormally.
+msgid "The privileged update check stopped unexpectedly."
+msgstr "Провера ажурирања са администраторским овлашћењима се неочекивано зауставила."
+
+#. Error when pkexec or the privileged pacman process cannot be launched.
+msgid "The privileged update check could not be started."
+msgstr "Провера ажурирања са администраторским овлашћењима није могла да се покрене."
+
+#. Shown when the state file or successful-update field does not exist.
+msgid "System was not previously updated."
+msgstr "Систем раније није ажуриран."
+
+#. Shown when the update-state file exists but cannot be opened.
+msgid "The last update information could not be read."
+msgstr "Подаци о последњем ажурирању нису могли да се прочитају."
+
+#. Shown when the update-state file does not contain valid JSON.
+msgid "The last update information is invalid."
+msgstr "Подаци о последњем ажурирању нису исправни."
+
+#. Blue freshness status when no successful update date exists.
+msgid "Updates were not installed on this system"
+msgstr "Ажурирања нису инсталирана на овом систему"
+
+#. Guidance below the blue status when no successful update date exists.
+msgid "To update the system, check for available updates using the button below."
+msgstr "Да бисте ажурирали систем, проверите доступна ажурирања помоћу дугмета испод."
+
+#. Blue fallback when a date is present but cannot be parsed for age.
+msgid "Update date available"
+msgstr "Датум ажурирања је доступан"
+
+#. Green freshness status for an update within the last month.
+msgid "Updated recently"
+msgstr "Недавно ажурирано"
+
+#. Temporary green status after a successful check finds no available updates.
+msgid "System is up to date"
+msgstr "Систем је ажуран"
+
+#. Yellow freshness status for an update older than one month.
+msgid "Last update was installed more than a month ago"
+msgstr "Последње ажурирање је инсталирано пре више од месец дана"
+
+#. Orange freshness status for an update older than three months.
+msgid "Last update was installed more than three months ago"
+msgstr "Последње ажурирање је инсталирано пре више од три месеца"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 second ago"
+msgid_plural "%1 seconds ago"
+msgstr[0] "пре %1 секунде"
+msgstr[1] "пре %1 секунде"
+msgstr[2] "пре %1 секунди"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 minute ago"
+msgid_plural "%1 minutes ago"
+msgstr[0] "пре %1 минута"
+msgstr[1] "пре %1 минута"
+msgstr[2] "пре %1 минута"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 hour ago"
+msgid_plural "%1 hours ago"
+msgstr[0] "пре %1 сата"
+msgstr[1] "пре %1 сата"
+msgstr[2] "пре %1 сати"
+
+#. Relative time shown beside the exact date. Keep %1 unchanged.
+msgid "%1 day ago"
+msgid_plural "%1 days ago"
+msgstr[0] "пре %1 дана"
+msgstr[1] "пре %1 дана"
+msgstr[2] "пре %1 дана"
+
+#. Temporary status shown while a warning removal requires a decision.
+msgid "Action is required"
+msgstr "Потребна је радња"
+
+#. Temporary status shown when a protected package blocks the update.
+msgid "Action is required!"
+msgstr "Потребна је радња!"
+
+#. Title of package removal decision dialogs.
+msgid "Action required"
+msgstr "Потребна радња"
+
+#. Protected package message. Keep %1 unchanged.
+msgid "Fluff Linux Update cannot continue because the upcoming update requires removing “%1”, which is a protected system package. Removing it could prevent Fluff Linux from working correctly. Please report this issue on GitHub for assistance."
+msgstr "Fluff Linux Update не може да настави јер предстојеће ажурирање захтева уклањање пакета „%1“, који је заштићен системски пакет. Његово уклањање може спречити исправан рад Fluff Linux система. Пријавите проблем на GitHub ради помоћи."
+
+#. Warning package message. Keep %1 unchanged.
+msgid "To allow the system to install updates, Fluff Linux Update needs to remove “%1”. Removing this package may affect related software. If you are not sure, please report the issue on GitHub for help."
+msgstr "Да би систем могао да инсталира ажурирања, Fluff Linux Update мора да уклони „%1“. Уклањање овог пакета може утицати на повезани софтвер. Ако нисте сигурни, пријавите проблем на GitHub ради помоћи."
+
+#. Confirms a warning package removal.
+msgid "Accept"
+msgstr "Прихвати"
+
+#. Closes a protected package dialog.
+msgid "Close"
+msgstr "Затвори"
+
+#. Singular automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, %1 was automatically removed after it was deemed safe to remove."
+msgstr "Да би ажурирања система могла да се наставе, %1 је аутоматски уклоњен након што је процењено да је његово уклањање безбедно."
+
+#. Plural automatic removal notice. Keep %1 unchanged.
+msgid "To allow system updates to continue, the following packages were automatically removed after they were deemed safe to remove: %1"
+msgstr "Да би ажурирања система могла да се наставе, следећи пакети су аутоматски уклоњени након што је процењено да је њихово уклањање безбедно: %1"
+
+#. File conflict recovery notice. Keep %1 and %2 unchanged.
+msgid "A file conflict was detected and resolved. %1 was renamed to %2. The update process has restarted."
+msgstr "Откривен је и решен сукоб датотека. %1 је преименован у %2. Процес ажурирања је поново покренут."
+
+#. Error shown when an approved blocking package could not be removed.
+msgid "The conflicting package could not be removed. Please seek support."
+msgstr "Сукобљени пакет није могао да се уклони. Обратите се подршци."
+
+#. TRANSLATORS: Security failure shown when FLU refuses an unverified repository key.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system."
+msgstr "Fluff Linux Update није могао да провери кључ за потписивање FluffNet ризнице. Ажурирање је заустављено ради заштите система."
+
+#. TRANSLATORS: Full security guidance; keep the warning against manual acceptance.
+msgid "Fluff Linux Update could not verify the FluffNet repository signing key. The update was stopped to protect your system. This may indicate a network problem, an unavailable FluffNet server, an expired or rotated signing key, a repository configuration problem, an unexpected key, or a possible repository compromise. Do not manually accept an unexpected key unless Fluff Linux publishes verified instructions."
+msgstr "Fluff Linux Update није могао да провери кључ за потписивање FluffNet ризнице. Ажурирање је заустављено ради заштите система. Ово може указивати на проблем са мрежом, недоступан FluffNet сервер, истекао или замењен кључ за потписивање, проблем са подешавањем ризнице, неочекивани кључ или могући упад у ризницу. Немојте ручно прихватати неочекивани кључ осим ако Fluff Linux објави проверена упутства."
+
+#. Repository associated with the signing-key failure. Keep %1 unchanged.
+msgid "Repository: %1"
+msgstr "Ризница: %1"
+
+#. Temporary success notice after verified FluffNet key import.
+msgid "The official FluffNet repository signing key was verified and added to Pacman."
+msgstr "Званични кључ за потписивање FluffNet ризнице је проверен и додат у Pacman."
+
+msgid "Technical details"
+msgstr "Технички детаљи"
+
+msgid "Repository signing-key verification technical details"
+msgstr "Технички детаљи провере кључа за потписивање ризнице"
+
+msgid "Failure category: %1"
+msgstr "Категорија грешке: %1"
+
+msgid "Expected fingerprint: %1"
+msgstr "Очекивани отисак: %1"
+
+msgid "Received fingerprint: %1"
+msgstr "Примљени отисак: %1"
+
+msgid "Requested signing-key fingerprint: %1"
+msgstr "Отисак затраженог кључа за потписивање: %1"
+
+msgid "Pacman exit status: %1"
+msgstr "Излазни статус Pacman-а: %1"
+
+#. FLU application version in signing-key technical details.
+msgid "FLU version: %1"
+msgstr "Верзија FLU: %1"
+
+#. Fluff Linux operating-system version in signing-key technical details.
+msgid "Fluff Linux version: %1"
+msgstr "Верзија Fluff Linux: %1"
+
+msgid "Try Again"
+msgstr "Покушај поново"
+
+msgid "Copy Technical Details"
+msgstr "Копирај техничке детаље"
+
+msgid "Open an Issue on GitHub"
+msgstr "Пријави проблем на GitHub"
+
+#. Operational failure, shown in the panel and background notification.
+msgid "There is not enough free storage to continue the update. Free up space and try again."
+msgstr "Нема довољно слободног простора за наставак ажурирања. Ослободите простор и покушајте поново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A package or repository signature could not be verified. The update was stopped. Check your system date and keyring, then try again."
+msgstr "Потпис пакета или ризнице није могао да се провери. Ажурирање је заустављено. Проверите системски датум и привезак кључева, па покушајте поново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database is damaged or unreadable. The update was stopped. Please seek support before repairing the database."
+msgstr "База података пакета је оштећена или нечитљива. Ажурирање је заустављено. Обратите се подршци пре поправке базе података."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "A downloaded package is damaged or incomplete. The update was stopped. Please try again or use a different mirror."
+msgstr "Преузети пакет је оштећен или непотпун. Ажурирање је заустављено. Покушајте поново или користите друго огледало."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not read or write required files. Check filesystem permissions and disk health, then try again."
+msgstr "Ажурирање није могло да чита или пише потребне датотеке. Проверите дозволе система датотека и стање диска, па покушајте поново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The updates could not be downloaded. Please try again or seek support."
+msgstr "Ажурирања нису могла да се преузму. Покушајте поново или се обратите подршци."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update transaction could not be prepared. Please try again or seek support."
+msgstr "Трансакција ажурирања није могла да се припреми. Покушајте поново или се обратите подршци."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The update could not start because sleep prevention could not be enabled. Please try again."
+msgstr "Ажурирање није могло да почне јер спречавање спавања није могло да се омогући. Покушајте поново."
+
+#. Operational failure, shown in the panel and background notification.
+msgid "The package database could not be locked. Close other package managers and check that the filesystem is writable, then try again."
+msgstr "База података пакета није могла да се закључа. Затворите друге управљаче пакетима и проверите да ли је систем датотека уписив, па покушајте поново."
+
+#. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
+msgid "Estimated time: %1"
+msgstr "Процењено време: %1"

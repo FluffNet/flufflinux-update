@@ -3,8 +3,15 @@
 Thank you for helping translate Fluff Linux. You do not need to understand Rust
 or QML to add a language.
 
-Included catalogs cover every official European Union language together with
-Arabic, Hebrew, Japanese, and Russian. English is the source language.
+The 97 catalogs plus English source text cover the 96 language/script choices
+in `languages.json`. Two catalogs provide regional wording for Brazilian
+Portuguese and Swiss German. Other regions share their language's text.
+The manifest records all 172 supported regional locales and explicit aliases
+for script/modifier names. `cmake/TranslationAliases.cmake` compiles aliases
+from the same source catalogs, preserving the selected script.
+
+Catalogs remain editable drafts. Compilation, coverage, and layout checks are
+not native-speaker validation. Contributions improving wording are welcome.
 
 ## Add your language
 
@@ -15,7 +22,8 @@ Arabic, Hebrew, Japanese, and Russian. English is the source language.
    `po/<language-code>/kcm_fluffupdates.po`.
 4. In the copied file, set the `Language:` line to your language code.
 5. For every English `msgid`, write the translation in the following `msgstr`.
-6. Keep `%1` unchanged. KDE replaces it with the recorded update date.
+6. Preserve every placeholder, such as `%1` and `%2`, and translate every plural
+   form required by the catalog's `Plural-Forms` header.
 7. Save the file as UTF-8 and compile the project normally. The translation is
    automatically included when the project is staged into the fakeroot.
 
@@ -104,16 +112,19 @@ means. The English `msgid` must never be changed. Only edit `msgstr`.
 | The official FluffNet repository signing key was verified and added to Pacman. | Temporary notice after the verified certificate is imported successfully. |
 
 The panel name and description shown in the System Settings search results also
-have translations in `src/kcm_fluffupdates.json`. The application-menu entry is
+have translations in `src/kcm_flu.json`. The application-menu entry is
 translated in `src/org.flufflinux.update.desktop`. When adding a production
 translation, add matching locale entries to both metadata files, where `xx` is
-the same language code used by the PO catalog.
+the same language code used by the PO catalog. Also translate both the
+description and password prompt in `src/org.flufflinux.update.policy`, and
+include localized search keywords in the launcher and settings metadata.
 
 ## Right-to-left languages
 
-No special layout code is required in a translation. KDE and Qt automatically
-select right-to-left direction for languages such as Arabic and Hebrew, and the
-panel mirrors its rows and controls accordingly. The package/version list
+No special layout code is required in a translation. FLU resolves the selected
+translation against the manifest and mirrors its own page for Arabic, Hebrew,
+Persian, Urdu, Pashto, Uyghur, and Punjabi Shahmukhi. This does not depend on a
+matching Qt translation or change the System Settings host. The package/version list
 intentionally remains left-to-right because package names, versions, and the
 old-to-new arrow use technical notation.
 
