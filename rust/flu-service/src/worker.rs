@@ -3,7 +3,7 @@
 mod power;
 
 use flu_core::{
-    operational_error,
+    conflict, operational_error,
     runtime::{
         LOCK, MAX_OUTPUT, PACMAN, Process, STATE, archive_name, arguments, pacman_running,
         read_json, recover_key, run, write_json,
@@ -532,22 +532,33 @@ impl Worker {
             self.state["speed"] = json!("");
             self.publish();
             self.log_offset = fs::metadata(PACMAN_LOG).map(|m| m.len()).unwrap_or(0);
-            let Ok(mut process) = Process::spawn(
-                PACMAN,
-                &arguments(&["-Syu", "--noconfirm", "--color", "never"]),
-                &[],
-            ) else {
+            let Ok(mut process) =
+                Process::spawn(PACMAN, &arguments(&["-Syu", "--color", "never"]), &[])
+            else {
                 self.fail("INSTALL_FAILED");
                 return;
             };
             let mut output = String::new();
             let mut pending = String::new();
+            let mut prompts = String::new();
             let mut tick = Instant::now();
             while !process.finished() {
                 let data = process.receive(Duration::from_millis(10));
                 let chunk = String::from_utf8_lossy(&data);
                 append_log(&chunk);
                 append_bounded(&mut output, &chunk);
+                append_bounded(&mut prompts, &chunk);
+                if let Some((end, answer)) = (!chunk.is_empty())
+                    .then(|| installation_answer(&prompts))
+                    .flatten()
+                {
+                    if !process.answer(answer, false, Instant::now() + Duration::from_secs(5)) {
+                        process.stop();
+                        self.fail("INSTALL_FAILED");
+                        return;
+                    }
+                    prompts.drain(..end);
+                }
                 self.process_install_output(&mut pending, &chunk);
                 if tick.elapsed() >= Duration::from_millis(250) {
                     tick = Instant::now();
@@ -580,6 +591,43 @@ impl Worker {
             return;
         }
     }
+}
+fn installation_answer(text: &str) -> Option<(usize, &'static [u8])> {
+    if let Some(candidate) = conflict::package_conflict(text) {
+        let approved = conflict::verified_fluffnet(
+            "/var/lib/pacman",
+            &candidate.incoming,
+            candidate.version.as_deref(),
+        );
+        append_log(&format!(
+            "\n[package conflict {}] {} -> {}\n",
+            if approved { "verified" } else { "declined" },
+            candidate.removed,
+            candidate.incoming
+        ));
+        return Some((candidate.end, if approved { b"y\n" } else { b"n\n" }));
+    }
+    // Keep Pacman's existing default provider/group selection. These prompts
+    // select installation targets, never grant a removal exception.
+    let selection =
+        Regex::new(r"(?:Enter a number \(default=[0-9]+\)|Enter a selection \(default=all\)):\s*$")
+            .unwrap();
+    if let Some(found) = selection.find(text) {
+        return Some((found.end(), b"\n"));
+    }
+    // Preserve normal replacement and installation confirmations. Never
+    // approve an unrecognized removal, key import, or destructive prompt.
+    let question = Regex::new(r"(?m)([^\n]*\?(?:\s*\[[Yy]/[Nn]\]))").unwrap();
+    let found = question.captures(text)?;
+    let prompt = found[1].trim().trim_start_matches(":: ");
+    let approved = prompt.starts_with("Proceed with installation?")
+        || (prompt.starts_with("Replace ")
+            && prompt.contains(" with ")
+            && prompt.ends_with("[Y/n]"));
+    Some((
+        found.get(0).unwrap().end(),
+        if approved { b"y\n" } else { b"n\n" },
+    ))
 }
 fn append_bounded(output: &mut String, chunk: &str) {
     output.push_str(chunk);
@@ -658,6 +706,35 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn installation_prompts_preserve_safe_defaults() {
+        for prompt in [
+            ":: Proceed with installation? [Y/n]",
+            ":: Replace old with fluffnet/new? [Y/n]",
+        ] {
+            assert_eq!(super::installation_answer(prompt).unwrap().1, b"y\n");
+        }
+        for prompt in [
+            ":: Remove base? [y/N]",
+            ":: Import PGP key ABC? [Y/n]",
+            ":: Delete file? [Y/n]",
+        ] {
+            assert_eq!(super::installation_answer(prompt).unwrap().1, b"n\n");
+        }
+        assert!(super::installation_answer(":: Proceed with installation? [Y/").is_none());
+        assert_eq!(
+            super::installation_answer("Enter a number (default=1): ")
+                .unwrap()
+                .1,
+            b"\n"
+        );
+        assert_eq!(
+            super::installation_answer("Enter a selection (default=all): ")
+                .unwrap()
+                .1,
+            b"\n"
+        );
+    }
     use super::{DownloadRate, cache_archive_name};
     use flu_core::{
         desktop::download_time_remaining,

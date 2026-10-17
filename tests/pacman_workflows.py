@@ -5,8 +5,8 @@ Run with sudo on a disposable Linux development machine. No test switches or
 mock commands are added to the shipped binaries. Service and authorization
 launchers are substituted only inside the private namespace, to run the real
 compiled helper and worker against the disposable package database.
-The test repository deliberately contains unsigned, synthetic packages; signing
-and trust behavior is covered separately by signingkeyrecoverytest.
+The test repositories contain synthetic packages. Vendor-conflict scenarios use
+an isolated signing key and signed repository; ordinary scenarios are unsigned.
 """
 
 import argparse
@@ -37,12 +37,13 @@ def run(args, *, expected=0, **kwargs):
     return result
 
 
-def package(directory, name, version, *, metadata=(), payload=None, files=None):
+def package(directory, name, version, *, metadata=(), payload=None, files=None,
+            packager="FLU regression fixture"):
     archive = directory / f"{name}-{version}-any.pkg.tar.gz"
     contents = files or {f"usr/share/flu-test/{name}": payload or version.encode()}
     info = "\n".join([
         f"pkgname = {name}", f"pkgver = {version}", "pkgdesc = FLU isolated test",
-        "builddate = 1", "packager = FLU regression fixture", "arch = any",
+        "builddate = 1", f"packager = {packager}", "arch = any",
         f"size = {sum(len(value) for value in contents.values())}", "license = MIT",
         *metadata, "",
     ]).encode()
@@ -370,6 +371,92 @@ class Workflows:
             run([self.helper, "--remove-package", blocker_name])
         self.pacman("-R", "--noconfirm", name)
         return {"exit_code": code, "marker": marker, "planner_did_not_install": True}
+
+    def verified_vendor_conflicts(self):
+        # All keys, databases and packages live inside this disposable mount
+        # namespace. Never import fixture keys into the machine's keyring.
+        home = self.base / "etc/gnupg"
+        home.mkdir(mode=0o700, exist_ok=True)
+        run(["pacman-key", "--init"])
+        gpg = ["gpg", "--homedir", home, "--batch", "--pinentry-mode", "loopback", "--passphrase", ""]
+        run([*gpg, "--quick-generate-key", "FLU conflict fixture", "ed25519", "sign", "0"])
+        listing = run([*gpg, "--with-colons", "--list-keys", "FLU conflict fixture"]).stdout
+        fingerprint = next(line.split(":")[9] for line in listing.splitlines() if line.startswith("fpr:"))
+        untrusted_home = self.base / "untrusted-key"
+        untrusted_home.mkdir(mode=0o700)
+        untrusted_gpg = ["gpg", "--homedir", untrusted_home, "--batch", "--pinentry-mode", "loopback", "--passphrase", ""]
+        run([*untrusted_gpg, "--quick-generate-key", "Untrusted fixture", "ed25519", "sign", "0"])
+        public_key = run([*untrusted_gpg, "--armor", "--export"]).stdout
+        run([*gpg, "--import"], input=public_key)
+        config = self.base / "pacman.conf"
+        original = config.read_text()
+        repo = self.base / "repo"
+        results = []
+        try:
+            scenarios = [
+                ("prefix", "fluffnet", "flufflinux-test-prefix", "Other", True, "protected", True),
+                ("packager", "fluffnet", "vendor-test-author", "FluffNet LLC", True, "protected", True),
+                ("warning", "fluffnet", "flufflinux-test-warning", "Other", True, "warning", True),
+                ("unsigned", "fluffnet", "flufflinux-test-unsigned", "Other", False, "protected", False),
+                ("foreign", "flu-test", "flufflinux-test-foreign", "FluffNet LLC", True, "protected", False),
+                ("ineligible", "fluffnet", "vendor-test-ineligible", "FluffNet LLC impostor", True, "protected", False),
+                ("tampered", "fluffnet", "flufflinux-test-tampered", "Other", True, "protected", False),
+                ("missing-signature", "fluffnet", "flufflinux-test-nosig", "Other", True, "protected", False),
+                ("database-tampered", "fluffnet", "flufflinux-test-baddb", "Other", True, "protected", False),
+                ("untrusted-package", "fluffnet", "flufflinux-test-untrusted", "Other", True, "protected", False),
+            ]
+            for label, repository, name, author, signed, policy, allowed in scenarios:
+                config.write_text(original.replace("[flu-test]", f"[{repository}]"))
+                blocker = f"vendor-blocker-{label}"
+                old = package(repo, name, "1-1")
+                blocked = package(repo, blocker, "1-1")
+                self.pacman("-U", "--noconfirm", old, blocked)
+                new = package(repo, name, "2-1", packager=author, metadata=[f"conflict = {blocker}"])
+                if signed and label != "missing-signature":
+                    run([*(untrusted_gpg if label == "untrusted-package" else gpg), "--detach-sign", new])
+                for path in repo.glob(f"{repository}.db*"):
+                    path.unlink()
+                for path in repo.glob(f"{repository}.files*"):
+                    path.unlink()
+                run(["repo-add", *(["-s", "-k", fingerprint] if signed else []), repo / f"{repository}.db.tar.gz", new],
+                    env={**os.environ, "GNUPGHOME": str(home)})
+                if label == "tampered":
+                    with new.open("ab") as archive:
+                        archive.write(b"tampered")
+                if label == "database-tampered":
+                    with (repo / f"{repository}.db.tar.gz").open("ab") as archive:
+                        archive.write(b"tampered")
+                self.pacman("-Syy", "--noconfirm")
+                local = self.checkdb / "local"
+                if not local.exists():
+                    local.symlink_to("/var/lib/pacman/local", target_is_directory=True)
+                self.pacman("--dbpath", self.checkdb, "-Syy", "--noconfirm")
+                self.policy.write_text(json.dumps({"protected": [blocker] if policy == "protected" else [],
+                                                  "warning": [blocker] if policy == "warning" else []}))
+                result = self.plan(expected=1 if allowed else 20)
+                if allowed:
+                    assert f"FLU_PLANNED_PACKAGE:{name}|2-1" in result.stdout, result.stdout
+                assert self.installed(blocker), result.stdout
+                assert self.installed(name) == f"{name} 1-1", result.stdout
+                if allowed:
+                    self.start()
+                    state, _ = self.finish(timeout=90)
+                    assert state.get("phase") == "complete", (state, (self.base / "etc/flufflinux-update.log").read_text())
+                    assert not self.installed(blocker)
+                    assert self.installed(name) == f"{name} 2-1"
+                else:
+                    assert f"FLU_PROTECTED_REMOVAL:{blocker}" in result.stdout, result.stdout
+                    self.start()
+                    state, _ = self.finish(timeout=90)
+                    assert state.get("phase") == "failed", state
+                    assert self.installed(blocker), state
+                    assert self.installed(name) == f"{name} 1-1", state
+                    self.pacman("-R", "--noconfirm", blocker)
+                self.pacman("-R", "--noconfirm", name)
+                results.append(label)
+        finally:
+            config.write_text(original)
+        return {"scenarios": results, "protected_packages_preserved_during_check": True}
 
     def mixed_dependency_policy(self):
         repo = self.base / "repo"
@@ -756,6 +843,7 @@ def child(args):
         for kind in ("protected", "warning", "autoremove"):
             tests.test(f"direct package conflict: {kind}", lambda kind=kind: tests.direct_conflict_policy(kind))
         tests.test("mixed dependency safety priority", tests.mixed_dependency_policy)
+        tests.test("signature-verified vendor package conflicts", tests.verified_vendor_conflicts)
         tests.test("unmanaged file conflict and preservation", tests.file_conflict)
         tests.test("package-owned file conflict fails safely", tests.owned_file_conflict)
         tests.test("download cancellation and resume", tests.cancellation)
