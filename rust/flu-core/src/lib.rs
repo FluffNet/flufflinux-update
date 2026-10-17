@@ -1,6 +1,7 @@
 //! Update decisions independent of Qt and the privileged process runner.
 
 mod battery;
+pub mod conflict;
 pub mod desktop;
 pub mod locale;
 pub mod notifications;
