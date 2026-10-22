@@ -4,7 +4,7 @@ use base64::{
     engine::general_purpose::{URL_SAFE, URL_SAFE_NO_PAD},
 };
 use flu_core::{
-    operational_error,
+    conflict, operational_error,
     runtime::{
         LAST_UPDATE, LAST_UPDATE_KEY, LOCK, MAX_OUTPUT, PACMAN, POLICY, Process, STATE, arguments,
         current_update_date, pacman_running, process_alive, read_json, recover_key, run,
@@ -319,6 +319,26 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
                     &mut output,
                     "operational-error",
                 );
+            }
+            if let Some(candidate) = conflict::package_conflict(unparsed) {
+                if conflict::verified_fluffnet(
+                    database,
+                    &candidate.incoming,
+                    candidate.version.as_deref(),
+                ) {
+                    // Let Pacman remove the blocker only in the final install
+                    // transaction. Checking for updates must not remove it.
+                    if !process.answer(b"y\n", false, deadline) {
+                        return abort_planner(
+                            &mut process,
+                            &temporary_lock,
+                            &mut output,
+                            "prompt-write-failed",
+                        );
+                    }
+                    parsed += candidate.end;
+                    continue;
+                }
             }
             let package = found[1].to_string();
             stop_planner(&mut process, &temporary_lock);

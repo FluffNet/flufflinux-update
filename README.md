@@ -187,6 +187,17 @@ Fluff Linux Update uses files under `/etc/pacman.d/`:
 - `flufflinux-update-package-protection.json` defines protected, warning, and
   autoremove classifications. Packages absent from the file use autoremove.
 
+For explicit package conflicts, a signature-verified incoming package from
+`fluffnet` can replace even a protected or warning-classified blocker if its
+name starts with `flufflinux-` or its signed Packager field is exactly
+`FluffNet LLC`. FLU independently verifies the repository database and package
+with required trusted signatures and matches the candidate's name, version and
+SHA-256 digest. Failed verification leaves the normal protection policy in
+place. This exception does not apply to dependency failures or file conflicts.
+The blocker stays installed during checking and is removed by Pacman as part
+of the installation transaction, not by a separate forced removal. KRDP is
+unlisted and therefore uses the normal autoremove policy.
+
 Repository signing-key recovery is fail-closed. If pacman reports a complete
 unknown signing-key fingerprint that pacman conclusively attributes to the
 `fluffnet` repository, FLU downloads FluffNet's public certificate and expected
