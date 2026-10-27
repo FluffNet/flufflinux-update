@@ -18,6 +18,7 @@ use std::{
     collections::BTreeSet,
     fs,
     io::{self, Write},
+    os::unix::fs::{MetadataExt, PermissionsExt},
     path::Path,
     process::ExitCode,
     time::{Duration, Instant},
@@ -242,6 +243,10 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
         eprintln!("flufflinux-update-helper: invalid database path");
         return 2;
     }
+    plan_transaction(database, signing_retry)
+}
+
+fn plan_transaction(database: &str, signing_retry: bool) -> i32 {
     if pacman_running() {
         eprintln!("PACMAN_RUNNING");
         return 3;
@@ -376,7 +381,7 @@ fn transaction_summary(database: &str, signing_retry: bool) -> i32 {
         };
         if result.recovered {
             let _ = fs::remove_file(temporary_lock);
-            return transaction_summary(database, true);
+            return plan_transaction(database, true);
         }
         failure_marker(&result, status);
         return 24;
@@ -509,8 +514,156 @@ fn record_update() -> i32 {
         1
     }
 }
+fn private_database(database: &str) -> bool {
+    let path = Path::new(database);
+    path.parent() == Some(Path::new("/run"))
+        && path
+            .file_name()
+            .is_some_and(|name| name.to_string_lossy().starts_with("flu-check-"))
+        && fs::symlink_metadata(path).is_ok_and(|metadata| {
+            metadata.is_dir() && metadata.uid() == 0 && metadata.mode() & 0o077 == 0
+        })
+}
+
+/// One Polkit session covers local trust maintenance, sync and planning.
+/// No keys are fetched or trusted by --updatedb; GnuPG only recalculates
+/// existing trust when due. All signature requirements remain in force.
+fn check_updates() -> i32 {
+    if unsafe { libc::geteuid() } != 0
+        || std::env::var("PKEXEC_UID")
+            .ok()
+            .and_then(|s| s.parse::<u32>().ok())
+            .is_none()
+    {
+        eprintln!("flufflinux-update-helper: missing authorization context");
+        return 2;
+    }
+    if pacman_running() {
+        eprintln!("PACMAN_RUNNING");
+        return 3;
+    }
+    let trust = run(
+        "/usr/bin/pacman-key",
+        &arguments(&["--updatedb"]),
+        Duration::from_secs(60),
+        &[],
+    );
+    if !successful(&trust) {
+        print_output(&trust.output);
+        eprintln!("FLU_TRUSTDB_REFRESH_FAILED");
+        return 26;
+    }
+    let Ok(directory) = tempfile::Builder::new()
+        .prefix("flu-check-")
+        .permissions(fs::Permissions::from_mode(0o700))
+        .tempdir_in("/run")
+    else {
+        eprintln!("FLU_CHECK_DATABASE_FAILED");
+        return 1;
+    };
+    if std::os::unix::fs::symlink("/var/lib/pacman/local", directory.path().join("local")).is_err()
+    {
+        return 1;
+    }
+    let database = directory.path().to_string_lossy().into_owned();
+    let mut recovered = false;
+    loop {
+        let sync = command(
+            &[
+                "--dbpath",
+                &database,
+                "-Sy",
+                "--noconfirm",
+                "--color",
+                "never",
+                "--logfile",
+                "/dev/null",
+            ],
+            120,
+        );
+        if successful(&sync) {
+            break;
+        }
+        let output = String::from_utf8_lossy(&sync.output);
+        if !recovered && operational_error::may_recover_key(&output) {
+            recovered = true;
+            let result = recover_key(&output);
+            if result.recovered {
+                println!("FLU_SIGNING_KEY_VERIFIED");
+                continue;
+            }
+            failure_marker(&result, sync.exit_code);
+            return 24;
+        }
+        print_output(&sync.output);
+        return 1;
+    }
+    // Automatic blockers are resolved within this same authorization. Capture
+    // each planner's diagnostics so failed attempts cannot taint a later result.
+    for _ in 0..128 {
+        let query = command(&["--dbpath", &database, "-Qu", "--color", "never"], 30);
+        let output = String::from_utf8_lossy(&query.output);
+        if !query.started
+            || !query.finished
+            || !matches!(query.exit_code, 0 | 1)
+            || operational_error::classify(&output).is_some()
+            || output.lines().any(|line| line.starts_with("error:"))
+        {
+            print_output(&query.output);
+            return 1;
+        }
+        let packages = output
+            .lines()
+            .filter(|line| !line.contains("[ignored]"))
+            .collect::<Vec<_>>()
+            .join("\n");
+        if flu_core::desktop::parse_packages(&packages).is_empty() {
+            if !Path::new(LAST_UPDATE).exists() && record_update() != 0 {
+                return 1;
+            }
+            println!("FLU_NO_UPDATES");
+            return 0;
+        }
+        let Ok(executable) = std::env::current_exe() else {
+            return 1;
+        };
+        let plan = run(
+            &executable.to_string_lossy(),
+            &arguments(&["--plan-private", &database]),
+            Duration::from_secs(150),
+            &[],
+        );
+        if !plan.started || !plan.finished {
+            print_output(&plan.output);
+            return 1;
+        }
+        if plan.exit_code == 23 {
+            for line in String::from_utf8_lossy(&plan.output)
+                .lines()
+                .filter(|line| line.starts_with("FLU_AUTOREMOVED:"))
+            {
+                println!("{line}");
+            }
+            continue;
+        }
+        println!("{packages}");
+        print_output(&plan.output);
+        return if plan.exit_code < 0 {
+            1
+        } else {
+            plan.exit_code
+        };
+    }
+    eprintln!("FLU_CHECK_RETRY_LIMIT");
+    1
+}
+
 fn execute(args: &[String]) -> i32 {
     match args {
+        [operation] if operation == "--check" => check_updates(),
+        [operation, database] if operation == "--plan-private" && private_database(database) => {
+            plan_transaction(database, false)
+        }
         [operation, output] if operation == "--recover-signing-key" => recover_for_check(output),
         [database] | [database, _] if database.starts_with(DATABASE_PREFIX) => {
             transaction_summary(database, false)

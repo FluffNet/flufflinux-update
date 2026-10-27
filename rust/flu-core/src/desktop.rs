@@ -4,7 +4,7 @@ use crate::{
     battery::BatteryMonitor,
     operational_error,
     runtime::{
-        HELPER, LAST_UPDATE, LAST_UPDATE_KEY, MAX_OUTPUT, PACMAN, Process, STATE, atomic_write,
+        HELPER, LAST_UPDATE, LAST_UPDATE_KEY, MAX_OUTPUT, Process, STATE, atomic_write,
         pacman_running, read_json,
     },
     signing_key,
@@ -290,7 +290,6 @@ pub struct Controller {
     cancel_until: Option<Instant>,
     success_until: Option<Instant>,
     last_notice: i64,
-    recovery_attempted: bool,
     pending_removed: Vec<String>,
     check_started: Instant,
     battery: BatteryMonitor,
@@ -311,7 +310,6 @@ impl Controller {
             cancel_until: None,
             success_until: None,
             last_notice: 0,
-            recovery_attempted: false,
             pending_removed: vec![],
             check_started: Instant::now(),
             battery: BatteryMonitor::default(),
@@ -496,50 +494,11 @@ impl Controller {
             false
         }
     }
-    fn recover_check(&mut self, output: &str, code: i32) -> bool {
-        let repository = signing_key::repository_name(output);
-        let requested = signing_key::requested_fingerprint(output);
-        if self.recovery_attempted {
-            self.security(
-                &repository,
-                "recovery-retry-failed",
-                "",
-                "",
-                &requested,
-                code,
-                true,
-            );
-            return false;
-        }
-        self.recovery_attempted = true;
-        let result = self.helper(&[
-            "--recover-signing-key".into(),
-            URL_SAFE_NO_PAD.encode(output),
-        ]);
-        if result.started && result.finished && result.exit_code == 0 {
-            self.notice(self.tr(VERIFIED));
-            true
-        } else {
-            if !self.security_token(&String::from_utf8_lossy(&result.output), true) {
-                self.security(
-                    &repository,
-                    "recovery-helper-failed",
-                    "",
-                    "",
-                    &requested,
-                    code,
-                    true,
-                );
-            }
-            false
-        }
-    }
     fn check(&mut self, restart: bool) {
         if self.boolean("checking") || !self.boolean("networkConnected") || self.active() {
             return;
         }
         if !restart {
-            self.recovery_attempted = false;
             self.pending_removed.clear();
             self.model["recoveryActionState"] = json!("");
         }
@@ -575,21 +534,6 @@ impl Controller {
         self.model["checking"] = json!(true);
         self.check_started = Instant::now();
         self.emit();
-        // The DB path and installed local link are intentionally unchanged.
-        let db = format!("/tmp/flufflinux-checkupdates-{}", unsafe {
-            libc::geteuid()
-        });
-        if fs::create_dir_all(&db).is_err() {
-            self.fail_check(
-                "The update checker could not be started. Make sure pacman-contrib is installed.",
-            );
-            return;
-        }
-        let local = Path::new(&db).join("local");
-        if !local.exists() {
-            let _ = std::os::unix::fs::symlink("/var/lib/pacman/local", local);
-        }
-        let environment = [("CHECKUPDATES_DB", db.as_str())];
         let ansi = Regex::new(r"\x1B\[[0-?]*[ -/]*[@-~]").unwrap();
         let autoremove = Regex::new(r"FLU_AUTOREMOVED:([A-Za-z0-9@._+:-]+)").unwrap();
         let size = Regex::new(r"Total Download Size:\s*([0-9]+(?:\.[0-9]+)?)\s*([^\s]+)").unwrap();
@@ -607,135 +551,33 @@ impl Controller {
             )
         })
         .collect();
-        loop {
+        {
             if self.stop.load(Ordering::Relaxed) {
                 return;
             }
-            let sync = self.execute(
-                "fakeroot",
-                &[
-                    "--",
-                    "pacman",
-                    "-Sy",
-                    "--noconfirm",
-                    "--disable-sandbox-filesystem",
-                    "--dbpath",
-                    &db,
-                    "--logfile",
-                    "/dev/null",
-                ]
-                .map(String::from),
-                &environment,
-            );
-            let output = String::from_utf8_lossy(&sync.output);
-            if !sync.started {
-                self.fail_check("The update checker could not be started. Make sure pacman-contrib is installed.");
-                return;
-            }
-            if !sync.finished || sync.exit_code < 0 {
-                self.fail_check("The update check stopped unexpectedly.");
-                return;
-            }
-            // A successful refresh may have replaced an unreadable old DB.
-            // The diagnostic-preserving probe below validates the new DB.
-            if sync.exit_code != 0 {
-                if operational_error::may_recover_key(&output)
-                    && self.recover_check(&output, sync.exit_code)
-                {
-                    continue;
-                }
-                if !self.boolean("signingKeySecurityError") {
-                    self.fail_check(friendly_error(&output));
-                }
-                return;
-            }
-            // checkupdates discards Pacman's stderr and maps an empty result
-            // to "no updates", even when a sync database could not be read.
-            // Read the same private database without suppressing diagnostics
-            // before accepting either its package list or its empty result.
-            let probe = self.execute(
-                PACMAN,
-                &["-Qu", "--dbpath", &db, "--color", "never", "--noconfirm"].map(String::from),
-                &environment,
-            );
-            let output = String::from_utf8_lossy(&probe.output);
-            if !probe.started || !probe.finished || probe.exit_code < 0 {
-                self.fail_check("The update check stopped unexpectedly.");
-                return;
-            }
-            if operational_error::may_recover_key(&output) {
-                if self.recover_check(&output, probe.exit_code) {
-                    continue;
-                }
-                return;
-            }
-            if operational_error::classify(&output).is_some()
-                || output
-                    .lines()
-                    .any(|line| line.trim_start().starts_with("error:"))
-                || !matches!(probe.exit_code, 0 | 1)
-            {
-                self.fail_check(friendly_error(&output));
-                return;
-            }
-            let query = self.execute(
-                "checkupdates",
-                &["--nosync".into(), "--nocolor".into()],
-                &environment,
-            );
-            let output = String::from_utf8_lossy(&query.output);
-            if !query.started {
-                self.fail_check("The update checker could not be started. Make sure pacman-contrib is installed.");
-                return;
-            }
-            if !query.finished || query.exit_code < 0 {
-                self.fail_check("The update check stopped unexpectedly.");
-                return;
-            }
-            if operational_error::database_unusable(&output) {
-                self.fail_check(friendly_error(&output));
-                return;
-            }
-            if query.exit_code != 0 && operational_error::may_recover_key(&output) {
-                if self.recover_check(&output, query.exit_code) {
-                    continue;
-                }
-                return;
-            }
-            if query.exit_code == 2 {
-                if !self.boolean("hasLastUpdate") {
-                    let record = self.helper(&["--record-current-update".into()]);
-                    if !record.started || !record.finished || record.exit_code != 0 {
-                        self.fail_check(
-                            if authorized_error(
-                                record.exit_code,
-                                &String::from_utf8_lossy(&record.output),
-                            ) {
-                                "Authorization error, please try again."
-                            } else {
-                                "The privileged update check could not be started."
-                            },
-                        );
-                        return;
-                    }
-                    self.read_last();
-                }
-                self.finish_check();
-                return;
-            }
-            if query.exit_code != 0 {
-                self.fail_check(friendly_error(&output));
-                return;
-            }
-            self.model["updatesAvailable"] = json!(true);
-            self.model["updatePackages"] = json!(parse_packages(&output));
-            self.emit();
-            let summary = self.helper(&[db.clone(), String::new()]);
+            let summary = self.helper(&["--check".into()]);
             let output = ansi
                 .replace_all(&String::from_utf8_lossy(&summary.output), "")
                 .into_owned();
             if self.security_token(&output, true) {
                 return;
+            }
+            if output.contains("FLU_SIGNING_KEY_VERIFIED") {
+                self.notice(self.tr(VERIFIED));
+            }
+            if summary.started
+                && summary.finished
+                && summary.exit_code == 0
+                && output.lines().any(|line| line == "FLU_NO_UPDATES")
+            {
+                self.read_last();
+                self.finish_check();
+                return;
+            }
+            self.model["updatePackages"] = json!(parse_packages(&output));
+            self.model["updatesAvailable"] = json!(!parse_packages(&output).is_empty());
+            for capture in autoremove.captures_iter(&output) {
+                self.pending_removed.push(capture[1].into());
             }
             if summary.exit_code != 0 && !authorized_error(summary.exit_code, &output) {
                 if let Some(failure) = operational_error::classify(&output) {
@@ -759,10 +601,6 @@ impl Controller {
                     self.emit();
                     return;
                 }
-            }
-            if let Some(m) = autoremove.captures(&output) {
-                self.pending_removed.push(m[1].into());
-                continue;
             }
             if !summary.started {
                 self.fail_check("The privileged update check could not be started.");

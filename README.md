@@ -8,7 +8,10 @@ menu, and keeps manual system updates clear and approachable.
 
 ## What it can do
 
-- Check for system updates without changing the real pacman database.
+- Check for system updates using a private temporary repository database.
+- Refresh overdue local keyring trust checks, synchronize repositories, and
+  prepare the update preview within one Polkit authorization. Trust maintenance
+  uses `pacman-key --updatedb` and preserves all signature requirements.
 - Show the total download size and expected storage change.
 - Preview every package and its old and new version before installation.
 - Install updates through polkit using `pacman -Syu --noconfirm`.
