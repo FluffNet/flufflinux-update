@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 
-project(flufflinux_update_kcm VERSION 1.6.1 LANGUAGES CXX)
+project(flufflinux_update_kcm VERSION 1.6.2 LANGUAGES CXX)
 
 option(BUILD_TESTING "Build the isolated regression tests" OFF)
 include(CTest)

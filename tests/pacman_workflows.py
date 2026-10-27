@@ -170,10 +170,11 @@ class Workflows:
         stub.chmod(0o755)
         run(["mount", "--bind", stub, "/usr/bin/systemctl"])
         if controller:
+            run(["pacman-key", "--init"])
             # Root is already authorized inside this private fixture; replace
             # only the polkit launcher here to exercise the real controller.
             launcher = base / "pkexec"
-            launcher.write_text("#!/bin/sh\nexport PKEXEC_UID=0\nexec \"$@\"\n")
+            launcher.write_text(f"#!/bin/sh\necho request >> '{base}/polkit-requests'\nexport PKEXEC_UID=0\n\"$@\" > '{base}/helper-output' 2>&1\nstatus=$?\ncat '{base}/helper-output'\nexit $status\n")
             launcher.chmod(0o755)
             run(["mount", "--bind", launcher, "/usr/bin/pkexec"])
             run(["mount", "--bind", helper, "/usr/lib/flufflinux-update/flufflinux-update-helper"])
@@ -507,7 +508,10 @@ class Workflows:
         self.pacman("-U", "--noconfirm", first, old)
         self.policy.write_text(json.dumps({"protected": [], "warning": []}))
         self.refresh(newer, replacement)
+        requests = self.base / "polkit-requests"
+        before = len(requests.read_text().splitlines()) if requests.exists() else 0
         model = json.loads(run([self.controller, "check"]).stdout)
+        assert len(requests.read_text().splitlines()) == before + 1
         assert model["checkComplete"] and model["updatesAvailable"], {
             "model": model,
             "pacman_query": self.pacman("-Qu", "--dbpath", "/tmp/flufflinux-checkupdates-0", expected=None).stdout,
@@ -526,8 +530,54 @@ class Workflows:
         assert self.installed("flu-test-controller-new")
         assert not self.installed("flu-test-controller-old")
         self.reap()
-        return {"real_checkupdates_and_planner": True, "replacement_visible": True,
+        return {"single_authorized_check_and_planner": True, "replacement_visible": True,
                 "controller_started_worker": True, "completion_presented": True}
+
+    def overdue_trustdb(self):
+        # Let the unprivileged probe traverse the isolated test root.
+        self.base.chmod(0o755)
+        local = self.checkdb / "local"
+        if not local.exists():
+            local.symlink_to("/var/lib/pacman/local", target_is_directory=True)
+        home = self.base / "etc/gnupg"
+        gpg = ["gpg", "--homedir", home, "--batch", "--pinentry-mode", "loopback", "--passphrase", ""]
+        config = self.base / "pacman.conf"
+        original = config.read_text()
+        repo = self.base / "repo"
+        old = package(repo, "flu-test-trustdb", "1-1")
+        new = package(repo, "flu-test-trustdb", "2-1")
+        self.pacman("-U", "--noconfirm", old)
+        run([*gpg, "--detach-sign", new])
+        for path in repo.glob("flu-test.db*"):
+            path.unlink()
+        run(["repo-add", "--sign", repo / "flu-test.db.tar.gz", new], env={**os.environ, "GNUPGHOME": str(home)})
+        self.pacman("-Syy", "--noconfirm")
+        config.write_text(original.replace("SigLevel = Never", "SigLevel = Required TrustedOnly"))
+        try:
+            self.pacman("--dbpath", self.checkdb, "-Syy", "--noconfirm")
+            past = str(int(time.time()) - 2 * 86400) + "!"
+            run([*gpg, "--faked-system-time", past, "--quick-generate-key", "Overdue trust fixture", "ed25519", "sign", "1d"])
+            run([*gpg, "--faked-system-time", past, "--yes", "--check-trustdb"])
+            listing = run([*gpg, "--no-auto-check-trustdb", "--with-colons", "--list-keys"]).stdout
+            trust = next(line.split(":") for line in listing.splitlines() if line.startswith("tru:"))
+            assert 0 < int(trust[4]) < time.time(), trust
+            query = ["setpriv", "--reuid=1000", "--regid=1000", "--clear-groups", "pacman", "-Qu", "--dbpath", self.checkdb]
+            before = run(query, expected=None, env={**os.environ, "LC_ALL": "C"})
+            assert "missing required signature" in before.stdout, before.stdout
+            requests = self.base / "polkit-requests"
+            count = len(requests.read_text().splitlines()) if requests.exists() else 0
+            model = json.loads(run([self.controller, "check"]).stdout)
+            assert model["checkComplete"] and not model["checkError"], (model, (self.base / "helper-output").read_text())
+            assert model["updatesAvailable"], model
+            assert len(requests.read_text().splitlines()) == count + 1
+            after = run(query, expected=None, env={**os.environ, "LC_ALL": "C"})
+            assert "missing required signature" not in after.stdout, after.stdout
+            config.write_text(original)
+            installed = self.installed("flu-test-trustdb")
+            assert installed == "flu-test-trustdb 1-1", installed
+            return {"real_overdue_trustdb_reproduced": True, "single_polkit_request": True, "no_installation": True}
+        finally:
+            config.write_text(original)
 
     def cancellation(self):
         repo = self.base / "repo"
@@ -858,6 +908,7 @@ def child(args):
         tests.test("initial update timestamp", tests.record_current_update)
         if args.controller:
             tests.test("complete desktop controller workflow", tests.desktop_controller)
+            tests.test("overdue trustdb with one authorization", tests.overdue_trustdb)
         success = True
     finally:
         report = {"passed": success, "fixture": str(base), "tests": tests.results}

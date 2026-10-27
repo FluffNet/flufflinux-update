@@ -103,6 +103,7 @@ pub fn classify(output: &str) -> Option<Failure> {
             "invalid pgp signature",
             "missing pgp signature",
             "missing required signature",
+            "flu_trustdb_refresh_failed",
             "signature check failed",
             "signature format error",
             "unsupported signature format",
