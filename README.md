@@ -187,8 +187,8 @@ Fluff Linux Update uses files under `/etc/pacman.d/`:
 - `lastupdate.json` records the last successful system update.
 - `flufflinux-update-state.json` lets the panel reconnect to an active update.
 - `flufflinux-update.log` contains the latest pacman update log.
-- `flufflinux-update-package-protection.json` defines protected, warning, and
-  autoremove classifications. Packages absent from the file use autoremove.
+- `flufflinux-update-package-protection.json` defines the protected and warning
+  lists. Packages absent from both lists use the default autoremove policy.
 
 For explicit package conflicts, a signature-verified incoming package from
 `fluffnet` can replace even a protected or warning-classified blocker if its
