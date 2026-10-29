@@ -121,6 +121,7 @@
     "openssh",
     "parted",
     "networkmanager-openvpn",
+    "flufflinux-plasma-nm",
     "rp-pppoe",
     "rsync",
     "sdparm",
