@@ -173,6 +173,7 @@
     "traceroute",
     "ark",
     "freerdp",
+    "fnrdp",
     "libvncserver",
     "edk2-ovmf",
     "aurorae",
