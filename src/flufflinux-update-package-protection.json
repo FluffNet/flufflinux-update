@@ -5,6 +5,7 @@
     "base",
     "flufflinux-filesystem",
     "flufflinux-adduser",
+    "flufflinux-netinfo",
     "linux",
     "linux-firmware",
     "archlinux-keyring",
