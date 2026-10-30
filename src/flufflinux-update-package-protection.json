@@ -4,6 +4,7 @@
   "protected": [
     "base",
     "flufflinux-filesystem",
+    "flufflinux-adduser",
     "linux",
     "linux-firmware",
     "archlinux-keyring",
