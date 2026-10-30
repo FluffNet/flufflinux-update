@@ -4,6 +4,7 @@
   "protected": [
     "base",
     "flufflinux-filesystem",
+    "flufflinux-update",
     "flufflinux-adduser",
     "flufflinux-netinfo",
     "linux",
@@ -145,6 +146,7 @@
     "cups",
     "firefox",
     "flufflinux-appcenter",
+    "flufflinux-calculator",
     "flufflinux-packagehelper",
     "flufflinux-vlc",
     "ffmpegthumbs",
