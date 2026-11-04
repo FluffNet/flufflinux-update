@@ -113,6 +113,7 @@ fn integer(state: &Value, key: &str) -> i64 {
 
 struct Worker {
     state: Value,
+    installer: bool,
     packages: BTreeMap<String, i64>,
     total_bytes: i64,
     attempted_keys: BTreeSet<String>,
@@ -135,6 +136,7 @@ impl Worker {
         );
         Self {
             state,
+            installer: false,
             packages: BTreeMap::new(),
             total_bytes: 0,
             attempted_keys: BTreeSet::new(),
@@ -147,12 +149,28 @@ impl Worker {
     }
     fn publish(&self) {
         write_json(STATE, &self.state);
+        if self.installer {
+            // A disconnected frontend must not panic and interrupt Pacman.
+            let event = json!({"protocol": 1, "event": "progress", "state": self.state,
+            "display": {
+                "errorMessage": operational_error::message(self.state["error"].as_str().unwrap_or("")),
+                "downloadedSize": flu_core::desktop::human_size(integer(&self.state, "downloaded_bytes")),
+                "totalDownloadSize": flu_core::desktop::human_size(integer(&self.state, "total_download_bytes")),
+                "downloadTimeRemaining": flu_core::desktop::download_time_remaining(&self.state).unwrap_or_default()
+            }});
+            let mut out = std::io::stdout().lock();
+            let _ = writeln!(out, "{event}");
+            let _ = out.flush();
+        }
     }
     fn phase(&mut self, phase: &str) {
         self.state["phase"] = json!(phase);
         self.publish();
     }
     fn fail(&mut self, error: &str) {
+        if self.installer {
+            self.state["failed_phase"] = self.state["phase"].clone();
+        }
         self.state["error"] = json!(error);
         self.state["speed"] = json!("");
         self.phase("failed");
@@ -243,12 +261,16 @@ impl Worker {
     fn prepare(&mut self) -> bool {
         loop {
             self.phase("starting");
-            let result = run(
-                PACMAN,
-                &arguments(&["-Syup", "--noconfirm", "--print-format", "%l|FLUFF|%s"]),
-                Duration::from_secs(120),
-                &[],
-            );
+            let result = if self.installer {
+                installer_prepare()
+            } else {
+                run(
+                    PACMAN,
+                    &arguments(&["-Syup", "--noconfirm", "--print-format", "%l|FLUFF|%s"]),
+                    Duration::from_secs(120),
+                    &[],
+                )
+            };
             let output = String::from_utf8_lossy(&result.output);
             append_log(&format!("[transaction preparation]\n{output}\n"));
             if !result.started
@@ -335,20 +357,26 @@ impl Worker {
             // a fresh rate window so idle recovery time is not carried over.
             let mut rate = DownloadRate::new(initial_bytes, download_started);
             self.download_snapshot(initial_bytes);
-            let Ok(mut process) = Process::spawn(
-                PACMAN,
-                &arguments(&["-Syu", "--downloadonly", "--noconfirm", "--color", "never"]),
-                &[],
-            ) else {
+            let mut args = arguments(&["-Syu", "--downloadonly", "--color", "never"]);
+            if !self.installer {
+                args.push("--noconfirm".into());
+            }
+            let Ok(mut process) = Process::spawn(PACMAN, &args, &[]) else {
                 self.fail("DOWNLOAD_FAILED");
                 return false;
             };
             let mut output = String::new();
+            let mut prompts = String::new();
             while !process.finished() {
                 let chunk = process.receive(Duration::from_millis(20));
                 let chunk = String::from_utf8_lossy(&chunk);
                 append_log(&chunk);
                 append_bounded(&mut output, &chunk);
+                if self.installer && !answer_installer(&mut process, &mut prompts, &chunk) {
+                    process.stop();
+                    self.fail("DOWNLOAD_FAILED");
+                    return false;
+                }
                 if rate.last_sample.elapsed() >= Duration::from_secs(1) {
                     let bytes = self.cached_bytes();
                     let sampled_at = Instant::now();
@@ -549,7 +577,13 @@ impl Worker {
                 append_bounded(&mut output, &chunk);
                 append_bounded(&mut prompts, &chunk);
                 if let Some((end, answer)) = (!chunk.is_empty())
-                    .then(|| installation_answer(&prompts))
+                    .then(|| {
+                        if self.installer {
+                            installer_answer(&prompts)
+                        } else {
+                            installation_answer(&prompts)
+                        }
+                    })
                     .flatten()
                 {
                     if !process.answer(answer, false, Instant::now() + Duration::from_secs(5)) {
@@ -592,6 +626,110 @@ impl Worker {
         }
     }
 }
+fn installer_answer(text: &str) -> Option<(usize, &'static [u8])> {
+    if let Some(end) = text.find("Proceed with download? [Y/n]") {
+        return Some((end + "Proceed with download? [Y/n]".len(), b"y\n"));
+    }
+    if let Some(candidate) = conflict::package_conflict(text) {
+        return Some((candidate.end, b"y\n"));
+    }
+    // All other questions retain the desktop defaults, including rejecting
+    // unknown key imports and arbitrary file deletion prompts.
+    installation_answer(text)
+}
+
+fn answer_installer(process: &mut Process, pending: &mut String, chunk: &str) -> bool {
+    append_bounded(pending, chunk);
+    while let Some((end, answer)) = installer_answer(pending) {
+        if !process.answer(answer, false, Instant::now() + Duration::from_secs(5)) {
+            return false;
+        }
+        pending.drain(..end);
+    }
+    true
+}
+
+fn installer_prepare() -> signing_key::CommandResult {
+    let mut result = signing_key::CommandResult::default();
+    let Ok(mut process) = Process::spawn(
+        PACMAN,
+        &arguments(&["-Syup", "--print-format", "%l|FLUFF|%s", "--color", "never"]),
+        &[],
+    ) else {
+        return result;
+    };
+    result.started = true;
+    let deadline = Instant::now() + Duration::from_secs(120);
+    let mut prompts = String::new();
+    while !process.finished() {
+        let chunk = process.receive(Duration::from_millis(20));
+        if Instant::now() >= deadline
+            || result.output.len() + chunk.len() > MAX_OUTPUT
+            || !answer_installer(&mut process, &mut prompts, &String::from_utf8_lossy(&chunk))
+        {
+            process.stop();
+            return result;
+        }
+        result.output.extend(chunk);
+    }
+    result.finished = true;
+    result.exit_code = process.exit_code();
+    result
+}
+
+fn installer_main() -> u8 {
+    if unsafe { libc::geteuid() } != 0 {
+        eprintln!("Installer mode requires an already privileged caller");
+        return 1;
+    }
+    let mut worker = Worker::new();
+    worker.installer = true;
+    worker.state =
+        json!({"phase":"starting", "progress":0, "error":"", "worker_pid":std::process::id()});
+    worker.publish();
+    if pacman_running() || Path::new(LOCK).exists() {
+        worker.fail("DATABASE_LOCKED");
+    } else {
+        let trust = run(
+            "/usr/bin/pacman-key",
+            &arguments(&["--updatedb"]),
+            Duration::from_secs(60),
+            &[],
+        );
+        if !trust.started || !trust.finished || trust.exit_code != 0 {
+            append_log(&String::from_utf8_lossy(&trust.output));
+            worker.fail("SIGNATURE_INVALID");
+        } else if worker.prepare() && worker.download() {
+            worker.install();
+        }
+    }
+    let code = if worker.state["phase"] == "complete" {
+        0
+    } else {
+        1
+    };
+    if code == 0 {
+        let stamp =
+            json!({flu_core::runtime::LAST_UPDATE_KEY: flu_core::runtime::current_update_date()});
+        if !write_json(flu_core::runtime::LAST_UPDATE, &stamp) {
+            worker.fail("FILESYSTEM_ERROR");
+        }
+    }
+    let code = if worker.state["phase"] == "complete" {
+        0
+    } else {
+        1
+    };
+    let mut out = std::io::stdout().lock();
+    let _ = writeln!(
+        out,
+        "{}",
+        json!({"protocol":1,"event":"finished","code":code,"state":worker.state})
+    );
+    let _ = out.flush();
+    code
+}
+
 fn installation_answer(text: &str) -> Option<(usize, &'static [u8])> {
     if let Some(candidate) = conflict::package_conflict(text) {
         let approved = conflict::verified_fluffnet(
@@ -683,7 +821,19 @@ fn rename_without_replace(original: &Path, preserved: &Path) -> std::io::Result<
         Err(std::io::Error::last_os_error())
     }
 }
-fn main() {
+fn main() -> std::process::ExitCode {
+    let args: Vec<_> = std::env::args().skip(1).collect();
+    if args == ["--installer"] {
+        return std::process::ExitCode::from(installer_main());
+    }
+    if !args.is_empty() {
+        return std::process::ExitCode::FAILURE;
+    }
+    desktop_main();
+    std::process::ExitCode::SUCCESS
+}
+
+fn desktop_main() {
     let mut worker = Worker::new();
     // Acquire before any Pacman operation, and keep the descriptor alive across
     // preparation, download, installation, package hooks and recovery retries.
@@ -706,6 +856,24 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn installer_only_approves_package_conflicts() {
+        assert_eq!(
+            super::installer_answer(
+                ":: ordinary-2-1 and base-1-1 are in conflict. Remove base? [y/N]"
+            )
+            .unwrap()
+            .1,
+            b"y\n"
+        );
+        for prompt in [
+            ":: Import PGP key ABC? [Y/n]",
+            ":: Delete file? [Y/n]",
+            ":: Remove base? [y/N]",
+        ] {
+            assert_eq!(super::installer_answer(prompt).unwrap().1, b"n\n");
+        }
+    }
     #[test]
     fn installation_prompts_preserve_safe_defaults() {
         for prompt in [

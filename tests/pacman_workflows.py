@@ -862,6 +862,94 @@ class Workflows:
         finally:
             run(["umount", "/usr/bin/pacman"])
 
+    def installer_target(self):
+        # Build a disposable chroot with a copy-on-write view of system tools.
+        # All mounts are private to this fixture's mount namespace.
+        run(["pacman-key", "--init"])
+        repo = self.base / "repo"
+        old = package(repo, "flu-test-target", "1-1")
+        new = package(repo, "flu-test-target", "2-1")
+        self.pacman("-U", "--noconfirm", old)
+        self.refresh(new)
+        root = self.base / "root"
+        upper = self.base / "target-usr"
+        (root / "usr").rename(upper)
+        (root / "usr").mkdir()
+        work = self.base / "overlay-work"
+        work.mkdir()
+        run(["mount", "--bind", root, root])
+        run(["mount", "-t", "overlay", "overlay", "-o", f"lowerdir=/usr,upperdir={upper},workdir={work}", root / "usr"])
+        for name in ("bin", "sbin", "lib", "lib64"):
+            (root / name).symlink_to("usr/" + ("bin" if name in ("bin", "sbin") else "lib"))
+        for name in ("etc", "dev", "proc", "sys", "run", "tmp", "root", "var/log", "var/lib/pacman", "var/cache/pacman/pkg", "etc/pacman.d"):
+            (root / name).mkdir(parents=True, exist_ok=True)
+        for source, target in [(self.base / "db", "var/lib/pacman"), (self.base / "cache", "var/cache/pacman/pkg"), (self.base / "etc", "etc/pacman.d")]:
+            run(["mount", "--bind", source, root / target])
+        (root / "etc/pacman.conf").write_text((self.base / "pacman.conf").read_text().replace(f"RootDir = {root}", "RootDir = /").replace(f"HookDir = {self.base}/hooks", "HookDir = /etc/pacman.d/hooks"))
+        (root / "etc/passwd").write_text("root:x:0:0:root:/root:/bin/bash\n")
+        (root / "etc/group").write_text("root:x:0:\n")
+        (root / "etc/mtab").symlink_to("/proc/self/mounts")
+        (root / "usr/lib/flufflinux-update").mkdir(parents=True, exist_ok=True)
+        import shutil
+        shutil.copy2(self.worker, root / "usr/lib/flufflinux-update/flufflinux-update-worker")
+        protocol = root / "usr/share/flufflinux-update"
+        protocol.mkdir(parents=True, exist_ok=True)
+        (protocol / "installer-protocol-version").write_text("1\n")
+        runner = self.worker.with_name("flufflinux-update-installer")
+        result = run([runner, "--installer", "--target-root", root], expected=None)
+        assert result.returncode == 0, result.stdout
+        events = [json.loads(line) for line in result.stdout.splitlines() if line.startswith("{")]
+        assert events[-1]["code"] == 0, events
+        assert (root / "usr/share/flu-test/flu-test-target").read_text() == "2-1"
+        assert not Path("/usr/share/flu-test/flu-test-target").exists()
+        invalid = run([runner, "--installer", "--target-root", "/"], expected=1)
+        assert "running system" in invalid.stdout
+        return {"real_arch_chroot": True, "target_only_updated": True, "host_root_rejected": True}
+
+    def installer_mode(self):
+        run(["pacman-key", "--init"])
+        repo = self.base / "repo"
+        old = package(repo, "flu-test-installer", "1-1")
+        blocker = package(repo, "flu-test-installer-blocker", "1-1")
+        new = package(repo, "flu-test-installer", "2-1", metadata=["conflict = flu-test-installer-blocker"])
+        self.pacman("-U", "--noconfirm", old, blocker)
+        self.refresh(new)
+        self.policy.write_text(json.dumps({"protected": ["flu-test-installer-blocker"], "warning": []}))
+        result = run([self.worker, "--installer"])
+        events = [json.loads(line) for line in result.stdout.splitlines()]
+        assert events[-1]["event"] == "finished" and events[-1]["code"] == 0, events
+        assert all(e["protocol"] == 1 for e in events)
+        assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
+        assert not self.installed("flu-test-installer-blocker")
+        # A second invocation must succeed without packages to upgrade.
+        repeat = run([self.worker, "--installer"])
+        assert json.loads(repeat.stdout.splitlines()[-1])["code"] == 0
+        assert (self.base / "etc/lastupdate.json").exists()
+        # Missing database signatures must still fail, even in installer mode.
+        config = self.base / "pacman.conf"
+        original = config.read_text()
+        config.write_text(original.replace("SigLevel = Never", "SigLevel = Required TrustedOnly"))
+        try:
+            failed = run([self.worker, "--installer"], expected=1)
+            final = json.loads(failed.stdout.splitlines()[-1])
+            assert final["code"] == 1 and final["state"]["phase"] == "failed", final
+        finally:
+            config.write_text(original)
+        assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
+        newer = package(repo, "flu-test-installer", "3-1")
+        self.refresh(newer)
+        Server.unavailable.add(newer.name)
+        try:
+            failed = run([self.worker, "--installer"], expected=1)
+            final = json.loads(failed.stdout.splitlines()[-1])
+            assert final["code"] == 1 and final["state"]["failed_phase"] == "downloading", final
+            assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
+        finally:
+            Server.unavailable.discard(newer.name)
+        return {"protected_conflict_approved": True, "no_updates_exit_zero": True,
+                "signature_failure_exit_one": True, "download_failure_exit_one": True,
+                "json_protocol": True}
+
     def guards(self):
         invalid = run([self.helper, "/tmp/flufflinux-checkupdates-9999"], expected=2,
                       env={**os.environ, "PKEXEC_UID": "1000"})
@@ -906,6 +994,8 @@ def child(args):
         tests.test("unavailable sleep inhibitor fails closed", tests.sleep_inhibitor_failure)
         tests.test("planner path and policy guards", tests.guards)
         tests.test("initial update timestamp", tests.record_current_update)
+        tests.test("installer mode", tests.installer_mode)
+        tests.test("installer target chroot", tests.installer_target)
         if args.controller:
             tests.test("complete desktop controller workflow", tests.desktop_controller)
             tests.test("overdue trustdb with one authorization", tests.overdue_trustdb)
