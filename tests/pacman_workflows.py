@@ -895,13 +895,15 @@ class Workflows:
         protocol = root / "usr/share/flufflinux-update"
         protocol.mkdir(parents=True, exist_ok=True)
         (protocol / "installer-protocol-version").write_text("1\n")
-        runner = self.worker.with_name("flufflinux-update-installer")
+        runner = self.worker
         result = run([runner, "--installer", "--target-root", root], expected=None)
         assert result.returncode == 0, result.stdout
         events = [json.loads(line) for line in result.stdout.splitlines() if line.startswith("{")]
         assert events[-1]["code"] == 0, events
         assert (root / "usr/share/flu-test/flu-test-target").read_text() == "2-1"
         assert not Path("/usr/share/flu-test/flu-test-target").exists()
+        missing = run([runner, "--installer"], expected=1)
+        assert "Usage:" in missing.stdout
         invalid = run([runner, "--installer", "--target-root", "/"], expected=1)
         assert "running system" in invalid.stdout
         return {"real_arch_chroot": True, "target_only_updated": True, "host_root_rejected": True}
@@ -915,14 +917,14 @@ class Workflows:
         self.pacman("-U", "--noconfirm", old, blocker)
         self.refresh(new)
         self.policy.write_text(json.dumps({"protected": ["flu-test-installer-blocker"], "warning": []}))
-        result = run([self.worker, "--installer"])
+        result = run([self.worker, "--installer-in-target"])
         events = [json.loads(line) for line in result.stdout.splitlines()]
         assert events[-1]["event"] == "finished" and events[-1]["code"] == 0, events
         assert all(e["protocol"] == 1 for e in events)
         assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
         assert not self.installed("flu-test-installer-blocker")
         # A second invocation must succeed without packages to upgrade.
-        repeat = run([self.worker, "--installer"])
+        repeat = run([self.worker, "--installer-in-target"])
         assert json.loads(repeat.stdout.splitlines()[-1])["code"] == 0
         assert (self.base / "etc/lastupdate.json").exists()
         # Missing database signatures must still fail, even in installer mode.
@@ -930,7 +932,7 @@ class Workflows:
         original = config.read_text()
         config.write_text(original.replace("SigLevel = Never", "SigLevel = Required TrustedOnly"))
         try:
-            failed = run([self.worker, "--installer"], expected=1)
+            failed = run([self.worker, "--installer-in-target"], expected=1)
             final = json.loads(failed.stdout.splitlines()[-1])
             assert final["code"] == 1 and final["state"]["phase"] == "failed", final
         finally:
@@ -940,7 +942,7 @@ class Workflows:
         self.refresh(newer)
         Server.unavailable.add(newer.name)
         try:
-            failed = run([self.worker, "--installer"], expected=1)
+            failed = run([self.worker, "--installer-in-target"], expected=1)
             final = json.loads(failed.stdout.splitlines()[-1])
             assert final["code"] == 1 and final["state"]["failed_phase"] == "downloading", final
             assert self.installed("flu-test-installer") == "flu-test-installer 2-1"

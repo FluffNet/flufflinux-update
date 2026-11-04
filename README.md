@@ -182,11 +182,11 @@ Development changes are tested locally before they are added to `staging`.
 
 ## Installer integration (protocol 1)
 
-FLU 1.7 supplies `/usr/lib/flufflinux-update/flufflinux-update-installer`.
+FLU 1.7 adds installer mode to the existing update worker.
 An already privileged installer invokes it with explicit arguments:
 
 ```sh
-/usr/lib/flufflinux-update/flufflinux-update-installer --installer --target-root /mnt
+/usr/lib/flufflinux-update/flufflinux-update-worker --installer --target-root /mnt
 ```
 
 The target must be mounted, configured, and contain FLU 1.7 with installer

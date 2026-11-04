@@ -17,10 +17,6 @@ path = "src/worker.rs"
 name = "flufflinux-update-notifier"
 path = "src/notifier.rs"
 
-[[bin]]
-name = "flufflinux-update-installer"
-path = "src/installer.rs"
-
 [dependencies]
 # This manifest serves all three binaries. Some dependencies belong to only
 # one binary, so a per-binary unused-crate lint is not a package-level audit.

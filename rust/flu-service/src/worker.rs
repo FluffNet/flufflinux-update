@@ -1,5 +1,6 @@
 //! Persistent update worker. It survives closing System Settings and publishes
 //! the same atomic state/log contract consumed by the QML application.
+mod installer;
 mod power;
 
 use flu_core::{
@@ -823,7 +824,10 @@ fn rename_without_replace(original: &Path, preserved: &Path) -> std::io::Result<
 }
 fn main() -> std::process::ExitCode {
     let args: Vec<_> = std::env::args().skip(1).collect();
-    if args == ["--installer"] {
+    if args.first().is_some_and(|arg| arg == "--installer") {
+        return installer::launch(&args);
+    }
+    if args == ["--installer-in-target"] {
         return std::process::ExitCode::from(installer_main());
     }
     if !args.is_empty() {

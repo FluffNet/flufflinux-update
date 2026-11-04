@@ -45,24 +45,22 @@ set(FLU_SERVICE_TARGET ${CMAKE_BINARY_DIR}/service-target)
 set(FLU_HELPER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/flufflinux-update-helper)
 set(FLU_WORKER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/flufflinux-update-worker)
 set(FLU_NOTIFIER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/flufflinux-update-notifier)
-set(FLU_INSTALLER ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/flufflinux-update-installer)
 file(GLOB_RECURSE FLU_RUST_SERVICE_SOURCES CONFIGURE_DEPENDS
     ${CMAKE_SOURCE_DIR}/rust/flu-service/src/*.rs
     ${CMAKE_SOURCE_DIR}/rust/flu-core/src/*.rs)
-add_custom_command(OUTPUT ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER} ${FLU_INSTALLER}
+add_custom_command(OUTPUT ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER}
     COMMAND ${FLU_CARGO} build --locked --release --package flu-service
         --manifest-path ${CMAKE_SOURCE_DIR}/Cargo.toml --target-dir ${FLU_SERVICE_TARGET}
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
     COMMAND ${CMAKE_COMMAND} -E copy ${FLU_SERVICE_TARGET}/release/flufflinux-update-helper ${FLU_HELPER}
     COMMAND ${CMAKE_COMMAND} -E copy ${FLU_SERVICE_TARGET}/release/flufflinux-update-worker ${FLU_WORKER}
     COMMAND ${CMAKE_COMMAND} -E copy ${FLU_SERVICE_TARGET}/release/flufflinux-update-notifier ${FLU_NOTIFIER}
-    COMMAND ${CMAKE_COMMAND} -E copy ${FLU_SERVICE_TARGET}/release/flufflinux-update-installer ${FLU_INSTALLER}
     DEPENDS ${FLU_RUST_SERVICE_SOURCES} ${CMAKE_SOURCE_DIR}/Cargo.toml
         ${CMAKE_SOURCE_DIR}/Cargo.lock ${CMAKE_SOURCE_DIR}/rust/flu-service/Cargo.toml
         ${CMAKE_SOURCE_DIR}/rust/flu-core/Cargo.toml
-    COMMENT "Building the Rust update helper, worker, notifier and installer launcher" VERBATIM)
-add_custom_target(flu-services ALL DEPENDS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER} ${FLU_INSTALLER})
-install(PROGRAMS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER} ${FLU_INSTALLER} DESTINATION lib/flufflinux-update)
+    COMMENT "Building the Rust update helper, worker and session notifier" VERBATIM)
+add_custom_target(flu-services ALL DEPENDS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER})
+install(PROGRAMS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER} DESTINATION lib/flufflinux-update)
 install(FILES installer-protocol-version DESTINATION share/flufflinux-update)
 install(FILES installer/InstallerPage.qml DESTINATION share/flufflinux-update/installer)
 install(FILES org.flufflinux.Update.Notifications.service DESTINATION share/dbus-1/services)

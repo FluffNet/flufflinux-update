@@ -1,5 +1,5 @@
 //! Live-system entry point for an installer-owned target update.
-mod power;
+use crate::power;
 
 use serde_json::json;
 use std::{
@@ -45,10 +45,9 @@ fn target_root(value: &str) -> Result<PathBuf, String> {
     Ok(root)
 }
 
-fn execute() -> Result<bool, String> {
-    let args: Vec<_> = std::env::args().skip(1).collect();
-    let [mode, flag, path] = args.as_slice() else {
-        return Err("Usage: flufflinux-update-installer --installer --target-root /mnt".into());
+fn execute(args: &[String]) -> Result<bool, String> {
+    let [mode, flag, path] = args else {
+        return Err("Usage: flufflinux-update-worker --installer --target-root /mnt".into());
     };
     if mode != "--installer" || flag != "--target-root" || unsafe { libc::geteuid() } != 0 {
         return Err("Installer mode requires root and an explicit target root".into());
@@ -62,7 +61,7 @@ fn execute() -> Result<bool, String> {
         .arg(root)
         .args([
             "/usr/lib/flufflinux-update/flufflinux-update-worker",
-            "--installer",
+            "--installer-in-target",
         ])
         .env("LC_ALL", "C")
         .stdin(Stdio::null())
@@ -71,8 +70,8 @@ fn execute() -> Result<bool, String> {
     Ok(status.success())
 }
 
-fn main() -> ExitCode {
-    match execute() {
+pub fn launch(args: &[String]) -> ExitCode {
+    match execute(args) {
         Ok(true) => ExitCode::SUCCESS,
         Ok(false) => ExitCode::FAILURE,
         Err(error) => {
