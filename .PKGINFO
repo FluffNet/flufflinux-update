@@ -1,13 +1,14 @@
 pkgname = flufflinux-update
 pkgbase = flufflinux-update
-pkgver = 1.6.3-1
+pkgver = 1.7-1
 pkgdesc = Fluff Linux Update Utility
 url = https://github.com/FluffNet/flufflinux-update
-builddate = 1793369302
+builddate = 1793794813
 packager = FluffNet LLC
 size = 42670501
 arch = x86_64
 license = MIT
+optdepend = arch-install-scripts: target-system updates from an installer
 depend = glibc
 depend = gcc-libs
 depend = qt6-base

@@ -61,6 +61,8 @@ add_custom_command(OUTPUT ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER}
     COMMENT "Building the Rust update helper, worker and session notifier" VERBATIM)
 add_custom_target(flu-services ALL DEPENDS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER})
 install(PROGRAMS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER} DESTINATION lib/flufflinux-update)
+install(FILES installer-protocol-version DESTINATION share/flufflinux-update)
+install(FILES installer/InstallerPage.qml DESTINATION share/flufflinux-update/installer)
 install(FILES org.flufflinux.Update.Notifications.service DESTINATION share/dbus-1/services)
 # These same SVG files are embedded in the QML panel by kcmutils_add_qml_kcm.
 # Register them with the desktop icon theme for the native notification body.

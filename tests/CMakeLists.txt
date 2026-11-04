@@ -38,6 +38,9 @@ target_compile_definitions(panelvisibilitytest PRIVATE
 add_test(NAME panelvisibilitytest COMMAND panelvisibilitytest)
 
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
+find_program(FLU_QMLTESTRUNNER qmltestrunner HINTS /usr/lib/qt6/bin /usr/lib/qt/bin REQUIRED)
+add_test(NAME installerpagetest
+    COMMAND ${FLU_QMLTESTRUNNER} -input ${CMAKE_CURRENT_SOURCE_DIR}/qml)
 find_program(FLU_MSGFMT msgfmt REQUIRED)
 find_program(FLU_MAKE NAMES gmake make REQUIRED)
 add_test(NAME fakerootpackagingtest

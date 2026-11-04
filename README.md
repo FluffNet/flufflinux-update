@@ -180,6 +180,58 @@ change the operating system's locale configuration.
 
 Development changes are tested locally before they are added to `staging`.
 
+## Installer integration (protocol 1)
+
+FLU 1.7 adds installer mode to the existing update worker.
+An already privileged installer invokes it with explicit arguments:
+
+```sh
+/usr/lib/flufflinux-update/flufflinux-update-worker --installer --target-root /mnt
+```
+
+The target must be mounted, configured, and contain FLU 1.7 with installer
+protocol 1. The live environment needs `arch-install-scripts` and working
+logind sleep inhibition. Mount the target's boot partitions before running.
+FLU validates the target, refuses the live root, holds a live-system sleep
+inhibitor, and runs the target's worker through `arch-chroot`. It never invokes
+Polkit in this mode and does not require a target systemd or desktop session.
+The caller must retain exclusive ownership of the mount and configuration
+until the process exits.
+
+Installer mode automatically checks, downloads, and installs. It approves
+package replacements and explicit package-conflict removals regardless of the
+protected/warning lists or vendor identity. Pacman's configured signature
+requirements remain active. Unresolvable dependencies, key failures and other
+operational errors still fail; this mode does not use `--nodeps` or blanket
+file overwrites. Desktop behavior is unchanged.
+
+Standard output is newline-delimited JSON with `protocol: 1`. Drain stdout and
+stderr concurrently. Each `event: "progress"` includes `state` (phase, progress,
+package counts, byte counts, speed, and error code) and `display` (formatted
+sizes, remaining time, and a translatable English error message). The final
+`event: "finished"` includes `code` and `state`. `failed_phase` identifies the
+phase that failed. Stderr contains diagnostics, not protocol messages.
+Startup failures can produce only a failed final event, with a diagnostic
+`detail` string. Show the installer's failure UI in that case.
+
+Exit 0 means the update succeeded, including when no updates were needed.
+Exit 1 means an unrecovered failure. Treat any signal, unexpected exit, or
+missing successful final event as failure. Wait for process exit before
+advancing, unmounting or rebooting, even after receiving the final event.
+Disable the installer's process-killing cancellation path during this step.
+A failed installation can leave partially applied changes; failure does not
+promise rollback.
+
+Embed `src/installer/InstallerPage.qml` (installed under
+`/usr/share/flufflinux-update/installer/`) in the live GUI. Give it each decoded
+progress object through its `event` property. It has no buttons or process
+launching logic. Supply KDE's `i18nd` QML context and FLU's `kcm_fluffupdates`
+translation catalogs in the live system. Handle the final event and process
+exit in the host Rust backend; keep the last progress object visible instead
+of replacing it with the final event, which has no `display` fields. The GUI
+stays unprivileged. The target retains its own keyring, package state, logs and
+successful-update timestamp.
+
 ## State and logs
 
 Fluff Linux Update uses files under `/etc/pacman.d/`:
