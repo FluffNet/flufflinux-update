@@ -572,6 +572,8 @@ KCMUtils.SimpleKCM {
                     + updateListFontMetrics.advanceWidth(arrow)
                     + updateListFontMetrics.advanceWidth(
                         replacementName + newVersion)
+                    + updateListFontMetrics.advanceWidth(entry.downloadSize
+                        ? " (" + entry.downloadSize + ")" : "")
                     + Kirigami.Units.smallSpacing * 7
                 widest = Math.max(widest, rowWidth)
             }
@@ -884,6 +886,15 @@ KCMUtils.SimpleKCM {
                                             && modelData.newName !== modelData.name
                                             ? modelData.newName + " " : "")
                                         + modelData.newVersion
+                                }
+
+                                Controls.Label {
+                                    objectName: "packageDownloadSize"
+                                    Layout.minimumWidth: implicitWidth
+                                    wrapMode: Text.NoWrap
+                                    visible: Boolean(modelData.downloadSize)
+                                    color: Kirigami.Theme.textColor
+                                    text: "\u2066(" + (modelData.downloadSize || "") + ")\u2069"
                                 }
 
                                 Item {

@@ -288,6 +288,8 @@ class Workflows:
         plan = self.plan()
         assert "FLU_REPLACEMENT:flu-test-old-calculator|1-1|flu-test-new-calculator|1-1" in plan.stdout, plan.stdout
         assert "FLU_PLANNED_PACKAGE:flu-test-upgrade|2-1" in plan.stdout, plan.stdout
+        assert f"FLU_PACKAGE_DOWNLOAD_SIZE:flu-test-upgrade|{upgrade.stat().st_size}" in plan.stdout, plan.stdout
+        assert f"FLU_PACKAGE_DOWNLOAD_SIZE:flu-test-new-calculator|{replacement.stat().st_size}" in plan.stdout, plan.stdout
         assert self.installed("flu-test-old-calculator")
         assert self.installed("flu-test-upgrade") == "flu-test-upgrade 1-1"
         assert not self.installed("flu-test-new-calculator")
