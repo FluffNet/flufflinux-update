@@ -891,17 +891,34 @@ class Workflows:
             for hook in (Path(__file__).resolve().parents[1] / "src/hooks").glob("*.hook"):
                 shutil.copy2(hook, hookdir / hook.name)
             config.write_text(original_config.replace(f"RootDir = {self.base}/root", "RootDir = /"))
+        modinfo = self.base / "modinfo-fixture"
+        mapping = self.base / "module-paths.json"
+        mapping.write_text("{}")
+        modinfo.write_text("#!/usr/bin/python3\nimport json,sys\n"
+                           + f"paths=json.load(open({str(mapping)!r}))\n"
+                           + "print(paths.get(sys.argv[-1], '/usr/share/flu-test/unowned-module'))\n")
+        modinfo.chmod(0o755)
+        run(["mount", "--bind", modinfo, "/usr/bin/modinfo"])
         run(["mount", "--bind", modules, "/proc/modules"])
         run(["mount", "--bind", uname, "/usr/bin/uname"])
         run(["mount", "--bind", tree.parent, "/usr/lib/modules"])
         cases = [("linux-lts", "", None), ("linux", "", True),
                  ("nvidia-dkms", "", None), ("nvidia-dkms", "nvidia", True),
                  ("zfs-dkms", "", None), ("zfs-dkms", "zfs", True),
-                 ("virtualbox-host-dkms", "vboxdrv", False), ("kwin", "", False)]
+                 ("virtualbox-host-dkms", "vboxdrv", False), ("kwin", "", False),
+                 ("flu-test-nvidia-driver", "nvidia", True),
+                 ("flu-test-zfs-driver", "zfs", True),
+                 ("flu-test-external-driver", "test_extra", False)]
         try:
             for index, (name, module, blocked) in enumerate(cases):
                 marker.unlink(missing_ok=True)
                 modules.write_text(module + " 1 0 - Live 0\n" if module else "")
+                mapping.write_text("{}")
+                if name.startswith("flu-test-"):
+                    prefix = Path("/") if terminal else self.base / "root"
+                    mapping.write_text(json.dumps({module: str(prefix / "usr/share/flu-test" / name)}))
+                    missing = "zfs" if module == "nvidia" else "nvidia" if module == "zfs" else "unowned_extra"
+                    modules.write_text("".join(item + " 1 0 - Live 0\n" for item in [module, missing]))
                 old = package(self.base / "repo", name, f"{index*2+1+(100 if terminal else 0)}-1")
                 new = package(self.base / "repo", name, f"{index*2+2+(100 if terminal else 0)}-1")
                 self.pacman("-U", "--noconfirm", old)
@@ -950,14 +967,108 @@ class Workflows:
                 hook.write_text(hook.read_text().replace("/usr/lib/flufflinux-update/flufflinux-update-worker --reboot-before", "/usr/bin/false"))
                 self.pacman("-U", "--noconfirm", package(self.base / "repo", "flu-test-terminal-unrestricted", "2-1"))
             return {"terminal": terminal, "active_kernel": True, "inactive_kernel_ignored": True,
-                    "nvidia_and_zfs_only_when_loaded": True, "other_modules_and_kwin_advisory": True}
+                    "nvidia_and_zfs_only_when_loaded": True, "other_modules_and_kwin_advisory": True, "mixed_owned_and_unowned_module_batches": True}
         finally:
             marker.unlink(missing_ok=True)
-            for path in ["/proc/modules", "/usr/bin/uname", "/usr/lib/modules"]:
+            for path in ["/usr/bin/modinfo", "/proc/modules", "/usr/bin/uname", "/usr/lib/modules"]:
                 run(["umount", path])
             if terminal:
                 config.write_text(original_config)
                 run(["umount", "-l", "/usr"])
+
+    def reboot_hook_lifecycle(self):
+        marker = self.base / "etc/flufflinux-update-reboot.json"
+        pending = self.base / "etc/flufflinux-update-reboot-before.json"
+        name = "flu-test-hook-lifecycle"
+        old = package(self.base / "repo", name, "1-1")
+        new = package(self.base / "repo", name, "2-1")
+        # Keep an installed base package when removing the watched component.
+        # Pacman -Q returns failure for a completely empty synthetic database.
+        anchor = package(self.base / "repo", "flu-test-hook-base", "1-1")
+        self.pacman("-U", "--noconfirm", anchor, old)
+
+        def before(critical=True):
+            run([self.worker, "--reboot-before"])
+            snapshot = json.loads(pending.read_text())
+            # Hardware/ownership detection is covered separately. Use a
+            # disposable package to exercise snapshot consumption and retention.
+            snapshot["watched"] = {name: critical}
+            pending.write_text(json.dumps(snapshot))
+            return snapshot
+
+        def after():
+            run([self.worker, "--reboot-after"])
+            assert not pending.exists(), "post-hook did not consume its snapshot"
+
+        try:
+            marker.unlink(missing_ok=True)
+            before()
+            after()
+            assert not marker.exists(), "unchanged package triggered a restart"
+            before()
+            self.pacman("-U", "--noconfirm", new)
+            after()
+            saved = marker.read_bytes()
+            assert json.loads(saved)["blocked"]
+            after()
+            assert marker.read_bytes() == saved, "repeated post-hook changed the marker"
+            before(critical=False)
+            self.pacman("-U", "--noconfirm", package(self.base / "repo", name, "3-1"))
+            after()
+            assert json.loads(marker.read_text())["blocked"], "advisory update downgraded a block"
+            marker.unlink()
+            before()
+            self.pacman("-R", "--noconfirm", name)
+            after()
+            assert json.loads(marker.read_text())["blocked"], "removal of an active component was missed"
+            marker.unlink()
+            self.pacman("-U", "--noconfirm", old)
+            snapshot = before()
+            failed = self.pacman("-U", "--noconfirm", self.base / "missing-package.pkg.tar.gz", expected=None)
+            assert failed.returncode != 0
+            after()
+            assert not marker.exists(), "failed transaction triggered a restart"
+            for field, value in [("transaction", "another-pacman"), ("boot_id", "previous-boot")]:
+                snapshot = before()
+                snapshot["versions"][name] = "outdated"
+                snapshot[field] = value
+                pending.write_text(json.dumps(snapshot))
+                after()
+                assert not marker.exists(), field
+            pending.write_text("invalid json")
+            after()
+            assert not marker.exists()
+            snapshot = before()
+            snapshot["versions"] = []
+            pending.write_text(json.dumps(snapshot))
+            after()
+            assert not marker.exists()
+            # Failed database reads must neither erase a valid requirement nor
+            # turn a missing version list into a false package-removal warning.
+            snapshot = before()
+            marker.write_text(json.dumps({"boot_id": snapshot["boot_id"], "blocked": True, "recommended": True}))
+            saved = marker.read_bytes()
+            failing = self.base / "pacman-reboot-failure"
+            failing.write_text("#!/bin/sh\nexit 1\n")
+            failing.chmod(0o755)
+            run(["mount", "--bind", failing, "/usr/bin/pacman"])
+            try:
+                after()
+                assert marker.read_bytes() == saved
+                pending.write_text(json.dumps(snapshot))
+                run([self.worker, "--reboot-before"])
+                assert not pending.exists()
+                assert marker.read_bytes() == saved
+            finally:
+                run(["umount", "/usr/bin/pacman"])
+            return {"unchanged_and_failed_transactions_ignored": True,
+                    "active_component_removal_detected": True,
+                    "stale_boot_parent_and_malformed_snapshots_ignored": True,
+                    "post_hook_idempotent": True, "critical_marker_never_downgraded": True,
+                    "query_errors_nonblocking_and_preserve_marker": True}
+        finally:
+            marker.unlink(missing_ok=True)
+            pending.unlink(missing_ok=True)
 
     def reboot_gate(self):
         marker = self.base / "etc/flufflinux-update-reboot.json"
@@ -1113,6 +1224,7 @@ def child(args):
         tests.test("initial update timestamp", tests.record_current_update)
         tests.test("reboot active component detection", tests.reboot_detection)
         tests.test("reboot installation gate", tests.reboot_gate)
+        tests.test("reboot hook lifecycle", tests.reboot_hook_lifecycle)
         tests.test("reboot terminal pacman hooks", lambda: tests.reboot_detection(terminal=True))
         tests.test("installer mode", tests.installer_mode)
         tests.test("installer target chroot", tests.installer_target)
