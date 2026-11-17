@@ -380,3 +380,23 @@ msgstr "Ma setgħetx tissakkar id-database tal-pakketti. Agħlaq maniġers oħra
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Ħin stmat: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Ibda mill-ġdid il-kompjuter tiegħek qabel ma tinstalla aktar aġġornamenti biex tlesti l-aġġornament preċedenti u tgħin biex iżżomm is-sistema tiegħek stabbli."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Irristart rakkomandat"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Ġew aġġornati komponenti importanti tas-sistema. Sakemm terġa 'tibda, xi applikazzjonijiet jew apparati jistgħu ma jaħdmux b'mod korrett. Issejvja x-xogħol tiegħek qabel terġa tibda."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Ibda mill-ġdid"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Ristartja hija rrakkomandata ħafna minħabba li komponenti importanti tas-sistema ġew aġġornati."

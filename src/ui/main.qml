@@ -412,7 +412,7 @@ KCMUtils.SimpleKCM {
                     Controls.Button {
                         text: i18nd("kcm_fluffupdates", "Install Updates")
                         icon.name: "system-software-update"
-                        enabled: backend.networkConnected
+                        enabled: backend.networkConnected && !backend.restartRequired
                         onClicked: backend.startInstallation()
                     }
 
@@ -474,6 +474,15 @@ KCMUtils.SimpleKCM {
             type: Kirigami.MessageType.Warning
             icon.name: "battery-low"
             text: i18nd("kcm_fluffupdates", "The battery is low. Please connect your computer to a charger while installing updates.")
+        }
+
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            visible: backend.restartRecommended
+            type: Kirigami.MessageType.Warning
+            icon.name: "system-reboot"
+            text: i18nd("kcm_fluffupdates", "A restart is strongly recommended because important system components were updated.")
+                + (backend.restartRequired ? "\n" + i18nd("kcm_fluffupdates", "Restart your computer before installing more updates to complete the previous update and help keep your system stable.") : "")
         }
 
         Rectangle {

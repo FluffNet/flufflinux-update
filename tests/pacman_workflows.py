@@ -864,6 +864,117 @@ class Workflows:
         finally:
             run(["umount", "/usr/bin/pacman"])
 
+    def reboot_detection(self, terminal=False):
+        marker = self.base / "etc/flufflinux-update-reboot.json"
+        modules = self.base / "loaded-modules"
+        modules.write_text("")
+        uname = self.base / "uname-fixture"
+        uname.write_text("#!/bin/sh\necho flu-test-release\n")
+        uname.chmod(0o755)
+        tree = self.base / "module-tree/flu-test-release"
+        tree.mkdir(parents=True, exist_ok=True)
+        (tree / "pkgbase").write_text("linux\n")
+        config = Path("/etc/pacman.conf")
+        original_config = config.read_text()
+        if terminal:
+            # Overlay all hook executables and payloads inside the existing
+            # private namespace. No host packages or system hooks are touched.
+            upper, work = self.base / "terminal-usr", self.base / "terminal-work"
+            upper.mkdir(); work.mkdir()
+            run(["mount", "-t", "overlay", "overlay", "-o",
+                 f"lowerdir=/usr,upperdir={upper},workdir={work}", "/usr"])
+            import shutil
+            shutil.copy2(self.worker, "/usr/lib/flufflinux-update/flufflinux-update-worker")
+            hookdir = Path("/usr/share/libalpm/hooks")
+            for hook in hookdir.glob("*.hook"):
+                hook.unlink()
+            for hook in (Path(__file__).resolve().parents[1] / "src/hooks").glob("*.hook"):
+                shutil.copy2(hook, hookdir / hook.name)
+            config.write_text(original_config.replace(f"RootDir = {self.base}/root", "RootDir = /"))
+        run(["mount", "--bind", modules, "/proc/modules"])
+        run(["mount", "--bind", uname, "/usr/bin/uname"])
+        run(["mount", "--bind", tree.parent, "/usr/lib/modules"])
+        cases = [("linux-lts", "", None), ("linux", "", True),
+                 ("nvidia-dkms", "", None), ("nvidia-dkms", "nvidia", True),
+                 ("zfs-dkms", "", None), ("zfs-dkms", "zfs", True),
+                 ("virtualbox-host-dkms", "vboxdrv", False), ("kwin", "", False)]
+        try:
+            for index, (name, module, blocked) in enumerate(cases):
+                marker.unlink(missing_ok=True)
+                modules.write_text(module + " 1 0 - Live 0\n" if module else "")
+                old = package(self.base / "repo", name, f"{index*2+1+(100 if terminal else 0)}-1")
+                new = package(self.base / "repo", name, f"{index*2+2+(100 if terminal else 0)}-1")
+                self.pacman("-U", "--noconfirm", old)
+                self.refresh(new)
+                process = None
+                if name == "kwin":
+                    process = subprocess.Popen([sys.executable, "-c", "import ctypes,time; ctypes.CDLL(None).prctl(15,b'kwin_wayland',0,0,0); time.sleep(120)"])
+                    time.sleep(.2)
+                try:
+                    marker.unlink(missing_ok=True)
+                    if terminal:
+                        result = self.pacman("-Syu", "--noconfirm")
+                        assert "00-flufflinux-update-reboot.hook" in result.stdout, result.stdout
+                        assert "zz-flufflinux-update-reboot.hook" in result.stdout, result.stdout
+                    else:
+                        self.start()
+                        state, _ = self.finish()
+                        assert state["phase"] == "complete", state
+                    if blocked is None:
+                        assert not marker.exists(), (name, module, marker.read_text())
+                    else:
+                        value = json.loads(marker.read_text())
+                        assert value["blocked"] is blocked and value["recommended"], (name, module, value)
+                        if terminal and name == "linux" and self.controller:
+                            self.base.chmod(0o755)
+                            (self.base / "tmp").chmod(0o1777)
+                            output = self.base / "terminal-observer"
+                            output.mkdir(mode=0o777)
+                            output.chmod(0o777)
+                            command = ["runuser", "-u", "mai", "--", "dbus-run-session", "--",
+                                       sys.executable, Path(__file__).with_name("reboot_terminal_observer.py"),
+                                       "--notifier", self.worker.with_name("flufflinux-update-notifier"),
+                                       "--controller", self.controller, "--output", output]
+                            if os.environ.get("FLU_REBOOT_VISUAL") == "1":
+                                command.append("--visual")
+                            run(command)
+                finally:
+                    if process:
+                        process.terminate(); process.wait()
+            if terminal:
+                marker.write_text(json.dumps({"boot_id": Path("/proc/sys/kernel/random/boot_id").read_text().strip(), "blocked": True, "recommended": True}))
+                self.pacman("-U", "--noconfirm", package(self.base / "repo", "flu-test-terminal-unrestricted", "1-1"))
+                assert json.loads(marker.read_text())["blocked"]
+                # A failing pre-hook must not veto the transaction.
+                hook = Path("/usr/share/libalpm/hooks/00-flufflinux-update-reboot.hook")
+                hook.write_text(hook.read_text().replace("/usr/lib/flufflinux-update/flufflinux-update-worker --reboot-before", "/usr/bin/false"))
+                self.pacman("-U", "--noconfirm", package(self.base / "repo", "flu-test-terminal-unrestricted", "2-1"))
+            return {"terminal": terminal, "active_kernel": True, "inactive_kernel_ignored": True,
+                    "nvidia_and_zfs_only_when_loaded": True, "other_modules_and_kwin_advisory": True}
+        finally:
+            marker.unlink(missing_ok=True)
+            for path in ["/proc/modules", "/usr/bin/uname", "/usr/lib/modules"]:
+                run(["umount", path])
+            if terminal:
+                config.write_text(original_config)
+                run(["umount", "-l", "/usr"])
+
+    def reboot_gate(self):
+        marker = self.base / "etc/flufflinux-update-reboot.json"
+        boot = Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+        try:
+            marker.write_text(json.dumps({"boot_id": boot, "recommended": True, "blocked": True}))
+            rejected = run([self.helper, "--install", "0", "0", "false", "W10="], expected=25)
+            assert "REBOOT_REQUIRED" in rejected.stdout
+            run([self.worker])
+            assert self.state_value()["error"] == "REBOOT_REQUIRED"
+            # Checking remains available even when installations are blocked.
+            self.refresh(package(self.base / "repo", "flu-test-reboot", "1-1"))
+            assert "REBOOT_REQUIRED" not in self.plan().stdout
+        finally:
+            marker.unlink(missing_ok=True)
+        return {"helper_blocks": True, "worker_blocks": True, "checking_allowed": True}
+
     def installer_target(self):
         # Build a disposable chroot with a copy-on-write view of system tools.
         # All mounts are private to this fixture's mount namespace.
@@ -894,6 +1005,8 @@ class Workflows:
         (root / "usr/lib/flufflinux-update").mkdir(parents=True, exist_ok=True)
         import shutil
         shutil.copy2(self.worker, root / "usr/lib/flufflinux-update/flufflinux-update-worker")
+        for hook in (Path(__file__).resolve().parents[1] / "src/hooks").glob("*.hook"):
+            shutil.copy2(hook, root / "usr/share/libalpm/hooks" / hook.name)
         protocol = root / "usr/share/flufflinux-update"
         protocol.mkdir(parents=True, exist_ok=True)
         (protocol / "installer-protocol-version").write_text("1\n")
@@ -998,6 +1111,9 @@ def child(args):
         tests.test("unavailable sleep inhibitor fails closed", tests.sleep_inhibitor_failure)
         tests.test("planner path and policy guards", tests.guards)
         tests.test("initial update timestamp", tests.record_current_update)
+        tests.test("reboot active component detection", tests.reboot_detection)
+        tests.test("reboot installation gate", tests.reboot_gate)
+        tests.test("reboot terminal pacman hooks", lambda: tests.reboot_detection(terminal=True))
         tests.test("installer mode", tests.installer_mode)
         tests.test("installer target chroot", tests.installer_target)
         if args.controller:

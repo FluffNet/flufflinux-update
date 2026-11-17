@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+When = PreTransaction
+Exec = /usr/lib/flufflinux-update/flufflinux-update-worker --reboot-before

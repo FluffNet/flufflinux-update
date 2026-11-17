@@ -384,3 +384,23 @@ msgstr "Níorbh fhéidir bunachar sonraí na bpacáistí a ghlasáil. Dún baini
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Am measta: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Atosaigh do ríomhaire roimh duit tuilleadh nuashonruithe a shuiteáil chun an nuashonrú roimhe seo a chríochnú agus chun cabhrú le do chóras a choinneáil cobhsaí."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Moltar atosú"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Nuashonraíodh comhpháirteanna córais tábhachtacha. Go dtí go n-atosóidh tú, seans nach n-oibreoidh roinnt feidhmchlár nó gléasanna i gceart. Sábháil do chuid oibre roimh atosú."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Atosaigh"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Moltar go láidir atosú toisc gur nuashonraíodh comhpháirteanna tábhachtacha córais."

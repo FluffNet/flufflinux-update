@@ -95,3 +95,9 @@ install(PROGRAMS org.flufflinux.update.desktop
 install(FILES org.flufflinux.update.worker.desktop
     DESTINATION ${KDE_INSTALL_APPDIR}
 )
+
+# Observe terminal and GUI Pacman transactions without restricting Pacman.
+install(FILES hooks/00-flufflinux-update-reboot.hook hooks/zz-flufflinux-update-reboot.hook
+    DESTINATION share/libalpm/hooks)
+install(FILES org.flufflinux.update.notifier.desktop
+    DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)

@@ -289,3 +289,23 @@ msgstr "無法鎖定套件資料庫。請關閉其他套件管理員，並確認
 
 msgid "Estimated time: %1"
 msgstr "預估時間：%1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "在安裝更多更新之前重新啟動電腦以完成先前的更新並幫助保持系統穩定。"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "建議重啟"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "重要的系統組件已更新。在重新啟動之前，某些應用程式或裝置可能無法正常運作。重新啟動之前儲存您的工作。"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "重新啟動"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "強烈建議重新啟動，因為重要的系統組件已更新。"

@@ -293,3 +293,23 @@ msgstr "පැකේජ දත්තගබඩාව අගුළු දැමී
 
 msgid "Estimated time: %1"
 msgstr "ඇස්තමේන්තුගත කාලය: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "පෙර යාවත්කාලීන සම්පූර්ණ කිරීමට සහ ඔබේ පද්ධතිය ස්ථාවරව තබා ගැනීමට තවත් යාවත්කාලීන ස්ථාපනය කිරීමට පෙර ඔබේ පරිගණකය නැවත අරඹන්න."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "නැවත ආරම්භ කිරීම නිර්දේශිතයි"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "වැදගත් පද්ධති සංරචක යාවත්කාලීන කරන ලදී. ඔබ නැවත ආරම්භ කරන තුරු, සමහර යෙදුම් හෝ උපාංග නිවැරදිව ක්‍රියා නොකරනු ඇත. නැවත ආරම්භ කිරීමට පෙර ඔබේ කාර්යය සුරකින්න."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "යළි අරඹන්න"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "වැදගත් පද්ධති සංරචක යාවත්කාලීන කර ඇති නිසා නැවත ආරම්භ කිරීම දැඩි ලෙස නිර්දේශ කෙරේ."

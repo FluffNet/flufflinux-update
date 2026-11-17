@@ -115,6 +115,7 @@ fn integer(state: &Value, key: &str) -> i64 {
 struct Worker {
     state: Value,
     installer: bool,
+    reboot: Option<flu_core::reboot::Snapshot>,
     packages: BTreeMap<String, i64>,
     total_bytes: i64,
     attempted_keys: BTreeSet<String>,
@@ -138,6 +139,7 @@ impl Worker {
         Self {
             state,
             installer: false,
+            reboot: None,
             packages: BTreeMap::new(),
             total_bytes: 0,
             attempted_keys: BTreeSet::new(),
@@ -164,11 +166,22 @@ impl Worker {
             let _ = out.flush();
         }
     }
+    fn record_reboot(&self) {
+        if let Some(snapshot) = &self.reboot {
+            if !snapshot.record() {
+                append_log("[failed to persist reboot requirement]\n");
+            }
+        }
+    }
     fn phase(&mut self, phase: &str) {
+        if phase == "complete" {
+            self.record_reboot();
+        }
         self.state["phase"] = json!(phase);
         self.publish();
     }
     fn fail(&mut self, error: &str) {
+        self.record_reboot();
         if self.installer {
             self.state["failed_phase"] = self.state["phase"].clone();
         }
@@ -824,6 +837,14 @@ fn rename_without_replace(original: &Path, preserved: &Path) -> std::io::Result<
 }
 fn main() -> std::process::ExitCode {
     let args: Vec<_> = std::env::args().skip(1).collect();
+    if args == ["--reboot-before"] || args == ["--reboot-after"] {
+        if !flu_core::reboot::pacman_hook(args[0] == "--reboot-before") {
+            eprintln!("FLU: could not record restart information for this transaction.");
+        }
+        // Restart tracking must never prevent or fail a Pacman transaction.
+        return std::process::ExitCode::SUCCESS;
+    }
+
     if args.first().is_some_and(|arg| arg == "--installer") {
         return installer::launch(&args);
     }
@@ -839,6 +860,11 @@ fn main() -> std::process::ExitCode {
 
 fn desktop_main() {
     let mut worker = Worker::new();
+    if flu_core::reboot::blocked() {
+        worker.fail("REBOOT_REQUIRED");
+        return;
+    }
+    worker.reboot = Some(flu_core::reboot::Snapshot::capture());
     // Acquire before any Pacman operation, and keep the descriptor alive across
     // preparation, download, installation, package hooks and recovery retries.
     // Closing the application does not affect this system-service-owned lock.

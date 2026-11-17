@@ -310,3 +310,23 @@ msgstr "Не удалось заблокировать базу данных п�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Расчётное время: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Перезагрузите компьютер перед установкой дополнительных обновлений, чтобы завершить предыдущее обновление и обеспечить стабильность вашей системы."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Рекомендуется перезапустить"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Обновлены важные компоненты системы. Пока вы не перезагрузите компьютер, некоторые приложения или устройства могут работать некорректно. Сохраните работу перед перезапуском."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Перезапуск"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Настоятельно рекомендуется перезагрузить компьютер, поскольку важные компоненты системы были обновлены."

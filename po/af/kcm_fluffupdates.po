@@ -293,3 +293,23 @@ msgstr "Die pakketdatabasis kon nie gesluit word nie. Sluit ander pakketbestuurd
 
 msgid "Estimated time: %1"
 msgstr "Geskatte tyd: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Herbegin jou rekenaar voordat jy meer opdaterings installeer om die vorige opdatering te voltooi en te help om jou stelsel stabiel te hou."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Herbegin aanbeveel"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Belangrike stelselkomponente is opgedateer. Totdat jy herbegin, sal sommige toepassings of toestelle dalk nie reg werk nie. Stoor jou werk voordat jy weer begin."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Herbegin"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "'n Herbegin word sterk aanbeveel omdat belangrike stelselkomponente opgedateer is."

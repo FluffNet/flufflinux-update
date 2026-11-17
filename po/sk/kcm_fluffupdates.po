@@ -376,3 +376,23 @@ msgstr "Nepodarilo sa zamknúť databázu balíkov. Zatvorte ostatných správco
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Odhadovaný čas: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Pred inštaláciou ďalších aktualizácií reštartujte počítač, aby ste dokončili predchádzajúcu aktualizáciu a pomohli udržať systém stabilný."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Odporúča sa reštart"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Dôležité systémové komponenty boli aktualizované. Kým nereštartujete, niektoré aplikácie alebo zariadenia nemusia fungovať správne. Pred reštartovaním uložte svoju prácu."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Reštartujte"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Dôrazne sa odporúča reštart, pretože boli aktualizované dôležité súčasti systému."

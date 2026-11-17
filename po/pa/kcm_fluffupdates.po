@@ -293,3 +293,23 @@ msgstr "ਪੈਕੇਜ ਡਾਟਾਬੇਸ ਲਾਕ ਨਹੀਂ ਕੀਤ�
 
 msgid "Estimated time: %1"
 msgstr "ਅੰਦਾਜ਼ਨ ਸਮਾਂ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ਪਿਛਲੇ ਅੱਪਡੇਟ ਨੂੰ ਪੂਰਾ ਕਰਨ ਅਤੇ ਤੁਹਾਡੇ ਸਿਸਟਮ ਨੂੰ ਸਥਿਰ ਰੱਖਣ ਵਿੱਚ ਮਦਦ ਕਰਨ ਲਈ ਹੋਰ ਅੱਪਡੇਟ ਸਥਾਪਤ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੇ ਕੰਪਿਊਟਰ ਨੂੰ ਰੀਸਟਾਰਟ ਕਰੋ।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "ਰੀਸਟਾਰਟ ਕਰਨ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕੀਤੀ ਗਈ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "ਮਹੱਤਵਪੂਰਨ ਸਿਸਟਮ ਭਾਗ ਅੱਪਡੇਟ ਕੀਤੇ ਗਏ ਸਨ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਰੀਸਟਾਰਟ ਨਹੀਂ ਕਰਦੇ, ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਕੁਝ ਐਪਲੀਕੇਸ਼ਨਾਂ ਜਾਂ ਡਿਵਾਈਸਾਂ ਸਹੀ ਢੰਗ ਨਾਲ ਕੰਮ ਨਾ ਕਰਨ। ਮੁੜ-ਚਾਲੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣਾ ਕੰਮ ਸੁਰੱਖਿਅਤ ਕਰੋ।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "ਰੀਸਟਾਰਟ ਕਰੋ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ਇੱਕ ਰੀਸਟਾਰਟ ਦੀ ਜ਼ੋਰਦਾਰ ਸਿਫਾਰਸ਼ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਕਿਉਂਕਿ ਮਹੱਤਵਪੂਰਨ ਸਿਸਟਮ ਭਾਗ ਅੱਪਡੇਟ ਕੀਤੇ ਗਏ ਸਨ।"

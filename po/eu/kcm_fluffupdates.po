@@ -293,3 +293,23 @@ msgstr "Ezin izan da paketeen datu-basea blokeatu. Itxi beste pakete-kudeatzaile
 
 msgid "Estimated time: %1"
 msgstr "Aurreikusitako denbora: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Berrabiarazi ordenagailua eguneraketa gehiago instalatu aurretik, aurreko eguneratzea osatzeko eta sistema egonkor mantentzen laguntzeko."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Berrabiaraztea gomendatzen da"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Sistemaren osagai garrantzitsuak eguneratu ziren. Berrabiarazi arte, baliteke aplikazio edo gailu batzuk behar bezala ez funtzionatzea. Gorde zure lana berrabiarazi aurretik."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Berrabiarazi"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Berrabiaraztea gomendatzen da sistemaren osagai garrantzitsuak eguneratu direlako."

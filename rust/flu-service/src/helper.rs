@@ -424,6 +424,10 @@ fn plan_transaction(database: &str, signing_retry: bool) -> i32 {
 }
 
 fn start_installation(download: &str, storage: &str, freed: bool, updates: &str) -> i32 {
+    if flu_core::reboot::blocked() {
+        eprintln!("REBOOT_REQUIRED");
+        return 25;
+    }
     let previous = read_json(STATE);
     let phase = previous["phase"].as_str().unwrap_or("");
     if (matches!(phase, "starting" | "downloading" | "installing")

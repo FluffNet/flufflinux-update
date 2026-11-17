@@ -357,3 +357,26 @@ The existing `lastupdate` hook provides this field:
 ## License
 
 Fluff Linux Update is available under the [MIT License](LICENSE).
+
+### Restart recommendations
+
+FLU records changes to components that are in use during an update. Updating
+the running kernel, loaded NVIDIA driver or loaded ZFS requires a restart before
+FLU will install another batch. Other kernels do not trigger the restriction.
+Changes to running Plasma/KWin or other loaded modules recommend a restart
+without blocking FLU. Checking for updates remains available.
+
+The same Rust detection runs through Pacman pre/post-transaction hooks, including
+terminal updates. These hooks are observational: they never block Pacman, even
+when FLU has a restart requirement. Installer chroots are excluded. The hooks
+compare a root-owned snapshot with the installed package versions after a
+successful transaction. Pacman does not run post-transaction hooks for an
+incomplete transaction; FLU also records partial changes on its own failure path.
+
+The banner and FLU installation restriction are tied to the current boot ID in
+`/etc/pacman.d/flufflinux-update-reboot.json`. A new boot clears them logically.
+The session notifier starts at login and uses the installed translation catalogs,
+so it can notify after a terminal update without first opening FLU. The restart
+notification has no timeout and is dismissed by Close or Restart. Dismissing it
+never clears the banner or installation restriction, and reopening the panel or
+restarting the notifier does not repeat it during the same boot.

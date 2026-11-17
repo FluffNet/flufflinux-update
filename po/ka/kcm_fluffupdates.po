@@ -293,3 +293,23 @@ msgstr "პაკეტების მონაცემთა ბაზის 
 
 msgid "Estimated time: %1"
 msgstr "სავარაუდო დრო: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "გადატვირთეთ კომპიუტერი მეტი განახლების დაყენებამდე, რათა დასრულდეს წინა განახლება და დაგეხმაროთ სისტემის სტაბილურობის შენარჩუნებაში."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "რეკომენდირებულია გადატვირთვა"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "განახლდა სისტემის მნიშვნელოვანი კომპონენტები. სანამ არ გადატვირთავთ, ზოგიერთმა აპლიკაციამ ან მოწყობილობამ შეიძლება სწორად არ იმუშაოს. შეინახეთ სამუშაო გადატვირთვამდე."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "გადატვირთეთ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "რეკომენდირებულია გადატვირთვა, რადგან განახლდა სისტემის მნიშვნელოვანი კომპონენტები."

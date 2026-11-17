@@ -302,3 +302,23 @@ msgstr "パッケージデータベースをロックできませんでした。
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "推定時間: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "前回の更新を完了し、システムの安定性を保つため、追加の更新をインストールする前にコンピューターを再起動してください。"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "再起動をお勧めします"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "重要なシステムコンポーネントが更新されました。再起動するまで、一部のアプリケーションやデバイスが正常に動作しない場合があります。再起動する前に作業内容を保存してください。"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "再起動"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "重要なシステムコンポーネントが更新されたため、再起動を強くお勧めします。"

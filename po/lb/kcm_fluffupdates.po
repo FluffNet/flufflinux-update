@@ -293,3 +293,23 @@ msgstr "D'Pakete-Datebank konnt net gespaart ginn. Maacht aner Pakete-Verwaltung
 
 msgid "Estimated time: %1"
 msgstr "Geschaten Zäit: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Restart Äre Computer ier Dir méi Updates installéiert fir de fréiere Update ofzeschléissen an ze hëllefen Äre System stabil ze halen."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Restart recommandéiert"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Wichteg Systemkomponente goufen aktualiséiert. Bis Dir Neistart, kënnen e puer Applikatiounen oder Apparater net richteg funktionnéieren. Späichert Är Aarbecht virum Neistart."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Restart"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "E Restart ass staark recommandéiert well wichteg Systemkomponenten aktualiséiert goufen."

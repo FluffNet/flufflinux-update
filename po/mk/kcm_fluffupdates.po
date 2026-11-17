@@ -293,3 +293,23 @@ msgstr "Базата на податоци за пакетите не можеш
 
 msgid "Estimated time: %1"
 msgstr "Проценето време: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Рестартирајте го компјутерот пред да инсталирате повеќе ажурирања за да го завршите претходното ажурирање и да помогнете да го одржите системот стабилен."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Се препорачува рестартирање"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Беа ажурирани важни компоненти на системот. Додека не се рестартирате, некои апликации или уреди може да не работат правилно. Зачувајте ја вашата работа пред да ја рестартирате."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Рестартирајте"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Силно се препорачува рестартирање бидејќи се ажурирани важни компоненти на системот."

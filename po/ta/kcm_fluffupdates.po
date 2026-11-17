@@ -293,3 +293,23 @@ msgstr "தொகுப்புத் தரவுத்தளத்தைப�
 
 msgid "Estimated time: %1"
 msgstr "மதிப்பிடப்பட்ட நேரம்: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "முந்தைய புதுப்பிப்பை முடிக்க மேலும் புதுப்பிப்புகளை நிறுவும் முன் உங்கள் கணினியை மறுதொடக்கம் செய்து உங்கள் கணினியை நிலையாக வைத்திருக்க உதவும்."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "மறுதொடக்கம் பரிந்துரைக்கப்படுகிறது"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "முக்கியமான கணினி கூறுகள் புதுப்பிக்கப்பட்டன. நீங்கள் மறுதொடக்கம் செய்யும் வரை, சில பயன்பாடுகள் அல்லது சாதனங்கள் சரியாக வேலை செய்யாமல் போகலாம். மறுதொடக்கம் செய்வதற்கு முன் உங்கள் வேலையைச் சேமிக்கவும்."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "மறுதொடக்கம்"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "முக்கியமான கணினி கூறுகள் புதுப்பிக்கப்பட்டதால், மறுதொடக்கம் கடுமையாக பரிந்துரைக்கப்படுகிறது."

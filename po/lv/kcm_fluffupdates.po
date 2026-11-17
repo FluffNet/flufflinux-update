@@ -376,3 +376,23 @@ msgstr "Neizdevās bloķēt pakotņu datubāzi. Aizveriet citus pakotņu pārval
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Aptuvenais laiks: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Pirms vairāku atjauninājumu instalēšanas restartējiet datoru, lai pabeigtu iepriekšējo atjauninājumu un palīdzētu uzturēt sistēmas stabilitāti."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Ieteicams restartēt"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Tika atjaunināti svarīgi sistēmas komponenti. Līdz restartēšanai dažas programmas vai ierīces var nedarboties pareizi. Pirms restartēšanas saglabājiet savu darbu."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Restartēt"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Restartēšana ir ļoti ieteicama, jo tika atjaunināti svarīgi sistēmas komponenti."

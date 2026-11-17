@@ -289,3 +289,23 @@ msgstr "ບໍ່ສາມາດລັອກຖານຂໍ້ມູນແພັ
 
 msgid "Estimated time: %1"
 msgstr "ເວລາຄາດຄະເນ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ຣີສະຕາດຄອມພິວເຕີຂອງທ່ານກ່ອນທີ່ຈະຕິດຕັ້ງການອັບເດດເພີ່ມເຕີມເພື່ອເຮັດສຳເລັດການປັບປຸງທີ່ຜ່ານມາ ແລະຊ່ວຍຮັກສາລະບົບຂອງທ່ານໃຫ້ໝັ້ນຄົງ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "ແນະນຳໃຫ້ເປີດຄືນໃໝ່"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "ອົງປະກອບລະບົບທີ່ສໍາຄັນໄດ້ຖືກປັບປຸງ. ຈົນກວ່າທ່ານຈະຣີສະຕາດ, ບາງແອັບພລິເຄຊັນ ຫຼືອຸປະກອນອາດຈະເຮັດວຽກບໍ່ຖືກຕ້ອງ. ບັນທຶກວຽກຂອງເຈົ້າກ່ອນທີ່ຈະປິດເປີດໃໝ່."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "ຣີສະຕາດ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ການປິດເປີດໃໝ່ແມ່ນແນະນຳຢ່າງແຂງແຮງ ເພາະວ່າອົງປະກອບຂອງລະບົບທີ່ສຳຄັນໄດ້ຖືກອັບເດດແລ້ວ."

@@ -293,3 +293,23 @@ msgstr "Isiseko sedatha seephakheji asikwazanga ukutshixwa. Vala abanye abaphath
 
 msgid "Estimated time: %1"
 msgstr "Ixesha eliqikelelweyo: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Qala kwakhona ikhompyuter yakho ngaphambi kokufaka uhlaziyo oluninzi ukugqiba uhlaziyo lwangaphambili kwaye uncede ugcine inkqubo yakho izinzile."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Ukuqalisa kwakhona kuyacetyiswa"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Amacandelo enkqubo ebalulekileyo aye ahlaziywa. Ude uqalise kwakhona, ezinye iinkqubo okanye izixhobo zisenokungasebenzi kakuhle. Gcina umsebenzi wakho ngaphambi kokuba uqale kwakhona."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Phinda Uqalele"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Ukuqalisa kwakhona kuyacetyiswa ngamandla kuba amalungu enkqubo ebalulekileyo aye ahlaziywa."

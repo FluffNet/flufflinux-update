@@ -293,3 +293,23 @@ msgstr "पॅकेज डेटाबेसाक कुलूप घालप
 
 msgid "Estimated time: %1"
 msgstr "अंदाजीत वेळ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "आदलो अद्ययावत पुराय करपाक आनी तुमची प्रणाली स्थिर दवरपाक मदत करपाक चड अद्ययावत प्रतिष्ठापीत करचे पयलीं तुमचो संगणक परतून सुरू करचो."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "परतून सुरू करपाची शिफारस केल्या"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "म्हत्वाचे प्रणाली घटक अद्ययावत केल्ले. तुमी परतून सुरू करचे बगर, कांय ऍप्लिकेशनां वा साधनां योग्य रितीन काम करूंक शकनात. परतून सुरू करचे पयलीं तुमचें काम जतनाय घेयात."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "परतून सुरू करचें"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "म्हत्वाचे प्रणाली घटक अद्ययावत केल्ले आशिल्ल्यान परतून सुरू करपाची खर शिफारस केल्या."

@@ -378,3 +378,23 @@ msgstr "پایگاه دادهٔ بسته‌ها قفل نشد. دیگر مدیر
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "زمان تخمینی: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "قبل از نصب به‌روزرسانی‌های بیشتر، رایانه خود را مجدداً راه‌اندازی کنید تا به‌روزرسانی قبلی کامل شود و به پایدار ماندن سیستم کمک کند."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "راه اندازی مجدد توصیه می شود"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "اجزای مهم سیستم به روز شد. تا زمانی که راه اندازی مجدد نکنید، ممکن است برخی از برنامه ها یا دستگاه ها به درستی کار نکنند. قبل از راه اندازی مجدد کار خود را ذخیره کنید."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "راه اندازی مجدد"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "راه اندازی مجدد به شدت توصیه می شود زیرا اجزای مهم سیستم به روز شده اند."

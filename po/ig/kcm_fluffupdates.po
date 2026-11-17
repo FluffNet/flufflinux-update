@@ -289,3 +289,23 @@ msgstr "Enweghị ike igbachi ebe nchekwa data ngwugwu. Mechie ndị njikwa ngwu
 
 msgid "Estimated time: %1"
 msgstr "Oge e mere atụmatụ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Malitegharịa ekwentị gị tupu ị wụnye mmelite ndị ọzọ iji mezue mmelite gara aga wee nyere aka mee ka sistemụ gị kwụsie ike."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "akwadoro ịmalitegharịa"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Emelitere akụkụ sistemụ dị mkpa. Ruo mgbe ịmalitegharịrị, ụfọdụ ngwa ma ọ bụ ngwaọrụ nwere ike ọ gaghị arụ ọrụ nke ọma. Chekwaa ọrụ gị tupu ịmalitegharịa."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Malitegharịa ekwentị"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "A na-atụ aro ịmalitegharị nke ọma n'ihi na emelitere ihe mejupụtara sistemu dị mkpa."

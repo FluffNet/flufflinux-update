@@ -372,3 +372,23 @@ msgstr "Nem sikerült zárolni a csomagadatbázist. Zárja be a többi csomagkez
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Becsült idő: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Indítsa újra a számítógépet, mielőtt további frissítéseket telepítene az előző frissítés befejezéséhez és a rendszer stabilitásának megőrzéséhez."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Újraindítás javasolt"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Fontos rendszerelemek frissítésre kerültek. Az újraindításig előfordulhat, hogy egyes alkalmazások vagy eszközök nem fognak megfelelően működni. Az újraindítás előtt mentse el a munkáját."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Indítsa újra"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Erősen ajánlott az újraindítás, mert a rendszer fontos összetevői frissültek."

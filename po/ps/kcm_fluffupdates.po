@@ -293,3 +293,23 @@ msgstr "د بستیو ډیټابېس قلف نه شو. د بستیو نور سم
 
 msgid "Estimated time: %1"
 msgstr "اټکلي وخت: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "د نورو تازه معلوماتو نصبولو دمخه خپل کمپیوټر بیا پیل کړئ ترڅو پخوانی تازه معلومات بشپړ کړئ او ستاسو سیسټم مستحکم ساتلو کې مرسته وکړئ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "د بیا پیل کولو وړاندیز شوی"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "د سیسټم مهم برخې تازه شوي. تر هغه چې تاسو بیا پیل نه کړئ، ځینې غوښتنلیکونه یا وسایل ممکن سم کار ونه کړي. د بیا پیل کولو دمخه خپل کار خوندي کړئ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "بیا پیل کړئ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "بیا پیل په کلکه سپارښتنه کیږي ځکه چې د سیسټم مهم برخې تازه شوي."

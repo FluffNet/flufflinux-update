@@ -372,3 +372,23 @@ msgstr "Δεν ήταν δυνατό το κλείδωμα της βάσης δ�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Εκτιμώμενος χρόνος: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Κάντε επανεκκίνηση του υπολογιστή σας πριν εγκαταστήσετε περισσότερες ενημερώσεις για να ολοκληρώσετε την προηγούμενη ενημέρωση και να διατηρήσετε το σύστημά σας σταθερό."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Συνιστάται επανεκκίνηση"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Σημαντικά στοιχεία του συστήματος ενημερώθηκαν. Μέχρι να κάνετε επανεκκίνηση, ορισμένες εφαρμογές ή συσκευές ενδέχεται να μην λειτουργούν σωστά. Αποθηκεύστε την εργασία σας πριν την επανεκκίνηση."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Επανεκκίνηση"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Συνιστάται ανεπιφύλακτα η επανεκκίνηση επειδή ενημερώθηκαν σημαντικά στοιχεία του συστήματος."

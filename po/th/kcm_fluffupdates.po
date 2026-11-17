@@ -374,3 +374,23 @@ msgstr "ไม่สามารถล็อกฐานข้อมูลแพ
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "เวลาโดยประมาณ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "รีสตาร์ทคอมพิวเตอร์ก่อนที่จะติดตั้งการอัปเดตเพิ่มเติมเพื่อให้การอัปเดตก่อนหน้านี้เสร็จสมบูรณ์ และช่วยให้ระบบของคุณมีเสถียรภาพ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "แนะนำให้รีสตาร์ท"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "ส่วนประกอบของระบบที่สำคัญได้รับการอัปเดตแล้ว แอปพลิเคชันหรืออุปกรณ์บางอย่างอาจทำงานไม่ถูกต้องจนกว่าคุณจะรีสตาร์ท บันทึกงานของคุณก่อนที่จะรีสตาร์ท"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "รีสตาร์ท"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ขอแนะนำให้รีสตาร์ทอย่างยิ่งเนื่องจากมีการอัปเดตส่วนประกอบของระบบที่สำคัญแล้ว"

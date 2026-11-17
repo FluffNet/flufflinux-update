@@ -306,3 +306,23 @@ msgstr "La base de données des paquets n’a pas pu être verrouillée. Fermez 
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Temps estimé : %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Redémarrez votre ordinateur avant d'installer d'autres mises à jour pour terminer la mise à jour précédente et contribuer à maintenir la stabilité de votre système."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Redémarrage recommandé"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Des composants importants du système ont été mis à jour. Jusqu'au redémarrage, certaines applications ou appareils peuvent ne pas fonctionner correctement. Enregistrez votre travail avant de redémarrer."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Redémarrage"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Un redémarrage est fortement recommandé car des composants importants du système ont été mis à jour."

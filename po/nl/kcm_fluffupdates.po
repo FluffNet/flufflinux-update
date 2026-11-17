@@ -372,3 +372,23 @@ msgstr "De pakketdatabase kon niet worden vergrendeld. Sluit andere pakketbeheer
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Geschatte tijd: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Start uw computer opnieuw op voordat u meer updates installeert om de vorige update te voltooien en uw systeem stabiel te houden."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Opnieuw opstarten aanbevolen"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Belangrijke systeemcomponenten zijn bijgewerkt. Totdat u opnieuw opstart, werken sommige toepassingen of apparaten mogelijk niet correct. Sla uw werk op voordat u opnieuw opstart."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Opnieuw opstarten"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Een herstart wordt sterk aanbevolen omdat belangrijke systeemcomponenten zijn bijgewerkt."

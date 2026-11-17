@@ -309,3 +309,23 @@ msgstr "Methu cloi cronfa ddata'r pecynnau. Caewch reolwyr pecynnau eraill a gwi
 
 msgid "Estimated time: %1"
 msgstr "Amser amcangyfrifedig: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Ailgychwyn eich cyfrifiadur cyn gosod mwy o ddiweddariadau i gwblhau'r diweddariad blaenorol a helpu i gadw'ch system yn sefydlog."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Argymhellir ailgychwyn"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Diweddarwyd cydrannau system pwysig. Hyd nes i chi ailgychwyn, efallai na fydd rhai cymwysiadau neu ddyfeisiau'n gweithio'n gywir. Arbedwch eich gwaith cyn ailgychwyn."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Ailgychwyn"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Argymhellir ailgychwyn yn gryf oherwydd bod cydrannau system pwysig wedi'u diweddaru."

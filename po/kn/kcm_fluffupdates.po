@@ -293,3 +293,23 @@ msgstr "ಪ್ಯಾಕೇಜ್ ದತ್ತಸಂಚಯವನ್ನು ಲಾ�
 
 msgid "Estimated time: %1"
 msgstr "ಅಂದಾಜು ಸಮಯ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ಹಿಂದಿನ ನವೀಕರಣವನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಸಿಸ್ಟಂ ಸ್ಥಿರವಾಗಿರಲು ಸಹಾಯ ಮಾಡಲು ಹೆಚ್ಚಿನ ನವೀಕರಣಗಳನ್ನು ಸ್ಥಾಪಿಸುವ ಮೊದಲು ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "ಮರುಪ್ರಾರಂಭಿಸಲು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "ಪ್ರಮುಖ ಸಿಸ್ಟಮ್ ಘಟಕಗಳನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ. ನೀವು ಮರುಪ್ರಾರಂಭಿಸುವವರೆಗೆ, ಕೆಲವು ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಅಥವಾ ಸಾಧನಗಳು ಸರಿಯಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸದೇ ಇರಬಹುದು. ಮರುಪ್ರಾರಂಭಿಸುವ ಮೊದಲು ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಉಳಿಸಿ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "ಮರುಪ್ರಾರಂಭಿಸಿ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ಪ್ರಮುಖ ಸಿಸ್ಟಮ್ ಘಟಕಗಳನ್ನು ನವೀಕರಿಸಿದ ಕಾರಣ ಮರುಪ್ರಾರಂಭಿಸಲು ಬಲವಾಗಿ ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ."

@@ -289,3 +289,23 @@ msgstr "ပက်ကေ့ချ်ဒေတာဘေ့စ်ကို သေ�
 
 msgid "Estimated time: %1"
 msgstr "ခန့်မှန်းချိန်: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ယခင်အပ်ဒိတ်များကို အပြီးသတ်ရန်နှင့် သင့်စနစ်တည်ငြိမ်စေရန် ကူညီပေးရန်အတွက် နောက်ထပ်အပ်ဒိတ်များကို မထည့်သွင်းမီ သင့်ကွန်ပျူတာကို ပြန်လည်စတင်ပါ။"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "ပြန်လည်စတင်ရန် အကြံပြုထားသည်။"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "အရေးကြီးသော စနစ်အစိတ်အပိုင်းများကို အပ်ဒိတ်လုပ်ခဲ့သည်။ သင်ပြန်စမချင်း၊ အချို့သော အပလီကေးရှင်းများ သို့မဟုတ် စက်ပစ္စည်းများသည် မှန်ကန်စွာ အလုပ်လုပ်မည်မဟုတ်ပါ။ ပြန်လည်စတင်ခြင်းမပြုမီ သင့်အလုပ်ကို သိမ်းဆည်းပါ။"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "ပြန်စတင်သည်"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "အရေးကြီးသော စနစ်အစိတ်အပိုင်းများကို အပ်ဒိတ်လုပ်ထားသောကြောင့် ပြန်လည်စတင်ရန် အထူးအကြံပြုအပ်ပါသည်။"

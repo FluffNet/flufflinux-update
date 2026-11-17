@@ -63,6 +63,8 @@ pub fn initial_model() -> Value {
         "checkError": "",
         "updatePackages": [],
         "batteryLow": false,
+        "restartRecommended": false,
+        "restartRequired": false,
         "installPhase": "idle",
         "updateActive": false,
         "installProgress": 0.0,
@@ -333,6 +335,9 @@ impl Controller {
         (self.translate)(message, "", -1, args)
     }
     fn emit(&mut self) {
+        let reboot = crate::reboot::current();
+        self.model["restartRecommended"] = json!(reboot["recommended"] == true);
+        self.model["restartRequired"] = json!(reboot["blocked"] == true);
         self.model["updateActive"] = json!(self.active());
         // Some transitions (e.g. authorization failure) do not read worker
         // state. Clear the estimate before publishing those transitions too.
@@ -682,7 +687,8 @@ impl Controller {
                 if !self.active()
                     && self.boolean("updatesAvailable")
                     && self.string("checkError").is_empty()
-                    && self.boolean("networkConnected") =>
+                    && self.boolean("networkConnected")
+                    && !crate::reboot::blocked() =>
             {
                 self.success_until = None;
                 self.cancel_until = None;
@@ -706,7 +712,9 @@ impl Controller {
                     let output = String::from_utf8_lossy(&result.output);
                     self.model["installPhase"] = json!("failed");
                     self.model["installError"] =
-                        json!(self.tr(if output.contains("PACMAN_RUNNING") {
+                        json!(self.tr(if output.contains("REBOOT_REQUIRED") {
+                            crate::reboot::BLOCKED
+                        } else if output.contains("PACMAN_RUNNING") {
                             "pacman process is already running."
                         } else if authorized_error(result.exit_code, &output) {
                             "Authorization error, please try again."

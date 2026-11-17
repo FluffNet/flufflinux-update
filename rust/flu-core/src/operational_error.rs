@@ -63,6 +63,7 @@ pub fn message(code: &str) -> &'static str {
         "DOWNLOAD_FAILED" => MESSAGES[8],
         "TRANSACTION_PREPARE_FAILED" => MESSAGES[9],
         "SLEEP_INHIBITOR_FAILED" => MESSAGES[10],
+        "REBOOT_REQUIRED" => crate::reboot::BLOCKED,
         // Read state written by older workers without changing its meaning.
         "DOWNLOAD_CONNECTION_FAILED" => {
             "Connection failed while downloading updates. Check your network and try again."

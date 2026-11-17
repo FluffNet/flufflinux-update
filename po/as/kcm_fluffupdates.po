@@ -293,3 +293,23 @@ msgstr "পেকেজ ডাটাবেছ লক কৰিব পৰা ন�
 
 msgid "Estimated time: %1"
 msgstr "আনুমানিক সময়: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "পূৰ্বৱৰ্তী আপডেইট সম্পূৰ্ণ কৰিবলে আৰু আপোনাৰ ব্যৱস্থাপ্ৰণালী সুস্থিৰ ৰখাত সহায় কৰিবলে অধিক আপডেইটসমূহ সংস্থাপন কৰাৰ আগতে আপোনাৰ কমপিউটাৰ পুনৰাৰম্ভ কৰক ।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "পুনৰাৰম্ভ কৰাৰ পৰামৰ্শ দিয়া হৈছে"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "গুৰুত্বপূৰ্ণ চিস্টেম উপাদানসমূহ আপডেইট কৰা হৈছিল। আপুনি পুনৰাৰম্ভ নকৰালৈকে, কিছুমান এপ্লিকেচন বা ডিভাইচে সঠিকভাৱে কাম নকৰিবও পাৰে। পুনৰাৰম্ভ কৰাৰ আগতে আপোনাৰ কাম সংৰক্ষণ কৰক।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "পুনৰাৰম্ভ কৰক"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "এটা পুনৰাৰম্ভ কৰাটো দৃঢ়ভাৱে উপদেশিত কাৰণ গুৰুত্বপূৰ্ণ ব্যৱস্থাপ্ৰণালীৰ অংশসমূহ আপডেইট কৰা হৈছিল ।"

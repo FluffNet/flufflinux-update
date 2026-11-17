@@ -376,3 +376,23 @@ msgstr "Baza de date a pachetelor nu a putut fi blocată. Închideți ceilalți 
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Timp estimat: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Reporniți computerul înainte de a instala mai multe actualizări pentru a finaliza actualizarea anterioară și pentru a vă menține sistemul stabil."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Reporniți recomandat"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Componentele importante ale sistemului au fost actualizate. Până când reporniți, este posibil ca unele aplicații sau dispozitive să nu funcționeze corect. Salvați-vă munca înainte de a reporni."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Repornire"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Se recomandă insistent o repornire deoarece componentele importante ale sistemului au fost actualizate."

@@ -380,3 +380,23 @@ msgstr "Podatkovne zbirke paketov ni bilo mogoče zakleniti. Zaprite druge uprav
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Predvideni čas: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Znova zaženite računalnik, preden namestite več posodobitev, da dokončate prejšnjo posodobitev in pomagate ohranjati stabilen sistem."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Priporočen ponovni zagon"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Posodobljene so bile pomembne komponente sistema. Dokler znova ne zaženete, nekatere aplikacije ali naprave morda ne bodo delovale pravilno. Pred ponovnim zagonom shranite svoje delo."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Znova zaženite"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Močno priporočamo ponovni zagon, ker so bile posodobljene pomembne komponente sistema."

@@ -293,3 +293,23 @@ msgstr "Non foi posible bloquear a base de datos de paquetes. Pecha outros xesto
 
 msgid "Estimated time: %1"
 msgstr "Tempo estimado: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Reinicia o teu ordenador antes de instalar máis actualizacións para completar a actualización anterior e axudar a manter o teu sistema estable."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Recoméndase reiniciar"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Actualizáronse compoñentes importantes do sistema. Ata que reinicie, é posible que algunhas aplicacións ou dispositivos non funcionen correctamente. Garda o teu traballo antes de reiniciar."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Reiniciar"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Recoméndase encarecidamente un reinicio porque se actualizaron compoñentes importantes do sistema."

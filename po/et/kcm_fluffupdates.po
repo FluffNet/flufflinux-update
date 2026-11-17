@@ -372,3 +372,23 @@ msgstr "Paketibaasi ei õnnestunud lukustada. Sulge teised paketihaldurid ja kon
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Hinnanguline aeg: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Taaskäivitage arvuti enne uute värskenduste installimist, et eelmine värskendus lõpule viia ja süsteemi stabiilsena hoida."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Soovitatav taaskäivitada"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Olulisi süsteemikomponente uuendati. Kuni taaskäivitamiseni ei pruugi mõned rakendused või seadmed korralikult töötada. Enne taaskäivitamist salvestage oma töö."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Taaskäivitage"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Taaskäivitamine on tungivalt soovitatav, kuna olulisi süsteemikomponente värskendati."

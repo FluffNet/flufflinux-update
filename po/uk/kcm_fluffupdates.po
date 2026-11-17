@@ -382,3 +382,23 @@ msgstr "Не вдалося заблокувати базу даних паку�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Орієнтовний час: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Перезавантажте комп’ютер, перш ніж встановлювати додаткові оновлення, щоб завершити попереднє оновлення та зберегти стабільність системи."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Рекомендовано перезапустити"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Оновлено важливі компоненти системи. До перезавантаження деякі програми або пристрої можуть працювати неналежним чином. Збережіть свою роботу перед перезапуском."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Перезапустіть"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Настійно рекомендується перезапустити, оскільки важливі системні компоненти було оновлено."

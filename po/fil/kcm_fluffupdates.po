@@ -378,3 +378,23 @@ msgstr "Hindi mai-lock ang database ng mga package. Isara ang ibang package mana
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Tinatayang oras: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "I-restart ang iyong computer bago mag-install ng higit pang mga update upang makumpleto ang nakaraang update at makatulong na panatilihing stable ang iyong system."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Inirerekomenda ang pag-restart"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Na-update ang mahahalagang bahagi ng system. Hanggang sa mag-restart ka, maaaring hindi gumana nang tama ang ilang application o device. I-save ang iyong trabaho bago i-restart."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "I-restart"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Lubos na inirerekomenda ang pag-restart dahil na-update ang mahahalagang bahagi ng system."
