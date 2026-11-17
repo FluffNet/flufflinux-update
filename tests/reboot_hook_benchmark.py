@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare real pre-transaction hooks without changing the live reboot state."""
+"""Compare real pre/post-transaction hooks without changing the live reboot state."""
 import argparse
 import json
 import os
@@ -30,6 +30,7 @@ with tempfile.TemporaryDirectory(prefix='flu-hook-benchmark-') as temporary:
     shutil.copytree('/etc/pacman.d', private, symlinks=True, ignore=shutil.ignore_patterns('gnupg'))
     subprocess.run(['mount', '--bind', private, '/etc/pacman.d'], check=True)
     samples = {'baseline': [], 'candidate': []}
+    post_samples = {'baseline': [], 'candidate': []}
     expected = None
     try:
         for _ in range(5):
@@ -43,10 +44,21 @@ with tempfile.TemporaryDirectory(prefix='flu-hook-benchmark-') as temporary:
                 if expected is None:
                     expected = comparable
                 assert comparable == expected, 'optimized hook changed the captured restart policy'
+                marker = private / 'flufflinux-update-reboot.json'
+                before_marker = marker.read_bytes() if marker.exists() else None
+                start = time.perf_counter()
+                result = subprocess.run([binary, '--reboot-after'], capture_output=True, text=True, check=True)
+                post_samples[name].append(time.perf_counter() - start)
+                assert not result.stderr, result.stderr
+                assert not (private / 'flufflinux-update-reboot-before.json').exists()
+                assert (marker.read_bytes() if marker.exists() else None) == before_marker
+
         report = {'loaded_modules': len(Path('/proc/modules').read_text().splitlines()),
                   'identical_snapshots': True, 'watched_packages': len(expected['watched']),
                   'samples_seconds': samples,
                   'median_seconds': {name: statistics.median(values) for name, values in samples.items()}}
+        report['post_samples_seconds'] = post_samples
+        report['post_median_seconds'] = {name: statistics.median(values) for name, values in post_samples.items()}
         report['speedup'] = report['median_seconds']['baseline'] / report['median_seconds']['candidate']
         args.output.write_text(json.dumps(report, indent=2) + '\n')
         print(json.dumps(report, indent=2))
