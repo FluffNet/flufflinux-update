@@ -891,17 +891,34 @@ class Workflows:
             for hook in (Path(__file__).resolve().parents[1] / "src/hooks").glob("*.hook"):
                 shutil.copy2(hook, hookdir / hook.name)
             config.write_text(original_config.replace(f"RootDir = {self.base}/root", "RootDir = /"))
+        modinfo = self.base / "modinfo-fixture"
+        mapping = self.base / "module-paths.json"
+        mapping.write_text("{}")
+        modinfo.write_text("#!/usr/bin/python3\nimport json,sys\n"
+                           + f"paths=json.load(open({str(mapping)!r}))\n"
+                           + "print(paths.get(sys.argv[-1], '/usr/share/flu-test/unowned-module'))\n")
+        modinfo.chmod(0o755)
+        run(["mount", "--bind", modinfo, "/usr/bin/modinfo"])
         run(["mount", "--bind", modules, "/proc/modules"])
         run(["mount", "--bind", uname, "/usr/bin/uname"])
         run(["mount", "--bind", tree.parent, "/usr/lib/modules"])
         cases = [("linux-lts", "", None), ("linux", "", True),
                  ("nvidia-dkms", "", None), ("nvidia-dkms", "nvidia", True),
                  ("zfs-dkms", "", None), ("zfs-dkms", "zfs", True),
-                 ("virtualbox-host-dkms", "vboxdrv", False), ("kwin", "", False)]
+                 ("virtualbox-host-dkms", "vboxdrv", False), ("kwin", "", False),
+                 ("flu-test-nvidia-driver", "nvidia", True),
+                 ("flu-test-zfs-driver", "zfs", True),
+                 ("flu-test-external-driver", "test_extra", False)]
         try:
             for index, (name, module, blocked) in enumerate(cases):
                 marker.unlink(missing_ok=True)
                 modules.write_text(module + " 1 0 - Live 0\n" if module else "")
+                mapping.write_text("{}")
+                if name.startswith("flu-test-"):
+                    prefix = Path("/") if terminal else self.base / "root"
+                    mapping.write_text(json.dumps({module: str(prefix / "usr/share/flu-test" / name)}))
+                    missing = "zfs" if module == "nvidia" else "nvidia" if module == "zfs" else "unowned_extra"
+                    modules.write_text("".join(item + " 1 0 - Live 0\n" for item in [module, missing]))
                 old = package(self.base / "repo", name, f"{index*2+1+(100 if terminal else 0)}-1")
                 new = package(self.base / "repo", name, f"{index*2+2+(100 if terminal else 0)}-1")
                 self.pacman("-U", "--noconfirm", old)
@@ -950,10 +967,10 @@ class Workflows:
                 hook.write_text(hook.read_text().replace("/usr/lib/flufflinux-update/flufflinux-update-worker --reboot-before", "/usr/bin/false"))
                 self.pacman("-U", "--noconfirm", package(self.base / "repo", "flu-test-terminal-unrestricted", "2-1"))
             return {"terminal": terminal, "active_kernel": True, "inactive_kernel_ignored": True,
-                    "nvidia_and_zfs_only_when_loaded": True, "other_modules_and_kwin_advisory": True}
+                    "nvidia_and_zfs_only_when_loaded": True, "other_modules_and_kwin_advisory": True, "mixed_owned_and_unowned_module_batches": True}
         finally:
             marker.unlink(missing_ok=True)
-            for path in ["/proc/modules", "/usr/bin/uname", "/usr/lib/modules"]:
+            for path in ["/usr/bin/modinfo", "/proc/modules", "/usr/bin/uname", "/usr/lib/modules"]:
                 run(["umount", path])
             if terminal:
                 config.write_text(original_config)

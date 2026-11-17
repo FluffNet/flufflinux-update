@@ -340,6 +340,18 @@ launcher. Nothing from this fixture is installed into the FLU package.
 Sleep-inhibitor checks query the VM's real logind and temporarily inhibit sleep
 while the isolated worker is running. Do not run another FLU update concurrently.
 
+To compare restart-hook performance, keep a copy of the previous release worker
+and run both binaries against the same VM. This benchmark runs five paired
+measurements in a private mount namespace and verifies identical package and
+restart-policy snapshots. It does not change the live restart marker.
+
+```sh
+sudo python3 tests/reboot_hook_benchmark.py \
+    --baseline /path/to/previous/flufflinux-update-worker \
+    --candidate "$PWD/build/bin/flufflinux-update-worker" \
+    --output "$PWD/reboot-hook-benchmark.json"
+```
+
 The existing `lastupdate` hook provides this field:
 
 ```json

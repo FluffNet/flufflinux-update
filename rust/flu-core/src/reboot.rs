@@ -57,6 +57,21 @@ fn versions() -> Option<BTreeMap<String, String>> {
             .collect(),
     )
 }
+fn add_module_owners(
+    watched: &mut BTreeMap<String, bool>,
+    versions: &BTreeMap<String, String>,
+    owners: &str,
+    critical: bool,
+) {
+    for owner in owners.lines().map(str::trim) {
+        if versions.contains_key(owner) {
+            watched
+                .entry(owner.to_owned())
+                .and_modify(|value| *value |= critical)
+                .or_insert(critical);
+        }
+    }
+}
 pub struct Snapshot {
     boot: String,
     versions: BTreeMap<String, String>,
@@ -85,16 +100,41 @@ impl Snapshot {
             .lines()
             .filter_map(|l| l.split_whitespace().next())
             .collect();
+        let mut module_files = BTreeMap::new();
         for module in &modules {
             let file = output("/usr/bin/modinfo", &["-n", module]);
             if file.starts_with('/') {
-                let owner = output("/usr/bin/pacman", &["-Qqo", &file]);
-                if versions.contains_key(&owner) {
-                    let critical = *module == "nvidia" || *module == "zfs";
-                    watched
-                        .entry(owner)
-                        .and_modify(|value| *value |= critical)
-                        .or_insert(critical);
+                let critical = *module == "nvidia" || *module == "zfs";
+                module_files
+                    .entry(file)
+                    .and_modify(|value| *value |= critical)
+                    .or_insert(critical);
+            }
+        }
+        // Pacman reloads its installed-file database for each invocation.
+        // Query paths together, keeping critical owners in their own group.
+        for critical in [false, true] {
+            let paths: Vec<_> = module_files
+                .iter()
+                .filter(|(_, required)| **required == critical)
+                .map(|(path, _)| path.as_str())
+                .collect();
+            // Bound argv size even on hosts with unusually many modules.
+            for chunk in paths.chunks(128) {
+                if let Ok(result) = Command::new("/usr/bin/pacman")
+                    .args(["-Qqo", "--"])
+                    .args(chunk)
+                    .env("LC_ALL", "C")
+                    .output()
+                {
+                    // An unowned DKMS path makes Pacman exit nonzero, while
+                    // stdout still lists valid owners of other paths.
+                    add_module_owners(
+                        &mut watched,
+                        &versions,
+                        &String::from_utf8_lossy(&result.stdout),
+                        critical,
+                    );
                 }
             }
         }
@@ -265,6 +305,31 @@ mod tests {
                 true
             );
         }
+    }
+    #[test]
+    fn batched_owners_deduplicate_and_never_downgrade_critical_packages() {
+        let versions = BTreeMap::from([
+            ("linux".into(), "1".into()),
+            ("nvidia".into(), "1".into()),
+            ("external-driver".into(), "1".into()),
+        ]);
+        let mut watched = BTreeMap::from([("linux".into(), true)]);
+        add_module_owners(
+            &mut watched,
+            &versions,
+            "linux\nexternal-driver\nexternal-driver\nunknown\n",
+            false,
+        );
+        add_module_owners(&mut watched, &versions, "nvidia\nexternal-driver\n", true);
+        add_module_owners(&mut watched, &versions, "nvidia\n", false);
+        assert_eq!(
+            watched,
+            BTreeMap::from([
+                ("linux".into(), true),
+                ("nvidia".into(), true),
+                ("external-driver".into(), true),
+            ])
+        );
     }
     #[test]
     fn requirements_expire_only_on_new_boot() {
