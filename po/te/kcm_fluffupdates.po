@@ -293,3 +293,23 @@ msgstr "ప్యాకేజీ డేటాబేస్‌ను లాక్ 
 
 msgid "Estimated time: %1"
 msgstr "అంచనా సమయం: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "మునుపటి అప్‌డేట్‌ను పూర్తి చేయడానికి మరియు మీ సిస్టమ్‌ను స్థిరంగా ఉంచడంలో సహాయపడటానికి మరిన్ని నవీకరణలను ఇన్‌స్టాల్ చేసే ముందు మీ కంప్యూటర్‌ను పునఃప్రారంభించండి."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "పునఃప్రారంభించాలని సిఫార్సు చేయబడింది"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "ముఖ్యమైన సిస్టమ్ భాగాలు నవీకరించబడ్డాయి. మీరు పునఃప్రారంభించే వరకు, కొన్ని అప్లికేషన్లు లేదా పరికరాలు సరిగ్గా పని చేయకపోవచ్చు. పునఃప్రారంభించే ముందు మీ పనిని సేవ్ చేయండి."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "పునఃప్రారంభించండి"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ముఖ్యమైన సిస్టమ్ భాగాలు నవీకరించబడినందున పునఃప్రారంభించడం గట్టిగా సిఫార్సు చేయబడింది."

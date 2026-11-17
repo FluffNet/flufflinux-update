@@ -297,3 +297,23 @@ msgstr "Не ўдалося заблакіраваць базу даных па�
 
 msgid "Estimated time: %1"
 msgstr "Прыблізны час: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Перазагрузіце камп'ютар перад устаноўкай дадатковых абнаўленняў, каб завяршыць папярэдняе абнаўленне і дапамагчы падтрымліваць стабільную сістэму."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Рэкамендуецца перазапусціць"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Былі абноўлены важныя кампаненты сістэмы. Пакуль вы не перазапусціце, некаторыя праграмы або прылады могуць працаваць няправільна. Перад перазапускам захавайце працу."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Перазапуск"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Настойліва рэкамендуецца перазагрузка, таму што былі абноўлены важныя кампаненты сістэмы."

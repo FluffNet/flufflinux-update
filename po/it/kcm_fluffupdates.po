@@ -372,3 +372,23 @@ msgstr "Non è stato possibile bloccare il database dei pacchetti. Chiudi gli al
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Tempo stimato: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Riavvia il computer prima di installare altri aggiornamenti per completare l'aggiornamento precedente e mantenere stabile il sistema."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Consigliato il riavvio"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Importanti componenti del sistema sono stati aggiornati. Fino al riavvio, alcune applicazioni o dispositivi potrebbero non funzionare correttamente. Salva il tuo lavoro prima di riavviare."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Ricomincia"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Si consiglia vivamente di riavviare il sistema poiché sono stati aggiornati importanti componenti del sistema."

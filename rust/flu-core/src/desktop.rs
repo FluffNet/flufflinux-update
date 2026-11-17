@@ -63,6 +63,8 @@ pub fn initial_model() -> Value {
         "checkError": "",
         "updatePackages": [],
         "batteryLow": false,
+        "restartRecommended": false,
+        "restartRequired": false,
         "installPhase": "idle",
         "updateActive": false,
         "installProgress": 0.0,
@@ -162,6 +164,17 @@ pub fn summary_packages(packages: &mut Vec<Value>, output: &str) {
         {
             packages
                 .push(json!({"name":&m[1],"currentVersion":"","newName":&m[1],"newVersion":&m[2]}));
+        }
+    }
+    // Match the incoming package name for replacements, not the removed name.
+    let sizes =
+        Regex::new(r"(?m)^FLU_PACKAGE_DOWNLOAD_SIZE:([A-Za-z0-9@._+:-]+)\|([0-9]+)$").unwrap();
+    for m in sizes.captures_iter(output) {
+        if let Ok(bytes) = m[2].parse::<i64>() {
+            for package in packages.iter_mut().filter(|p| p["newName"] == m[1]) {
+                package["downloadBytes"] = json!(bytes);
+                package["downloadSize"] = json!(human_size(bytes));
+            }
         }
     }
 }
@@ -322,6 +335,9 @@ impl Controller {
         (self.translate)(message, "", -1, args)
     }
     fn emit(&mut self) {
+        let reboot = crate::reboot::current();
+        self.model["restartRecommended"] = json!(reboot["recommended"] == true);
+        self.model["restartRequired"] = json!(reboot["blocked"] == true);
         self.model["updateActive"] = json!(self.active());
         // Some transitions (e.g. authorization failure) do not read worker
         // state. Clear the estimate before publishing those transitions too.
@@ -671,7 +687,8 @@ impl Controller {
                 if !self.active()
                     && self.boolean("updatesAvailable")
                     && self.string("checkError").is_empty()
-                    && self.boolean("networkConnected") =>
+                    && self.boolean("networkConnected")
+                    && !crate::reboot::blocked() =>
             {
                 self.success_until = None;
                 self.cancel_until = None;
@@ -695,7 +712,9 @@ impl Controller {
                     let output = String::from_utf8_lossy(&result.output);
                     self.model["installPhase"] = json!("failed");
                     self.model["installError"] =
-                        json!(self.tr(if output.contains("PACMAN_RUNNING") {
+                        json!(self.tr(if output.contains("REBOOT_REQUIRED") {
+                            crate::reboot::BLOCKED
+                        } else if output.contains("PACMAN_RUNNING") {
                             "pacman process is already running."
                         } else if authorized_error(result.exit_code, &output) {
                             "Authorization error, please try again."
@@ -1103,6 +1122,19 @@ mod tests {
         assert_eq!(p.len(), 3);
         assert_eq!(p[1]["newName"], "new");
         assert_eq!(p[2]["currentVersion"], "");
+    }
+    #[test]
+    fn package_sizes_follow_incoming_packages() {
+        let mut packages = parse_packages("old 1 -> 2\nsame 1 -> 2\nunknown 1 -> 2\n");
+        summary_packages(
+            &mut packages,
+            "FLU_REPLACEMENT:old|1|new|3\nFLU_PLANNED_PACKAGE:dependency|1\nFLU_PACKAGE_DOWNLOAD_SIZE:new|1048576\nFLU_PACKAGE_DOWNLOAD_SIZE:same|0\nFLU_PACKAGE_DOWNLOAD_SIZE:dependency|2048\nFLU_PACKAGE_DOWNLOAD_SIZE:unknown|-1\n",
+        );
+        let find = |name: &str| packages.iter().find(|p| p["newName"] == name).unwrap();
+        assert_eq!(find("new")["downloadSize"], human_size(1048576));
+        assert_eq!(find("same")["downloadBytes"], 0);
+        assert_eq!(find("dependency")["downloadBytes"], 2048);
+        assert!(find("unknown").get("downloadSize").is_none());
     }
     #[test]
     fn settings_preserve_unknown_fields() {

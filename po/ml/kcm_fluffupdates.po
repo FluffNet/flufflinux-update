@@ -293,3 +293,23 @@ msgstr "പാക്കേജ് ഡേറ്റാബേസ് പൂട്ട�
 
 msgid "Estimated time: %1"
 msgstr "കണക്കാക്കിയ സമയം: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "മുമ്പത്തെ അപ്‌ഡേറ്റ് പൂർത്തിയാക്കാനും നിങ്ങളുടെ സിസ്റ്റം സ്ഥിരത നിലനിർത്താനും സഹായിക്കുന്നതിന് കൂടുതൽ അപ്‌ഡേറ്റുകൾ ഇൻസ്റ്റാൾ ചെയ്യുന്നതിന് മുമ്പ് നിങ്ങളുടെ കമ്പ്യൂട്ടർ പുനരാരംഭിക്കുക."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "പുനരാരംഭിക്കാൻ ശുപാർശ ചെയ്യുന്നു"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "പ്രധാനപ്പെട്ട സിസ്റ്റം ഘടകങ്ങൾ അപ്ഡേറ്റ് ചെയ്തു. നിങ്ങൾ പുനരാരംഭിക്കുന്നതുവരെ, ചില ആപ്ലിക്കേഷനുകളോ ഉപകരണങ്ങളോ ശരിയായി പ്രവർത്തിച്ചേക്കില്ല. പുനരാരംഭിക്കുന്നതിന് മുമ്പ് നിങ്ങളുടെ ജോലി സംരക്ഷിക്കുക."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "പുനരാരംഭിക്കുക"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "പ്രധാനപ്പെട്ട സിസ്റ്റം ഘടകങ്ങൾ അപ്‌ഡേറ്റ് ചെയ്‌തതിനാൽ പുനരാരംഭിക്കുന്നതിന് ശക്തമായി ശുപാർശ ചെയ്യുന്നു."

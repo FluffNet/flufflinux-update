@@ -289,3 +289,23 @@ msgstr "Kò ṣeé ti ibùdó dátà àkójọpọ̀ pa. Pa àwọn olùṣàkó
 
 msgid "Estimated time: %1"
 msgstr "Àkókò tí a fojú díwọ̀n: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Tun kọmputa rẹ bẹrẹ ṣaaju fifi awọn imudojuiwọn diẹ sii lati pari imudojuiwọn iṣaaju ati ṣe iranlọwọ lati jẹ ki eto rẹ duro iduroṣinṣin."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Tun ṣe iṣeduro niyanju"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Awọn paati eto pataki ti ni imudojuiwọn. Titi ti o ba tun bẹrẹ, diẹ ninu awọn ohun elo tabi awọn ẹrọ le ma ṣiṣẹ bi o ti tọ. Fi iṣẹ rẹ pamọ ṣaaju ki o to tun bẹrẹ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Tun bẹrẹ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Tun bẹrẹ ni a gbaniyanju gidigidi nitori awọn paati eto pataki ti ni imudojuiwọn."

@@ -382,3 +382,23 @@ msgstr "База података пакета није могла да се з�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Процењено време: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Поново покрените рачунар пре него што инсталирате још ажурирања да бисте довршили претходно ажурирање и помогли да систем остане стабилан."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Препоручује се поновно покретање"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Важне компоненте система су ажуриране. Док не рестартујете, неке апликације или уређаји можда неће радити исправно. Сачувајте свој рад пре поновног покретања."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Поново покрени"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Препоручује се поновно покретање јер су важне компоненте система ажуриране."

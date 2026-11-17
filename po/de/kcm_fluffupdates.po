@@ -306,3 +306,23 @@ msgstr "Die Paketdatenbank konnte nicht gesperrt werden. Schließen Sie andere P
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Geschätzte Zeit: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Starten Sie Ihren Computer neu, bevor Sie weitere Updates installieren, um das vorherige Update abzuschließen und die Stabilität Ihres Systems zu gewährleisten."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Neustart empfohlen"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Wichtige Systemkomponenten wurden aktualisiert. Bis zum Neustart funktionieren einige Anwendungen oder Geräte möglicherweise nicht ordnungsgemäß. Speichern Sie Ihre Arbeit, bevor Sie neu starten."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Neustart"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Ein Neustart wird dringend empfohlen, da wichtige Systemkomponenten aktualisiert wurden."

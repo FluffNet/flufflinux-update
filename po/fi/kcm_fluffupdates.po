@@ -372,3 +372,23 @@ msgstr "Pakettitietokantaa ei voitu lukita. Sulje muut paketinhallintaohjelmat j
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Arvioitu aika: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Käynnistä tietokone uudelleen ennen uusien päivitysten asentamista, jotta voit suorittaa edellisen päivityksen ja pitää järjestelmän vakaana."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Uudelleenkäynnistys suositellaan"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Tärkeitä järjestelmäkomponentteja päivitettiin. Jotkin sovellukset tai laitteet eivät ehkä toimi oikein, ennen kuin käynnistät sen uudelleen. Tallenna työsi ennen uudelleenkäynnistystä."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Käynnistä uudelleen"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Uudelleenkäynnistys on erittäin suositeltavaa, koska tärkeitä järjestelmän komponentteja päivitettiin."

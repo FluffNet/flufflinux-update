@@ -374,3 +374,23 @@ msgstr "패키지 데이터베이스를 잠글 수 없습니다. 다른 패키�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "예상 시간: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "이전 업데이트를 완료하고 시스템을 안정적으로 유지하려면 추가 업데이트를 설치하기 전에 컴퓨터를 다시 시작하세요."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "다시 시작하는 것이 좋습니다"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "중요한 시스템 구성 요소가 업데이트되었습니다. 다시 시작할 때까지 일부 애플리케이션이나 장치가 제대로 작동하지 않을 수 있습니다. 다시 시작하기 전에 작업 내용을 저장하세요."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "다시 시작"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "중요한 시스템 구성 요소가 업데이트되었으므로 다시 시작하는 것이 좋습니다."

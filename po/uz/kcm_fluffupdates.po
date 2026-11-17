@@ -293,3 +293,23 @@ msgstr "Paketlar ma’lumotlar bazasini qulflab bo‘lmadi. Boshqa paket boshqar
 
 msgid "Estimated time: %1"
 msgstr "Taxminiy vaqt: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Oldingi yangilanishni yakunlash va tizimingizni barqaror saqlashga yordam berish uchun qo'shimcha yangilanishlarni o'rnatishdan oldin kompyuteringizni qayta ishga tushiring."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Qayta ishga tushirish tavsiya etiladi"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Tizimning muhim komponentlari yangilandi. Qayta ishga tushirmaguningizcha, ba'zi ilovalar yoki qurilmalar to'g'ri ishlamasligi mumkin. Qayta boshlashdan oldin ishingizni saqlang."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Qayta ishga tushirish"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Qayta ishga tushirish tavsiya etiladi, chunki muhim tizim komponentlari yangilangan."

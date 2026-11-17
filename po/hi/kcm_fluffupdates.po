@@ -378,3 +378,23 @@ msgstr "पैकेज डेटाबेस लॉक नहीं हो स�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "अनुमानित समय: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "पिछले अपडेट को पूरा करने और अपने सिस्टम को स्थिर रखने में मदद करने के लिए अधिक अपडेट इंस्टॉल करने से पहले अपने कंप्यूटर को पुनरारंभ करें।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "पुनः प्रारंभ करने की अनुशंसा की गई"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "महत्वपूर्ण सिस्टम घटकों को अद्यतन किया गया। जब तक आप पुनरारंभ नहीं करते, हो सकता है कि कुछ एप्लिकेशन या डिवाइस ठीक से काम न करें। पुनः प्रारंभ करने से पहले अपना कार्य सहेजें."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "पुनः आरंभ करें"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "पुनरारंभ की पुरजोर अनुशंसा की जाती है क्योंकि महत्वपूर्ण सिस्टम घटक अद्यतन किए गए थे।"

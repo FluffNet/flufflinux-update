@@ -3,13 +3,14 @@ kcmutils_add_qml_kcm(kcm_fluffupdates DISABLE_DESKTOP_FILE_GENERATION)
 # KDE derives the launcher identity from the metadata filename. Keep the
 # installed module name stable while maintaining the source as kcm_flu.json.
 configure_file(kcm_flu.json ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.json COPYONLY)
-add_custom_target(kcm_fluffupdates-kcm-desktop-gen
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
     COMMAND KF6::kcmdesktopfilegenerator
         ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.json
         ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
     DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.json
-    BYPRODUCTS ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
     VERBATIM)
+add_custom_target(kcm_fluffupdates-kcm-desktop-gen
+    DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop)
 add_dependencies(kcm_fluffupdates kcm_fluffupdates-kcm-desktop-gen)
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kcm_fluffupdates.desktop
     DESTINATION ${KDE_INSTALL_APPDIR})
@@ -61,6 +62,8 @@ add_custom_command(OUTPUT ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER}
     COMMENT "Building the Rust update helper, worker and session notifier" VERBATIM)
 add_custom_target(flu-services ALL DEPENDS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER})
 install(PROGRAMS ${FLU_HELPER} ${FLU_WORKER} ${FLU_NOTIFIER} DESTINATION lib/flufflinux-update)
+install(FILES installer-protocol-version DESTINATION share/flufflinux-update)
+install(FILES installer/InstallerPage.qml DESTINATION share/flufflinux-update/installer)
 install(FILES org.flufflinux.Update.Notifications.service DESTINATION share/dbus-1/services)
 # These same SVG files are embedded in the QML panel by kcmutils_add_qml_kcm.
 # Register them with the desktop icon theme for the native notification body.
@@ -92,3 +95,9 @@ install(PROGRAMS org.flufflinux.update.desktop
 install(FILES org.flufflinux.update.worker.desktop
     DESTINATION ${KDE_INSTALL_APPDIR}
 )
+
+# Observe terminal and GUI Pacman transactions without restricting Pacman.
+install(FILES hooks/00-flufflinux-update-reboot.hook hooks/zz-flufflinux-update-reboot.hook
+    DESTINATION share/libalpm/hooks)
+install(FILES org.flufflinux.update.notifier.desktop
+    DESTINATION ${KDE_INSTALL_SYSCONFDIR}/xdg/autostart)

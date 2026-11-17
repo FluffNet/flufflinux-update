@@ -301,3 +301,23 @@ msgstr "Cha b' urrainn dhuinn stòr-dàta nam pacaidean a ghlasadh. Dùin manaid
 
 msgid "Estimated time: %1"
 msgstr "Ùine mheasta: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Ath-thòisich an coimpiutair agad mus stàlaich thu barrachd ùrachaidhean gus an t-ùrachadh mu dheireadh a chrìochnachadh agus gus do shiostam a chumail seasmhach."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Ath-thòiseachadh air a mholadh"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Chaidh co-phàirtean siostam cudromach ùrachadh. Gus an ath-thòisich thu, is dòcha nach obraich cuid de thagraidhean no innealan mar bu chòir. Sàbhail an obair agad mus tòisich thu air ais."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Ath-thòisich"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Thathas a’ moladh ath-thòiseachadh gu làidir leis gun deach co-phàirtean siostam cudromach ùrachadh."

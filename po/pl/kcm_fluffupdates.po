@@ -376,3 +376,23 @@ msgstr "Nie udało się zablokować bazy danych pakietów. Zamknij inne menedże
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Szacowany czas: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Uruchom ponownie komputer przed zainstalowaniem kolejnych aktualizacji, aby dokończyć poprzednią aktualizację i zapewnić stabilność systemu."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Zalecane ponowne uruchomienie"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Zaktualizowano ważne komponenty systemu. Do czasu ponownego uruchomienia niektóre aplikacje lub urządzenia mogą nie działać poprawnie. Zapisz swoją pracę przed ponownym uruchomieniem."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Uruchom ponownie"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Zdecydowanie zaleca się ponowne uruchomienie, ponieważ zaktualizowano ważne składniki systemu."

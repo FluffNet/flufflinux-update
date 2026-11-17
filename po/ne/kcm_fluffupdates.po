@@ -293,3 +293,23 @@ msgstr "प्याकेज डाटाबेस लक गर्न सक�
 
 msgid "Estimated time: %1"
 msgstr "अनुमानित समय: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "अघिल्लो अद्यावधिक पूरा गर्न र आफ्नो प्रणाली स्थिर राख्न मद्दत गर्न थप अद्यावधिकहरू स्थापना गर्नु अघि आफ्नो कम्प्युटर पुन: सुरु गर्नुहोस्।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "पुन: सुरु गर्न सिफारिस गरिएको छ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "महत्त्वपूर्ण प्रणाली घटकहरू अद्यावधिक गरियो। तपाईंले पुन: सुरु नगरेसम्म, केही अनुप्रयोगहरू वा यन्त्रहरूले सही रूपमा काम नगर्न सक्छन्। पुन: सुरु गर्नु अघि आफ्नो काम बचत गर्नुहोस्।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "पुन: सुरु गर्नुहोस्"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "प्रणालीका महत्त्वपूर्ण कम्पोनेन्टहरू अद्यावधिक गरिएकाले पुन: सुरु गर्न सिफारिस गरिन्छ।"

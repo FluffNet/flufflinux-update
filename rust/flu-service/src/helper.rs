@@ -164,7 +164,7 @@ fn sync_version(database: &str, package: &str) -> String {
         .map(|m| m[1].into())
         .unwrap_or_default()
 }
-fn planned_packages(database: &str) -> Vec<(String, String)> {
+fn planned_packages(database: &str) -> Vec<(String, String, u64)> {
     let result = command(
         &[
             "--dbpath",
@@ -172,7 +172,7 @@ fn planned_packages(database: &str) -> Vec<(String, String)> {
             "-Sup",
             "--noconfirm",
             "--print-format",
-            "%n|%v",
+            "%n|%v|%s",
         ],
         15,
     );
@@ -182,9 +182,15 @@ fn planned_packages(database: &str) -> Vec<(String, String)> {
     String::from_utf8_lossy(&result.output)
         .lines()
         .filter_map(|line| {
-            let (name, version) = line.trim().split_once('|')?;
+            let mut fields = line.trim().split('|');
+            let name = fields.next()?;
+            let version = fields.next()?;
+            let size = fields.next()?.parse::<u64>().ok()?;
+            if fields.next().is_some() {
+                return None;
+            }
             (valid_name(name) && !version.is_empty() && !version.chars().any(char::is_whitespace))
-                .then(|| (name.into(), version.into()))
+                .then(|| (name.into(), version.into(), size))
         })
         .collect()
 }
@@ -397,8 +403,9 @@ fn plan_transaction(database: &str, signing_retry: bool) -> i32 {
             println!("FLU_REPLACEMENT:{old}|{old_version}|{new}|{new_version}");
         }
     }
-    for (package, version) in planned_packages(database) {
+    for (package, version, size) in planned_packages(database) {
         println!("FLU_PLANNED_PACKAGE:{package}|{version}");
+        println!("FLU_PACKAGE_DOWNLOAD_SIZE:{package}|{size}");
     }
     if status != 0 {
         let required = Regex::new(r"(?m)^.*(?:breaks dependency|unable to satisfy dependency)[^\n]*\brequired by\s+([A-Za-z0-9@._+:-]+)").unwrap();
@@ -417,6 +424,10 @@ fn plan_transaction(database: &str, signing_retry: bool) -> i32 {
 }
 
 fn start_installation(download: &str, storage: &str, freed: bool, updates: &str) -> i32 {
+    if flu_core::reboot::blocked() {
+        eprintln!("REBOOT_REQUIRED");
+        return 25;
+    }
     let previous = read_json(STATE);
     let phase = previous["phase"].as_str().unwrap_or("");
     if (matches!(phase, "starting" | "downloading" | "installing")

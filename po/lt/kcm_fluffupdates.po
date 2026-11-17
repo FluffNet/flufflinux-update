@@ -376,3 +376,23 @@ msgstr "Nepavyko užrakinti paketų duomenų bazės. Užverkite kitas paketų tv
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Numatomas laikas: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Iš naujo paleiskite kompiuterį prieš diegdami daugiau naujinimų, kad užbaigtumėte ankstesnį naujinimą ir padėtumėte išlaikyti sistemos stabilumą."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Rekomenduojama paleisti iš naujo"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Buvo atnaujinti svarbūs sistemos komponentai. Kol nepaleisite iš naujo, kai kurios programos ar įrenginiai gali tinkamai neveikti. Išsaugokite savo darbą prieš paleisdami iš naujo."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Paleisti iš naujo"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Primygtinai rekomenduojama paleisti iš naujo, nes buvo atnaujinti svarbūs sistemos komponentai."

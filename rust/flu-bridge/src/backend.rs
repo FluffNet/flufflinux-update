@@ -65,6 +65,14 @@ mod ffi {
             READ,
             NOTIFY
         )]
+        #[qproperty(
+            bool,
+            restart_recommended,
+            cxx_name = "restartRecommended",
+            READ,
+            NOTIFY
+        )]
+        #[qproperty(bool, restart_required, cxx_name = "restartRequired", READ, NOTIFY)]
         #[qproperty(bool, battery_low, cxx_name = "batteryLow", READ, NOTIFY)]
         #[qproperty(QString, install_phase, cxx_name = "installPhase", READ, NOTIFY)]
         #[qproperty(bool, update_active, cxx_name = "updateActive", READ, NOTIFY)]
@@ -228,6 +236,8 @@ pub struct UpdateBackendRust {
     disk_space_freed: bool,
     check_error: QString,
     update_packages: QList<QVariant>,
+    restart_recommended: bool,
+    restart_required: bool,
     battery_low: bool,
     install_phase: QString,
     update_active: bool,
@@ -277,6 +287,8 @@ impl Default for UpdateBackendRust {
             disk_space_freed: false,
             check_error: Default::default(),
             update_packages: Default::default(),
+            restart_recommended: false,
+            restart_required: false,
             battery_low: false,
             install_phase: Default::default(),
             update_active: false,
@@ -481,6 +493,18 @@ impl ffi::UpdateBackend {
             self.update_packages_changed();
         }
     }
+    fn set_restart_recommended(mut self: Pin<&mut Self>, value: bool) {
+        if self.rust().restart_recommended != value {
+            self.as_mut().rust_mut().restart_recommended = value;
+            self.restart_recommended_changed();
+        }
+    }
+    fn set_restart_required(mut self: Pin<&mut Self>, value: bool) {
+        if self.rust().restart_required != value {
+            self.as_mut().rust_mut().restart_required = value;
+            self.restart_required_changed();
+        }
+    }
     fn set_battery_low(mut self: Pin<&mut Self>, value: bool) {
         if self.rust().battery_low != value {
             self.as_mut().rust_mut().battery_low = value;
@@ -676,6 +700,10 @@ impl ffi::UpdateBackend {
             .set_check_error(QString::from(snapshot["checkError"].as_str().unwrap_or("")));
         self.as_mut()
             .set_update_packages(ffi::variants(&snapshot["updatePackages"].to_string()));
+        self.as_mut()
+            .set_restart_recommended(snapshot["restartRecommended"].as_bool().unwrap_or(false));
+        self.as_mut()
+            .set_restart_required(snapshot["restartRequired"].as_bool().unwrap_or(false));
         self.as_mut()
             .set_battery_low(snapshot["batteryLow"].as_bool().unwrap_or(false));
         self.as_mut().set_install_phase(QString::from(

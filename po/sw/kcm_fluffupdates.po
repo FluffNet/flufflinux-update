@@ -378,3 +378,23 @@ msgstr "Hifadhidata ya vifurushi haikuweza kufungwa kwa matumizi ya kipekee. Fun
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Muda unaokadiriwa: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Anzisha upya kompyuta yako kabla ya kusakinisha masasisho zaidi ili kukamilisha sasisho la awali na kusaidia kuweka mfumo wako thabiti."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Inapendekezwa kuwasha upya"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Vipengele muhimu vya mfumo vilisasishwa. Hadi uanze upya, baadhi ya programu au vifaa huenda visifanye kazi ipasavyo. Hifadhi kazi yako kabla ya kuanza upya."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Anzisha upya"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Kuanzisha upya kunapendekezwa sana kwa sababu vipengee muhimu vya mfumo vilisasishwa."

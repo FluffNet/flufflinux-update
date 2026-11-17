@@ -378,3 +378,23 @@ msgstr "প্যাকেজ ডেটাবেস লক করা যায�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "আনুমানিক সময়: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "পূর্ববর্তী আপডেট সম্পূর্ণ করতে এবং আপনার সিস্টেমকে স্থিতিশীল রাখতে সাহায্য করতে আরও আপডেট ইনস্টল করার আগে আপনার কম্পিউটার পুনরায় চালু করুন।"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "পুনরায় চালু করার সুপারিশ করা হয়েছে"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "গুরুত্বপূর্ণ সিস্টেম উপাদান আপডেট করা হয়েছে. আপনি রিস্টার্ট না হওয়া পর্যন্ত, কিছু অ্যাপ্লিকেশন বা ডিভাইস সঠিকভাবে কাজ নাও করতে পারে। পুনরায় আরম্ভ করার আগে আপনার কাজ সংরক্ষণ করুন."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "রিস্টার্ট করুন"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "একটি পুনঃসূচনা দৃঢ়ভাবে সুপারিশ করা হয় কারণ গুরুত্বপূর্ণ সিস্টেম উপাদান আপডেট করা হয়েছে।"

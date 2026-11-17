@@ -306,3 +306,23 @@ msgstr "Paketdatabasen kunde inte låsas. Stäng andra pakethanterare och kontro
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Uppskattad tid: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Starta om datorn innan du installerar fler uppdateringar för att slutföra den föregående uppdateringen och hjälpa till att hålla ditt system stabilt."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Omstart rekommenderas"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Viktiga systemkomponenter har uppdaterats. Tills du startar om kan vissa applikationer eller enheter inte fungera korrekt. Spara ditt arbete innan du startar om."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Starta om"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "En omstart rekommenderas starkt eftersom viktiga systemkomponenter har uppdaterats."

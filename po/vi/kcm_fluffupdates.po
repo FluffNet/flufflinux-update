@@ -374,3 +374,23 @@ msgstr "Không thể khóa cơ sở dữ liệu gói. Đóng các trình quản 
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Thời gian ước tính: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Khởi động lại máy tính của bạn trước khi cài đặt thêm bản cập nhật để hoàn thiện bản cập nhật trước đó và giúp hệ thống của bạn ổn định."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Nên khởi động lại"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Các thành phần hệ thống quan trọng đã được cập nhật. Cho đến khi bạn khởi động lại, một số ứng dụng hoặc thiết bị có thể không hoạt động chính xác. Lưu công việc của bạn trước khi khởi động lại."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Khởi động lại"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Bạn nên khởi động lại vì các thành phần hệ thống quan trọng đã được cập nhật."

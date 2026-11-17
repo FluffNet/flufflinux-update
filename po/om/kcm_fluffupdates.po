@@ -293,3 +293,23 @@ msgstr "Kuusaa deetaa paakeejii cufuu hin dandeenye. Bulchitoota paakeejii biroo
 
 msgid "Estimated time: %1"
 msgstr "Yeroo tilmaamame: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Fooyya'iinsa dabalataa osoo hin fe'iin dura kompiitara kee irra deebi'ii jalqabi, fooyya'iinsa duraanii xumuruu fi sirni kee tasgabbaa'aa akka ta'uuf gargaara."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Irra deebi'ii jalqabuun ni gorfama"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Qaamonni sirnaa barbaachisoo ta'an haaromfamaniiru. Hanga irra deebitee jalqabdutti, application ykn meeshaaleen tokko tokko sirritti hojjechuu dhiisuu danda'u. Hojii kee osoo deebitee hin jalqabiin dura saagi."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Irra deebi'ii jalqabi"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Qaamonni sirnaa barbaachisoo ta'an waan fooyya'aniif irra deebi'amee jalqabuun cimsee gorfama."

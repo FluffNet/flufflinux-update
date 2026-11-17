@@ -293,3 +293,23 @@ msgstr "Isizindalwazi samaphakheji asikwazanga ukukhiywa. Vala abanye abaphathi 
 
 msgid "Estimated time: %1"
 msgstr "Isikhathi esilinganisiwe: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Qala kabusha ikhompuyutha yakho ngaphambi kokufaka izibuyekezo ezengeziwe ukuze uqedele isibuyekezo sangaphambilini futhi usize ukugcina isistimu yakho izinzile."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Ukuqalisa kabusha kunconyiwe"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Izingxenye zesistimu ezibalulekile zibuyekeziwe. Kuze kube yilapho uqala kabusha, ezinye izinhlelo zokusebenza noma amadivaysi angase angasebenzi kahle. Londoloza umsebenzi wakho ngaphambi kokuqala kabusha."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Qala kabusha"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Ukuqalisa kabusha kunconywa kakhulu ngoba izingxenye zesistimu ezibalulekile zibuyekeziwe."

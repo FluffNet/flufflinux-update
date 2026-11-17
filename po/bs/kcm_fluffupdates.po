@@ -376,3 +376,23 @@ msgstr "Nije moguće zaključati bazu podataka paketa. Zatvorite druge upravitel
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Procijenjeno vrijeme: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Ponovo pokrenite računar prije instaliranja dodatnih ažuriranja kako biste dovršili prethodno ažuriranje i pomogli da vaš sistem bude stabilan."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Preporučuje se ponovno pokretanje"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Važne komponente sistema su ažurirane. Dok ne restartujete, neke aplikacije ili uređaji možda neće raditi ispravno. Sačuvajte svoj rad prije ponovnog pokretanja."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Ponovo pokreni"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Ponovno pokretanje se preporučuje jer su važne komponente sistema ažurirane."

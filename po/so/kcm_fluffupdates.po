@@ -293,3 +293,23 @@ msgstr "Xogta xirmooyinka lama qufuli karin. Xir maamulayaasha xirmooyinka kale 
 
 msgid "Estimated time: %1"
 msgstr "Waqtiga la qiyaasay: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Dib u billow kombayutarka ka hor inta aanad rakibin cusbooneysiin badan si aad u dhamaystirto cusboonaysiintii hore oo aad uga caawiso in nidaamkaagu xasilo."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Dib u bilow ayaa lagu talinayaa"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Qaybaha nidaamka muhiimka ah waa la cusboonaysiiyay Ilaa aad dib u bilowdo, codsiyada ama qalabka qaarkood waxa laga yaabaa in aanay si sax ah u shaqayn. Shaqadaada xafid ka hor inta aanad dib u bilaabin."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Dib u bilow"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Dib u bilaabasho ayaa si adag loogu talinayaa sababtoo ah qaybaha nidaamka muhiimka ah waa la cusboonaysiiyay."

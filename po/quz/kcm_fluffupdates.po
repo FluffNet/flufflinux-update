@@ -293,3 +293,23 @@ msgstr "Q'ipikunapa willay waqaychananta manam wichq'ayta atikurqanchu. Huk q'ip
 
 msgid "Estimated time: %1"
 msgstr "Tantiyasqa pacha: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Computadoraykita wakmanta qallariy manaraq aswan musuqyachiykunata churachkaspa ñawpaq musuqyachiyta tukunaykipaq chaymanta yanapakuyniyki sistemayki takyasqa kananpaq."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Wakmanta qallariy yuyaychasqa"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Importante sistema componentes nisqakuna musuqchasqa karqan. Wakmanta qallarinaykikama, wakin ruwanakuna utaq dispositivokuna mana allintachu llamk'ankuman. Manaraq wakmanta qallarichkaspa llamk’ayniykita waqaychay."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Wakmanta qallariy"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Huk musuqmanta qallariy sinchita yuyaychakun imaraykuchus importante sistema componentes musuqchasqa karqanku."

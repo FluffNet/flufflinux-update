@@ -288,6 +288,8 @@ class Workflows:
         plan = self.plan()
         assert "FLU_REPLACEMENT:flu-test-old-calculator|1-1|flu-test-new-calculator|1-1" in plan.stdout, plan.stdout
         assert "FLU_PLANNED_PACKAGE:flu-test-upgrade|2-1" in plan.stdout, plan.stdout
+        assert f"FLU_PACKAGE_DOWNLOAD_SIZE:flu-test-upgrade|{upgrade.stat().st_size}" in plan.stdout, plan.stdout
+        assert f"FLU_PACKAGE_DOWNLOAD_SIZE:flu-test-new-calculator|{replacement.stat().st_size}" in plan.stdout, plan.stdout
         assert self.installed("flu-test-old-calculator")
         assert self.installed("flu-test-upgrade") == "flu-test-upgrade 1-1"
         assert not self.installed("flu-test-new-calculator")
@@ -862,6 +864,209 @@ class Workflows:
         finally:
             run(["umount", "/usr/bin/pacman"])
 
+    def reboot_detection(self, terminal=False):
+        marker = self.base / "etc/flufflinux-update-reboot.json"
+        modules = self.base / "loaded-modules"
+        modules.write_text("")
+        uname = self.base / "uname-fixture"
+        uname.write_text("#!/bin/sh\necho flu-test-release\n")
+        uname.chmod(0o755)
+        tree = self.base / "module-tree/flu-test-release"
+        tree.mkdir(parents=True, exist_ok=True)
+        (tree / "pkgbase").write_text("linux\n")
+        config = Path("/etc/pacman.conf")
+        original_config = config.read_text()
+        if terminal:
+            # Overlay all hook executables and payloads inside the existing
+            # private namespace. No host packages or system hooks are touched.
+            upper, work = self.base / "terminal-usr", self.base / "terminal-work"
+            upper.mkdir(); work.mkdir()
+            run(["mount", "-t", "overlay", "overlay", "-o",
+                 f"lowerdir=/usr,upperdir={upper},workdir={work}", "/usr"])
+            import shutil
+            shutil.copy2(self.worker, "/usr/lib/flufflinux-update/flufflinux-update-worker")
+            hookdir = Path("/usr/share/libalpm/hooks")
+            for hook in hookdir.glob("*.hook"):
+                hook.unlink()
+            for hook in (Path(__file__).resolve().parents[1] / "src/hooks").glob("*.hook"):
+                shutil.copy2(hook, hookdir / hook.name)
+            config.write_text(original_config.replace(f"RootDir = {self.base}/root", "RootDir = /"))
+        run(["mount", "--bind", modules, "/proc/modules"])
+        run(["mount", "--bind", uname, "/usr/bin/uname"])
+        run(["mount", "--bind", tree.parent, "/usr/lib/modules"])
+        cases = [("linux-lts", "", None), ("linux", "", True),
+                 ("nvidia-dkms", "", None), ("nvidia-dkms", "nvidia", True),
+                 ("zfs-dkms", "", None), ("zfs-dkms", "zfs", True),
+                 ("virtualbox-host-dkms", "vboxdrv", False), ("kwin", "", False)]
+        try:
+            for index, (name, module, blocked) in enumerate(cases):
+                marker.unlink(missing_ok=True)
+                modules.write_text(module + " 1 0 - Live 0\n" if module else "")
+                old = package(self.base / "repo", name, f"{index*2+1+(100 if terminal else 0)}-1")
+                new = package(self.base / "repo", name, f"{index*2+2+(100 if terminal else 0)}-1")
+                self.pacman("-U", "--noconfirm", old)
+                self.refresh(new)
+                process = None
+                if name == "kwin":
+                    process = subprocess.Popen([sys.executable, "-c", "import ctypes,time; ctypes.CDLL(None).prctl(15,b'kwin_wayland',0,0,0); time.sleep(120)"])
+                    time.sleep(.2)
+                try:
+                    marker.unlink(missing_ok=True)
+                    if terminal:
+                        result = self.pacman("-Syu", "--noconfirm")
+                        assert "00-flufflinux-update-reboot.hook" in result.stdout, result.stdout
+                        assert "zz-flufflinux-update-reboot.hook" in result.stdout, result.stdout
+                    else:
+                        self.start()
+                        state, _ = self.finish()
+                        assert state["phase"] == "complete", state
+                    if blocked is None:
+                        assert not marker.exists(), (name, module, marker.read_text())
+                    else:
+                        value = json.loads(marker.read_text())
+                        assert value["blocked"] is blocked and value["recommended"], (name, module, value)
+                        if terminal and name == "linux" and self.controller:
+                            self.base.chmod(0o755)
+                            (self.base / "tmp").chmod(0o1777)
+                            output = self.base / "terminal-observer"
+                            output.mkdir(mode=0o777)
+                            output.chmod(0o777)
+                            command = ["runuser", "-u", "mai", "--", "dbus-run-session", "--",
+                                       sys.executable, Path(__file__).with_name("reboot_terminal_observer.py"),
+                                       "--notifier", self.worker.with_name("flufflinux-update-notifier"),
+                                       "--controller", self.controller, "--output", output]
+                            if os.environ.get("FLU_REBOOT_VISUAL") == "1":
+                                command.append("--visual")
+                            run(command)
+                finally:
+                    if process:
+                        process.terminate(); process.wait()
+            if terminal:
+                marker.write_text(json.dumps({"boot_id": Path("/proc/sys/kernel/random/boot_id").read_text().strip(), "blocked": True, "recommended": True}))
+                self.pacman("-U", "--noconfirm", package(self.base / "repo", "flu-test-terminal-unrestricted", "1-1"))
+                assert json.loads(marker.read_text())["blocked"]
+                # A failing pre-hook must not veto the transaction.
+                hook = Path("/usr/share/libalpm/hooks/00-flufflinux-update-reboot.hook")
+                hook.write_text(hook.read_text().replace("/usr/lib/flufflinux-update/flufflinux-update-worker --reboot-before", "/usr/bin/false"))
+                self.pacman("-U", "--noconfirm", package(self.base / "repo", "flu-test-terminal-unrestricted", "2-1"))
+            return {"terminal": terminal, "active_kernel": True, "inactive_kernel_ignored": True,
+                    "nvidia_and_zfs_only_when_loaded": True, "other_modules_and_kwin_advisory": True}
+        finally:
+            marker.unlink(missing_ok=True)
+            for path in ["/proc/modules", "/usr/bin/uname", "/usr/lib/modules"]:
+                run(["umount", path])
+            if terminal:
+                config.write_text(original_config)
+                run(["umount", "-l", "/usr"])
+
+    def reboot_gate(self):
+        marker = self.base / "etc/flufflinux-update-reboot.json"
+        boot = Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+        try:
+            marker.write_text(json.dumps({"boot_id": boot, "recommended": True, "blocked": True}))
+            rejected = run([self.helper, "--install", "0", "0", "false", "W10="], expected=25)
+            assert "REBOOT_REQUIRED" in rejected.stdout
+            run([self.worker])
+            assert self.state_value()["error"] == "REBOOT_REQUIRED"
+            # Checking remains available even when installations are blocked.
+            self.refresh(package(self.base / "repo", "flu-test-reboot", "1-1"))
+            assert "REBOOT_REQUIRED" not in self.plan().stdout
+        finally:
+            marker.unlink(missing_ok=True)
+        return {"helper_blocks": True, "worker_blocks": True, "checking_allowed": True}
+
+    def installer_target(self):
+        # Build a disposable chroot with a copy-on-write view of system tools.
+        # All mounts are private to this fixture's mount namespace.
+        run(["pacman-key", "--init"])
+        repo = self.base / "repo"
+        old = package(repo, "flu-test-target", "1-1")
+        new = package(repo, "flu-test-target", "2-1")
+        self.pacman("-U", "--noconfirm", old)
+        self.refresh(new)
+        root = self.base / "root"
+        upper = self.base / "target-usr"
+        (root / "usr").rename(upper)
+        (root / "usr").mkdir()
+        work = self.base / "overlay-work"
+        work.mkdir()
+        run(["mount", "--bind", root, root])
+        run(["mount", "-t", "overlay", "overlay", "-o", f"lowerdir=/usr,upperdir={upper},workdir={work}", root / "usr"])
+        for name in ("bin", "sbin", "lib", "lib64"):
+            (root / name).symlink_to("usr/" + ("bin" if name in ("bin", "sbin") else "lib"))
+        for name in ("etc", "dev", "proc", "sys", "run", "tmp", "root", "var/log", "var/lib/pacman", "var/cache/pacman/pkg", "etc/pacman.d"):
+            (root / name).mkdir(parents=True, exist_ok=True)
+        for source, target in [(self.base / "db", "var/lib/pacman"), (self.base / "cache", "var/cache/pacman/pkg"), (self.base / "etc", "etc/pacman.d")]:
+            run(["mount", "--bind", source, root / target])
+        (root / "etc/pacman.conf").write_text((self.base / "pacman.conf").read_text().replace(f"RootDir = {root}", "RootDir = /").replace(f"HookDir = {self.base}/hooks", "HookDir = /etc/pacman.d/hooks"))
+        (root / "etc/passwd").write_text("root:x:0:0:root:/root:/bin/bash\n")
+        (root / "etc/group").write_text("root:x:0:\n")
+        (root / "etc/mtab").symlink_to("/proc/self/mounts")
+        (root / "usr/lib/flufflinux-update").mkdir(parents=True, exist_ok=True)
+        import shutil
+        shutil.copy2(self.worker, root / "usr/lib/flufflinux-update/flufflinux-update-worker")
+        for hook in (Path(__file__).resolve().parents[1] / "src/hooks").glob("*.hook"):
+            shutil.copy2(hook, root / "usr/share/libalpm/hooks" / hook.name)
+        protocol = root / "usr/share/flufflinux-update"
+        protocol.mkdir(parents=True, exist_ok=True)
+        (protocol / "installer-protocol-version").write_text("1\n")
+        runner = self.worker
+        result = run([runner, "--installer", "--target-root", root], expected=None)
+        assert result.returncode == 0, result.stdout
+        events = [json.loads(line) for line in result.stdout.splitlines() if line.startswith("{")]
+        assert events[-1]["code"] == 0, events
+        assert (root / "usr/share/flu-test/flu-test-target").read_text() == "2-1"
+        assert not Path("/usr/share/flu-test/flu-test-target").exists()
+        missing = run([runner, "--installer"], expected=1)
+        assert "Usage:" in missing.stdout
+        invalid = run([runner, "--installer", "--target-root", "/"], expected=1)
+        assert "running system" in invalid.stdout
+        return {"real_arch_chroot": True, "target_only_updated": True, "host_root_rejected": True}
+
+    def installer_mode(self):
+        run(["pacman-key", "--init"])
+        repo = self.base / "repo"
+        old = package(repo, "flu-test-installer", "1-1")
+        blocker = package(repo, "flu-test-installer-blocker", "1-1")
+        new = package(repo, "flu-test-installer", "2-1", metadata=["conflict = flu-test-installer-blocker"])
+        self.pacman("-U", "--noconfirm", old, blocker)
+        self.refresh(new)
+        self.policy.write_text(json.dumps({"protected": ["flu-test-installer-blocker"], "warning": []}))
+        result = run([self.worker, "--installer-in-target"])
+        events = [json.loads(line) for line in result.stdout.splitlines()]
+        assert events[-1]["event"] == "finished" and events[-1]["code"] == 0, events
+        assert all(e["protocol"] == 1 for e in events)
+        assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
+        assert not self.installed("flu-test-installer-blocker")
+        # A second invocation must succeed without packages to upgrade.
+        repeat = run([self.worker, "--installer-in-target"])
+        assert json.loads(repeat.stdout.splitlines()[-1])["code"] == 0
+        assert (self.base / "etc/lastupdate.json").exists()
+        # Missing database signatures must still fail, even in installer mode.
+        config = self.base / "pacman.conf"
+        original = config.read_text()
+        config.write_text(original.replace("SigLevel = Never", "SigLevel = Required TrustedOnly"))
+        try:
+            failed = run([self.worker, "--installer-in-target"], expected=1)
+            final = json.loads(failed.stdout.splitlines()[-1])
+            assert final["code"] == 1 and final["state"]["phase"] == "failed", final
+        finally:
+            config.write_text(original)
+        assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
+        newer = package(repo, "flu-test-installer", "3-1")
+        self.refresh(newer)
+        Server.unavailable.add(newer.name)
+        try:
+            failed = run([self.worker, "--installer-in-target"], expected=1)
+            final = json.loads(failed.stdout.splitlines()[-1])
+            assert final["code"] == 1 and final["state"]["failed_phase"] == "downloading", final
+            assert self.installed("flu-test-installer") == "flu-test-installer 2-1"
+        finally:
+            Server.unavailable.discard(newer.name)
+        return {"protected_conflict_approved": True, "no_updates_exit_zero": True,
+                "signature_failure_exit_one": True, "download_failure_exit_one": True,
+                "json_protocol": True}
+
     def guards(self):
         invalid = run([self.helper, "/tmp/flufflinux-checkupdates-9999"], expected=2,
                       env={**os.environ, "PKEXEC_UID": "1000"})
@@ -906,6 +1111,11 @@ def child(args):
         tests.test("unavailable sleep inhibitor fails closed", tests.sleep_inhibitor_failure)
         tests.test("planner path and policy guards", tests.guards)
         tests.test("initial update timestamp", tests.record_current_update)
+        tests.test("reboot active component detection", tests.reboot_detection)
+        tests.test("reboot installation gate", tests.reboot_gate)
+        tests.test("reboot terminal pacman hooks", lambda: tests.reboot_detection(terminal=True))
+        tests.test("installer mode", tests.installer_mode)
+        tests.test("installer target chroot", tests.installer_target)
         if args.controller:
             tests.test("complete desktop controller workflow", tests.desktop_controller)
             tests.test("overdue trustdb with one authorization", tests.overdue_trustdb)

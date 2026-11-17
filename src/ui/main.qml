@@ -412,7 +412,7 @@ KCMUtils.SimpleKCM {
                     Controls.Button {
                         text: i18nd("kcm_fluffupdates", "Install Updates")
                         icon.name: "system-software-update"
-                        enabled: backend.networkConnected
+                        enabled: backend.networkConnected && !backend.restartRequired
                         onClicked: backend.startInstallation()
                     }
 
@@ -474,6 +474,15 @@ KCMUtils.SimpleKCM {
             type: Kirigami.MessageType.Warning
             icon.name: "battery-low"
             text: i18nd("kcm_fluffupdates", "The battery is low. Please connect your computer to a charger while installing updates.")
+        }
+
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            visible: backend.restartRecommended
+            type: Kirigami.MessageType.Warning
+            icon.name: "system-reboot"
+            text: i18nd("kcm_fluffupdates", "A restart is strongly recommended because important system components were updated.")
+                + (backend.restartRequired ? "\n" + i18nd("kcm_fluffupdates", "Restart your computer before installing more updates to complete the previous update and help keep your system stable.") : "")
         }
 
         Rectangle {
@@ -572,6 +581,8 @@ KCMUtils.SimpleKCM {
                     + updateListFontMetrics.advanceWidth(arrow)
                     + updateListFontMetrics.advanceWidth(
                         replacementName + newVersion)
+                    + updateListFontMetrics.advanceWidth(entry.downloadSize
+                        ? " (" + entry.downloadSize + ")" : "")
                     + Kirigami.Units.smallSpacing * 7
                 widest = Math.max(widest, rowWidth)
             }
@@ -884,6 +895,15 @@ KCMUtils.SimpleKCM {
                                             && modelData.newName !== modelData.name
                                             ? modelData.newName + " " : "")
                                         + modelData.newVersion
+                                }
+
+                                Controls.Label {
+                                    objectName: "packageDownloadSize"
+                                    Layout.minimumWidth: implicitWidth
+                                    wrapMode: Text.NoWrap
+                                    visible: Boolean(modelData.downloadSize)
+                                    color: Kirigami.Theme.textColor
+                                    text: "\u2066(" + (modelData.downloadSize || "") + ")\u2069"
                                 }
 
                                 Item {

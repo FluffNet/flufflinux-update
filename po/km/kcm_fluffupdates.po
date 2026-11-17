@@ -289,3 +289,23 @@ msgstr "មិនអាចចាក់សោមូលដ្ឋានទិន្
 
 msgid "Estimated time: %1"
 msgstr "ពេលវេលាប៉ាន់ស្មាន៖ %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ចាប់ផ្ដើមកុំព្យូទ័ររបស់អ្នកឡើងវិញ មុនពេលដំឡើងការអាប់ដេតបន្ថែមទៀត ដើម្បីបញ្ចប់ការអាប់ដេតពីមុន និងជួយរក្សាប្រព័ន្ធរបស់អ្នកឱ្យស្ថិតស្ថេរ។"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "ចាប់ផ្តើមឡើងវិញត្រូវបានណែនាំ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "សមាសធាតុប្រព័ន្ធសំខាន់ៗត្រូវបានធ្វើបច្ចុប្បន្នភាព។ រហូតទាល់តែអ្នកចាប់ផ្តើមឡើងវិញ កម្មវិធី ឬឧបករណ៍មួយចំនួនអាចនឹងមិនដំណើរការត្រឹមត្រូវ។ រក្សាទុកការងាររបស់អ្នកមុនពេលចាប់ផ្តើមឡើងវិញ។"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "ចាប់ផ្ដើមឡើងវិញ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ការចាប់ផ្តើមឡើងវិញត្រូវបានណែនាំយ៉ាងខ្លាំង ពីព្រោះសមាសធាតុប្រព័ន្ធសំខាន់ៗត្រូវបានធ្វើបច្ចុប្បន្នភាព។"

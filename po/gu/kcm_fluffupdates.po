@@ -293,3 +293,23 @@ msgstr "પૅકેજ ડેટાબેઝ લૉક થઈ શક્યો �
 
 msgid "Estimated time: %1"
 msgstr "અંદાજિત સમય: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "અગાઉના અપડેટને પૂર્ણ કરવા અને તમારી સિસ્ટમને સ્થિર રાખવામાં મદદ કરવા માટે વધુ અપડેટ્સ ઇન્સ્ટોલ કરતાં પહેલાં તમારા કમ્પ્યુટરને પુનઃપ્રારંભ કરો."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "પુનઃપ્રારંભ ભલામણ કરેલ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "મહત્વપૂર્ણ સિસ્ટમ ઘટકો અપડેટ કરવામાં આવ્યા હતા. જ્યાં સુધી તમે પુનઃપ્રારંભ ન કરો ત્યાં સુધી, કેટલીક એપ્લિકેશનો અથવા ઉપકરણો યોગ્ય રીતે કામ કરશે નહીં. પુનઃપ્રારંભ કરતા પહેલા તમારું કાર્ય સાચવો."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "પુનઃપ્રારંભ કરો"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "પુનઃપ્રારંભની ભારપૂર્વક ભલામણ કરવામાં આવે છે કારણ કે મહત્વપૂર્ણ સિસ્ટમ ઘટકો અપડેટ કરવામાં આવ્યા હતા."

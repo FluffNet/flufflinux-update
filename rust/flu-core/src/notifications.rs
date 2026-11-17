@@ -51,6 +51,7 @@ pub fn messages() -> impl Iterator<Item = &'static str> {
     MESSAGES
         .iter()
         .chain(crate::operational_error::MESSAGES)
+        .chain(crate::reboot::MESSAGES)
         .copied()
 }
 
@@ -415,10 +416,67 @@ impl Presentation {
     }
 }
 
+// This notification is independent of panel visibility and normal result
+// notifications. Closing it never clears the root-owned reboot requirement.
+fn restart_notification(bus: &Connection, strings: &Strings) -> zbus::Result<()> {
+    let proxy = Proxy::new(
+        bus,
+        "org.freedesktop.Notifications",
+        "/org/freedesktop/Notifications",
+        "org.freedesktop.Notifications",
+    )?;
+    let mut actions = proxy.receive_signal("ActionInvoked")?;
+    let id: u32 = proxy.call(
+        "Notify",
+        &(
+            text(strings, "Fluff Linux Update"),
+            0_u32,
+            "system-reboot",
+            text(strings, crate::reboot::TITLE),
+            body_markup(&text(strings, crate::reboot::BODY)),
+            vec!["restart".to_owned(), text(strings, crate::reboot::ACTION)],
+            Properties::from([
+                ("desktop-entry".into(), string(DESKTOP_ENTRY)),
+                ("resident".into(), true.into()),
+            ]),
+            0_i32,
+        ),
+    )?;
+    let connection = bus.clone();
+    std::thread::spawn(move || {
+        for message in &mut actions {
+            if let Ok((notification, action)) = message.body().deserialize::<(u32, String)>() {
+                if notification == id && action == "restart" {
+                    let _ = connection.call_method(
+                        Some("org.freedesktop.Notifications"),
+                        "/org/freedesktop/Notifications",
+                        Some("org.freedesktop.Notifications"),
+                        "CloseNotification",
+                        &(id,),
+                    );
+                    // KDE presents its normal reboot confirmation and session handling.
+                    let _ = connection.call_method(
+                        Some("org.kde.LogoutPrompt"),
+                        "/LogoutPrompt",
+                        Some("org.kde.LogoutPrompt"),
+                        "promptReboot",
+                        &(),
+                    );
+                    break;
+                }
+            }
+        }
+    });
+    Ok(())
+}
+
 /// D-Bus activation keeps this lightweight user-session observer independent
 /// of kcmshell6/System Settings. It never executes package-manager commands.
-pub fn run() -> zbus::Result<()> {
-    let presence = Arc::new(Mutex::new(Presence::default()));
+pub fn run(initial_strings: Strings) -> zbus::Result<()> {
+    let presence = Arc::new(Mutex::new(Presence {
+        strings: initial_strings,
+        ..Presence::default()
+    }));
     let bus = Builder::session()?
         .method_timeout(TIMEOUT)
         .allow_name_replacements(false)
@@ -429,6 +487,13 @@ pub fn run() -> zbus::Result<()> {
     let mut lifecycle = Lifecycle::default();
     let mut presentation = Presentation::default();
     let mut pending_finish = None;
+    let seen_path = std::env::var_os("XDG_STATE_HOME")
+        .map(std::path::PathBuf::from)
+        .or_else(|| {
+            std::env::var_os("HOME").map(|p| std::path::PathBuf::from(p).join(".local/state"))
+        })
+        .map(|p| p.join("flufflinux-update/reboot-notification.json"));
+    let mut notified = seen_path.as_ref().map(read_json).unwrap_or_default();
     loop {
         // Only the name's actual owner may publish. Duplicate launches cannot
         // replace the active observer; logout/name loss ends it cleanly.
@@ -448,6 +513,22 @@ pub fn run() -> zbus::Result<()> {
             (p.panels.values().any(|v| *v), p.strings.clone())
         };
         let state = read_json(STATE);
+        let reboot = crate::reboot::current();
+        if !active(&state)
+            && reboot["recommended"] == true
+            && notified["boot_id"] != reboot["boot_id"]
+            && !strings.is_empty()
+        {
+            if restart_notification(&bus, &strings).is_ok() {
+                notified = reboot;
+                if let Some(path) = &seen_path {
+                    if let Some(parent) = path.parent() {
+                        let _ = std::fs::create_dir_all(parent);
+                    }
+                    crate::runtime::write_json(path, &notified);
+                }
+            }
+        }
         let display = lifecycle.display(&state, visible);
         if visible {
             pending_finish = None;

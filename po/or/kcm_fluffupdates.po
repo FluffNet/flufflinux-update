@@ -293,3 +293,23 @@ msgstr "ପ୍ୟାକେଜ୍ ଡାଟାବେସ୍ ଲକ୍ କରିହ
 
 msgid "Estimated time: %1"
 msgstr "ଆନୁମାନିକ ସମୟ: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ପୂର୍ବ ଅଦ୍ୟତନକୁ ସଂପୂର୍ଣ୍ଣ କରିବା ପାଇଁ ଏବଂ ଆପଣଙ୍କର ସିଷ୍ଟମକୁ ସ୍ଥିର ରଖିବାରେ ଅଧିକ ଅଦ୍ୟତନ ସ୍ଥାପନ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ କମ୍ପ୍ୟୁଟରକୁ ପୁନ Rest ଆରମ୍ଭ କରନ୍ତୁ |"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "ପୁନ Rest ଆରମ୍ଭ ପରାମର୍ଶିତ |"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସିଷ୍ଟମ୍ ଉପାଦାନଗୁଡ଼ିକୁ ଅଦ୍ୟତନ କରାଯାଇଥିଲା | ଯେପର୍ଯ୍ୟନ୍ତ ଆପଣ ପୁନ art ଆରମ୍ଭ ନକରନ୍ତି, କିଛି ପ୍ରୟୋଗ କିମ୍ବା ଉପକରଣ ସଠିକ୍ ଭାବରେ କାମ କରିନପାରେ | ପୁନ art ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କର କାର୍ଯ୍ୟ ସଞ୍ଚୟ କରନ୍ତୁ |"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "ପୁନ Rest ଆରମ୍ଭ କରନ୍ତୁ |"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "ଏକ ପୁନ rest ଆରମ୍ଭ ଦୃ strongly ଭାବରେ ସୁପାରିଶ କରାଯାଏ କାରଣ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସିଷ୍ଟମ୍ ଉପାଦାନଗୁଡ଼ିକ ଅଦ୍ୟତନ କରାଯାଇଥିଲା |"

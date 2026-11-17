@@ -293,3 +293,23 @@ msgstr "بوغچا ساندانىنى قۇلۇپلىغىلى بولمىدى. ب�
 
 msgid "Estimated time: %1"
 msgstr "مۆلچەرلەنگەن ۋاقىت: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "ئالدىنقى يېڭىلاشنى تاماملاش ۋە سىستېمىڭىزنىڭ مۇقىم بولۇشىغا ياردەم بېرىش ئۈچۈن تېخىمۇ كۆپ يېڭىلانمىلارنى ئورنىتىشتىن بۇرۇن كومپيۇتېرىڭىزنى قايتا قوزغىتىڭ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "قايتا قوزغىتىش تەۋسىيە قىلىندى"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "مۇھىم سىستېما زاپچاسلىرى يېڭىلاندى. قايتا قوزغىتىپ بولغۇچە ، بەزى قوللىنىشچان پروگراممىلار ياكى ئۈسكۈنىلەر نورمال ئىشلىمەسلىكى مۇمكىن. قايتا قوزغىتىشتىن بۇرۇن خىزمىتىڭىزنى تېجەڭ."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "قايتا قوزغىتىڭ"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "قايتا قوزغىتىش كۈچلۈك تەۋسىيە قىلىنىدۇ ، چۈنكى مۇھىم سىستېما زاپچاسلىرى يېڭىلاندى."

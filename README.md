@@ -180,6 +180,58 @@ change the operating system's locale configuration.
 
 Development changes are tested locally before they are added to `staging`.
 
+## Installer integration (protocol 1)
+
+FLU 1.7 adds installer mode to the existing update worker.
+An already privileged installer invokes it with explicit arguments:
+
+```sh
+/usr/lib/flufflinux-update/flufflinux-update-worker --installer --target-root /mnt
+```
+
+The target must be mounted, configured, and contain FLU 1.7 with installer
+protocol 1. The live environment needs `arch-install-scripts` and working
+logind sleep inhibition. Mount the target's boot partitions before running.
+FLU validates the target, refuses the live root, holds a live-system sleep
+inhibitor, and runs the target's worker through `arch-chroot`. It never invokes
+Polkit in this mode and does not require a target systemd or desktop session.
+The caller must retain exclusive ownership of the mount and configuration
+until the process exits.
+
+Installer mode automatically checks, downloads, and installs. It approves
+package replacements and explicit package-conflict removals regardless of the
+protected/warning lists or vendor identity. Pacman's configured signature
+requirements remain active. Unresolvable dependencies, key failures and other
+operational errors still fail; this mode does not use `--nodeps` or blanket
+file overwrites. Desktop behavior is unchanged.
+
+Standard output is newline-delimited JSON with `protocol: 1`. Drain stdout and
+stderr concurrently. Each `event: "progress"` includes `state` (phase, progress,
+package counts, byte counts, speed, and error code) and `display` (formatted
+sizes, remaining time, and a translatable English error message). The final
+`event: "finished"` includes `code` and `state`. `failed_phase` identifies the
+phase that failed. Stderr contains diagnostics, not protocol messages.
+Startup failures can produce only a failed final event, with a diagnostic
+`detail` string. Show the installer's failure UI in that case.
+
+Exit 0 means the update succeeded, including when no updates were needed.
+Exit 1 means an unrecovered failure. Treat any signal, unexpected exit, or
+missing successful final event as failure. Wait for process exit before
+advancing, unmounting or rebooting, even after receiving the final event.
+Disable the installer's process-killing cancellation path during this step.
+A failed installation can leave partially applied changes; failure does not
+promise rollback.
+
+Embed `src/installer/InstallerPage.qml` (installed under
+`/usr/share/flufflinux-update/installer/`) in the live GUI. Give it each decoded
+progress object through its `event` property. It has no buttons or process
+launching logic. Supply KDE's `i18nd` QML context and FLU's `kcm_fluffupdates`
+translation catalogs in the live system. Handle the final event and process
+exit in the host Rust backend; keep the last progress object visible instead
+of replacing it with the final event, which has no `display` fields. The GUI
+stays unprivileged. The target retains its own keyring, package state, logs and
+successful-update timestamp.
+
 ## State and logs
 
 Fluff Linux Update uses files under `/etc/pacman.d/`:
@@ -305,3 +357,26 @@ The existing `lastupdate` hook provides this field:
 ## License
 
 Fluff Linux Update is available under the [MIT License](LICENSE).
+
+### Restart recommendations
+
+FLU records changes to components that are in use during an update. Updating
+the running kernel, loaded NVIDIA driver or loaded ZFS requires a restart before
+FLU will install another batch. Other kernels do not trigger the restriction.
+Changes to running Plasma/KWin or other loaded modules recommend a restart
+without blocking FLU. Checking for updates remains available.
+
+The same Rust detection runs through Pacman pre/post-transaction hooks, including
+terminal updates. These hooks are observational: they never block Pacman, even
+when FLU has a restart requirement. Installer chroots are excluded. The hooks
+compare a root-owned snapshot with the installed package versions after a
+successful transaction. Pacman does not run post-transaction hooks for an
+incomplete transaction; FLU also records partial changes on its own failure path.
+
+The banner and FLU installation restriction are tied to the current boot ID in
+`/etc/pacman.d/flufflinux-update-reboot.json`. A new boot clears them logically.
+The session notifier starts at login and uses the installed translation catalogs,
+so it can notify after a terminal update without first opening FLU. The restart
+notification has no timeout and is dismissed by Close or Restart. Dismissing it
+never clears the banner or installation restriction, and reopening the panel or
+restarting the notifier does not repeat it during the same boot.

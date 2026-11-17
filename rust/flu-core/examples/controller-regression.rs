@@ -50,7 +50,7 @@ fn main() {
                 controller.read_install();
             }
         }
-        Some("reconnect") => {}
+        Some("reconnect") => controller.command(Command::Refresh),
         Some("cancel") => controller.command(Command::Cancel),
         _ => panic!("expected check/install/reconnect/cancel"),
     }

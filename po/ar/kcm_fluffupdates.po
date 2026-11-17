@@ -322,3 +322,23 @@ msgstr "تعذّر قفل قاعدة بيانات الحزم. أغلق مدير�
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "الوقت المقدر: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "أعد تشغيل جهاز الكمبيوتر الخاص بك قبل تثبيت المزيد من التحديثات لإكمال التحديث السابق والمساعدة في الحفاظ على استقرار النظام."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "يوصى بإعادة التشغيل"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "تم تحديث مكونات النظام الهامة. حتى تقوم بإعادة التشغيل، قد لا تعمل بعض التطبيقات أو الأجهزة بشكل صحيح. احفظ عملك قبل إعادة التشغيل."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "إعادة تشغيل"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "يوصى بشدة بإعادة التشغيل لأنه تم تحديث مكونات النظام المهمة."

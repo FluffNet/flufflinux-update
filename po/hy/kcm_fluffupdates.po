@@ -293,3 +293,23 @@ msgstr "Չհաջողվեց կողպել փաթեթների տվյալների բ
 
 msgid "Estimated time: %1"
 msgstr "Մոտավոր ժամանակը՝ %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Նախքան ավելի շատ թարմացումներ տեղադրելը, վերագործարկեք ձեր համակարգիչը՝ նախորդ թարմացումն ավարտելու և ձեր համակարգը կայուն պահելու համար:"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Խորհուրդ է տրվում վերագործարկել"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Համակարգի կարևոր բաղադրիչները թարմացվել են: Քանի դեռ չեք վերագործարկել, որոշ հավելվածներ կամ սարքեր կարող են ճիշտ չաշխատել: Պահպանեք ձեր աշխատանքը վերագործարկելուց առաջ:"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Վերագործարկեք"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Խստորեն խորհուրդ է տրվում վերագործարկել, քանի որ համակարգի կարևոր բաղադրիչները թարմացվել են:"

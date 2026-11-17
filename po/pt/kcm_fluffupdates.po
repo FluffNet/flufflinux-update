@@ -372,3 +372,23 @@ msgstr "Não foi possível bloquear a base de dados de pacotes. Feche outros ges
 #. Download ETA in the panel and notification. %1 is an isolated M:SS or H:MM:SS duration.
 msgid "Estimated time: %1"
 msgstr "Tempo estimado: %1"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart your computer before installing more updates to complete the previous update and help keep your system stable."
+msgstr "Reinicie o computador antes de instalar mais atualizações para concluir a atualização anterior e ajudar a manter o sistema estável."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart recommended"
+msgstr "Reiniciar recomendado"
+
+#: rust/flu-core/src/reboot.rs
+msgid "Important system components were updated. Until you restart, some applications or devices may not work correctly. Save your work before restarting."
+msgstr "Componentes importantes do sistema foram atualizados. Até você reiniciar, alguns aplicativos ou dispositivos poderão não funcionar corretamente. Salve seu trabalho antes de reiniciar."
+
+#: rust/flu-core/src/reboot.rs
+msgid "Restart"
+msgstr "Reiniciar"
+
+#: rust/flu-core/src/reboot.rs
+msgid "A restart is strongly recommended because important system components were updated."
+msgstr "Uma reinicialização é altamente recomendada porque componentes importantes do sistema foram atualizados."
