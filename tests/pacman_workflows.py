@@ -334,23 +334,42 @@ class Workflows:
     def file_conflict(self):
         repo = self.base / "repo"
         initial = package(repo, "flu-test-conflict", "1-1")
-        upgrade = package(repo, "flu-test-conflict", "2-1", files={
-            "usr/share/flu-test/flu-test-conflict": b"2-1",
-            "usr/share/flu-test/unmanaged": b"packaged replacement",
-        })
+        files = {f"usr/share/flu-test/unmanaged-{i:03}": b"packaged replacement"
+                 for i in range(100)}
+        files["usr/share/flu-test/unmanaged with spaces"] = b"packaged replacement"
+        files["usr/share/flu-test/unmanaged-link"] = b"packaged replacement"
+        upgrade = package(repo, "flu-test-conflict", "2-1", files=files)
         self.pacman("-U", "--noconfirm", initial)
-        original = self.base / "root/usr/share/flu-test/unmanaged"
-        original.write_bytes(b"preserve me")
+        for name in files:
+            original = self.base / "root" / name
+            if name.endswith("-link"):
+                original.symlink_to("unmanaged-000")
+            else:
+                original.write_bytes(b"preserve me")
+        existing_backup = self.base / "root/usr/share/flu-test/unmanaged-000.preupdate12345"
+        existing_backup.write_bytes(b"existing backup")
         self.refresh(upgrade)
         self.start()
-        state, _ = self.finish()
+        state, _ = self.finish(timeout=120)
         assert state.get("phase") == "complete", state
         assert self.installed("flu-test-conflict") == "flu-test-conflict 2-1"
-        preserved = Path(state["recovery_preserved_file"])
-        assert preserved.is_relative_to(self.base / "root"), preserved
-        assert preserved.read_bytes() == b"preserve me"
-        assert original.read_bytes() == b"packaged replacement"
-        return {"preserved_contents": True, "automatic_retry": True}
+        log = (self.base / "etc/flufflinux-update.log").read_text()
+        assert log.count("[installation]") == 2, log
+        assert log.count("[file conflict recovered]") == len(files), log
+        for name in files:
+            original = self.base / "root" / name
+            backups = [p for p in original.parent.glob(original.name + ".preupdate*")
+                       if p != existing_backup]
+            assert len(backups) == 1, (name, backups)
+            if name.endswith("-link"):
+                assert backups[0].is_symlink() and os.readlink(backups[0]) == "unmanaged-000"
+            else:
+                assert backups[0].read_bytes() == b"preserve me"
+            assert original.read_bytes() == b"packaged replacement"
+        assert existing_backup.read_bytes() == b"existing backup"
+        assert not (self.base / "db/db.lck").exists()
+        return {"preserved_files": len(files), "single_installation_retry": True,
+                "spaces_and_symlinks": True, "existing_backup_unchanged": True}
 
     def direct_conflict_policy(self, kind):
         repo = self.base / "repo"
@@ -481,9 +500,12 @@ class Workflows:
         repo = self.base / "repo"
         owner = package(repo, "flu-test-owner", "1-1", files={"usr/share/flu-test/owned": b"keep owner"})
         initial = package(repo, "flu-test-owned-conflict", "1-1")
-        newer = package(repo, "flu-test-owned-conflict", "2-1", files={"usr/share/flu-test/owned": b"conflicting payload"})
+        newer = package(repo, "flu-test-owned-conflict", "2-1", files={"usr/share/flu-test/owned": b"conflicting payload",
+            "usr/share/flu-test/aaa-unmanaged": b"new"})
         self.pacman("-U", "--noconfirm", owner, initial)
         self.pacman("-Qo", self.base / "root/usr/share/flu-test/owned")
+        unmanaged = self.base / "root/usr/share/flu-test/aaa-unmanaged"
+        unmanaged.write_bytes(b"leave entire batch unchanged")
         self.refresh(newer)
         self.start()
         state, _ = self.finish()
@@ -492,8 +514,96 @@ class Workflows:
         original = self.base / "root/usr/share/flu-test/owned"
         assert original.read_bytes() == b"keep owner"
         assert not list(original.parent.glob("owned.preupdate*"))
+        assert unmanaged.read_bytes() == b"leave entire batch unchanged"
+        assert not list(unmanaged.parent.glob("aaa-unmanaged.preupdate*"))
+        log = (self.base / "etc/flufflinux-update.log").read_text()
+        assert "ownership check rejected" in log, log
+        assert not (self.base / "db/db.lck").exists()
         assert self.installed("flu-test-owned-conflict") == "flu-test-owned-conflict 1-1"
         return {"owned_file_unchanged": True, "not_renamed": True, "install_failed_safely": True}
+
+    def file_recovery_guards(self):
+        # Only the private namespace sees this command shim. It isolates guard
+        # failures without mutating the live Pacman database or package files.
+        shim = self.base / "pacman-file-guards"
+        modefile = self.base / "file-guard-mode"
+        original = self.base / "root/usr/share/flu-test/guard-file"
+        counter = self.base / "file-guard-count"
+        shim.write_text(
+            "#!/usr/bin/python3\nimport sys\nfrom pathlib import Path\n"
+            f"mode=Path({str(modefile)!r}).read_text()\npath=Path({str(original)!r})\n"
+            f"counter=Path({str(counter)!r})\n"
+            "args=sys.argv[1:]\n"
+            "if '-Syup' in args or '--downloadonly' in args: sys.exit(0)\n"
+            "if '-Q' in args: print('fixture 1-1'); sys.exit(0)\n"
+            "if '-Qo' in args:\n"
+            "    if mode == 'ambiguous': print('error: ownership query unavailable'); sys.exit(1)\n"
+            "    print(f'error: No package owns {path}'); sys.exit(1)\n"
+            "if '-Syu' not in args: sys.exit(1)\n"
+            "n=int(counter.read_text())+1; counter.write_text(str(n))\n"
+            "if mode == 'readonly' and n == 2: sys.exit(0)\n"
+            "if mode == 'repeated' and n == 2: path.write_bytes(b'recreated')\n"
+            "if mode == 'locked': Path('/var/lib/pacman/db.lck').write_text('other transaction')\n"
+            "print('error: failed to commit transaction (conflicting files)')\n"
+            "print(f'fixture: {path} exists in filesystem')\n"
+            "print('Errors occurred, no packages were upgraded.')\nsys.exit(1)\n")
+        shim.chmod(0o755)
+        run(["mount", "--bind", shim, "/usr/bin/pacman"])
+        try:
+            for mode, diagnostic in [("ambiguous", "ownership check rejected"),
+                                     ("locked", "cannot acquire database lock"),
+                                     ("directory", "not a regular file"),
+                                     ("repeated", "conflict returned after preservation"),
+                                     ("readonly", None)]:
+                original.parent.mkdir(parents=True, exist_ok=True)
+                if mode == "directory":
+                    original.mkdir()
+                    (original / "keep").write_bytes(b"keep directory")
+                else:
+                    original.write_bytes(b"preserve me")
+                modefile.write_text(mode)
+                counter.write_text("0")
+                self.state.write_text(json.dumps({"phase": "starting"}))
+                observer = None
+                if mode == "readonly":
+                    observer = subprocess.Popen([sys.executable, "-c",
+                        "import ctypes,time; ctypes.CDLL(None).prctl(15,b'pacman',0,0,0); time.sleep(120)"])
+                    time.sleep(0.1)
+                try:
+                    run([self.worker])
+                    state, _ = self.finish()
+                    log = (self.base / "etc/flufflinux-update.log").read_text()
+                    if diagnostic:
+                        assert state["phase"] == "failed" and diagnostic in log, (state, log)
+                    else:
+                        assert state["phase"] == "complete", (state, log)
+                    backups = list(original.parent.glob("guard-file.preupdate*"))
+                    if mode in ("repeated", "readonly"):
+                        assert len(backups) == 1 and backups[0].read_bytes() == b"preserve me"
+                        assert counter.read_text() == "2"
+                    else:
+                        assert not backups and counter.read_text() == "1"
+                    if mode == "locked":
+                        assert (self.base / "db/db.lck").read_text() == "other transaction"
+                    else:
+                        assert not (self.base / "db/db.lck").exists()
+                finally:
+                    if observer:
+                        observer.terminate()
+                        observer.wait()
+                    (self.base / "db/db.lck").unlink(missing_ok=True)
+                    if original.is_dir():
+                        (original / "keep").unlink()
+                        original.rmdir()
+                    else:
+                        original.unlink(missing_ok=True)
+                    for backup in original.parent.glob("guard-file.preupdate*"):
+                        backup.unlink()
+            return {"ambiguous_ownership_rejected": True, "existing_lock_preserved": True,
+                    "directories_untouched": True, "recurring_path_stops_retry": True,
+                    "readonly_process_does_not_block_recovery": True}
+        finally:
+            run(["umount", "/usr/bin/pacman"])
 
     def record_current_update(self):
         run([self.helper, "--record-current-update"])
@@ -1212,6 +1322,7 @@ def child(args):
         tests.test("signature-verified vendor package conflicts", tests.verified_vendor_conflicts)
         tests.test("unmanaged file conflict and preservation", tests.file_conflict)
         tests.test("package-owned file conflict fails safely", tests.owned_file_conflict)
+        tests.test("file conflict recovery guards", tests.file_recovery_guards)
         tests.test("download cancellation and resume", tests.cancellation)
         tests.test("download connection failure", tests.failed_download)
         for kind in ("network", "signature", "storage", "storage-install", "database", "archive", "filesystem"):
