@@ -28,8 +28,10 @@ menu, and keeps manual system updates clear and approachable.
 - Protect important packages when an update proposes removing them, ask before
   removing warning-class packages, and automatically clear approved obsolete
   blockers.
-- Preserve unmanaged files that conflict with an update, then restart the
-  interrupted installation automatically.
+- Preserve every unmanaged file reported by a failed transaction as a
+  `.preupdateNNNNN` backup, then retry installation once for that batch. Check
+  ownership for the entire batch under Pacman's database lock; never overwrite
+  backups or move package-owned files. Log any reason recovery cannot continue.
 - Allow downloads to be cancelled while protecting the installation phase.
 - Warn when a system battery or UPS is low and discharging; ignore accessory batteries.
 - Read the last successful update time from

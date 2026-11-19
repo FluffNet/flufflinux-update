@@ -1,5 +1,6 @@
 //! Persistent update worker. It survives closing System Settings and publishes
 //! the same atomic state/log contract consumed by the QML application.
+mod file_recovery;
 mod installer;
 mod power;
 
@@ -17,7 +18,7 @@ use std::{
     collections::{BTreeMap, BTreeSet, VecDeque},
     fs::{self, OpenOptions},
     io::{Read, Seek, SeekFrom, Write},
-    path::{Component, Path, PathBuf},
+    path::{Path, PathBuf},
     time::{Duration, Instant},
 };
 
@@ -123,7 +124,7 @@ struct Worker {
     log_buffer: String,
     log_completed: i64,
     output_completed: i64,
-    file_recoveries: u32,
+    recovered_files: BTreeSet<PathBuf>,
 }
 impl Worker {
     fn new() -> Self {
@@ -147,7 +148,7 @@ impl Worker {
             log_buffer: String::new(),
             log_completed: 0,
             output_completed: 0,
-            file_recoveries: 0,
+            recovered_files: BTreeSet::new(),
         }
     }
     fn publish(&self) {
@@ -405,6 +406,7 @@ impl Worker {
             if process.exit_code() == 0 && !database_unusable_after_refresh(&output) {
                 return true;
             }
+            append_log(&format!("[Pacman failed] exit={}\n", process.exit_code()));
             match self.recover_signing_key(&output, process.exit_code()) {
                 Some(true) => continue,
                 Some(false) => return false,
@@ -485,85 +487,26 @@ impl Worker {
         }
     }
     fn file_conflict(&mut self, output: &str) -> bool {
-        if self.file_recoveries >= 25 {
-            append_log("\n[file recovery limit reached]\n");
-            return false;
-        }
-        let expression =
-            Regex::new(r"(?:^|\n)[^:\n]+:\s+(/[^\n]+?)\s+exists in filesystem").unwrap();
-        let Some(found) = expression.captures(output) else {
-            return false;
-        };
-        let original = clean_path(Path::new(found[1].trim()));
-        if original == Path::new("/")
-            || !original.is_absolute()
-            || fs::symlink_metadata(&original).is_err()
-        {
-            return false;
-        }
-        if pacman_running() {
-            return false;
-        }
-        // An owned-file conflict is not an obsolete unmanaged file. Only
-        // Pacman's explicit "No package owns" result permits preservation.
-        // Failed, timed-out or ambiguous ownership checks fail closed.
-        let owner = run(
-            PACMAN,
-            &arguments(&["-Qo", "--", &original.to_string_lossy()]),
-            Duration::from_secs(10),
-            &[],
-        );
-        if !owner.started
-            || !owner.finished
-            || owner.exit_code != 1
-            || !String::from_utf8_lossy(&owner.output)
-                .to_lowercase()
-                .contains("no package owns")
-        {
-            return false;
-        }
-        for _ in 0..100 {
-            // Retain the existing filename contract without overwriting files.
-            let mut random = [0_u8; 4];
-            if fs::File::open("/dev/urandom")
-                .and_then(|mut file| file.read_exact(&mut random))
-                .is_err()
-            {
-                return false;
+        match file_recovery::recover(output, &mut self.recovered_files) {
+            Ok(backups) if !backups.is_empty() => {
+                let (original, preserved) = backups.last().unwrap();
+                self.state["recovery_original_file"] = json!(original.to_string_lossy());
+                self.state["recovery_preserved_file"] = json!(preserved.to_string_lossy());
+                self.state["recovery_notice_type"] = json!("file-conflict");
+                self.state["recovery_notice_id"] = json!(chrono::Utc::now().timestamp_millis());
+                self.publish();
+                append_log(&format!(
+                    "[file recovery batch complete] {} files preserved; retrying installation\n",
+                    backups.len()
+                ));
+                true
             }
-            let suffix = 10000 + u32::from_ne_bytes(random) % 90000;
-            let preserved = PathBuf::from(format!("{}.preupdate{suffix}", original.display()));
-            if rename_without_replace(&original, &preserved).is_err() {
-                continue;
+            Ok(_) => false,
+            Err(reason) => {
+                append_log(&format!("\n[file recovery stopped] {reason}\n"));
+                false
             }
-            self.file_recoveries += 1;
-            append_log(&format!(
-                "\n[file conflict recovered]\n{} -> {}\n",
-                original.display(),
-                preserved.display()
-            ));
-            self.state["recovery_original_file"] = json!(original.to_string_lossy());
-            self.state["recovery_preserved_file"] = json!(preserved.to_string_lossy());
-            self.state["recovery_notice_type"] = json!("file-conflict");
-            self.state["recovery_notice_id"] = json!(chrono::Utc::now().timestamp_millis());
-            self.state["phase"] = json!("installing");
-            self.state["progress"] = json!(0);
-            self.state["completed_packages"] = json!(0);
-            // The failed child was reaped before this retry; do not clear a
-            // lock belonging to a separately started, live Pacman process.
-            if pacman_running() {
-                return false;
-            }
-            let _ = fs::remove_file(LOCK);
-            self.publish();
-            std::thread::sleep(Duration::from_millis(300));
-            return true;
         }
-        append_log(&format!(
-            "\n[file recovery failed] {}\n",
-            original.display()
-        ));
-        false
     }
     fn install(&mut self) {
         loop {
@@ -577,6 +520,7 @@ impl Worker {
             let Ok(mut process) =
                 Process::spawn(PACMAN, &arguments(&["-Syu", "--color", "never"]), &[])
             else {
+                append_log("[installation spawn failed] could not start Pacman\n");
                 self.fail("INSTALL_FAILED");
                 return;
             };
@@ -601,6 +545,9 @@ impl Worker {
                     .flatten()
                 {
                     if !process.answer(answer, false, Instant::now() + Duration::from_secs(5)) {
+                        append_log(
+                            "[installation prompt answer failed] Pacman input closed or timed out\n",
+                        );
                         process.stop();
                         self.fail("INSTALL_FAILED");
                         return;
@@ -622,6 +569,7 @@ impl Worker {
                 self.phase("complete");
                 return;
             }
+            append_log(&format!("[Pacman failed] exit={}\n", process.exit_code()));
             match self.recover_signing_key(&output, process.exit_code()) {
                 Some(true) => continue,
                 Some(false) => return,
@@ -791,50 +739,12 @@ fn append_bounded(output: &mut String, chunk: &str) {
         output.drain(..offset);
     }
 }
-fn clean_path(path: &Path) -> PathBuf {
-    let mut result = PathBuf::new();
-    for part in path.components() {
-        match part {
-            Component::ParentDir => {
-                result.pop();
-            }
-            Component::CurDir => {}
-            _ => result.push(part),
-        }
-    }
-    result
-}
 fn cache_archive_name(location: &str) -> Option<String> {
     // Pacman prints archive URLs. Decode the filename, but never let encoded
     // separators or parent components escape the package cache directory.
     archive_name(location).filter(|name| !name.contains('/') && name != "..")
 }
 
-fn rename_without_replace(original: &Path, preserved: &Path) -> std::io::Result<()> {
-    use std::os::unix::ffi::OsStrExt;
-    let source = std::ffi::CString::new(original.as_os_str().as_bytes())?;
-    let destination = std::ffi::CString::new(preserved.as_os_str().as_bytes())?;
-    // SAFETY: both paths are valid NUL-terminated strings. The exclusive
-    // rename flag prevents overwriting another file in a racing filesystem.
-    #[cfg(target_os = "linux")]
-    let status = unsafe {
-        libc::renameat2(
-            libc::AT_FDCWD,
-            source.as_ptr(),
-            libc::AT_FDCWD,
-            destination.as_ptr(),
-            libc::RENAME_NOREPLACE,
-        )
-    };
-    #[cfg(target_os = "macos")]
-    let status =
-        unsafe { libc::renamex_np(source.as_ptr(), destination.as_ptr(), libc::RENAME_EXCL) };
-    if status == 0 {
-        Ok(())
-    } else {
-        Err(std::io::Error::last_os_error())
-    }
-}
 fn main() -> std::process::ExitCode {
     let args: Vec<_> = std::env::args().skip(1).collect();
     if args == ["--reboot-before"] || args == ["--reboot-after"] {
